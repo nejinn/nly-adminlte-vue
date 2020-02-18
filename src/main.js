@@ -4,6 +4,12 @@ import router from "./router";
 
 Vue.config.productionTip = false;
 
+import "./assets/adminlte/css/adminlte.min.css";
+import "./assets/adminlte/css/adminlte.css";
+
+import { NlyAdminlteVue } from "./components";
+Vue.use(NlyAdminlteVue);
+
 new Vue({
   router,
   render: h => h(App)
