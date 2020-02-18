@@ -44,7 +44,7 @@ export var NlyFlexSiderbar = Vue.extend({
     }
   },
   methods: {
-    getSiderbarVariants() {
+    getVariants() {
       for (const variant in variantsOpitons) {
         if (variantsOpitons[variant].indexOf(this.variants) != -1) {
           return variantsOpitons[variant];
@@ -54,7 +54,7 @@ export var NlyFlexSiderbar = Vue.extend({
   },
   computed: {
     siderbarVariantsClass: function() {
-      return this.getSiderbarVariants();
+      return this.getVariants();
     }
   },
   render(h) {
