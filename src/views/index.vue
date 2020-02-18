@@ -1,6 +1,6 @@
 <template>
   <nly-flex-wrapper>
-    <nly-flex-header variants="light-info" size="sm">
+    <nly-flex-header variants="success" size="sm">
       <!-- Left navbar links -->
       <ul class="navbar-nav">
         <li class="nav-item">

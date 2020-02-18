@@ -1,4 +1,26 @@
 import Vue from "../../utils/vue";
+const variantsOpitons = {
+  orange: "navbar-light navbar-orange",
+  warning: "navbar-light navbar-warning",
+  lightlight: "navbar-light",
+  graygray: "navbar-dark navbar-gray",
+  graydark: "navbar-dark navbar-gray-dark",
+  darkdark: "navbar-dark",
+  cyan: "navbar-dark navbar-cyan",
+  teal: "navbar-dark navbar-teal",
+  lightblue: "navbar-dark navbar-lightblue",
+  navy: "navbar-dark navbar-navy",
+  pink: "navbar-dark navbar-pink",
+  purple: "navbar-dark navbar-purple",
+  indigo: "navbar-dark navbar-indigo",
+  danger: "navbar-dark navbar-danger",
+  success: "navbar-dark navbar-success",
+  info: "navbar-dark navbar-info",
+  secondary: "navbar-dark navbar-secondary",
+  primary: "navbar-dark navbar-primary",
+  white: "navbar-light navbar-white"
+};
+
 export var NlyFlexHeader = Vue.extend({
   name: "NlyFlexHeader",
   props: {
@@ -15,47 +37,18 @@ export var NlyFlexHeader = Vue.extend({
       default: true
     }
   },
+  methods: {
+    getVariants() {
+      for (const variant in variantsOpitons) {
+        if (variant == this.variants) {
+          return variantsOpitons[variant];
+        }
+      }
+    }
+  },
   computed: {
     navbarVariantsClass: function() {
-      if (this.variants == "orange") {
-        return "navbar-light navbar-orange";
-      } else if (this.variants == "warning") {
-        return "navbar-light navbar-warning";
-      } else if (this.variants == "light") {
-        return "navbar-light";
-      } else if (this.variants == "gray") {
-        return "navbar-dark navbar-gray";
-      } else if (this.variants == "gray-dark") {
-        return "navbar-dark navbar-gray-dark";
-      } else if (this.variants == "dark") {
-        return "navbar-dark";
-      } else if (this.variants == "cyan") {
-        return "navbar-dark navbar-cyan";
-      } else if (this.variants == "teal") {
-        return "navbar-dark navbar-teal";
-      } else if (this.variants == "lightblue") {
-        return "navbar-dark navbar-lightblue";
-      } else if (this.variants == "navy") {
-        return "navbar-dark navbar-navy";
-      } else if (this.variants == "pink") {
-        return "navbar-dark navbar-pink";
-      } else if (this.variants == "purple") {
-        return "navbar-dark navbar-purple";
-      } else if (this.variants == "indigo") {
-        return "navbar-dark navbar-indigo";
-      } else if (this.variants == "danger") {
-        return "navbar-dark navbar-danger";
-      } else if (this.variants == "success") {
-        return "navbar-dark navbar-success";
-      } else if (this.variants == "info") {
-        return "navbar-dark navbar-info";
-      } else if (this.variants == "secondary") {
-        return "navbar-dark navbar-secondary";
-      } else if (this.variants == "primary") {
-        return "navbar-dark navbar-primary";
-      } else {
-        return "navbar-light navbar-white";
-      }
+      return this.getVariants();
     },
     navbarFontSizeClass: function() {
       if (this.size == "sm") {
