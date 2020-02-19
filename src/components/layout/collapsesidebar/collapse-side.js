@@ -35,8 +35,8 @@ const variantsOpitons = {
   lightOlive: "sidebar-light-olive"
 };
 
-export var NlyFlexSiderbar = Vue.extend({
-  name: "NlyFlexSiderbar",
+export var NlyCollapseSide = Vue.extend({
+  name: "NlyCollapseSide",
   props: {
     variants: {
       type: String,

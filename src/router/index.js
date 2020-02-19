@@ -4,12 +4,18 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 const index = () => import("../views/index");
+const indextest = () => import("../views/indextest.vue");
 
 const routes = [
   {
     path: "/",
     name: "Home",
     component: index
+  },
+  {
+    path: "/test",
+    name: "indextest",
+    component: indextest
   }
 ];
 

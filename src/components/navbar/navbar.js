@@ -1,4 +1,4 @@
-import Vue from "../../utils/vue";
+import Vue from "../utils/vue";
 const variantsOpitons = {
   orange: "navbar-light navbar-orange",
   warning: "navbar-light navbar-warning",
@@ -21,9 +21,16 @@ const variantsOpitons = {
   white: "navbar-light navbar-white"
 };
 
-export var NlyFlexHeader = Vue.extend({
-  name: "NlyFlexHeader",
+export var NlyNavbar = Vue.extend({
+  name: "NlyNavbar",
   props: {
+    //头部菜单
+    header: {
+      type: Boolean
+    },
+    expand: {
+      type: String
+    },
     variants: {
       type: String,
       default: "white"
@@ -47,6 +54,20 @@ export var NlyFlexHeader = Vue.extend({
     }
   },
   computed: {
+    navbarHeaderClass: function() {
+      return this.header ? "main-header" : "";
+    },
+    navbarExpandClass: function() {
+      return this.expand == "xl"
+        ? "navbar-expand-xl"
+        : this.expand == "lg"
+        ? "navbar-expand-lg"
+        : this.expand == "md"
+        ? "navbar-expand-lg"
+        : this.expand == "sm"
+        ? "navbar-expand-sm"
+        : "navbar-expand";
+    },
     navbarVariantsClass: function() {
       return this.getVariants();
     },
@@ -61,8 +82,10 @@ export var NlyFlexHeader = Vue.extend({
     return h(
       "nav",
       {
-        staticClass: "main-header navbar navbar-expand",
+        staticClass: "navbar",
         class: [
+          this.navbarHeaderClass,
+          this.navbarExpandClass,
           this.navbarVariantsClass,
           this.navbarFontSizeClass,
           this.navbarBorderClass
