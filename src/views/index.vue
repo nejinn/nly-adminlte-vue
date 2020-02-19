@@ -185,6 +185,19 @@
 
       <input type="checkbox" v-model="topNav" />topNav
       {{ topNav }}
+
+      <div>
+        <nly-button
+          block
+          pressed
+          size="lg"
+          shape="roundedFlat"
+          gradient="danger"
+          button-class="xxxx"
+        >
+          zzz</nly-button
+        >
+      </div>
     </nly-collapse-main>
     <nly-collapse-footer size>
       <strong
