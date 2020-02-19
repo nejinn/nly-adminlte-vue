@@ -51,20 +51,10 @@ export var NlyFlexHeader = Vue.extend({
       return this.getVariants();
     },
     navbarFontSizeClass: function() {
-      if (this.size == "sm") {
-        return "text-sm";
-      } else if (this.size == "lg") {
-        return "text-lg";
-      } else {
-        return "";
-      }
+      return this.size == "sm" ? "text-sm" : this.size == "lg" ? "text-lg" : "";
     },
     navbarBorderClass: function() {
-      if (this.border == false) {
-        return "border-bottom-0";
-      } else {
-        return "";
-      }
+      return this.border ? "" : "border-bottom-0";
     }
   },
   render(h) {
