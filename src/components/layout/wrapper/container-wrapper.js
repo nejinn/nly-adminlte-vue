@@ -22,6 +22,12 @@ export var NlyContainerWrapper = Vue.extend({
     //top nav
     topNav: {
       type: Boolean
+    },
+    wrapperClass: {
+      type: String
+    },
+    containerClass: {
+      type: String
     }
   },
   computed: {
@@ -43,6 +49,12 @@ export var NlyContainerWrapper = Vue.extend({
     },
     topNavClass: function() {
       return this.topNav ? "layout-top-nav" : "";
+    },
+    containerWrapperClass: function() {
+      return this.wrapperClass;
+    },
+    containerBodyClass: function() {
+      return this.containerClass;
     }
   },
   methods: {
@@ -82,7 +94,21 @@ export var NlyContainerWrapper = Vue.extend({
       false
     );
   },
-  created() {},
+  created() {
+    const createdBodyClassList = [
+      this.sideMiniClass,
+      this.layoutClass,
+      this.navbarFixedClass,
+      this.footerFixed,
+      this.topNavClass,
+      this.containerBodyClass
+    ];
+    createdBodyClassList.forEach(item => {
+      if (item) {
+        document.body.classList.add(item);
+      }
+    });
+  },
   beforeDestroy() {
     window.removeEventListener(
       "resize",
@@ -105,13 +131,20 @@ export var NlyContainerWrapper = Vue.extend({
     },
     topNavClass: function(newval, oldval) {
       this.setBodyClassName(newval, oldval);
+    },
+    containerBodyClass: function(newval, oldval) {
+      this.setBodyClassName(newval, oldval);
+    },
+    containerWrapperClass: function(newval, oldval) {
+      this.setBodyClassName(newval, oldval);
     }
   },
   render(h) {
     return h(
       "div",
       {
-        staticClass: "wrapper"
+        staticClass: "wrapper",
+        class: [this.containerWrapperClass]
       },
       this.$slots.default
     );

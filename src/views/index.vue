@@ -1,13 +1,27 @@
 <template>
   <nly-container-wrapper
-    :sideMini="sideMini"
+    :side-mini="sideMini"
     :layout="layout"
-    :navbarFixed="navbarFixed"
-    :footerFixed="footerFixed"
-    :topNav="topNav"
+    :navbar-fixed="navbarFixed"
+    :footer-fixed="footerFixed"
+    :top-nav="topNav"
+    wrapper-class="XXXX"
+    container-class="zzz"
   >
     <nly-navbar header expand>
       <nly-navbar-nav>
+        <nly-navbar-brand navbar-brand-class="xxx">
+          <nly-navbar-brandimg
+            :src="logo"
+            circle
+            elevation
+            navbarBrandimgClass="xxx"
+          />
+          <nly-navbar-brandtext>
+            AdminLTE
+          </nly-navbar-brandtext>
+        </nly-navbar-brand>
+
         <li class="nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#"
             ><i class="fas fa-bars"></i
@@ -188,6 +202,7 @@
 </template>
 
 <script>
+import logo from "../assets/img/AdminLTELogo.png";
 export default {
   data() {
     return {
@@ -195,7 +210,8 @@ export default {
       layout: "boxed",
       navbarFixed: false,
       footerFixed: false,
-      topNav: false
+      topNav: false,
+      logo
     };
   }
 };
