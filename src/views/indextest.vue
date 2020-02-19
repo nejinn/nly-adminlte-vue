@@ -1,12 +1,15 @@
 <template>
-  <nly-container-wrapper
+  <nly-wrapper
     :sideMini="sideMini"
     :layout="layout"
     :navbarFixed="navbarFixed"
     :footerFixed="footerFixed"
     :topNav="topNav"
   >
-    <nly-navbar header expand>
+    <input type="checkbox" id="checkedAllBox" v-model="sideMini" />
+    {{ sideMini }}
+
+    <nly-navbar expand>
       <nly-navbar-nav>
         <li class="nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#"
@@ -154,45 +157,15 @@
         </li>
       </ul>
     </nly-navbar>
-
-    <nly-collapse-side variants="light-indigo"> </nly-collapse-side>
-    <nly-collapse-main>
-      <input type="checkbox" v-model="sideMini" />sideMini
-      {{ sideMini }}
-
-      <input type="text" v-model="layout" />layout
-      {{ layout }}
-
-      <input type="checkbox" v-model="navbarFixed" />navbarFixed
-      {{ navbarFixed }}
-
-      <input type="checkbox" v-model="footerFixed" />footerFixed
-      {{ footerFixed }}
-
-      <input type="checkbox" v-model="topNav" />topNav
-      {{ topNav }}
-    </nly-collapse-main>
-    <nly-collapse-footer size>
-      <strong
-        >Copyright © 2014-2019
-        <a href="http://adminlte.io">AdminLTE.io</a>.</strong
-      >
-      All rights reserved.
-      <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.0.2-pre
-      </div>
-    </nly-collapse-footer>
-
-    <div id="sidebar-overlay"></div>
-  </nly-container-wrapper>
+  </nly-wrapper>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      sideMini: true,
-      layout: "boxed",
+      sideMini: false,
+      layout: "",
       navbarFixed: false,
       footerFixed: false,
       topNav: false

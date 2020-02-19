@@ -1,4 +1,12 @@
-import { FlexWrapperPlugin } from "./layout/flex";
+import { collapseSidebarPlugin } from "./layout/collapsesidebar";
+import { NavPlugin } from "./navbar";
+import { WrapperPlugin } from "./layout/wrapper";
+
+const componentPlugins = Object.assign(
+  collapseSidebarPlugin,
+  NavPlugin,
+  WrapperPlugin
+);
 
 export const registerComponent = (Vue, name, def) => {
   if (Vue && name && def) {
@@ -24,6 +32,6 @@ function installFactory(components) {
   return install;
 }
 
-var NlyAdminlteVue = installFactory(FlexWrapperPlugin);
+var NlyAdminlteVue = installFactory(componentPlugins);
 
 export { NlyAdminlteVue };
