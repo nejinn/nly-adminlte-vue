@@ -42,6 +42,9 @@ export var NlyNavbar = Vue.extend({
     border: {
       type: Boolean,
       default: true
+    },
+    sidebarClass: {
+      type: String
     }
   },
   methods: {
