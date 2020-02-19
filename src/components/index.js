@@ -1,11 +1,13 @@
 import { collapseSidebarPlugin } from "./layout/collapsesidebar";
 import { NavPlugin } from "./navbar";
 import { WrapperPlugin } from "./layout/wrapper";
+import { buttonPlugin } from "./button";
 
 const componentPlugins = Object.assign(
   collapseSidebarPlugin,
   NavPlugin,
-  WrapperPlugin
+  WrapperPlugin,
+  buttonPlugin
 );
 
 export const registerComponent = (Vue, name, def) => {
