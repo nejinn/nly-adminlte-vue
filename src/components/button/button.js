@@ -80,7 +80,6 @@ export var NlyButton = Vue.extend({
   methods: {
     getOptions(options, props) {
       for (const option in options) {
-        console.log(option, props, options[option]);
         if (option == props) {
           return options[option];
         }
@@ -110,7 +109,7 @@ export var NlyButton = Vue.extend({
       return this.disabled ? "disabled" : "";
     },
     customPressed: function() {
-      return this.pressed ? "hover" : "";
+      return this.pressed ? "active" : "";
     },
     customButtonClass: function() {
       return this.buttonClass;

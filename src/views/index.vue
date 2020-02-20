@@ -185,18 +185,34 @@
 
       <input type="checkbox" v-model="topNav" />topNav
       {{ topNav }}
-
-      <div>
+      <nly-button-group vertical>
+        <nly-button block pressed size="lg" gradient="danger">111</nly-button>
+        <nly-button pressed size="lg" gradient="danger">222</nly-button>
         <nly-button
-          block
           pressed
           size="lg"
-          shape="roundedFlat"
           gradient="danger"
-          button-class="xxxx"
+          button-class="dropdown-toggle dropdown-icon"
+        ></nly-button>
+      </nly-button-group>
+
+      <div style="height:200px"></div>
+      <div class="btn-group">
+        <button type="button" class="btn btn-info">Action</button>
+        <button
+          type="button"
+          class="btn btn-info dropdown-toggle dropdown-hover dropdown-icon"
+          data-toggle="dropdown"
         >
-          zzz</nly-button
-        >
+          <span class="sr-only">Toggle Dropdown</span>
+          <div class="dropdown-menu" role="menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </button>
       </div>
     </nly-collapse-main>
     <nly-collapse-footer size>
