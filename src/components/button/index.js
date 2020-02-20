@@ -1,6 +1,8 @@
 import { NlyButton } from "./button";
+import { NlyButtonGroup } from "./buttongroup";
 
 var buttonPlugin = {
-  NlyButton: NlyButton
+  NlyButton: NlyButton,
+  NlyButtonGroup: NlyButtonGroup
 };
-export { buttonPlugin, NlyButton };
+export { buttonPlugin, NlyButton, NlyButtonGroup };

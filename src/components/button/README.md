@@ -15,3 +15,10 @@ shape | String | 无 | 按钮形状，可选roundedFlat，roundedPill，roundedC
 disabled | Boolean | false | 禁用按钮
 pressed | Boolean | false |按钮激活按下效果，目前只有default背景色按钮有效果
 button-class | String | 无 | 自定义式样
+
+## nly-button-group
+
+### props
+
+参数 | 类型 |  默认值 | 描述
+-|-|-|-
