@@ -1,5 +1,7 @@
 import Vue from "../../utils/vue";
 
+import { getOptionsByValueInclusion } from "../../utils/getOptions";
+
 const variantsOpitons = {
   darkPrimary: "sidebar-dark-primary",
   darkWarning: "sidebar-dark-warning",
@@ -43,18 +45,9 @@ export var NlyCollapseSide = Vue.extend({
       default: "dark-primary"
     }
   },
-  methods: {
-    getVariants() {
-      for (const variant in variantsOpitons) {
-        if (variantsOpitons[variant].indexOf(this.variants) != -1) {
-          return variantsOpitons[variant];
-        }
-      }
-    }
-  },
   computed: {
     siderbarVariantsClass: function() {
-      return this.getVariants();
+      return getOptionsByValueInclusion(variantsOpitons, this.variants);
     }
   },
   render(h) {

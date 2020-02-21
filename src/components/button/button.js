@@ -1,4 +1,6 @@
 import Vue from "../utils/vue";
+import { getOptionsByKeyEqual } from "../utils/getOptions";
+
 const variantOptinos = {
   default: "btn-default",
   primary: "btn-primary",
@@ -77,33 +79,24 @@ export var NlyButton = Vue.extend({
       type: String
     }
   },
-  methods: {
-    getOptions(options, props) {
-      for (const option in options) {
-        if (option == props) {
-          return options[option];
-        }
-      }
-    }
-  },
   computed: {
     customBlock: function() {
       return this.block ? "btn-block" : "";
     },
     customVariant: function() {
-      return this.getOptions(variantOptinos, this.variant);
+      return getOptionsByKeyEqual(variantOptinos, this.variant);
     },
     customSize: function() {
-      return this.getOptions(sizeOptions, this.size);
+      return getOptionsByKeyEqual(sizeOptions, this.size);
     },
     customType: function() {
-      return this.getOptions(typeOptions, this.type);
+      return getOptionsByKeyEqual(typeOptions, this.type);
     },
     customShape: function() {
-      return this.getOptions(shapeOptions, this.shape);
+      return getOptionsByKeyEqual(shapeOptions, this.shape);
     },
     customGradient: function() {
-      return this.getOptions(gradientOptions, this.gradient);
+      return getOptionsByKeyEqual(gradientOptions, this.gradient);
     },
     customDisabled: function() {
       return this.disabled ? "disabled" : "";

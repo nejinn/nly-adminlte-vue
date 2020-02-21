@@ -185,12 +185,11 @@
 
       <input type="checkbox" v-model="topNav" />topNav
       {{ topNav }}
-      <nly-button-group vertical>
-        <nly-button block pressed size="lg" gradient="danger">111</nly-button>
-        <nly-button pressed size="lg" gradient="danger">222</nly-button>
+      <nly-button-group vertical size="lg">
+        <nly-button block pressed gradient="danger">111</nly-button>
+        <nly-button pressed gradient="danger">222</nly-button>
         <nly-button
           pressed
-          size="lg"
           gradient="danger"
           button-class="dropdown-toggle dropdown-icon"
         ></nly-button>
