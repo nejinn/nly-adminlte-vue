@@ -1,4 +1,5 @@
 import Vue from "../utils/vue";
+import { getOptionsByKeyEqual } from "../utils/getOptions";
 
 const sizeOptions = {
   sm: "btn-group-sm",
@@ -19,14 +20,14 @@ export var NlyButtonGroup = Vue.extend({
       return this.vertical ? "btn-group-vertical" : "btn-group";
     },
     customSize: function() {
-      return th;
+      return getOptionsByKeyEqual(sizeOptions, this.size);
     }
   },
   render(h) {
     return h(
       "div",
       {
-        class: this.customVertical
+        class: [this.customVertical, this.customSize]
       },
       this.$slots.default
     );
