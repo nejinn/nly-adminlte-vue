@@ -185,8 +185,8 @@
 
       <input type="checkbox" v-model="topNav" />topNav
       {{ topNav }}
-      <nly-button-group vertical size="lg">
-        <nly-button block pressed gradient="danger">111</nly-button>
+      <nly-button-group size="lg" tag="li">
+        <nly-button block pressed gradient="danger" size="sm">111</nly-button>
         <nly-button pressed gradient="danger">222</nly-button>
         <nly-button
           pressed
@@ -194,13 +194,58 @@
           button-class="dropdown-toggle dropdown-icon"
         ></nly-button>
       </nly-button-group>
+      <nly-dropdown
+        gradient="warning"
+        dropdown-toggle
+        dropdown-hover
+        dropdown-icon
+        dropdown-class="xxx"
+        text="测试"
+      >
+        <nly-dropdown-menu>
+          <header class="dropdown-header">Action</header>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">
+            Another action
+          </a>
+          <a class="dropdown-item" href="#">
+            Something else here
+          </a>
+          <div class="dropdown-divider"></div>
+          <footer class="dropdown-footer">Separated link</footer>
+        </nly-dropdown-menu>
+      </nly-dropdown>
+
+      <nly-dropdown
+        gradient="info"
+        dropdown-toggle
+        dropdown-icon
+        dropdown-class="xxx"
+        text="测试2"
+      >
+        <nly-dropdown-menu>
+          <header class="dropdown-header">Action</header>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">
+            Another action
+          </a>
+          <a class="dropdown-item" href="#">
+            Something else here
+          </a>
+          <div class="dropdown-divider"></div>
+          <footer class="dropdown-footer">Separated link</footer>
+        </nly-dropdown-menu>
+      </nly-dropdown>
+      <nly-dropdown size="lg" gradient="danger">
+        sss
+      </nly-dropdown>
 
       <div style="height:200px"></div>
       <div class="btn-group">
         <button type="button" class="btn btn-info">Action</button>
         <button
           type="button"
-          class="btn btn-info dropdown-toggle dropdown-hover dropdown-icon"
+          class="btn btn-info dropdown-toggle"
           data-toggle="dropdown"
         >
           <span class="sr-only">Toggle Dropdown</span>

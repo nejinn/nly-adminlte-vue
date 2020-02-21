@@ -48,7 +48,8 @@ export var NlyNavbarBrandimg = Vue.extend({
           src: this.customSrc
         },
         style: {
-          opacity: 0.8
+          opacity: 0.8,
+          height: "33px"
         },
         staticClass: "brand-image",
         class: [

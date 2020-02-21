@@ -1,5 +1,5 @@
 import { NlyButton } from "./button";
-import { NlyButtonGroup } from "./buttongroup";
+import { NlyButtonGroup } from "./button-group";
 
 var buttonPlugin = {
   NlyButton: NlyButton,

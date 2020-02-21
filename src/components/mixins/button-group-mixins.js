@@ -1,18 +1,22 @@
 import Vue from "../utils/vue";
-import { getOptionsByKeyEqual } from "../utils/getOptions";
+import { getOptionsByKeyEqual } from "../utils/get-options";
 
 const sizeOptions = {
   sm: "btn-group-sm",
   lg: "btn-group-lg"
 };
-export var NlyButtonGroup = Vue.extend({
-  name: "NlyButtonGroup",
+export var NlyButtonGroupMixins = Vue.extend({
+  name: "NlyButtonGroupMixins",
   props: {
     vertical: {
       type: Boolean
     },
     size: {
       type: String
+    },
+    tag: {
+      type: String,
+      default: "div"
     }
   },
   computed: {
@@ -21,15 +25,9 @@ export var NlyButtonGroup = Vue.extend({
     },
     customSize: function() {
       return getOptionsByKeyEqual(sizeOptions, this.size);
+    },
+    customTag: function() {
+      return this.tag;
     }
-  },
-  render(h) {
-    return h(
-      "div",
-      {
-        class: [this.customVertical, this.customSize]
-      },
-      this.$slots.default
-    );
   }
 });
