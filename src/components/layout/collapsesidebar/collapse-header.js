@@ -1,5 +1,5 @@
 import Vue from "../../utils/vue";
-import { getOptionsByKeyEqual } from "../../utils/getOptions";
+import { getOptionsByKeyEqual } from "../../utils/get-options";
 const variantsOpitons = {
   orange: "navbar-light navbar-orange",
   warning: "navbar-light navbar-warning",

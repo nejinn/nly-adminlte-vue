@@ -1,10 +1,10 @@
 import { NlyNavbar } from "./navbar";
-import { NlyNavbarNav } from "./navbarnav";
-import { NlyNavbarBrand } from "./navbarbrand";
-import { NlyNavbarBrandimg } from "./navbarbrandimg";
-import { NlyNavbarBrandtext } from "./navbarbrandtext";
+import { NlyNavbarNav } from "./navbar-nav";
+import { NlyNavbarBrand } from "./navbar-brand";
+import { NlyNavbarBrandimg } from "./navbar-brandimg";
+import { NlyNavbarBrandtext } from "./navbar-brandtext";
 
-var NavPlugin = {
+var navPlugin = {
   NlyNavbar: NlyNavbar,
   NlyNavbarNav: NlyNavbarNav,
   NlyNavbarBrand: NlyNavbarBrand,
@@ -12,7 +12,7 @@ var NavPlugin = {
   NlyNavbarBrandtext: NlyNavbarBrandtext
 };
 export {
-  NavPlugin,
+  navPlugin,
   NlyNavbar,
   NlyNavbarNav,
   NlyNavbarBrand,

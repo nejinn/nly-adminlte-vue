@@ -1,6 +1,6 @@
 import Vue from "../../utils/vue";
 
-import { getOptionsByValueInclusion } from "../../utils/getOptions";
+import { getOptionsByValueInclusion } from "../../utils/get-options";
 
 const variantsOpitons = {
   darkPrimary: "sidebar-dark-primary",

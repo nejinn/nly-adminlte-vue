@@ -6,6 +6,8 @@ Vue.use(VueRouter);
 const index = () => import("../views/index");
 const indextest = () => import("../views/indextest.vue");
 
+const button = () => import("../components/button/button.vue");
+
 const routes = [
   {
     path: "/",
@@ -16,6 +18,11 @@ const routes = [
     path: "/test",
     name: "indextest",
     component: indextest
+  },
+  {
+    path: "/button",
+    name: "button",
+    component: button
   }
 ];
 
