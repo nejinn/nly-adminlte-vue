@@ -194,18 +194,22 @@
           button-class="dropdown-toggle dropdown-icon"
         ></nly-button>
       </nly-button-group>
+      <div style="height:200px"></div>
       <nly-dropdown
         gradient="warning"
+        dropdown-size="lg"
+        dropdown-tag="div"
         dropdown-toggle
-        dropdown-hover
         dropdown-icon
         dropdown-class="xxx"
         text="测试"
+        toggle-text="2222"
+        data-show="test"
       >
-        <nly-dropdown-menu>
+        <nly-dropdown-menu id="test">
           <header class="dropdown-header">Action</header>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="/sss">
             Another action
           </a>
           <a class="dropdown-item" href="#">
@@ -214,30 +218,6 @@
           <div class="dropdown-divider"></div>
           <footer class="dropdown-footer">Separated link</footer>
         </nly-dropdown-menu>
-      </nly-dropdown>
-
-      <nly-dropdown
-        gradient="info"
-        dropdown-toggle
-        dropdown-icon
-        dropdown-class="xxx"
-        text="测试2"
-      >
-        <nly-dropdown-menu>
-          <header class="dropdown-header">Action</header>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">
-            Another action
-          </a>
-          <a class="dropdown-item" href="#">
-            Something else here
-          </a>
-          <div class="dropdown-divider"></div>
-          <footer class="dropdown-footer">Separated link</footer>
-        </nly-dropdown-menu>
-      </nly-dropdown>
-      <nly-dropdown size="lg" gradient="danger">
-        sss
       </nly-dropdown>
 
       <div style="height:200px"></div>

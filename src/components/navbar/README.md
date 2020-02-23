@@ -1,8 +1,18 @@
-# navbar
+# 1. navbar
+<!-- TOC -->
 
-## nly-navbar
+- [1. navbar](#1-navbar)
+    - [1.1. nly-navbar](#11-nly-navbar)
+        - [1.1.1. props](#111-props)
+    - [1.2. nly-navbar-brand](#12-nly-navbar-brand)
+        - [1.2.1. props](#121-props)
+    - [1.3. nly-navbar-brandimg](#13-nly-navbar-brandimg)
+        - [1.3.1. props](#131-props)
 
-### props
+<!-- /TOC -->
+## 1.1. nly-navbar
+
+### 1.1.1. props
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
@@ -12,9 +22,9 @@ variants | String | white | 菜单主题颜色,可选  orange,warning,lightlight
 size | String | 无 | 菜单字体大小,可选sm,lg
 boder | Boolean | true | 菜单底边框
 
-## nly-navbar-brand
+## 1.2. nly-navbar-brand
 
-### props
+### 1.2.1. props
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
@@ -22,9 +32,9 @@ to | String | 无 | router-link模式to路由，传to的情况下会渲染成rou
 link | String | 无 | 传link会渲染成a href标签，优先级别会to低，link，to都传入会渲染成router-link，两者都不传入会渲染成router-link，且指向/#
 navbar-brand-class | String | 无 | 自定义式样
 
-## nly-navbar-brandimg
+## 1.3. nly-navbar-brandimg
 
-### props
+### 1.3.1. props
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
