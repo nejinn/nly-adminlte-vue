@@ -1,33 +1,30 @@
 <template>
-  <div class="btn-group">
-    <button type="button" class="btn btn-info">Action</button>
-    <button
-      type="button"
-      class="btn btn-info dropdown-toggle dropdown-hover dropdown-icon"
-      data-toggle="dropdown"
-    >
-      <span class="sr-only">Toggle Dropdown</span>
-      <div class="dropdown-menu dropdown-menu-1" role="menu" v-show="false">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Separated link</a>
-      </div>
-    </button>
+  <div>
+    <button id="button" aria-describedby="tooltip">I'm a button</button>
+    <div id="tooltip" role="tooltip">I'm a tooltip</div>
   </div>
 </template>
 
 <script>
+import { createPopper } from "@popperjs/core";
 export default {
+  name: "sss",
   mounted() {
-    console.log(this);
+    const button = document.querySelector("#button");
+    const tooltip = document.querySelector("#tooltip");
+    createPopper(button, tooltip, {
+      placement: "right"
+    });
   }
 };
 </script>
 
 <style>
-.dropdown-menu-1 {
-  display: block;
+#tooltip {
+  background-color: #333;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 13px;
 }
 </style>

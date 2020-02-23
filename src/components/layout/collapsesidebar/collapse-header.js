@@ -1,5 +1,5 @@
 import Vue from "../../utils/vue";
-import { getOptionsByKeyEqual } from "../../utils/get-options";
+import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
 const variantsOpitons = {
   orange: "navbar-light navbar-orange",
   warning: "navbar-light navbar-warning",
@@ -40,7 +40,7 @@ export var NlyCollapseHeader = Vue.extend({
   },
   computed: {
     navbarVariantsClass: function() {
-      return getOptionsByKeyEqual(variantsOpitons, this.variants);
+      return nlyGetOptionsByKeyEqual(variantsOpitons, this.variants);
     },
     navbarFontSizeClass: function() {
       return this.size == "sm" ? "text-sm" : this.size == "lg" ? "text-lg" : "";

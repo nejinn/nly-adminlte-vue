@@ -1,5 +1,5 @@
 import Vue from "../utils/vue";
-import { getOptionsByKeyEqual } from "../utils/get-options";
+import { nlyGetOptionsByKeyEqual } from "../utils/get-options";
 
 const variantOptinos = {
   default: "btn-default",
@@ -84,19 +84,19 @@ export var NlyButtonMixins = Vue.extend({
       return this.block ? "btn-block" : "";
     },
     customVariant: function() {
-      return getOptionsByKeyEqual(variantOptinos, this.variant);
+      return nlyGetOptionsByKeyEqual(variantOptinos, this.variant);
     },
     customSize: function() {
-      return getOptionsByKeyEqual(sizeOptions, this.size);
+      return nlyGetOptionsByKeyEqual(sizeOptions, this.size);
     },
     customType: function() {
-      return getOptionsByKeyEqual(typeOptions, this.type);
+      return nlyGetOptionsByKeyEqual(typeOptions, this.type);
     },
     customShape: function() {
-      return getOptionsByKeyEqual(shapeOptions, this.shape);
+      return nlyGetOptionsByKeyEqual(shapeOptions, this.shape);
     },
     customGradient: function() {
-      return getOptionsByKeyEqual(gradientOptions, this.gradient);
+      return nlyGetOptionsByKeyEqual(gradientOptions, this.gradient);
     },
     customDisabled: function() {
       return this.disabled ? "disabled" : "";

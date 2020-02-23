@@ -1,4 +1,4 @@
-var getOptionsByValueInclusion = function getOptionsByValueInclusion(
+var nlyGetOptionsByValueInclusion = function nlyGetOptionsByValueInclusion(
   propOptions,
   prop
 ) {
@@ -9,7 +9,10 @@ var getOptionsByValueInclusion = function getOptionsByValueInclusion(
   }
 };
 
-var getOptionsByKeyEqual = function getOptionsByKeyEqual(propOptions, prop) {
+var nlyGetOptionsByKeyEqual = function nlyGetOptionsByKeyEqual(
+  propOptions,
+  prop
+) {
   for (const propOption in propOptions) {
     if (propOption == prop) {
       return propOptions[propOption];
@@ -17,4 +20,14 @@ var getOptionsByKeyEqual = function getOptionsByKeyEqual(propOptions, prop) {
   }
 };
 
-export { getOptionsByValueInclusion, getOptionsByKeyEqual };
+var nlyGetOptionsByItem = function nlyGetOptionsByItem(propOptions, prop) {
+  if (propOptions.indexOf(prop) != -1) {
+    return prop;
+  }
+};
+
+export {
+  nlyGetOptionsByValueInclusion,
+  nlyGetOptionsByKeyEqual,
+  nlyGetOptionsByItem
+};

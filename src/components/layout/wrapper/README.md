@@ -1,10 +1,16 @@
-# wrapper
+# 1. wrapper
+<!-- TOC -->
 
-## nly-container-wrapper
+- [1. wrapper](#1-wrapper)
+    - [1.1. nly-container-wrapper](#11-nly-container-wrapper)
+        - [1.1.1. props](#111-props)
+
+<!-- /TOC -->
+## 1.1. nly-container-wrapper
 
 此组件会修改body的class,props参数自由搭配会有不同的布局,请自由发挥
 
-### props
+### 1.1.1. props
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-

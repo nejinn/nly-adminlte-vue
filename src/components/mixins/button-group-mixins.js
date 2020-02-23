@@ -1,5 +1,5 @@
 import Vue from "../utils/vue";
-import { getOptionsByKeyEqual } from "../utils/get-options";
+import { nlyGetOptionsByKeyEqual } from "../utils/get-options";
 
 const sizeOptions = {
   sm: "btn-group-sm",
@@ -24,7 +24,7 @@ export var NlyButtonGroupMixins = Vue.extend({
       return this.vertical ? "btn-group-vertical" : "btn-group";
     },
     customSize: function() {
-      return getOptionsByKeyEqual(sizeOptions, this.size);
+      return nlyGetOptionsByKeyEqual(sizeOptions, this.size);
     },
     customTag: function() {
       return this.tag;

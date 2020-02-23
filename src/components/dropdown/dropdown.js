@@ -1,47 +1,51 @@
 import Vue from "../utils/vue";
-import { getOptionsByKeyEqual } from "../utils/get-options";
+import {
+  nlyGetOptionsByKeyEqual,
+  nlyGetOptionsByItem
+} from "../utils/get-options";
 import { NlyButtonMixins } from "../mixins/button-mixins";
-{
-  /* <div class="btn-group">
-  <button type="button" class="btn btn-warning">
-    Action
-  </button>
-  <button
-    type="button"
-    class="btn btn-warning dropdown-toggle dropdown-icon"
-    data-toggle="dropdown"
-    aria-expanded="false"
-  >
-    <span class="sr-only">Toggle Dropdown</span>
-  </button>
-  <div
-    class="dropdown-menu"
-    role="menu"
-    x-placement="bottom-start"
-    style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(68px, 38px, 0px);"
-  >
-    <header class="dropdown-header">Action</header>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">
-      Another action
-    </a>
-    <a class="dropdown-item" href="#">
-      Something else here
-    </a>
-    <div class="dropdown-divider"></div>
-    <footer class="dropdown-footer">Separated link</footer>
-  </div>
-</div>; */
-}
+import { createPopper } from "@popperjs/core";
+import {
+  nlyDropdownParentId,
+  nlyDropdownId,
+  nlyDropdownMenuId
+} from "../utils/mixin-id";
 
 const sizeOptions = {
   sm: "btn-group-sm",
   lg: "btn-group-lg"
 };
 
+const placementOptions = [
+  "auto",
+  "auto-start",
+  "auto-end",
+  "top",
+  "top-start",
+  "top-end",
+  "bottom",
+  "bottom-start",
+  "bottom-end",
+  "right",
+  "right-start",
+  "right-end",
+  "left",
+  "left-start",
+  "left-end"
+];
+
 export var NlyDropdown = Vue.extend({
   name: "NlyDropdown",
   mixins: [NlyButtonMixins],
+  data() {
+    return {
+      show: false,
+      dropdown: "",
+      dropdownMenu: "",
+      dropdownInstance: null,
+      dropdownBoundary: ""
+    };
+  },
   props: {
     vertical: {
       type: Boolean
@@ -56,17 +60,25 @@ export var NlyDropdown = Vue.extend({
     dropdownToggle: {
       type: Boolean
     },
-    dropdownHover: {
-      type: Boolean
-    },
     dropdownIcon: {
       type: Boolean
     },
     text: {
       type: String
     },
+    toggleText: {
+      type: String
+    },
     dropdownClass: {
       type: String
+    },
+    dataShow: {
+      type: String,
+      required: true
+    },
+    placement: {
+      type: String,
+      default: "auto"
     }
   },
   computed: {
@@ -77,17 +89,10 @@ export var NlyDropdown = Vue.extend({
       return this.vertical ? "btn-group-vertical" : "btn-group";
     },
     customDropdownSize: function() {
-      return getOptionsByKeyEqual(sizeOptions, this.dropdownSize);
+      return nlyGetOptionsByKeyEqual(sizeOptions, this.dropdownSize);
     },
     customDropdownToggle: function() {
       return this.dropdownToggle ? "dropdown-toggle" : "";
-    },
-    customDropdownHover: function() {
-      if (this.dropdownToggle) {
-        return this.dropdownHover ? "dropdown-hover" : "";
-      } else {
-        return "";
-      }
     },
     customDropdownIcon: function() {
       if (this.dropdownToggle) {
@@ -99,21 +104,123 @@ export var NlyDropdown = Vue.extend({
     customText: function() {
       return this.text;
     },
+    customToggleText: function() {
+      return this.toggleText;
+    },
     customDropdownClass: function() {
       return this.dropdownClass;
+    },
+    customDataShow: function() {
+      return this.dataShow;
+    },
+    customDropdownId: function() {
+      return nlyDropdownId(this.dataShow);
+    },
+    customDropdownParentId: function() {
+      return nlyDropdownParentId(this.dataShow);
+    },
+    customDropDownMenuId: function() {
+      return nlyDropdownMenuId(this.dataShow);
+    },
+    customPlacement: function() {
+      return nlyGetOptionsByItem(placementOptions, this.placement);
+    }
+  },
+  methods: {
+    dropdownCreate() {
+      this.dropdownInstance = createPopper(this.dropdown, this.dropdownMenu, {
+        placement: this.customPlacement,
+        modifiers: [
+          {
+            name: "flip",
+            options: {
+              fallbackPlacements: ["auto"]
+            },
+            enabled: true
+          },
+          {
+            name: "preventOverflow",
+            options: {
+              boundary: this.dropdownBoundary
+            }
+          }
+        ]
+      });
+    },
+    dropdownDestroy() {
+      if (this.dropdownInstance) {
+        this.dropdownInstance.destroy();
+        this.dropdownInstance = null;
+      }
+    },
+    dropdownShow() {
+      if (this.show == false) {
+        this.dropdownMenu.classList.add("show");
+        this.dropdown.setAttribute("aria-expanded", true);
+        this.dropdownCreate(
+          this.dropdownInstance,
+          this.dropdown,
+          this.dropdownMenu
+        );
+        this.show = true;
+      } else {
+        this.dropdownMenu.classList.remove("show");
+        this.dropdown.setAttribute("aria-expanded", false);
+        this.dropdownDestroy(this.dropdownInstance);
+        this.show = false;
+      }
+    },
+    dropdownHide() {
+      this.dropdownInstance = null;
+      this.dropdownMenu.classList.remove("show");
+      this.dropdown.setAttribute("aria-expanded", false);
+      this.dropdownDestroy(this.dropdownInstance);
+    },
+    click_out_side(e) {
+      console.log(e);
+      if (!this.$el.contains(e.target)) {
+        this.show = false;
+        this.dropdownInstance = null;
+        this.dropdownMenu.classList.remove("show");
+        this.dropdown.setAttribute("aria-expanded", false);
+        this.dropdownDestroy(this.dropdownInstance);
+      }
     }
   },
   mounted() {
-    const pos = this.$el.getBoundingClientRect();
-    console.log("pos", pos);
-    console.log(this.$children[0]);
-    if (this.$children[0]) {
-      console.log(this.$children[0].domSize.clientHeight);
-    } else {
-      console.log("no");
+    this.dropdown = document.querySelector(`#${this.customDropdownId}`);
+    this.dropdownMenu = document.querySelector(`#${this.customDropDownMenuId}`);
+    this.dropdownBoundary = document.querySelector(
+      `#${this.customDropdownParentId}`
+    );
+
+    this.dropdownInstance = null;
+
+    this.dropdown.addEventListener("click", this.dropdownShow);
+  },
+  watch: {
+    show(newVal) {
+      if (newVal == true) {
+        document.addEventListener("click", this.click_out_side);
+      } else {
+        document.removeEventListener("click", this.click_out_side);
+      }
     }
   },
+
   render(h) {
+    let toggleDropdownArray = "";
+    if (this.customToggleText) {
+      toggleDropdownArray = h(
+        "span",
+        {
+          staticClass: "sr-only"
+        },
+        this.customToggleText
+      );
+    } else {
+      toggleDropdownArray = "";
+    }
     const hoverArray = h(
       "button",
       {
@@ -128,48 +235,15 @@ export var NlyDropdown = Vue.extend({
           this.customPressed,
           this.customButtonClass,
           this.customDropdownToggle,
-          this.customDropdownHover,
           this.customDropdownIcon
         ],
         attrs: {
-          type: this.customType
+          type: this.customType,
+          id: this.customDropdownId
         }
       },
-      [this.customText, this.$slots.default]
+      [this.customText, toggleDropdownArray]
     );
-
-    const noHoverArray = h(
-      "button",
-      {
-        staticClass: "btn",
-        class: [
-          this.customBlock,
-          this.customVariant,
-          this.customGradient,
-          this.customShape,
-          this.customSize,
-          this.customDisabled,
-          this.customPressed,
-          this.customButtonClass,
-          this.customDropdownToggle,
-          this.customDropdownHover,
-          this.customDropdownIcon
-        ],
-        attrs: {
-          type: this.customType
-        }
-      },
-      this.customText
-    );
-
-    let dropdownArray = [];
-
-    if (this.customDropdownHover) {
-      dropdownArray.push(hoverArray);
-    } else {
-      dropdownArray.push(noHoverArray);
-      dropdownArray.push(this.$slots.default);
-    }
 
     return h(
       this.customDropdownTag,
@@ -178,9 +252,12 @@ export var NlyDropdown = Vue.extend({
           this.customVertical,
           this.customDropdownSize,
           this.customDropdownClass
-        ]
+        ],
+        attrs: {
+          id: this.customDropdownParentId
+        }
       },
-      [dropdownArray]
+      [hoverArray, this.$slots.default]
     );
   }
 });
