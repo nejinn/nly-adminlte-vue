@@ -7,7 +7,8 @@ export const NlyContainerWrapper = Vue.extend({
   props: {
     //边侧栏最小化
     sideMini: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     //layout fixed or boxed
     layout: {
@@ -15,15 +16,18 @@ export const NlyContainerWrapper = Vue.extend({
     },
     // navbar fixed
     navbarFixed: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     //footer fixed
     footerFixed: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     //top nav
     topNav: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     wrapperClass: {
       type: String

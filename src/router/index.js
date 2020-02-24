@@ -4,9 +4,11 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 const index = () => import("../views/index");
-const indextest = () => import("../views/indextest.vue");
 
 const button = () => import("../components/button/button.vue");
+
+const container = () => import("../views/example/container.vue");
+const grid = () => import("../views/example/grid.vue");
 
 const routes = [
   {
@@ -15,9 +17,14 @@ const routes = [
     component: index
   },
   {
-    path: "/test",
-    name: "indextest",
-    component: indextest
+    path: "/container",
+    name: "container",
+    component: container
+  },
+  {
+    path: "/grid",
+    name: "grid",
+    component: grid
   },
   {
     path: "/button",

@@ -49,7 +49,8 @@ export const NlyDropdown = Vue.extend({
   },
   props: {
     vertical: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     dropdownSize: {
       type: String
@@ -59,10 +60,12 @@ export const NlyDropdown = Vue.extend({
       default: "div"
     },
     dropdownToggle: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     dropdownIcon: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     text: {
       type: String

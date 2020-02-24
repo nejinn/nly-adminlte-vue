@@ -11,7 +11,8 @@ export const NlyButtonGroupMixins = Vue.extend({
   name: name,
   props: {
     vertical: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     size: {
       type: String
