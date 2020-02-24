@@ -6,6 +6,7 @@ import { dropdownPlugin } from "./dropdown";
 import { contentPlugin } from "./layout/content";
 import { containerPlugin } from "./layout/container/index";
 import { rowPlugin } from "./layout/grid";
+import { collapsePlugin } from "./collapse/";
 
 const componentPlugins = Object.assign(
   collapseSidebarPlugin,
@@ -15,7 +16,8 @@ const componentPlugins = Object.assign(
   dropdownPlugin,
   contentPlugin,
   containerPlugin,
-  rowPlugin
+  rowPlugin,
+  collapsePlugin
 );
 
 export const registerComponent = (Vue, name, def) => {
