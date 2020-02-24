@@ -1,4 +1,5 @@
 import Vue from "../utils/vue";
+import { nlyGetOptionsByKeyEqual } from "../utils/get-options";
 
 const name = "NlyNavbar";
 
@@ -47,24 +48,15 @@ export const NlyNavbar = Vue.extend({
       type: Boolean,
       default: true
     },
-    sidebarClass: {
+    navbarClass: {
       type: String
     }
   },
-  methods: {
-    getVariants() {
-      for (const variant in variantsOpitons) {
-        if (variant == this.variants) {
-          return variantsOpitons[variant];
-        }
-      }
-    }
-  },
   computed: {
-    navbarHeaderClass: function() {
+    customNavbarHeader: function() {
       return this.header ? "main-header" : "";
     },
-    navbarExpandClass: function() {
+    customNavbarExpand: function() {
       return this.expand == "xl"
         ? "navbar-expand-xl"
         : this.expand == "lg"
@@ -75,14 +67,17 @@ export const NlyNavbar = Vue.extend({
         ? "navbar-expand-sm"
         : "navbar-expand";
     },
-    navbarVariantsClass: function() {
-      return this.getVariants();
+    customnNvbarVariants: function() {
+      return nlyGetOptionsByKeyEqual(variantsOpitons, this.variants);
     },
-    navbarFontSizeClass: function() {
+    customNavbarFontSize: function() {
       return this.size == "sm" ? "text-sm" : this.size == "lg" ? "text-lg" : "";
     },
-    navbarBorderClass: function() {
+    customNavbarBorder: function() {
       return this.border ? "" : "border-bottom-0";
+    },
+    customNavbarClass: function() {
+      return this.navbarClass;
     }
   },
   render(h) {
@@ -91,11 +86,12 @@ export const NlyNavbar = Vue.extend({
       {
         staticClass: "navbar",
         class: [
-          this.navbarHeaderClass,
-          this.navbarExpandClass,
-          this.navbarVariantsClass,
-          this.navbarFontSizeClass,
-          this.navbarBorderClass
+          this.customNavbarHeader,
+          this.customNavbarExpand,
+          this.customnNvbarVariants,
+          this.customNavbarFontSize,
+          this.customNavbarBorder,
+          this.customNavbarClass
         ]
       },
       this.$slots.default
