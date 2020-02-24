@@ -1,8 +1,10 @@
 import Vue from "../utils/vue";
 import { nlyDropdownMenuId } from "../utils/mixin-id";
 
-export var NlyDropdownMenu = Vue.extend({
-  name: "NlyDropdownMenu",
+const name = "NlyDropdownMenu";
+
+export const NlyDropdownMenu = Vue.extend({
+  name: name,
   props: {
     tag: {
       type: String,

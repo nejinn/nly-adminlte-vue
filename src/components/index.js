@@ -4,6 +4,7 @@ import { wrapperPlugin } from "./layout/wrapper";
 import { buttonPlugin } from "./button";
 import { dropdownPlugin } from "./dropdown";
 import { contentPlugin } from "./layout/content";
+import { containerPlugin } from "./layout/container/";
 
 const componentPlugins = Object.assign(
   collapseSidebarPlugin,
@@ -11,7 +12,8 @@ const componentPlugins = Object.assign(
   wrapperPlugin,
   buttonPlugin,
   dropdownPlugin,
-  contentPlugin
+  contentPlugin,
+  containerPlugin
 );
 
 export const registerComponent = (Vue, name, def) => {
@@ -38,6 +40,6 @@ function installFactory(components) {
   return install;
 }
 
-var NlyAdminlteVue = installFactory(componentPlugins);
+const NlyAdminlteVue = installFactory(componentPlugins);
 
 export { NlyAdminlteVue };

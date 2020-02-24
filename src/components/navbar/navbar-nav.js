@@ -1,7 +1,9 @@
 import Vue from "../utils/vue";
 
-export var NlyNavbarNav = Vue.extend({
-  name: "NlyNavbarNav",
+const name = "NlyNavbarNav";
+
+export const NlyNavbarNav = Vue.extend({
+  name: name,
   render(h) {
     return h(
       "ul",

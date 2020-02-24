@@ -1,7 +1,9 @@
 import Vue from "../utils/vue";
 
-export var NlyNavbarBrand = Vue.extend({
-  name: "NlyNavbarBrand",
+const name = "NlyNavbarBrand";
+
+export const NlyNavbarBrand = Vue.extend({
+  name: name,
   props: {
     to: {
       type: String

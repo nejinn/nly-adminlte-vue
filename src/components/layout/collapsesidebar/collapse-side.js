@@ -2,6 +2,8 @@ import Vue from "../../utils/vue";
 
 import { nlyGetOptionsByValueInclusion } from "../../utils/get-options";
 
+const name = "NlyCollapseSide";
+
 const variantsOpitons = {
   darkPrimary: "sidebar-dark-primary",
   darkWarning: "sidebar-dark-warning",
@@ -37,8 +39,8 @@ const variantsOpitons = {
   lightOlive: "sidebar-light-olive"
 };
 
-export var NlyCollapseSide = Vue.extend({
-  name: "NlyCollapseSide",
+export const NlyCollapseSide = Vue.extend({
+  name: name,
   props: {
     variants: {
       type: String,

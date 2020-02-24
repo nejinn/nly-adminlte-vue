@@ -1,4 +1,7 @@
 import Vue from "../utils/vue";
+
+const name = "NlyNavbar";
+
 const variantsOpitons = {
   orange: "navbar-light navbar-orange",
   warning: "navbar-light navbar-warning",
@@ -21,8 +24,8 @@ const variantsOpitons = {
   white: "navbar-light navbar-white"
 };
 
-export var NlyNavbar = Vue.extend({
-  name: "NlyNavbar",
+export const NlyNavbar = Vue.extend({
+  name: name,
   props: {
     //头部菜单
     header: {

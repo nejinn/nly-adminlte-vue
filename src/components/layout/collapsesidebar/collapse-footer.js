@@ -1,6 +1,9 @@
 import Vue from "../../utils/vue";
-export var NlyCollapseFooter = Vue.extend({
-  name: "NlyCollapseFooter",
+
+const name = "NlyCollapseFooter";
+
+export const NlyCollapseFooter = Vue.extend({
+  name: name,
   props: {
     size: {
       type: String

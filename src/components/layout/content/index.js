@@ -1,6 +1,6 @@
 import { NlyContentWrapper } from "./content-wrapper";
 
-var contentPlugin = {
+const contentPlugin = {
   NlyContentWrapper: NlyContentWrapper
 };
 export { contentPlugin, NlyContentWrapper };

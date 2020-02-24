@@ -1,12 +1,14 @@
 import Vue from "../utils/vue";
 import { nlyGetOptionsByKeyEqual } from "../utils/get-options";
 
+const name = "NlyButtonGroupMixins";
+
 const sizeOptions = {
   sm: "btn-group-sm",
   lg: "btn-group-lg"
 };
-export var NlyButtonGroupMixins = Vue.extend({
-  name: "NlyButtonGroupMixins",
+export const NlyButtonGroupMixins = Vue.extend({
+  name: name,
   props: {
     vertical: {
       type: Boolean

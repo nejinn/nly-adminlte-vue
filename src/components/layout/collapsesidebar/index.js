@@ -4,7 +4,7 @@ import { NlyCollapseSide } from "./collapse-side";
 import { NlyCollapseMain } from "./collapse-main";
 import { NlyCollapseFooter } from "./collapse-footer";
 
-var collapseSidebarPlugin = {
+const collapseSidebarPlugin = {
   NlyCollapseWrapper: NlyCollapseWrapper,
   NlyCollapseHeader: NlyCollapseHeader,
   NlyCollapseSide: NlyCollapseSide,

@@ -1,8 +1,11 @@
 /* <div class="content-wrapper" style="min-height: 268px;"></div>; */
 
 import Vue from "../../utils/vue";
-export var NlyCollapseMain = Vue.extend({
-  name: "NlyCollapseMain",
+
+const name = "NlyCollapseMain";
+
+export const NlyCollapseMain = Vue.extend({
+  name: name,
   //   data() {
   //     return {
   //       instanceStyle: { minHeight: "auto" }
@@ -35,7 +38,6 @@ export var NlyCollapseMain = Vue.extend({
       "div",
       {
         staticClass: "content-wrapper"
-        // style: this.instanceStyle
       },
       this.$slots.default
     );

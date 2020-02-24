@@ -1,7 +1,9 @@
 import Vue from "../utils/vue";
 
-export var NlyNavbarBrandimg = Vue.extend({
-  name: "NlyNavbarBrandimg",
+const name = "NlyNavbarBrandimg";
+
+export const NlyNavbarBrandimg = Vue.extend({
+  name: name,
   props: {
     src: {
       type: String,
