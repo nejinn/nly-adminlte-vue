@@ -1,7 +1,10 @@
 import Vue from "../utils/vue";
 import { NlyButtonMixins } from "../mixins/button-mixins";
-export var NlyButton = Vue.extend({
-  name: "NlyButton",
+
+const name = "NlyButton";
+
+export const NlyButton = Vue.extend({
+  name: name,
   mixins: [NlyButtonMixins],
   render(h) {
     return h(

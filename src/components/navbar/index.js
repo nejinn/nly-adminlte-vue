@@ -4,7 +4,7 @@ import { NlyNavbarBrand } from "./navbar-brand";
 import { NlyNavbarBrandimg } from "./navbar-brandimg";
 import { NlyNavbarBrandtext } from "./navbar-brandtext";
 
-var navPlugin = {
+const navPlugin = {
   NlyNavbar: NlyNavbar,
   NlyNavbarNav: NlyNavbarNav,
   NlyNavbarBrand: NlyNavbarBrand,

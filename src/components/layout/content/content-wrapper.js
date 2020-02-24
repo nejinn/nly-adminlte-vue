@@ -1,7 +1,9 @@
 import Vue from "../../utils/vue";
 
-export var NlyContentWrapper = Vue.extend({
-  name: "NlyContentWrapper",
+const name = "NlyContentWrapper";
+
+export const NlyContentWrapper = Vue.extend({
+  name: name,
   render(h) {
     return h(
       "div",

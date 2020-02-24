@@ -1,5 +1,8 @@
 import Vue from "../../utils/vue";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
+
+const name = "NlyCollapseHeader";
+
 const variantsOpitons = {
   orange: "navbar-light navbar-orange",
   warning: "navbar-light navbar-warning",
@@ -22,8 +25,8 @@ const variantsOpitons = {
   white: "navbar-light navbar-white"
 };
 
-export var NlyCollapseHeader = Vue.extend({
-  name: "NlyCollapseHeader",
+export const NlyCollapseHeader = Vue.extend({
+  name: name,
   props: {
     variants: {
       type: String,

@@ -11,6 +11,7 @@ import {
   nlyDropdownMenuId
 } from "../utils/mixin-id";
 
+const name = "NlyDropdown";
 const sizeOptions = {
   sm: "btn-group-sm",
   lg: "btn-group-lg"
@@ -34,8 +35,8 @@ const placementOptions = [
   "left-end"
 ];
 
-export var NlyDropdown = Vue.extend({
-  name: "NlyDropdown",
+export const NlyDropdown = Vue.extend({
+  name: name,
   mixins: [NlyButtonMixins],
   data() {
     return {

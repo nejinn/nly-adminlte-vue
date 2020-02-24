@@ -1,6 +1,9 @@
 import Vue from "../../utils/vue";
-export var NlyCollapseWrapper = Vue.extend({
-  name: "NlyCollapseWrapper",
+
+const name = "NlyCollapseWrapper";
+
+export const NlyCollapseWrapper = Vue.extend({
+  name: name,
   methods: {
     setBodyClassName() {
       const bodyWidth = document.body.clientWidth;
@@ -23,6 +26,9 @@ export var NlyCollapseWrapper = Vue.extend({
   created() {
     document.body.className =
       "sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed";
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", () => this.setBodyClassName(), false);
   },
   render(h) {
     return h(

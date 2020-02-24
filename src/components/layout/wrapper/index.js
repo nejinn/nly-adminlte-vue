@@ -1,7 +1,7 @@
 import { NlyContainerWrapper } from "./container-wrapper";
 import { NlyWrapper } from "./wrapper";
 
-var wrapperPlugin = {
+const wrapperPlugin = {
   NlyContainerWrapper: NlyContainerWrapper,
   NlyWrapper: NlyWrapper
 };

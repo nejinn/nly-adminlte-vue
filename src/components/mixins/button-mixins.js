@@ -1,6 +1,8 @@
 import Vue from "../utils/vue";
 import { nlyGetOptionsByKeyEqual } from "../utils/get-options";
 
+const name = "NlyButtonMixins";
+
 const variantOptinos = {
   default: "btn-default",
   primary: "btn-primary",
@@ -47,7 +49,7 @@ const gradientOptions = {
 };
 
 export var NlyButtonMixins = Vue.extend({
-  name: "NlyButtonMixins",
+  name: name,
   props: {
     block: {
       type: Boolean,

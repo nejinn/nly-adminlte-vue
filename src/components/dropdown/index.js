@@ -1,7 +1,7 @@
 import { NlyDropdown } from "./dropdown";
 import { NlyDropdownMenu } from "./dropdown-menu";
 
-var dropdownPlugin = {
+const dropdownPlugin = {
   NlyDropdown: NlyDropdown,
   NlyDropdownMenu: NlyDropdownMenu
 };
