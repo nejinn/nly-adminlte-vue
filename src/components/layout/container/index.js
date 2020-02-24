@@ -4,4 +4,4 @@ const containerPlugin = {
   NlyContainer: NlyContainer
 };
 
-export { containerPlugin };
+export { containerPlugin, NlyContainer };

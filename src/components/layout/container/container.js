@@ -6,10 +6,15 @@ export const NlyContainer = Vue.extend({
   name: name,
   props: {
     fluid: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     containerClass: {
       type: String
+    },
+    tag: {
+      type: String,
+      default: "div"
     }
   },
   computed: {
@@ -18,11 +23,14 @@ export const NlyContainer = Vue.extend({
     },
     customContainerClass: function() {
       return this.containerClass;
+    },
+    customTag: function() {
+      return this.tag;
     }
   },
   render(h) {
     return h(
-      "div",
+      this.customTag,
       {
         class: [this.customFluid, this.customContainerClass]
       },

@@ -29,7 +29,8 @@ export const NlyNavbar = Vue.extend({
   props: {
     //头部菜单
     header: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     expand: {
       type: String

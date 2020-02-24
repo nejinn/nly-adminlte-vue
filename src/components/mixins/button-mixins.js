@@ -69,13 +69,15 @@ export var NlyButtonMixins = Vue.extend({
       type: String
     },
     disabled: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     gradient: {
       type: String
     },
     pressed: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     buttonClass: {
       type: String
