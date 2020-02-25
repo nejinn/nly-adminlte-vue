@@ -5,8 +5,6 @@ Vue.use(VueRouter);
 
 const index = () => import("../views/index");
 
-const button = () => import("../components/button/button.vue");
-
 const container = () => import("../views/example/container.vue");
 const grid = () => import("../views/example/grid.vue");
 const navbar = () => import("../views/example/navbar.vue");
@@ -37,11 +35,6 @@ const routes = [
     path: "/collapse",
     name: "collapse",
     component: collapse
-  },
-  {
-    path: "/button",
-    name: "button",
-    component: button
   }
 ];
 
