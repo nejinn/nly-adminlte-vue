@@ -12,9 +12,6 @@ import "./assets/nly-adminlte-vue/nyladminltevue.css";
 import { NlyAdminlteVue } from "./nly-adminlte-vue";
 Vue.use(NlyAdminlteVue);
 
-import NLY from "./nly-adminlte-vue/directives";
-Vue.use(NLY);
-
 new Vue({
   router,
   render: h => h(App)
