@@ -8,6 +8,8 @@ import { containerPlugin } from "./components/layout/container/index";
 import { rowPlugin } from "./components/layout/grid";
 import { collapsePlugin } from "./components/collapse";
 
+import { toggleDirectivePlugin } from "./directives/toggle";
+
 const componentPlugins = Object.assign(
   collapseSidebarPlugin,
   navPlugin,
@@ -19,6 +21,8 @@ const componentPlugins = Object.assign(
   rowPlugin,
   collapsePlugin
 );
+
+const directivePlugins = Object.assign(toggleDirectivePlugin);
 
 export const registerComponent = (Vue, name, def) => {
   if (Vue && name && def) {
@@ -32,18 +36,32 @@ export const registerComponents = (Vue, components = {}) => {
   }
 };
 
-function installFactory(components) {
+export const registerdirective = (Vue, name, def) => {
+  if (Vue && name && def) {
+    Vue.directive(name, def);
+  }
+};
+
+export const registerdirectives = (Vue, directives = {}) => {
+  for (const directive in directives) {
+    registerdirective(Vue, directive, directives[directive]);
+  }
+};
+
+function installFactory(components, directives) {
   const install = Vue => {
+    console.log(install.installed);
     if (install.installed) {
       return;
     }
     install.installed = true;
     registerComponents(Vue, components);
+    registerdirectives(Vue, directives);
   };
   install.installed = false;
   return install;
 }
 
-const NlyAdminlteVue = installFactory(componentPlugins);
+const NlyAdminlteVue = installFactory(componentPlugins, directivePlugins);
 
 export { NlyAdminlteVue };
