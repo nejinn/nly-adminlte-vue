@@ -12,6 +12,7 @@
     "@popperjs/core": "^2.0.6",
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
+    "vue-functional-data-merge": "^3.1.0",
     "vue-router": "^3.1.5"
   },
   "devDependencies": {
