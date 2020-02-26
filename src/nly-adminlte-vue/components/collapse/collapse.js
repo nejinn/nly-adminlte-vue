@@ -29,9 +29,9 @@ const EVENT_STATE_REQUEST = "nly::request::collapse::state";
 // Event listener options
 const EventOptions = { passive: true, capture: false };
 
-// @vue/component
-export const NlyCollapse = /*#__PURE__*/ Vue.extend({
-  name: "NlyCollapse",
+const name = "NlyCollapse";
+export const NlyCollapse = Vue.extend({
+  name: name,
   mixins: [idMixin, listenOnRootMixin, normalizeSlotMixin],
   model: {
     prop: "visible",
@@ -55,9 +55,11 @@ export const NlyCollapse = /*#__PURE__*/ Vue.extend({
       default: "div"
     },
     appear: {
-      // If `true` (and `visible` is `true` on mount), animate initially visible
       type: Boolean,
       default: false
+    },
+    collapseClass: {
+      type: String
     }
   },
   data() {
@@ -67,6 +69,9 @@ export const NlyCollapse = /*#__PURE__*/ Vue.extend({
     };
   },
   computed: {
+    customCollapseClass: function() {
+      return this.collapseClass;
+    },
     classObject() {
       return {
         "navbar-collapse": this.isNav,
@@ -245,7 +250,7 @@ export const NlyCollapse = /*#__PURE__*/ Vue.extend({
     const content = h(
       this.tag,
       {
-        class: this.classObject,
+        class: [this.classObject, this.customCollapseClass],
         directives: [{ name: "show", value: this.show }],
         attrs: { id: this.safeId() },
         on: { click: this.clickHandler }

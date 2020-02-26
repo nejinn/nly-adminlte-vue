@@ -36,9 +36,9 @@ export const NlyDropdownMenu = Vue.extend({
       return nlyDropdownMenuId(this.id);
     }
   },
-  mounted() {
-    console.log(this);
-  },
+  // mounted() {
+  //   console.log(this);
+  // },
   render(h) {
     return h(
       this.customTag,

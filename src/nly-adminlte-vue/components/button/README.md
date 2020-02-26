@@ -1,8 +1,18 @@
-# button
+# 1. button
+<!-- TOC -->
 
-## nly-button
+- [1. button](#1-button)
+    - [1.1. nly-button](#11-nly-button)
+        - [1.1.1. props](#111-props)
+    - [1.2. nly-button-group](#12-nly-button-group)
+        - [1.2.1. props](#121-props)
 
-### props
+<!-- /TOC -->
+## 1.1. nly-button
+
+>按钮 支持颜色，形状，绑定事件需要加修饰符.native
+
+### 1.1.1. props
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
@@ -16,9 +26,16 @@ disabled | Boolean | false | 禁用按钮
 pressed | Boolean | false |按钮激活按下效果，目前只有default背景色按钮有效果
 button-class | String | 无 | 自定义式样
 
-## nly-button-group
+## 1.2. nly-button-group
 
-### props
+>按钮组
+
+### 1.2.1. props
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
+vertical | Boolean | false | 是否垂直
+groupSize | String |  | 大小，可选'lg'，'sm'
+groupTag | String | div | 标签
+button-group-class | String | | 自定义css式样
+

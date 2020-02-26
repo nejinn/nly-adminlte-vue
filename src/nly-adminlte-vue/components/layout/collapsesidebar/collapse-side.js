@@ -4,7 +4,7 @@ import { nlyGetOptionsByValueInclusion } from "../../../utils/get-options";
 
 const name = "NlyCollapseSide";
 
-const variantsOpitons = {
+const variantOpitons = {
   darkPrimary: "sidebar-dark-primary",
   darkWarning: "sidebar-dark-warning",
   darkInfo: "sidebar-dark-info",
@@ -42,14 +42,14 @@ const variantsOpitons = {
 export const NlyCollapseSide = Vue.extend({
   name: name,
   props: {
-    variants: {
+    variant: {
       type: String,
       default: "dark-primary"
     }
   },
   computed: {
-    siderbarVariantsClass: function() {
-      return nlyGetOptionsByValueInclusion(variantsOpitons, this.variants);
+    siderbarVariantClass: function() {
+      return nlyGetOptionsByValueInclusion(variantOpitons, this.variant);
     }
   },
   render(h) {
@@ -57,7 +57,7 @@ export const NlyCollapseSide = Vue.extend({
       "aside",
       {
         staticClass: "main-sidebar elevation-4",
-        class: [this.siderbarVariantsClass]
+        class: [this.siderbarVariantClass]
       },
       this.$slots.default
     );

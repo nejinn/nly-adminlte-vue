@@ -16,7 +16,7 @@
 
 ### 1.1.1. props
 
-接受所有nly-botton的参数
+>接受所有nly-botton的参数
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
@@ -26,12 +26,14 @@ dropdown-tag | div |  | 标签
 dropdown-toggle | Boolean |  | 开启下拉icon，默认不开启
 dropdown-icon | Boolean | | 下拉icon与文字对齐，默认不开启
 text | String |  | 文字内容
-toggle-text | String |  | toggle文字内容
+toggle-text | String | Nly Toggle Dropdown | toggle文字内容
 dropdown-class | String |  | 自定义css式样
 data-show | String |  | 触发的显示的下拉内容，对应为nly-dropdown-menu的id prop，必传
 placement | String | auto | 下拉内容出现的位置，默认auto，会选择最节省空间的地方显示。可选  "auto"，auto-start，"auto-end""top"，"top-start"，"top-end"，"bottom"，"bottom-start"，"bottom-end"，"right""right-start"，"right-end"，"left"，"left-start"，"left-end"
 
 ## 1.2. nly-dropdown-menu
+
+>dropdown 下拉菜单内容
 
 ### 1.2.1. props
 

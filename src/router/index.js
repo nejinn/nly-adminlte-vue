@@ -9,6 +9,8 @@ const container = () => import("../views/example/container.vue");
 const grid = () => import("../views/example/grid.vue");
 const navbar = () => import("../views/example/navbar.vue");
 const collapse = () => import("../views/example/collapse.vue");
+const link = () => import("../views/example/link.vue");
+const button = () => import("../views/example/button.vue");
 
 const routes = [
   {
@@ -35,6 +37,16 @@ const routes = [
     path: "/collapse",
     name: "collapse",
     component: collapse
+  },
+  {
+    path: "/link",
+    name: "link",
+    component: link
+  },
+  {
+    path: "/button",
+    name: "button",
+    component: button
   }
 ];
 

@@ -4,18 +4,22 @@ import { NlyNavbarBrand } from "./navbar-brand";
 import { NlyNavbarBrandimg } from "./navbar-brandimg";
 import { NlyNavbarBrandtext } from "./navbar-brandtext";
 
-const navPlugin = {
+import { NlyNavbarToggle } from "./navbar-toggle";
+
+const navbarPlugin = {
   NlyNavbar: NlyNavbar,
   NlyNavbarNav: NlyNavbarNav,
   NlyNavbarBrand: NlyNavbarBrand,
   NlyNavbarBrandimg: NlyNavbarBrandimg,
-  NlyNavbarBrandtext: NlyNavbarBrandtext
+  NlyNavbarBrandtext: NlyNavbarBrandtext,
+  NlyNavbarToggle: NlyNavbarToggle
 };
 export {
-  navPlugin,
+  navbarPlugin,
   NlyNavbar,
   NlyNavbarNav,
   NlyNavbarBrand,
   NlyNavbarBrandimg,
-  NlyNavbarBrandtext
+  NlyNavbarBrandtext,
+  NlyNavbarToggle
 };

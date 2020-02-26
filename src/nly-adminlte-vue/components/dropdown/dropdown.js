@@ -12,6 +12,7 @@ import {
 } from "../../utils/mixin-id";
 
 const name = "NlyDropdown";
+
 const sizeOptions = {
   sm: "btn-group-sm",
   lg: "btn-group-lg"
@@ -71,7 +72,8 @@ export const NlyDropdown = Vue.extend({
       type: String
     },
     toggleText: {
-      type: String
+      type: String,
+      default: "Nly Toggle Dropdown"
     },
     dropdownClass: {
       type: String
@@ -180,7 +182,7 @@ export const NlyDropdown = Vue.extend({
       this.dropdown.setAttribute("aria-expanded", false);
       this.dropdownDestroy(this.dropdownInstance);
     },
-    click_out_side(e) {
+    clickOutside(e) {
       if (!this.$el.contains(e.target)) {
         this.show = false;
         this.dropdownInstance = null;
@@ -204,9 +206,9 @@ export const NlyDropdown = Vue.extend({
   watch: {
     show(newVal) {
       if (newVal == true) {
-        document.addEventListener("click", this.click_out_side);
+        document.addEventListener("click", this.clickOutside);
       } else {
-        document.removeEventListener("click", this.click_out_side);
+        document.removeEventListener("click", this.clickOutside);
       }
     }
   },

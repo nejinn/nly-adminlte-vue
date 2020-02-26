@@ -3,7 +3,7 @@ import { nlyGetOptionsByKeyEqual } from "../../../utils/get-options";
 
 const name = "NlyCollapseHeader";
 
-const variantsOpitons = {
+const variantOpitons = {
   orange: "navbar-light navbar-orange",
   warning: "navbar-light navbar-warning",
   lightlight: "navbar-light",
@@ -28,7 +28,7 @@ const variantsOpitons = {
 export const NlyCollapseHeader = Vue.extend({
   name: name,
   props: {
-    variants: {
+    variant: {
       type: String,
       default: "white"
     },
@@ -42,8 +42,8 @@ export const NlyCollapseHeader = Vue.extend({
     }
   },
   computed: {
-    navbarVariantsClass: function() {
-      return nlyGetOptionsByKeyEqual(variantsOpitons, this.variants);
+    navbarVariantClass: function() {
+      return nlyGetOptionsByKeyEqual(variantOpitons, this.variant);
     },
     navbarFontSizeClass: function() {
       return this.size == "sm" ? "text-sm" : this.size == "lg" ? "text-lg" : "";
@@ -58,7 +58,7 @@ export const NlyCollapseHeader = Vue.extend({
       {
         staticClass: "main-header navbar navbar-expand",
         class: [
-          this.navbarVariantsClass,
+          this.navbarVariantClass,
           this.navbarFontSizeClass,
           this.navbarBorderClass
         ]
