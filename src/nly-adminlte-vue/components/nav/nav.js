@@ -22,6 +22,10 @@ export const props = {
     type: Boolean,
     default: false
   },
+  tabsRight: {
+    type: Boolean,
+    default: false
+  },
   pills: {
     type: Boolean,
     default: false
@@ -57,6 +61,7 @@ export const NlyNav = Vue.extend({
         staticClass: "nav",
         class: {
           "nav-tabs": props.tabs,
+          "nav-tabs-right": props.tabsRight,
           "nav-pills": props.pills && !props.tabs,
           "card-header-tabs": !props.vertical && props.cardHeader && props.tabs,
           "card-header-pills":

@@ -1,6 +1,6 @@
 <template>
   <nly-container fluid>
-    <nly-navbar variant="lightlight" navbar-class="xxx" expand="md">
+    <nly-navbar variant="purple" navbar-class="xxx" expand="md">
       <nly-navbar-brand>
         <nly-navbar-brandimg :src="logo" elevation circle />
         <nly-navbar-brandtext>
@@ -10,16 +10,18 @@
       <nly-navbar-toggle target="aaa" navbar-class="xxx" />
 
       <nly-collapse is-nav id="aaa" collapse-class="xxxx">
-        <nly-navbar-nav>
-          <li class="nav-item">
-            <a href="index3.html" class="nav-link">
-              Home
-            </a>
+        <nly-navbar-nav class="xxxxx">
+          <nly-nav-item active class="xxx">
+            home
+          </nly-nav-item>
 
-            <nly-link href="333.html">
-              home
-            </nly-link>
-          </li>
+          <nly-nav-item disabled>
+            home
+          </nly-nav-item>
+
+          <nly-nav-item>
+            home
+          </nly-nav-item>
         </nly-navbar-nav>
       </nly-collapse>
     </nly-navbar>

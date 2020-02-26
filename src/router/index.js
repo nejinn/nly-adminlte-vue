@@ -7,6 +7,7 @@ const index = () => import("../views/index");
 
 const container = () => import("../views/example/container.vue");
 const grid = () => import("../views/example/grid.vue");
+const nav = () => import("../views/example/nav.vue");
 const navbar = () => import("../views/example/navbar.vue");
 const collapse = () => import("../views/example/collapse.vue");
 const link = () => import("../views/example/link.vue");
@@ -32,6 +33,11 @@ const routes = [
     path: "/navbar",
     name: "navbar",
     component: navbar
+  },
+  {
+    path: "/nav",
+    name: "nav",
+    component: nav
   },
   {
     path: "/collapse",
