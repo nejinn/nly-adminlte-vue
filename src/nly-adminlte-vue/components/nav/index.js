@@ -1,7 +1,9 @@
 import { NlyNav } from "./nav";
+import { NlyNavItem } from "./nav-item";
 
 const navPlugin = {
-  NlyNav: NlyNav
+  NlyNav: NlyNav,
+  NlyNavItem: NlyNavItem
 };
 
-export { navPlugin, NlyNav };
+export { navPlugin, NlyNav, NlyNavItem };

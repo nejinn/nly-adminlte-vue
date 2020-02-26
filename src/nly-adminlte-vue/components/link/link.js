@@ -68,7 +68,6 @@ export const propsFactory = () => ({
 
 export const props = propsFactory();
 
-// @vue/component
 const name = "NlyLink";
 export const NlyLink = /*#__PURE__*/ Vue.extend({
   name: name,
