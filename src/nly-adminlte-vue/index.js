@@ -1,5 +1,5 @@
 import { collapseSidebarPlugin } from "./components/layout/collapsesidebar";
-import { navPlugin } from "./components/navbar";
+import { navbarPlugin } from "./components/navbar";
 import { wrapperPlugin } from "./components/layout/wrapper";
 import { buttonPlugin } from "./components/button";
 import { dropdownPlugin } from "./components/dropdown";
@@ -7,19 +7,23 @@ import { contentPlugin } from "./components/layout/content";
 import { containerPlugin } from "./components/layout/container/index";
 import { rowPlugin } from "./components/layout/grid";
 import { collapsePlugin } from "./components/collapse";
+import { navPlugin } from "./components/nav";
+import { linkPlugin } from "./components/link";
 
 import { toggleDirectivePlugin } from "./directives/toggle";
 
 const componentPlugins = Object.assign(
   collapseSidebarPlugin,
-  navPlugin,
+  navbarPlugin,
   wrapperPlugin,
   buttonPlugin,
   dropdownPlugin,
   contentPlugin,
   containerPlugin,
   rowPlugin,
-  collapsePlugin
+  collapsePlugin,
+  navPlugin,
+  linkPlugin
 );
 
 const directivePlugins = Object.assign(toggleDirectivePlugin);
@@ -50,7 +54,6 @@ export const registerdirectives = (Vue, directives = {}) => {
 
 function installFactory(components, directives) {
   const install = Vue => {
-    console.log(install.installed);
     if (install.installed) {
       return;
     }

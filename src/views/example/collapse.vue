@@ -3,7 +3,7 @@
     <nly-button variant="info" v-nly-toggle.zzz>
       dianji
     </nly-button>
-    <NlyCollapse is-nav id="zzz" accordion="aa">
+    <NlyCollapse is-nav id="zzz" accordion="aa" collapse-class="xxxx">
       <p>
         sssss
       </p>
@@ -17,7 +17,7 @@
     <nly-button variant="info" v-nly-toggle.aaa>
       dianji
     </nly-button>
-    <NlyCollapse is-nav id="aaa" accordion="aa">
+    <NlyCollapse is-nav id="aaa" accordion="aa" collapse-class="xxxx">
       <p>
         sssss
       </p>
@@ -31,7 +31,7 @@
     <nly-button variant="info" v-nly-toggle.bbb>
       dianji
     </nly-button>
-    <NlyCollapse is-nav id="bbb">
+    <NlyCollapse is-nav id="bbb" collapse-class="xxxx">
       <p>
         sssss
       </p>

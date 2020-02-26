@@ -10,8 +10,10 @@
         - [1.3.1. props](#131-props)
     - [1.4. nly-navbar-brandimg](#14-nly-navbar-brandimg)
         - [1.4.1. props](#141-props)
-    - [1.4. nly-navbar-brandtext](#14-nly-navbar-brandtext)
-        - [1.4.1. props](#141-props-1)
+    - [1.5. nly-navbar-brandtext](#15-nly-navbar-brandtext)
+        - [1.5.1. props](#151-props)
+    - [1.6. nly-navbar-toggle](#16-nly-navbar-toggle)
+        - [1.6.1. props](#161-props)
 
 <!-- /TOC -->
 ## 1.1. nly-navbar
@@ -22,7 +24,7 @@
 -|-|-|-
 header | Boolean |  | 左右布局菜单,非左右布局是传入会导致左侧右移,请配合nly-container-wrapper一起用
 expand | String | navbar-expand | 菜单栏屏幕变化收起断点,默认是sm断点,可选xl,lg,md,sm
-variants | String | white | 菜单主题颜色,可选  orange,warning,lightlight,graygray,graydark,darkdark,cyan,teal,lightblue,navy,pink,purple,indigo,danger,success,info,secondary,primary,white
+variant | String | white | 菜单主题颜色,可选  orange,warning,lightlight,graygray,graydark,darkdark,cyan,teal,lightblue,navy,pink,purple,indigo,danger,success,info,secondary,primary,white
 size | String | 无 | 菜单字体大小,可选sm,lg
 boder | Boolean | true | 菜单底边框
 navbar-class | String | | 自定义css式样
@@ -55,9 +57,18 @@ alt | String | 无 | img alt
 circle | Boolean | false | 圆形
 elevation | Boolean | false | 阴影
 
-## 1.4. nly-navbar-brandtext
+## 1.5. nly-navbar-brandtext
 
-### 1.4.1. props
+### 1.5.1. props
 
 无
 
+## 1.6. nly-navbar-toggle
+
+### 1.6.1. props
+
+参数 | 类型 |  默认值 | 描述
+-|-|-|-
+label | String | Nly Toggle navigation | aria-label
+target | String |  | 对应collapse的id
+navbar-class | String | | 自定义css式样

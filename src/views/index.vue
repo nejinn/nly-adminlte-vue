@@ -169,7 +169,7 @@
       </ul>
     </nly-navbar>
 
-    <nly-collapse-side variants="light-indigo"> </nly-collapse-side>
+    <nly-collapse-side variant="light-indigo"> </nly-collapse-side>
     <nly-collapse-main>
       <input type="checkbox" v-model="sideMini" />sideMini
       {{ sideMini }}

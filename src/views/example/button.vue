@@ -1,0 +1,140 @@
+<template>
+  <nly-container>
+    <div style="margin: 1rem;">
+      <nly-button block variant="info">
+        button block variant="info"
+      </nly-button>
+    </div>
+
+    <div style="margin: 1rem;">
+      <nly-button block variant="outlineInfo">
+        button block variant="outlineInfo"
+      </nly-button>
+    </div>
+
+    <div style="margin: 1rem;">
+      <nly-button variant="warning">
+        button variant="warning"
+      </nly-button>
+    </div>
+
+    <div style="margin: 1rem;">
+      <nly-button variant="warning" size="sm">
+        button variant="warning" size="sm"
+      </nly-button>
+    </div>
+
+    <div style="margin: 1rem;">
+      <nly-button variant="warning" size="lg">
+        button variant="warning" size="sm"
+      </nly-button>
+    </div>
+
+    <div style="margin: 1rem;">
+      <nly-button variant="warning" shape="roundedLg">
+        button variant="warning" shape='roundedLg'
+      </nly-button>
+    </div>
+
+    <div style="margin: 1rem;">
+      <nly-button variant="warning" shape="roundedFlat">
+        button variant="warning" shape='roundedFlat'
+      </nly-button>
+    </div>
+
+    <div style="margin: 1rem;">
+      <nly-button variant="warning" shape="roundedPill">
+        button variant="warning" shape='roundedPill'
+      </nly-button>
+    </div>
+
+    <div style="margin: 1rem;">
+      <nly-button variant="warning" shape="roundedCircle">
+        Circle
+      </nly-button>
+    </div>
+
+    <div>
+      按钮组
+    </div>
+
+    <div style="margin: 1rem;">
+      无
+      <nly-button-group>
+        <nly-button variant="warning">
+          button variant="warning"
+        </nly-button>
+        <nly-button variant="danger">
+          button variant="warning"
+        </nly-button>
+
+        <nly-button gradient="success">
+          button gradient="success"
+        </nly-button>
+      </nly-button-group>
+    </div>
+
+    <div style="margin: 1rem;">
+      vertical
+      <nly-button-group vertical>
+        <nly-button variant="warning">
+          button variant="warning"
+        </nly-button>
+        <nly-button variant="danger">
+          button variant="warning"
+        </nly-button>
+
+        <nly-button gradient="success">
+          button gradient="success"
+        </nly-button>
+      </nly-button-group>
+    </div>
+
+    <div style="margin: 1rem;">
+      size="sm"
+      <nly-button-group size="sm">
+        <nly-button variant="warning">
+          button variant="warning"
+        </nly-button>
+        <nly-button variant="danger">
+          button variant="warning"
+        </nly-button>
+
+        <nly-button gradient="success">
+          button gradient="success"
+        </nly-button>
+      </nly-button-group>
+    </div>
+
+    <div style="margin: 1rem;">
+      size="lg"
+      <nly-button-group size="lg">
+        <nly-button variant="warning">
+          button variant="warning"
+        </nly-button>
+        <nly-button variant="danger">
+          button variant="warning"
+        </nly-button>
+
+        <nly-button gradient="success">
+          button gradient="success"
+        </nly-button>
+      </nly-button-group>
+    </div>
+
+    <div style="margin: 1rem;">
+      <nly-button-group size="sm" tag="ul">
+        <nly-button variant="warning">
+          button variant="warning"
+        </nly-button>
+        <nly-button variant="danger">
+          button variant="warning"
+        </nly-button>
+
+        <nly-button gradient="success">
+          button gradient="success"
+        </nly-button>
+      </nly-button-group>
+    </div>
+  </nly-container>
+</template>

@@ -3,7 +3,7 @@ import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
 
 const name = "NlyNavbar";
 
-const variantsOpitons = {
+const variantOpitons = {
   orange: "navbar-light navbar-orange",
   warning: "navbar-light navbar-warning",
   lightlight: "navbar-light",
@@ -36,7 +36,7 @@ export const NlyNavbar = Vue.extend({
     expand: {
       type: String
     },
-    variants: {
+    variant: {
       type: String,
       default: "white"
     },
@@ -62,13 +62,13 @@ export const NlyNavbar = Vue.extend({
         : this.expand == "lg"
         ? "navbar-expand-lg"
         : this.expand == "md"
-        ? "navbar-expand-lg"
+        ? "navbar-expand-md"
         : this.expand == "sm"
         ? "navbar-expand-sm"
         : "navbar-expand";
     },
-    customnNvbarVariants: function() {
-      return nlyGetOptionsByKeyEqual(variantsOpitons, this.variants);
+    customnNvbarVariant: function() {
+      return nlyGetOptionsByKeyEqual(variantOpitons, this.variant);
     },
     customNavbarFontSize: function() {
       return this.size == "sm" ? "text-sm" : this.size == "lg" ? "text-lg" : "";
@@ -88,7 +88,7 @@ export const NlyNavbar = Vue.extend({
         class: [
           this.customNavbarHeader,
           this.customNavbarExpand,
-          this.customnNvbarVariants,
+          this.customnNvbarVariant,
           this.customNavbarFontSize,
           this.customNavbarBorder,
           this.customNavbarClass
