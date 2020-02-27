@@ -9,6 +9,14 @@ export const NlyNavItem = Vue.extend({
   name: name,
   functional: true,
   props: {
+    navItem: {
+      type: Boolean,
+      default: true
+    },
+    dropdownItem: {
+      type: Boolean,
+      default: false
+    },
     ...props,
     linkAttrs: {
       type: Object,
@@ -24,13 +32,13 @@ export const NlyNavItem = Vue.extend({
     return h(
       "li",
       mergeData(data, {
-        staticClass: "nav-item"
+        staticClass: props.navItem ? "nav-item" : ""
       }),
       [
         h(
           NlyLink,
           {
-            staticClass: "nav-link",
+            staticClass: props.dropdownItem ? "dropdown-item" : "nav-link",
             class: props.linkClasses,
             attrs: props.linkAttrs,
             props,

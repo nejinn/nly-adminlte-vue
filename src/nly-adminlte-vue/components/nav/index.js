@@ -1,9 +1,11 @@
 import { NlyNav } from "./nav";
 import { NlyNavItem } from "./nav-item";
+import { NlyNavDropdown } from "./nav-dropdown";
 
 const navPlugin = {
   NlyNav: NlyNav,
-  NlyNavItem: NlyNavItem
+  NlyNavItem: NlyNavItem,
+  NlyNavDropdown: NlyNavDropdown
 };
 
-export { navPlugin, NlyNav, NlyNavItem };
+export { navPlugin, NlyNav, NlyNavItem, NlyNavDropdown };

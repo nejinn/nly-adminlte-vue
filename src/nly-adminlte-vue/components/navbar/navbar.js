@@ -65,6 +65,8 @@ export const NlyNavbar = Vue.extend({
         ? "navbar-expand-md"
         : this.expand == "sm"
         ? "navbar-expand-sm"
+        : this.expand == "no"
+        ? "navbar-no-expand"
         : "navbar-expand";
     },
     customnNvbarVariant: function() {
