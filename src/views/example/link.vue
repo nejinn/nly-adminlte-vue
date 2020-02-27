@@ -89,6 +89,15 @@
         </nly-link>
       </div>
     </div>
+
+    <div class="demo">
+      <div class="title">
+        <p>href="collapse" target="_blank"</p>
+        <nly-link class="nav-link dropdown-toggle">
+          nly-link
+        </nly-link>
+      </div>
+    </div>
   </div>
 </template>
 

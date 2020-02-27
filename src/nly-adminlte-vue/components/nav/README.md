@@ -24,7 +24,7 @@ card-header | Boolean | false | 放在卡片中时，可以设置为true,就会�
 ## nly-nav-item
 
 >导航item元素
->nly-nav-item中封装岭一个nly-link，默认a标签
+>nly-nav-item中封装了一个nly-link，默认a标签
 
 ### props
 
@@ -45,3 +45,153 @@ exact | Boolean | false | router-link router-view一起用，当前router和当�
 exact-active-class | String |  | excet被激活的时候，自定义的css式样
 link-attrs | Object |  | 自定义封装在nly-nav-item中的nly-link的attrs
 link-classes | String or Object or Array |  | 自定义自定义封装在nly-nav-item中的nly-link的css式样
+nav-item | Boolean | true | 默认会有class='nav-item'，设置为false则没有class='nav-item'
+dropdown-item | Boolean | false | 默认false，中间封装的nly-link会有class='nav-link，设置为true，则会变成class='dropdown-item'
+
+#### demo
+
+```html
+<nly-nav-item active class="xxx" :to="{ name: 'collapse' }">
+    home
+</nly-nav-item>
+
+<nly-nav-item disabled>
+    home
+</nly-nav-item>
+```
+
+>如下写法可以组成一个dropdown-item，放在nly-nav-dropdown中
+
+```html
+<nly-nav-dropdown>
+    <template slot="menucontent">
+        <nly-nav-item :nav-item="false" dropdown-item>
+            ...
+        </nly-nav-item>
+    </template>
+</nly-nav-dropdown>
+```
+
+## nly-nav-dropdown
+
+>导航下拉菜单
+>nly-nav-dropdown中封装了一个a标签，nly-nav-dropdown渲染出来如下：
+
+```html
+<li>
+    <a>
+        <slot="linkcontent">(下拉菜单按钮)
+    </a>
+    <ul>
+        <slot="menucontent">(下拉菜单内容)
+    </ul>
+</li>
+```
+
+### props
+
+参数 | 类型 |  默认值 | 描述
+-|-|-|-
+item-tag | String | li | 下拉菜单标签，默认li，
+nav-item | Boolean | true | 默认li标签有一个class='nav-item',设置为false则没有，默认以nav-item式样呈现下拉菜单。nav-item作用于li标签
+hover | Boolean | false | 鼠标悬浮显示下拉菜单内容，hover作用于li标签，会覆盖所有子菜单hover，这时候会使得所有子菜单包括nav-dropdown本身都会成为鼠标悬浮显示菜单
+direction | String | down | 下拉菜单位置，可选down，left，right，up，none，选择none时li标签没有class='drop*'这个式样，当作为子菜单的时候，即submenu为true的时候，可以选择none（非必须，也可以选择down，left，right，up），子菜单会居右下显示。选择其他li标签会有class='drop*'，direction作用于li标签
+submenu | Boolean | false | 默认不是子菜单，设置为true就是子菜单。可以作为下拉菜单的二级三级四级等菜单。submenu作用于li标签
+item-class | String | | 自定义li标签css式样，item-class作用于li标签
+disabled | Boolean | false | 禁用菜单，disabled作用于a标签
+popup | Boolean | false | aria-haspopup，popup作用于a标签
+id | String | | id，id作用于a标签
+link-class | String | | 自定义a标签css式样，link-class作用于a标签
+link-tag | String | a | 自定义下拉菜单按钮标签，默认a
+dropdown-item | Boolean | false | 默认a标签没有class='dropdown-item'，设置为true则有class='dropdown-item'，设置true，可以用作带有子菜单的二级菜单内的元素。dropdown-item作用于a标签，
+menu-tag | String | ul | 下拉菜单内容标签，默认ul
+menu-class | String | | 自定义css式样，作用于ul标签，可以设置border-0去掉边框
+size | String | | 菜单大小，可选md，lg，xl，作用于ul标签
+menuDirection | 下拉菜单位置，只有direction为up或者down的时候有效，可选right。left，作用于ul标签
+shadow | String | shadow | 菜单阴影，可选shadow，sm，lg，none，作用于ul标签
+
+```html
+<nly-nav-dropdown
+    id="menudropdon1"
+    :popup="true"
+    :dropdown-toggle="true"
+    menu-class="border-0"
+    size="xl"
+>
+    <template slot="linkcontent">
+        测试
+        <i class="fas fa-comments"></i>
+    </template>
+    <template slot="menucontent">
+        <nly-nav-item :nav-item="false" dropdown-item to="/">
+        我是nav-item="false"
+        </nly-nav-item>
+        <nly-nav-item :nav-item="false" dropdown-item to="nav">
+        dropdown-item
+        </nly-nav-item>
+
+        <nly-nav-item :nav-item="false" dropdown-item to="/" disabled>
+        我是disabled
+        </nly-nav-item>
+        <nly-nav-item :nav-item="false" dropdown-item to="nav" append>
+        我是append
+        </nly-nav-item>
+
+        <nly-nav-dropdown
+        id="menudropdon2"
+        hover
+        :nav-item="false"
+        submenu
+        :nav-link="false"
+        dropdown-item
+        dropdown-toggle
+        size="lg"
+        direction="none"
+        >
+        <template slot="linkcontent">
+            我是悬浮菜单
+            <i class="fas fa-comments"></i>
+        </template>
+        <template slot="menucontent">
+            <nly-nav-item
+            :nav-item="false"
+            dropdown-item
+            :to="{ name: 'button' }"
+            >
+            我是nav-item="false"
+            </nly-nav-item>
+            <nly-nav-item :nav-item="false" dropdown-item>
+            dropdown-item
+            </nly-nav-item>
+
+            <nly-nav-dropdown
+            :nav-item="false"
+            submenu
+            :nav-link="false"
+            dropdown-item
+            dropdown-toggle
+            direction="none"
+            id="menudropdon3"
+            >
+            <template slot="linkcontent">
+                我是三级
+                <i class="fas fa-comments"></i>
+            </template>
+            <template slot="menucontent">
+                <nly-nav-item
+                :nav-item="false"
+                dropdown-item
+                :to="{ name: 'button' }"
+                >
+                我是nav-item="false"
+                </nly-nav-item>
+                <nly-nav-item :nav-item="false" dropdown-item>
+                dropdown-item
+                </nly-nav-item>
+            </template>
+            </nly-nav-dropdown>
+        </template>
+        </nly-nav-dropdown>
+    </template>
+</nly-nav-dropdown>
+```
