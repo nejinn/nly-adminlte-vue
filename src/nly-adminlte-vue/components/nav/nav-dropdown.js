@@ -175,7 +175,10 @@ export const NlyNavDropdown = Vue.extend({
     },
     customMenuDirection: function() {
       if (this.direction == "down" || this.direction == "up") {
-        return nlyGetOptionsByKeyEqual(menuDirectionOptions, this.direction);
+        return nlyGetOptionsByKeyEqual(
+          menuDirectionOptions,
+          this.menuDirection
+        );
       } else {
         return "";
       }

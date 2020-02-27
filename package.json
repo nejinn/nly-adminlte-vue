@@ -11,6 +11,8 @@
   "dependencies": {
     "@popperjs/core": "^2.0.6",
     "core-js": "^3.6.4",
+    "overlayscrollbars": "^1.10.3",
+    "overlayscrollbars-vue": "^0.2.1",
     "vue": "^2.6.11",
     "vue-functional-data-merge": "^3.1.0",
     "vue-router": "^3.1.5"

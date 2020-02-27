@@ -8,168 +8,188 @@
     wrapper-class="XXXX"
     container-class="zzz"
   >
-    <nly-navbar header expand>
-      <nly-navbar-nav>
-        <nly-navbar-brand navbar-brand-class="xxx">
-          <nly-navbar-brandimg
-            :src="logo"
-            circle
-            elevation
-            navbarBrandimgClass="xxx"
-          />
-          <nly-navbar-brandtext>
-            AdminLTE
-          </nly-navbar-brandtext>
-        </nly-navbar-brand>
+    <nly-navbar variant="info" navbar-class="xxx" expand="md" header>
+      <nly-navbar-toggle target="aaa" navbar-class="order-1" />
 
-        <li class="nav-item">
-          <a class="nav-link" data-widget="pushmenu" href="#"
-            ><i class="fas fa-bars"></i
-          ></a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="index3.html" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">Contact</a>
-        </li>
-      </nly-navbar-nav>
+      <nly-collapse is-nav id="aaa" collapse-class="order-3" appear>
+        <nly-navbar-nav class="xxxxx">
+          <nly-nav-item active class="xxx" :to="{ name: 'collapse' }">
+            home
+          </nly-nav-item>
 
-      <form class="form-inline ml-3">
-        <div class="input-group input-group-sm">
-          <input
-            class="form-control form-control-navbar"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <div class="input-group-append">
-            <button class="btn btn-navbar" type="submit">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </div>
-      </form>
+          <nly-nav-item disabled>
+            home
+          </nly-nav-item>
 
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#">
-            <i class="far fa-comments"></i>
-            <span class="badge badge-danger navbar-badge">3</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <a href="#" class="dropdown-item">
-              <div class="media">
-                <img
-                  src="dist/img/user1-128x128.jpg"
-                  alt="User Avatar"
-                  class="img-size-50 mr-3 img-circle"
-                />
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    Brad Diesel
-                    <span class="float-right text-sm text-danger"
-                      ><i class="fas fa-star"></i
-                    ></span>
-                  </h3>
-                  <p class="text-sm">Call me whenever you can...</p>
-                  <p class="text-sm text-muted">
-                    <i class="far fa-clock mr-1"></i> 4 Hours Ago
-                  </p>
-                </div>
-              </div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <div class="media">
-                <img
-                  src="dist/img/user8-128x128.jpg"
-                  alt="User Avatar"
-                  class="img-size-50 img-circle mr-3"
-                />
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    John Pierce
-                    <span class="float-right text-sm text-muted"
-                      ><i class="fas fa-star"></i
-                    ></span>
-                  </h3>
-                  <p class="text-sm">I got your message bro</p>
-                  <p class="text-sm text-muted">
-                    <i class="far fa-clock mr-1"></i> 4 Hours Ago
-                  </p>
-                </div>
-              </div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <div class="media">
-                <img
-                  src="dist/img/user3-128x128.jpg"
-                  alt="User Avatar"
-                  class="img-size-50 img-circle mr-3"
-                />
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    Nora Silvester
-                    <span class="float-right text-sm text-warning"
-                      ><i class="fas fa-star"></i
-                    ></span>
-                  </h3>
-                  <p class="text-sm">The subject goes here</p>
-                  <p class="text-sm text-muted">
-                    <i class="far fa-clock mr-1"></i> 4 Hours Ago
-                  </p>
-                </div>
-              </div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer"
-              >See All Messages</a
-            >
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#">
+          <nly-nav-item>
+            home
+          </nly-nav-item>
+
+          <nly-nav-dropdown
+            id="menudropdon1"
+            :popup="true"
+            :dropdown-toggle="true"
+            menu-class="border-0"
+            size="xl"
+          >
+            <template slot="linkcontent">
+              测试
+              <i class="fas fa-comments"></i>
+            </template>
+            <template slot="menucontent">
+              <nly-nav-item :nav-item="false" dropdown-item to="/">
+                我是nav-item="false"
+              </nly-nav-item>
+              <nly-nav-item :nav-item="false" dropdown-item to="nav">
+                dropdown-item
+              </nly-nav-item>
+
+              <nly-nav-item :nav-item="false" dropdown-item to="/" disabled>
+                我是disabled
+              </nly-nav-item>
+              <nly-nav-item :nav-item="false" dropdown-item to="nav" append>
+                我是append
+              </nly-nav-item>
+
+              <nly-nav-dropdown
+                id="menudropdon2"
+                hover
+                :nav-item="false"
+                submenu
+                :nav-link="false"
+                dropdown-item
+                dropdown-toggle
+                size="lg"
+                direction="none"
+              >
+                <template slot="linkcontent">
+                  我是悬浮菜单
+                  <i class="fas fa-comments"></i>
+                </template>
+                <template slot="menucontent">
+                  <nly-nav-item
+                    :nav-item="false"
+                    dropdown-item
+                    :to="{ name: 'button' }"
+                  >
+                    我是nav-item="false"
+                  </nly-nav-item>
+                  <nly-nav-item :nav-item="false" dropdown-item>
+                    dropdown-item
+                  </nly-nav-item>
+
+                  <nly-nav-dropdown
+                    :nav-item="false"
+                    submenu
+                    :nav-link="false"
+                    dropdown-item
+                    dropdown-toggle
+                    direction="none"
+                    id="menudropdon3"
+                  >
+                    <template slot="linkcontent">
+                      我是三级
+                      <i class="fas fa-comments"></i>
+                    </template>
+                    <template slot="menucontent">
+                      <nly-nav-item
+                        :nav-item="false"
+                        dropdown-item
+                        :to="{ name: 'button' }"
+                      >
+                        我是nav-item="false"
+                      </nly-nav-item>
+                      <nly-nav-item :nav-item="false" dropdown-item>
+                        dropdown-item
+                      </nly-nav-item>
+                    </template>
+                  </nly-nav-dropdown>
+                </template>
+              </nly-nav-dropdown>
+            </template>
+          </nly-nav-dropdown>
+
+          <nly-nav-dropdown
+            :popup="true"
+            :dropdown-toggle="true"
+            menu-class="border-0"
+            size="xl"
+            hover
+          >
+            <template slot="linkcontent">
+              我是悬浮菜单
+            </template>
+            <template slot="menucontent">
+              <nly-nav-item :nav-item="false" dropdown-item to="/">
+                我是nav-item="false"
+              </nly-nav-item>
+              <nly-nav-item :nav-item="false" dropdown-item to="nav">
+                dropdown-item
+              </nly-nav-item>
+            </template>
+          </nly-nav-dropdown>
+        </nly-navbar-nav>
+      </nly-collapse>
+      <nly-navbar-nav class="order-1 order-md-3 navbar-no-expand ml-auto">
+        <nly-nav-dropdown
+          :popup="true"
+          menu-class="border-0"
+          size="lg"
+          menu-direction="right"
+        >
+          <template slot="linkcontent">
+            <i class="fas fa-comments"></i>
+          </template>
+          <template slot="menucontent">
+            <nly-nav-item :nav-item="false" dropdown-item to="/">
+              我是nav-item="false"
+            </nly-nav-item>
+            <nly-nav-item :nav-item="false" dropdown-item to="nav">
+              dropdown-item
+            </nly-nav-item>
+          </template>
+        </nly-nav-dropdown>
+
+        <nly-nav-dropdown
+          :popup="true"
+          menu-class="border-0"
+          size="lg"
+          menu-direction="right"
+        >
+          <template slot="linkcontent">
             <i class="far fa-bell"></i>
-            <span class="badge badge-warning navbar-badge">15</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <span class="dropdown-item dropdown-header">15 Notifications</span>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-envelope mr-2"></i> 4 new messages
-              <span class="float-right text-muted text-sm">3 mins</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-users mr-2"></i> 8 friend requests
-              <span class="float-right text-muted text-sm">12 hours</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-file mr-2"></i> 3 new reports
-              <span class="float-right text-muted text-sm">2 days</span>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer"
-              >See All Notifications</a
-            >
-          </div>
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            data-widget="control-sidebar"
-            data-slide="true"
-            href="#"
-            ><i class="fas fa-th-large"></i
-          ></a>
-        </li>
-      </ul>
+          </template>
+          <template slot="menucontent">
+            <nly-nav-item :nav-item="false" dropdown-item to="/">
+              我是nav-item="false"
+            </nly-nav-item>
+            <nly-nav-item :nav-item="false" dropdown-item to="nav">
+              dropdown-item
+            </nly-nav-item>
+          </template>
+        </nly-nav-dropdown>
+
+        <nly-nav-item>
+          <i class="fas fa-th-large"></i>
+        </nly-nav-item>
+      </nly-navbar-nav>
     </nly-navbar>
 
-    <nly-collapse-side variant="light-indigo"> </nly-collapse-side>
+    <nly-sidebar-container>
+      <nly-sidebar-brand to="collapse" :variant="variant">
+        <nly-sidebar-brandimg :src="logo" elevation circle />
+        <nly-sidebar-brandtext>AdminLTE 3</nly-sidebar-brandtext>
+      </nly-sidebar-brand>
+
+      <nly-sidebar>
+        <nly-sidebar-userpanel class="mt-3 pb-3 mb-3 d-flex">
+          <nly-sidebar-userpanel-img :src="logo" class="SSS" />
+          <nly-sidebar-userpanel-info to="collapse">
+            Alexander Pierce
+          </nly-sidebar-userpanel-info>
+        </nly-sidebar-userpanel>
+      </nly-sidebar>
+    </nly-sidebar-container>
     <nly-collapse-main>
       <input type="checkbox" v-model="sideMini" />sideMini
       {{ sideMini }}
@@ -185,6 +205,14 @@
 
       <input type="checkbox" v-model="topNav" />topNav
       {{ topNav }}
+
+      <label for="color">颜色</label>
+      <select id="color" v-model="variant">
+        <option value="info"> info</option>
+        <option value="warning"> warning</option>
+        <option value="danger"> danger</option>
+      </select>
+
       <nly-button-group size="lg" tag="li">
         <nly-button block pressed gradient="danger" size="sm">111</nly-button>
         <nly-button pressed gradient="danger">222</nly-button>
@@ -264,7 +292,8 @@ export default {
       navbarFixed: false,
       footerFixed: false,
       topNav: false,
-      logo
+      logo,
+      variant: ""
     };
   }
 };

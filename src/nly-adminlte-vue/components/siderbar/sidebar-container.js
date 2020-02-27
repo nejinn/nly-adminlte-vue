@@ -1,8 +1,11 @@
-import Vue from "../../../utils/vue";
+import Vue from "../../utils/vue";
 
-import { nlyGetOptionsByValueInclusion } from "../../../utils/get-options";
+import {
+  nlyGetOptionsByValueInclusion,
+  nlyGetOptionsByKeyEqual
+} from "../../utils/get-options";
 
-const name = "NlyCollapseSide";
+const name = "NlySidebarContainer";
 
 const variantOpitons = {
   darkPrimary: "sidebar-dark-primary",
@@ -39,25 +42,46 @@ const variantOpitons = {
   lightOlive: "sidebar-light-olive"
 };
 
-export const NlyCollapseSide = Vue.extend({
+const elevationOptions = {
+  sm: "elevation-1",
+  md: "elevation-2",
+  lg: "elevation-3",
+  xl: "elevation-4"
+};
+
+export const NlySidebarContainer = Vue.extend({
   name: name,
   props: {
     variant: {
       type: String,
       default: "dark-primary"
+    },
+    hover: {
+      type: Boolean,
+      default: true
+    },
+    elevation: {
+      type: String,
+      default: "elevation-4"
     }
   },
   computed: {
-    siderbarVariantClass: function() {
+    customVariant: function() {
       return nlyGetOptionsByValueInclusion(variantOpitons, this.variant);
+    },
+    customHover: function() {
+      return this.hover ? "" : "sidebar-no-expand";
+    },
+    customElevation: function() {
+      return nlyGetOptionsByKeyEqual(elevationOptions, this.elevation);
     }
   },
   render(h) {
     return h(
       "aside",
       {
-        staticClass: "main-sidebar elevation-4",
-        class: [this.siderbarVariantClass]
+        staticClass: "main-sidebar",
+        class: [this.customVariant, this.customElevation, this.customHover]
       },
       this.$slots.default
     );

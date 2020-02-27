@@ -9,6 +9,7 @@ import { rowPlugin } from "./components/layout/grid";
 import { collapsePlugin } from "./components/collapse";
 import { navPlugin } from "./components/nav";
 import { linkPlugin } from "./components/link";
+import { sidebarPlugin } from "./components/siderbar";
 
 import { toggleDirectivePlugin } from "./directives/toggle";
 
@@ -23,7 +24,8 @@ const componentPlugins = Object.assign(
   rowPlugin,
   collapsePlugin,
   navPlugin,
-  linkPlugin
+  linkPlugin,
+  sidebarPlugin
 );
 
 const directivePlugins = Object.assign(toggleDirectivePlugin);
