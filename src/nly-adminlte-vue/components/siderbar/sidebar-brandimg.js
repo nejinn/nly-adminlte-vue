@@ -1,15 +1,15 @@
 import Vue from "../../utils/vue";
 
-const name = "NlyNavbarBrandimg";
+const name = "NlySidebarBrandimg";
 
-export const NlyNavbarBrandimg = Vue.extend({
+export const NlySidebarBrandimg = Vue.extend({
   name: name,
   props: {
     src: {
       type: String,
       required: true
     },
-    navbarBrandimgClass: {
+    sidebarBrandimgClass: {
       type: String
     },
     alt: {
@@ -28,8 +28,8 @@ export const NlyNavbarBrandimg = Vue.extend({
     customSrc: function() {
       return this.src;
     },
-    customNavbarBrandimgClass: function() {
-      return this.navbarBrandimgClass;
+    customSidebarBrandimgClass: function() {
+      return this.sidebarBrandimgClass;
     },
     customCircle: function() {
       return this.circle ? "img-circle" : "";
@@ -50,14 +50,13 @@ export const NlyNavbarBrandimg = Vue.extend({
           src: this.customSrc
         },
         style: {
-          opacity: 0.8,
-          height: "33px"
+          opacity: 0.8
         },
         staticClass: "brand-image",
         class: [
           this.customCircle,
           this.customElevation,
-          this.customNavbarBrandimgClass
+          this.customSidebarBrandimgClass
         ]
       },
       this.$slots.default

@@ -120,7 +120,7 @@ dropdown-item | Boolean | false | 默认a标签没有class='dropdown-item'，设
 menu-tag | String | ul | 下拉菜单内容标签，默认ul
 menu-class | String | | 自定义css式样，作用于ul标签，可以设置border-0去掉边框
 size | String | | 菜单大小，可选md，lg，xl，作用于ul标签
-menuDirection | String | |下拉菜单位置，只有direction为up或者down的时候有效，可选right。left，作用于ul标签
+menu-direction | String | |下拉菜单位置，只有direction为up或者down的时候有效，可选right。left，作用于ul标签
 shadow | String | shadow | 菜单阴影，可选shadow，sm，lg，none，作用于ul标签
 
 ### 1.3.2. slots

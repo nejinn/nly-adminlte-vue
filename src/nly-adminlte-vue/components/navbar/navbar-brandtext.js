@@ -1,5 +1,4 @@
 import Vue from "../../utils/vue";
-
 const name = "NlyNavbarBrandtext";
 
 export const NlyNavbarBrandtext = Vue.extend({
