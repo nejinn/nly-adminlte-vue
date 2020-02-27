@@ -1,12 +1,24 @@
-# nav
+# 1. nav
+<!-- TOC -->
+
+- [1. nav](#1-nav)
+    - [1.1. nly-nav](#11-nly-nav)
+        - [1.1.1. props](#111-props)
+    - [1.2. nly-nav-item](#12-nly-nav-item)
+        - [1.2.1. props](#121-props)
+            - [1.2.1.1. demo](#1211-demo)
+    - [1.3. nly-nav-dropdown](#13-nly-nav-dropdown)
+        - [1.3.1. props](#131-props)
+            - [1.3.1.1. demo](#1311-demo)
+
+<!-- /TOC -->
+>导航
+
+## 1.1. nly-nav
 
 >导航
 
-## nly-nav
-
->导航
-
-### props
+### 1.1.1. props
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
@@ -21,12 +33,12 @@ vertical | Boolean | false | 垂直
 small | Boolean | false | 小字体
 card-header | Boolean | false | 放在卡片中时，可以设置为true,就会变成卡片头部
 
-## nly-nav-item
+## 1.2. nly-nav-item
 
 >导航item元素
 >nly-nav-item中封装了一个nly-link，默认a标签
 
-### props
+### 1.2.1. props
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
@@ -48,7 +60,7 @@ link-classes | String or Object or Array |  | 自定义自定义封装在nly-nav
 nav-item | Boolean | true | 默认会有class='nav-item'，设置为false则没有class='nav-item'
 dropdown-item | Boolean | false | 默认false，中间封装的nly-link会有class='nav-link，设置为true，则会变成class='dropdown-item'
 
-#### demo
+#### 1.2.1.1. demo
 
 ```html
 <nly-nav-item active class="xxx" :to="{ name: 'collapse' }">
@@ -72,7 +84,7 @@ dropdown-item | Boolean | false | 默认false，中间封装的nly-link会有cla
 </nly-nav-dropdown>
 ```
 
-## nly-nav-dropdown
+## 1.3. nly-nav-dropdown
 
 >导航下拉菜单
 >nly-nav-dropdown中封装了一个a标签，nly-nav-dropdown渲染出来如下：
@@ -88,7 +100,7 @@ dropdown-item | Boolean | false | 默认false，中间封装的nly-link会有cla
 </li>
 ```
 
-### props
+### 1.3.1. props
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
@@ -107,8 +119,10 @@ dropdown-item | Boolean | false | 默认a标签没有class='dropdown-item'，设
 menu-tag | String | ul | 下拉菜单内容标签，默认ul
 menu-class | String | | 自定义css式样，作用于ul标签，可以设置border-0去掉边框
 size | String | | 菜单大小，可选md，lg，xl，作用于ul标签
-menuDirection | 下拉菜单位置，只有direction为up或者down的时候有效，可选right。left，作用于ul标签
+menuDirection | String | |下拉菜单位置，只有direction为up或者down的时候有效，可选right。left，作用于ul标签
 shadow | String | shadow | 菜单阴影，可选shadow，sm，lg，none，作用于ul标签
+
+#### 1.3.1.1. demo
 
 ```html
 <nly-nav-dropdown
