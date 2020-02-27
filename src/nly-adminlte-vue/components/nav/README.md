@@ -9,6 +9,7 @@
             - [1.2.1.1. demo](#1211-demo)
     - [1.3. nly-nav-dropdown](#13-nly-nav-dropdown)
         - [1.3.1. props](#131-props)
+        - [slots](#slots)
             - [1.3.1.1. demo](#1311-demo)
 
 <!-- /TOC -->
@@ -121,6 +122,13 @@ menu-class | String | | 自定义css式样，作用于ul标签，可以设置bor
 size | String | | 菜单大小，可选md，lg，xl，作用于ul标签
 menuDirection | String | |下拉菜单位置，只有direction为up或者down的时候有效，可选right。left，作用于ul标签
 shadow | String | shadow | 菜单阴影，可选shadow，sm，lg，none，作用于ul标签
+
+### slots
+
+参数 | 描述
+-|-
+linkcontent | a标签中的插槽
+menucontent | 菜单里的插槽
 
 #### 1.3.1.1. demo
 
