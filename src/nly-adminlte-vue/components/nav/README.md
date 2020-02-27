@@ -127,8 +127,8 @@ shadow | String | shadow | 菜单阴影，可选shadow，sm，lg，none，作用
 
 参数 | 描述
 -|-
-linkcontent | a标签中的插槽
-menucontent | 菜单里的插槽
+linkcontent | a标签，按钮中的插槽
+menucontent | ul标签，菜单里的插槽
 
 #### 1.3.2.1. demo
 
