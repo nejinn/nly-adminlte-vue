@@ -25,8 +25,7 @@ export const NlySidebar = Vue.extend({
       {
         staticClass: "sidebar",
         props: {
-          options: { scrollbars: { autoHide: "scroll" } },
-          extensions: ["extensionA", "extensionB"]
+          options: { scrollbars: { autoHide: "scroll" } }
         }
       },
       this.$slots.default

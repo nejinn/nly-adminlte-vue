@@ -1,7 +1,6 @@
 import Vue from "../../utils/vue";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
 import { NlyLink, propsFactory as linkPropsFactory } from "../link/link";
-// import { mergeData } from "vue-functional-data-merge";
 
 export const props = linkPropsFactory();
 

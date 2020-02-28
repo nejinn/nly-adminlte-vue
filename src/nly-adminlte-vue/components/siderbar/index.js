@@ -6,6 +6,9 @@ import { NlySidebar } from "./sidebar";
 import { NlySidebarUserpanel } from "./sidebar-userpanel";
 import { NlySidebarUserpanelImg } from "./sidebar-userpanel-img";
 import { NlySidebarUserpanelInfo } from "./sidebar-userpanel-info";
+import { NlySidebarNav } from "./sidebar-nav";
+import { NlySidebarNavItem } from "./sidebar-nav-item";
+import { NlySidebarNavTree } from "./sidebar-nav-tree";
 
 const sidebarPlugin = {
   NlySidebarContainer: NlySidebarContainer,
@@ -15,7 +18,10 @@ const sidebarPlugin = {
   NlySidebar: NlySidebar,
   NlySidebarUserpanel: NlySidebarUserpanel,
   NlySidebarUserpanelImg: NlySidebarUserpanelImg,
-  NlySidebarUserpanelInfo: NlySidebarUserpanelInfo
+  NlySidebarUserpanelInfo: NlySidebarUserpanelInfo,
+  NlySidebarNav: NlySidebarNav,
+  NlySidebarNavItem: NlySidebarNavItem,
+  NlySidebarNavTree: NlySidebarNavTree
 };
 
 export {
@@ -27,5 +33,8 @@ export {
   NlySidebar,
   NlySidebarUserpanel,
   NlySidebarUserpanelImg,
-  NlySidebarUserpanelInfo
+  NlySidebarUserpanelInfo,
+  NlySidebarNav,
+  NlySidebarNavItem,
+  NlySidebarNavTree
 };
