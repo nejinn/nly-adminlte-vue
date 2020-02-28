@@ -137,3 +137,13 @@ menu-class | String |  | 下拉部分菜单自定义css式样，即ul标签自�
 -|-
 link | 下拉菜单元素插槽，文字内容
 default | 下拉菜单下拉部分内容
+
+## nly-sidebar-nav-header
+
+>左侧导航栏导航title
+
+### props
+
+参数 | 类型 |  默认值 | 描述
+-|-|-|-
+tag | String | li | 标签
