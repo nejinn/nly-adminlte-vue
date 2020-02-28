@@ -17,42 +17,44 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: index
-  },
-  {
-    path: "/container",
-    name: "container",
-    component: container
-  },
-  {
-    path: "/grid",
-    name: "grid",
-    component: grid
-  },
-  {
-    path: "/navbar",
-    name: "navbar",
-    component: navbar
-  },
-  {
-    path: "/nav",
-    name: "nav",
-    component: nav
-  },
-  {
-    path: "/collapse",
-    name: "collapse",
-    component: collapse
-  },
-  {
-    path: "/link",
-    name: "link",
-    component: link
-  },
-  {
-    path: "/button",
-    name: "button",
-    component: button
+    component: index,
+    children: [
+      {
+        path: "/container",
+        name: "container",
+        component: container
+      },
+      {
+        path: "/grid",
+        name: "grid",
+        component: grid
+      },
+      {
+        path: "/navbar",
+        name: "navbar",
+        component: navbar
+      },
+      {
+        path: "/nav",
+        name: "nav",
+        component: nav
+      },
+      {
+        path: "/collapse",
+        name: "collapse",
+        component: collapse
+      },
+      {
+        path: "/link",
+        name: "link",
+        component: link
+      },
+      {
+        path: "/button",
+        name: "button",
+        component: button
+      }
+    ]
   }
 ];
 

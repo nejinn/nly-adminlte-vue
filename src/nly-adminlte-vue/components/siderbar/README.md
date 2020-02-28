@@ -64,3 +64,75 @@ img-class | String | 无 | 自定义css式样
 alt | String | 无 | alt
 circle | Boolean | false | 默认方形，设置true圆形
 elevation | String | md | 阴影，可选，sm，md，lg，xl。其余依次增大
+
+## nly-sidebar-nav
+
+### props
+
+参数 | 类型 |  默认值 | 描述
+-|-|-|-
+shape | String | 无 | 导航形状，可选pill，flat，legacy，compact
+childIndent | Boolean | false | 子菜单缩进，默认与一级菜单齐平
+size | String | 无 | 文字大小，可选sm，lg
+sidebar-nav-class | String |  | 自定义ul标签css式样
+role | String | menu | role
+
+## nly-sidebar-nav-item
+
+>菜单元素
+
+### props
+
+参数 | 类型 |  默认值 | 描述
+-|-|-|-
+href | String | 无 | 路由，非router-link跳转
+link-target | String | _self | target
+active | Boolean | false | 当前元素激活状态
+disabled | Boolean | false |  禁用状态
+to | String |  | router-link路由
+append | String |  | router-link路由,将跳转路由添加到当前路由后面再跳转，详情请查看nly-link文档
+exact | Boolean | false |  自动匹配当前路由，如果和当前元素跳转的路由相同，也就是href和to的路由相同，则自动激活exact-active-class
+exact-active-class | String | active | 默认active
+link-class | String |  | 菜单元素自定义css式样
+icon | String |  | 菜单icon
+
+## nly-sidebar-nav-tree
+
+>下拉菜单元素，默认所有下拉菜单为手风琴模式，如需关闭，请给每个下拉菜单设置accordion=null
+
+>如果需要分组手风琴，请给同一组的菜单设置相同的accordion
+
+>请保证target唯一，这是控制手风琴的唯一表示。多个相同，会导致一起展开收起。
+
+>如果有多个target相同，请勿设置visible=true，会导致浏览器崩溃
+
+> 由于overlayscrollbars的原因，下拉菜单动画只有在body class有layout-fixed的时候生效
+
+### props
+
+参数 | 类型 |  默认值 | 描述
+-|-|-|-
+label | String | nly sidebar navigation | aria-label
+target | String |  | 必填，一般情况下请保证target唯一
+link-class | String |  | 下拉菜单元素自定义css式样
+href | String | 无 | 路由，非router-link跳转，一般不建议使用，会导致页面跳转
+link-target | String | _self | target
+active | Boolean | false | 当前元素激活状态
+disabled | Boolean | false |  禁用状态
+to | String |  | router-link路由，一般不建议使用，会导致页面跳转
+append | String |  | router-link路由,将跳转路由添加到当前路由后面再跳转，详情请查看nly-link文档
+exact | Boolean | false | 自动匹配当前路由，如果和当前元素跳转的路由相同，也就是href和to的路由相同，则自动激活exact-active-class
+exact-active-class | String | active | 默认active
+icon | String |  | 菜单icon
+accordion | String | nly-accordion | 手风琴分组，默认所有下拉菜单为手风琴模式，如需关闭，请给每个下拉菜单设置accordion=null，如果需要分组手风琴，请给同一组的菜单设置相同的accordion
+visible | Boolean | false |  菜单是否展开，默认收起
+tag | String | ul | 下拉部分菜单标签
+appear | Boolean | false |  初始化动画，默认无
+menu-class | String |  | 下拉部分菜单自定义css式样，即ul标签自定义css class
+
+### slot 插槽
+
+参数 | 描述
+-|-
+link | 下拉菜单元素插槽，文字内容
+defaut | 下拉菜单下拉部分内容

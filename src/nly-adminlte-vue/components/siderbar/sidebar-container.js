@@ -62,7 +62,7 @@ export const NlySidebarContainer = Vue.extend({
     },
     elevation: {
       type: String,
-      default: "elevation-4"
+      default: "xl"
     }
   },
   computed: {
