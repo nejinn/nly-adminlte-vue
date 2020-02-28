@@ -106,7 +106,8 @@ icon | String |  | 菜单icon
 
 >如果有多个target相同，请勿设置visible=true，会导致浏览器崩溃
 
-> 由于overlayscrollbars的原因，下拉菜单动画只有在body class有layout-fixed的时候生效
+> 由于overlayscrollbars的原因，下拉菜单动画只有在body class有layout-fixed的时候生效。如果不需要overlayscrollbars，请选择其他wrapper组件。由于左右布局默认选择了nly-container-wrapper，会导致这个问题。
+后续修改该bug
 
 ### props
 
@@ -135,4 +136,4 @@ menu-class | String |  | 下拉部分菜单自定义css式样，即ul标签自�
 参数 | 描述
 -|-
 link | 下拉菜单元素插槽，文字内容
-defaut | 下拉菜单下拉部分内容
+default | 下拉菜单下拉部分内容
