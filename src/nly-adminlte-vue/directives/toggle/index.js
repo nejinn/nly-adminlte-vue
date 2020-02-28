@@ -1,7 +1,9 @@
 import { NlyToggle } from "./toggle";
+import { NlySidebarCollapse } from "./sidebar-collapse";
 
 const toggleDirectivePlugin = {
-  NlyToggle: NlyToggle
+  NlyToggle: NlyToggle,
+  NlySidebarCollapse: NlySidebarCollapse
 };
 
 export { toggleDirectivePlugin, NlyToggle };

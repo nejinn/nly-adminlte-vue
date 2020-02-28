@@ -10,6 +10,7 @@ import { collapsePlugin } from "./components/collapse";
 import { navPlugin } from "./components/nav";
 import { linkPlugin } from "./components/link";
 import { sidebarPlugin } from "./components/siderbar";
+import { overlayPlugin } from "./components/overlay";
 
 import { toggleDirectivePlugin } from "./directives/toggle";
 
@@ -25,7 +26,8 @@ const componentPlugins = Object.assign(
   collapsePlugin,
   navPlugin,
   linkPlugin,
-  sidebarPlugin
+  sidebarPlugin,
+  overlayPlugin
 );
 
 const directivePlugins = Object.assign(toggleDirectivePlugin);

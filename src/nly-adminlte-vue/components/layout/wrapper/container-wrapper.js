@@ -74,8 +74,8 @@ export const NlyContainerWrapper = Vue.extend({
             document.body.classList.add("sidebar-collapse");
           }
         } else {
-          if (bodyClassName.indexOf("sidebar-collapse") != -1) {
-            document.body.classList.remove("sidebar-collapse");
+          if (bodyClassName.indexOf("sidebar-open") !== -1) {
+            document.body.classList.remove("sidebar-open");
           }
         }
       }

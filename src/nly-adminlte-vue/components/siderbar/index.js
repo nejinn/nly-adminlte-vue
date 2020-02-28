@@ -9,6 +9,7 @@ import { NlySidebarUserpanelInfo } from "./sidebar-userpanel-info";
 import { NlySidebarNav } from "./sidebar-nav";
 import { NlySidebarNavItem } from "./sidebar-nav-item";
 import { NlySidebarNavTree } from "./sidebar-nav-tree";
+import { NlySidebarNavHeader } from "./sidebar-nav-header";
 
 const sidebarPlugin = {
   NlySidebarContainer: NlySidebarContainer,
@@ -21,7 +22,8 @@ const sidebarPlugin = {
   NlySidebarUserpanelInfo: NlySidebarUserpanelInfo,
   NlySidebarNav: NlySidebarNav,
   NlySidebarNavItem: NlySidebarNavItem,
-  NlySidebarNavTree: NlySidebarNavTree
+  NlySidebarNavTree: NlySidebarNavTree,
+  NlySidebarNavHeader: NlySidebarNavHeader
 };
 
 export {
@@ -36,5 +38,6 @@ export {
   NlySidebarUserpanelInfo,
   NlySidebarNav,
   NlySidebarNavItem,
-  NlySidebarNavTree
+  NlySidebarNavTree,
+  NlySidebarNavHeader
 };
