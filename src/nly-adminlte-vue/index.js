@@ -11,8 +11,10 @@ import { navPlugin } from "./components/nav";
 import { linkPlugin } from "./components/link";
 import { sidebarPlugin } from "./components/siderbar";
 import { overlayPlugin } from "./components/overlay";
+import { controlSidebarPlugin } from "./components/controlsidebar";
 
 import { toggleDirectivePlugin } from "./directives/toggle";
+import { collapseSidebarDirectivePlugin } from "./directives/sidebarcollapse";
 
 const componentPlugins = Object.assign(
   collapseSidebarPlugin,
@@ -27,10 +29,14 @@ const componentPlugins = Object.assign(
   navPlugin,
   linkPlugin,
   sidebarPlugin,
-  overlayPlugin
+  overlayPlugin,
+  controlSidebarPlugin
 );
 
-const directivePlugins = Object.assign(toggleDirectivePlugin);
+const directivePlugins = Object.assign(
+  toggleDirectivePlugin,
+  collapseSidebarDirectivePlugin
+);
 
 export const registerComponent = (Vue, name, def) => {
   if (Vue && name && def) {

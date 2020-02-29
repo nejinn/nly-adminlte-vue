@@ -4,7 +4,7 @@
 
 ## nly-sidebar-container
 
-> 左侧导航栏， 收起成只有icon的导航栏，需要body中有class='sidebar-mini sidebar-collapse'，如果只有sidebar-collapse，则会将左侧导航栏滑到左侧区域外，不可见。sidebar-collapse用来控制左侧导航栏展开收缩。sidebar-mini允许左侧导航栏收起到只有图标的状态
+> 左侧导航栏容器， 收起成只有icon的导航栏，需要body中有class='sidebar-mini sidebar-collapse'，如果只有sidebar-collapse，则会将左侧导航栏滑到左侧区域外，不可见。sidebar-collapse用来控制左侧导航栏展开收缩。sidebar-mini允许左侧导航栏收起到只有图标的状态
 
 ### props
 
@@ -46,6 +46,14 @@ elevation | String | 无 | 阴影，默认无阴影，可选，sm，md，lg，xl
 
 
 ## nly-sidebar
+
+> 左侧菜单栏
+
+### props
+
+参数 | 类型 |  默认值 | 描述
+-|-|-|-
+scrollbar | Boolean | true | 是否overlayscrollbars组件。默认开启，此组件是一个滚动条组件，可以使滚动条出现时不挤压其他容器位置
 
 
 ## nly-sidebar-userpanel

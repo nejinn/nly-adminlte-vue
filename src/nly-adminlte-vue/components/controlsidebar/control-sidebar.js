@@ -1,10 +1,11 @@
 import Vue from "../../utils/vue";
+// import { hasClass } from "../../utils/dom";
 import "overlayscrollbars/css/OverlayScrollbars.css";
 import { OverlayScrollbarsComponent } from "overlayscrollbars-vue";
 
-const name = "NlySidebar";
+const name = "NlyControlSidebar";
 
-export const NlySidebar = Vue.extend({
+export const NlyControlSidebar = Vue.extend({
   name: name,
   props: {
     scrollbar: {
@@ -12,6 +13,13 @@ export const NlySidebar = Vue.extend({
       default: true
     }
   },
+  // methods: {
+  //   getScrollbars() {
+  //     if (hasClass(document.body, "layout-fixed")) {
+  //       return "h";
+  //     }
+  //   }
+  // },
   computed: {
     customScrollbar: function() {
       return this.scrollbar;
@@ -21,7 +29,7 @@ export const NlySidebar = Vue.extend({
     const scrollbarArray = h(
       OverlayScrollbarsComponent,
       {
-        staticClass: "sidebar",
+        staticClass: "control-sidebar-content",
         props: {
           options: { scrollbars: { autoHide: "scroll" } }
         }
@@ -32,7 +40,7 @@ export const NlySidebar = Vue.extend({
     const unscrollbarArray = h(
       "div",
       {
-        staticClass: "sidebar"
+        staticClass: "control-sidebar-content"
       },
       this.$slots.default
     );
