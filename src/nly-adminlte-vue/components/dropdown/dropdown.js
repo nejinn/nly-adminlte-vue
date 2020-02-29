@@ -10,31 +10,12 @@ import {
   nlyDropdownId,
   nlyDropdownMenuId
 } from "../../utils/mixin-id";
+import {
+  btnGroupSizeOptions,
+  dropdownPlacementOptions
+} from "../../utils/nly-config";
 
 const name = "NlyDropdown";
-
-const sizeOptions = {
-  sm: "btn-group-sm",
-  lg: "btn-group-lg"
-};
-
-const placementOptions = [
-  "auto",
-  "auto-start",
-  "auto-end",
-  "top",
-  "top-start",
-  "top-end",
-  "bottom",
-  "bottom-start",
-  "bottom-end",
-  "right",
-  "right-start",
-  "right-end",
-  "left",
-  "left-start",
-  "left-end"
-];
 
 export const NlyDropdown = Vue.extend({
   name: name,
@@ -95,7 +76,7 @@ export const NlyDropdown = Vue.extend({
       return this.vertical ? "btn-group-vertical" : "btn-group";
     },
     customDropdownSize: function() {
-      return nlyGetOptionsByKeyEqual(sizeOptions, this.dropdownSize);
+      return nlyGetOptionsByKeyEqual(btnGroupSizeOptions, this.dropdownSize);
     },
     customDropdownToggle: function() {
       return this.dropdownToggle ? "dropdown-toggle" : "";
@@ -129,7 +110,7 @@ export const NlyDropdown = Vue.extend({
       return nlyDropdownMenuId(this.dataShow);
     },
     customPlacement: function() {
-      return nlyGetOptionsByItem(placementOptions, this.placement);
+      return nlyGetOptionsByItem(dropdownPlacementOptions, this.placement);
     }
   },
   methods: {
@@ -262,7 +243,7 @@ export const NlyDropdown = Vue.extend({
           id: this.customDropdownParentId
         }
       },
-      [hoverArray, this.$slots.default]
+      [this.$slots.default, hoverArray]
     );
   }
 });

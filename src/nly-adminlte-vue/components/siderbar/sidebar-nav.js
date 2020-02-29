@@ -1,21 +1,8 @@
 import Vue from "../../utils/vue";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
+import { sizeOptions, sidebarNavShapeOptions } from "../../utils/nly-config";
 
 const name = "NlySidebarNav";
-
-const shapeOptions = {
-  pill: "nav-pills",
-  flat: "nav-flat",
-  legacy: "nav-legacy",
-  compact: "nav-compact"
-};
-
-// nav-child-indent
-
-const sizeOptions = {
-  sm: "text-sm",
-  lg: "text-lg"
-};
 
 export const NlySidebarNav = Vue.extend({
   name: name,
@@ -40,7 +27,7 @@ export const NlySidebarNav = Vue.extend({
   },
   computed: {
     customShape: function() {
-      return nlyGetOptionsByKeyEqual(shapeOptions, this.shape);
+      return nlyGetOptionsByKeyEqual(sidebarNavShapeOptions, this.shape);
     },
     customChildIndent: function() {
       return this.childIndent ? "nav-child-indent" : "";

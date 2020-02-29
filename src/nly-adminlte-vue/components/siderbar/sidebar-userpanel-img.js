@@ -1,14 +1,8 @@
 import Vue from "../../utils/vue";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
+import { sidebarElevationOptions } from "../../utils/nly-config";
 
 const name = "NlySidebarUserpanelImg";
-
-const elevationOptions = {
-  sm: "elevation-1",
-  md: "elevation-2",
-  lg: "elevation-3",
-  xl: "elevation-4"
-};
 
 export const NlySidebarUserpanelImg = Vue.extend({
   name: name,
@@ -40,7 +34,7 @@ export const NlySidebarUserpanelImg = Vue.extend({
       return this.circle ? "img-circle" : "";
     },
     customElevation: function() {
-      return nlyGetOptionsByKeyEqual(elevationOptions, this.elevation);
+      return nlyGetOptionsByKeyEqual(sidebarElevationOptions, this.elevation);
     },
     customAlt: function() {
       return this.alt;

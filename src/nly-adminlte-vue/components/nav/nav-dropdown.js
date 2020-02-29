@@ -2,34 +2,14 @@ import Vue from "../../utils/vue";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
 import { nlyDropdownId } from "../../utils/mixin-id";
 import { isEvent } from "../../utils/inspect";
+import {
+  navDropdownDirectionOptions,
+  navDropdownSizeOptions,
+  navDropdownMenuDirectionOptions,
+  navDropdownShadowOptions
+} from "../../utils/nly-config";
 
 const name = "NlyNavDropdown";
-
-const directionOptions = {
-  down: "dropdown",
-  left: "dropleft",
-  right: "dropright",
-  up: "dropup",
-  none: ""
-};
-
-const sizeOptions = {
-  md: "dropdown-menu-md",
-  lg: "dropdown-menu-lg",
-  xl: "dropdown-menu-xl"
-};
-
-const menuDirectionOptions = {
-  right: "dropdown-menu-right",
-  left: "dropdown-menu-left"
-};
-
-const shadowOptions = {
-  shadow: "shadow",
-  sm: "shadow-sm",
-  lg: "shadow-lg",
-  none: "shadow-none"
-};
 
 export const NlyNavDropdown = Vue.extend({
   name: name,
@@ -147,7 +127,10 @@ export const NlyNavDropdown = Vue.extend({
       return this.submenu ? "dropdown-submenu" : false;
     },
     customDirection: function() {
-      return nlyGetOptionsByKeyEqual(directionOptions, this.direction);
+      return nlyGetOptionsByKeyEqual(
+        navDropdownDirectionOptions,
+        this.direction
+      );
     },
     customItemClass: function() {
       return this.itemClass;
@@ -171,12 +154,12 @@ export const NlyNavDropdown = Vue.extend({
       return this.linkClass;
     },
     customSize: function() {
-      return nlyGetOptionsByKeyEqual(sizeOptions, this.size);
+      return nlyGetOptionsByKeyEqual(navDropdownSizeOptions, this.size);
     },
     customMenuDirection: function() {
       if (this.direction == "down" || this.direction == "up") {
         return nlyGetOptionsByKeyEqual(
-          menuDirectionOptions,
+          navDropdownMenuDirectionOptions,
           this.menuDirection
         );
       } else {
@@ -184,7 +167,7 @@ export const NlyNavDropdown = Vue.extend({
       }
     },
     customShadow: function() {
-      return nlyGetOptionsByKeyEqual(shadowOptions, this.shadow);
+      return nlyGetOptionsByKeyEqual(navDropdownShadowOptions, this.shadow);
     },
     customMenuClass: function() {
       return this.menuClass;

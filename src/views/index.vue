@@ -8,7 +8,7 @@
     <nly-navbar variant="info" navbar-class="xxx" header>
       <nly-navbar-nav class="xxxxx">
         <nly-nav-item v-nly-sidebar-collapse.navitem>
-          <i class="fas fa-bars"></i>
+          <nly-icon icon="nlyfont nly-logo-windows" />
         </nly-nav-item>
         <nly-nav-item
           active
@@ -36,7 +36,7 @@
         >
           <template slot="linkcontent">
             测试
-            <i class="fas fa-comments"></i>
+            <nly-icon icon="nlyfont nly-notification-fill" />
           </template>
           <template slot="menucontent">
             <nly-nav-item :nav-item="false" dropdown-item to="/">
@@ -66,7 +66,6 @@
             >
               <template slot="linkcontent">
                 我是悬浮菜单
-                <i class="fas fa-comments"></i>
               </template>
               <template slot="menucontent">
                 <nly-nav-item
@@ -91,7 +90,6 @@
                 >
                   <template slot="linkcontent">
                     我是三级
-                    <i class="fas fa-comments"></i>
                   </template>
                   <template slot="menucontent">
                     <nly-nav-item
@@ -140,7 +138,7 @@
           menu-direction="right"
         >
           <template slot="linkcontent">
-            <i class="fas fa-comments"></i>
+            <nly-icon icon="nlyfont nly-notification-fill" />
           </template>
           <template slot="menucontent">
             <nly-nav-item :nav-item="false" dropdown-item to="/">
@@ -159,7 +157,7 @@
           menu-direction="right"
         >
           <template slot="linkcontent">
-            <i class="far fa-bell"></i>
+            <nly-icon icon="nlyfont nly-mail-fill" />
           </template>
           <template slot="menucontent">
             <nly-nav-item :nav-item="false" dropdown-item to="/">
@@ -172,7 +170,7 @@
         </nly-nav-dropdown>
 
         <nly-nav-item v-nly-control-sidebar-collapse>
-          <i class="fas fa-th-large"></i>
+          <nly-icon icon="nlyfont nlyfont nly-settings" />
         </nly-nav-item>
       </nly-navbar-nav>
     </nly-navbar>
@@ -199,7 +197,7 @@
             to="/"
             link-class="xxx zzz"
             class="sss"
-            icon="nav-icon far fa-image"
+            icon="nav-icon fas nlyfont nly-color-palette"
             exact
           >
             home
@@ -209,7 +207,7 @@
             target="collapse"
             visible
             active
-            icon="nav-icon fas fa-th"
+            icon="nav-icon fas nlyfont nly-logo-aperture"
             link-class="linkclass"
             menu-class="menuClass"
           >
@@ -220,14 +218,17 @@
               to="/collapse"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far fa-image"
+              icon="nav-icon far nlyfont nly-logo-chrome"
               exact
             >
               collapse
             </nly-sidebar-nav-item>
           </nly-sidebar-nav-tree>
 
-          <nly-sidebar-nav-tree target="navbar" icon="nav-icon fas fa-th">
+          <nly-sidebar-nav-tree
+            target="navbar"
+            icon="nav-icon fas nlyfont nly-nav-fill"
+          >
             <template slot="link">
               navbar
             </template>
@@ -235,14 +236,17 @@
               to="/navbar"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far fa-image"
+              icon="nav-icon far nlyfont nly-nav-tool"
               exact
             >
               navbar
             </nly-sidebar-nav-item>
           </nly-sidebar-nav-tree>
 
-          <nly-sidebar-nav-tree target="nav" icon="nav-icon fas fa-th">
+          <nly-sidebar-nav-tree
+            target="nav"
+            icon="nav-icon fas nlyfont nly-magic-cube"
+          >
             <template slot="link">
               nav
             </template>
@@ -250,14 +254,17 @@
               to="/nav"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far fa-image"
+              icon="nav-icon far nlyfont nly-keypad"
               exact
             >
               nav
             </nly-sidebar-nav-item>
           </nly-sidebar-nav-tree>
 
-          <nly-sidebar-nav-tree target="container" icon="nav-icon fas fa-th">
+          <nly-sidebar-nav-tree
+            target="container"
+            icon="nav-icon fas nlyfont nly-contaier-wrapper"
+          >
             <template slot="link">
               container
             </template>
@@ -265,14 +272,17 @@
               to="/container"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far fa-image"
+              icon="nav-icon far nlyfont nly-container"
               exact
             >
               container
             </nly-sidebar-nav-item>
           </nly-sidebar-nav-tree>
 
-          <nly-sidebar-nav-tree target="grid" icon="nav-icon fas fa-th">
+          <nly-sidebar-nav-tree
+            target="grid"
+            icon="nav-icon fas nlyfont nly-grid"
+          >
             <template slot="link">
               grid
             </template>
@@ -280,14 +290,17 @@
               to="/grid"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far fa-image"
+              icon="nav-icon far nlyfont nly-layout"
               exact
             >
               grid
             </nly-sidebar-nav-item>
           </nly-sidebar-nav-tree>
 
-          <nly-sidebar-nav-tree target="link" icon="nav-icon fas fa-th">
+          <nly-sidebar-nav-tree
+            target="link"
+            icon="nav-icon fas nlyfont nly-analytics"
+          >
             <template slot="link">
               link
             </template>
@@ -295,14 +308,17 @@
               to="/link"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far fa-image"
+              icon="nav-icon far nlyfont nly-router-link"
               exact
             >
               link
             </nly-sidebar-nav-item>
           </nly-sidebar-nav-tree>
 
-          <nly-sidebar-nav-tree target="button" icon="nav-icon fas fa-th">
+          <nly-sidebar-nav-tree
+            target="button"
+            icon="nav-icon fas nlyfont nly-button"
+          >
             <template slot="link">
               button
             </template>
@@ -310,10 +326,28 @@
               to="/button"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far fa-image"
+              icon="nav-icon far nlyfont nly-logo-ionic"
               exact
             >
               button
+            </nly-sidebar-nav-item>
+          </nly-sidebar-nav-tree>
+
+          <nly-sidebar-nav-tree
+            target="switch"
+            icon="nav-icon fas nlyfont nly-switch-fill"
+          >
+            <template slot="link">
+              switch
+            </template>
+            <nly-sidebar-nav-item
+              to="/switch"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-switch"
+              exact
+            >
+              switch
             </nly-sidebar-nav-item>
           </nly-sidebar-nav-tree>
         </nly-sidebar-nav>
@@ -338,9 +372,16 @@
         <h5>Customize AdminLTE</h5>
         <hr class="mb-2" />
         <div class="mb-1">
-          <input type="checkbox" value="1" class="mr-1" /><span
-            >No Navbar border</span
-          >
+          <div class="custom-control custom-switch">
+            <input
+              type="checkbox"
+              class="custom-control-input"
+              id="customSwitchnly"
+            />
+            <label class="custom-control-label" for="customSwitchnly"
+              >Toggle this custom switch element</label
+            >
+          </div>
         </div>
         <div class="mb-1">
           <input type="checkbox" value="1" class="mr-1" /><span
