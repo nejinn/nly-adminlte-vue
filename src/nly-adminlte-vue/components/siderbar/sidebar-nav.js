@@ -1,14 +1,27 @@
 import Vue from "../../utils/vue";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
-import { sizeOptions, sidebarNavShapeOptions } from "../../utils/nly-config";
+import { sizeOptions } from "../../utils/nly-config";
 
 const name = "NlySidebarNav";
 
 export const NlySidebarNav = Vue.extend({
   name: name,
   props: {
-    shape: {
-      type: String
+    pill: {
+      type: Boolean,
+      default: false
+    },
+    flat: {
+      type: Boolean,
+      default: false
+    },
+    legacy: {
+      type: Boolean,
+      default: false
+    },
+    compact: {
+      type: Boolean,
+      default: false
     },
     childIndent: {
       type: Boolean,
@@ -27,7 +40,12 @@ export const NlySidebarNav = Vue.extend({
   },
   computed: {
     customShape: function() {
-      return nlyGetOptionsByKeyEqual(sidebarNavShapeOptions, this.shape);
+      return {
+        flat: this.flat ? "nav-flat" : "",
+        pill: this.pill ? "nav-pills" : "",
+        legacy: this.legacy ? "nav-legacy" : "",
+        compact: this.compact ? "nav-compact" : ""
+      };
     },
     customChildIndent: function() {
       return this.childIndent ? "nav-child-indent" : "";
@@ -49,7 +67,10 @@ export const NlySidebarNav = Vue.extend({
         {
           staticClass: "nav nav-sidebar flex-column",
           class: [
-            this.customShape,
+            this.customShape.flat,
+            this.customShape.pill,
+            this.customShape.legacy,
+            this.customShape.compact,
             this.customSize,
             this.customChildIndent,
             this.customSidebarNavClass

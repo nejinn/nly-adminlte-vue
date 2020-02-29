@@ -13,6 +13,7 @@ import { sidebarPlugin } from "./components/siderbar";
 import { overlayPlugin } from "./components/overlay";
 import { controlSidebarPlugin } from "./components/controlsidebar";
 import { iconPlugin } from "./components/icon";
+import { switchPlugin } from "./components/switch";
 
 import { toggleDirectivePlugin } from "./directives/toggle";
 import { collapseSidebarDirectivePlugin } from "./directives/sidebarcollapse";
@@ -32,7 +33,8 @@ const componentPlugins = Object.assign(
   sidebarPlugin,
   overlayPlugin,
   controlSidebarPlugin,
-  iconPlugin
+  iconPlugin,
+  switchPlugin
 );
 
 const directivePlugins = Object.assign(
