@@ -12,6 +12,7 @@ const navbar = () => import("../views/example/navbar.vue");
 const collapse = () => import("../views/example/collapse.vue");
 const link = () => import("../views/example/link.vue");
 const button = () => import("../views/example/button.vue");
+const switchBox = () => import("../views/example/switch.vue");
 
 const routes = [
   {
@@ -53,6 +54,11 @@ const routes = [
         path: "/button",
         name: "button",
         component: button
+      },
+      {
+        path: "/switch",
+        name: "switch",
+        component: switchBox
       }
     ]
   }

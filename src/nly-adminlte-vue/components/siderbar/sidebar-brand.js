@@ -1,47 +1,15 @@
 import Vue from "../../utils/vue";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
 import { NlyLink, propsFactory as linkPropsFactory } from "../link/link";
+import {
+  sizeOptions,
+  sidebarVariantOptions,
+  sidebarElevationOptions
+} from "../../utils/nly-config";
 
 export const props = linkPropsFactory();
 
 const name = NlySidebarBrand;
-
-const sizeOptions = {
-  sm: "text-sm",
-  lg: "text-lg"
-};
-
-const variantOptions = {
-  primary: "navbar-primary",
-  secondary: "navbar-secondary",
-  info: "navbar-info",
-  success: "navbar-success",
-  danger: "navbar-danger",
-  indigo: "navbar-indigo",
-  purple: "navbar-purple",
-  pink: "navbar-pink",
-  navy: "navbar-navy",
-  light: "navbar-light",
-  warning: "navbar-warning",
-  lightblue: "navbar-lightblue",
-  olive: "navbar-olive",
-  lime: "navbar-lime",
-  fuchsia: "navbar-fuchsia",
-  maroon: "navbar-maroon",
-  blue: "navbar-blue",
-  orange: "navbar-orange",
-  teal: "navbar-teal",
-  white: "navbar-white",
-  gray: "navbar-gray",
-  dark: "navbary-dark"
-};
-
-const elevationOptions = {
-  sm: "elevation-1",
-  md: "elevation-2",
-  lg: "elevation-3",
-  xl: "elevation-4"
-};
 
 export const NlySidebarBrand = Vue.extend({
   name: name,
@@ -63,10 +31,10 @@ export const NlySidebarBrand = Vue.extend({
       return fontSize;
     },
     customVariant: function() {
-      return nlyGetOptionsByKeyEqual(variantOptions, this.variant);
+      return nlyGetOptionsByKeyEqual(sidebarVariantOptions, this.variant);
     },
     customElevation: function() {
-      return nlyGetOptionsByKeyEqual(elevationOptions, this.elevation);
+      return nlyGetOptionsByKeyEqual(sidebarElevationOptions, this.elevation);
     },
     computedProps() {
       return { ...this.$props };

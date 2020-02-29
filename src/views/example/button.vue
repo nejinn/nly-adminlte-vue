@@ -14,7 +14,7 @@
 
     <div style="margin: 1rem;">
       <nly-button variant="warning">
-        button variant="warning"
+        <nly-icon icon="nlyfont nly-logo-angular" />
       </nly-button>
     </div>
 
@@ -75,6 +75,22 @@
     </div>
 
     <div style="margin: 1rem;">
+      icon
+      <nly-button-group>
+        <nly-button variant="warning">
+          <nly-icon icon="nlyfont nly-bonfire" />
+        </nly-button>
+        <nly-button variant="danger">
+          <nly-icon icon="nlyfont nly-bonfire" />
+        </nly-button>
+
+        <nly-button variant="info">
+          <nly-icon icon="nlyfont nly-bonfire" />
+        </nly-button>
+      </nly-button-group>
+    </div>
+
+    <div style="margin: 1rem;">
       vertical
       <nly-button-group vertical>
         <nly-button variant="warning">
@@ -86,6 +102,22 @@
 
         <nly-button gradient="success">
           button gradient="success"
+        </nly-button>
+      </nly-button-group>
+    </div>
+
+    <div style="margin: 1rem;">
+      vertical icon
+      <nly-button-group vertical>
+        <nly-button variant="warning">
+          <nly-icon icon="nlyfont nly-bonfire" />
+        </nly-button>
+        <nly-button variant="danger">
+          <nly-icon icon="nlyfont nly-bonfire" />
+        </nly-button>
+
+        <nly-button variant="info">
+          <nly-icon icon="nlyfont nly-bonfire" />
         </nly-button>
       </nly-button-group>
     </div>
@@ -135,6 +167,35 @@
           button gradient="success"
         </nly-button>
       </nly-button-group>
+    </div>
+
+    <div style="margin: 1rem;">
+      <nly-dropdown
+        vertical
+        dropdown-size="sm"
+        dropdown-toggle
+        text="dropdown"
+        data-show="dropdown-test1"
+      >
+        <nly-button variant="warning">
+          vertical dropdown-size="sm" dropdown-toggle text="dropdown"
+          data-show="dropdown-test1"
+        </nly-button>
+      </nly-dropdown>
+      <nly-dropdown-menu id="dropdown-test1">
+        sss
+      </nly-dropdown-menu>
+    </div>
+
+    <div style="margin: 1rem;">
+      <nly-dropdown text="dropdown" data-show="dropdown-test2" variant="danger">
+        <nly-button variant="warning">
+          text="dropdown"
+        </nly-button>
+      </nly-dropdown>
+      <nly-dropdown-menu id="dropdown-test2">
+        sss
+      </nly-dropdown-menu>
     </div>
   </nly-container>
 </template>

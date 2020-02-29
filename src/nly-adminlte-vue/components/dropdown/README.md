@@ -20,7 +20,7 @@
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
-vertical | Boolean |  | 是否垂直，默认水平
+vertical | Boolean | false | 是否垂直，默认水平
 dropdown-size | String |  | 大小，会覆盖nly-botton组件size，可选sm，lg
 dropdown-tag | div |  | 标签
 dropdown-toggle | Boolean |  | 开启下拉icon，默认不开启
