@@ -152,7 +152,7 @@ export async function collapseTasks() {
 // 监听header，footer高度以及滚动条高度，给control-siderbar设置height
 export const setControlSidebarStyle = () => {
   const windowHeight = document.documentElement.clientHeight;
-  // const bodyHeight = getBodyOffsetHeight();
+  const bodyHeight = getBodyOffsetHeight();
   const scrollTop = getScrollTop();
   const scrollHeight = getScrollHeight();
   const headerHeight = getSelector(selector.header).offsetHeight;
@@ -161,20 +161,59 @@ export const setControlSidebarStyle = () => {
   // console.log(22, scrollTop);
   // console.log(33, scrollHeight);
   // console.log(44, windowHeight);
-  // console.log(55, scrollHeight - windowHeight - scrollTop);
+  // console.log(
+  //   55,
+  //   footerHeight -
+  //     scrollHeight +
+  //     windowHeight -
+  //     headerHeight +
+  //     scrollTop +
+  //     footerHeight
+  // );
   const controlSidebarSelector = getSelector(selector.controlSidebar);
   const controlSidebarContentSelector = getSelector(
     selector.controlSidebarContent
   );
 
   if (scrollTop < headerHeight) {
-    controlSidebarSelector.style.top = `${headerHeight - scrollTop}px`;
-    controlSidebarSelector.style.height = `${windowHeight -
-      headerHeight +
-      scrollTop}px`;
-    controlSidebarContentSelector.style.height = `${windowHeight -
-      headerHeight +
-      scrollTop}px`;
+    if (bodyHeight - windowHeight >= footerHeight) {
+      controlSidebarSelector.style.top = `${headerHeight - scrollTop}px`;
+      if (
+        footerHeight -
+          scrollHeight +
+          windowHeight -
+          headerHeight +
+          scrollTop +
+          footerHeight >
+        0
+      ) {
+        controlSidebarSelector.style.height = `${scrollHeight -
+          footerHeight -
+          footerHeight}px`;
+        controlSidebarContentSelector.style.height = `${scrollHeight -
+          footerHeight -
+          footerHeight}px`;
+      } else {
+        controlSidebarSelector.style.height = `${windowHeight -
+          headerHeight +
+          scrollTop}px`;
+        controlSidebarContentSelector.style.height = `${windowHeight -
+          headerHeight +
+          scrollTop}px`;
+      }
+    } else {
+      controlSidebarSelector.style.top = `${headerHeight - scrollTop}px`;
+      controlSidebarSelector.style.height = `${bodyHeight -
+        headerHeight -
+        footerHeight}px`;
+      controlSidebarContentSelector.style.height = `${bodyHeight -
+        headerHeight -
+        footerHeight}px`;
+      controlSidebarSelector.style.bottom = `${footerHeight -
+        bodyHeight +
+        windowHeight +
+        scrollTop}px`;
+    }
   } else {
     controlSidebarSelector.style.top = "0px";
     if (scrollHeight - windowHeight - scrollTop <= footerHeight) {
