@@ -177,7 +177,8 @@ export const NlySidebarNavTree = Vue.extend({
           this.$slots.link,
           h("i", {
             class: "right fas fa-angle-left"
-          })
+          }),
+          this.$slots.linktool
         ])
       ]
     );

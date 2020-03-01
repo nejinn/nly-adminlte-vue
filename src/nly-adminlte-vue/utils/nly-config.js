@@ -253,3 +253,38 @@ export const switchVariantOptions = {
     graydark: "custom-switch-on-gray-dark"
   }
 };
+
+export const switchSizeOptions = {
+  sm: "nly-custom-control-sm",
+  lg: "nly-custom-control-lg"
+};
+
+export const bgVariantOptions = {
+  primary: "bg-primary",
+  secondary: "bg-secondary",
+  success: "bg-success",
+  info: "bg-info",
+  warning: "bg-warning",
+  danger: "bg-danger",
+  light: "bg-light",
+  dark: "bg-dark",
+  lightblue: "bg-lightblue",
+  navy: "bg-navy",
+  olive: "bg-olive",
+  lime: "bg-lime",
+  fuchsia: "bg-fuchsia",
+  maroon: "bg-maroon",
+  blue: "bg-blue",
+  indigo: "bg-indigo",
+  purple: "bg-purple",
+  pink: "bg-pink",
+  red: "bg-red",
+  orange: "bg-orange",
+  yellow: "bg-yellow",
+  green: "bg-green",
+  teal: "bg-teal",
+  cyan: "bg-cyan",
+  white: "bg-white",
+  gray: "bg-gray",
+  graydark: "bg-gray-dark"
+};

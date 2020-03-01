@@ -1,6 +1,9 @@
 import Vue from "../../utils/vue";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
-import { switchVariantOptions } from "../../utils/nly-config";
+import {
+  switchVariantOptions,
+  switchSizeOptions
+} from "../../utils/nly-config";
 import { nlySwitchId } from "../../utils/mixin-id";
 
 const name = "NlySwitch";
@@ -12,6 +15,13 @@ export const NlySwitch = Vue.extend({
     event: "change"
   },
   props: {
+    size: {
+      type: String
+    },
+    flat: {
+      type: Boolean,
+      default: false
+    },
     offVariant: {
       type: String
     },
@@ -45,6 +55,8 @@ export const NlySwitch = Vue.extend({
   computed: {
     customProps: function() {
       return {
+        size: nlyGetOptionsByKeyEqual(switchSizeOptions, this.size),
+        flat: this.flat ? "custom-switch-flat" : "custom-switch",
         offVariant: nlyGetOptionsByKeyEqual(
           switchVariantOptions.off,
           this.offVariant
@@ -58,7 +70,7 @@ export const NlySwitch = Vue.extend({
         labelClass: this.labelClass,
         id: nlySwitchId(this.id)
           ? nlySwitchId(this.id)
-          : `nly_switch_${this._uid}`,
+          : nlySwitchId(this._uid),
         tag: this.tag,
         disabled: this.disabled ? "disabled" : this.disabled
       };
@@ -73,8 +85,10 @@ export const NlySwitch = Vue.extend({
     return h(
       this.customProps.tag,
       {
-        staticClass: "custom-control custom-switch",
+        staticClass: "custom-control",
         class: [
+          this.customProps.flat,
+          this.customProps.size,
           this.customProps.offVariant,
           this.customProps.onVariant,
           this.customProps.switchClass
@@ -99,7 +113,7 @@ export const NlySwitch = Vue.extend({
             }
           ],
           domProps: {
-            value: this.checked,
+            value: this.checked ? true : null,
             checked: this.checked
           }
         }),

@@ -164,6 +164,9 @@
         >
           <template slot="linkcontent">
             <nly-icon icon="nlyfont nly-mail-fill" />
+            <nly-badge variant="fuchsia" badge-class="navbar-badge">
+              12
+            </nly-badge>
           </template>
           <template slot="menucontent">
             <nly-nav-item :nav-item="false" dropdown-item to="/">
@@ -214,6 +217,9 @@
             exact
           >
             home
+            <nly-badge variant="teal" badge-class="right">
+              NEW
+            </nly-badge>
           </nly-sidebar-nav-item>
 
           <nly-sidebar-nav-tree
@@ -227,6 +233,12 @@
             <template slot="link">
               collapse
             </template>
+            <template slot="linktool">
+              <nly-badge variant="fuchsia" badge-class="right" size="sm">
+                NEW
+              </nly-badge>
+            </template>
+
             <nly-sidebar-nav-item
               to="/collapse"
               link-class="xxx zzz"
@@ -235,6 +247,9 @@
               exact
             >
               collapse
+              <nly-badge variant="fuchsia" badge-class="right" size="sm">
+                NEW
+              </nly-badge>
             </nly-sidebar-nav-item>
           </nly-sidebar-nav-tree>
 
