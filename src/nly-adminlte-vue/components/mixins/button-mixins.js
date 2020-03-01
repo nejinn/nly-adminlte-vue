@@ -5,7 +5,8 @@ import {
   btnSizeOptions,
   btnTypeOptions,
   btnShapeOptions,
-  btnGradientOptions
+  btnGradientOptions,
+  bgVariantOptions
 } from "../../utils/nly-config";
 
 const name = "NlyButtonMixins";
@@ -20,6 +21,9 @@ export var NlyButtonMixins = Vue.extend({
     variant: {
       type: String,
       default: "default"
+    },
+    bgVariant: {
+      type: String
     },
     size: {
       type: String
@@ -44,6 +48,10 @@ export var NlyButtonMixins = Vue.extend({
     },
     buttonClass: {
       type: String
+    },
+    tool: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -73,6 +81,12 @@ export var NlyButtonMixins = Vue.extend({
     },
     customButtonClass: function() {
       return this.buttonClass;
+    },
+    customTool: function() {
+      return this.tool ? "btn-tool" : "";
+    },
+    customBgVariant: function() {
+      return nlyGetOptionsByKeyEqual(bgVariantOptions, this.bgVariant);
     }
   }
 });
