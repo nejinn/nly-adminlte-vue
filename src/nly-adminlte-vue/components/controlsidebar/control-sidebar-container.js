@@ -1,4 +1,6 @@
 import Vue from "../../utils/vue";
+import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
+import { sizeOptions } from "../../utils/nly-config";
 
 const name = "NlyControlSidebarContainer";
 
@@ -8,6 +10,17 @@ export const NlyControlSidebarContainer = Vue.extend({
     variant: {
       type: String,
       default: "control-sidebar-dark"
+    },
+    size: {
+      type: String
+    }
+  },
+  computed: {
+    customProps: function() {
+      return {
+        variant: this.variant,
+        size: this.size ? nlyGetOptionsByKeyEqual(sizeOptions, this.size) : ""
+      };
     }
   },
   render(h) {
@@ -15,7 +28,7 @@ export const NlyControlSidebarContainer = Vue.extend({
       "aside",
       {
         staticClass: "control-sidebar",
-        class: this.variant
+        class: [this.customProps.size, this.customProps.variant]
       },
       this.$slots.default
     );

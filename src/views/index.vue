@@ -6,11 +6,11 @@
     container-class="zzz"
   >
     <nly-navbar
-      :variant="navbarVariant"
+      :variant="navbar.variant"
       navbar-class="xxx"
       header
-      :border="navbarBorder"
-      :size="navbarSize"
+      :border="navbar.border"
+      :size="navbar.size"
     >
       <nly-navbar-nav class="xxxxx">
         <nly-nav-item v-nly-sidebar-collapse.navitem>
@@ -182,7 +182,7 @@
     </nly-navbar>
 
     <nly-sidebar-container>
-      <nly-sidebar-brand to="collapse" :variant="variant">
+      <nly-sidebar-brand to="collapse" :variant="sidebar.brand.variant">
         <nly-sidebar-brandimg :src="logo" elevation circle />
         <nly-sidebar-brandtext>AdminLTE 3</nly-sidebar-brandtext>
       </nly-sidebar-brand>
@@ -369,7 +369,7 @@
     <nly-collapse-main>
       <router-view />
     </nly-collapse-main>
-    <nly-collapse-footer size>
+    <nly-collapse-footer :size="footerSizeSm">
       <strong
         >Copyright © 2014-2019
         <a href="http://adminlte.io">AdminLTE.io</a>.</strong
@@ -379,7 +379,7 @@
         <b>Version</b> 3.0.2-pre
       </div>
     </nly-collapse-footer>
-    <nly-control-sidebar-container>
+    <nly-control-sidebar-container :size="controlSidebarSizeSm">
       <!-- Control sidebar content goes here -->
       <nly-control-sidebar class="p-3">
         <h5>Customize AdminLTE</h5>
@@ -388,9 +388,18 @@
           <nly-switch
             off-variant="info"
             on-variant="danger"
-            v-model="navbarBorder"
+            v-model="controlSidebar.size"
           >
-            navbar开启底部边框
+            <span>controlSidebar小字体</span>
+          </nly-switch>
+        </div>
+        <div class="mb-1">
+          <nly-switch
+            off-variant="info"
+            on-variant="danger"
+            v-model="navbar.border"
+          >
+            <span>navbar开启底部边框</span>
           </nly-switch>
         </div>
         <div class="mb-1">
@@ -398,9 +407,9 @@
             <nly-switch
               off-variant="info"
               on-variant="warning"
-              v-model="bodySizeSm"
+              v-model="body.sizeSm"
             >
-              页面小号字体
+              <span>页面小号字体</span>
             </nly-switch>
           </div>
         </div>
@@ -408,9 +417,9 @@
           <nly-switch
             off-variant="info"
             on-variant="pink"
-            v-model="navbarSizeSm"
+            v-model="navbar.sizeSm"
           >
-            navbar小号字体
+            <span>navbar小号字体</span>
           </nly-switch>
         </div>
         <div class="mb-1">
@@ -419,7 +428,7 @@
             on-variant="teal"
             v-model="sidebar.sidebarShape.flat"
           >
-            左侧菜单flat形状
+            <span>左侧菜单flat形状</span>
           </nly-switch>
         </div>
         <div class="mb-1">
@@ -428,7 +437,7 @@
             on-variant="success"
             v-model="sidebar.sidebarShape.pill"
           >
-            左侧菜单pill形状
+            <span>左侧菜单pill形状</span>
           </nly-switch>
         </div>
 
@@ -438,7 +447,7 @@
             on-variant="lime"
             v-model="sidebar.sidebarShape.compact"
           >
-            左侧菜单compact形状
+            <span>左侧菜单compact形状</span>
           </nly-switch>
         </div>
         <div class="mb-1">
@@ -447,7 +456,7 @@
             on-variant="maroon"
             v-model="sidebar.sidebarShape.legacy"
           >
-            左侧菜单legacy形状
+            <span>左侧菜单legacy形状</span>
           </nly-switch>
         </div>
 
@@ -457,7 +466,17 @@
             on-variant="orange"
             v-model="sidebar.sidebarShape.childIndent"
           >
-            左侧菜单栏子级缩进
+            <span>左侧菜单栏子级缩进</span>
+          </nly-switch>
+        </div>
+
+        <div class="mb-1">
+          <nly-switch
+            off-variant="indigo"
+            on-variant="orange"
+            v-model="footer.size"
+          >
+            <span>footer小字体</span>
           </nly-switch>
         </div>
         <div class="mb-1">
@@ -510,12 +529,12 @@ export default {
   data() {
     return {
       logo,
-      navbarBorder: true,
-      variant: "dark",
-      navbarVariant: "white",
-      bodySizeSm: false,
-      navbarSizeSm: false,
-      navbarSize: null,
+      navbar: {
+        border: true,
+        variant: "white",
+        size: null,
+        sizeSm: false
+      },
       sidebar: {
         sidebarShape: {
           flat: false,
@@ -523,9 +542,37 @@ export default {
           compact: false,
           legacy: false,
           childIndent: false
+        },
+        brand: {
+          variant: "dark"
         }
+      },
+      body: {
+        sizeSm: false
+      },
+      controlSidebar: {
+        size: false,
+        sizeSm: null
+      },
+      footer: {
+        size: false,
+        sizeSm: null
       }
     };
+  },
+  computed: {
+    navbarSizeSm() {
+      return this.navbar.sizeSm;
+    },
+    bodySizeSm() {
+      return this.body.sizeSm;
+    },
+    controlSidebarSizeSm() {
+      return this.controlSidebar.size ? "sm" : null;
+    },
+    footerSizeSm() {
+      return this.footer.size ? "sm" : null;
+    }
   },
   watch: {
     bodySizeSm: function(newval, oldval) {
@@ -541,7 +588,7 @@ export default {
       }
     },
     navbarSizeSm: function() {
-      this.navbarSize = this.navbarSizeSm ? "sm" : null;
+      this.navbar.size = this.navbar.sizeSm ? "sm" : null;
     }
   }
 };
