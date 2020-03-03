@@ -13,6 +13,8 @@ const collapse = () => import("../views/example/collapse.vue");
 const link = () => import("../views/example/link.vue");
 const button = () => import("../views/example/button.vue");
 const switchBox = () => import("../views/example/switch.vue");
+const card = () => import("../views/example/card.vue");
+const badge = () => import("../views/example/badge.vue");
 
 const routes = [
   {
@@ -59,6 +61,16 @@ const routes = [
         path: "/switch",
         name: "switch",
         component: switchBox
+      },
+      {
+        path: "/card",
+        name: "card",
+        component: card
+      },
+      {
+        path: "/badge",
+        name: "badge",
+        component: badge
       }
     ]
   }

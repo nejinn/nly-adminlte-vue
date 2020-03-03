@@ -1,6 +1,6 @@
 import Vue from "../../utils/vue";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
-import { sizeOptions } from "../../utils/nly-config";
+import { textSizeOptions } from "../../utils/nly-config";
 
 const name = "NlyControlSidebarContainer";
 
@@ -19,7 +19,9 @@ export const NlyControlSidebarContainer = Vue.extend({
     customProps: function() {
       return {
         variant: this.variant,
-        size: this.size ? nlyGetOptionsByKeyEqual(sizeOptions, this.size) : ""
+        size: this.size
+          ? nlyGetOptionsByKeyEqual(textSizeOptions, this.size)
+          : ""
       };
     }
   },

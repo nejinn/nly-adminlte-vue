@@ -21,7 +21,8 @@ export const NlyButton = Vue.extend({
           this.customPressed,
           this.customButtonClass,
           this.customBgVariant,
-          this.customTool
+          this.customTool,
+          this.customApp
         ],
         attrs: {
           type: this.customType

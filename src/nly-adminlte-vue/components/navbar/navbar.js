@@ -1,6 +1,6 @@
 import Vue from "../../utils/vue";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
-import { navBarariantOpitons, sizeOptions } from "../../utils/nly-config";
+import { navBarariantOpitons, textSizeOptions } from "../../utils/nly-config";
 
 const name = "NlyNavbar";
 
@@ -52,7 +52,7 @@ export const NlyNavbar = Vue.extend({
       return nlyGetOptionsByKeyEqual(navBarariantOpitons, this.variant);
     },
     customNavbarFontSize: function() {
-      return nlyGetOptionsByKeyEqual(sizeOptions, this.size);
+      return nlyGetOptionsByKeyEqual(textSizeOptions, this.size);
     },
     customNavbarBorder: function() {
       return this.border ? "" : "border-bottom-0";

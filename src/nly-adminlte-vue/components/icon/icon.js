@@ -1,6 +1,6 @@
 import Vue from "../../utils/vue";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
-import { sizeOptions } from "../../utils/nly-config";
+import { textSizeOptions } from "../../utils/nly-config";
 
 const name = "NlyIcon";
 
@@ -20,7 +20,7 @@ export const NlyIcon = Vue.extend({
   },
   computed: {
     customClass: function() {
-      return [this.icon, nlyGetOptionsByKeyEqual(sizeOptions, this.size)];
+      return [this.icon, nlyGetOptionsByKeyEqual(textSizeOptions, this.size)];
     },
     customTag: function() {
       return this.tag;

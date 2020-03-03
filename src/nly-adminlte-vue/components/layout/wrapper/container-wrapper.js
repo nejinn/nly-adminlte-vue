@@ -114,6 +114,7 @@ export const NlyContainerWrapper = Vue.extend({
         document.body.classList.add(item);
       }
     });
+    this.setBodyCollapseClassName();
   },
   beforeDestroy() {
     window.removeEventListener(

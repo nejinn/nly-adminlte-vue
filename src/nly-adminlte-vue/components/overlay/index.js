@@ -1,7 +1,7 @@
-import { NlySidebarOverlay } from "./overlay";
+import { NlyOverlay } from "./overlay";
 
 const overlayPlugin = {
-  NlySidebarOverlay: NlySidebarOverlay
+  NlyOverlay: NlyOverlay
 };
 
-export { overlayPlugin, NlySidebarOverlay };
+export { overlayPlugin, NlyOverlay };

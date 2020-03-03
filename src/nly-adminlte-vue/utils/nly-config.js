@@ -1,6 +1,39 @@
-export const sizeOptions = {
+export const textSizeOptions = {
+  xs: "text-xs",
   sm: "text-sm",
-  lg: "text-lg"
+  md: "text-md",
+  lg: "text-lg",
+  xl: "text-lg"
+};
+
+export const textVariantOptions = {
+  primary: "text-primary",
+  secondary: "text-secondary",
+  succes: "text-succes",
+  info: "text-info",
+  warning: "text-warning",
+  danger: "text-danger",
+  light: "text-light",
+  dark: "text-dark",
+  lightblue: "text-lightblu",
+  navy: "text-navy",
+  olive: "text-olive",
+  lime: "text-lime",
+  fuchsia: "text-fuchsia",
+  maroon: "text-maroon",
+  blue: "text-blue",
+  indigo: "text-indigo",
+  purple: "text-purple",
+  pink: "text-pink",
+  red: "text-red",
+  orange: "text-orange",
+  yellow: "text-yellow",
+  green: "text-green",
+  teal: "text-teal",
+  cyan: "text-cyan",
+  white: "text-white",
+  gray: "text-gray",
+  graydark: "text-gray-dark"
 };
 
 export const btnVariantOptinos = {
@@ -37,15 +70,6 @@ export const btnShapeOptions = {
   roundedCircle: "rounded-circle",
   roundedLg: "rounded-lg",
   roundedSm: "rounded-sm"
-};
-
-export const btnGradientOptions = {
-  primary: "bg-gradient-primary",
-  secondary: "bg-gradient-secondary",
-  success: "bg-gradient-success",
-  info: "bg-gradient-info",
-  danger: "bg-gradient-danger",
-  warning: "bg-gradient-warning"
 };
 
 export const btnGroupSizeOptions = {
@@ -287,4 +311,82 @@ export const bgVariantOptions = {
   white: "bg-white",
   gray: "bg-gray",
   graydark: "bg-gray-dark"
+};
+
+export const bgGradientOptions = {
+  primary: "bg-gradient-primary",
+  secondary: "bg-gradient-secondary",
+  success: "bg-gradient-success",
+  info: "bg-gradient-info",
+  danger: "bg-gradient-danger",
+  warning: "bg-gradient-warning",
+  light: "bg-gradient-light",
+  dark: "bg-gradient-dark",
+  lightblue: "bg-gradient-lightblu",
+  navy: "bg-gradient-navy",
+  olive: "bg-gradient-olive",
+  lime: "bg-gradient-lime",
+  fuchsia: "bg-gradient-fuchsia",
+  maroon: "bg-gradient-maroon",
+  blue: "bg-gradient-blue",
+  indigo: "bg-gradient-indigo",
+  purple: "bg-gradient-purple",
+  pink: "bg-gradient-pink",
+  red: "bg-gradient-red",
+  orange: "bg-gradient-orange",
+  yellow: "bg-gradient-yellow",
+  green: "bg-gradient-green",
+  teal: "bg-gradient-teal",
+  cyan: "bg-gradient-cyan",
+  white: "bg-gradient-white",
+  gray: "bg-gradient-gray",
+  graydark: "bg-gradient-gray-dark"
+};
+
+export const cardGroupTypeOption = {
+  default: "card-group",
+  deck: "card-deck",
+  columns: "card-columns",
+  accordion: "accordion"
+};
+
+export const cardVariantOptions = {
+  primary: "card-primary",
+  secondary: "card-secondary",
+  succes: "card-succes",
+  info: "card-info",
+  warning: "card-warning",
+  danger: "card-danger",
+  light: "card-light",
+  dark: "card-dark",
+  lightblue: "card-lightblu",
+  navy: "card-navy",
+  olive: "card-olive",
+  lime: "card-lime",
+  fuchsia: "card-fuchsia",
+  maroon: "card-maroon",
+  blue: "card-blue",
+  indigo: "card-indigo",
+  purple: "card-purple",
+  pink: "card-pink",
+  red: "card-red",
+  orange: "card-orange",
+  yellow: "card-yellow",
+  green: "card-green",
+  teal: "card-teal",
+  cyan: "card-cyan",
+  white: "card-white",
+  gray: "card-gray",
+  graydark: "card-gray-dark"
+};
+
+export const badgeVariantOptions = {
+  primary: "badge-primary",
+  secondary: "badge-secondary",
+  success: "badge-success",
+  info: "badge-info",
+  warning: "badge-warning",
+  danger: "badge-danger",
+  light: "badge-light",
+  dark: "badge-dark"
 };
