@@ -164,7 +164,7 @@
         >
           <template slot="linkcontent">
             <nly-icon icon="nlyfont nly-mail-fill" />
-            <nly-badge variant="fuchsia" badge-class="navbar-badge">
+            <nly-badge bg-variant="fuchsia" badge-class="navbar-badge">
               12
             </nly-badge>
           </template>
@@ -184,7 +184,7 @@
       </nly-navbar-nav>
     </nly-navbar>
 
-    <nly-sidebar-container>
+    <nly-sidebar-container :hover="sidebar.hover">
       <nly-sidebar-brand to="collapse" :variant="sidebar.brand.variant">
         <nly-sidebar-brandimg :src="logo" elevation circle />
         <nly-sidebar-brandtext>AdminLTE 3</nly-sidebar-brandtext>
@@ -217,7 +217,7 @@
             exact
           >
             home
-            <nly-badge variant="teal" badge-class="right">
+            <nly-badge bg-variant="teal" badge-class="right">
               NEW
             </nly-badge>
           </nly-sidebar-nav-item>
@@ -225,7 +225,6 @@
           <nly-sidebar-nav-tree
             target="collapse"
             visible
-            active
             icon="nav-icon fas nlyfont nly-logo-aperture"
             link-class="linkclass"
             menu-class="menuClass"
@@ -234,8 +233,8 @@
               collapse
             </template>
             <template slot="linktool">
-              <nly-badge variant="fuchsia" badge-class="right" size="sm">
-                NEW
+              <nly-badge variant="primary" badge-class="right" pill>
+                12
               </nly-badge>
             </template>
 
@@ -247,7 +246,7 @@
               exact
             >
               collapse
-              <nly-badge variant="fuchsia" badge-class="right" size="sm">
+              <nly-badge bg-variant="fuchsia" badge-class="right" size="sm">
                 NEW
               </nly-badge>
             </nly-sidebar-nav-item>
@@ -378,12 +377,29 @@
               switch
             </nly-sidebar-nav-item>
           </nly-sidebar-nav-tree>
+
+          <nly-sidebar-nav-item
+            to="/card"
+            link-class="xxx zzz"
+            class="sss"
+            icon="nav-icon far nlyfont nly-filing"
+            exact
+          >
+            card
+          </nly-sidebar-nav-item>
+          <nly-sidebar-nav-item
+            to="/badge"
+            link-class="xxx zzz"
+            class="sss"
+            icon="nav-icon far nlyfont nly-filing"
+            exact
+          >
+            badge
+          </nly-sidebar-nav-item>
         </nly-sidebar-nav>
       </nly-sidebar>
     </nly-sidebar-container>
-    <nly-collapse-main>
-      <router-view />
-    </nly-collapse-main>
+    <router-view />
     <nly-collapse-footer :size="footerSizeSm">
       <strong
         >Copyright © 2014-2019
@@ -487,6 +503,16 @@
 
         <div class="mb-1">
           <nly-switch
+            off-variant="lime"
+            on-variant="purple"
+            v-model="sidebar.hover"
+          >
+            <span>启用左侧导航栏鼠标悬浮展开</span>
+          </nly-switch>
+        </div>
+
+        <div class="mb-1">
+          <nly-switch
             off-variant="indigo"
             on-variant="orange"
             v-model="footer.size"
@@ -494,31 +520,7 @@
             <span>footer小字体</span>
           </nly-switch>
         </div>
-        <div class="mb-1">
-          <input type="checkbox" value="1" class="mr-1" /><span
-            >Sidebar nav legacy style</span
-          >
-        </div>
-        <div class="mb-1">
-          <input type="checkbox" value="1" class="mr-1" /><span
-            >Sidebar nav compact</span
-          >
-        </div>
-        <div class="mb-1">
-          <input type="checkbox" value="1" class="mr-1" /><span
-            >Sidebar nav child indent</span
-          >
-        </div>
-        <div class="mb-1">
-          <input type="checkbox" value="1" class="mr-1" /><span
-            >Main Sidebar disable hover/focus auto expand</span
-          >
-        </div>
-        <div class="mb-4">
-          <input type="checkbox" value="1" class="mr-1" /><span
-            >Brand small text</span
-          >
-        </div>
+
         <h6>Navbar Variants</h6>
 
         <h6>Accent Color Variants</h6>
@@ -534,7 +536,7 @@
         <div class="d-flex"></div>
       </nly-control-sidebar>
     </nly-control-sidebar-container>
-    <nly-sidebar-overlay v-nly-sidebar-collapse.overlay />
+    <nly-overlay v-nly-sidebar-collapse.overlay sidebar />
   </nly-container-wrapper>
 </template>
 
@@ -560,7 +562,8 @@ export default {
         },
         brand: {
           variant: "dark"
-        }
+        },
+        hover: true
       },
       body: {
         sizeSm: false

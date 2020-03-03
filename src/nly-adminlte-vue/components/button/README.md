@@ -27,6 +27,7 @@ disabled | Boolean | false | 禁用按钮
 pressed | Boolean | false |按钮激活按下效果，目前只有default背景色按钮有效果,
 tool | Boolean | false | 工具类按钮，默认非工具类。此时variant参数在不点击的情况下，只会改变边框颜色。可以使用bg-variant和gradient props改变背景色
 button-class | String | 无 | 自定义式样
+app | Boolean | false | app类按钮.一般情况下是对图标使用的按钮。可以将图标变小，居中。
 
 ## 1.2. nly-button-group
 

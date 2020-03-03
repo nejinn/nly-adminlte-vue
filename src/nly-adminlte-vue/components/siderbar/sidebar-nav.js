@@ -1,6 +1,6 @@
 import Vue from "../../utils/vue";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
-import { sizeOptions } from "../../utils/nly-config";
+import { textSizeOptions } from "../../utils/nly-config";
 
 const name = "NlySidebarNav";
 
@@ -51,7 +51,7 @@ export const NlySidebarNav = Vue.extend({
       return this.childIndent ? "nav-child-indent" : "";
     },
     customSize: function() {
-      return nlyGetOptionsByKeyEqual(sizeOptions, this.size);
+      return nlyGetOptionsByKeyEqual(textSizeOptions, this.size);
     },
     customSidebarNavClass: function() {
       return this.sidebarNavClass;

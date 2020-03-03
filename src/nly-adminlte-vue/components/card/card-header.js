@@ -1,54 +1,54 @@
 import Vue from "../../utils/vue";
+
 import {
+  textVariantOptions,
   bgVariantOptions,
-  textSizeOptions,
-  badgeVariantOptions,
   bgGradientOptions
 } from "../../utils/nly-config";
+
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
 
-const name = "NlyBadge";
+const name = "NlyCardHeader";
 
-export const NlyBadge = Vue.extend({
+export const NlyCardHeader = Vue.extend({
   name: name,
   props: {
-    size: {
-      type: String
-    },
-    variant: {
-      type: String
-    },
     bgVariant: {
       type: String
     },
     bgGradientVariant: {
       type: String
     },
-    badgeClass: {
+    imgOverlay: {
+      type: Boolean,
+      default: false
+    },
+    textVariant: {
+      type: String
+    },
+    cardHeaderClass: {
       type: String
     },
     tag: {
       type: String,
-      default: "span"
-    },
-    pill: {
-      type: Boolean,
-      default: false
+      default: "div"
     }
   },
   computed: {
     customProps: function() {
       return {
-        size: nlyGetOptionsByKeyEqual(textSizeOptions, this.size),
         bgVariant: nlyGetOptionsByKeyEqual(bgVariantOptions, this.bgVariant),
-        tag: this.tag,
-        badgeClass: this.badgeClass,
-        pill: this.pill ? "badge-pill" : "",
-        variant: nlyGetOptionsByKeyEqual(badgeVariantOptions, this.variant),
         bgGradientVariant: nlyGetOptionsByKeyEqual(
           bgGradientOptions,
           this.bgGradientVariant
-        )
+        ),
+        textVariant: nlyGetOptionsByKeyEqual(
+          textVariantOptions,
+          this.textVariant
+        ),
+        imgOverlay: this.imgOverlay ? "card-img-overlay" : "",
+        cardHeaderClass: this.cardHeaderClass,
+        tag: this.tag
       };
     }
   },
@@ -56,14 +56,13 @@ export const NlyBadge = Vue.extend({
     return h(
       this.customProps.tag,
       {
-        staticClass: "badge",
+        staticClass: "card-header",
         class: [
           this.customProps.bgVariant,
-          this.customProps.size,
-          this.customProps.badgeClass,
-          this.customProps.pill,
-          this.customProps.variant,
-          this.customProps.bgGradientVariant
+          this.customProps.bgGradientVariant,
+          this.customProps.textVariant,
+          this.customProps.imgOverlay,
+          this.customProps.cardHeaderClass
         ]
       },
       this.$slots.default

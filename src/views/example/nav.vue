@@ -160,8 +160,8 @@
       </nly-nav>
     </div>
 
-    <div class="card card-primary card-tabs">
-      <div class="card-header">
+    <nly-card headerVariant="info" card-tabs>
+      <nly-card-header>
         <nly-nav tabs card-header>
           <nly-nav-item active class="xxx">
             tabs card-header active
@@ -175,7 +175,25 @@
             tabs card-header-------
           </nly-nav-item>
         </nly-nav>
-      </div>
-    </div>
+      </nly-card-header>
+    </nly-card>
+
+    <nly-card card-outline-tabs card-tabs>
+      <nly-card-header>
+        <nly-nav tabs card-header>
+          <nly-nav-item active class="xxx">
+            tabs card-header active
+          </nly-nav-item>
+
+          <nly-nav-item disabled>
+            tabs card-header disabled
+          </nly-nav-item>
+
+          <nly-nav-item>
+            tabs card-header-------
+          </nly-nav-item>
+        </nly-nav>
+      </nly-card-header>
+    </nly-card>
   </nly-container>
 </template>

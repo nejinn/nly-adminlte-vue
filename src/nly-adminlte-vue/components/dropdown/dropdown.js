@@ -11,7 +11,7 @@ import {
   nlyDropdownMenuId
 } from "../../utils/mixin-id";
 import {
-  btnGroupSizeOptions,
+  bgGradientOptions,
   dropdownPlacementOptions
 } from "../../utils/nly-config";
 
@@ -76,7 +76,7 @@ export const NlyDropdown = Vue.extend({
       return this.vertical ? "btn-group-vertical" : "btn-group";
     },
     customDropdownSize: function() {
-      return nlyGetOptionsByKeyEqual(btnGroupSizeOptions, this.dropdownSize);
+      return nlyGetOptionsByKeyEqual(bgGradientOptions, this.dropdownSize);
     },
     customDropdownToggle: function() {
       return this.dropdownToggle ? "dropdown-toggle" : "";

@@ -5,7 +5,7 @@ import {
   btnSizeOptions,
   btnTypeOptions,
   btnShapeOptions,
-  btnGradientOptions,
+  bgGradientOptions,
   bgVariantOptions
 } from "../../utils/nly-config";
 
@@ -52,6 +52,10 @@ export var NlyButtonMixins = Vue.extend({
     tool: {
       type: Boolean,
       default: false
+    },
+    app: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -71,7 +75,7 @@ export var NlyButtonMixins = Vue.extend({
       return nlyGetOptionsByKeyEqual(btnShapeOptions, this.shape);
     },
     customGradient: function() {
-      return nlyGetOptionsByKeyEqual(btnGradientOptions, this.gradient);
+      return nlyGetOptionsByKeyEqual(bgGradientOptions, this.gradient);
     },
     customDisabled: function() {
       return this.disabled ? "disabled" : "";
@@ -87,6 +91,9 @@ export var NlyButtonMixins = Vue.extend({
     },
     customBgVariant: function() {
       return nlyGetOptionsByKeyEqual(bgVariantOptions, this.bgVariant);
+    },
+    customApp() {
+      return this.app ? "btn-app" : "";
     }
   }
 });
