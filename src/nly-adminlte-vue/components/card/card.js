@@ -87,6 +87,7 @@ import {
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
 import { NlyIcon } from "../icon/icon";
 import { NlyOverlay } from "../overlay/overlay";
+import { nlyCardId } from "../../utils/mixin-id";
 
 const name = "NlyCard";
 
@@ -159,6 +160,9 @@ export const NlyCard = Vue.extend({
     dark: {
       type: Boolean,
       default: false
+    },
+    id: {
+      type: String
     }
   },
   computed: {
@@ -191,7 +195,8 @@ export const NlyCard = Vue.extend({
         loadingImgSrc: this.loadingImgSrc,
         loadingImgClass: this.loadingImgClass,
         tag: this.tag,
-        dark: this.dark
+        dark: this.dark,
+        id: nlyCardId(this.id)
       };
     }
   },
@@ -263,6 +268,9 @@ export const NlyCard = Vue.extend({
     return h(
       this.customProps.tag,
       {
+        attrs: {
+          id: this.customProps.id
+        },
         staticClass: "card",
         class: [
           this.customProps.headerVariant,

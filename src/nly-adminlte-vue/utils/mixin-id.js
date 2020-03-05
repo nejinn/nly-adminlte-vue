@@ -19,5 +19,9 @@ export const nlyCollapseId = function nlyCollapseId(id) {
 };
 
 export const nlySwitchId = id => {
-  return id ? `nly_switch_${id}` : "";
+  return id ? `nly_switch_id_${id}` : "";
+};
+
+export const nlyCardId = id => {
+  return id ? `nly_card_id_${id}` : null;
 };

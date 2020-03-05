@@ -19,8 +19,7 @@ export var NlyButtonMixins = Vue.extend({
       default: false
     },
     variant: {
-      type: String,
-      default: "default"
+      type: String
     },
     bgVariant: {
       type: String

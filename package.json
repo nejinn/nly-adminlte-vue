@@ -66,5 +66,9 @@
   ],
   "jest": {
     "preset": "@vue/cli-plugin-unit-jest"
+  },
+  "vetur": {
+    "tags": "src/nly-adminlte-vue/vetur-tags.json",
+    "attributes": "src/nly-adminlte-vue/vetur-attributes.json"
   }
 }
