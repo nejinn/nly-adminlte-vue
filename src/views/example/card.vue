@@ -4,7 +4,7 @@
       <nly-container fluid>
         <nly-row class="mb-2">
           <nly-col sm="6">
-            <h1>card</h1>
+            <h1>nly-card</h1>
           </nly-col>
         </nly-row>
       </nly-container>
@@ -149,6 +149,37 @@
             <nly-card-footer bg-variant="teal"
               >bg-variant="teal"</nly-card-footer
             >
+          </nly-card>
+        </nly-col>
+      </nly-row>
+
+      <nly-row>
+        <nly-col>
+          <nly-card header-variant="info" id="cardmaximzed">
+            <nly-card-header>
+              maximized-card
+              <nly-card-tool>
+                <nly-button
+                  tool
+                  v-card-maximized.cardmaximzed="{
+                    afterIcon: 'fas fa-compress',
+                    beforeIcon: 'fas fa-expand',
+                    order: 1
+                  }"
+                >
+                  <nly-icon icon="fas fa-expand" />
+                </nly-button>
+              </nly-card-tool>
+            </nly-card-header>
+            <nly-card-body>
+              <nly-card-title>
+                card-title
+              </nly-card-title>
+              <Nly-card-subtitle>
+                ssss
+              </Nly-card-subtitle>
+            </nly-card-body>
+            <nly-card-footer>footer</nly-card-footer>
           </nly-card>
         </nly-col>
       </nly-row>

@@ -6,6 +6,7 @@ import { NlyCardFooter } from "./card-footer";
 import { NlyCardTitle } from "./card-title";
 import { NlyCardSubtitle } from "./card-subtitle";
 import { NlyCardImg } from "./card-img";
+import { NlyCardTool } from "./card-tool";
 
 const cardPlugin = {
   NlyCardGroup: NlyCardGroup,
@@ -15,7 +16,8 @@ const cardPlugin = {
   NlyCardFooter: NlyCardFooter,
   NlyCardTitle: NlyCardTitle,
   NlyCardSubtitle: NlyCardSubtitle,
-  NlyCardImg: NlyCardImg
+  NlyCardImg: NlyCardImg,
+  NlyCardTool: NlyCardTool
 };
 
 export {
@@ -27,5 +29,6 @@ export {
   NlyCardFooter,
   NlyCardTitle,
   NlyCardSubtitle,
-  NlyCardImg
+  NlyCardImg,
+  NlyCardTool
 };

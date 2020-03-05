@@ -27,8 +27,8 @@
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
 size | String |  | 大小，可选sm，lg，会强制覆盖父元素以上设置的大小.默认最小。其次sm，再lg
-bg-variant | String |  | 背景色，默认无背景。可选primary，secondary，success，info:，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark,会覆盖variant props
-bg-gradient-variant | String |  | 渐变背景色，默认无背景。可选primary，secondary，success，info:，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark,会覆盖variant props
+bg-variant | String |  | 背景色，默认无背景。可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark,会覆盖variant props
+bg-gradient-variant | String |  | 渐变背景色，默认无背景。可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark,会覆盖variant props
 tag | String | span | 标签，默认span。
 badge-class | String | | 自定义css式样，如果需要放在navbar中，可以传入navbar-badge，这样会让badge变成右上角小图标，在一般情况下不会挡住navbar-item
 pill | String | false | 形状，默认小圆角，设置为true，大圆角型

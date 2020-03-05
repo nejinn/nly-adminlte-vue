@@ -19,6 +19,7 @@ import { cardPlugin } from "./components/card";
 
 import { toggleDirectivePlugin } from "./directives/toggle";
 import { collapseSidebarDirectivePlugin } from "./directives/sidebarcollapse";
+import { cardDirectivePlugin } from "./directives/card";
 
 const componentPlugins = Object.assign(
   collapseSidebarPlugin,
@@ -43,7 +44,8 @@ const componentPlugins = Object.assign(
 
 const directivePlugins = Object.assign(
   toggleDirectivePlugin,
-  collapseSidebarDirectivePlugin
+  collapseSidebarDirectivePlugin,
+  cardDirectivePlugin
 );
 
 export const registerComponent = (Vue, name, def) => {
