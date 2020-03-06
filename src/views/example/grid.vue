@@ -119,7 +119,7 @@
 
         <div class="title">
           <p>order</p>
-          <nly-row>
+          <nly-row style="padding-bottom:10px">
             <nly-col
               order-xs="1"
               order-sm="2"
@@ -169,7 +169,6 @@
 <style lang="scss" scoped>
 .demo .title {
   text-align: center;
-  margin: 1rem 0 1rem 0;
   p {
     background-color: antiquewhite;
   }

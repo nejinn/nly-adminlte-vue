@@ -1,4 +1,4 @@
-import { collapseSidebarPlugin } from "./components/layout/collapsesidebar";
+import { collapseSidebarComponents } from "./components/layout/collapsesidebar";
 import { navbarPlugin } from "./components/navbar";
 import { wrapperPlugin } from "./components/layout/wrapper";
 import { buttonPlugin } from "./components/button";
@@ -22,7 +22,7 @@ import { collapseSidebarDirectivePlugin } from "./directives/sidebarcollapse";
 import { cardDirectivePlugin } from "./directives/card";
 
 const componentPlugins = Object.assign(
-  collapseSidebarPlugin,
+  collapseSidebarComponents,
   navbarPlugin,
   wrapperPlugin,
   buttonPlugin,

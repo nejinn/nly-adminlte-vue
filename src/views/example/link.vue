@@ -10,104 +10,133 @@
       </nly-container>
     </nly-content-header>
     <nly-content>
-      <div class="demo">
-        <div class="title">
-          <p>无</p>
-          <nly-link>
-            nly-link
-          </nly-link>
-        </div>
-      </div>
+      <nly-row>
+        <nly-col col-xs="3">
+          <div class="demo">
+            <div class="title">
+              <p>无</p>
+              <nly-link>
+                nly-link
+              </nly-link>
+            </div>
+          </div>
+          \
+        </nly-col>
 
-      <div class="demo">
-        <div class="title">
-          <p>@click</p>
-          <nly-link @click="show">
-            nly-link
-          </nly-link>
-        </div>
-      </div>
+        <nly-col col-xs="3">
+          <div class="demo">
+            <div class="title">
+              <p>@click</p>
+              <nly-link @click="show">
+                nly-link
+              </nly-link>
+            </div>
+          </div>
+        </nly-col>
 
-      <div class="demo">
-        <div class="title">
-          <p>@click to="collapse"</p>
-          <nly-link @click="show1" to="collapse">
-            nly-link
-          </nly-link>
-        </div>
-      </div>
+        <nly-col col-xs="3">
+          <div class="demo">
+            <div class="title">
+              <p>@click to="collapse"</p>
+              <nly-link @click="show1" to="collapse">
+                nly-link
+              </nly-link>
+            </div>
+          </div>
+        </nly-col>
 
-      <div class="demo">
-        <div class="title">
-          <p>active</p>
-          <nly-link active active-class="xxx">
-            nly-link
-          </nly-link>
-        </div>
-      </div>
+        <nly-col col-xs="3">
+          <div class="demo">
+            <div class="title">
+              <p>active</p>
+              <nly-link active active-class="xxx">
+                nly-link
+              </nly-link>
+            </div>
+          </div>
+        </nly-col>
+      </nly-row>
 
-      <div class="demo">
-        <div class="title">
-          <p>disabled</p>
-          <nly-link disabled>
-            nly-link
-          </nly-link>
-        </div>
-      </div>
+      <nly-row>
+        <nly-col col-xs="3">
+          <div class="demo">
+            <div class="title">
+              <p>disabled</p>
+              <nly-link disabled>
+                nly-link
+              </nly-link>
+            </div>
+          </div>
+        </nly-col>
 
-      <div class="demo">
-        <div class="title">
-          <p>active disabled</p>
-          <nly-link active disabled>
-            nly-link
-          </nly-link>
-        </div>
-      </div>
+        <nly-col col-xs="3">
+          <div class="demo">
+            <div class="title">
+              <p>active disabled</p>
+              <nly-link active disabled>
+                nly-link
+              </nly-link>
+            </div>
+          </div>
+        </nly-col>
 
-      <div class="demo">
-        <div class="title">
-          <p>to="collapse"</p>
-          <nly-link to="collapse">
-            nly-link
-          </nly-link>
-        </div>
-      </div>
+        <nly-col col-xs="3">
+          <div class="demo">
+            <div class="title">
+              <p>to="collapse"</p>
+              <nly-link to="collapse">
+                nly-link
+              </nly-link>
+            </div>
+          </div>
+        </nly-col>
 
-      <div class="demo">
-        <div class="title">
-          <p>to="collapse" append</p>
-          <nly-link to="collapse" append>
-            nly-link
-          </nly-link>
-        </div>
-      </div>
+        <nly-col col-xs="3">
+          <div class="demo">
+            <div class="title">
+              <p>to="collapse" append</p>
+              <nly-link to="collapse" append>
+                nly-link
+              </nly-link>
+            </div>
+          </div>
+        </nly-col>
+      </nly-row>
 
-      <div class="demo">
-        <div class="title">
-          <p>href="collapse"</p>
-          <nly-link href="collapse">
-            nly-link
-          </nly-link>
-        </div>
-      </div>
+      <nly-row>
+        <nly-col col-xs="4">
+          <div class="demo">
+            <div class="title">
+              <p>href="collapse"</p>
+              <nly-link href="collapse">
+                nly-link
+              </nly-link>
+            </div>
+          </div>
+        </nly-col>
 
-      <div class="demo">
-        <div class="title">
-          <p>href="collapse" target="_blank"</p>
-          <nly-link href="collapse" target="_blank">
-            nly-link
-          </nly-link>
-        </div>
-      </div>
+        <nly-col col-xs="4">
+          <div class="demo">
+            <div class="title">
+              <p>href="collapse" target="_blank"</p>
+              <nly-link href="collapse" target="_blank">
+                nly-link
+              </nly-link>
+            </div>
+          </div>
+        </nly-col>
 
-      <div class="demo">
-        <div class="title">
-          <p>href="collapse" target="_blank"</p>
-          <nly-link class="nav-link dropdown-toggle">
-            nly-link
-          </nly-link>
-        </div>
-      </div>
+        <nly-col col-xs="4">
+          <div class="demo">
+            <div class="title">
+              <p>href="collapse" target="_blank"</p>
+              <nly-link class="nav-link dropdown-toggle">
+                nly-link
+              </nly-link>
+            </div>
+          </div>
+        </nly-col>
+      </nly-row>
     </nly-content>
   </nly-content-wrapper>
 </template>

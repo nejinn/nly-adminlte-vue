@@ -252,45 +252,49 @@
         </nly-col>
       </nly-row>
 
-      <div style="margin-bottom:1rem">
-        <nly-badge variant="info" pill size="lg" tag="a">
-          variant="info" pill size='lg'
-        </nly-badge>
-      </div>
+      <nly-row>
+        <nly-col>
+          <div style="margin-bottom:1rem">
+            <nly-badge variant="info" pill size="lg" tag="a">
+              variant="info" pill size='lg'
+            </nly-badge>
+          </div>
 
-      <div style="margin-bottom:1rem">
-        <nly-badge bg-variant="info">
-          info
-        </nly-badge>
-      </div>
+          <div style="margin-bottom:1rem">
+            <nly-badge bg-variant="info">
+              info
+            </nly-badge>
+          </div>
 
-      <div style="margin-bottom:1rem">
-        <nly-badge bg-variant="warning" pill>
-          pill
-        </nly-badge>
-      </div>
-      <div style="margin-bottom:1rem">
-        <nly-badge bg-variant="teal" pill size="sm">
-          bg
-        </nly-badge>
-      </div>
-      <div style="margin-bottom:1rem">
-        <nly-badge bg-variant="pink" pill size="lg">
-          size
-        </nly-badge>
-      </div>
+          <div style="margin-bottom:1rem">
+            <nly-badge bg-variant="warning" pill>
+              pill
+            </nly-badge>
+          </div>
+          <div style="margin-bottom:1rem">
+            <nly-badge bg-variant="teal" pill size="sm">
+              bg
+            </nly-badge>
+          </div>
+          <div style="margin-bottom:1rem">
+            <nly-badge bg-variant="pink" pill size="lg">
+              size
+            </nly-badge>
+          </div>
 
-      <div style="margin-bottom:1rem">
-        <nly-badge variant="info" pill size="lg" tag="a">
-          info
-        </nly-badge>
-      </div>
+          <div style="margin-bottom:1rem">
+            <nly-badge variant="info" pill size="lg" tag="a">
+              info
+            </nly-badge>
+          </div>
 
-      <div style="margin-bottom:1rem">
-        <nly-badge bg-variant="info" pill size="lg" tag="a">
-          info
-        </nly-badge>
-      </div>
+          <div style="margin-bottom:1rem">
+            <nly-badge bg-variant="info" pill size="lg" tag="a">
+              info
+            </nly-badge>
+          </div>
+        </nly-col>
+      </nly-row>
     </nly-content>
   </nly-content-wrapper>
 </template>

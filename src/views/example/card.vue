@@ -154,7 +154,7 @@
       </nly-row>
 
       <nly-row>
-        <nly-col>
+        <nly-col xs="3">
           <nly-card header-variant="info" id="cardmaximzed">
             <nly-card-header>
               maximized-card
