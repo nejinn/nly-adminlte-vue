@@ -1,7 +1,7 @@
 import Vue from "../../utils/vue";
 import listenOnRootMixin from "../mixins/listen-on-root";
 import { NlyLink } from "../link/link";
-import { NlyCollapse } from "../collapse/collapse";
+import { NlyCollapseNoclass } from "../collapse/collapse-noclass";
 
 const EVENT_TOGGLE = "nly::toggle::collapse";
 
@@ -143,11 +143,14 @@ export const NlySidebarNavTree = Vue.extend({
   },
   render(h) {
     const menuArray = h(
-      NlyCollapse,
+      NlyCollapseNoclass,
       {
         props: this.customMenuProps,
         attrs: {
           id: this.customTarget
+        },
+        style: {
+          display: this.customMenuProps.visible ? "block" : "none"
         },
         staticClass: "nav nav-treeview"
       },
