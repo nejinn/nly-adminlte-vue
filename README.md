@@ -36,7 +36,7 @@ nly-adminlte-vue是一个基础adminlte3封装的vue组件库。干掉jq，让vu
 
 ## 使用
 
-### 可以直接clone下颌骨项目
+### 可以直接clone下载项目
 
 ```html
 git clone https://github.com/nejinn/nly-adminlte-vue.git
@@ -54,9 +54,11 @@ http://localhost:8080
 
 npm install nly-adminlte-vue
 
+main.js
 import "nly-adminlte-vue/dist/adminlte/css/adminlte.css";
 import "nly-adminlte-vue/dist/adminlte/fontawesome-free/css/all.css";
 import "nly-adminlte-vue/dist/adminlte/icon/iconfont.css";
+import "nly-adminlte-vue/dist/nly-adminlte-vue.css";
 import { NlyAdminlteVue } from "nly-adminlte-vue";
 Vue.use(NlyAdminlteVue);
 ```
