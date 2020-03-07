@@ -29,7 +29,7 @@ export const changeAfterIcon = (ChildrenList, icon, order) => {
   }
 };
 
-export const cardMaximized = {
+export const NlyCardMaximized = {
   bind(el, binding, vnode) {
     const cardMaximizedId = nlyCardId(Object.keys(binding.modifiers)[0]);
     el.onclick = () => {
