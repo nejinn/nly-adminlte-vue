@@ -3,6 +3,8 @@ import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
 
+const testcomponent = () => import("../views/example/testcomponent.vue");
+
 const index = () => import("../views/index");
 
 const container = () => import("../views/example/container.vue");
@@ -77,6 +79,11 @@ const routes = [
         path: "/table",
         name: "table",
         component: table
+      },
+      {
+        path: "/test",
+        name: "test",
+        component: testcomponent
       }
     ]
   }

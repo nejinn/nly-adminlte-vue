@@ -14,7 +14,7 @@
         <nly-col>
           <div class="card card-secondary">
             <div class="card-header">
-              <h3 class="card-title">Custom Elements</h3>
+              <h3 class="card-title">nly-switch</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -114,6 +114,770 @@
           </div>
         </nly-col>
       </nly-row>
+      <nly-row>
+        <nly-col>
+          <div class="card card-secondary">
+            <div class="card-header">
+              <h3 class="card-title">nly-bootstrap-switch</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <nly-row>
+                <nly-col xs="3">
+                  <nly-card header-variant="info" header-outline>
+                    <nly-card-header>
+                      初始值{{ bootstrapSwitch }}
+                    </nly-card-header>
+                    <nly-card-body>
+                      <nly-row>
+                        <nly-col>
+                          size="xs"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitch"
+                            size="xs"
+                          />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          size="sm"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitch"
+                            size="sm"
+                          />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          nothing
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch v-model="bootstrapSwitch" />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          size="lg"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitch"
+                            size="lg"
+                          />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          width="80"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitch"
+                            width="80"
+                          />
+                        </nly-col>
+                      </nly-row>
+
+                      <nly-row>
+                        <nly-col>
+                          on-text='是'
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitch"
+                            on-text="是"
+                          />
+                        </nly-col>
+                      </nly-row>
+
+                      <nly-row>
+                        <nly-col>
+                          off-text='否'
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitch"
+                            off-text="否"
+                          />
+                        </nly-col>
+                      </nly-row>
+
+                      <nly-row>
+                        <nly-col>
+                          label-text='哈哈'
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitch"
+                            label-text="哈哈"
+                          />
+                        </nly-col>
+                      </nly-row>
+                    </nly-card-body>
+                  </nly-card>
+                </nly-col>
+
+                <nly-col xs="3">
+                  <nly-card header-variant="info" header-outline>
+                    <nly-card-header>
+                      inverse
+                    </nly-card-header>
+                    <nly-card-body>
+                      <nly-row>
+                        <nly-col>
+                          size="xs"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitch"
+                            size="xs"
+                            inverse
+                          />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          size="sm"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitch"
+                            size="sm"
+                            inverse
+                          />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          nothing
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitch"
+                            inverse
+                          />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          size="lg"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitch"
+                            size="lg"
+                            inverse
+                          />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          width="80"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitch"
+                            width="80"
+                            inverse
+                          />
+                        </nly-col>
+                      </nly-row>
+
+                      <nly-row>
+                        <nly-col>
+                          on-text='是'
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitch"
+                            on-text="是"
+                            inverse
+                          />
+                        </nly-col>
+                      </nly-row>
+
+                      <nly-row>
+                        <nly-col>
+                          off-text='否'
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitch"
+                            off-text="否"
+                            inverse
+                          />
+                        </nly-col>
+                      </nly-row>
+
+                      <nly-row>
+                        <nly-col>
+                          label-text='哈哈'
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitch"
+                            label-text="哈哈"
+                            inverse
+                          />
+                        </nly-col>
+                      </nly-row>
+                    </nly-card-body>
+                  </nly-card>
+                </nly-col>
+
+                <nly-col xs="3">
+                  <nly-card header-variant="info" header-outline>
+                    <nly-card-header>
+                      disabled
+                    </nly-card-header>
+                    <nly-card-body>
+                      <nly-row>
+                        <nly-col>
+                          size="xs"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            size="xs"
+                            disabled
+                          />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          size="sm"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            size="sm"
+                            disabled
+                          />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          nothing
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            disabled
+                          />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          size="lg"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            size="lg"
+                            disabled
+                          />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          width="80"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            width="80"
+                            disabled
+                          />
+                        </nly-col>
+                      </nly-row>
+
+                      <nly-row>
+                        <nly-col>
+                          on-text='是'
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            on-text="是"
+                            disabled
+                          />
+                        </nly-col>
+                      </nly-row>
+
+                      <nly-row>
+                        <nly-col>
+                          off-text='否'
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            :checked="true"
+                            off-text="否"
+                            disabled
+                          />
+                        </nly-col>
+                      </nly-row>
+
+                      <nly-row>
+                        <nly-col>
+                          label-text='哈哈'
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            label-text="哈哈"
+                            disabled
+                          />
+                        </nly-col>
+                      </nly-row>
+                    </nly-card-body>
+                  </nly-card>
+                </nly-col>
+
+                <nly-col xs="3">
+                  <nly-card header-variant="info" header-outline>
+                    <nly-card-header>
+                      readonly
+                    </nly-card-header>
+                    <nly-card-body>
+                      <nly-row>
+                        <nly-col>
+                          size="xs"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            size="xs"
+                            readonly
+                          />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          size="sm"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            size="sm"
+                            readonly
+                          />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          nothing
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            readonly
+                          />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          size="lg"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            size="lg"
+                            readonly
+                          />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          width="80"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            width="80"
+                            readonly
+                          />
+                        </nly-col>
+                      </nly-row>
+
+                      <nly-row>
+                        <nly-col>
+                          on-text='是'
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            on-text="是"
+                            readonly
+                          />
+                        </nly-col>
+                      </nly-row>
+
+                      <nly-row>
+                        <nly-col>
+                          off-text='否'
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            :checked="true"
+                            off-text="否"
+                            readonly
+                          />
+                        </nly-col>
+                      </nly-row>
+
+                      <nly-row>
+                        <nly-col>
+                          label-text='哈哈'
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            label-text="哈哈"
+                            readonly
+                          />
+                        </nly-col>
+                      </nly-row>
+                    </nly-card-body>
+                  </nly-card>
+                </nly-col>
+              </nly-row>
+
+              <nly-row>
+                <nly-col xs="6">
+                  <nly-card header-variant="info" header-outline>
+                    <nly-card-header>
+                      on-variant off-variant
+                    </nly-card-header>
+                    <nly-card-body>
+                      <nly-row>
+                        <nly-col>
+                          no animate
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            size="xs"
+                            :animate="false"
+                          />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          on-variant="info" off-variant="primary"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            size="sm"
+                            on-variant="info"
+                            off-variant="primary"
+                          />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          on-variant="info" off-variant="secondary"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            on-variant="info"
+                            off-variant="secondary"
+                          />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          on-variant="info" off-variant="success"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            size="lg"
+                            on-variant="info"
+                            off-variant="success"
+                          />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          on-variant="info" off-variant="warning"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            width="80"
+                            on-variant="info"
+                            off-variant="warning"
+                          />
+                        </nly-col>
+                      </nly-row>
+
+                      <nly-row>
+                        <nly-col>
+                          on-variant="info" off-variant="danger"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            on-text="是"
+                            on-variant="info"
+                            off-variant="danger"
+                          />
+                        </nly-col>
+                      </nly-row>
+
+                      <nly-row>
+                        <nly-col>
+                          on-variant="info" off-variant="light"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            :checked="true"
+                            off-text="否"
+                            on-variant="info"
+                            off-variant="light"
+                          />
+                        </nly-col>
+                      </nly-row>
+
+                      <nly-row>
+                        <nly-col>
+                          on-variant="info" off-variant="dark"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            label-text="哈哈"
+                            on-variant="info"
+                            off-variant="dark"
+                          />
+                        </nly-col>
+                      </nly-row>
+                    </nly-card-body>
+                  </nly-card>
+                </nly-col>
+
+                <nly-col xs="6">
+                  <nly-card header-variant="info" header-outline>
+                    <nly-card-header>
+                      on-variant off-variant
+                    </nly-card-header>
+                    <nly-card-body>
+                      <nly-row>
+                        <nly-col>
+                          on-variant='lightblue' off-variant="pink"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            size="xs"
+                            on-variant="lightblue"
+                            off-variant="pink"
+                          />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          on-variant="navy" off-variant="pink"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            size="sm"
+                            on-variant="navy"
+                            off-variant="pink"
+                          />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          on-variant="olive" off-variant="pink"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            on-variant="olive"
+                            off-variant="pink"
+                          />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          on-variant="lime" off-variant="pink"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            size="lg"
+                            on-variant="lime"
+                            off-variant="pink"
+                          />
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          on-variant="fuchsia" off-variant="pink"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            width="80"
+                            on-variant="fuchsia"
+                            off-variant="pink"
+                          />
+                        </nly-col>
+                      </nly-row>
+
+                      <nly-row>
+                        <nly-col>
+                          on-variant="maroon" off-variant="pink"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            on-text="是"
+                            on-variant="maroon"
+                            off-variant="pink"
+                          />
+                        </nly-col>
+                      </nly-row>
+
+                      <nly-row>
+                        <nly-col>
+                          on-variant="blue" off-variant="pink"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            :checked="true"
+                            off-text="否"
+                            on-variant="blue"
+                            off-variant="pink"
+                          />
+                        </nly-col>
+                      </nly-row>
+
+                      <nly-row>
+                        <nly-col>
+                          on-variant="indigo" off-variant="pink"
+                        </nly-col>
+                      </nly-row>
+                      <nly-row>
+                        <nly-col>
+                          <nly-bootstrap-switch
+                            v-model="bootstrapSwitchFalse"
+                            label-text="哈哈"
+                            on-variant="indigo"
+                            off-variant="pink"
+                          />
+                        </nly-col>
+                      </nly-row>
+                    </nly-card-body>
+                  </nly-card>
+                </nly-col>
+              </nly-row>
+            </div>
+          </div>
+        </nly-col>
+      </nly-row>
     </nly-content>
   </nly-content-wrapper>
 </template>
@@ -126,7 +890,9 @@ export default {
       switchEmpty: "",
       switchFalse: false,
       switchNull: null,
-      switchChecked: false
+      switchChecked: false,
+      bootstrapSwitch: true,
+      bootstrapSwitchFalse: false
     };
   }
 };
