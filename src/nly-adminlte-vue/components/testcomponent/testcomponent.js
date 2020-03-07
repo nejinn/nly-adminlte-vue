@@ -16,9 +16,6 @@ export const testComponent = Vue.extend({
   render(h) {
     return h("input", {
       on: {
-        // input: function(event) {
-        //   self.$emit("change", event.target.value);
-        // }
         input: () => this.changeValue(event)
       },
       attrs: {
