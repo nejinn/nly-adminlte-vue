@@ -16,6 +16,7 @@ import { iconPlugin } from "./components/icon";
 import { switchPlugin } from "./components/switch";
 import { badgePlugin } from "./components/badge";
 import { cardPlugin } from "./components/card";
+import { testCOM } from "./components/testcomponent";
 
 import { toggleDirectivePlugin } from "./directives/toggle";
 import { collapseSidebarDirectivePlugin } from "./directives/sidebarcollapse";
@@ -39,7 +40,8 @@ const componentPlugins = Object.assign(
   iconPlugin,
   switchPlugin,
   badgePlugin,
-  cardPlugin
+  cardPlugin,
+  testCOM
 );
 
 const directivePlugins = Object.assign(
