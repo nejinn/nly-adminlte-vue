@@ -161,7 +161,7 @@
               <nly-card-tool>
                 <nly-button
                   tool
-                  v-card-maximized.cardmaximzed="{
+                  v-nly-card-maximized.cardmaximzed="{
                     afterIcon: 'fas fa-compress',
                     beforeIcon: 'fas fa-expand',
                     order: 1

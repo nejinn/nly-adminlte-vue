@@ -1,7 +1,7 @@
-import { cardMaximized } from "./maximized-card";
+import { NlyCardMaximized } from "./maximized-card";
 
 const cardDirectivePlugin = {
-  cardMaximized: cardMaximized
+  NlyCardMaximized: NlyCardMaximized
 };
 
-export { cardDirectivePlugin, cardMaximized };
+export { cardDirectivePlugin, NlyCardMaximized };
