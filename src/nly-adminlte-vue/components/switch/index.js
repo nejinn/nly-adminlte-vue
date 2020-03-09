@@ -1,9 +1,12 @@
+import { nlyPluginFactory } from "../../utils/plugins";
 import { NlySwitch } from "./switch";
 import { NlyBootstrapSwitch } from "./bootstrap-switch";
 
-const switchPlugin = {
-  NlySwitch: NlySwitch,
-  NlyBootstrapSwitch: NlyBootstrapSwitch
-};
+const switchPlugin = nlyPluginFactory({
+  components: {
+    NlySwitch,
+    NlyBootstrapSwitch
+  }
+});
 
-export { switchPlugin, NlySwitch };
+export { switchPlugin, NlySwitch, NlyBootstrapSwitch };

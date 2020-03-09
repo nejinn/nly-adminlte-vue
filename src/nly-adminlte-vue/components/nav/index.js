@@ -1,11 +1,14 @@
+import { nlyPluginFactory } from "../../utils/plugins";
 import { NlyNav } from "./nav";
 import { NlyNavItem } from "./nav-item";
 import { NlyNavDropdown } from "./nav-dropdown";
 
-const navPlugin = {
-  NlyNav: NlyNav,
-  NlyNavItem: NlyNavItem,
-  NlyNavDropdown: NlyNavDropdown
-};
+const navPlugin = nlyPluginFactory({
+  components: {
+    NlyNav,
+    NlyNavItem,
+    NlyNavDropdown
+  }
+});
 
 export { navPlugin, NlyNav, NlyNavItem, NlyNavDropdown };

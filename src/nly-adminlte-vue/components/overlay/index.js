@@ -1,7 +1,10 @@
+import { nlyPluginFactory } from "../../utils/plugins";
 import { NlyOverlay } from "./overlay";
 
-const overlayPlugin = {
-  NlyOverlay: NlyOverlay
-};
+const overlayPlugin = nlyPluginFactory({
+  components: {
+    NlyOverlay
+  }
+});
 
 export { overlayPlugin, NlyOverlay };

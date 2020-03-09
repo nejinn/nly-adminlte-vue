@@ -1,6 +1,6 @@
-import Vue from "../../utils/vue";
+import Vue from "./vue";
 import { mergeData } from "vue-functional-data-merge";
-import { getBCR, reflow, requestAF } from "../../utils/dom";
+import { getBCR, reflow, requestAF } from "./dom";
 
 const onEnter = el => {
   el.style.height = 0;

@@ -1,7 +1,10 @@
+import { nlyPluginFactory } from "../../../utils/plugins";
 import { NlyContainer } from "./container";
 
-const containerPlugin = {
-  NlyContainer: NlyContainer
-};
+const containerPlugin = nlyPluginFactory({
+  components: {
+    NlyContainer
+  }
+});
 
 export { containerPlugin, NlyContainer };

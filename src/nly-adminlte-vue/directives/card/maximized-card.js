@@ -1,33 +1,7 @@
 import { nlyCardId } from "../../utils/mixin-id";
 import { toInteger } from "../../utils/number";
 
-export const changeBeforeIcon = (ChildrenList, icon, order) => {
-  if (ChildrenList) {
-    if (icon) {
-      if (order) {
-        ChildrenList[order - 1].$el.className = icon;
-      } else {
-        if (ChildrenList[0].$options._componentTag == "nly-icon") {
-          ChildrenList[0].$el.className = icon;
-        }
-      }
-    }
-  }
-};
-
-export const changeAfterIcon = (ChildrenList, icon, order) => {
-  if (ChildrenList) {
-    if (icon) {
-      if (order) {
-        ChildrenList[order - 1].$el.className = icon;
-      } else {
-        if (ChildrenList[0].$options._componentTag == "nly-icon") {
-          ChildrenList[0].$el.className = icon;
-        }
-      }
-    }
-  }
-};
+import { changeAfterIcon, changeBeforeIcon } from "../../utils/card";
 
 export const NlyCardMaximized = {
   bind(el, binding, vnode) {

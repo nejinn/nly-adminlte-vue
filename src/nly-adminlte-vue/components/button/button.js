@@ -1,5 +1,5 @@
 import Vue from "../../utils/vue";
-import { NlyButtonMixins } from "../mixins/button-mixins";
+import { NlyButtonMixins } from "../../mixins/button-mixins";
 
 const name = "NlyButton";
 

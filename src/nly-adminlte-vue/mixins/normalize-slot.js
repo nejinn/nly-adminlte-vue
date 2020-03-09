@@ -1,5 +1,5 @@
-import { hasNormalizedSlot, normalizeSlot } from "../../utils/normalize-slot";
-import { concat } from "../../utils/array";
+import { hasNormalizedSlot, normalizeSlot } from "../utils/normalize-slot";
+import { concat } from "../utils/array";
 
 export default {
   methods: {

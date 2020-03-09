@@ -1,9 +1,9 @@
 import Vue from "../../utils/vue";
-import idMixin from "../mixins/id";
-import listenOnRootMixin from "../mixins/listen-on-root";
-import normalizeSlotMixin from "../mixins/normalize-slot";
+import idMixin from "../../mixins/id";
+import listenOnRootMixin from "../../mixins/listen-on-root";
+import normalizeSlotMixin from "../../mixins/normalize-slot";
 import { isBrowser } from "../../utils/env";
-import { NlyCollapseNoclassTransition } from "./collapse-noclass-transition";
+import { NlyCollapseNoclassTransition } from "../../utils/collapse-noclass-transition";
 import {
   addClass,
   hasClass,

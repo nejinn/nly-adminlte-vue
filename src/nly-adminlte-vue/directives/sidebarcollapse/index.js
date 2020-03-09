@@ -1,10 +1,13 @@
+import { nlyPluginFactory } from "../../utils/plugins";
 import { NlySidebarCollapse } from "./sidebar-collapse";
 import { NlyControlSidebarCollapse } from "./control-sidebar-collapse";
 
-const collapseSidebarDirectivePlugin = {
-  NlySidebarCollapse: NlySidebarCollapse,
-  NlyControlSidebarCollapse: NlyControlSidebarCollapse
-};
+const collapseSidebarDirectivePlugin = nlyPluginFactory({
+  directives: {
+    NlySidebarCollapse,
+    NlyControlSidebarCollapse
+  }
+});
 
 export {
   collapseSidebarDirectivePlugin,

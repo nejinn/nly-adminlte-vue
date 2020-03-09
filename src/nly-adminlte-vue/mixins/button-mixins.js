@@ -1,5 +1,5 @@
-import Vue from "../../utils/vue";
-import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
+import Vue from "../utils/vue";
+import { nlyGetOptionsByKeyEqual } from "../utils/get-options";
 import {
   btnVariantOptinos,
   btnSizeOptions,
@@ -7,7 +7,7 @@ import {
   btnShapeOptions,
   bgGradientOptions,
   bgVariantOptions
-} from "../../utils/nly-config";
+} from "../utils/nly-config";
 
 const name = "NlyButtonMixins";
 

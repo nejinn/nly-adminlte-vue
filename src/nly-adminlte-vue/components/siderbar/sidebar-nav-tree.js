@@ -1,5 +1,5 @@
 import Vue from "../../utils/vue";
-import listenOnRootMixin from "../mixins/listen-on-root";
+import listenOnRootMixin from "../../mixins/listen-on-root";
 import { NlyLink } from "../link/link";
 import { NlyCollapseNoclass } from "../collapse/collapse-noclass";
 

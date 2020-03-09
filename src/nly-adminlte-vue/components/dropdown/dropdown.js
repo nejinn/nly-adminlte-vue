@@ -3,7 +3,7 @@ import {
   nlyGetOptionsByKeyEqual,
   nlyGetOptionsByItem
 } from "../../utils/get-options";
-import { NlyButtonMixins } from "../mixins/button-mixins";
+import { NlyButtonMixins } from "../../mixins/button-mixins";
 import { createPopper } from "@popperjs/core";
 import {
   nlyDropdownParentId,

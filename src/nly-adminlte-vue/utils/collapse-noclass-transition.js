@@ -1,4 +1,4 @@
-import Vue from "../../utils/vue";
+import Vue from "./vue";
 import { mergeData } from "vue-functional-data-merge";
 // import { toInteger } from "../../utils/number";
 
@@ -46,7 +46,6 @@ const beforeLeave = el => {
 
 const leave = el => {
   if (el.scrollHeight !== 0) {
-    console.log(2);
     el.style.transition = `all 0.5s`;
     el.style.height = 0;
     el.style.paddingTop = 0;

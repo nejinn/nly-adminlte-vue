@@ -1,5 +1,5 @@
 import Vue from "../../utils/vue";
-import normalizeSlotMixin from "../mixins/normalize-slot";
+import normalizeSlotMixin from "../../mixins/normalize-slot";
 import { concat } from "../../utils/array";
 import { isEvent, isFunction, isUndefined } from "../../utils/inspect";
 import {

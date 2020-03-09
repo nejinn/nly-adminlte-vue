@@ -182,6 +182,27 @@
             <nly-card-footer>footer</nly-card-footer>
           </nly-card>
         </nly-col>
+
+        <nly-col xs="3">
+          <nly-card header-variant="info" ref="cardcollpase">
+            <nly-card-header>
+              maximized-card
+              <nly-card-tool>
+                <nly-button tool v-nly-card-collapse.cardcollpase>
+                  <nly-icon icon="fas fa-minus" />
+                </nly-button>
+              </nly-card-tool>
+            </nly-card-header>
+            <nly-card-body id="goodjob">
+              <nly-card-title>
+                card-title
+              </nly-card-title>
+              <Nly-card-subtitle>
+                ssss
+              </Nly-card-subtitle>
+            </nly-card-body>
+          </nly-card>
+        </nly-col>
       </nly-row>
     </nly-content>
   </nly-content-wrapper>

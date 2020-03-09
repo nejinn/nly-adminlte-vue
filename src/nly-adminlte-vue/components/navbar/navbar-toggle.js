@@ -1,6 +1,6 @@
 import Vue from "../../utils/vue";
-import listenOnRootMixin from "../mixins/listen-on-root";
-import normalizeSlotMixin from "../mixins/normalize-slot";
+import listenOnRootMixin from "../../mixins/listen-on-root";
+import normalizeSlotMixin from "../../mixins/normalize-slot";
 
 const name = "NlyNavbarToggle";
 
