@@ -4,8 +4,6 @@ import { getComponentConfig } from "../../utils/config";
 import { removeClass, requestAF } from "../../utils/dom";
 import { warn } from "../../utils/warn";
 
-// --- Constants ---
-
 const NAME = "NlyToaster";
 
 export const props = {
@@ -22,34 +20,21 @@ export const props = {
     default: () => getComponentConfig(NAME, "ariaAtomic") // Allowed: 'true' or 'false' or null
   },
   role: {
-    // Aria role
     type: String,
     default: () => getComponentConfig(NAME, "role")
   }
-  /*
-  transition: {
-    type: [Boolean, String, Object],
-    default: false
-  }
-  */
 };
 
-// @vue/component
-export const DefaultTransition = /*#__PURE__*/ Vue.extend({
+export const DefaultTransition = Vue.extend({
   data() {
     return {
-      // Transition classes base name
       name: "nly-toaster"
     };
   },
   methods: {
     onAfterEnter(el) {
-      // Handle bug where enter-to class is not removed.
-      // Bug is related to portal-vue and transition-groups.
       requestAF(() => {
         removeClass(el, `${this.name}-enter-to`);
-        // The *-move class is also stuck on elements that moved,
-        // but there are no javascript hooks to handle after move.
       });
     }
   },
@@ -70,16 +55,13 @@ export const NlyToaster = Vue.extend({
   props,
   data() {
     return {
-      // We don't render on SSR or if a an existing target found
       doRender: false,
       dead: false,
-      // Toaster names cannot change once created
       staticName: this.name
     };
   },
   beforeMount() {
     this.staticName = this.name;
-    /* istanbul ignore if */
     if (Wormhole.hasTarget(this.staticName)) {
       warn(
         `A "<portal-target>" with name "${this.name}" already exists in the document.`,
@@ -89,15 +71,11 @@ export const NlyToaster = Vue.extend({
     } else {
       this.doRender = true;
       this.$once("hook:beforeDestroy", () => {
-        // Let toasts made with `this.$bvToast.toast()` know that this toaster
-        // is being destroyed and should should also destroy/hide themselves
         this.$root.$emit("nly::toaster::destroyed", this.staticName);
       });
     }
   },
   destroyed() {
-    // Remove from DOM if needed
-    /* istanbul ignore next: difficult to test */
     if (this.$el && this.$el.parentNode) {
       this.$el.parentNode.removeChild(this.$el);
     }
@@ -114,7 +92,6 @@ export const NlyToaster = Vue.extend({
           multiple: true,
           tag: "div",
           slim: false,
-          // transition: this.transition || DefaultTransition
           transition: DefaultTransition
         }
       });
@@ -125,7 +102,7 @@ export const NlyToaster = Vue.extend({
           class: [this.staticName],
           attrs: {
             id: this.staticName,
-            role: this.role || null, // Fallback to null to make sure attribute doesn't exist
+            role: this.role || null,
             "aria-live": this.ariaLive,
             "aria-atomic": this.ariaAtomic
           }

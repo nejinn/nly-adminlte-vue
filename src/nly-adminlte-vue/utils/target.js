@@ -3,7 +3,7 @@ import { eventOn, eventOff } from "./dom";
 
 const allListenTypes = { hover: true, click: true, focus: true };
 
-const BVBoundListeners = "__BV_boundEventListeners__";
+const NLYBoundListeners = "__NLY_boundEventListeners__";
 
 const getTargets = binding => {
   const targets = keys(binding.modifiers || {}).filter(t => !allListenTypes[t]);
@@ -25,10 +25,10 @@ const bindTargets = (vnode, binding, listenTypes, fn) => {
   keys(allListenTypes).forEach(type => {
     if (listenTypes[type] || binding.modifiers[type]) {
       eventOn(vnode.elm, type, listener);
-      const boundListeners = vnode.elm[BVBoundListeners] || {};
+      const boundListeners = vnode.elm[NLYBoundListeners] || {};
       boundListeners[type] = boundListeners[type] || [];
       boundListeners[type].push(listener);
-      vnode.elm[BVBoundListeners] = boundListeners;
+      vnode.elm[NLYBoundListeners] = boundListeners;
     }
   });
 
@@ -39,10 +39,10 @@ const unbindTargets = (vnode, binding, listenTypes) => {
   keys(allListenTypes).forEach(type => {
     if (listenTypes[type] || binding.modifiers[type]) {
       const boundListeners =
-        vnode.elm[BVBoundListeners] && vnode.elm[BVBoundListeners][type];
+        vnode.elm[NLYBoundListeners] && vnode.elm[NLYBoundListeners][type];
       if (boundListeners) {
         boundListeners.forEach(listener => eventOff(vnode.elm, type, listener));
-        delete vnode.elm[BVBoundListeners][type];
+        delete vnode.elm[NLYBoundListeners][type];
       }
     }
   });

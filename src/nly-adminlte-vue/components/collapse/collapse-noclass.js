@@ -102,7 +102,7 @@ export const NlyCollapseNoclass = Vue.extend({
     this.$nextTick(() => {
       this.emitState();
     });
-    // Listen for "Sync state" requests from `v-b-toggle`
+    // Listen for "Sync state" requests from `v-nly-toggle`
     this.listenOnRoot(EVENT_STATE_REQUEST, id => {
       if (id === this.safeId()) {
         this.$nextTick(this.emitSync);
@@ -166,7 +166,7 @@ export const NlyCollapseNoclass = Vue.extend({
     },
     emitState() {
       this.$emit("input", this.show);
-      // Let `v-b-toggle` know the state of this collapse
+      // Let `v-nly-toggle` know the state of this collapse
       this.$root.$emit(EVENT_STATE, this.safeId(), this.show);
       if (this.accordion && this.show) {
         // Tell the other collapses in this accordion to close

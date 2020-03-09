@@ -1045,3 +1045,256 @@
   -webkit-transform: translateX(0.65625rem);
   transform: translateX(0.65625rem);
 }
+
+
+.nly-toast {
+  display: block;
+  position: relative;
+  max-width: 350px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  background-clip: padding-box;
+  z-index: 2500;
+  border-radius: 0.25rem;
+}
+
+.nly-toast .toast {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.nly-toast:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
+
+.nly-toast.nly-toast-solid .toast {
+  background-color: white;
+}
+
+.nly-toast .toast {
+  opacity: 1;
+}
+
+.nly-toast .toast.fade:not(.show) {
+  opacity: 0;
+}
+
+.nly-toast .toast .toast-body {
+  display: block;
+}
+
+.nly-toast-primary .toast {
+  background-color: rgba(230, 242, 255, 0.85);
+  border-color: rgba(184, 218, 255, 0.85);
+  color: #004085;
+}
+
+.nly-toast-primary .toast .toast-header {
+  color: #004085;
+  background-color: rgba(204, 229, 255, 0.85);
+  border-bottom-color: rgba(184, 218, 255, 0.85);
+}
+
+.nly-toast-primary.nly-toast-solid .toast {
+  background-color: #e6f2ff;
+}
+
+.nly-toast-secondary .toast {
+  background-color: rgba(239, 240, 241, 0.85);
+  border-color: rgba(214, 216, 219, 0.85);
+  color: #383d41;
+}
+
+.nly-toast-secondary .toast .toast-header {
+  color: #383d41;
+  background-color: rgba(226, 227, 229, 0.85);
+  border-bottom-color: rgba(214, 216, 219, 0.85);
+}
+
+.nly-toast-secondary.nly-toast-solid .toast {
+  background-color: #eff0f1;
+}
+
+.nly-toast-success .toast {
+  background-color: rgba(230, 245, 233, 0.85);
+  border-color: rgba(195, 230, 203, 0.85);
+  color: #155724;
+}
+
+.nly-toast-success .toast .toast-header {
+  color: #155724;
+  background-color: rgba(212, 237, 218, 0.85);
+  border-bottom-color: rgba(195, 230, 203, 0.85);
+}
+
+.nly-toast-success.nly-toast-solid .toast {
+  background-color: #e6f5e9;
+}
+
+.nly-toast-info .toast {
+  background-color: rgba(229, 244, 247, 0.85);
+  border-color: rgba(190, 229, 235, 0.85);
+  color: #0c5460;
+}
+
+.nly-toast-info .toast .toast-header {
+  color: #0c5460;
+  background-color: rgba(209, 236, 241, 0.85);
+  border-bottom-color: rgba(190, 229, 235, 0.85);
+}
+
+.nly-toast-info.nly-toast-solid .toast {
+  background-color: #e5f4f7;
+}
+
+.nly-toast-warning .toast {
+  background-color: rgba(255, 249, 231, 0.85);
+  border-color: rgba(255, 238, 186, 0.85);
+  color: #856404;
+}
+
+.nly-toast-warning .toast .toast-header {
+  color: #856404;
+  background-color: rgba(255, 243, 205, 0.85);
+  border-bottom-color: rgba(255, 238, 186, 0.85);
+}
+
+.nly-toast-warning.nly-toast-solid .toast {
+  background-color: #fff9e7;
+}
+
+.nly-toast-danger .toast {
+  background-color: rgba(252, 237, 238, 0.85);
+  border-color: rgba(245, 198, 203, 0.85);
+  color: #721c24;
+}
+
+.nly-toast-danger .toast .toast-header {
+  color: #721c24;
+  background-color: rgba(248, 215, 218, 0.85);
+  border-bottom-color: rgba(245, 198, 203, 0.85);
+}
+
+.nly-toast-danger.nly-toast-solid .toast {
+  background-color: #fcedee;
+}
+
+.nly-toast-light .toast {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(253, 253, 254, 0.85);
+  color: #818182;
+}
+
+.nly-toast-light .toast .toast-header {
+  color: #818182;
+  background-color: rgba(254, 254, 254, 0.85);
+  border-bottom-color: rgba(253, 253, 254, 0.85);
+}
+
+.nly-toast-light.nly-toast-solid .toast {
+  background-color: white;
+}
+
+.nly-toast-dark .toast {
+  background-color: rgba(227, 229, 229, 0.85);
+  border-color: rgba(198, 200, 202, 0.85);
+  color: #1b1e21;
+}
+
+.nly-toast-dark .toast .toast-header {
+  color: #1b1e21;
+  background-color: rgba(214, 216, 217, 0.85);
+  border-bottom-color: rgba(198, 200, 202, 0.85);
+}
+
+.nly-toast-dark.nly-toast-solid .toast {
+  background-color: #e3e5e5;
+}
+
+.nly-toaster {
+  z-index: 3000;
+}
+
+.nly-toaster .nly-toaster-slot {
+  position: relative;
+  display: block;
+}
+
+.nly-toaster .nly-toaster-slot:empty {
+  display: none !important;
+}
+
+.nly-toaster.nly-toaster-top-right, .nly-toaster.nly-toaster-top-left, .nly-toaster.nly-toaster-top-center, .nly-toaster.nly-toaster-top-full, .nly-toaster.nly-toaster-bottom-right, .nly-toaster.nly-toaster-bottom-left, .nly-toaster.nly-toaster-bottom-center, .nly-toaster.nly-toaster-bottom-full {
+  position: fixed;
+  left: 0.5rem;
+  right: 0.5rem;
+  margin: 0;
+  padding: 0;
+  height: 0;
+  overflow: visible;
+}
+
+.nly-toaster.nly-toaster-top-right .nly-toaster-slot, .nly-toaster.nly-toaster-top-left .nly-toaster-slot, .nly-toaster.nly-toaster-top-center .nly-toaster-slot, .nly-toaster.nly-toaster-top-full .nly-toaster-slot, .nly-toaster.nly-toaster-bottom-right .nly-toaster-slot, .nly-toaster.nly-toaster-bottom-left .nly-toaster-slot, .nly-toaster.nly-toaster-bottom-center .nly-toaster-slot, .nly-toaster.nly-toaster-bottom-full .nly-toaster-slot {
+  position: absolute;
+  max-width: 350px;
+  width: 100%;
+  /* IE11 fix */
+  left: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.nly-toaster.nly-toaster-top-full .nly-toaster-slot, .nly-toaster.nly-toaster-bottom-full .nly-toaster-slot {
+  width: 100%;
+  max-width: 100%;
+}
+
+.nly-toaster.nly-toaster-top-full .nly-toaster-slot .nly-toast,
+.nly-toaster.nly-toaster-top-full .nly-toaster-slot .toast, .nly-toaster.nly-toaster-bottom-full .nly-toaster-slot .nly-toast,
+.nly-toaster.nly-toaster-bottom-full .nly-toaster-slot .toast {
+  width: 100%;
+  max-width: 100%;
+}
+
+.nly-toaster.nly-toaster-top-right, .nly-toaster.nly-toaster-top-left, .nly-toaster.nly-toaster-top-center, .nly-toaster.nly-toaster-top-full {
+  top: 0;
+}
+
+.nly-toaster.nly-toaster-top-right .nly-toaster-slot, .nly-toaster.nly-toaster-top-left .nly-toaster-slot, .nly-toaster.nly-toaster-top-center .nly-toaster-slot, .nly-toaster.nly-toaster-top-full .nly-toaster-slot {
+  top: 0.5rem;
+}
+
+.nly-toaster.nly-toaster-bottom-right, .nly-toaster.nly-toaster-bottom-left, .nly-toaster.nly-toaster-bottom-center, .nly-toaster.nly-toaster-bottom-full {
+  bottom: 0;
+}
+
+.nly-toaster.nly-toaster-bottom-right .nly-toaster-slot, .nly-toaster.nly-toaster-bottom-left .nly-toaster-slot, .nly-toaster.nly-toaster-bottom-center .nly-toaster-slot, .nly-toaster.nly-toaster-bottom-full .nly-toaster-slot {
+  bottom: 0.5rem;
+}
+
+.nly-toaster.nly-toaster-top-right .nly-toaster-slot, .nly-toaster.nly-toaster-bottom-right .nly-toaster-slot, .nly-toaster.nly-toaster-top-center .nly-toaster-slot, .nly-toaster.nly-toaster-bottom-center .nly-toaster-slot {
+  margin-left: auto;
+}
+
+.nly-toaster.nly-toaster-top-left .nly-toaster-slot, .nly-toaster.nly-toaster-bottom-left .nly-toaster-slot, .nly-toaster.nly-toaster-top-center .nly-toaster-slot, .nly-toaster.nly-toaster-bottom-center .nly-toaster-slot {
+  margin-right: auto;
+}
+
+.nly-toaster.nly-toaster-top-right .nly-toast.nly-toaster-enter-active, .nly-toaster.nly-toaster-top-right .nly-toast.nly-toaster-leave-active, .nly-toaster.nly-toaster-top-right .nly-toast.nly-toaster-move, .nly-toaster.nly-toaster-top-left .nly-toast.nly-toaster-enter-active, .nly-toaster.nly-toaster-top-left .nly-toast.nly-toaster-leave-active, .nly-toaster.nly-toaster-top-left .nly-toast.nly-toaster-move, .nly-toaster.nly-toaster-bottom-right .nly-toast.nly-toaster-enter-active, .nly-toaster.nly-toaster-bottom-right .nly-toast.nly-toaster-leave-active, .nly-toaster.nly-toaster-bottom-right .nly-toast.nly-toaster-move, .nly-toaster.nly-toaster-bottom-left .nly-toast.nly-toaster-enter-active, .nly-toaster.nly-toaster-bottom-left .nly-toast.nly-toaster-leave-active, .nly-toaster.nly-toaster-bottom-left .nly-toast.nly-toaster-move {
+  transition: -webkit-transform 0.175s;
+  transition: transform 0.175s;
+  transition: transform 0.175s, -webkit-transform 0.175s;
+}
+
+.nly-toaster.nly-toaster-top-right .nly-toast.nly-toaster-enter-to .toast.fade, .nly-toaster.nly-toaster-top-right .nly-toast.nly-toaster-enter-active .toast.fade, .nly-toaster.nly-toaster-top-left .nly-toast.nly-toaster-enter-to .toast.fade, .nly-toaster.nly-toaster-top-left .nly-toast.nly-toaster-enter-active .toast.fade, .nly-toaster.nly-toaster-bottom-right .nly-toast.nly-toaster-enter-to .toast.fade, .nly-toaster.nly-toaster-bottom-right .nly-toast.nly-toaster-enter-active .toast.fade, .nly-toaster.nly-toaster-bottom-left .nly-toast.nly-toaster-enter-to .toast.fade, .nly-toaster.nly-toaster-bottom-left .nly-toast.nly-toaster-enter-active .toast.fade {
+  transition-delay: 0.175s;
+}
+
+.nly-toaster.nly-toaster-top-right .nly-toast.nly-toaster-leave-active, .nly-toaster.nly-toaster-top-left .nly-toast.nly-toaster-leave-active, .nly-toaster.nly-toaster-bottom-right .nly-toast.nly-toaster-leave-active, .nly-toaster.nly-toaster-bottom-left .nly-toast.nly-toaster-leave-active {
+  position: absolute;
+  transition-delay: 0.175s;
+}
+
+.nly-toaster.nly-toaster-top-right .nly-toast.nly-toaster-leave-active .toast.fade, .nly-toaster.nly-toaster-top-left .nly-toast.nly-toaster-leave-active .toast.fade, .nly-toaster.nly-toaster-bottom-right .nly-toast.nly-toaster-leave-active .toast.fade, .nly-toaster.nly-toaster-bottom-left .nly-toast.nly-toaster-leave-active .toast.fade {
+  transition-delay: 0s;
+}

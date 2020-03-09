@@ -19,6 +19,8 @@ const card = () => import("../views/example/card.vue");
 const badge = () => import("../views/example/badge.vue");
 const table = () => import("../views/example/table.vue");
 
+const toast = () => import("../views/example/toast.vue");
+
 const routes = [
   {
     path: "/",
@@ -84,6 +86,11 @@ const routes = [
         path: "/test",
         name: "test",
         component: testcomponent
+      },
+      {
+        path: "/toast",
+        name: "toast",
+        component: toast
       }
     ]
   }

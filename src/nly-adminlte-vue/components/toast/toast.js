@@ -1,7 +1,7 @@
 import Vue from "../../utils/vue";
 import { Portal, Wormhole } from "portal-vue";
 import NlyToastTransition from "../../utils/nly-toast-transition";
-import { NlyEvent } from "../../utils/ny-event.class";
+import { NlyEvent } from "../../utils/nly-event.class";
 import { getComponentConfig } from "../../utils/config";
 import { requestAF, eventOn, eventOff } from "../../utils/dom";
 import { toInteger } from "../../utils/number";
@@ -19,12 +19,8 @@ const MIN_DURATION = 1000;
 
 const EVENT_OPTIONS = { passive: true, capture: false };
 
-// --- Props ---
-
 export const props = {
   id: {
-    // Even though the ID prop is provided by idMixin, we
-    // add it here for $bvToast props filtering
     type: String,
     default: null
   },
@@ -45,7 +41,6 @@ export const props = {
     default: () => getComponentConfig(NAME, "variant")
   },
   isStatus: {
-    // Switches role to 'status' and aria-live to 'polite'
     type: Boolean,
     default: false
   },
@@ -98,13 +93,11 @@ export const props = {
     default: null
   },
   static: {
-    // Render the toast in place, rather than in a portal-target
     type: Boolean,
     default: false
   }
 };
 
-// @vue/component
 export const NlyToast = Vue.extend({
   name: NAME,
   mixins: [
@@ -147,7 +140,6 @@ export const NlyToast = Vue.extend({
       };
     },
     computedDuration() {
-      // Minimum supported duration is 1 second
       return Math.max(toInteger(this.autoHideDelay) || 0, MIN_DURATION);
     },
     computedToaster() {
@@ -202,12 +194,8 @@ export const NlyToast = Vue.extend({
         this.hide();
       }
     });
-    // Make sure we hide when toaster is destroyed
-    /* istanbul ignore next: difficult to test */
     this.listenOnRoot("nly::toaster::destroyed", toaster => {
-      /* istanbul ignore next */
       if (toaster === this.computedToaster) {
-        /* istanbul ignore next */
         this.hide();
       }
     });
@@ -226,8 +214,6 @@ export const NlyToast = Vue.extend({
         this.isHiding = false;
         this.doRender = true;
         this.$nextTick(() => {
-          // We show the toast after we have rendered the portal and b-toast wrapper
-          // so that screen readers will properly announce the toast
           requestAF(() => {
             this.localShow = true;
           });
@@ -375,7 +361,6 @@ export const NlyToast = Vue.extend({
           })
         );
       }
-      // Assemble the header (if needed)
       let $header = h();
       if ($headerContent.length > 0) {
         $header = h(
@@ -384,7 +369,6 @@ export const NlyToast = Vue.extend({
           $headerContent
         );
       }
-      // Toast body
       const isLink = this.href || this.to;
       const $body = h(
         isLink ? NlyLink : "div",

@@ -6,6 +6,34 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "186424",
+      "name": "badge2",
+      "font_class": "badge-small",
+      "unicode": "e6bf",
+      "unicode_decimal": 59071
+    },
+    {
+      "icon_id": "390960",
+      "name": "badge",
+      "font_class": "badge",
+      "unicode": "e6be",
+      "unicode_decimal": 59070
+    },
+    {
+      "icon_id": "474992",
+      "name": "toaster",
+      "font_class": "toaster",
+      "unicode": "e6bd",
+      "unicode_decimal": 59069
+    },
+    {
+      "icon_id": "6807416",
+      "name": "Toast",
+      "font_class": "Toast",
+      "unicode": "ec3e",
+      "unicode_decimal": 60478
+    },
+    {
       "icon_id": "4461770",
       "name": " switch4",
       "font_class": "switch",

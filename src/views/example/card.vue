@@ -178,6 +178,13 @@
               <Nly-card-subtitle>
                 ssss
               </Nly-card-subtitle>
+
+              <nly-button gradient="purple" @click.native="popToast()"
+                >显示Toast</nly-button
+              >
+              <nly-button @click.native="popToast(true)" gradient="olive"
+                >显示 Toast (appended)</nly-button
+              >
             </nly-card-body>
             <nly-card-footer>footer</nly-card-footer>
           </nly-card>
@@ -213,8 +220,20 @@ import logo from "../../assets/img/AdminLTELogo.png";
 export default {
   data() {
     return {
-      logo
+      logo,
+      num: 0
     };
+  },
+  methods: {
+    popToast(append = false) {
+      this.num++;
+      this.$nlyaToast.toast(`This is toast number ${this.num}`, {
+        title: "NlyadminlteVue Toast",
+        // autoHideDelay: 3000,
+        noAutoHide: true,
+        appendToast: append
+      });
+    }
   }
 };
 </script>

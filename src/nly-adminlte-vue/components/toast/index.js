@@ -1,12 +1,11 @@
-import { BVToastPlugin } from "./helpers/bv-toast";
-import { BToast } from "./toast";
-import { BToaster } from "./toaster";
-import { pluginFactory } from "../../utils/plugins";
+import { NLYAToastPlugin } from "./plugin/nlya-toast";
+import { NlyToast } from "./toast";
+import { NlyToaster } from "./toaster";
+import { nlyInstallFactory } from "../../utils/plugins";
 
-const ToastPlugin = /*#__PURE__*/ pluginFactory({
-  components: { BToast, BToaster },
-  // $bvToast injection
-  plugins: { BVToastPlugin }
+const toastPlugin = nlyInstallFactory({
+  components: { NlyToast, NlyToaster },
+  plugins: { NLYAToastPlugin }
 });
 
-export { ToastPlugin, BToast, BToaster };
+export { toastPlugin, NlyToast, NlyToaster };

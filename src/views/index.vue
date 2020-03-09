@@ -391,10 +391,20 @@
             to="/badge"
             link-class="xxx zzz"
             class="sss"
-            icon="nav-icon far nlyfont nly-filing"
+            icon="nav-icon far nlyfont nly-badge-small"
             exact
           >
             badge
+          </nly-sidebar-nav-item>
+
+          <nly-sidebar-nav-item
+            to="/toast"
+            link-class="xxx zzz"
+            class="sss"
+            icon="nav-icon far nlyfont nly-toaster"
+            exact
+          >
+            toast
           </nly-sidebar-nav-item>
         </nly-sidebar-nav>
       </nly-sidebar>
