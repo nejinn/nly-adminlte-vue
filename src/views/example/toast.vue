@@ -125,48 +125,65 @@
               variant toast
             </nly-card-header>
             <nly-card-body>
-              <div>
-                <nly-button
-                  @click.native="areaToast('nly-toaster-top-right')"
-                  gradient="indigo"
-                  >b-toaster-top-right</nly-button
-                >
-                <nly-button
-                  @click.native="areaToast('nly-toaster-top-left')"
-                  gradient="primary"
-                  >b-toaster-top-left</nly-button
-                >
-                <nly-button
-                  @click.native="areaToast('nly-toaster-top-center')"
-                  gradient="info"
-                  >b-toaster-top-center</nly-button
-                >
-                <nly-button
-                  @click.native="areaToast('nly-toaster-top-full')"
-                  gradient="navy"
-                  >b-toaster-top-full</nly-button
-                >
-                <nly-button
-                  @click.native="areaToast('nly-toaster-bottom-right', true)"
-                  gradient="warning"
-                  >b-toaster-bottom-right</nly-button
-                >
-                <nly-button
-                  @click.native="areaToast('nly-toaster-bottom-left', true)"
-                  gradient="lime"
-                  >b-toaster-bottom-left</nly-button
-                >
-                <nly-button
-                  @click.native="areaToast('nly-toaster-bottom-center', true)"
-                  gradient="teal"
-                  >b-toaster-bottom-center</nly-button
-                >
-                <nly-button
-                  @click.native="areaToast('nly-toaster-bottom-full', true)"
-                  gradient="pink"
-                  >b-toaster-bottom-full</nly-button
-                >
-              </div>
+              <nly-button
+                @click.native="areaToast('nly-toaster-top-right')"
+                gradient="indigo"
+                >b-toaster-top-right</nly-button
+              >
+              <nly-button
+                @click.native="areaToast('nly-toaster-top-left')"
+                gradient="primary"
+                >b-toaster-top-left</nly-button
+              >
+              <nly-button
+                @click.native="areaToast('nly-toaster-top-center')"
+                gradient="info"
+                >b-toaster-top-center</nly-button
+              >
+              <nly-button
+                @click.native="areaToast('nly-toaster-top-full')"
+                gradient="navy"
+                >b-toaster-top-full</nly-button
+              >
+              <nly-button
+                @click.native="areaToast('nly-toaster-bottom-right', true)"
+                gradient="warning"
+                >b-toaster-bottom-right</nly-button
+              >
+              <nly-button
+                @click.native="areaToast('nly-toaster-bottom-left', true)"
+                gradient="lime"
+                >b-toaster-bottom-left</nly-button
+              >
+              <nly-button
+                @click.native="areaToast('nly-toaster-bottom-center', true)"
+                gradient="teal"
+                >b-toaster-bottom-center</nly-button
+              >
+              <nly-button
+                @click.native="areaToast('nly-toaster-bottom-full', true)"
+                gradient="pink"
+                >b-toaster-bottom-full</nly-button
+              >
+            </nly-card-body>
+          </nly-card>
+        </nly-col>
+      </nly-row>
+
+      <nly-row>
+        <nly-col xs="12">
+          <nly-card header-variant="dark" header-outline>
+            <nly-card-header>
+              link toast
+            </nly-card-header>
+            <nly-card-body>
+              <nly-button @click.native="linkHrefToast()" gradient="indigo"
+                >link href</nly-button
+              >
+
+              <nly-button @click.native="linkToToast()" gradient="pink"
+                >link to</nly-button
+              >
             </nly-card-body>
           </nly-card>
         </nly-col>
@@ -205,6 +222,18 @@ export default {
         toaster: toaster,
         solid: true,
         appendToast: append
+      });
+    },
+    linkHrefToast() {
+      this.$nlyaToast.toast(`Toast href link`, {
+        href: "/nav",
+        title: "link href toast"
+      });
+    },
+    linkToToast() {
+      this.$nlyaToast.toast(`Toast to link`, {
+        to: "nav",
+        title: "link to toast"
       });
     }
   }

@@ -21,6 +21,8 @@ const table = () => import("../views/example/table.vue");
 
 const toast = () => import("../views/example/toast.vue");
 
+const spinner = () => import("../views/example/spinner.vue");
+
 const routes = [
   {
     path: "/",
@@ -91,6 +93,11 @@ const routes = [
         path: "/toast",
         name: "toast",
         component: toast
+      },
+      {
+        path: "/spinner",
+        name: "spinner",
+        component: spinner
       }
     ]
   }

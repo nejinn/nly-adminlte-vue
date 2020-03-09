@@ -406,6 +406,16 @@
           >
             toast
           </nly-sidebar-nav-item>
+
+          <nly-sidebar-nav-item
+            to="/spinner"
+            link-class="xxx zzz"
+            class="sss"
+            icon="nav-icon far nlyfont nly-logo-pinterest"
+            exact
+          >
+            spinner
+          </nly-sidebar-nav-item>
         </nly-sidebar-nav>
       </nly-sidebar>
     </nly-sidebar-container>

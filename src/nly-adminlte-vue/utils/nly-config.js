@@ -15,7 +15,7 @@ export const textVariantOptions = {
   danger: "text-danger",
   light: "text-light",
   dark: "text-dark",
-  lightblue: "text-lightblu",
+  lightblue: "text-lightblue",
   navy: "text-navy",
   olive: "text-olive",
   lime: "text-lime",
