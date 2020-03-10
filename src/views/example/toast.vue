@@ -128,42 +128,42 @@
               <nly-button
                 @click.native="areaToast('nly-toaster-top-right')"
                 gradient="indigo"
-                >b-toaster-top-right</nly-button
+                >nly-toaster-top-right</nly-button
               >
               <nly-button
                 @click.native="areaToast('nly-toaster-top-left')"
                 gradient="primary"
-                >b-toaster-top-left</nly-button
+                >nly-toaster-top-left</nly-button
               >
               <nly-button
                 @click.native="areaToast('nly-toaster-top-center')"
                 gradient="info"
-                >b-toaster-top-center</nly-button
+                >nly-toaster-top-center</nly-button
               >
               <nly-button
                 @click.native="areaToast('nly-toaster-top-full')"
                 gradient="navy"
-                >b-toaster-top-full</nly-button
+                >nly-toaster-top-full</nly-button
               >
               <nly-button
                 @click.native="areaToast('nly-toaster-bottom-right', true)"
                 gradient="warning"
-                >b-toaster-bottom-right</nly-button
+                >nly-toaster-bottom-right</nly-button
               >
               <nly-button
                 @click.native="areaToast('nly-toaster-bottom-left', true)"
                 gradient="lime"
-                >b-toaster-bottom-left</nly-button
+                >nly-toaster-bottom-left</nly-button
               >
               <nly-button
                 @click.native="areaToast('nly-toaster-bottom-center', true)"
                 gradient="teal"
-                >b-toaster-bottom-center</nly-button
+                >nly-toaster-bottom-center</nly-button
               >
               <nly-button
                 @click.native="areaToast('nly-toaster-bottom-full', true)"
                 gradient="pink"
-                >b-toaster-bottom-full</nly-button
+                >nly-toaster-bottom-full</nly-button
               >
             </nly-card-body>
           </nly-card>

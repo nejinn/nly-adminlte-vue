@@ -1,8 +1,5 @@
 # nly-adminlte-vue
 
-因为很多人用vue封装adminlte的时候，都会引入jq，一句话，用jq就没必要用vue。还会出现各种页面打开jq都没挂载上，尤其是单页面的时候特别明显。
-github上很多adminlte-vue都是引入jq封装的。jq操作dom跟vue有本质区别，我是这样认为的。因为vue精髓是数据驱动
-所以封装了nly-adminlte-vue。
 nly-adminlte-vue是一个基础adminlte3封装的vue组件库。干掉jq，让vue更好的使用adminlte3。
 
 ## 进度
@@ -27,6 +24,8 @@ nly-adminlte-vue是一个基础adminlte3封装的vue组件库。干掉jq，让vu
 * 图标 icon
 * 右侧收缩板 control-sidebar
 * 罩层 overlay
+* 弹框消息 toast
+* 旋转loading spinner
 
 ### 指令
 
