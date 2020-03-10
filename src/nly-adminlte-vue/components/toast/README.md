@@ -13,7 +13,7 @@ visible | Boolean | false | 是否可见，设置true，则可见。请用v-mode
 variant | String |  | 主题色，可选default，primary，secondary，success，info，danger，warning
 is-status | Boolean | false | 设置true，添加aria-live=polite，role=status。默认aria-live=assertive，role=alert
 append-toast | Boolean | false | 添加模式，从底部添加
-no-auto-hide | Boolean | false | 是否自动关闭，默认不自动关闭
+no-auto-hide | Boolean | false | 是否自动关闭，默认自动关闭
 auto-hide-delay | Number or String | 5000 | 关闭时间，默认5s
 no-close-button | Boolean | false | 右上角关闭按钮
 no-fade | Boolean | false | 开启动画，默认有动画

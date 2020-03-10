@@ -26,6 +26,7 @@ nly-adminlte-vue是一个基础adminlte3封装的vue组件库。干掉jq，让vu
 * 罩层 overlay
 * 弹框消息 toast
 * 旋转loading spinner
+* 进度条 progress
 
 ### 指令
 
