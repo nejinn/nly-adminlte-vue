@@ -1,10 +1,21 @@
-# checkbox switch
+# 1. checkbox switch
+<!-- TOC -->
 
-## nly-switch
+- [1. checkbox switch](#1-checkbox-switch)
+    - [1.1. nly-switch](#11-nly-switch)
+        - [1.1.1. props](#111-props)
+    - [1.2. nly-bootstrap-switch](#12-nly-bootstrap-switch)
+        - [1.2.1. props](#121-props)
+    - [1.3. 单包导出](#13-单包导出)
+        - [1.3.1. 包含组件](#131-包含组件)
+        - [1.3.2. 导出方法](#132-导出方法)
+
+<!-- /TOC -->
+## 1.1. nly-switch
 
 > 开关，支持颜色，大小，形状等设置
 
-### props
+### 1.1.1. props
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
@@ -20,11 +31,11 @@ tag | String | div | 自定义标签，默认div
 disabled | Boolean | false | 禁用
 checked | Boolean, String, Number |  | 初始选中状态，和v-model一起用会被v-model值覆盖。
 
-## nly-bootstrap-switch
+## 1.2. nly-bootstrap-switch
 
 > bootstrap-switch
 
-### props
+### 1.2.1. props
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
@@ -45,3 +56,33 @@ container-class | String |  | 自定义css式样，作用于container上
 on-class | String |  | 自定义css式样，作用于on上
 label-class | String |  | 自定义css式样，作用于label上
 off-class | String |  | 自定义css式样，作用于off上
+
+## 1.3. 单包导出
+
+> 如果只需要使用switchPlugin中的组件，请使用单个组件导出
+
+### 1.3.1. 包含组件
+
+> switchPlugin包括以下组件
+
+名称 | 导出路径
+-|-
+NlySwitch | nly-adminlte-vue
+NlyBootstrapSwitch | nly-adminlte-vue
+
+### 1.3.2. 导出方法
+
+> 单组件导出
+
+```js
+import { NlySwitch } from "./nly-adminlte-vue";
+Vue.component('nly-switch', NlySwitch)
+```
+
+> 整个switchPlugin出
+
+```js
+import { switchPlugin } from "./nly-adminlte-vue";
+Vue.use(switchPlugin);
+```
+

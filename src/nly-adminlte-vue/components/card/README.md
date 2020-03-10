@@ -20,6 +20,9 @@
         - [1.8.1. props](#181-props)
     - [1.9. nly-card-text](#19-nly-card-text)
         - [1.9.1. props](#191-props)
+    - [1.10. 单包导出](#110-单包导出)
+        - [1.10.1. 包含组件](#1101-包含组件)
+        - [1.10.2. 导出方法](#1102-导出方法)
 
 <!-- /TOC -->
 ## 1.1. nly-crad-group
@@ -76,7 +79,6 @@ img-overlay | Boolean | false | 放置到图片card-img上
 text-variant | String |  | 字体颜色，选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark
 tag | String | div | 标签
 card-header-class | String |  | 自定义css式样
-
 
 ## 1.4. nly-card-body
 
@@ -155,3 +157,40 @@ tool-class | String |  | 自定义css式样
 tag | String | p | 标签
 text-class | String |  | 自定义css式样
 text-variant | String |  | 字体颜色，选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark
+
+## 1.10. 单包导出
+
+> 如果只需要使用cardPlugin中的组件，请使用单个组件导出
+
+### 1.10.1. 包含组件
+
+> cardPlugin包括以下组件
+
+名称 | 导出路径
+-|-
+NlyCardGroup |  nly-adminlte-vue
+NlyCard |  nly-adminlte-vue
+NlyCardHeader |  nly-adminlte-vue
+NlyCardBody |  nly-adminlte-vue
+NlyCardFooter |  nly-adminlte-vue
+NlyCardTitle |  nly-adminlte-vue
+NlyCardSubtitle |  nly-adminlte-vue
+NlyCardImg |  nly-adminlte-vue
+NlyCardTool |  nly-adminlte-vue
+NlyCardText |  nly-adminlte-vue
+
+### 1.10.2. 导出方法
+
+> 单组件导出
+
+```js
+import { NlyCardGroup } from "./nly-adminlte-vue";
+Vue.component('nly-card-group', NlyCardGroup)
+```
+
+> 整个cardPlugin导出
+
+```js
+import { cardPlugin } from "./nly-adminlte-vue";
+Vue.use(cardPlugin);
+```

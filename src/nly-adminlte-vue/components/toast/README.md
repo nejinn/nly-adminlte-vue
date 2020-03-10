@@ -1,8 +1,18 @@
-# toast
+# 1. toast
+<!-- TOC -->
 
-## nly-toast
+- [1. toast](#1-toast)
+    - [1.1. nly-toast](#11-nly-toast)
+        - [1.1.1. props](#111-props)
+    - [1.2. nlyatoast](#12-nlyatoast)
+    - [1.3. 单包导出](#13-单包导出)
+        - [1.3.1. 包含组件](#131-包含组件)
+        - [1.3.2. 导出方法](#132-导出方法)
 
-### props
+<!-- /TOC -->
+## 1.1. nly-toast
+
+### 1.1.1. props
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
@@ -25,3 +35,37 @@ body-class | String，Object，Array |  | body自定义css式样
 href | String |  | 跳转链接
 to | String，Object |  | router-link router
 static | Boolean | false | 把toast挂载在当前元素父元素内。默认都是挂载在body
+
+## 1.2. nlyatoast
+
+> 一个创建toast的插件，使用this.$nlyatoast().show()创建，接收nyl-taost的所有props，使用方法请查看example的demo
+
+## 1.3. 单包导出
+
+> 如果只需要使用toastPlugin中的组件，请使用单个组件导出
+
+### 1.3.1. 包含组件
+
+> toastPlugin包括以下组件
+
+名称 | 导出路径
+-|-
+NlyToast | nly-adminlte-vue
+NlyToaster | nly-adminlte-vue
+NLYAToastPlugin 这是一个插件 | nly-adminlte-vue
+
+### 1.3.2. 导出方法
+
+> 单组件导出
+
+```js
+import { NlyToast } from "./nly-adminlte-vue";
+Vue.component('nly-toast', NlyToast)
+```
+
+> 整个toastPlugin出
+
+```js
+import { toastPlugin } from "./nly-adminlte-vue";
+Vue.use(toastPlugin);
+```

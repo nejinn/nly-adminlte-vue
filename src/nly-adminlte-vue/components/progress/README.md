@@ -1,14 +1,25 @@
-# progress 
+# 1. progress 
+<!-- TOC -->
 
+- [1. progress](#1-progress)
+    - [1.1. nly-progress](#11-nly-progress)
+        - [1.1.1. props](#111-props)
+        - [1.1.2. nly-progress-bar](#112-nly-progress-bar)
+        - [1.1.3. props](#113-props)
+    - [1.2. 单包导出](#12-单包导出)
+        - [1.2.1. 包含组件](#121-包含组件)
+        - [1.2.2. 导出方法](#122-导出方法)
+
+<!-- /TOC -->
 > 进度条
 
-## nly-progress
+## 1.1. nly-progress
 
 > nly-progress默认会生成一个nly-progress-bar，当nly-progress下插入nly-progress-bar组件时，默认生成的nly-progress-bar不会渲染。
 
 > nly-progress下插入的nly-progress-bar组件会继承nly-progress的某些porps，当nly-progress-bar自己传入这些props时，会覆盖从nly-progress继承的props
 
-### props
+### 1.1.1. props
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
@@ -25,11 +36,11 @@ value | Number, String | 100 | 当前进度值
 progress-class | String |  | progress自定义css式样
 progress-bar-class | Number, String |  | progress-bar自定义css式样
 
-### nly-progress-bar
+### 1.1.2. nly-progress-bar
 
 > 进度条
 
-### props
+### 1.1.3. props
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
@@ -43,3 +54,32 @@ max | Number, String | 100 | 总进度值
 value | Number, String | 100 | 当前进度值
 label | String |  | 自定义显示的文本内容
 progress-bar-class | Number, String |  | progress-bar自定义css式样
+
+## 1.2. 单包导出
+
+> 如果只需要使用progressPlugin中的组件，请使用单个组件导出
+
+### 1.2.1. 包含组件
+
+> progressPlugin包括以下组件
+
+名称 | 导出路径
+-|-
+NlyProgress | nly-adminlte-vue
+NlyProgressBar | nly-adminlte-vue
+
+### 1.2.2. 导出方法
+
+> 单组件导出
+
+```js
+import { NlyProgress } from "./nly-adminlte-vue";
+Vue.component('nly-progress', NlyProgress)
+```
+
+> 整个progressPlugin出
+
+```js
+import { progressPlugin } from "./nly-adminlte-vue";
+Vue.use(progressPlugin);
+```

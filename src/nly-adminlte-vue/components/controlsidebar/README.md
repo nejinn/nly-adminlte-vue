@@ -8,6 +8,9 @@
     - [1.1. nly-control-sidebar-container](#11-nly-control-sidebar-container)
     - [1.2. nly-control-sidebar](#12-nly-control-sidebar)
         - [1.2.1. props](#121-props)
+    - [1.3. 单包导出](#13-单包导出)
+        - [1.3.1. 包含组件](#131-包含组件)
+        - [1.3.2. 导出方法](#132-导出方法)
 
 <!-- /TOC -->
 
@@ -27,3 +30,32 @@
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
 scrollbar | Boolean | true | 是否overlayscrollbars组件。默认开启，此组件是一个滚动条组件，可以使滚动条出现时不挤压其他容器位置
+
+## 1.3. 单包导出
+
+> 如果只需要使用controlSidebarPlugin中的组件，请使用单个组件导出
+
+### 1.3.1. 包含组件
+
+> controlSidebarPlugin包括以下组件
+
+名称 | 导出路径
+-|-
+NlyControlSidebarContainer | nly-adminlte-vue
+NlyControlSidebar | nly-adminlte-vue
+
+### 1.3.2. 导出方法
+
+> 单组件导出
+
+```js
+import { NlyControlSidebar } from "./nly-adminlte-vue";
+Vue.component('nly-control-sidebar', NlyControlSidebar)
+```
+
+> 整个controlSidebarPlugin导出
+
+```js
+import { controlSidebarPlugin } from "./nly-adminlte-vue";
+Vue.use(controlSidebarPlugin);
+```

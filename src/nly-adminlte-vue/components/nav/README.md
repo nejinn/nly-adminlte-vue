@@ -9,15 +9,18 @@
             - [1.2.1.1. demo](#1211-demo)
     - [1.3. nly-nav-dropdown](#13-nly-nav-dropdown)
         - [1.3.1. props](#131-props)
-        - [1.3.2. slots](#132-slots)
+        - [1.3.2. slots 插槽](#132-slots-插槽)
             - [1.3.2.1. demo](#1321-demo)
+    - [1.4. 单包导出](#14-单包导出)
+        - [1.4.1. 包含组件](#141-包含组件)
+        - [1.4.2. 导出方法](#142-导出方法)
 
 <!-- /TOC -->
->导航
+> 导航
 
 ## 1.1. nly-nav
 
->导航
+> 导航
 
 ### 1.1.1. props
 
@@ -36,8 +39,8 @@ card-header | Boolean | false | 放在卡片中时，可以设置为true,就会�
 
 ## 1.2. nly-nav-item
 
->导航item元素
->nly-nav-item中封装了一个nly-link，默认a标签
+> 导航item元素
+> nly-nav-item中封装了一个nly-link，默认a标签
 
 ### 1.2.1. props
 
@@ -87,8 +90,8 @@ dropdown-item | Boolean | false | 默认false，中间封装的nly-link会有cla
 
 ## 1.3. nly-nav-dropdown
 
->导航下拉菜单
->nly-nav-dropdown中封装了一个a标签，nly-nav-dropdown渲染出来如下：
+> 导航下拉菜单
+> nly-nav-dropdown中封装了一个a标签，nly-nav-dropdown渲染出来如下：
 
 ```html
 <li>
@@ -123,7 +126,7 @@ size | String | | 菜单大小，可选md，lg，xl，作用于ul标签
 menu-direction | String | |下拉菜单位置，只有direction为up或者down的时候有效，可选right。left，作用于ul标签
 shadow | String | shadow | 菜单阴影，可选shadow，sm，lg，none，作用于ul标签
 
-### 1.3.2. slots
+### 1.3.2. slots 插槽
 
 参数 | 描述
 -|-
@@ -216,4 +219,34 @@ menucontent | ul标签，菜单里的插槽
         </nly-nav-dropdown>
     </template>
 </nly-nav-dropdown>
+```
+
+## 1.4. 单包导出
+
+> 如果只需要使用navPlugin中的组件，请使用单个组件导出
+
+### 1.4.1. 包含组件
+
+> navPlugin包括以下组件
+
+名称 | 导出路径
+-|-
+NlyNav | nly-adminlte-vue
+NlyNavItem | nly-adminlte-vue
+NlyNavDropdown | nly-adminlte-vue
+
+### 1.4.2. 导出方法
+
+> 单组件导出
+
+```js
+import { NlyNav } from "./nly-adminlte-vue";
+Vue.component('nly-nav', NlyNav)
+```
+
+> 整个navPlugin导出
+
+```js
+import { navPlugin } from "./nly-adminlte-vue";
+Vue.use(navPlugin);
 ```

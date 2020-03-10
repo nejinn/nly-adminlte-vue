@@ -14,6 +14,9 @@
         - [1.5.1. props](#151-props)
     - [1.6. nly-navbar-toggle](#16-nly-navbar-toggle)
         - [1.6.1. props](#161-props)
+    - [1.7. 单包导出](#17-单包导出)
+        - [1.7.1. 包含组件](#171-包含组件)
+        - [1.7.2. 导出方法](#172-导出方法)
 
 <!-- /TOC -->
 ## 1.1. nly-navbar
@@ -71,3 +74,35 @@ elevation | Boolean | false | 阴影
 label | String | Nly Toggle navigation | aria-label
 target | String |  | 对应collapse的id
 navbar-class | String | | 自定义css式样
+
+## 1.7. 单包导出
+
+> 如果只需要使用navbarPlugin中的组件，请使用单个组件导出
+
+### 1.7.1. 包含组件
+
+> navbarPlugin包括以下组件
+
+名称 | 导出路径
+-|-
+NlyNavbar | nly-adminlte-vue
+NlyNavbarNav | nly-adminlte-vue
+NlyNavbarBrand | nly-adminlte-vue
+NlyNavbarBrandtext | nly-adminlte-vue
+NlyNavbarToggle | nly-adminlte-vue
+
+### 1.7.2. 导出方法
+
+> 单组件导出
+
+```js
+import { NlyNavbar } from "./nly-adminlte-vue";
+Vue.component('nly-navbar', NlyNavbar)
+```
+
+> 整个navbarPlugin导出
+
+```js
+import { navbarPlugin } from "./nly-adminlte-vue";
+Vue.use(navbarPlugin);
+```

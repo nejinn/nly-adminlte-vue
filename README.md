@@ -1,12 +1,23 @@
-# nly-adminlte-vue
+# 1. nly-adminlte-vue
+<!-- TOC -->
+
+- [1. nly-adminlte-vue](#1-nly-adminlte-vue)
+    - [1.1. 进度](#11-进度)
+        - [1.1.1. 组件](#111-组件)
+        - [1.1.2. 指令](#112-指令)
+    - [1.2. 使用](#12-使用)
+        - [1.2.1. 可以直接clone下载项目](#121-可以直接clone下载项目)
+        - [1.2.2. 从npm下载](#122-从npm下载)
+
+<!-- /TOC -->
 
 nly-adminlte-vue是一个基础adminlte3封装的vue组件库。干掉jq，让vue更好的使用adminlte3。
 
-## 进度
+## 1.1. 进度
 
 目前已经封装完成
 
-### 组件
+### 1.1.1. 组件
 
 * 皮肤  theme
 * 折叠板 collapse
@@ -14,7 +25,8 @@ nly-adminlte-vue是一个基础adminlte3封装的vue组件库。干掉jq，让vu
 * 导航 nav
 * 栅格布局 grid row col
 * 容器 container
-* 包装容器 warpper
+* 正文容器 content
+* 包装容器 wrapper
 * 文字路由 link
 * 按钮 button
 * 开关 switch
@@ -28,15 +40,16 @@ nly-adminlte-vue是一个基础adminlte3封装的vue组件库。干掉jq，让vu
 * 旋转loading spinner
 * 进度条 progress
 
-### 指令
+### 1.1.2. 指令
 
 * 左侧导航栏收起指令 v-nly-sidebar-collapse
 * 右侧收缩版收起指令 v-nly-control-sidebar-collapse
 * 卡片最大化指令 v-nly-card-maximized
+* 折叠版收起展开指令 v-nly-toggle
 
-## 使用
+## 1.2. 使用
 
-### 可以直接clone下载项目
+### 1.2.1. 可以直接clone下载项目
 
 ```html
 git clone https://github.com/nejinn/nly-adminlte-vue.git
@@ -48,7 +61,7 @@ npm run server
 http://localhost:8080
 ```
 
-### 从npm下载
+### 1.2.2. 从npm下载
 
 ```html
 

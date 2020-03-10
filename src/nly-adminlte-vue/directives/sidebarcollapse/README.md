@@ -8,6 +8,9 @@
     - [1.2. v-nly-control-sidebar-collapse](#12-v-nly-control-sidebar-collapse)
         - [1.2.1. binding](#121-binding)
             - [1.2.1.1. demo](#1211-demo)
+    - [1.3. 单包导出](#13-单包导出)
+        - [1.3.1. 包含组件](#131-包含组件)
+        - [1.3.2. 导出方法](#132-导出方法)
 
 <!-- /TOC -->
 ## 1.1. nly-sidebar-collapse
@@ -49,4 +52,33 @@ modifiers | 可选navitem，overlay，绑定在nly-nav-item上请传入navitem�
 <nly-nav-item v-nly-control-sidebar-collapse>
     ...
 </nly-nav-item>
+```
+
+## 1.3. 单包导出
+
+> 如果只需要使用collapseSidebarDirectivePlugin中的组件，请使用单个组件导出
+
+### 1.3.1. 包含组件
+
+> collapseSidebarDirectivePlugin包括以下组件
+
+名称 | 导出路径
+-|-
+NlySidebarCollapse | nly-adminlte-vue
+NlyControlSidebarCollapse | nly-adminlte-vue
+
+### 1.3.2. 导出方法
+
+> 单组件导出
+
+```js
+import { NlySidebarCollapse } from "./nly-adminlte-vue";
+Vue.use(NlySidebarCollapse);
+```
+
+> 整个collapseSidebarDirectivePlugin出
+
+```js
+import { collapseSidebarDirectivePlugin } from "./nly-adminlte-vue";
+Vue.use(collapseSidebarDirectivePlugin);
 ```

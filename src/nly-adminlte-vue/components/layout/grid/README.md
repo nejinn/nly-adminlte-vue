@@ -6,6 +6,9 @@
         - [1.1.1. props](#111-props)
     - [1.2. nly-col](#12-nly-col)
         - [1.2.1. props](#121-props)
+    - [1.3. 单包导出](#13-单包导出)
+        - [1.3.1. 包含组件](#131-包含组件)
+        - [1.3.2. 导出方法](#132-导出方法)
 
 <!-- /TOC -->
 ## 1.1. nly-row
@@ -46,3 +49,32 @@ order-md | String |  | 宽度在md及以上断点排列顺序,可选同上
 order-lg | String |  | 宽度在lg及以上断点排列顺序,可选同上
 order-xl | String |  | 宽度在xl及以上断点排列顺序,可选同上
 col-class | String |  | 自定义css式样,可以用自定义css式样或者adminlte自定义式样让col实现对齐等其他功能align-self-start顶部对齐，align-self-center中间对齐，align-self-end底部对齐
+
+## 1.3. 单包导出
+
+> 如果只需要使用gridPlugin中的组件，请使用单个组件导出
+
+### 1.3.1. 包含组件
+
+> gridPlugin包括以下组件
+
+名称 | 导出路径
+-|-
+NlyRow | nly-adminlte-vue
+NlyCol | nly-adminlte-vue
+
+### 1.3.2. 导出方法
+
+> 单组件导出
+
+```js
+import { NlyRow } from "./nly-adminlte-vue";
+Vue.component('nly-row', NlyRow)
+```
+
+> 整个gridPlugin导出
+
+```js
+import { gridPlugin } from "./nly-adminlte-vue";
+Vue.use(gridPlugin);
+```

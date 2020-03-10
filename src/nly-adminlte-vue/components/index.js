@@ -15,7 +15,7 @@ import { linkPlugin } from "./link";
 import { navPlugin } from "./nav";
 import { navbarPlugin } from "./navbar";
 import { overlayPlugin } from "./overlay";
-import { sidebarPlugin } from "./siderbar";
+import { sidebarPlugin } from "./sidebar";
 import { switchPlugin } from "./switch";
 import { collapseSidebarPlugins } from "./layout/collapsesidebar";
 import { toastPlugin } from "./toast";

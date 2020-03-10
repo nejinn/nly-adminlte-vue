@@ -1,5 +1,3 @@
-
-
 # 1. Dropdown
 
 <!-- TOC -->
@@ -9,6 +7,9 @@
         - [1.1.1. props](#111-props)
     - [1.2. nly-dropdown-menu](#12-nly-dropdown-menu)
         - [1.2.1. props](#121-props)
+    - [1.3. 单包导出](#13-单包导出)
+        - [1.3.1. 包含组件](#131-包含组件)
+        - [1.3.2. 导出方法](#132-导出方法)
 
 <!-- /TOC -->
 
@@ -16,7 +17,7 @@
 
 ### 1.1.1. props
 
->接受所有nly-botton的参数
+> 接受所有nly-botton的参数
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
@@ -33,7 +34,7 @@ placement | String | auto | 下拉内容出现的位置，默认auto，会选择
 
 ## 1.2. nly-dropdown-menu
 
->dropdown 下拉菜单内容
+> dropdown 下拉菜单内容
 
 ### 1.2.1. props
 
@@ -43,3 +44,32 @@ tag | String | div | 标签
 dropdownMenuClass | String | | 自定义css式样
 role | String | menu | html role属性
 id | String |  | 组件id，必传
+
+## 1.3. 单包导出
+
+> 如果只需要使用dropdownPlugin中的组件，请使用单个组件导出
+
+### 1.3.1. 包含组件
+
+> dropdownPlugin包括以下组件
+
+名称 | 导出路径
+-|-
+NlyDropdown | nly-adminlte-vue
+NlyDropdownMenu | nly-adminlte-vue
+
+### 1.3.2. 导出方法
+
+> 单组件导出
+
+```js
+import { NlyDropdown } from "./nly-adminlte-vue";
+Vue.component('nly-dropdown', NlyDropdown)
+```
+
+> 整个dropdownPlugin导出
+
+```js
+import { dropdownPlugin } from "./nly-adminlte-vue";
+Vue.use(dropdownPlugin);
+```

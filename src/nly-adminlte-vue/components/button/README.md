@@ -6,11 +6,14 @@
         - [1.1.1. props](#111-props)
     - [1.2. nly-button-group](#12-nly-button-group)
         - [1.2.1. props](#121-props)
+    - [1.3. 单包导出](#13-单包导出)
+        - [1.3.1. 包含组件](#131-包含组件)
+        - [1.3.2. 导出方法](#132-导出方法)
 
 <!-- /TOC -->
 ## 1.1. nly-button
 
->按钮 支持颜色，形状，绑定事件需要加修饰符.native
+> 按钮 支持颜色，形状，绑定事件需要加修饰符.native
 
 ### 1.1.1. props
 
@@ -31,7 +34,7 @@ app | Boolean | false | app类按钮.一般情况下是对图标使用的按钮�
 
 ## 1.2. nly-button-group
 
->按钮组
+> 按钮组
 
 ### 1.2.1. props
 
@@ -41,4 +44,34 @@ vertical | Boolean | false | 是否垂直
 groupSize | String |  | 大小，可选'lg'，'sm'
 groupTag | String | div | 标签
 button-group-class | String | | 自定义css式样
+
+## 1.3. 单包导出
+
+> 如果只需要使用buttonPlugin中的组件，请使用单个组件导出.
+
+### 1.3.1. 包含组件
+
+> buttonPlugin包括以下组件
+
+名称 | 导出路径
+-|-
+NlyButtonGroup | nly-adminlte-vue
+NlyButton | nly-adminlte-vue
+NlyButtonClose | nly-adminlte-vue
+
+### 1.3.2. 导出方法
+
+> 单组件导出
+
+```js
+import { NlyButtonGroup } from "./nly-adminlte-vue";
+Vue.component('nly-button-group', NlyButtonGroup)
+```
+
+> 整个buttonPlugin导出
+
+```js
+import { buttonPlugin } from "./nly-adminlte-vue";
+Vue.use(buttonPlugin);
+```
 

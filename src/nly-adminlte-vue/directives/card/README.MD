@@ -5,6 +5,9 @@
     - [1.1. v-card-maximized](#11-v-card-maximized)
         - [1.1.1. binding](#111-binding)
             - [1.1.1.1. demo](#1111-demo)
+    - [1.2. 单包导出](#12-单包导出)
+        - [1.2.1. 包含组件](#121-包含组件)
+        - [1.2.2. 导出方法](#122-导出方法)
 
 <!-- /TOC -->
 ## 1.1. v-card-maximized
@@ -48,4 +51,32 @@ values | 点击载体有icon,即载体下有一个nly-icon组件，且需要修�
     <nly-icon icon='fas xxxx' />
     <nly-icon icon='fas zzzzz' />
 </nly-*>
+```
+
+## 1.2. 单包导出
+
+> 如果只需要使用cardDirectivePlugin中的组件，请使用单个组件导出
+
+### 1.2.1. 包含组件
+
+> cardDirectivePlugin包括以下组件
+
+名称 | 导出路径
+-|-
+NlyCardMaximized | nly-adminlte-vue
+
+### 1.2.2. 导出方法
+
+> 单组件导出
+
+```js
+import { NlyCardMaximized } from "./nly-adminlte-vue";
+Vue.use(NlyCardMaximized);
+```
+
+> 整个cardDirectivePlugin出
+
+```js
+import { cardDirectivePlugin } from "./nly-adminlte-vue";
+Vue.use(cardDirectivePlugin);
 ```
