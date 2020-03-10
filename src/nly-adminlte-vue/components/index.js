@@ -20,6 +20,7 @@ import { switchPlugin } from "./switch";
 import { collapseSidebarPlugins } from "./layout/collapsesidebar";
 import { toastPlugin } from "./toast";
 import { spinnerPlugin } from "./spinner";
+import { progressPlugin } from "./progress";
 
 export const nlyComponentsPlugin = nlyPluginFactory({
   plugins: {
@@ -42,6 +43,7 @@ export const nlyComponentsPlugin = nlyPluginFactory({
     switchPlugin,
     collapseSidebarPlugins,
     toastPlugin,
-    spinnerPlugin
+    spinnerPlugin,
+    progressPlugin
   }
 });

@@ -111,10 +111,10 @@ export default deepFreeze({
     delay: 50,
     variant: null
   },
-  BProgress: {
+  NlyProgress: {
     variant: null
   },
-  BProgressBar: {
+  NlyProgressBar: {
     variant: null
   },
   BSpinner: {

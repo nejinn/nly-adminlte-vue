@@ -416,6 +416,16 @@
           >
             spinner
           </nly-sidebar-nav-item>
+
+          <nly-sidebar-nav-item
+            to="/progress"
+            link-class="xxx zzz"
+            class="sss"
+            icon="nav-icon far nlyfont nly-cog"
+            exact
+          >
+            progress
+          </nly-sidebar-nav-item>
         </nly-sidebar-nav>
       </nly-sidebar>
     </nly-sidebar-container>

@@ -1,9 +1,9 @@
 import Vue from "../../utils/vue";
 import { textVariantOptions } from "../../utils/nly-config";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
-const name = "NlyCardTool";
+const name = "NlyCardText";
 
-export const NlyCardTool = Vue.extend({
+export const NlyCardText = Vue.extend({
   name: name,
   props: {
     textClass: {

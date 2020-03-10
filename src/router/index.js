@@ -23,6 +23,8 @@ const toast = () => import("../views/example/toast.vue");
 
 const spinner = () => import("../views/example/spinner.vue");
 
+const progress = () => import("../views/example/progress.vue");
+
 const routes = [
   {
     path: "/",
@@ -98,6 +100,11 @@ const routes = [
         path: "/spinner",
         name: "spinner",
         component: spinner
+      },
+      {
+        path: "/progress",
+        name: "progress",
+        component: progress
       }
     ]
   }

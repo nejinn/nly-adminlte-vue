@@ -8,6 +8,7 @@ import { NlyCardTitle } from "./card-title";
 import { NlyCardSubtitle } from "./card-subtitle";
 import { NlyCardImg } from "./card-img";
 import { NlyCardTool } from "./card-tool";
+import { NlyCardText } from "./card-text";
 
 const cardPlugin = nlyPluginFactory({
   components: {
@@ -19,7 +20,8 @@ const cardPlugin = nlyPluginFactory({
     NlyCardTitle,
     NlyCardSubtitle,
     NlyCardImg,
-    NlyCardTool
+    NlyCardTool,
+    NlyCardText
   }
 });
 
@@ -33,5 +35,6 @@ export {
   NlyCardTitle,
   NlyCardSubtitle,
   NlyCardImg,
-  NlyCardTool
+  NlyCardTool,
+  NlyCardText
 };
