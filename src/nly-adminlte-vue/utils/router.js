@@ -29,8 +29,6 @@ const encode = str =>
 
 const decode = decodeURIComponent;
 
-// Stringifies an object of query parameters
-// See: https://github.com/vuejs/vue-router/blob/dev/src/util/query.js
 export const stringifyQueryObj = obj => {
   if (!isPlainObject(obj)) {
     return "";

@@ -1,9 +1,3 @@
-/**
- * Issue #569: collapse::toggle::state triggered too many times
- * @link https://github.com/bootstrap-vue/bootstrap-vue/issues/569
- */
-
-// @vue/component
 export default {
   methods: {
     /**
