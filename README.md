@@ -13,6 +13,10 @@
 
 nly-adminlte-vue是一个基础adminlte3封装的vue组件库。干掉jq，让vue更好的使用adminlte3。
 
+欢迎贡献代码
+
+欢迎加群交流 QQ群：927568606
+
 ![demo1](https://github.com/nejinn/nly-adminlte-vue/blob/master/nly-adminlte-vue-1.gif)
 ![demo2](https://github.com/nejinn/nly-adminlte-vue/blob/master/nly-adminlte-vue-2.gif)
 ![demo3](https://github.com/nejinn/nly-adminlte-vue/blob/master/nly-adminlte-vue-3.gif)
