@@ -128,6 +128,10 @@ export { NlyTimelineHeader } from "./components/timeline";
 export { NlyTimelineBody } from "./components/timeline";
 export { NlyTimelineFooter } from "./components/timeline";
 
+export { breadcrumbPlugin } from "./components/breadcrumb";
+export { NlyBreadcrumbItem } from "./components/breadcrumb";
+export { NlyBreadcrumb } from "./components/breadcrumb";
+
 export { cardDirectivePlugin } from "./directives/card";
 export { NlyCardMaximized } from "./directives/card";
 

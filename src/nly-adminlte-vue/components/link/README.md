@@ -27,6 +27,9 @@ disabled | Boolean | false | 禁用状态
 to | String or Object |  | router-link 调用router.push()
 append | Boolean | false | router-link，需要使用to这个props，将需要跳转的url字符串添加到当前url的后面再跳转。设置append=true，比如当前http://localhost:8080/link，to='collapse'，则会跳转到http://localhost:8080/link/collapse
 replace | Boolean | false | router-link，调用router.replace()
+active-class | String |  | 激活状态css类名
+exact | Boolean | false | 设置true开启路由匹配模式
+exact-active-class | String |  | exact为true的情况下，当路由匹配成功，会激活exactActiveClass。类似active-class，是一个自定义css类
 event | String or Array | 'click' | 点击事件，尽量不要和to以及href同时使用，如果同时使用，点击事件和跳转会依次发生
 router-tag | String | 'a' |  标签
 

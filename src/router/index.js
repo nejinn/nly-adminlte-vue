@@ -22,6 +22,7 @@ const toast = () => import("../views/example/toast.vue");
 const spinner = () => import("../views/example/spinner.vue");
 const progress = () => import("../views/example/progress.vue");
 const timeline = () => import("../views/example/timeline.vue");
+const breadcrumb = () => import("../views/example/breadcrumb.vue");
 
 const routes = [
   {
@@ -108,6 +109,11 @@ const routes = [
         path: "/timeline",
         name: "timeline",
         component: timeline
+      },
+      {
+        path: "/breadcrumb",
+        name: "breadcrumb",
+        component: breadcrumb
       }
     ]
   }

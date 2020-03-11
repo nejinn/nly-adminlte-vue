@@ -22,6 +22,7 @@ import { toastPlugin } from "./toast";
 import { spinnerPlugin } from "./spinner";
 import { progressPlugin } from "./progress";
 import { timelinePlugin } from "./timeline";
+import { breadcrumbPlugin } from "./breadcrumb";
 
 export const nlyComponentsPlugin = nlyPluginFactory({
   plugins: {
@@ -46,6 +47,7 @@ export const nlyComponentsPlugin = nlyPluginFactory({
     toastPlugin,
     spinnerPlugin,
     progressPlugin,
-    timelinePlugin
+    timelinePlugin,
+    breadcrumbPlugin
   }
 });

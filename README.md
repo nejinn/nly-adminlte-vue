@@ -40,6 +40,7 @@ nly-adminlte-vue是一个基础adminlte3封装的vue组件库。干掉jq，让vu
 * 旋转loading spinner
 * 进度条 progress
 * 时间轴 timeline
+* 面包屑导航 breadcrumb
 
 ### 1.1.2. 指令
 
@@ -59,6 +60,7 @@ npm install
 
 npm run server
 
+// 查看example，所有组件demo都在这里
 http://localhost:8080
 ```
 

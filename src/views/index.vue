@@ -207,7 +207,7 @@
           sidebar-nav-class="zzz"
         >
           <nly-sidebar-nav-header>
-            EXAMPLE
+            Dashboard
           </nly-sidebar-nav-header>
           <nly-sidebar-nav-item
             to="/"
@@ -222,22 +222,23 @@
             </nly-badge>
           </nly-sidebar-nav-item>
 
+          <nly-sidebar-nav-header>
+            components
+            <nly-badge bg-variant="maroon" badge-class="float-sm-right">
+              15
+            </nly-badge>
+          </nly-sidebar-nav-header>
+
           <nly-sidebar-nav-tree
             target="collapse"
             visible
-            icon="nav-icon fas nlyfont nly-logo-aperture"
+            icon="nav-icon fas nlyfont nly-logo-polymer"
             link-class="linkclass"
             menu-class="menuClass"
           >
             <template slot="link">
-              collapse
+              components
             </template>
-            <template slot="linktool">
-              <nly-badge variant="primary" badge-class="right" pill>
-                12
-              </nly-badge>
-            </template>
-
             <nly-sidebar-nav-item
               to="/collapse"
               link-class="xxx zzz"
@@ -246,19 +247,8 @@
               exact
             >
               collapse
-              <nly-badge bg-variant="fuchsia" badge-class="right" size="sm">
-                NEW
-              </nly-badge>
             </nly-sidebar-nav-item>
-          </nly-sidebar-nav-tree>
 
-          <nly-sidebar-nav-tree
-            target="navbar"
-            icon="nav-icon fas nlyfont nly-nav-fill"
-          >
-            <template slot="link">
-              navbar
-            </template>
             <nly-sidebar-nav-item
               to="/navbar"
               link-class="xxx zzz"
@@ -268,15 +258,7 @@
             >
               navbar
             </nly-sidebar-nav-item>
-          </nly-sidebar-nav-tree>
 
-          <nly-sidebar-nav-tree
-            target="nav"
-            icon="nav-icon fas nlyfont nly-magic-cube"
-          >
-            <template slot="link">
-              nav
-            </template>
             <nly-sidebar-nav-item
               to="/nav"
               link-class="xxx zzz"
@@ -286,15 +268,7 @@
             >
               nav
             </nly-sidebar-nav-item>
-          </nly-sidebar-nav-tree>
 
-          <nly-sidebar-nav-tree
-            target="container"
-            icon="nav-icon fas nlyfont nly-contaier-wrapper"
-          >
-            <template slot="link">
-              container
-            </template>
             <nly-sidebar-nav-item
               to="/container"
               link-class="xxx zzz"
@@ -304,15 +278,7 @@
             >
               container
             </nly-sidebar-nav-item>
-          </nly-sidebar-nav-tree>
 
-          <nly-sidebar-nav-tree
-            target="grid"
-            icon="nav-icon fas nlyfont nly-grid"
-          >
-            <template slot="link">
-              grid
-            </template>
             <nly-sidebar-nav-item
               to="/grid"
               link-class="xxx zzz"
@@ -322,15 +288,7 @@
             >
               grid
             </nly-sidebar-nav-item>
-          </nly-sidebar-nav-tree>
 
-          <nly-sidebar-nav-tree
-            target="link"
-            icon="nav-icon fas nlyfont nly-analytics"
-          >
-            <template slot="link">
-              link
-            </template>
             <nly-sidebar-nav-item
               to="/link"
               link-class="xxx zzz"
@@ -340,15 +298,7 @@
             >
               link
             </nly-sidebar-nav-item>
-          </nly-sidebar-nav-tree>
 
-          <nly-sidebar-nav-tree
-            target="button"
-            icon="nav-icon fas nlyfont nly-button"
-          >
-            <template slot="link">
-              button
-            </template>
             <nly-sidebar-nav-item
               to="/button"
               link-class="xxx zzz"
@@ -358,15 +308,7 @@
             >
               button
             </nly-sidebar-nav-item>
-          </nly-sidebar-nav-tree>
 
-          <nly-sidebar-nav-tree
-            target="switch"
-            icon="nav-icon fas nlyfont nly-switch-fill"
-          >
-            <template slot="link">
-              switch
-            </template>
             <nly-sidebar-nav-item
               to="/switch"
               link-class="xxx zzz"
@@ -376,66 +318,78 @@
             >
               switch
             </nly-sidebar-nav-item>
+
+            <nly-sidebar-nav-item
+              to="/card"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-filing"
+              exact
+            >
+              card
+            </nly-sidebar-nav-item>
+            <nly-sidebar-nav-item
+              to="/badge"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-badge-small"
+              exact
+            >
+              badge
+            </nly-sidebar-nav-item>
+
+            <nly-sidebar-nav-item
+              to="/toast"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-toaster"
+              exact
+            >
+              toast
+            </nly-sidebar-nav-item>
+
+            <nly-sidebar-nav-item
+              to="/spinner"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-logo-pinterest"
+              exact
+            >
+              spinner
+            </nly-sidebar-nav-item>
+
+            <nly-sidebar-nav-item
+              to="/progress"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-cog"
+              exact
+            >
+              progress
+            </nly-sidebar-nav-item>
+
+            <nly-sidebar-nav-item
+              to="/timeline"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-logo-ionitron"
+              exact
+            >
+              timeline
+            </nly-sidebar-nav-item>
+            <nly-sidebar-nav-item
+              to="/breadcrumb"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-breadcrumb-fill"
+              exact
+            >
+              breadcrumb
+              <nly-badge bg-variant="fuchsia" badge-class="right" size="sm">
+                NEW
+              </nly-badge>
+            </nly-sidebar-nav-item>
           </nly-sidebar-nav-tree>
-
-          <nly-sidebar-nav-item
-            to="/card"
-            link-class="xxx zzz"
-            class="sss"
-            icon="nav-icon far nlyfont nly-filing"
-            exact
-          >
-            card
-          </nly-sidebar-nav-item>
-          <nly-sidebar-nav-item
-            to="/badge"
-            link-class="xxx zzz"
-            class="sss"
-            icon="nav-icon far nlyfont nly-badge-small"
-            exact
-          >
-            badge
-          </nly-sidebar-nav-item>
-
-          <nly-sidebar-nav-item
-            to="/toast"
-            link-class="xxx zzz"
-            class="sss"
-            icon="nav-icon far nlyfont nly-toaster"
-            exact
-          >
-            toast
-          </nly-sidebar-nav-item>
-
-          <nly-sidebar-nav-item
-            to="/spinner"
-            link-class="xxx zzz"
-            class="sss"
-            icon="nav-icon far nlyfont nly-logo-pinterest"
-            exact
-          >
-            spinner
-          </nly-sidebar-nav-item>
-
-          <nly-sidebar-nav-item
-            to="/progress"
-            link-class="xxx zzz"
-            class="sss"
-            icon="nav-icon far nlyfont nly-cog"
-            exact
-          >
-            progress
-          </nly-sidebar-nav-item>
-
-          <nly-sidebar-nav-item
-            to="/timeline"
-            link-class="xxx zzz"
-            class="sss"
-            icon="nav-icon far nlyfont nly-logo-ionitron"
-            exact
-          >
-            timeline
-          </nly-sidebar-nav-item>
         </nly-sidebar-nav>
       </nly-sidebar>
     </nly-sidebar-container>
