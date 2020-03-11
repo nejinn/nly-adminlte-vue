@@ -8,4 +8,4 @@ const toastPlugin = nlyInstallFactory({
   plugins: { NLYAToastPlugin }
 });
 
-export { toastPlugin, NlyToast, NlyToaster };
+export { toastPlugin, NlyToast, NlyToaster, NLYAToastPlugin };

@@ -119,6 +119,15 @@ export { NlyToast } from "./components/toast";
 export { NlyToaster } from "./components/toast";
 export { NLYAToastPlugin } from "./components/toast";
 
+export { timelinePlugin } from "./components/timeline";
+export { NlyTimeline } from "./components/timeline";
+export { NlyTimelineLabel } from "./components/timeline";
+export { NlyTimelineContent } from "./components/timeline";
+export { NlyTimelineItem } from "./components/timeline";
+export { NlyTimelineHeader } from "./components/timeline";
+export { NlyTimelineBody } from "./components/timeline";
+export { NlyTimelineFooter } from "./components/timeline";
+
 export { cardDirectivePlugin } from "./directives/card";
 export { NlyCardMaximized } from "./directives/card";
 

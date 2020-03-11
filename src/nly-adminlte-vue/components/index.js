@@ -21,6 +21,7 @@ import { collapseSidebarPlugins } from "./layout/collapsesidebar";
 import { toastPlugin } from "./toast";
 import { spinnerPlugin } from "./spinner";
 import { progressPlugin } from "./progress";
+import { timelinePlugin } from "./timeline";
 
 export const nlyComponentsPlugin = nlyPluginFactory({
   plugins: {
@@ -44,6 +45,7 @@ export const nlyComponentsPlugin = nlyPluginFactory({
     collapseSidebarPlugins,
     toastPlugin,
     spinnerPlugin,
-    progressPlugin
+    progressPlugin,
+    timelinePlugin
   }
 });

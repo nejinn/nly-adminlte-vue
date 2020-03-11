@@ -38,7 +38,7 @@ static | Boolean | false | 把toast挂载在当前元素父元素内。默认都
 
 ## 1.2. nlyatoast
 
-> 一个创建toast的插件，使用this.$nlyatoast().show()创建，接收nyl-taost的所有props，使用方法请查看example的demo
+> 一个创建toast的插件，使用this.$nlyatoast().show()创建，接收nly-toast的所有props，使用方法请查看example的demo
 
 ## 1.3. 单包导出
 

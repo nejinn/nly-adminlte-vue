@@ -18,12 +18,10 @@ const switchBox = () => import("../views/example/switch.vue");
 const card = () => import("../views/example/card.vue");
 const badge = () => import("../views/example/badge.vue");
 const table = () => import("../views/example/table.vue");
-
 const toast = () => import("../views/example/toast.vue");
-
 const spinner = () => import("../views/example/spinner.vue");
-
 const progress = () => import("../views/example/progress.vue");
+const timeline = () => import("../views/example/timeline.vue");
 
 const routes = [
   {
@@ -105,6 +103,11 @@ const routes = [
         path: "/progress",
         name: "progress",
         component: progress
+      },
+      {
+        path: "/timeline",
+        name: "timeline",
+        component: timeline
       }
     ]
   }

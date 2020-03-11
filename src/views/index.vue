@@ -426,6 +426,16 @@
           >
             progress
           </nly-sidebar-nav-item>
+
+          <nly-sidebar-nav-item
+            to="/timeline"
+            link-class="xxx zzz"
+            class="sss"
+            icon="nav-icon far nlyfont nly-logo-ionitron"
+            exact
+          >
+            timeline
+          </nly-sidebar-nav-item>
         </nly-sidebar-nav>
       </nly-sidebar>
     </nly-sidebar-container>
