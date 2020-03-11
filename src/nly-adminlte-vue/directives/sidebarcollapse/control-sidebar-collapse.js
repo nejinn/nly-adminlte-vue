@@ -22,7 +22,6 @@ export const NlyControlSidebarCollapse = {
       );
 
       if (bodyHeight - windowHeight >= footerHeight) {
-        console.log(111);
         controlSidebarSelector.style.top = `${headerHeight - scrollTop}px`;
         if (
           footerHeight -

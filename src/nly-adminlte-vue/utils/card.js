@@ -27,7 +27,6 @@ export const changeAfterIcon = (childrenList, icon, order) => {
 };
 
 export const beforeLeaveCollpase = el => {
-  console.log(el);
   if (!el.dataset) el.dataset = {};
   el.dataset.oldPaddingTop = el.style.paddingTop;
   el.dataset.oldPaddingBottom = el.style.paddingBottom;
@@ -35,7 +34,6 @@ export const beforeLeaveCollpase = el => {
 
   el.style.height = el.scrollHeight + "px";
   el.style.overflow = "hidden";
-  console.log(1);
 };
 
 export const leaveCollpase = el => {
@@ -45,7 +43,6 @@ export const leaveCollpase = el => {
     el.style.paddingTop = 0;
     el.style.paddingBottom = 0;
   }
-  console.log(2);
 };
 
 export const afterLeaveCollpase = el => {
@@ -54,7 +51,6 @@ export const afterLeaveCollpase = el => {
   el.style.overflow = el.dataset.oldOverflow;
   el.style.paddingTop = el.dataset.oldPaddingTop;
   el.style.paddingBottom = el.dataset.oldPaddingBottom;
-  console.log(3);
 };
 
 export const addClassNameCollpase = el => {

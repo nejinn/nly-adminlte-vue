@@ -9,16 +9,12 @@
 
 export const NlyCardCollapse = {
   bind(el, binding, vnode) {
-    // console.log(el);
     const cardCollapseRef = Object.keys(binding.modifiers)[0];
     el.onclick = () => {
       const cardVnode = vnode.context.$refs[cardCollapseRef];
       const cardVnodeChildren = cardVnode.$children;
-      console.log(cardVnode.$el.className, cardVnodeChildren);
       if (cardVnode.$el.className.indexOf("collapsed-card") != -1) {
-        console.log("-1");
         cardVnodeChildren.forEach(item => {
-          console.log(item);
           const itemEl = item.$el;
           if (item.$options._componentTag != "nly-card-header") {
             itemEl.style.transition = `all 0.5s`;
@@ -54,7 +50,6 @@ export const NlyCardCollapse = {
           }, 500);
         });
       } else {
-        console.log("-2");
         cardVnodeChildren.forEach(item => {
           const itemEl = item.$el;
           if (item.$options._componentTag != "nly-card-header") {
