@@ -1,6 +1,6 @@
 import Vue from "../../utils/vue";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
-import { navBarariantOpitons, textSizeOptions } from "../../utils/nly-config";
+import { navbarVariantOpitons, textSizeOptions } from "../../utils/nly-config";
 
 const name = "NlyNavbar";
 
@@ -18,6 +18,10 @@ export const NlyNavbar = Vue.extend({
     variant: {
       type: String,
       default: "white"
+    },
+    dark: {
+      type: Boolean,
+      default: false
     },
     size: {
       type: String,
@@ -49,7 +53,7 @@ export const NlyNavbar = Vue.extend({
         : "navbar-expand";
     },
     customnNvbarVariant: function() {
-      return nlyGetOptionsByKeyEqual(navBarariantOpitons, this.variant);
+      return nlyGetOptionsByKeyEqual(navbarVariantOpitons, this.variant);
     },
     customNavbarFontSize: function() {
       return nlyGetOptionsByKeyEqual(textSizeOptions, this.size);
@@ -59,6 +63,9 @@ export const NlyNavbar = Vue.extend({
     },
     customNavbarClass: function() {
       return this.navbarClass;
+    },
+    customNavbarDark() {
+      return this.dark ? "navbar-dark" : "navbar-light";
     }
   },
   render(h) {
@@ -69,6 +76,7 @@ export const NlyNavbar = Vue.extend({
         class: [
           this.customNavbarHeader,
           this.customNavbarExpand,
+          this.customNavbarDark,
           this.customnNvbarVariant,
           this.customNavbarFontSize,
           this.customNavbarBorder,

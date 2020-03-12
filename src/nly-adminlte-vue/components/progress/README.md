@@ -6,9 +6,10 @@
         - [1.1.1. props](#111-props)
         - [1.1.2. nly-progress-bar](#112-nly-progress-bar)
         - [1.1.3. props](#113-props)
-    - [1.2. 单包导出](#12-单包导出)
-        - [1.2.1. 包含组件](#121-包含组件)
-        - [1.2.2. 导出方法](#122-导出方法)
+    - [1.2. nly-progress-description](#12-nly-progress-description)
+    - [1.3. 单包导出](#13-单包导出)
+        - [1.3.1. 包含组件](#131-包含组件)
+        - [1.3.2. 导出方法](#132-导出方法)
 
 <!-- /TOC -->
 > 进度条
@@ -55,11 +56,15 @@ value | Number, String | 100 | 当前进度值
 label | String |  | 自定义显示的文本内容
 progress-bar-class | Number, String |  | progress-bar自定义css式样
 
-## 1.2. 单包导出
+## 1.2. nly-progress-description
+
+> 进度条描述，此组件只有放在info-box才有css式样
+
+## 1.3. 单包导出
 
 > 如果只需要使用progressPlugin中的组件，请使用单个组件导出
 
-### 1.2.1. 包含组件
+### 1.3.1. 包含组件
 
 > progressPlugin包括以下组件
 
@@ -67,8 +72,9 @@ progress-bar-class | Number, String |  | progress-bar自定义css式样
 -|-
 NlyProgress | nly-adminlte-vue
 NlyProgressBar | nly-adminlte-vue
+NlyProgressBarDescription | nly-adminlte-vue
 
-### 1.2.2. 导出方法
+### 1.3.2. 导出方法
 
 > 单组件导出
 

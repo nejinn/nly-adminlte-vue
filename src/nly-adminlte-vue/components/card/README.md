@@ -53,14 +53,14 @@ text-variant | String |  | 字体颜色，可选primary，secondary，success，
 bg-variant | String |  | 整个卡片背景色，可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark
 bg-gradient-variant | String |  | 整个卡片背景色，渐变色可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark
 height-control | Boolean | false | 控制卡片高度，最高300px
-loading | Boolean | false | 开启图标和文字内容loading
+loading | Boolean | false | 开启图标，图片和文字loading
+dark | Boolean | false | loading式样，默认light，设置dark=true为黑色
 loading-content | String |  | 自定义loading文字内容，设置loading为true的时候，生效，传入内容会覆盖icon-loading
 loading-content-tag | String | p | 自定义loading文字内容标签，设置loading为true的时候，生效
 loading-content-class | String |  | 自定义loading文字内容css式样，设置loading为true的时候，生效，
 loading-icon | String | fas fa-2x fa-sync-alt fa-spin | 开启loading情况下默认loading内容。如果传入loading-content，会覆盖loading-icon
-loading-img | Boolean | false | 开启loading图片。
-loading-img-src | String |  | loading图片url，在设置loading-img为true的时候，这个loading-img-src参数必传
-loading-img-class | String |  | loading图片自定义css式样，在设置loading-img为true的时候，loading-img-class生效
+loading-img-src | String |  | loading图片url，在设置loading为true的时候，传入loading-img-src参数会显示loadingimg
+loading-img-class | String |  | loading图片自定义css式样，在传入loading-img-src的时候，loading-img-class生效
 tag | String | div | 标签
 card-class | String |  |自定义css式样
 id | String | | id

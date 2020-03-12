@@ -11,6 +11,7 @@
       header
       :border="navbar.border"
       :size="navbar.size"
+      :dark="navbar.dark"
     >
       <nly-navbar-nav class="xxxxx">
         <nly-nav-item v-nly-sidebar-collapse.navitem>
@@ -184,7 +185,7 @@
       </nly-navbar-nav>
     </nly-navbar>
 
-    <nly-sidebar-container :hover="sidebar.hover">
+    <nly-sidebar-container :hover="sidebar.hover" :variant="sidebar.variant">
       <nly-sidebar-brand to="collapse" :variant="sidebar.brand.variant">
         <nly-sidebar-brandimg :src="logo" elevation circle />
         <nly-sidebar-brandtext>AdminLTE 3</nly-sidebar-brandtext>
@@ -389,6 +390,19 @@
                 NEW
               </nly-badge>
             </nly-sidebar-nav-item>
+
+            <nly-sidebar-nav-item
+              to="/infobox"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-byobu"
+              exact
+            >
+              infobox
+              <nly-badge bg-variant="fuchsia" badge-class="right" size="sm">
+                NEW
+              </nly-badge>
+            </nly-sidebar-nav-item>
           </nly-sidebar-nav-tree>
         </nly-sidebar-nav>
       </nly-sidebar>
@@ -407,15 +421,15 @@
     <nly-control-sidebar-container :size="controlSidebarSizeSm">
       <!-- Control sidebar content goes here -->
       <nly-control-sidebar class="p-3">
-        <h5>Customize AdminLTE</h5>
-        <hr class="mb-2" />
+        <h5>主题设置</h5>
+        <hr class="mb-2 bg-light" />
         <div class="mb-1">
           <nly-switch
             off-variant="info"
             on-variant="danger"
             v-model="controlSidebar.size"
           >
-            <span>controlSidebar小字体</span>
+            <span>右侧菜单栏小字体</span>
           </nly-switch>
         </div>
         <div class="mb-1">
@@ -424,7 +438,7 @@
             on-variant="danger"
             v-model="navbar.border"
           >
-            <span>navbar开启底部边框</span>
+            <span>顶部导航栏开启底部边框</span>
           </nly-switch>
         </div>
         <div class="mb-1">
@@ -511,23 +525,78 @@
             on-variant="orange"
             v-model="footer.size"
           >
-            <span>footer小字体</span>
+            <span>底部小字体</span>
           </nly-switch>
         </div>
 
-        <h6>Navbar Variants</h6>
+        <hr class="mb-2 bg-light" />
 
-        <h6>Accent Color Variants</h6>
-        <div class="d-flex"></div>
+        <h6>顶部导航栏背景颜色</h6>
 
-        <h6>Dark Sidebar Variants</h6>
-        <div class="d-flex"></div>
+        <hr class="mb-2 bg-light" />
+        <div class="mb-1">
+          <nly-switch
+            off-variant="light"
+            on-variant="dark"
+            v-model="navbar.dark"
+          >
+            <span>navbar dark</span>
+          </nly-switch>
+        </div>
+        <div class="d-flex">
+          <div class="d-flex flex-wrap mb-3">
+            <nly-controlSidebar-button
+              v-for="(item, index) in navbar.variantOption"
+              :key="index"
+              :bg-variant="item"
+              @click.native="changeNavbarVariant(item)"
+            />
+          </div>
+        </div>
 
-        <h6>Light Sidebar Variants</h6>
-        <div class="d-flex"></div>
+        <hr class="mb-2 bg-light" />
 
-        <h6>Brand Logo Variants</h6>
-        <div class="d-flex"></div>
+        <h6>左侧导航栏dark背景色</h6>
+
+        <hr class="mb-2 bg-light" />
+        <div class="d-flex">
+          <div class="d-flex flex-wrap mb-3">
+            <nly-controlSidebar-button
+              v-for="(item, index) in sidebar.darkVariantOption"
+              :key="index"
+              :bg-variant="item.b"
+              @click.native="changeSidebarVariant(item.a)"
+            />
+          </div>
+        </div>
+
+        <h6>左侧导航栏light背景色</h6>
+
+        <hr class="mb-2 bg-light" />
+        <div class="d-flex">
+          <div class="d-flex flex-wrap mb-3">
+            <nly-controlSidebar-button
+              v-for="(item, index) in sidebar.lightVariantOption"
+              :key="index"
+              :bg-variant="item.b"
+              @click.native="changeSidebarVariant(item.a)"
+            />
+          </div>
+        </div>
+
+        <h6>brand背景色</h6>
+
+        <hr class="mb-2 bg-light" />
+        <div class="d-flex">
+          <div class="d-flex flex-wrap mb-3">
+            <nly-controlSidebar-button
+              v-for="(item, index) in sidebar.brand.variantOption"
+              :key="index"
+              :bg-variant="item"
+              @click.native="changeSidebarBrandVariant(item)"
+            />
+          </div>
+        </div>
       </nly-control-sidebar>
     </nly-control-sidebar-container>
     <nly-overlay v-nly-sidebar-collapse.overlay sidebar />
@@ -544,7 +613,36 @@ export default {
         border: true,
         variant: "white",
         size: null,
-        sizeSm: false
+        sizeSm: false,
+        dark: false,
+        variantOption: [
+          "primary",
+          "secondary",
+          "success",
+          "info",
+          "warning",
+          "danger",
+          "lightblue",
+          "navy",
+          "olive",
+          "lime",
+          "fuchsia",
+          "maroon",
+          "blue",
+          "indigo",
+          "purple",
+          "pink",
+          "red",
+          "bg-red",
+          "orange",
+          "yellow",
+          "green",
+          "teal",
+          "cyan",
+          "white",
+          "gray",
+          "graydark"
+        ]
       },
       sidebar: {
         sidebarShape: {
@@ -555,9 +653,76 @@ export default {
           childIndent: false
         },
         brand: {
-          variant: "dark"
+          variant: "dark",
+          variantOption: [
+            "primary",
+            "secondary",
+            "success",
+            "info",
+            "warning",
+            "danger",
+            "lightblue",
+            "light",
+            "dark",
+            "navy",
+            "olive",
+            "lime",
+            "fuchsia",
+            "maroon",
+            "blue",
+            "indigo",
+            "purple",
+            "pink",
+            "red",
+            "bg-red",
+            "orange",
+            "yellow",
+            "green",
+            "teal",
+            "cyan",
+            "white",
+            "gray",
+            "graydark"
+          ]
         },
-        hover: true
+        hover: true,
+        variant: "darkPink",
+        darkVariantOption: [
+          { a: "darkPrimary", b: "primary" },
+          { a: "darkWarning", b: "warning" },
+          { a: "darkInfo", b: "info" },
+          { a: "darkDanger", b: "danger" },
+          { a: "darkSuccess", b: "success" },
+          { a: "darkIndigo", b: "indigo" },
+          { a: "darkLightblue", b: "lightblue" },
+          { a: "darkNavy", b: "navy" },
+          { a: "darkPurple", b: "purple" },
+          { a: "darkFuchsia", b: "fuchsia" },
+          { a: "darkPink", b: "pink" },
+          { a: "darkMaroon", b: "maroon" },
+          { a: "darkOrange", b: "orange" },
+          { a: "darkLime", b: "lime" },
+          { a: "darkTeal", b: "teal" },
+          { a: "darkOlive", b: "olive" }
+        ],
+        lightVariantOption: [
+          { a: "lightPrimary", b: "primary" },
+          { a: "lightWarning", b: "warning" },
+          { a: "lightInfo", b: "info" },
+          { a: "lightDanger", b: "danger" },
+          { a: "lightSuccess", b: "success" },
+          { a: "lightIndigo", b: "indigo" },
+          { a: "lightLightblue", b: "lightblue" },
+          { a: "lightNavy", b: "navy" },
+          { a: "lightPurple", b: "purple" },
+          { a: "lightFuchsia", b: "fuchsia" },
+          { a: "lightPink", b: "pink" },
+          { a: "lightMaroon", b: "maroon" },
+          { a: "lightOrange", b: "orange" },
+          { a: "lightLime", b: "lime" },
+          { a: "lightTeal", b: "teal" },
+          { a: "lightOlive", b: "olive" }
+        ]
       },
       body: {
         sizeSm: false
@@ -601,6 +766,17 @@ export default {
     },
     navbarSizeSm: function() {
       this.navbar.size = this.navbar.sizeSm ? "sm" : null;
+    }
+  },
+  methods: {
+    changeNavbarVariant(variant) {
+      this.navbar.variant = variant;
+    },
+    changeSidebarVariant(variant) {
+      this.sidebar.variant = variant;
+    },
+    changeSidebarBrandVariant(variant) {
+      this.sidebar.brand.variant = variant;
     }
   }
 };

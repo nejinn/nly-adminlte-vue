@@ -23,6 +23,7 @@ const spinner = () => import("../views/example/spinner.vue");
 const progress = () => import("../views/example/progress.vue");
 const timeline = () => import("../views/example/timeline.vue");
 const breadcrumb = () => import("../views/example/breadcrumb.vue");
+const infobox = () => import("../views/example/infobox.vue");
 
 const routes = [
   {
@@ -114,6 +115,11 @@ const routes = [
         path: "/breadcrumb",
         name: "breadcrumb",
         component: breadcrumb
+      },
+      {
+        path: "/infobox",
+        name: "infobox",
+        component: infobox
       }
     ]
   }

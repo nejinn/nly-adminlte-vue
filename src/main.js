@@ -7,7 +7,7 @@ Vue.config.productionTip = false;
 // import "./assets/adminlte/css/adminlte.min.css";
 import "./assets/adminlte/css/adminlte.css";
 import "./assets/adminlte/fontawesome-free/css/all.css";
-import "./assets/nly-adminlte-vue/nyladminltevue.css";
+import "./assets/nly-adminlte-vue/nly-adminlte-vue.css";
 import "./assets/font/font.css";
 import "./assets/nly-adminlte-vue/icon/iconfont.css";
 

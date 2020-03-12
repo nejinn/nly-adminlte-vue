@@ -3,7 +3,7 @@ import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
 import { NlyLink, propsFactory as linkPropsFactory } from "../link/link";
 import {
   textSizeOptions,
-  sidebarVariantOptions,
+  sidebarBrandVariantOptions,
   sidebarElevationOptions
 } from "../../utils/nly-config";
 
@@ -31,7 +31,7 @@ export const NlySidebarBrand = Vue.extend({
       return fontSize;
     },
     customVariant: function() {
-      return nlyGetOptionsByKeyEqual(sidebarVariantOptions, this.variant);
+      return nlyGetOptionsByKeyEqual(sidebarBrandVariantOptions, this.variant);
     },
     customElevation: function() {
       return nlyGetOptionsByKeyEqual(sidebarElevationOptions, this.elevation);

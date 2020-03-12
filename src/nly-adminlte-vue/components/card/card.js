@@ -143,10 +143,6 @@ export const NlyCard = Vue.extend({
       type: String,
       default: "fas fa-2x fa-sync-alt fa-spin"
     },
-    loadingImg: {
-      type: Boolean,
-      default: false
-    },
     loadingImgSrc: {
       type: String
     },
@@ -191,7 +187,6 @@ export const NlyCard = Vue.extend({
         loadingContentTag: this.loadingContentTag,
         loadingContentClass: this.loadingContentClass,
         loadingIcon: this.loadingIcon,
-        loadingImg: this.loadingImg,
         loadingImgSrc: this.loadingImgSrc,
         loadingImgClass: this.loadingImgClass,
         tag: this.tag,
@@ -257,10 +252,8 @@ export const NlyCard = Vue.extend({
     const loadingArray = () => {
       if (this.customProps.loading && !this.customProps.loadingImg) {
         return [this.$slots.default, overlayArray()];
-      } else if (!this.customProps.loading && this.customProps.loadingImg) {
-        return [this.$slots.default, loadingImgArray()];
       } else if (this.customProps.loading && this.customProps.loadingImg) {
-        return [this.$slots.default, loadingImgArray(), overlayArray()];
+        return [this.$slots.default, loadingImgArray()];
       } else {
         return [this.$slots.default];
       }

@@ -92,6 +92,7 @@ export { NlyOverlay } from "./components/overlay";
 export { progressPlugin } from "./components/progress";
 export { NlyProgress } from "./components/progress";
 export { NlyProgressBar } from "./components/progress";
+export { NlyProgressDescription } from "./components/progress";
 
 export { sidebarPlugin } from "./components/sidebar";
 export { NlySidebarContainer } from "./components/sidebar";
@@ -131,6 +132,13 @@ export { NlyTimelineFooter } from "./components/timeline";
 export { breadcrumbPlugin } from "./components/breadcrumb";
 export { NlyBreadcrumbItem } from "./components/breadcrumb";
 export { NlyBreadcrumb } from "./components/breadcrumb";
+
+export { infoboxPlugin } from "./components/info-box";
+export { NlyInfobox } from "./components/info-box";
+export { NlyInfoboxIcon } from "./components/info-box";
+export { NlyInfoboxBody } from "./components/info-box";
+export { NlyInfoboxText } from "./components/info-box";
+export { NlyInfoboxNumber } from "./components/info-box";
 
 export { cardDirectivePlugin } from "./directives/card";
 export { NlyCardMaximized } from "./directives/card";

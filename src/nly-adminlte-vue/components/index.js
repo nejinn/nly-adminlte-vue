@@ -23,6 +23,7 @@ import { spinnerPlugin } from "./spinner";
 import { progressPlugin } from "./progress";
 import { timelinePlugin } from "./timeline";
 import { breadcrumbPlugin } from "./breadcrumb";
+import { infoboxPlugin } from "./info-box";
 
 export const nlyComponentsPlugin = nlyPluginFactory({
   plugins: {
@@ -48,6 +49,7 @@ export const nlyComponentsPlugin = nlyPluginFactory({
     spinnerPlugin,
     progressPlugin,
     timelinePlugin,
-    breadcrumbPlugin
+    breadcrumbPlugin,
+    infoboxPlugin
   }
 });

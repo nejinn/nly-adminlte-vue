@@ -1,9 +1,6 @@
 import Vue from "../../utils/vue";
 
-import {
-  nlyGetOptionsByValueInclusion,
-  nlyGetOptionsByKeyEqual
-} from "../../utils/get-options";
+import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
 
 import {
   sidebarElevationOptions,
@@ -17,7 +14,7 @@ export const NlySidebarContainer = Vue.extend({
   props: {
     variant: {
       type: String,
-      default: "dark-primary"
+      default: "darkPrimary"
     },
     hover: {
       type: Boolean,
@@ -30,7 +27,7 @@ export const NlySidebarContainer = Vue.extend({
   },
   computed: {
     customVariant: function() {
-      return nlyGetOptionsByValueInclusion(
+      return nlyGetOptionsByKeyEqual(
         sidebarContainerVariantOpitons,
         this.variant
       );
