@@ -44,6 +44,8 @@ text-class | String |  | nly-infobox-text组件自定义css
 number | String,Number |  | 传入number会渲染一个nly-infobox-number组件
 number-class | String |  | nly-infobox-number组件自定义css
 info-box-body-class | String |  | 自定义css式样
+progress-value | String,Number |  | 传入progress-value会渲染一个nly-progress组件，value为progress-value
+progress-description | String |  | 传入progress-description会渲染一个nly-progress-description组件，text为progress-description
 
 ## nly-infobox-text
 
