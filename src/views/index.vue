@@ -403,6 +403,19 @@
                 NEW
               </nly-badge>
             </nly-sidebar-nav-item>
+
+            <nly-sidebar-nav-item
+              to="/table"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-grid"
+              exact
+            >
+              table
+              <nly-badge bg-variant="fuchsia" badge-class="right" size="sm">
+                NEW
+              </nly-badge>
+            </nly-sidebar-nav-item>
           </nly-sidebar-nav-tree>
         </nly-sidebar-nav>
       </nly-sidebar>
@@ -410,12 +423,13 @@
     <router-view />
     <nly-collapse-footer :size="footerSizeSm">
       <strong
-        >Copyright © 2014-2019
-        <a href="http://adminlte.io">AdminLTE.io</a>.</strong
+        >Copyright © 2020
+        <a href="https://github.com/nejinn/nly-adminlte-vue">nly-adminlte-vue</a
+        >.</strong
       >
       All rights reserved.
       <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.0.2-pre
+        <b>Version</b> 0.1.9
       </div>
     </nly-collapse-footer>
     <nly-control-sidebar-container :size="controlSidebarSizeSm">

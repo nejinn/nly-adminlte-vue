@@ -24,6 +24,7 @@ import { progressPlugin } from "./progress";
 import { timelinePlugin } from "./timeline";
 import { breadcrumbPlugin } from "./breadcrumb";
 import { infoboxPlugin } from "./info-box";
+import { tablePlugin } from "./table";
 
 export const nlyComponentsPlugin = nlyPluginFactory({
   plugins: {
@@ -50,6 +51,7 @@ export const nlyComponentsPlugin = nlyPluginFactory({
     progressPlugin,
     timelinePlugin,
     breadcrumbPlugin,
-    infoboxPlugin
+    infoboxPlugin,
+    tablePlugin
   }
 });

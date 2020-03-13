@@ -26,5 +26,24 @@ export default deepFreeze({
     ariaLive: null,
     ariaAtomic: null,
     role: null
+  },
+  NlyTable: {
+    selectedVariant: "active",
+    headVariant: null,
+    footVariant: null
+  },
+  NlyTime: {
+    labelNoTimeSelected: "No time selected",
+    labelSelected: "Selected time",
+    labelHours: "Hours",
+    labelMinutes: "Minutes",
+    labelSeconds: "Seconds",
+    labelAmpm: "AM/PM",
+    // It would be nice to be able to get these from Intl.DateTimeFormat somehow
+    labelAm: "AM",
+    labelPm: "PM",
+    // The following inherit from BFormSpinbutton if not provided
+    labelIncrement: null,
+    labelDecrement: null
   }
 });
