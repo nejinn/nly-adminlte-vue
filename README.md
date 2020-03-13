@@ -2,12 +2,13 @@
 <!-- TOC -->
 
 - [1. nly-adminlte-vue](#1-nly-adminlte-vue)
-    - [1.1. 进度](#11-进度)
-        - [1.1.1. 组件](#111-组件)
-        - [1.1.2. 指令](#112-指令)
-    - [1.2. 使用](#12-使用)
-        - [1.2.1. 可以直接clone下载项目](#121-可以直接clone下载项目)
-        - [1.2.2. 从npm下载](#122-从npm下载)
+  - [1.1. 进度](#11-进度)
+    - [1.1.1. 组件](#111-组件)
+    - [1.1.2. 指令](#112-指令)
+  - [1.2. 使用](#12-使用)
+    - [1.2.1. 可以直接clone下载项目](#121-可以直接clone下载项目)
+    - [1.2.2. 从npm下载](#122-从npm下载)
+- [感谢](#感谢)
 
 <!-- /TOC -->
 
@@ -89,3 +90,7 @@ import "nly-adminlte-vue/dist/nly-adminlte-vue.css";
 import { NlyAdminlteVue } from "nly-adminlte-vue";
 Vue.use(NlyAdminlteVue);
 ```
+
+# 感谢
+
+[bootstrapVue](https://bootstrap-vue.js.org)
