@@ -1,5 +1,6 @@
 # Tables
 
+table组件是bootstrapVue的组件，传送门[bootstrapVue](https://bootstrap-vue.js.org)
 > For displaying tabular data, `<b-table>` supports pagination, filtering, sorting, custom
 > rendering, various style options, events, and asynchronous data. For simple display of tabular
 > data without all the fancy features, BootstrapVue provides two lightweight alternative components
