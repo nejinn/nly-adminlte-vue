@@ -2,6 +2,8 @@
 node_modules
 /dist
 .history
+static/nly.ai
+static/nly.svg
 
 # local env files
 .env.local

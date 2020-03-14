@@ -15,7 +15,7 @@
     >
       <nly-navbar-nav class="xxxxx">
         <nly-nav-item v-nly-sidebar-collapse.navitem>
-          <nly-icon icon="nlyfont nly-logo-windows" />
+          <nly-icon icon="nlyfont nly-icon-logo-windows" />
         </nly-nav-item>
         <nly-nav-item
           active
@@ -43,7 +43,7 @@
         >
           <template slot="linkcontent">
             测试
-            <nly-icon icon="nlyfont nly-notification-fill" />
+            <nly-icon icon="nlyfont nly-icon-notification-fill" />
           </template>
           <template slot="menucontent">
             <nly-nav-item :nav-item="false" dropdown-item to="/">
@@ -145,7 +145,7 @@
           menu-direction="right"
         >
           <template slot="linkcontent">
-            <nly-icon icon="nlyfont nly-notification-fill" />
+            <nly-icon icon="nlyfont nly-icon-notification-fill" />
           </template>
           <template slot="menucontent">
             <nly-nav-item :nav-item="false" dropdown-item to="/">
@@ -164,7 +164,7 @@
           menu-direction="right"
         >
           <template slot="linkcontent">
-            <nly-icon icon="nlyfont nly-mail-fill" />
+            <nly-icon icon="nlyfont nly-icon-mail-fill" />
             <nly-badge bg-variant="fuchsia" badge-class="navbar-badge">
               12
             </nly-badge>
@@ -180,7 +180,7 @@
         </nly-nav-dropdown>
 
         <nly-nav-item v-nly-control-sidebar-collapse>
-          <nly-icon icon="nlyfont nlyfont nly-settings" />
+          <nly-icon icon="nlyfont nly-iconfont nly-icon-settings" />
         </nly-nav-item>
       </nly-navbar-nav>
     </nly-navbar>
@@ -188,14 +188,14 @@
     <nly-sidebar-container :hover="sidebar.hover" :variant="sidebar.variant">
       <nly-sidebar-brand to="collapse" :variant="sidebar.brand.variant">
         <nly-sidebar-brandimg :src="logo" elevation circle />
-        <nly-sidebar-brandtext>AdminLTE 3</nly-sidebar-brandtext>
+        <nly-sidebar-brandtext>NLY Adminlte Vue</nly-sidebar-brandtext>
       </nly-sidebar-brand>
 
       <nly-sidebar>
         <nly-sidebar-userpanel class="mt-3 pb-3 mb-3 d-flex">
           <nly-sidebar-userpanel-img :src="logo" class="SSS" />
           <nly-sidebar-userpanel-info to="collapse">
-            Alexander Pierce
+            Nejinn lerity
           </nly-sidebar-userpanel-info>
         </nly-sidebar-userpanel>
         <nly-sidebar-nav
@@ -214,7 +214,7 @@
             to="/"
             link-class="xxx zzz"
             class="sss"
-            icon="nav-icon fas nlyfont nly-color-palette"
+            icon="nav-icon fas nlyfont nly-icon-color-palette"
             exact
           >
             home
@@ -231,20 +231,18 @@
           </nly-sidebar-nav-header>
 
           <nly-sidebar-nav-tree
-            target="collapse"
+            target="components-one"
             visible
-            icon="nav-icon fas nlyfont nly-logo-polymer"
-            link-class="linkclass"
-            menu-class="menuClass"
+            icon="nav-icon fas nlyfont nly-icon-logo-polymer"
           >
             <template slot="link">
-              components
+              components-one
             </template>
             <nly-sidebar-nav-item
               to="/collapse"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-logo-chrome"
+              icon="nav-icon far nlyfont nly-icon-logo-chrome"
               exact
             >
               collapse
@@ -254,7 +252,7 @@
               to="/navbar"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-nav-tool"
+              icon="nav-icon far nlyfont nly-icon-nav-tool"
               exact
             >
               navbar
@@ -264,7 +262,7 @@
               to="/nav"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-keypad"
+              icon="nav-icon far nlyfont nly-icon-keypad"
               exact
             >
               nav
@@ -274,7 +272,7 @@
               to="/container"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-container"
+              icon="nav-icon far nlyfont nly-icon-container"
               exact
             >
               container
@@ -284,17 +282,26 @@
               to="/grid"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-layout"
+              icon="nav-icon far nlyfont nly-icon-layout"
               exact
             >
               grid
             </nly-sidebar-nav-item>
+          </nly-sidebar-nav-tree>
 
+          <nly-sidebar-nav-tree
+            target="components-two"
+            visible
+            icon="nav-icon fas nlyfont nly-icon-logo-polymer"
+          >
+            <template slot="link">
+              components-two
+            </template>
             <nly-sidebar-nav-item
               to="/link"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-router-link"
+              icon="nav-icon far nlyfont nly-icon-router-link"
               exact
             >
               link
@@ -304,7 +311,7 @@
               to="/button"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-logo-ionic"
+              icon="nav-icon far nlyfont nly-icon-logo-ionic"
               exact
             >
               button
@@ -314,7 +321,7 @@
               to="/switch"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-switch"
+              icon="nav-icon far nlyfont nly-icon-switch"
               exact
             >
               switch
@@ -324,26 +331,36 @@
               to="/card"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-filing"
+              icon="nav-icon far nlyfont nly-icon-filing"
               exact
             >
               card
             </nly-sidebar-nav-item>
+
             <nly-sidebar-nav-item
               to="/badge"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-badge-small"
+              icon="nav-icon far nlyfont nly-icon-badge-small"
               exact
             >
               badge
             </nly-sidebar-nav-item>
+          </nly-sidebar-nav-tree>
 
+          <nly-sidebar-nav-tree
+            target="components-three"
+            visible
+            icon="nav-icon fas nlyfont nly-icon-logo-polymer"
+          >
+            <template slot="link">
+              components-three
+            </template>
             <nly-sidebar-nav-item
               to="/toast"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-toaster"
+              icon="nav-icon far nlyfont nly-icon-toaster"
               exact
             >
               toast
@@ -353,7 +370,7 @@
               to="/spinner"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-logo-pinterest"
+              icon="nav-icon far nlyfont nly-icon-logo-pinterest"
               exact
             >
               spinner
@@ -363,7 +380,7 @@
               to="/progress"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-cog"
+              icon="nav-icon far nlyfont nly-icon-cog"
               exact
             >
               progress
@@ -373,16 +390,17 @@
               to="/timeline"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-logo-ionitron"
+              icon="nav-icon far nlyfont nly-icon-logo-ionitron"
               exact
             >
               timeline
             </nly-sidebar-nav-item>
+
             <nly-sidebar-nav-item
               to="/breadcrumb"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-breadcrumb-fill"
+              icon="nav-icon far nlyfont nly-icon-breadcrumb-fill"
               exact
             >
               breadcrumb
@@ -390,25 +408,61 @@
                 NEW
               </nly-badge>
             </nly-sidebar-nav-item>
+          </nly-sidebar-nav-tree>
 
+          <nly-sidebar-nav-tree
+            target="components-four"
+            visible
+            icon="nav-icon fas nlyfont nly-icon-logo-polymer"
+          >
+            <template slot="link">
+              components-four
+            </template>
             <nly-sidebar-nav-item
               to="/infobox"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-byobu"
+              icon="nav-icon far nlyfont nly-icon-byobu"
               exact
             >
               infobox
-              <nly-badge bg-variant="fuchsia" badge-class="right" size="sm">
-                NEW
-              </nly-badge>
             </nly-sidebar-nav-item>
 
             <nly-sidebar-nav-item
               to="/table"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-grid"
+              icon="nav-icon far nlyfont nly-icon-table"
+              exact
+            >
+              table
+            </nly-sidebar-nav-item>
+
+            <nly-sidebar-nav-item
+              to="/tooltip"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-icon-tooltip"
+              exact
+            >
+              tooltip
+            </nly-sidebar-nav-item>
+
+            <nly-sidebar-nav-item
+              to="/pagination"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-icon-pagination"
+              exact
+            >
+              pagination
+            </nly-sidebar-nav-item>
+
+            <nly-sidebar-nav-item
+              to="/table"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-icon-grid"
               exact
             >
               table
@@ -618,7 +672,7 @@
 </template>
 
 <script>
-import logo from "../assets/img/AdminLTELogo.png";
+import logo from "../assets/nly-adminlte-vue/img/NLYLOGO.png";
 export default {
   data() {
     return {

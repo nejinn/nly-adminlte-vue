@@ -27,7 +27,7 @@
 
             <div style="margin: 1rem;">
               <nly-button variant="warning">
-                <nly-icon icon="nlyfont nly-logo-angular" />
+                <nly-icon icon="nlyfont nly-icon-logo-angular" />
               </nly-button>
             </div>
 
@@ -91,14 +91,14 @@
               icon
               <nly-button-group>
                 <nly-button variant="warning">
-                  <nly-icon icon="nlyfont nly-bonfire" />
+                  <nly-icon icon="nlyfont nly-icon-bonfire" />
                 </nly-button>
                 <nly-button variant="danger">
-                  <nly-icon icon="nlyfont nly-bonfire" />
+                  <nly-icon icon="nlyfont nly-icon-bonfire" />
                 </nly-button>
 
                 <nly-button variant="info">
-                  <nly-icon icon="nlyfont nly-bonfire" />
+                  <nly-icon icon="nlyfont nly-icon-bonfire" />
                 </nly-button>
               </nly-button-group>
             </div>
@@ -123,14 +123,14 @@
               vertical icon
               <nly-button-group vertical>
                 <nly-button variant="warning">
-                  <nly-icon icon="nlyfont nly-bonfire" />
+                  <nly-icon icon="nlyfont nly-icon-bonfire" />
                 </nly-button>
                 <nly-button variant="danger">
-                  <nly-icon icon="nlyfont nly-bonfire" />
+                  <nly-icon icon="nlyfont nly-icon-bonfire" />
                 </nly-button>
 
                 <nly-button variant="info">
-                  <nly-icon icon="nlyfont nly-bonfire" />
+                  <nly-icon icon="nlyfont nly-icon-bonfire" />
                 </nly-button>
               </nly-button-group>
             </div>

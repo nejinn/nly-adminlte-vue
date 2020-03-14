@@ -92,25 +92,25 @@ export default {
         {
           text: "home",
           to: "/",
-          icon: "nlyfont nly-home-fill"
+          icon: "nlyfont nly-icon-home-fill"
         },
         {
           text: "collapse",
           to: "/collapse",
-          icon: "nlyfont nly-outlet"
+          icon: "nlyfont nly-icon-outlet"
         },
         {
           text: "breadcrumb",
           to: "/breadcrumb",
           active: true,
-          icon: "nlyfont nly-security-fill"
+          icon: "nlyfont nly-icon-security-fill"
         }
       ],
       itemIconOnly: [
         {
           text: "home",
           to: "/",
-          icon: "nlyfont nly-home-fill"
+          icon: "nlyfont nly-icon-home-fill"
         },
         {
           text: "collapse",

@@ -2,9 +2,37 @@
   "id": "1630807",
   "name": "nly",
   "font_family": "nlyfont",
-  "css_prefix_text": "nly-",
+  "css_prefix_text": "nly-icon-",
   "description": "",
   "glyphs": [
+    {
+      "icon_id": "13286029",
+      "name": "form",
+      "font_class": "form",
+      "unicode": "e6c2",
+      "unicode_decimal": 59074
+    },
+    {
+      "icon_id": "5443441",
+      "name": "tooltip",
+      "font_class": "tooltip",
+      "unicode": "e6c1",
+      "unicode_decimal": 59073
+    },
+    {
+      "icon_id": "5163042",
+      "name": "table",
+      "font_class": "table",
+      "unicode": "e6c0",
+      "unicode_decimal": 59072
+    },
+    {
+      "icon_id": "12738627",
+      "name": "pagination",
+      "font_class": "pagination",
+      "unicode": "e7d5",
+      "unicode_decimal": 59349
+    },
     {
       "icon_id": "186424",
       "name": "badge2",

@@ -17,7 +17,7 @@
               >2019.12.22</nly-timeline-label
             >
             <nly-timeline-content
-              icon="far nlyfont nly-logo-ionitron"
+              icon="far nlyfont nly-icon-logo-ionitron"
               bg-variant="info"
             >
               <nly-timeline-item time=" 2019" time-icon="fas fa-clock">
@@ -56,7 +56,7 @@
               >2019.10.12</nly-timeline-label
             >
             <nly-timeline-content
-              icon="far nlyfont nly-logo-ionitron"
+              icon="far nlyfont nly-icon-logo-ionitron"
               bg-variant="info"
             >
               <nly-timeline-item time=" 2019" time-icon="fas fa-clock">

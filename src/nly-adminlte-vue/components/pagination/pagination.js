@@ -1,6 +1,7 @@
 import Vue from "../../utils/vue";
 import { toInteger } from "../../utils/number";
 import { NlyRenderFunction } from "../render-function/render-function";
+import { NlyLink } from "../link/link";
 
 const name = "NlyPagination";
 
@@ -228,7 +229,7 @@ export const NlyPagination = Vue.extend({
                   _class: "page-item disabled",
                   _children: [
                     {
-                      _type: "a",
+                      _type: NlyLink,
                       _name: item,
                       _class: "page-link"
                     }
@@ -241,7 +242,7 @@ export const NlyPagination = Vue.extend({
                   _on: { click: this._firstFunction },
                   _children: [
                     {
-                      _type: "a",
+                      _type: NlyLink,
                       _name: item,
                       _class: "page-link"
                     }
@@ -255,7 +256,7 @@ export const NlyPagination = Vue.extend({
                   _class: "page-item disabled",
                   _children: [
                     {
-                      _type: "a",
+                      _type: NlyLink,
                       _name: item,
                       _class: "page-link"
                     }
@@ -268,7 +269,7 @@ export const NlyPagination = Vue.extend({
                   _on: { click: this._prevFunction },
                   _children: [
                     {
-                      _type: "a",
+                      _type: NlyLink,
                       _name: item,
                       _class: "page-link"
                     }
@@ -281,7 +282,7 @@ export const NlyPagination = Vue.extend({
                 _class: "page-item disabled",
                 _children: [
                   {
-                    _type: "a",
+                    _type: NlyLink,
                     _name: item,
                     _class: "page-link"
                   }
@@ -294,7 +295,7 @@ export const NlyPagination = Vue.extend({
                   _class: "page-item disabled",
                   _children: [
                     {
-                      _type: "a",
+                      _type: NlyLink,
                       _name: item,
                       _class: "page-link"
                     }
@@ -307,7 +308,7 @@ export const NlyPagination = Vue.extend({
                   _on: { click: this._nextFunction },
                   _children: [
                     {
-                      _type: "a",
+                      _type: NlyLink,
                       _name: item,
                       _class: "page-link"
                     }
@@ -321,7 +322,7 @@ export const NlyPagination = Vue.extend({
                   _class: "page-item disabled",
                   _children: [
                     {
-                      _type: "a",
+                      _type: NlyLink,
                       _name: item,
                       _class: "page-link"
                     }
@@ -334,7 +335,7 @@ export const NlyPagination = Vue.extend({
                   _on: { click: this._lastFunction },
                   _children: [
                     {
-                      _type: "a",
+                      _type: NlyLink,
                       _name: item,
                       _class: "page-link"
                     }
@@ -348,7 +349,7 @@ export const NlyPagination = Vue.extend({
                 _on: { click: () => this._currentFunction(item) },
                 _children: [
                   {
-                    _type: "a",
+                    _type: NlyLink,
                     _name: item,
                     _class: "page-link"
                   }
@@ -361,7 +362,7 @@ export const NlyPagination = Vue.extend({
                 _on: { click: () => this._currentFunction(item) },
                 _children: [
                   {
-                    _type: "a",
+                    _type: NlyLink,
                     _name: item,
                     _class: "page-link"
                   }
