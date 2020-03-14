@@ -25,6 +25,9 @@ import { timelinePlugin } from "./timeline";
 import { breadcrumbPlugin } from "./breadcrumb";
 import { infoboxPlugin } from "./info-box";
 import { tablePlugin } from "./table";
+import { tooltipPlugin } from "./tooltip";
+import { renderFunctionPlugin } from "./render-function";
+import { paginationPlugin } from "./pagination";
 
 export const nlyComponentsPlugin = nlyPluginFactory({
   plugins: {
@@ -52,6 +55,9 @@ export const nlyComponentsPlugin = nlyPluginFactory({
     timelinePlugin,
     breadcrumbPlugin,
     infoboxPlugin,
-    tablePlugin
+    tablePlugin,
+    tooltipPlugin,
+    renderFunctionPlugin,
+    paginationPlugin
   }
 });

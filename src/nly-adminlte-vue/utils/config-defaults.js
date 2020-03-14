@@ -45,5 +45,12 @@ export default deepFreeze({
     // The following inherit from BFormSpinbutton if not provided
     labelIncrement: null,
     labelDecrement: null
+  },
+  NlyTooltip: {
+    boundary: "scrollParent",
+    boundaryPadding: 5,
+    customClass: null,
+    delay: 50,
+    variant: null
   }
 });

@@ -140,6 +140,16 @@ export { NlyInfoboxBody } from "./components/info-box";
 export { NlyInfoboxText } from "./components/info-box";
 export { NlyInfoboxNumber } from "./components/info-box";
 
+export { paginationPlugin } from "./components/pagination";
+export { NlyPagination } from "./components/pagination";
+
+export { renderFunctionPlugin } from "./components/render-function";
+export { NlyRenderFunction } from "./components/render-function";
+
+export { tooltipPlugin } from "./components/tooltip";
+export { NlyTooltip } from "./components/tooltip";
+export { nlyTooltipPlugin } from "./components/tooltip";
+
 export { cardDirectivePlugin } from "./directives/card";
 export { NlyCardMaximized } from "./directives/card";
 
