@@ -1,3 +1,10 @@
+<p align="center">
+  <a href="https://github.com/nejinn/nly-adminlte-vue">
+    <img src="https://github.com/nejinn/nly-adminlte-vue/blob/master/static/NLYREADME.png" width="300">
+  </a>
+</p>
+<br>
+
 # 1. nly-adminlte-vue
 <!-- TOC -->
 
@@ -17,11 +24,6 @@ nly-adminlte-vue是一个基础adminlte3封装的vue组件库。干掉jq，让vu
 欢迎贡献代码
 
 欢迎加群交流 QQ群：927568606
-
-![demo1](https://github.com/nejinn/nly-adminlte-vue/blob/master/nly-adminlte-vue-1.gif)
-![demo2](https://github.com/nejinn/nly-adminlte-vue/blob/master/nly-adminlte-vue-2.gif)
-![demo3](https://github.com/nejinn/nly-adminlte-vue/blob/master/nly-adminlte-vue-3.gif)
-![demo4](https://github.com/nejinn/nly-adminlte-vue/blob/master/nly-adminlte-vue-4.gif)
 
 ## 1.1. 进度
 
@@ -63,6 +65,7 @@ nly-adminlte-vue是一个基础adminlte3封装的vue组件库。干掉jq，让vu
 * 右侧收缩版收起指令 v-nly-control-sidebar-collapse
 * 卡片最大化指令 v-nly-card-maximized
 * 折叠版收起展开指令 v-nly-toggle
+* 提示工具指令 v-nly-tooltip
 
 ## 1.2. 使用
 

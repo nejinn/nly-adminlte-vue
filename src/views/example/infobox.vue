@@ -134,11 +134,12 @@
           </nly-infobox>
         </nly-col>
       </nly-row>
-    </nly-content> </nly-content-wrapper
-></template>
+    </nly-content>
+  </nly-content-wrapper>
+</template>
 
 <script>
-import logo from "../../assets/img/AdminLTELogo.png";
+import logo from "../../assets/nly-adminlte-vue/img/NLYLOGO.png";
 export default {
   data() {
     return {

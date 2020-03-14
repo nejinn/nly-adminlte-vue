@@ -148,7 +148,6 @@ export { NlyRenderFunction } from "./components/render-function";
 
 export { tooltipPlugin } from "./components/tooltip";
 export { NlyTooltip } from "./components/tooltip";
-export { nlyTooltipPlugin } from "./components/tooltip";
 
 export { cardDirectivePlugin } from "./directives/card";
 export { NlyCardMaximized } from "./directives/card";
