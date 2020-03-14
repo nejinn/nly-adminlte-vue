@@ -1,14 +1,21 @@
-# pagination
+# 1. pagination
 
 > 分页
 
-## nly-pagination
+## 1.1. nly-pagination
+<!-- TOC -->
 
+- [1. pagination](#1-pagination)
+  - [1.1. nly-pagination](#11-nly-pagination)
+    - [1.1.1. props](#111-props)
+    - [1.1.2. props](#112-props)
+
+<!-- /TOC -->
 > 分页
-
-### props
 
 ### 1.1.1. props
+
+### 1.1.2. props
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-

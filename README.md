@@ -53,6 +53,9 @@ nly-adminlte-vue是一个基础adminlte3封装的vue组件库。干掉jq，让vu
 * 面包屑导航 breadcrumb
 * 信息箱 infobox
 * 表格 table 表格是bootstrapVue的组件。传送门[bootstrapVue](https://bootstrap-vue.js.org)
+* 提示工具 tooltip
+* 分页 paginaton
+* 渲染函数 renderfunction 根据数组渲染整个页面的组件
 
 ### 1.1.2. 指令
 
