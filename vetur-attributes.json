@@ -1,0 +1,519 @@
+{
+  "nly-badge/size": {
+    "description": "大小",
+    "type": "string"
+  },
+  "nly-badge/variant": {
+    "description": "badge-*类颜色",
+    "type": "string"
+  },
+  "nly-badge/bg-variant": {
+    "description": "bg-*类颜色",
+    "type": "string"
+  },
+  "nly-badge/bg-gradient-variant": {
+    "description": "bg-gradient-*类颜色，渐变色",
+    "type": "string"
+  },
+  "nly-badge/badge-class": {
+    "description": "自定义css",
+    "type": "string"
+  },
+  "nly-badge/tag": {
+    "description": "自定义tag",
+    "type": "string"
+  },
+  "nly-badge/pill": {
+    "description": "形状，圆角型",
+    "type": "Boolean"
+  },
+  "nly-breadcrumb/item": {
+    "description": "item元素数组",
+    "type": "Array"
+  },
+  "nly-breadcrumb/breadcrumb-class": {
+    "description": "自定义css",
+    "type": "string"
+  },
+  "nly-breadcrumb-item/icon": {
+    "description": "图标icon",
+    "type": "string"
+  },
+  "nly-breadcrumb-item/text": {
+    "description": "面包屑导航文本",
+    "type": "string"
+  },
+  "nly-breadcrumb-item/href": {
+    "description": "面包屑导航路由",
+    "type": "string"
+  },
+  "nly-breadcrumb-item/to": {
+    "description": "面包屑导航路由",
+    "type": "String, Object"
+  },
+  "nly-breadcrumb-item/append": {
+    "description": "面包屑导航路由模式",
+    "type": "Boolean"
+  },
+  "nly-breadcrumb-item/replace": {
+    "description": "面包屑导航路由模式",
+    "type": "Boolean"
+  },
+  "nly-breadcrumb-item/active": {
+    "description": "激活面包屑导航路由",
+    "type": "Boolean"
+  },
+  "nly-breadcrumb-item/target": {
+    "description": "target属性",
+    "type": "String"
+  },
+  "nly-breadcrumb-item/item-class": {
+    "description": "面包屑导航item自定义css",
+    "type": "String"
+  },
+  "nly-breadcrumb-item/link-class": {
+    "description": "面包屑导航link自定义css",
+    "type": "String"
+  },
+  "nly-button/block": {
+    "description": "按钮block属性，填充整个父div",
+    "type": "Boolean"
+  },
+  "nly-button/variant": {
+    "description": "按钮颜色 可选  default，primary，secondary，success，info，danger，warning，outlineDefaul，outlinePrimary，outlineSecondary，outlineSuccess，outlineInfo，outlineDanger，outlineWarning。要设置透明，传入null",
+    "type": "String"
+  },
+  "nly-button/gradient": {
+    "description": "按钮渐变色颜色，和variant只能选择一个。可选primary，secondary，success，info，danger，warning",
+    "type": "String"
+  },
+  "nly-button/bg-variant": {
+    "description": "背景色，primary，secondary，success，info:，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-button/size": {
+    "description": "按钮大小，可选lg，sm，sx",
+    "type": "String"
+  },
+  "nly-button/type": {
+    "description": "按钮类型，可选button，submit",
+    "type": "String"
+  },
+  "nly-button/shape": {
+    "description": "按钮形状，可选roundedFlat，roundedPill，roundedCircle，roundedLg，roundedSm",
+    "type": "String"
+  },
+  "nly-button/disabled": {
+    "description": "禁用按钮",
+    "type": "Boolean"
+  },
+  "nly-button/pressed": {
+    "description": "按钮激活按下效果",
+    "type": "Boolean"
+  },
+  "nly-button/tool": {
+    "description": "工具类按钮，默认非工具类。此时variant参数在不点击的情况下，只会改变边框颜色。可以使用bg-variant和gradient props改变背景色",
+    "type": "Boolean"
+  },
+  "nly-button/app": {
+    "description": "app类按钮.一般情况下是对图标使用的按钮。可以将图标变小，居中",
+    "type": "Boolean"
+  },
+  "nly-button/button-class": {
+    "description": "自定义式样",
+    "type": "String"
+  },
+  "nly-button-group/vertical": {
+    "description": "是否垂直",
+    "type": "Boolean"
+  },
+  "nly-button-group/group-size": {
+    "description": "大小，可选'lg'，'sm'",
+    "type": "String"
+  },
+  "nly-button-group/group-tag": {
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-button-group/button-group-class": {
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-button-close/content":{
+    "description": "文本内容",
+    "type": "String"
+  },
+  "nly-button-close/disabled":{
+    "description": "禁用",
+    "type": "Boolean"
+  },
+  "nly-button-close/aria-label":{
+    "description": "aria-label",
+    "type": "String"
+  },
+  "nly-button-close/text-variant":{
+    "description": "文字颜色",
+    "type": "String"
+  },
+  "nly-card-group/group-type":{
+    "description": "卡片组类型 默认card-group，可选，default，deck，columns，accordion。deck水平，colunms当水平排列放不下，就垂直，先垂直一列，载垂直第二列",
+    "type": "String"
+  },
+  "nly-card-group/group-class":{
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-card-group/tag":{
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-card/header-variant":{
+    "description": "header背景色，card-*。可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card/header-outline":{
+    "description": "header边框",
+    "type": "Boolean"
+  },
+  "nly-card/card-outline-tabs":{
+    "description": "作为tab时，header的式样",
+    "type": "Boolean"
+  },
+  "nly-card/card-tabs":{
+    "description": "是否作为一个tab",
+    "type": "Boolean"
+  },
+  "nly-card/text-variant":{
+    "description": "字体颜色，可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card/bg-variant":{
+    "description": "整个卡片背景色，可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card/bg-gradient-variant":{
+    "description": "整个卡片背景色，渐变色可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card/height-control":{
+    "description": "控制卡片高度，最高300px",
+    "type": "Boolean"
+  },
+  "nly-card/loading":{
+    "description": "开启图标，图片和文字loading",
+    "type": "Boolean"
+  },
+  "nly-card/dark":{
+    "description": "loading式样，默认light，设置dark=true为黑色",
+    "type": "Boolean"
+  },
+  "nly-card/loading-content":{
+    "description": "自定义loading文字内容，设置loading为true的时候，生效，传入内容会覆盖icon-loading",
+    "type": "String"
+  },
+  "nly-card/loading-content-tag":{
+    "description": "自定义loading文字内容标签，设置loading为true的时候，生效",
+    "type": "String"
+  },
+  "nly-card/loading-content-class":{
+    "description": "自定义loading文字内容css式样，设置loading为true的时候，生效，",
+    "type": "String"
+  },
+  "nly-card/loading-icon":{
+    "description": "开启loading情况下默认loading内容。如果传入loading-content，会覆盖loading-icon",
+    "type": "String"
+  },
+  "nly-card/loading-img-src":{
+    "description": "loading图片url，在设置loading为true的时候，传入loading-img-src参数会显示loadingimg",
+    "type": "String"
+  },
+  "nly-card/loading-img-class":{
+    "description": "loading图片自定义css式样，在传入loading-img-src的时候，loading-img-class生效",
+    "type": "String"
+  },
+  "nly-card/tag":{
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-card/card-class":{
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-card/id":{
+    "description": "id",
+    "type": "String"
+  },
+  "nly-card-header/bg-variant":{
+    "description": "背景色，可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card-header/bg-gradient-variant":{
+    "description": "背景色,渐变色，可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card-header/text-variant":{
+    "description": "字体颜色，选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card-header/tag":{
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-card-header/card-header-class":{
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-card-header/img-overlay":{
+    "description": "放置到图片card-img上",
+    "type": "Boolean"
+  },
+  "nly-card-body/bg-variant":{
+    "description": "背景色，可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card-body/bg-gradient-variant":{
+    "description": "背景色,渐变色，可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card-body/text-variant":{
+    "description": "字体颜色，选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card-body/tag":{
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-card-body/card-body-class":{
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-card-body/img-overlay":{
+    "description": "放置到图片card-img上",
+    "type": "Boolean"
+  },
+  "nly-card-footer/bg-variant":{
+    "description": "背景色，可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card-footer/bg-gradient-variant":{
+    "description": "背景色,渐变色，可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card-footer/text-variant":{
+    "description": "字体颜色，选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card-footer/tag":{
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-card-footer/card-footer-class":{
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-card-footer/img-overlay":{
+    "description": "放置到图片card-img上",
+    "type": "Boolean"
+  },
+  "nly-card-title/text-variant":{
+    "description": "字体颜色，选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card-title/tag":{
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-card-title/title-class":{
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-card-img/top":{
+    "description": "top圆角",
+    "type": "Boolean"
+  },
+  "nly-card-img/buttom":{
+    "description": "buttom圆角",
+    "type": "Boolean"
+  },
+  "nly-card-img/src":{
+    "description": "图片url",
+    "type": "String"
+  },
+  "nly-card-img/img-class":{
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-card-tool/tag":{
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-card-tool/tool-class":{
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-card-text/tag":{
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-card-text/text-class":{
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-card-text/text-variant":{
+    "description": "字体颜色，选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-collapse/id":{
+    "description": "折叠组id",
+    "type": "String"
+  },
+  "nly-collapse/is-nav":{
+    "description": "菜单模式，会添加class='navbar-collapse'",
+    "type": "Boolean"
+  },
+  "nly-collapse/accordion":{
+    "description": "手风琴模式，手风琴分组字段",
+    "type": "String"
+  },
+  "nly-collapse/visible":{
+    "description": "设置true，会展开折叠版",
+    "type": "Boolean"
+  },
+  "nly-collapse/appear":{
+    "description": "初始化展开动画",
+    "type": "Boolean"
+  },
+  "nly-collapse-noclass/appear":{
+    "description": "初始化展开动画",
+    "type": "Boolean"
+  },
+  "nly-collapse-noclass/id":{
+    "description": "折叠组id",
+    "type": "String"
+  },
+  "nly-collapse-noclass/is-nav":{
+    "description": "菜单模式，会添加class='navbar-collapse'",
+    "type": "Boolean"
+  },
+  "nly-collapse-noclass/accordion":{
+    "description": "手风琴模式，手风琴分组字段",
+    "type": "String"
+  },
+  "nly-collapse-noclass/visible":{
+    "description": "设置true，会展开折叠版",
+    "type": "Boolean"
+  },
+  "nly-control-sidebar/scrollbar":{
+    "description": "开启滚动条组件",
+    "type": "Boolean"
+  },
+  "nly-dropdown/vertical":{
+    "description": "是否垂直，默认水平",
+    "type": "Boolean"
+  },
+  "nly-dropdown/dropdown-size":{
+    "description": "大小，会覆盖nly-botton组件size，可选sm，lg",
+    "type": "String"
+  },
+  "nly-dropdown/dropdown-tag":{
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-dropdown/dropdown-toggle":{
+    "description": "开启下拉icon，默认不开启",
+    "type": "Boolean"
+  },
+  "nly-dropdown/dropdown-icon":{
+    "description": "下拉icon与文字对齐，默认不开启",
+    "type": "Boolean"
+  },
+  "nly-dropdown/text":{
+    "description": "文字内容",
+    "type": "String"
+  },
+  "nly-dropdown/toggle-text":{
+    "description": "toggle文字内容",
+    "type": "String"
+  },
+  "nly-dropdown/dropdown-class":{
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-dropdown/data-show":{
+    "description": "触发的显示的下拉内容，对应为nly-dropdown-menu的id prop，必传",
+    "type": "String"
+  },
+  "nly-dropdown/placement":{
+    "description": "下拉内容出现的位置，默认auto，会选择最节省空间的地方显示。可选auto，auto-start，auto-end,top，top-start，top-end，bottom，bottom-start，bottom-end，right,right-start，right-end，left，left-start，left-end",
+    "type": "String"
+  },
+  "nly-dropdown-menu/tag":{
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-dropdown-menu/dropdown-menu-class":{
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-dropdown-menu/role":{
+    "description": "role属性",
+    "type": "String"
+  },
+  "nly-dropdown-menu/id":{
+    "description": "组件id，必传",
+    "type": "String"
+  },
+  "nly-icon/icon":{
+    "description": "icon class",
+    "type": "String"
+  },
+  "nly-icon/tag":{
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-icon/size":{
+    "description": "字体大小，可选sm，lg",
+    "type": "String"
+  },
+
+  "nly-infobox/bg-variant":{
+    "description": "整个卡片背景色，可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-infobox/bg-gradient-variant":{
+    "description": "整个卡片背景色，渐变色可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-infobox/loading":{
+    "description": "开启图标，图片和文字loading",
+    "type": "Boolean"
+  },
+  "nly-infobox/dark":{
+    "description": "loading式样，默认light，设置dark=true为黑色",
+    "type": "Boolean"
+  },
+  "nly-infobox/loading-content":{
+    "description": "自定义loading文字内容，设置loading为true的时候，生效，传入内容会覆盖icon-loading",
+    "type": "String"
+  },
+  "nly-infobox/loading-content-tag":{
+    "description": "自定义loading文字内容标签，设置loading为true的时候，生效",
+    "type": "String"
+  },
+  "nly-infobox/loading-content-class":{
+    "description": "自定义loading文字内容css式样，设置loading为true的时候，生效，",
+    "type": "String"
+  },
+  "nly-infobox/loading-icon":{
+    "description": "开启loading情况下默认loading内容。如果传入loading-content，会覆盖loading-icon",
+    "type": "String"
+  },
+  "nly-infobox/loading-img-src":{
+    "description": "loading图片url，在设置loading为true的时候，传入loading-img-src参数会显示loadingimg",
+    "type": "String"
+  },
+  "nly-infobox/loading-img-class":{
+    "description": "loading图片自定义css式样，在传入loading-img-src的时候，loading-img-class生效",
+    "type": "String"
+  }
+}

@@ -1,10 +1,27 @@
-# info-box
+# 1. info-box
+<!-- TOC -->
 
+- [1. info-box](#1-info-box)
+  - [1.1. nly-infobox](#11-nly-infobox)
+    - [1.1.1. props](#111-props)
+  - [1.2. nly-infobox-icon](#12-nly-infobox-icon)
+    - [1.2.1. props](#121-props)
+  - [1.3. nly-infobox-body](#13-nly-infobox-body)
+    - [1.3.1. props](#131-props)
+  - [1.4. nly-infobox-text](#14-nly-infobox-text)
+    - [1.4.1. props](#141-props)
+  - [1.5. nly-infobox-number](#15-nly-infobox-number)
+    - [1.5.1. props](#151-props)
+  - [1.6. 单包导出](#16-单包导出)
+    - [1.6.1. 包含组件](#161-包含组件)
+    - [1.6.2. 导出方法](#162-导出方法)
+
+<!-- /TOC -->
 > 消息box
 
-## nly-infobox
+## 1.1. nly-infobox
 
-### props
+### 1.1.1. props
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
@@ -19,9 +36,9 @@ loading-icon | String | fas fa-2x fa-sync-alt fa-spin | 开启loading情况下�
 loading-img-src | String |  | loading图片url，在设置loading为true的时候，传入loading-img-src参数会显示loadingimg
 loading-img-class | String |  | loading图片自定义css式样，在传入loading-img-src的时候，loading-img-class生效
 
-## nly-infobox-icon
+## 1.2. nly-infobox-icon
 
-### props
+### 1.2.1. props
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
@@ -30,9 +47,9 @@ bg-variant | String |  | 整个卡片背景色，可选primary，secondary，suc
 bg-gradient-variant | String |  | 整个卡片背景色，渐变色可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark
 info-box-icon-class | String |  | 自定义css式样
 
-## nly-infobox-body
+## 1.3. nly-infobox-body
 
-### props
+### 1.3.1. props
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
@@ -47,29 +64,29 @@ info-box-body-class | String |  | 自定义css式样
 progress-value | String,Number |  | 传入progress-value会渲染一个nly-progress组件，value为progress-value
 progress-description | String |  | 传入progress-description会渲染一个nly-progress-description组件，text为progress-description
 
-## nly-infobox-text
+## 1.4. nly-infobox-text
 
-### props
+### 1.4.1. props
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
 text | String |  | 组件文本内容
 text-class | String |  | 自定义css式样
 
-## nly-infobox-number
+## 1.5. nly-infobox-number
 
-### props
+### 1.5.1. props
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
 number | String,Number |  | 组件文本内容。当number不以props传入而是用默认插槽传入时，不会转换为货币数字
 number-class | String |  | 自定义css式样
 
-## 1.2. 单包导出
+## 1.6. 单包导出
 
 > 如果只需要使用infoboxPlugin中的组件，请使用单个组件导出
 
-### 1.2.1. 包含组件
+### 1.6.1. 包含组件
 
 > infoboxPlugin包括以下组件
 
@@ -81,7 +98,7 @@ NlyInfoboxBody | nly-adminlte-vue
 NlyInfoboxText | nly-adminlte-vue
 NlyInfoboxNumber | nly-adminlte-vue
 
-### 1.2.2. 导出方法
+### 1.6.2. 导出方法
 
 > 单组件导出
 

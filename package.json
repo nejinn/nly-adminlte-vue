@@ -1,7 +1,75 @@
 {
   "name": "nly-adminlte-vue",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.2.0",
+  "private": false,
+  "license": "MIT",
+  "description": "nly adminlte3 components",
+  "author":"Nejinn Lerity",
+  "keywords": [
+    "Bootstrap",
+    "adminlte3",
+    "adminlte3 for Vue",
+    "SSR",
+    "Web",
+    "Components",
+    "Directives",
+    "ARIA",
+    "Accessibility",
+    "Polymer",
+    "Vue",
+    "VueJS",
+    "Vue2",
+    "WebComponents",
+    "jquery",
+    "Popper.js",
+    "Popper",
+    "CSS",
+    "SCSS",
+    "Icons",
+    "Bootstrap Icons",
+    "Flexbox",
+    "Alert",
+    "Breadcrumb",
+    "Button",
+    "Checkbox",
+    "Radio",
+    "Card",
+    "Carousel",
+    "Slider",
+    "Collapse",
+    "Dropdown",
+    "Form",
+    "Select",
+    "Option",
+    "Input",
+    "Jumbotron",
+    "List",
+    "Nav",
+    "Modal",
+    "MessageBox",
+    "Upload",
+    "Dropzone",
+    "Navbar",
+    "Pagination",
+    "Popover",
+    "Progress",
+    "Spinner",
+    "Tab",
+    "Table",
+    "Tag",
+    "Tags",
+    "Toast",
+    "Tooltip",
+    "vue-bootstrap",
+    "vue-strap",
+    "vuestrap",
+    "uiv"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nejinn/nly-adminlte-vue.git"
+  },
+  "main": "dist/nly-adminlte-vue.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -71,7 +139,15 @@
     "preset": "@vue/cli-plugin-unit-jest"
   },
   "vetur": {
-    "tags": "src/nly-adminlte-vue/vetur-tags.json",
-    "attributes": "src/nly-adminlte-vue/vetur-attributes.json"
-  }
+    "tags": "dist/vetur-tags.json",
+    "attributes": "dist/vetur-attributes.json"
+  },
+  "engines": {
+    "node": ">= 10.0.0",
+    "npm": ">= 6.0.0"
+  },
+  "files": [
+    "packages",
+    "dist"
+  ]
 }

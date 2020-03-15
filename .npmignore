@@ -1,9 +1,19 @@
 .DS_Store
 node_modules
-dist
 .history
-static/nly.ai
-static/nly.svg
+src
+public
+tests
+static
+
+.gitattributes
+.gitignore
+.npmignore
+.markdownlint.json
+
+babel.config.js
+package-lock.json
+vue.config.js
 
 # local env files
 .env.local

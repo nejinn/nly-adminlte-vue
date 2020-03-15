@@ -2,30 +2,30 @@
 <!-- TOC -->
 
 - [1. card](#1-card)
-    - [1.1. nly-crad-group](#11-nly-crad-group)
-        - [1.1.1. props](#111-props)
-    - [1.2. nly-crad](#12-nly-crad)
-        - [1.2.1. props](#121-props)
-    - [1.3. nly-card-header](#13-nly-card-header)
-        - [1.3.1. props](#131-props)
-    - [1.4. nly-card-body](#14-nly-card-body)
-        - [1.4.1. props](#141-props)
-    - [1.5. nly-crad-footer](#15-nly-crad-footer)
-        - [1.5.1. props](#151-props)
-    - [1.6. nly-card-title](#16-nly-card-title)
-        - [1.6.1. props](#161-props)
-    - [1.7. nly-card-img](#17-nly-card-img)
-        - [1.7.1. props](#171-props)
-    - [1.8. nly-card-tool](#18-nly-card-tool)
-        - [1.8.1. props](#181-props)
-    - [1.9. nly-card-text](#19-nly-card-text)
-        - [1.9.1. props](#191-props)
-    - [1.10. 单包导出](#110-单包导出)
-        - [1.10.1. 包含组件](#1101-包含组件)
-        - [1.10.2. 导出方法](#1102-导出方法)
+  - [1.1. nly-card-group](#11-nly-card-group)
+    - [1.1.1. props](#111-props)
+  - [1.2. nly-card](#12-nly-card)
+    - [1.2.1. props](#121-props)
+  - [1.3. nly-card-header](#13-nly-card-header)
+    - [1.3.1. props](#131-props)
+  - [1.4. nly-card-body](#14-nly-card-body)
+    - [1.4.1. props](#141-props)
+  - [1.5. nly-card-footer](#15-nly-card-footer)
+    - [1.5.1. props](#151-props)
+  - [1.6. nly-card-title](#16-nly-card-title)
+    - [1.6.1. props](#161-props)
+  - [1.7. nly-card-img](#17-nly-card-img)
+    - [1.7.1. props](#171-props)
+  - [1.8. nly-card-tool](#18-nly-card-tool)
+    - [1.8.1. props](#181-props)
+  - [1.9. nly-card-text](#19-nly-card-text)
+    - [1.9.1. props](#191-props)
+  - [1.10. 单包导出](#110-单包导出)
+    - [1.10.1. 包含组件](#1101-包含组件)
+    - [1.10.2. 导出方法](#1102-导出方法)
 
 <!-- /TOC -->
-## 1.1. nly-crad-group
+## 1.1. nly-card-group
 
 > 卡片组
 
@@ -37,7 +37,7 @@ group-type | String | default | 卡片组类型 默认card-group，可选，defa
 group-class | String |  | 自定义css式样
 tag | String | div | 标签
 
-## 1.2. nly-crad
+## 1.2. nly-card
 
 > 卡片
 
@@ -95,7 +95,7 @@ text-variant | String |  | 字体颜色，选primary，secondary，success，inf
 tag | String | div | 标签
 card-body-class | String |  | 自定义css式样
 
-## 1.5. nly-crad-footer
+## 1.5. nly-card-footer
 
 > 卡片footer
 

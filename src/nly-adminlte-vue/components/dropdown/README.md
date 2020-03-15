@@ -3,13 +3,13 @@
 <!-- TOC -->
 
 - [1. Dropdown](#1-dropdown)
-    - [1.1. nly-dropdown](#11-nly-dropdown)
-        - [1.1.1. props](#111-props)
-    - [1.2. nly-dropdown-menu](#12-nly-dropdown-menu)
-        - [1.2.1. props](#121-props)
-    - [1.3. 单包导出](#13-单包导出)
-        - [1.3.1. 包含组件](#131-包含组件)
-        - [1.3.2. 导出方法](#132-导出方法)
+  - [1.1. nly-dropdown](#11-nly-dropdown)
+    - [1.1.1. props](#111-props)
+  - [1.2. nly-dropdown-menu](#12-nly-dropdown-menu)
+    - [1.2.1. props](#121-props)
+  - [1.3. 单包导出](#13-单包导出)
+    - [1.3.1. 包含组件](#131-包含组件)
+    - [1.3.2. 导出方法](#132-导出方法)
 
 <!-- /TOC -->
 
@@ -23,7 +23,7 @@
 -|-|-|-
 vertical | Boolean | false | 是否垂直，默认水平
 dropdown-size | String |  | 大小，会覆盖nly-botton组件size，可选sm，lg
-dropdown-tag | div |  | 标签
+dropdown-tag | String | div | 标签
 dropdown-toggle | Boolean |  | 开启下拉icon，默认不开启
 dropdown-icon | Boolean | | 下拉icon与文字对齐，默认不开启
 text | String |  | 文字内容
@@ -41,7 +41,7 @@ placement | String | auto | 下拉内容出现的位置，默认auto，会选择
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
 tag | String | div | 标签
-dropdownMenuClass | String | | 自定义css式样
+dropdown-menu-class | String | | 自定义css式样
 role | String | menu | html role属性
 id | String |  | 组件id，必传
 

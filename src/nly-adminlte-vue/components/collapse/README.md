@@ -2,17 +2,17 @@
 <!-- TOC -->
 
 - [1. collapse](#1-collapse)
-    - [1.1. nly-collapse](#11-nly-collapse)
-        - [1.1.1. props](#111-props)
-    - [1.2. nly-collapse-transition](#12-nly-collapse-transition)
-        - [1.2.1. props](#121-props)
-    - [1.3. nly-collapse-noclass](#13-nly-collapse-noclass)
-        - [1.3.1. props](#131-props)
-    - [1.4. nly-collapse-noclass-transition](#14-nly-collapse-noclass-transition)
-        - [1.4.1. props](#141-props)
-    - [1.5. 单包导出](#15-单包导出)
-        - [1.5.1. 包含组件](#151-包含组件)
-        - [1.5.2. 导出方法](#152-导出方法)
+  - [1.1. nly-collapse](#11-nly-collapse)
+    - [1.1.1. props](#111-props)
+  - [1.2. nly-collapse-transition](#12-nly-collapse-transition)
+    - [1.2.1. props](#121-props)
+  - [1.3. nly-collapse-noclass](#13-nly-collapse-noclass)
+    - [1.3.1. props](#131-props)
+  - [1.4. nly-collapse-noclass-transition](#14-nly-collapse-noclass-transition)
+    - [1.4.1. props](#141-props)
+  - [1.5. 单包导出](#15-单包导出)
+    - [1.5.1. 包含组件](#151-包含组件)
+    - [1.5.2. 导出方法](#152-导出方法)
 
 <!-- /TOC -->
 ## 1.1. nly-collapse

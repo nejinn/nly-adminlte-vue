@@ -5,12 +5,12 @@
 <!-- TOC -->
 
 - [1. control sidebar](#1-control-sidebar)
-    - [1.1. nly-control-sidebar-container](#11-nly-control-sidebar-container)
-    - [1.2. nly-control-sidebar](#12-nly-control-sidebar)
-        - [1.2.1. props](#121-props)
-    - [1.3. 单包导出](#13-单包导出)
-        - [1.3.1. 包含组件](#131-包含组件)
-        - [1.3.2. 导出方法](#132-导出方法)
+  - [1.1. nly-control-sidebar-container](#11-nly-control-sidebar-container)
+  - [1.2. nly-control-sidebar](#12-nly-control-sidebar)
+    - [1.2.1. props](#121-props)
+  - [1.3. 单包导出](#13-单包导出)
+    - [1.3.1. 包含组件](#131-包含组件)
+    - [1.3.2. 导出方法](#132-导出方法)
 
 <!-- /TOC -->
 
