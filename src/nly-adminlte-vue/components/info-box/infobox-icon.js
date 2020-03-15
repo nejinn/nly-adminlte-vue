@@ -18,7 +18,7 @@ export const NlyInfoboxIcon = Vue.extend({
     bgGradientVariant: {
       type: String
     },
-    infoBoxIconClass: {
+    infoboxIconClass: {
       type: String
     }
   },
@@ -31,7 +31,7 @@ export const NlyInfoboxIcon = Vue.extend({
           bgGradientOptions,
           this.bgGradientVariant
         ),
-        infoBoxIconClass: this.infoBoxIconClass
+        infoboxIconClass: this.infoboxIconClass
       };
     }
   },
@@ -41,7 +41,7 @@ export const NlyInfoboxIcon = Vue.extend({
       {
         staticClass: "info-box-icon",
         class: [
-          this.customProps.infoBoxIconClass,
+          this.customProps.infoboxIconClass,
           this.customProps.bgVariant,
           this.customProps.bgGradientVariant
         ]

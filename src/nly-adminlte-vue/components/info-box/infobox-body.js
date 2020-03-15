@@ -18,7 +18,7 @@ export const NlyInfoboxBody = Vue.extend({
     bgGradientVariant: {
       type: String
     },
-    infoBoxBodyClass: {
+    infoboxBodyClass: {
       type: String
     },
     text: {
@@ -48,7 +48,7 @@ export const NlyInfoboxBody = Vue.extend({
           bgGradientOptions,
           this.bgGradientVariant
         ),
-        infoBoxBodyClass: this.infoBoxBodyClass,
+        infoboxBodyClass: this.infoboxBodyClass,
         text: this.text,
         textClass: this.textClass,
         number: this.number ? toCurrency(this.number) : "",
@@ -105,7 +105,7 @@ export const NlyInfoboxBody = Vue.extend({
       {
         staticClass: "info-box-content",
         class: [
-          this.customProps.infoBoxBodyClass,
+          this.customProps.infoboxBodyClass,
           this.customProps.bgVariant,
           this.customProps.bgGradientVariant
         ]

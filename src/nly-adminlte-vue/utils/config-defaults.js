@@ -52,5 +52,8 @@ export default deepFreeze({
     customClass: null,
     delay: 50,
     variant: null
+  },
+  NlyFormText: {
+    textVariant: "muted"
   }
 });
