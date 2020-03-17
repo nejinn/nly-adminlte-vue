@@ -32,7 +32,7 @@ export const NlyCardGroup = Vue.extend({
     return h(
       this.customProps.tag,
       {
-        class: [this.cardGroupType.groupType, this.cardGroupType.groupClass]
+        class: [this.customProps.groupType, this.customProps.groupClass]
       },
       this.$slots.default
     );

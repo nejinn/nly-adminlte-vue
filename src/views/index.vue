@@ -234,6 +234,7 @@
             target="components-one"
             visible
             icon="nav-icon fas nlyfont nly-icon-logo-polymer"
+            text="components-one"
           >
             <template slot="link">
               components-one

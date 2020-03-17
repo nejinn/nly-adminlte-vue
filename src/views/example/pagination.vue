@@ -22,9 +22,23 @@
               <nly-pagination total="100" sm />
               <nly-pagination total="100" lg />
               <nly-pagination total="100" align="center" />
-              <nly-pagination total="100" align="right" />
+              <nly-pagination :total="testTotal" align="right" show-pg />
+              <input type="number" v-model="testTotal" />
+              {{ testTotal }}
             </nly-card-body>
           </nly-card>
         </nly-col>
-      </nly-row> </nly-content></nly-content-wrapper
-></template>
+      </nly-row>
+    </nly-content></nly-content-wrapper
+  ></template
+>
+
+<script>
+export default {
+  data() {
+    return {
+      testTotal: 6
+    };
+  }
+};
+</script>

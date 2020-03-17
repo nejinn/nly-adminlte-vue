@@ -211,6 +211,11 @@
           </nly-card>
         </nly-col>
       </nly-row>
+      <nly-row>
+        <nly-col>
+          <nly-card-group> </nly-card-group>
+        </nly-col>
+      </nly-row>
     </nly-content>
   </nly-content-wrapper>
 </template>

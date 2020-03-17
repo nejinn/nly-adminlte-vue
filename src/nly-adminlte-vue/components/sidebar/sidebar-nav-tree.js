@@ -86,6 +86,9 @@ export const NlySidebarNavTree = Vue.extend({
     },
     menuClass: {
       type: String
+    },
+    text: {
+      type: String
     }
   },
   computed: {
@@ -121,6 +124,9 @@ export const NlySidebarNavTree = Vue.extend({
     },
     customIcon: function() {
       return this.icon;
+    },
+    customText: function() {
+      return this.text;
     }
   },
   created() {
@@ -177,7 +183,7 @@ export const NlySidebarNavTree = Vue.extend({
           class: this.customIcon
         }),
         h("p", [
-          this.$slots.link,
+          this.customText,
           h("i", {
             class: "right fas fa-angle-left"
           }),

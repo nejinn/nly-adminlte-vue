@@ -2026,3 +2026,7 @@
   color: #fff;
   background-color: #343a40;
 }
+
+.nly-no-focus-ring:focus {
+  outline: none;
+}

@@ -120,6 +120,9 @@ export const NlyPagination = Vue.extend({
         return "";
       }
     },
+    nlypgShowPg() {
+      return this.showPg;
+    },
     nlyPgtTotal: function() {
       return isNaN(toInteger(this.total))
         ? 1
@@ -211,142 +214,17 @@ export const NlyPagination = Vue.extend({
     },
     tempalteArray: function() {
       const _tempalteArray = () => {
-        if (this.showPg) {
-          if (this.nlyPgPages <= 1) {
-            return [];
-          }
-        } else {
-          let nlyPgItemArrayAll = this.nlyPgItemArray;
-          nlyPgItemArrayAll.splice(0, 0, "‹");
-          nlyPgItemArrayAll.splice(0, 0, "‹‹");
-          nlyPgItemArrayAll.push("›");
-          nlyPgItemArrayAll.push("››");
-          let nlyPgTempalteArray = nlyPgItemArrayAll.map(item => {
-            if (item == "‹‹") {
-              if (this.nlyPgCurrentPage == 1) {
-                return {
-                  _type: "li",
-                  _class: "page-item disabled",
-                  _children: [
-                    {
-                      _type: NlyLink,
-                      _name: item,
-                      _class: "page-link"
-                    }
-                  ]
-                };
-              } else {
-                return {
-                  _type: "li",
-                  _class: "page-item",
-                  _on: { click: this._firstFunction },
-                  _children: [
-                    {
-                      _type: NlyLink,
-                      _name: item,
-                      _class: "page-link"
-                    }
-                  ]
-                };
-              }
-            } else if (item == "‹") {
-              if (this.nlyPgCurrentPage == 1) {
-                return {
-                  _type: "li",
-                  _class: "page-item disabled",
-                  _children: [
-                    {
-                      _type: NlyLink,
-                      _name: item,
-                      _class: "page-link"
-                    }
-                  ]
-                };
-              } else {
-                return {
-                  _type: "li",
-                  _class: "page-item",
-                  _on: { click: this._prevFunction },
-                  _children: [
-                    {
-                      _type: NlyLink,
-                      _name: item,
-                      _class: "page-link"
-                    }
-                  ]
-                };
-              }
-            } else if (item == "···") {
+        let nlyPgItemArrayAll = this.nlyPgItemArray;
+        nlyPgItemArrayAll.splice(0, 0, "‹");
+        nlyPgItemArrayAll.splice(0, 0, "‹‹");
+        nlyPgItemArrayAll.push("›");
+        nlyPgItemArrayAll.push("››");
+        let nlyPgTempalteArray = nlyPgItemArrayAll.map(item => {
+          if (item == "‹‹") {
+            if (this.nlyPgCurrentPage == 1) {
               return {
                 _type: "li",
                 _class: "page-item disabled",
-                _children: [
-                  {
-                    _type: NlyLink,
-                    _name: item,
-                    _class: "page-link"
-                  }
-                ]
-              };
-            } else if (item == "›") {
-              if (this.nlyPgCurrentPage == this.nlyPgPages) {
-                return {
-                  _type: "li",
-                  _class: "page-item disabled",
-                  _children: [
-                    {
-                      _type: NlyLink,
-                      _name: item,
-                      _class: "page-link"
-                    }
-                  ]
-                };
-              } else {
-                return {
-                  _type: "li",
-                  _class: "page-item",
-                  _on: { click: this._nextFunction },
-                  _children: [
-                    {
-                      _type: NlyLink,
-                      _name: item,
-                      _class: "page-link"
-                    }
-                  ]
-                };
-              }
-            } else if (item == "››") {
-              if (this.nlyPgCurrentPage == this.nlyPgPages) {
-                return {
-                  _type: "li",
-                  _class: "page-item disabled",
-                  _children: [
-                    {
-                      _type: NlyLink,
-                      _name: item,
-                      _class: "page-link"
-                    }
-                  ]
-                };
-              } else {
-                return {
-                  _type: "li",
-                  _class: "page-item",
-                  _on: { click: this._lastFunction },
-                  _children: [
-                    {
-                      _type: NlyLink,
-                      _name: item,
-                      _class: "page-link"
-                    }
-                  ]
-                };
-              }
-            } else if (item == this.tempalteCurrentPage) {
-              return {
-                _type: "li",
-                _class: "page-item active",
-                _on: { click: () => this._currentFunction(item) },
                 _children: [
                   {
                     _type: NlyLink,
@@ -359,7 +237,7 @@ export const NlyPagination = Vue.extend({
               return {
                 _type: "li",
                 _class: "page-item",
-                _on: { click: () => this._currentFunction(item) },
+                _on: { click: this._firstFunction },
                 _children: [
                   {
                     _type: NlyLink,
@@ -369,18 +247,137 @@ export const NlyPagination = Vue.extend({
                 ]
               };
             }
-          });
-
-          let nlyPgTempalteArrayAll = [
-            {
-              _type: "ul",
-              _class: ["pagination", this.nlyPgFontSize, this.alignClass],
-              _children: nlyPgTempalteArray
+          } else if (item == "‹") {
+            if (this.nlyPgCurrentPage == 1) {
+              return {
+                _type: "li",
+                _class: "page-item disabled",
+                _children: [
+                  {
+                    _type: NlyLink,
+                    _name: item,
+                    _class: "page-link"
+                  }
+                ]
+              };
+            } else {
+              return {
+                _type: "li",
+                _class: "page-item",
+                _on: { click: this._prevFunction },
+                _children: [
+                  {
+                    _type: NlyLink,
+                    _name: item,
+                    _class: "page-link"
+                  }
+                ]
+              };
             }
-          ];
+          } else if (item == "···") {
+            return {
+              _type: "li",
+              _class: "page-item disabled",
+              _children: [
+                {
+                  _type: NlyLink,
+                  _name: item,
+                  _class: "page-link"
+                }
+              ]
+            };
+          } else if (item == "›") {
+            if (this.nlyPgCurrentPage == this.nlyPgPages) {
+              return {
+                _type: "li",
+                _class: "page-item disabled",
+                _children: [
+                  {
+                    _type: NlyLink,
+                    _name: item,
+                    _class: "page-link"
+                  }
+                ]
+              };
+            } else {
+              return {
+                _type: "li",
+                _class: "page-item",
+                _on: { click: this._nextFunction },
+                _children: [
+                  {
+                    _type: NlyLink,
+                    _name: item,
+                    _class: "page-link"
+                  }
+                ]
+              };
+            }
+          } else if (item == "››") {
+            if (this.nlyPgCurrentPage == this.nlyPgPages) {
+              return {
+                _type: "li",
+                _class: "page-item disabled",
+                _children: [
+                  {
+                    _type: NlyLink,
+                    _name: item,
+                    _class: "page-link"
+                  }
+                ]
+              };
+            } else {
+              return {
+                _type: "li",
+                _class: "page-item",
+                _on: { click: this._lastFunction },
+                _children: [
+                  {
+                    _type: NlyLink,
+                    _name: item,
+                    _class: "page-link"
+                  }
+                ]
+              };
+            }
+          } else if (item == this.tempalteCurrentPage) {
+            return {
+              _type: "li",
+              _class: "page-item active",
+              _on: { click: () => this._currentFunction(item) },
+              _children: [
+                {
+                  _type: NlyLink,
+                  _name: item,
+                  _class: "page-link"
+                }
+              ]
+            };
+          } else {
+            return {
+              _type: "li",
+              _class: "page-item",
+              _on: { click: () => this._currentFunction(item) },
+              _children: [
+                {
+                  _type: NlyLink,
+                  _name: item,
+                  _class: "page-link"
+                }
+              ]
+            };
+          }
+        });
 
-          return nlyPgTempalteArrayAll;
-        }
+        let nlyPgTempalteArrayAll = [
+          {
+            _type: "ul",
+            _class: ["pagination", this.nlyPgFontSize, this.alignClass],
+            _children: nlyPgTempalteArray
+          }
+        ];
+
+        return nlyPgTempalteArrayAll;
       };
       return _tempalteArray();
     }
@@ -414,11 +411,18 @@ export const NlyPagination = Vue.extend({
     }
   },
   render(h) {
-    return h(NlyRenderFunction, {
-      props: {
-        contentToRender: this.tempalteArray,
-        flat: true
+    const pgVnode = () => {
+      if (this.nlypgShowPg && this.nlyPgPages <= 1) {
+        return h();
+      } else {
+        return h(NlyRenderFunction, {
+          props: {
+            contentToRender: this.tempalteArray,
+            flat: true
+          }
+        });
       }
-    });
+    };
+    return pgVnode();
   }
 });
