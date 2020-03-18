@@ -147,13 +147,6 @@ export { NlyPagination } from "./components/pagination/pagination";
 export { renderFunctionPlugin } from "./components/render-function";
 export { NlyRenderFunction } from "./components/render-function/render-function";
 
-export { formPlugin } from "./components/form";
-export { NlyForm } from "./components/form/form";
-export { NlyFormDatalist } from "./components/form/form-datalist";
-export { NlyFormText } from "./components/form/form-text";
-export { NlyFormInvalidFeedback } from "./components/form/form-invalid-feedback";
-export { NlyFormValidFeedback } from "./components/form/form-valid-feedback";
-
 export { tooltipPlugin } from "./components/tooltip";
 export { NlyTooltip } from "./components/tooltip/tooltip";
 

@@ -28,7 +28,6 @@ import { tablePlugin } from "./table";
 import { tooltipPlugin } from "./tooltip";
 import { renderFunctionPlugin } from "./render-function";
 import { paginationPlugin } from "./pagination";
-import { formPlugin } from "./form";
 
 export const nlyComponentsPlugin = nlyPluginFactory({
   plugins: {
@@ -59,7 +58,6 @@ export const nlyComponentsPlugin = nlyPluginFactory({
     tablePlugin,
     tooltipPlugin,
     renderFunctionPlugin,
-    paginationPlugin,
-    formPlugin
+    paginationPlugin
   }
 });
