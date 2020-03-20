@@ -1,8 +1,17 @@
 <template>
-  <div>
-    <button id="button" aria-describedby="tooltip">I'm a button</button>
-    <div id="tooltip" role="tooltip">I'm a tooltip</div>
-  </div>
+  <nly-container>
+    <nly-row>
+      <nly-col>
+        <button id="button" aria-describedby="tooltip">I'm a button</button>
+        <div id="tooltip" role="tooltip">I'm a tooltip</div>
+      </nly-col>
+    </nly-row>
+    <nly-row>
+      <nly-col>
+        <testComponent />
+      </nly-col>
+    </nly-row>
+  </nly-container>
 </template>
 
 <script>

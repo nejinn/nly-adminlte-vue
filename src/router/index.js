@@ -6,7 +6,7 @@ Vue.use(VueRouter);
 const testcomponent = () => import("../views/example/testcomponent.vue");
 
 const index = () => import("../views/index");
-
+const formTest = () => import("../views/formTest.vue");
 const container = () => import("../views/example/container.vue");
 const grid = () => import("../views/example/grid.vue");
 const nav = () => import("../views/example/nav.vue");
@@ -134,6 +134,11 @@ const routes = [
         component: pagination
       }
     ]
+  },
+  {
+    path: "/formtest",
+    name: "formTest",
+    component: formTest
   }
 ];
 

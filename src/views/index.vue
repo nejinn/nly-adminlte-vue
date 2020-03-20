@@ -236,9 +236,6 @@
             icon="nav-icon fas nlyfont nly-icon-logo-polymer"
             text="components-one"
           >
-            <template slot="link">
-              components-one
-            </template>
             <nly-sidebar-nav-item
               to="/collapse"
               link-class="xxx zzz"
@@ -294,10 +291,8 @@
             target="components-two"
             visible
             icon="nav-icon fas nlyfont nly-icon-logo-polymer"
+            text="components-two"
           >
-            <template slot="link">
-              components-two
-            </template>
             <nly-sidebar-nav-item
               to="/link"
               link-class="xxx zzz"
@@ -353,6 +348,7 @@
             target="components-three"
             visible
             icon="nav-icon fas nlyfont nly-icon-logo-polymer"
+            text="components-three"
           >
             <template slot="link">
               components-three
@@ -415,6 +411,7 @@
             target="components-four"
             visible
             icon="nav-icon fas nlyfont nly-icon-logo-polymer"
+            text="components-four"
           >
             <template slot="link">
               components-four

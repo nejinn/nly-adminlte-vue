@@ -1,12 +1,12 @@
 import { nlyInstallFactory } from "./utils/plugins";
-import { nlyComponentsPlugin } from "./components";
+import { componentsPlugin } from "./components";
 import { directivesPlugin } from "./directives";
 
 const NAME = "NlyAdminlteVue";
 
 const install = nlyInstallFactory({
   plugins: {
-    nlyComponentsPlugin,
+    componentsPlugin,
     directivesPlugin
   }
 });

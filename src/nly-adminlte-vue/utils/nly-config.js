@@ -401,3 +401,32 @@ export const badgeVariantOptions = {
   light: "badge-light",
   dark: "badge-dark"
 };
+
+export const inputTypeOptions = [
+  "text",
+  "password",
+  "email",
+  "number",
+  "url",
+  "tel",
+  "search",
+  "range",
+  "color",
+  "date",
+  "time",
+  "datetime",
+  "datetime-local",
+  "month",
+  "week"
+];
+
+export const inputMaxMinStepOptions = [
+  "number",
+  "range",
+  "date",
+  "datetime",
+  "datetime-local",
+  "month",
+  "time",
+  "week"
+];
