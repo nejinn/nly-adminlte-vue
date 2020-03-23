@@ -1,7 +1,11 @@
+import { nlyGetOptionInclusion } from "../../utils/get-options";
+import { formValidOptions } from "../../utils/nly-config";
+
 export default {
   props: {
     valid: {
-      type: String
+      type: String,
+      validator: valid => nlyGetOptionInclusion(formValidOptions, valid)
     }
   },
   computed: {

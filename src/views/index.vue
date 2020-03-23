@@ -289,7 +289,6 @@
 
           <nly-sidebar-nav-tree
             target="components-two"
-            visible
             icon="nav-icon fas nlyfont nly-icon-logo-polymer"
             text="components-two"
           >
@@ -346,12 +345,13 @@
 
           <nly-sidebar-nav-tree
             target="components-three"
-            visible
             icon="nav-icon fas nlyfont nly-icon-logo-polymer"
             text="components-three"
           >
-            <template slot="link">
-              components-three
+            <template slot="linktool">
+              <nly-badge variant="info" badge-class="right">
+                5
+              </nly-badge>
             </template>
             <nly-sidebar-nav-item
               to="/toast"
@@ -409,13 +409,9 @@
 
           <nly-sidebar-nav-tree
             target="components-four"
-            visible
             icon="nav-icon fas nlyfont nly-icon-logo-polymer"
             text="components-four"
           >
-            <template slot="link">
-              components-four
-            </template>
             <nly-sidebar-nav-item
               to="/infobox"
               link-class="xxx zzz"
@@ -467,6 +463,22 @@
               <nly-badge bg-variant="fuchsia" badge-class="right" size="sm">
                 NEW
               </nly-badge>
+            </nly-sidebar-nav-item>
+          </nly-sidebar-nav-tree>
+
+          <nly-sidebar-nav-tree
+            target="components-form"
+            icon="nav-icon fas nlyfont nly-icon-logo-polymer"
+            text="components-form"
+          >
+            <nly-sidebar-nav-item
+              to="/forminput"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-icon-byobu"
+              exact
+            >
+              form
             </nly-sidebar-nav-item>
           </nly-sidebar-nav-tree>
         </nly-sidebar-nav>

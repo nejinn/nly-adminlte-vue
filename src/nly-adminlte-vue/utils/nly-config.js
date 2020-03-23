@@ -430,3 +430,5 @@ export const inputMaxMinStepOptions = [
   "time",
   "week"
 ];
+
+export const formValidOptions = ["valid", "invalid", "warning", "novalid"];

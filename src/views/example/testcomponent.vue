@@ -47,6 +47,17 @@
       </nly-row>
       <nly-row>
         <nly-col>
+          <NlyFormInput v-model="sss" :type="type" @input="zzz" />
+        </nly-col>
+      </nly-row>
+
+      <nly-row>
+        <nly-col>
+          <NlyFormInput v-model="sss" :type="type" @blur="zzz" />
+        </nly-col>
+      </nly-row>
+      <nly-row>
+        <nly-col>
           <NlyFormInput v-model="sss" :type="type" />
           <select class="form-control" v-model="type">
             <option>text</option>
@@ -90,6 +101,9 @@ export default {
   methods: {
     s() {
       console.log(this.sss);
+    },
+    zzz() {
+      console.log(111);
     }
   }
 };

@@ -81,8 +81,8 @@
                   button variant="warning"
                 </nly-button>
 
-                <nly-button gradient="success">
-                  button gradient="success"
+                <nly-button bg-gradient="success">
+                  button bg-gradient="success"
                 </nly-button>
               </nly-button-group>
             </div>
@@ -113,8 +113,8 @@
                   button variant="warning"
                 </nly-button>
 
-                <nly-button gradient="success">
-                  button gradient="success"
+                <nly-button bg-gradient="success">
+                  button bg-gradient="success"
                 </nly-button>
               </nly-button-group>
             </div>
@@ -145,8 +145,24 @@
                   button variant="warning"
                 </nly-button>
 
-                <nly-button gradient="success">
-                  button gradient="success"
+                <nly-button bg-gradient="success">
+                  button bg-gradient="success"
+                </nly-button>
+              </nly-button-group>
+            </div>
+
+            <div style="margin: 1rem;">
+              size="sm"
+              <nly-button-group size="sm">
+                <nly-button variant="warning" disabled>
+                  button variant="warning"
+                </nly-button>
+                <nly-button variant="danger" @click="showalter">
+                  button variant="warning"
+                </nly-button>
+
+                <nly-button bg-gradient="success" @click="showalter" disabled>
+                  button bg-gradient="success"
                 </nly-button>
               </nly-button-group>
             </div>
@@ -161,8 +177,8 @@
                   button variant="warning"
                 </nly-button>
 
-                <nly-button gradient="success">
-                  button gradient="success"
+                <nly-button bg-gradient="success">
+                  button bg-gradient="success"
                 </nly-button>
               </nly-button-group>
             </div>
@@ -176,8 +192,8 @@
                   button variant="warning"
                 </nly-button>
 
-                <nly-button gradient="success">
-                  button gradient="success"
+                <nly-button bg-gradient="success">
+                  button bg-gradient="success"
                 </nly-button>
               </nly-button-group>
             </div>
@@ -189,6 +205,7 @@
                 dropdown-toggle
                 text="dropdown"
                 data-show="dropdown-test1"
+                variant="danger"
               >
                 <nly-button variant="warning">
                   vertical dropdown-size="sm" dropdown-toggle text="dropdown"
@@ -220,3 +237,13 @@
     </nly-content>
   </nly-content-wrapper>
 </template>
+
+<script>
+export default {
+  methods: {
+    showalter() {
+      alert(1);
+    }
+  }
+};
+</script>

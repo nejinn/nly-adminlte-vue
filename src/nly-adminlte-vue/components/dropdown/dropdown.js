@@ -3,7 +3,7 @@ import {
   nlyGetOptionsByKeyEqual,
   nlyGetOptionsByItem
 } from "../../utils/get-options";
-import { NlyButtonMixins } from "../../mixins/button-mixins";
+import { NlyButton, props as propsFactory } from "../button/button";
 import { createPopper } from "@popperjs/core";
 import {
   nlyDropdownParentId,
@@ -19,7 +19,6 @@ const name = "NlyDropdown";
 
 export const NlyDropdown = Vue.extend({
   name: name,
-  mixins: [NlyButtonMixins],
   data() {
     return {
       show: false,
@@ -30,6 +29,7 @@ export const NlyDropdown = Vue.extend({
     };
   },
   props: {
+    ...propsFactory,
     vertical: {
       type: Boolean,
       default: false
@@ -208,23 +208,24 @@ export const NlyDropdown = Vue.extend({
       toggleDropdownArray = "";
     }
     const hoverArray = h(
-      "button",
+      NlyButton,
       {
-        staticClass: "btn",
-        class: [
-          this.customBlock,
-          this.customVariant,
-          this.customGradient,
-          this.customShape,
-          this.customSize,
-          this.customDisabled,
-          this.customPressed,
-          this.customButtonClass,
-          this.customDropdownToggle,
-          this.customDropdownIcon
-        ],
+        props: {
+          block: this.block,
+          variant: this.variant,
+          bgVariant: this.bgGradient,
+          size: this.size,
+          type: this.type,
+          shape: this.shape,
+          disabled: this.disabled,
+          bgGradient: this.bgGradient,
+          buttonClass: this.buttonClass,
+          tool: this.tool,
+          app: this.app,
+          tag: this.tag,
+          pressed: this.pressed
+        },
         attrs: {
-          type: this.customType,
           id: this.customDropdownId
         }
       },

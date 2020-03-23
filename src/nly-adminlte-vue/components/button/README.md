@@ -21,14 +21,14 @@
 -|-|-|-
 block | Boolean | false | 按钮填充父级div
 variant | String | default | 按钮颜色 可选  default，primary，secondary，success，info，danger，warning，outlineDefaul，outlinePrimary，outlineSecondary，outlineSuccess，outlineInfo，outlineDanger，outlineWarning。要设置透明，传入null。
-gradient | String | 无 | 按钮渐变色颜色，和variant只能选择一个。可选primary，secondary，success，info，danger，warning
+bg-gradient | String | 无 | 按钮渐变色颜色，和variant只能选择一个。可选primary，secondary，success，info，danger，warning
 bg-variant | String | | 背景色，  primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark。
 size | String | 无 | 按钮大小，可选lg，sm，sx
 type | String | button | 按钮类型，可选button，submit
 shape | String | 无 | 按钮形状，可选roundedFlat，roundedPill，roundedCircle，roundedLg，roundedSm
 disabled | Boolean | false | 禁用按钮
 pressed | Boolean | false |按钮激活按下效果
-tool | Boolean | false | 工具类按钮，默认非工具类。此时variant参数在不点击的情况下，只会改变边框颜色。可以使用bg-variant和gradient props改变背景色
+tool | Boolean | false | 工具类按钮，默认非工具类。此时variant参数在不点击的情况下，只会改变边框颜色。可以使用bg-variant和bg-gradient props改变背景色
 button-class | String | 无 | 自定义式样
 app | Boolean | false | app类按钮.一般情况下是对图标使用的按钮。可以将图标变小，居中。
 
