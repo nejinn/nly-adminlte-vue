@@ -51,6 +51,9 @@ export const NlyFormInput = Vue.extend({
     list: {
       type: String,
       default: null
+    },
+    variant: {
+      type: String
     }
   },
   computed: {
@@ -75,6 +78,8 @@ export const NlyFormInput = Vue.extend({
       };
     },
     computedClass() {
+      const variantClass =
+        this.type === "range" ? `custom-range-${this.variant}` : null;
       const rangeClass = this.type === "range" ? "custom-range" : null;
       const plaintextClass = () => {
         if (this.plaintext && this.type !== "range" && this.type !== "color") {
@@ -96,7 +101,24 @@ export const NlyFormInput = Vue.extend({
         rangeClass,
         plaintextClass(),
         this.sizeFormClass,
-        this.validClass
+        this.validClass,
+        variantClass,
+        this.customCol,
+        this.customXl,
+        this.customLg,
+        this.customMd,
+        this.customSm,
+        this.customXs,
+        this.customOffsetXl,
+        this.customOffsetLg,
+        this.customOffsetMd,
+        this.customOffsetSm,
+        this.customOffsetXs,
+        this.customOrderXl,
+        this.customOrderLg,
+        this.customOrderMd,
+        this.customOrderSm,
+        this.customOrderXs
       ];
     },
     // 检查formatter prop是不是函数
