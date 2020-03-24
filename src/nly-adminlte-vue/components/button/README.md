@@ -22,7 +22,7 @@
 block | Boolean | false | 按钮填充父级div
 variant | String | default | 按钮颜色 可选  default，primary，secondary，success，info，danger，warning，outlineDefaul，outlinePrimary，outlineSecondary，outlineSuccess，outlineInfo，outlineDanger，outlineWarning。要设置透明，传入null。
 bg-gradient | String | 无 | 按钮渐变色颜色，和variant只能选择一个。可选primary，secondary，success，info，danger，warning
-bg-variant | String | | 背景色，  primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark。
+bg-variant | String | | 背景色，primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark。
 size | String | 无 | 按钮大小，可选lg，sm，sx
 type | String | button | 按钮类型，可选button，submit
 shape | String | 无 | 按钮形状，可选roundedFlat，roundedPill，roundedCircle，roundedLg，roundedSm

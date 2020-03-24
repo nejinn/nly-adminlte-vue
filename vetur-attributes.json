@@ -1404,6 +1404,74 @@
     "description": "验证提示，可选valid,invalid,warning,novalid",
     "type": "String"
   },
+  "nly-form-input/col": {
+    "description": "在没有其他props的情况下，所有列等宽,放在class='row'的元素下有效",
+    "type": "Boolean"
+  },
+  "nly-form-input/xs": {
+    "description": "宽度在xs及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据子节点自动宽度，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/sm": {
+    "description": "宽度在sm及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据子节点自动宽度，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/md": {
+    "description": "宽度在md及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据子节点自动宽度，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/lg": {
+    "description": "宽度在lg及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据子节点自动宽度，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/xl": {
+    "description": "宽度在xl及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据子节点自动宽度，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/offset-xs": {
+    "description": "宽度在xs及以上断点右移列数,可选0，2，3，4，5，6，7，8，9，10，11，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/offset-sm": {
+    "description": "宽度在sm及以上断点右移列数,可选0，2，3，4，5，6，7，8，9，10，11，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/offset-md": {
+    "description": "宽度在md及以上断点右移列数,可选0，2，3，4，5，6，7，8，9，10，11，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/offset-lg": {
+    "description": "宽度在lg及以上断点右移列数,可选0，2，3，4，5，6，7，8，9，10，11，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/offset-xl": {
+    "description": "宽度在xl及以上断点右移列数,可选0，2，3，4，5，6，7，8，9，10，11，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/order-xs": {
+    "description": "宽度在xs及以上断点排列顺序,可选0，2，3，4，5，6，7，8，9，10，11，12，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/order-sm": {
+    "description": "宽度在sm及以上断点排列顺序,可选0，2，3，4，5，6，7，8，9，10，11，12，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/order-md": {
+    "description": "宽度在md及以上断点排列顺序,可选0，2，3，4，5，6，7，8，9，10，11，12，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/order-lg": {
+    "description": "宽度在lg及以上断点排列顺序,可选0，2，3，4，5，6，7，8，9，10，11，12，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/order-xl": {
+    "description": "宽度在xl及以上断点排列顺序,可选0，2，3，4，5，6，7，8，9，10，11，12，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/variant": {
+    "description": "颜色，只有type=='range'的时候生效,可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，gray-dark",
+    "type": "String"
+  },
   "nly-form-feedback/state": {
     "description": "类型验证提示，可选valid,invalid,warning",
     "type": "String"

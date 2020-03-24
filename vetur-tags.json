@@ -1075,7 +1075,24 @@
       "form",
       "autofocus",
       "size",
-      "valid"
+      "valid",
+      "col",
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+      "offset-xs",
+      "offset-sm",
+      "offset-md",
+      "offset-lg",
+      "offset-xl",
+      "order-xs",
+      "order-sm",
+      "order-md",
+      "order-lg",
+      "order-xl",
+      "variant"
     ]
   },
   "nly-form-feedback": {
