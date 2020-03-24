@@ -1039,5 +1039,50 @@
       "disabled",
       "id"
     ]
+  },
+  "nly-form": {
+    "description": "表单",
+    "attributes": [
+      "id",
+      "inline",
+      "novalidate",
+      "validated",
+      "role"
+    ]
+  },
+  "nly-form-input": {
+    "description": "表单input",
+    "attributes": [
+      "type",
+      "max",
+      "min",
+      "maxlength",
+      "step",
+      "list",
+      "value",
+      "readonly",
+      "plaintext",
+      "autocomplete",
+      "placeholder",
+      "formatter",
+      "lazy-formatter",
+      "trim",
+      "lazy",
+      "name",
+      "id",
+      "disabled",
+      "required",
+      "form",
+      "autofocus",
+      "size",
+      "valid"
+    ]
+  },
+  "nly-form-feedback": {
+    "description": "表单验证结果",
+    "attributes": [
+      "state",
+      "text"
+    ]
   }
 }

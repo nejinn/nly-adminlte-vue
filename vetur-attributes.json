@@ -1291,5 +1291,125 @@
   "nly-infobox/loading-img-class":{
     "description": "loading图片自定义css式样，在传入loading-img-src的时候，loading-img-class生效",
     "type": "String"
+  },
+  "nly-form/id": {
+    "description": "单表id",
+    "type": "String"
+  },
+  "nly-form/role": {
+    "description": "单表role属性,默认form",
+    "type": "String"
+  },
+  "nly-form/validated": {
+    "description": "添加was-validated css类,会自动验证表单内容,默认false",
+    "type": "Boolean"
+  },
+  "nly-form/inline": {
+    "description": "水平布局,默认false",
+    "type": "Boolean"
+  },
+  "nly-form/novalidate": {
+    "description": "禁用浏览器htm5验证,默认false",
+    "type": "Boolean"
+  },
+  "nly-form-input/type": {
+    "description": "类型，默认text,不传默认text。可选text,password,email,number,url,tel,search,range,color,date,time,datetime,datetime-local,month,week",
+    "type": "String"
+  },
+  "nly-form-input/max": {
+    "description": "输入值的最大范围，type=number和range才有效",
+    "type": "String, Number"
+  },
+  "nly-form-input/min": {
+    "description": "输入值的最小范围，type=number和range才有效",
+    "type": "String, Number"
+  },
+  "nly-form-input/maxlength": {
+    "description": "输入值的最大长度，type='text'或者'password'时有用",
+    "type": "String, Number"
+  },
+  "nly-form-input/step": {
+    "description": "有效间隔，type=number和range才有效",
+    "type": "String, Number"
+  },
+  "nly-form-input/list": {
+    "description": "输入时出现预先设定的option下拉列表，password无效",
+    "type": "String"
+  },
+  "nly-form-input/value": {
+    "description": "值，v-model传入的值会传给value",
+    "type": "String, Number"
+  },
+  "nly-form-input/readonly": {
+    "description": "只读",
+    "type": "Boolean"
+  },
+  "nly-form-input/plaintext": {
+    "description": "无外框",
+    "type": "Boolean"
+  },
+  "nly-form-input/autocomplete": {
+    "description": "自动提示完成填写",
+    "type": "String"
+  },
+  "nly-form-input/placeholder": {
+    "description": "提示文本",
+    "type": "String"
+  },
+  "nly-form-input/formatter": {
+    "description": "文本格式转换",
+    "type": "Function"
+  },
+  "nly-form-input/lazy-formatter": {
+    "description": "懒惰模式文本格式转换",
+    "type": "Boolean"
+  },
+  "nly-form-input/trim": {
+    "description": "去除首尾空格",
+    "type": "Boolean"
+  },
+  "nly-form-input/lazy": {
+    "description": "懒加载模式，事件和v-model有效",
+    "type": "Boolean"
+  },
+  "nly-form-input/name": {
+    "description": "放置form中，可以根据name属性取值",
+    "type": "String"
+  },
+  "nly-form-input/id": {
+    "description": "id",
+    "type": "String"
+  },
+  "nly-form-input/disabled": {
+    "description": "禁用",
+    "type": "Boolean"
+  },
+  "nly-form-input/required": {
+    "description": "html校验必填，放置form中，提交才会生效",
+    "type": "Boolean"
+  },
+  "nly-form-input/form": {
+    "description": "指定归属表单，可以放置在表单外面",
+    "type": "String"
+  },
+  "nly-form-input/autofocus": {
+    "description": "自动聚焦",
+    "type": "Boolean"
+  },
+  "nly-form-input/size": {
+    "description": "大小，可以sm,lg",
+    "type": "String"
+  },
+  "nly-form-input/valid": {
+    "description": "验证提示，可选valid,invalid,warning,novalid",
+    "type": "String"
+  },
+  "nly-form-feedback/state": {
+    "description": "类型验证提示，可选valid,invalid,warning",
+    "type": "String"
+  },
+  "nly-form-feedback/text": {
+    "description": "类型验证提示文本内容",
+    "type": "String"
   }
 }

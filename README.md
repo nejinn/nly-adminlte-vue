@@ -60,10 +60,7 @@ nly-adminlte-vue是一个基础adminlte3封装的vue组件库。干掉jq，让vu
 * 渲染函数 renderfunction 根据数组渲染整个页面的组件
 * 表单 form
 * input框 input
-<<<<<<< HEAD
 * 表单验证 feedback
-=======
->>>>>>> Update README.md
 
 ### 1.1.2. 指令
 
