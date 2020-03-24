@@ -1,5 +1,4 @@
 import Vue from "../../../utils/vue";
-import {} from "../../../mixins/form/form-valid";
 import {
   formValidOptions,
   formFeedBackOptions
