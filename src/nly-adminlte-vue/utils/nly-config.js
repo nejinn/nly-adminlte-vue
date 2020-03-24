@@ -432,3 +432,9 @@ export const inputMaxMinStepOptions = [
 ];
 
 export const formValidOptions = ["valid", "invalid", "warning", "novalid"];
+
+export const formFeedBackOptions = {
+  valid: "valid-feedback",
+  invalid: "invalid-feedback",
+  warning: "warning-feedback"
+};

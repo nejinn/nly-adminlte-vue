@@ -14,7 +14,7 @@
         <nly-col xs="6">
           <nly-card header-variant="info">
             <nly-card-header>
-              form
+              form-input
             </nly-card-header>
             <nly-card-body>
               <nly-card-text>
@@ -47,11 +47,15 @@
                 valid with feedback
               </nly-card-text>
               <nly-form-input valid="valid" />
-              <span class="valid-feedback">invalid-feedback</span>
+              <nly-form-feedback> 我是valid</nly-form-feedback>
               <nly-form-input valid="invalid" />
-              <span class="invalid-feedback">invalid-feedback</span>
-              <nly-form-input id="tooltip-target-1" valid="warning" />
-              <span class="warning-feedback">invalid-feedback</span>
+              <nly-form-feedback state="invalid">
+                我是invalid</nly-form-feedback
+              >
+              <nly-form-input valid="warning" />
+              <nly-form-feedback state="warning">
+                我是warning</nly-form-feedback
+              >
             </nly-card-body>
           </nly-card>
         </nly-col>

@@ -26,7 +26,8 @@ const breadcrumb = () => import("../views/example/breadcrumb.vue");
 const infobox = () => import("../views/example/infobox.vue");
 const tooltip = () => import("../views/example/tooltip.vue");
 const pagination = () => import("../views/example/pagination.vue");
-const forminput = () => import("../views/example/forminput.vue");
+const forminput = () => import("../views/example/form-input.vue");
+const formfeedback = () => import("../views/example/form-feedback.vue");
 
 const routes = [
   {
@@ -138,6 +139,11 @@ const routes = [
         path: "/forminput",
         name: "forminput",
         component: forminput
+      },
+      {
+        path: "/formfeedback",
+        name: "formfeedback",
+        component: formfeedback
       }
     ]
   },

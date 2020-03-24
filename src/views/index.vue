@@ -478,7 +478,16 @@
               icon="nav-icon far nlyfont nly-icon-byobu"
               exact
             >
-              form
+              form-input
+            </nly-sidebar-nav-item>
+            <nly-sidebar-nav-item
+              to="/formfeedback"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-icon-byobu"
+              exact
+            >
+              form-feedback
             </nly-sidebar-nav-item>
           </nly-sidebar-nav-tree>
         </nly-sidebar-nav>

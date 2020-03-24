@@ -6,6 +6,76 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "2505972",
+      "name": "play",
+      "font_class": "play",
+      "unicode": "e6ca",
+      "unicode_decimal": 59082
+    },
+    {
+      "icon_id": "7313208",
+      "name": "play",
+      "font_class": "play-fill",
+      "unicode": "e6cb",
+      "unicode_decimal": 59083
+    },
+    {
+      "icon_id": "897247",
+      "name": "pause",
+      "font_class": "pause-fill",
+      "unicode": "e6c7",
+      "unicode_decimal": 59079
+    },
+    {
+      "icon_id": "1684300",
+      "name": "pause",
+      "font_class": "pause",
+      "unicode": "e6c9",
+      "unicode_decimal": 59081
+    },
+    {
+      "icon_id": "6684982",
+      "name": "检测",
+      "font_class": "jiance1",
+      "unicode": "e6c6",
+      "unicode_decimal": 59078
+    },
+    {
+      "icon_id": "9802976",
+      "name": "myProject",
+      "font_class": "project-add",
+      "unicode": "e6c8",
+      "unicode_decimal": 59080
+    },
+    {
+      "icon_id": "9027243",
+      "name": "project",
+      "font_class": "project",
+      "unicode": "e6d8",
+      "unicode_decimal": 59096
+    },
+    {
+      "icon_id": "2636773",
+      "name": "检测",
+      "font_class": "jiance",
+      "unicode": "e6c5",
+      "unicode_decimal": 59077
+    },
+    {
+      "icon_id": "5453791",
+      "name": "gauge-dashboard-1.2",
+      "font_class": "dashboard",
+      "unicode": "e6c3",
+      "unicode_decimal": 59075
+    },
+    {
+      "icon_id": "375641",
+      "name": "Project Experience",
+      "font_class": "project-manage",
+      "unicode": "e6c4",
+      "unicode_decimal": 59076
+    },
+    {
       "icon_id": "13286029",
       "name": "form",
       "font_class": "form",
