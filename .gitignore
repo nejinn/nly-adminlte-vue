@@ -1,6 +1,5 @@
 .DS_Store
 node_modules
-dist
 .history
 static/nly.ai
 static/nly.svg
