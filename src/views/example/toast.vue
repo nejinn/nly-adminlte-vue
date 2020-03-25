@@ -20,7 +20,7 @@
               <nly-button
                 class="mb-2"
                 variant="primary"
-                @click.native="$nlyaToast.show('toast-static')"
+                @click="$nlyaToast.show('toast-static')"
               >
                 显示toast
               </nly-button>
@@ -46,12 +46,12 @@
             <nly-card-body>
               <nly-button
                 gradient="purple"
-                @click.native="appendToast()"
+                @click="appendToast()"
                 button-class="mb-2"
                 >显示Toast</nly-button
               >
               <nly-button
-                @click.native="appendToast(true)"
+                @click="appendToast(true)"
                 gradient="olive"
                 button-class="mb-2"
                 >显示 Toast (appended)</nly-button
@@ -68,49 +68,34 @@
               variant toast
             </nly-card-header>
             <nly-card-body>
-              <nly-button
-                variant="default"
-                @click.native="variantToast('default')"
-              >
+              <nly-button variant="default" @click="variantToast('default')">
                 default
               </nly-button>
 
-              <nly-button
-                variant="primary"
-                @click.native="variantToast('primary')"
-              >
+              <nly-button variant="primary" @click="variantToast('primary')">
                 primary
               </nly-button>
 
               <nly-button
                 variant="secondary"
-                @click.native="variantToast('secondary')"
+                @click="variantToast('secondary')"
               >
                 secondary
               </nly-button>
 
-              <nly-button
-                variant="success"
-                @click.native="variantToast('success')"
-              >
+              <nly-button variant="success" @click="variantToast('success')">
                 success
               </nly-button>
 
-              <nly-button variant="info" @click.native="variantToast('info')">
+              <nly-button variant="info" @click="variantToast('info')">
                 info
               </nly-button>
 
-              <nly-button
-                variant="danger"
-                @click.native="variantToast('danger')"
-              >
+              <nly-button variant="danger" @click="variantToast('danger')">
                 danger
               </nly-button>
 
-              <nly-button
-                variant="warning"
-                @click.native="variantToast('warning')"
-              >
+              <nly-button variant="warning" @click="variantToast('warning')">
                 warning
               </nly-button>
             </nly-card-body>
@@ -126,42 +111,42 @@
             </nly-card-header>
             <nly-card-body>
               <nly-button
-                @click.native="areaToast('nly-toaster-top-right')"
+                @click="areaToast('nly-toaster-top-right')"
                 gradient="indigo"
                 >nly-toaster-top-right</nly-button
               >
               <nly-button
-                @click.native="areaToast('nly-toaster-top-left')"
+                @click="areaToast('nly-toaster-top-left')"
                 gradient="primary"
                 >nly-toaster-top-left</nly-button
               >
               <nly-button
-                @click.native="areaToast('nly-toaster-top-center')"
+                @click="areaToast('nly-toaster-top-center')"
                 gradient="info"
                 >nly-toaster-top-center</nly-button
               >
               <nly-button
-                @click.native="areaToast('nly-toaster-top-full')"
+                @click="areaToast('nly-toaster-top-full')"
                 gradient="navy"
                 >nly-toaster-top-full</nly-button
               >
               <nly-button
-                @click.native="areaToast('nly-toaster-bottom-right', true)"
+                @click="areaToast('nly-toaster-bottom-right', true)"
                 gradient="warning"
                 >nly-toaster-bottom-right</nly-button
               >
               <nly-button
-                @click.native="areaToast('nly-toaster-bottom-left', true)"
+                @click="areaToast('nly-toaster-bottom-left', true)"
                 gradient="lime"
                 >nly-toaster-bottom-left</nly-button
               >
               <nly-button
-                @click.native="areaToast('nly-toaster-bottom-center', true)"
+                @click="areaToast('nly-toaster-bottom-center', true)"
                 gradient="teal"
                 >nly-toaster-bottom-center</nly-button
               >
               <nly-button
-                @click.native="areaToast('nly-toaster-bottom-full', true)"
+                @click="areaToast('nly-toaster-bottom-full', true)"
                 gradient="pink"
                 >nly-toaster-bottom-full</nly-button
               >
@@ -177,11 +162,11 @@
               link toast
             </nly-card-header>
             <nly-card-body>
-              <nly-button @click.native="linkHrefToast()" gradient="indigo"
+              <nly-button @click="linkHrefToast()" gradient="indigo"
                 >link href</nly-button
               >
 
-              <nly-button @click.native="linkToToast()" gradient="pink"
+              <nly-button @click="linkToToast()" gradient="pink"
                 >link to</nly-button
               >
             </nly-card-body>

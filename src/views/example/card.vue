@@ -179,10 +179,10 @@
                 ssss
               </Nly-card-subtitle>
 
-              <nly-button gradient="purple" @click.native="popToast()"
+              <nly-button gradient="purple" @click="popToast()"
                 >显示Toast</nly-button
               >
-              <nly-button @click.native="popToast(true)" gradient="olive"
+              <nly-button @click="popToast(true)" gradient="olive"
                 >显示 Toast (appended)</nly-button
               >
             </nly-card-body>
