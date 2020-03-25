@@ -19,7 +19,7 @@ after_script:
   - git init
   - git config user.name "${U_NAME}"
   - git config user.email "${U_EMAIL}"
-  - git add .
+  - git add docs
   - git commit -m "update travis docs"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:${P_BRANCH}
 
