@@ -8,8 +8,11 @@
   <a href="https://travis-ci.org/github/nejinn/nly-adminlte-vue">
     <img src="https://img.shields.io/badge/build-passing-brightgreen" alt="build result">
   </a>
-    <a href="https://www.npmjs.com/package/nly-adminlte-vue">
+  <a href="https://www.npmjs.com/package/nly-adminlte-vue">
     <img src="https://img.shields.io/badge/npm-0.3.3-brightgreen" alt="current version">
+  </a>
+  <a href="https://cn.vuejs.org">
+    <img src="https://img.shields.io/badge/vue.js-2.x-green" alt="vue version">
   </a>
 </p>
 
