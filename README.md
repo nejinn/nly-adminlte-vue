@@ -4,6 +4,11 @@
   </a>
 </p>
 <br>
+<p align="center">
+  <a href="https://travis-ci.org/github/nejinn/nly-adminlte-vue">
+    <img src="https://img.shields.io/badge/build-passing-brightgreen" alt="build result">
+  </a>
+</p>
 
 # 1. nly-adminlte-vue
 <!-- TOC -->
