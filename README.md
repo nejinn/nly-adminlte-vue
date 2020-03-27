@@ -87,7 +87,7 @@
 * 表单 form
 * input框 input
 * 表单验证 feedback
-
+* 日志组件 log
 ## 3.2. 指令
 
 * 左侧导航栏收起指令 v-nly-sidebar-collapse
