@@ -25,11 +25,4 @@ export const NlySidebarCollapse = {
       }
     };
   }
-  //   unbind(el, vnode, binding) {
-  //     console.log(el, vnode, binding);
-  //     const instanceNameList = Object.keys(binding.modifiers);
-  //     if (instanceNameList.indexOf("navitem") != -1) {
-  //       Window.removeEventListener("resize", () => setInstanceAttr(vnode), false);
-  //     }
-  //   }
 };

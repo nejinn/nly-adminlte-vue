@@ -2,10 +2,12 @@ export const changeBeforeIcon = (childrenList, icon, order) => {
   if (childrenList) {
     if (icon) {
       if (order) {
-        childrenList[order - 1].$el.className = icon;
+        childrenList[order - 1].elm.className = icon;
       } else {
-        if (childrenList[0].$options._componentTag == "nly-icon") {
-          childrenList[0].$el.className = icon;
+        if (
+          childrenList[0].componentInstance.$options._componentTag == "nly-icon"
+        ) {
+          childrenList[0].elm.className = icon;
         }
       }
     }
@@ -16,10 +18,12 @@ export const changeAfterIcon = (childrenList, icon, order) => {
   if (childrenList) {
     if (icon) {
       if (order) {
-        childrenList[order - 1].$el.className = icon;
+        childrenList[order - 1].elm.className = icon;
       } else {
-        if (childrenList[0].$options._componentTag == "nly-icon") {
-          childrenList[0].$el.className = icon;
+        if (
+          childrenList[0].componentInstance.$options._componentTag == "nly-icon"
+        ) {
+          childrenList[0].elm.className = icon;
         }
       }
     }

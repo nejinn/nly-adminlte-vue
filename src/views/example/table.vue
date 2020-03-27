@@ -393,7 +393,6 @@ export default {
             key: "name",
             label: "Full Name",
             formatter: value => {
-              console.log(this);
               return `${value.first} ${value.last}`;
             }
           },
@@ -434,7 +433,6 @@ export default {
       if (item.status === "awesome") return "table-success";
     },
     fullName(value) {
-      console.log(value);
       return `${value.first} ${value.last}`;
     }
   }

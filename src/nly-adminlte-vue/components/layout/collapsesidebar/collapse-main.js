@@ -6,33 +6,7 @@ const name = "NlyCollapseMain";
 
 export const NlyCollapseMain = Vue.extend({
   name: name,
-  //   data() {
-  //     return {
-  //       instanceStyle: { minHeight: "auto" }
-  //     };
-  //   },
   created() {},
-  //   methods: {
-  //     setInstanceStyleHeight() {
-  //       const bodyHeight = document.body.clientHeight;
-  //       console.log(bodyHeight);
-  //       const instanceMinHeight = bodyHeight <= 380 ? "380px" : bodyHeight + "px";
-  //       console.log(instanceMinHeight);
-  //       return { minHeight: instanceMinHeight };
-  //     }
-  //   },
-  //   computed: {
-  //     instanceStyle: function() {
-  //       return this.setInstanceStyleHeight();
-  //     }
-  //   },
-  //   mounted() {
-  //     window.addEventListener(
-  //       "resize",
-  //       () => this.setInstanceStyleHeight(),
-  //       false
-  //     );
-  //   },
   render(h) {
     return h(
       "div",

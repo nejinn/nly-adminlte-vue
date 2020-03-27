@@ -11,8 +11,7 @@ export const NlyCardMaximized = {
         const beforeIcon = binding.value.beforeIcon || null;
         const afterIcon = binding.value.afterIcon || null;
         const order = toInteger(binding.value.order);
-        const componentInstanceChildren = vnode.componentInstance.$children;
-
+        const componentInstanceChildren = vnode.children;
         const cardMaximizedDom = document.querySelector(`#${cardMaximizedId}`);
         const htmlDom = document.querySelector("html");
         const cardMaximizedDomOffsetHeight = cardMaximizedDom.offsetHeight;

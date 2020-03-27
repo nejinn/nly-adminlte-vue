@@ -163,10 +163,10 @@
                   tool
                   v-nly-card-maximized.cardmaximzed="{
                     afterIcon: 'fas fa-compress',
-                    beforeIcon: 'fas fa-expand',
-                    order: 1
+                    beforeIcon: 'fas fa-expand'
                   }"
                 >
+                  <nly-icon icon="fas fa-expand" />
                   <nly-icon icon="fas fa-expand" />
                 </nly-button>
               </nly-card-tool>
