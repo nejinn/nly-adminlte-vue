@@ -29,6 +29,8 @@ const pagination = () => import("../views/example/pagination.vue");
 const forminput = () => import("../views/example/form-input.vue");
 const formfeedback = () => import("../views/example/form-feedback.vue");
 
+const log = () => import("../views/example/log.vue");
+
 const routes = [
   {
     path: "/",
@@ -144,6 +146,11 @@ const routes = [
         path: "/formfeedback",
         name: "formfeedback",
         component: formfeedback
+      },
+      {
+        path: "/log",
+        name: "log",
+        component: log
       }
     ]
   },

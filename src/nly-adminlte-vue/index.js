@@ -147,6 +147,14 @@ export { NlyPagination } from "./components/pagination/pagination";
 export { renderFunctionPlugin } from "./components/render-function";
 export { NlyRenderFunction } from "./components/render-function/render-function";
 
+export { logPlugin } from "./components/log";
+export { NlyLog } from "./components/log/log";
+export { NlyLogHeader } from "./components/log/log-header";
+export { NlyLogBody } from "./components/log/log-body";
+export { NlyLogLine } from "./components/log/log-line";
+export { NlyLogLineTree } from "./components/log/log-line-tree";
+export { NlyLogTools } from "./components/log/log-tools";
+
 export { tooltipPlugin } from "./components/tooltip";
 export { NlyTooltip } from "./components/tooltip/tooltip";
 

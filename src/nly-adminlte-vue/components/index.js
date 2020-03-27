@@ -28,7 +28,8 @@ import { tablePlugin } from "./table";
 import { tooltipPlugin } from "./tooltip";
 import { renderFunctionPlugin } from "./render-function";
 import { paginationPlugin } from "./pagination";
-import { formPlguin } from "./form/index";
+import { formPlguin } from "./form";
+import { logPlugin } from "./log";
 
 export const componentsPlugin = nlyPluginFactory({
   plugins: {
@@ -60,6 +61,7 @@ export const componentsPlugin = nlyPluginFactory({
     tooltipPlugin,
     renderFunctionPlugin,
     paginationPlugin,
-    formPlguin
+    formPlguin,
+    logPlugin
   }
 });
