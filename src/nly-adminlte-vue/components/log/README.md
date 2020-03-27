@@ -13,9 +13,9 @@
     - [1.5.1. props](#151-props)
   - [1.6. nly-log-line-tree](#16-nly-log-line-tree)
     - [1.6.1. props](#161-props)
-  - [1.4. 单包导出](#14-单包导出)
-    - [1.4.1. 包含组件](#141-包含组件)
-    - [1.4.2. 导出方法](#142-导出方法)
+  - [1.7. 单包导出](#17-单包导出)
+    - [1.7.1. 包含组件](#171-包含组件)
+    - [1.7.2. 导出方法](#172-导出方法)
 
 <!-- /TOC -->
 
@@ -73,6 +73,7 @@ title-class | String |  | log标题自定义css
 icon | String |  | log内容icon
 icon-class | String |  | log内容icon自定义css
 log-line-class | String |  | log自定义css
+high-light | Boolean | false | 高亮
 
 ## 1.6. nly-log-line-tree
 
@@ -94,12 +95,13 @@ icon | String |  | log内容icon
 icon-class | String |  | log内容icon自定义css
 log-line-class | String |  | log自定义css
 visible | Boolean | fase | 默认收起折叠后log，设置true会打开
+high-light | Boolean | false | 高亮
 
-## 1.4. 单包导出
+## 1.7. 单包导出
 
 > 如果只需要使用logPlugin中的组件，请使用单个组件导出
 
-### 1.4.1. 包含组件
+### 1.7.1. 包含组件
 
 > logPlugin包括以下组件
 
@@ -112,7 +114,7 @@ NlyLogLine | nly-adminlte-vue
 NlyLogLineTree | nly-adminlte-vue
 NlyLogTools | nly-adminlte-vue
 
-### 1.4.2. 导出方法
+### 1.7.2. 导出方法
 
 > 单组件导出
 

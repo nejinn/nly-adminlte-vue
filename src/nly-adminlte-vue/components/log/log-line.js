@@ -37,6 +37,10 @@ export const NlyLogLine = Vue.extend({
     },
     logLineClass: {
       type: String
+    },
+    highLight: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -72,6 +76,9 @@ export const NlyLogLine = Vue.extend({
     },
     customIconClass() {
       return this.iconClass;
+    },
+    customHighLight() {
+      return this.highLight ? "highlight" : "";
     }
   },
   render(h) {
@@ -148,7 +155,7 @@ export const NlyLogLine = Vue.extend({
       "div",
       {
         staticClass: "nly-log-line",
-        class: [this.customLogLineClass]
+        class: [this.customLogLineClass, this.customHighLight]
       },
       [iconVnode(), lineVnodes(), durationVnodes(), titleVnodes(), textVnodes()]
     );

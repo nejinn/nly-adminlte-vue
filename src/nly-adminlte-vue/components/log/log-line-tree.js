@@ -58,6 +58,10 @@ export const NlyLogLineTree = Vue.extend({
     },
     logLineClass: {
       type: String
+    },
+    highLight: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -73,7 +77,8 @@ export const NlyLogLineTree = Vue.extend({
         titleClass: this.titleClass,
         icon: this.icon,
         iconClass: this.iconClass,
-        logLineClass: this.logLineClass
+        logLineClass: this.logLineClass,
+        highLight: this.highLight
       };
     },
     customVisible() {

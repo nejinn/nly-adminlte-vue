@@ -1479,5 +1479,149 @@
   "nly-form-feedback/text": {
     "description": "类型验证提示文本内容",
     "type": "String"
+  },
+  "nly-log-header/title": {
+    "description": "头部标题",
+    "type": "String"
+  },
+  "nly-log-header/title-calss": {
+    "description": "头部标题css式样",
+    "type": "String"
+  },
+  "nly-log-header/log-header-class": {
+    "description": "头部自定义css式样",
+    "type": "String"
+  },
+  "nly-log-body/scroll-bottom": {
+    "description": "显示滚动到底部按钮",
+    "type": "Boolean"
+  },
+  "nly-log-body/bottom-icon": {
+    "description": "滚动到底部按钮图标",
+    "type": "String"
+  },
+  "nly-log-body/bottom-text": {
+    "description": "滚动到底部按钮文字",
+    "type": "String"
+  },
+  "nly-log-body/scroll-top": {
+    "description": "显示滚动到顶部按钮",
+    "type": "Boolean"
+  },
+  "nly-log-body/top-icon": {
+    "description": "滚动到顶部图标",
+    "type": "String"
+  },
+  "nly-log-body/log-body-class": {
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-log-body/pre-class": {
+    "description": "pre标签自定义css式样",
+    "type": "String"
+  },
+  "nly-log-body/transiton": {
+    "description": "开启列表动画",
+    "type": "Boolean"
+  },
+  "nly-log-line/duration": {
+    "description": "时间，传入会渲染time组件",
+    "type": "String"
+  },
+  "nly-log-line/duration-class": {
+    "description": "time组件自定义css",
+    "type": "String"
+  },
+  "nly-log-line/line": {
+    "description": "log行数",
+    "type": "String, Number"
+  },
+  "nly-log-line/line-class": {
+    "description": "log行数自定义css",
+    "type": "String"
+  },  
+  "nly-log-line/text": {
+    "description": "log内容",
+    "type": "String"
+  },
+  "nly-log-line/text-class": {
+    "description": "log内容自定义css",
+    "type": "String"
+  },
+  "nly-log-line/title": {
+    "description": "log标题",
+    "type": "String"
+  },
+  "nly-log-line/title-class": {
+    "description": "log标题自定义css",
+    "type": "String"
+  },
+  "nly-log-line/icon": {
+    "description": "log内容icon",
+    "type": "String"
+  },
+  "nly-log-line/icon-class": {
+    "description": "log内容icon自定义css",
+    "type": "String"
+  },
+  "nly-log-line/log-line-class": {
+    "description": "log自定义css",
+    "type": "String"
+  },
+  "nly-log-line/high-light": {
+    "description": "高亮",
+    "type": "Boolean"
+  },
+  "nly-log-line-tree/duration": {
+    "description": "时间，传入会渲染time组件",
+    "type": "String"
+  },
+  "nly-log-line-tree/duration-class": {
+    "description": "time组件自定义css",
+    "type": "String"
+  },
+  "nly-log-line-tree/line": {
+    "description": "log行数",
+    "type": "String, Number"
+  },
+  "nly-log-line-tree/line-class": {
+    "description": "log行数自定义css",
+    "type": "String"
+  },  
+  "nly-log-line-tree/text": {
+    "description": "log内容",
+    "type": "String"
+  },
+  "nly-log-line-tree/text-class": {
+    "description": "log内容自定义css",
+    "type": "String"
+  },
+  "nly-log-line-tree/title": {
+    "description": "log标题",
+    "type": "String"
+  },
+  "nly-log-line-tree/title-class": {
+    "description": "log标题自定义css",
+    "type": "String"
+  },
+  "nly-log-line-tree/icon": {
+    "description": "log内容icon",
+    "type": "String"
+  },
+  "nly-log-line-tree/icon-class": {
+    "description": "log内容icon自定义css",
+    "type": "String"
+  },
+  "nly-log-line-tree/log-line-class": {
+    "description": "log自定义css",
+    "type": "String"
+  },
+  "nly-log-line-tree/high-light": {
+    "description": "高亮",
+    "type": "Boolean"
+  },
+  "nly-log-line-tree/visible": {
+    "description": "默认收起折叠后log，设置true会打开",
+    "type": "Boolean"
   }
 }

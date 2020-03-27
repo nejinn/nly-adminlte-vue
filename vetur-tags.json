@@ -1101,5 +1101,69 @@
       "state",
       "text"
     ]
+  },
+  "nly-log":{
+    "description": "log/日志容器",
+    "attributes": []
+  },
+  "nly-log-header":{
+    "description": "log/日志头部",
+    "attributes": [
+      "title",
+      "title-calss",
+      "log-header-class" 
+    ]
+  },
+  "nly-log-tools":{
+    "description": "log/日志工具,放在nly-log-header生效",
+    "attributes": []
+  },
+  "nly-log-body":{
+    "description": "log/日志主体",
+    "attributes": [
+      "scroll-bottom",
+      "bottom-icon",
+      "bottom-text",
+      "scroll-top",
+      "top-icon",
+      "log-body-class",
+      "pre-class",
+      "transiton"
+    ]
+  },
+  "nly-log-line":{
+    "description": "log/日志文本内容",
+    "attributes": [
+      "duration",
+      "duration-class",
+      "line",
+      "line-class",
+      "text",
+      "text-class",
+      "title",
+      "title-class",
+      "icon",
+      "icon-class",
+      "log-line-class",
+      "high-light"
+    ]
+  },
+  "nly-log-line-tree":{
+    "description": "log/日志可折叠line",
+    "attributes": [
+      "duration",
+      "duration-class",
+      "line",
+      "line-class",
+      "text",
+      "text-class",
+      "title",
+      "title-class",
+      "icon",
+      "icon-class",
+      "log-line-class",
+      "visible",
+      "high-light"
+    ]
   }
 }
