@@ -489,6 +489,16 @@
             >
               form-feedback
             </nly-sidebar-nav-item>
+
+            <nly-sidebar-nav-item
+              to="/log"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-icon-router-link-fill"
+              exact
+            >
+              log
+            </nly-sidebar-nav-item>
           </nly-sidebar-nav-tree>
         </nly-sidebar-nav>
       </nly-sidebar>
