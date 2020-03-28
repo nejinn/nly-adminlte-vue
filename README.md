@@ -17,8 +17,8 @@
   <a href="https://github.com/ColorlibHQ/AdminLTE">
     <img src="https://img.shields.io/badge/adminlte-3.x-yellow" alt="adminlte version">
   </a>
-  <a href="https://v4.bootcss.com/">
-    <img src="https://img.shields.io/badge/bootstrap-4.x-yellow" alt="adminlte version">
+  <a href="https://packagequality.com/#?package=nly-adminlte-vue">
+    <img src="https://npm.packagequality.com/shield/nly-adminlte-vue.svg" alt="package quality" />
   </a>
 </p>
 
@@ -28,18 +28,18 @@
 
 - [1. nly-adminlte-vue](#1-nly-adminlte-vue)
 - [2. demo](#2-demo)
-- [文档](#文档)
-- [3. 进度](#3-进度)
-  - [3.1. 组件](#31-组件)
-  - [3.2. 指令](#32-指令)
-  - [3.3. 使用](#33-使用)
-    - [3.3.1. 可以直接clone下载项目](#331-可以直接clone下载项目)
-    - [3.3.2. 从npm下载](#332-从npm下载)
-- [4. 感谢](#4-感谢)
+- [3. 文档](#3-文档)
+- [4. 进度](#4-进度)
+  - [4.1. 组件](#41-组件)
+  - [4.2. 指令](#42-指令)
+  - [4.3. 使用](#43-使用)
+    - [4.3.1. 可以直接clone下载项目](#431-可以直接clone下载项目)
+    - [4.3.2. 从npm下载](#432-从npm下载)
+- [5. 感谢](#5-感谢)
 
 <!-- /TOC -->
 
-> nly-adminlte-vue是一个基础adminlte3封装的vue组件库。干掉jq，让vue更好的使用adminlte3。
+> nly-adminlte-vue是一个基于adminlte3封装的vue组件库。干掉jq，让vue更好的使用adminlte3。
 
 > 欢迎贡献代码
 
@@ -50,18 +50,18 @@
 > demo可以看到跟master同步的组件。点击下面
 [nly-daminlte-vue-demo](https://nejinn.github.io/nly-adminlte-vue-demo)
 
-# 文档
+# 3. 文档
 
 > 直接从github上clone的项目，可以从src进入adminlte-vue下面的components和directives,打开对应的组件或者指令文件夹，查看README.md
 比如查看badge的文件，点击[badgeREADME.md](https://github.com/nejinn/nly-adminlte-vue/blob/master/src/nly-adminlte-vue/components/badge/README.md)
 
 > 从npm下载的文件，可以在packages文件夹下面的components和directives中打开对应的组件或者指令文件夹，查看README.md
 
-# 3. 进度
+# 4. 进度
 
 > 目前已经封装完成
 
-## 3.1. 组件
+## 4.1. 组件
 
 * 皮肤  theme
 * 折叠板 collapse
@@ -95,7 +95,7 @@
 * 表单验证 feedback
 * 日志组件 log
 
-## 3.2. 指令
+## 4.2. 指令
 
 * 左侧导航栏收起指令 v-nly-sidebar-collapse
 * 右侧收缩版收起指令 v-nly-control-sidebar-collapse
@@ -103,22 +103,22 @@
 * 折叠版收起展开指令 v-nly-toggle
 * 提示工具指令 v-nly-tooltip
 
-## 3.3. 使用
+## 4.3. 使用
 
-### 3.3.1. 可以直接clone下载项目
+### 4.3.1. 可以直接clone下载项目
 
 ```html
 git clone https://github.com/nejinn/nly-adminlte-vue.git
 
 npm install 
 
-npm run server
+npm run serve
 
 // 查看example，所有组件demo都在这里
 http://localhost:8080
 ```
 
-### 3.3.2. 从npm下载
+### 4.3.2. 从npm下载
 
 * 整包引入
 ```html
@@ -149,6 +149,6 @@ import { badgePlugin } from "./nly-adminlte-vue";
 Vue.use(badgePlugin);
 ```
 
-# 4. 感谢
+# 5. 感谢
 
 [bootstrapVue](https://bootstrap-vue.js.org)
