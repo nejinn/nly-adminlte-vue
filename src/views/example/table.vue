@@ -212,6 +212,122 @@
           </nly-card>
         </nly-col>
       </nly-row>
+
+      <nly-row>
+        <nly-col>
+          <nly-card>
+            <nly-card-header>
+              houses table
+            </nly-card-header>
+            <nly-card-body>
+              <nly-row>
+                <nly-col xs="1">
+                  <div class="custom-control custom-checkbox">
+                    <input
+                      class="custom-control-input custom-control-info"
+                      type="checkbox"
+                      id="customCheckbox1"
+                      v-model="show1"
+                    />
+                    <label for="customCheckbox1" class="custom-control-label"
+                      >1单元</label
+                    >
+                  </div>
+                </nly-col>
+                <nly-col xs="1">
+                  <div class="custom-control custom-checkbox">
+                    <input
+                      class="custom-control-input custom-control-info"
+                      type="checkbox"
+                      id="customCheckbox2"
+                      v-model="show2"
+                    />
+                    <label for="customCheckbox2" class="custom-control-label"
+                      >2单元</label
+                    >
+                  </div>
+                </nly-col>
+              </nly-row>
+              <nly-row>
+                <nly-table
+                  :fields="housesFileds"
+                  :items="housesItems"
+                  bordered
+                  class="border-bottom-0"
+                >
+                  <template v-slot:custom-foot>
+                    <nly-tr>
+                      <nly-th class="text-center" style="width: 130px">
+                        楼层/单元
+                      </nly-th>
+                      <nly-th
+                        class="text-center border-0 "
+                        ref="show10"
+                        style="width: 30px"
+                      >
+                        <span class="sr-only">index1</span>
+                      </nly-th>
+                      <nly-th colspan="2" class="text-center" ref="show11"
+                        >1单元</nly-th
+                      >
+                      <nly-th
+                        class="text-center border-0"
+                        ref="show20"
+                        style="width: 30px"
+                      >
+                        <span class="sr-only">index2</span>
+                      </nly-th>
+                      <nly-th colspan="2" class="text-center" ref="show21"
+                        >2单元</nly-th
+                      >
+                    </nly-tr>
+                  </template>
+
+                  <template v-slot:cell(101)="data">
+                    <nly-badge
+                      :bg-gradient-variant="
+                        data.value.status === 1 ? 'lime' : 'lightblue'
+                      "
+                    >
+                      {{ data.value.num }}
+                    </nly-badge>
+                  </template>
+
+                  <template v-slot:cell(102)="data">
+                    <nly-badge
+                      :bg-gradient-variant="
+                        data.value.status === 1 ? 'lime' : 'lightblue'
+                      "
+                    >
+                      {{ data.value.num }}
+                    </nly-badge>
+                  </template>
+
+                  <template v-slot:cell(201)="data">
+                    <nly-badge
+                      :bg-gradient-variant="
+                        data.value.status === 1 ? 'lime' : 'lightblue'
+                      "
+                    >
+                      {{ data.value.num }}
+                    </nly-badge>
+                  </template>
+
+                  <template v-slot:cell(202)="data">
+                    <nly-badge
+                      :bg-gradient-variant="
+                        data.value.status === 1 ? 'lime' : 'lightblue'
+                      "
+                    >
+                      {{ data.value.num }}
+                    </nly-badge>
+                  </template>
+                </nly-table>
+              </nly-row>
+            </nly-card-body>
+          </nly-card>
+        </nly-col>
+      </nly-row>
     </nly-content>
   </nly-content-wrapper>
 </template>
@@ -424,7 +540,137 @@ export default {
             age: 62
           }
         ]
-      }
+      },
+      housesFileds: [
+        {
+          key: "index",
+          label: "楼层/单元",
+          thStyle: "display:none",
+          class: "text-center"
+        },
+        {
+          key: "index1",
+          label: "间隔",
+          thStyle: "display:none",
+          class: "border-0 ",
+          parent: "1"
+        },
+        {
+          key: "101",
+          label: "1单元01",
+          thStyle: "display:none",
+          class: "text-center",
+          parent: "1"
+        },
+        {
+          key: "102",
+          label: "1单元02",
+          thStyle: "display:none",
+          class: "text-center ",
+          parent: "1"
+        },
+        {
+          key: "index2",
+          label: "间隔",
+          thStyle: "display:none",
+          class: "border-0",
+          parent: "2"
+        },
+        {
+          key: "201",
+          label: "2单元01",
+          thStyle: "display:none",
+          class: "text-center",
+          parent: "2"
+        },
+        {
+          key: "202",
+          label: "2单元02",
+          thStyle: "display:none",
+          class: "text-center",
+          parent: "2"
+        }
+      ],
+      housesItems: [
+        {
+          index: "一层",
+          101: {
+            num: "101",
+            status: 1
+          },
+          102: {
+            num: "102",
+            status: 0
+          },
+          201: {
+            num: "201",
+            status: 1
+          },
+          202: {
+            num: "202",
+            status: 0
+          }
+        },
+        {
+          index: "二层",
+          101: {
+            num: "201",
+            status: 0
+          },
+          102: {
+            num: "202",
+            status: 0
+          },
+          201: {
+            num: "201",
+            status: 1
+          },
+          202: {
+            num: "202",
+            status: 0
+          }
+        },
+        {
+          index: "三层",
+          101: {
+            num: "301",
+            status: 0
+          },
+          102: {
+            num: "302",
+            status: 1
+          },
+          201: {
+            num: "301",
+            status: 0
+          },
+          202: {
+            num: "302",
+            status: 0
+          }
+        },
+        {
+          index: "四层",
+          101: {
+            num: "401",
+            status: 1
+          },
+          102: {
+            num: "402",
+            status: 0
+          },
+          201: {
+            num: "401",
+            status: 1
+          },
+          202: {
+            num: "402",
+            status: 0
+          }
+        }
+      ],
+      show1: true,
+      show2: true
     };
   },
   methods: {
@@ -434,6 +680,44 @@ export default {
     },
     fullName(value) {
       return `${value.first} ${value.last}`;
+    },
+    showFunction(item, index) {
+      console.log(item);
+      const refindex0 = `show${index}0`;
+      const refindex1 = `show${index}1`;
+      if (!item) {
+        this.$refs[refindex0].$el.classList.add("d-none");
+        this.$refs[refindex1].$el.classList.add("d-none");
+        this.housesFileds.forEach(element => {
+          if (element.parent == index) {
+            if (element.class.indexOf(" d-none") === -1) {
+              element.class = element.class + " d-none";
+            }
+          }
+        });
+      } else {
+        this.$refs[refindex0].$el.classList.remove("d-none");
+        this.$refs[refindex1].$el.classList.remove("d-none");
+        this.housesFileds.forEach(element => {
+          if (element.parent == index) {
+            if (element.class.indexOf(" d-none") !== -1) {
+              element.class = element.class.replace(" d-none", "");
+            }
+          }
+        });
+      }
+    }
+  },
+  watch: {
+    show1: function(newval, oldval) {
+      if (newval != oldval) {
+        this.showFunction(newval, 1);
+      }
+    },
+    show2: function(newval, oldval) {
+      if (newval != oldval) {
+        this.showFunction(newval, 2);
+      }
     }
   }
 };
