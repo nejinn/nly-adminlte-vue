@@ -55,13 +55,13 @@ NlyBadge | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlyBadge } from "./nly-adminlte-vue";
+import { NlyBadge } from "nly-adminlte-vue";
 Vue.component('nly-badge', NlyBadge)
 ```
 
 > 整个badgePlugin导出
 
 ```js
-import { badgePlugin } from "./nly-adminlte-vue";
+import { badgePlugin } from "nly-adminlte-vue";
 Vue.use(badgePlugin);
 ```

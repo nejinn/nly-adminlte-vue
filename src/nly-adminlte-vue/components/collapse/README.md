@@ -94,13 +94,13 @@ NlyCollapseNoclass | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlyCollapse } from "./nly-adminlte-vue";
+import { NlyCollapse } from "nly-adminlte-vue";
 Vue.component('nly-collapse', NlyCollapse)
 ```
 
 > 整个collapsePlugin导出
 
 ```js
-import { collapsePlugin } from "./nly-adminlte-vue";
+import { collapsePlugin } from "nly-adminlte-vue";
 Vue.use(collapsePlugin);
 ```

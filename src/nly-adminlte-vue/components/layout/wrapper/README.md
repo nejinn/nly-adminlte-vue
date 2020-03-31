@@ -51,13 +51,13 @@ NlyWrapper | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlyWrapper } from "./nly-adminlte-vue";
+import { NlyWrapper } from "nly-adminlte-vue";
 Vue.component('nly-wrapper', NlyWrapper)
 ```
 
 > 整个wrapperPlugin导出
 
 ```js
-import { wrapperPlugin } from "./nly-adminlte-vue";
+import { wrapperPlugin } from "nly-adminlte-vue";
 Vue.use(wrapperPlugin);
 ```

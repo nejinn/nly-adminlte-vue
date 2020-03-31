@@ -216,13 +216,13 @@ NlySidebarNavHeader | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlySidebar } from "./nly-adminlte-vue";
+import { NlySidebar } from "nly-adminlte-vue";
 Vue.component('nly-sidebar', NlySidebar)
 ```
 
 > 整个sidebarPlugin出
 
 ```js
-import { sidebarPlugin } from "./nly-adminlte-vue";
+import { sidebarPlugin } from "nly-adminlte-vue";
 Vue.use(sidebarPlugin);
 ```

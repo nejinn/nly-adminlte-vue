@@ -49,13 +49,13 @@ NlyControlSidebar | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlyControlSidebar } from "./nly-adminlte-vue";
+import { NlyControlSidebar } from "nly-adminlte-vue";
 Vue.component('nly-control-sidebar', NlyControlSidebar)
 ```
 
 > 整个controlSidebarPlugin导出
 
 ```js
-import { controlSidebarPlugin } from "./nly-adminlte-vue";
+import { controlSidebarPlugin } from "nly-adminlte-vue";
 Vue.use(controlSidebarPlugin);
 ```

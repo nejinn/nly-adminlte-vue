@@ -5,6 +5,7 @@ src
 public
 tests
 static
+dist
 
 .gitattributes
 .gitignore

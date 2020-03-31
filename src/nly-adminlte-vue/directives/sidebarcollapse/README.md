@@ -72,13 +72,13 @@ NlyControlSidebarCollapse | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlySidebarCollapse } from "./nly-adminlte-vue";
+import { NlySidebarCollapse } from "nly-adminlte-vue";
 Vue.use(NlySidebarCollapse);
 ```
 
 > 整个collapseSidebarDirectivePlugin出
 
 ```js
-import { collapseSidebarDirectivePlugin } from "./nly-adminlte-vue";
+import { collapseSidebarDirectivePlugin } from "nly-adminlte-vue";
 Vue.use(collapseSidebarDirectivePlugin);
 ```

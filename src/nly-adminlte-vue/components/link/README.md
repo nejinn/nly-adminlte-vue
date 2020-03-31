@@ -50,13 +50,13 @@ NlyLink | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlyLink } from "./nly-adminlte-vue";
+import { NlyLink } from "nly-adminlte-vue";
 Vue.component('nly-link', NlyLink)
 ```
 
 > 整个linkPlugin导出
 
 ```js
-import { linkPlugin } from "./nly-adminlte-vue";
+import { linkPlugin } from "nly-adminlte-vue";
 Vue.use(linkPlugin);
 ```

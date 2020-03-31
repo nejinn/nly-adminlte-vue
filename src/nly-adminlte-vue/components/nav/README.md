@@ -240,13 +240,13 @@ NlyNavDropdown | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlyNav } from "./nly-adminlte-vue";
+import { NlyNav } from "nly-adminlte-vue";
 Vue.component('nly-nav', NlyNav)
 ```
 
 > 整个navPlugin导出
 
 ```js
-import { navPlugin } from "./nly-adminlte-vue";
+import { navPlugin } from "nly-adminlte-vue";
 Vue.use(navPlugin);
 ```

@@ -43,12 +43,12 @@ NlyCardMaximized | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlyToggle } from "./nly-adminlte-vue";
+import { NlyToggle } from "nly-adminlte-vue";
 Vue.use(NlyToggle);
 ```
 
 > 整个toggleDirectivePlugin出
 
 ```js
-import { toggleDirectivePlugin } from "./nly-adminlte-vue";
+import { toggleDirectivePlugin } from "nly-adminlte-vue";
 Vue.use(toggleDirectivePlugin);

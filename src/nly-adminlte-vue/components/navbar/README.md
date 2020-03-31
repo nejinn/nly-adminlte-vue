@@ -98,13 +98,13 @@ NlyNavbarToggle | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlyNavbar } from "./nly-adminlte-vue";
+import { NlyNavbar } from "nly-adminlte-vue";
 Vue.component('nly-navbar', NlyNavbar)
 ```
 
 > 整个navbarPlugin导出
 
 ```js
-import { navbarPlugin } from "./nly-adminlte-vue";
+import { navbarPlugin } from "nly-adminlte-vue";
 Vue.use(navbarPlugin);
 ```

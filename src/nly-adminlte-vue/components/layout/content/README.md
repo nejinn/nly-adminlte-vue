@@ -64,13 +64,13 @@ NlyContentWrapper | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlyContent } from "./nly-adminlte-vue";
+import { NlyContent } from "nly-adminlte-vue";
 Vue.component('nly-content', NlyContent)
 ```
 
 > 整个contentPlugin导出
 
 ```js
-import { contentPlugin } from "./nly-adminlte-vue";
+import { contentPlugin } from "nly-adminlte-vue";
 Vue.use(contentPlugin);
 ```

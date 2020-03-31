@@ -119,13 +119,13 @@ NlyLogTools | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlyLogTools } from "./nly-adminlte-vue";
+import { NlyLogTools } from "nly-adminlte-vue";
 Vue.component('nly-log-tools', NlyLogTools)
 ```
 
 > 整个logPlugin导出
 
 ```js
-import { logPlugin } from "./nly-adminlte-vue";
+import { logPlugin } from "nly-adminlte-vue";
 Vue.use(logPlugin);
 ```

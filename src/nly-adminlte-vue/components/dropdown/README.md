@@ -63,13 +63,13 @@ NlyDropdownMenu | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlyDropdown } from "./nly-adminlte-vue";
+import { NlyDropdown } from "nly-adminlte-vue";
 Vue.component('nly-dropdown', NlyDropdown)
 ```
 
 > 整个dropdownPlugin导出
 
 ```js
-import { dropdownPlugin } from "./nly-adminlte-vue";
+import { dropdownPlugin } from "nly-adminlte-vue";
 Vue.use(dropdownPlugin);
 ```

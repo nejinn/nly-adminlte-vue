@@ -103,13 +103,13 @@ NlyInfoboxNumber | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlyInfobox } from "./nly-adminlte-vue";
+import { NlyInfobox } from "nly-adminlte-vue";
 Vue.component('nly-infobox', NlyInfobox)
 ```
 
 > 整个infoboxPlugin导出
 
 ```js
-import { infoboxPlugin } from "./nly-adminlte-vue";
+import { infoboxPlugin } from "nly-adminlte-vue";
 Vue.use(infoboxPlugin);
 ```

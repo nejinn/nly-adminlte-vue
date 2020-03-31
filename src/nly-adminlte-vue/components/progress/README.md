@@ -79,13 +79,13 @@ NlyProgressBarDescription | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlyProgress } from "./nly-adminlte-vue";
+import { NlyProgress } from "nly-adminlte-vue";
 Vue.component('nly-progress', NlyProgress)
 ```
 
 > 整个progressPlugin出
 
 ```js
-import { progressPlugin } from "./nly-adminlte-vue";
+import { progressPlugin } from "nly-adminlte-vue";
 Vue.use(progressPlugin);
 ```

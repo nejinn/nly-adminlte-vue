@@ -85,7 +85,7 @@
 </template>
 
 <script>
-//import { testComponent } from "../../nly-adminlte-vue/components/testcomponent/testcomponent";
+//import { testComponent } from "../.nly-adminlte-vue/components/testcomponent/testcomponent";
 export default {
   data() {
     return {

@@ -39,13 +39,13 @@ NlyOverlay | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlyOverlay } from "./nly-adminlte-vue";
+import { NlyOverlay } from "nly-adminlte-vue";
 Vue.component('nly-overlay', NlyOverlay)
 ```
 
 > 整个overlayPlugin出
 
 ```js
-import { overlayPlugin } from "./nly-adminlte-vue";
+import { overlayPlugin } from "nly-adminlte-vue";
 Vue.use(overlayPlugin);
 ```

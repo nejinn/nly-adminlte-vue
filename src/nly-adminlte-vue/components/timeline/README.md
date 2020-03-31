@@ -131,14 +131,14 @@ NlyTimelineFooter | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlyTimeline } from "./nly-adminlte-vue";
+import { NlyTimeline } from "nly-adminlte-vue";
 Vue.component('nly-timeline', NlyTimeline)
 ```
 
 > 整个timelinePlugin出
 
 ```js
-import { timelinePlugin } from "./nly-adminlte-vue";
+import { timelinePlugin } from "nly-adminlte-vue";
 Vue.use(timelinePlugin);
 ```
 

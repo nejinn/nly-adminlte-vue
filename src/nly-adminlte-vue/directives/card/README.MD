@@ -70,13 +70,13 @@ NlyCardMaximized | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlyCardMaximized } from "./nly-adminlte-vue";
+import { NlyCardMaximized } from "nly-adminlte-vue";
 Vue.use(NlyCardMaximized);
 ```
 
 > 整个cardDirectivePlugin出
 
 ```js
-import { cardDirectivePlugin } from "./nly-adminlte-vue";
+import { cardDirectivePlugin } from "nly-adminlte-vue";
 Vue.use(cardDirectivePlugin);
 ```

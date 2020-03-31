@@ -59,13 +59,13 @@ NLYAToastPlugin 这是一个插件 | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlyToast } from "./nly-adminlte-vue";
+import { NlyToast } from "nly-adminlte-vue";
 Vue.component('nly-toast', NlyToast)
 ```
 
 > 整个toastPlugin出
 
 ```js
-import { toastPlugin } from "./nly-adminlte-vue";
+import { toastPlugin } from "nly-adminlte-vue";
 Vue.use(toastPlugin);
 ```

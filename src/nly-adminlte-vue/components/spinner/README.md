@@ -41,14 +41,14 @@ NlySpinner | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlySpinner } from "./nly-adminlte-vue";
+import { NlySpinner } from "nly-adminlte-vue";
 Vue.component('nly-spinner', NlySpinner)
 ```
 
 > 整个spinnerPlugin出
 
 ```js
-import { spinnerPlugin } from "./nly-adminlte-vue";
+import { spinnerPlugin } from "nly-adminlte-vue";
 Vue.use(spinnerPlugin);
 ```
 

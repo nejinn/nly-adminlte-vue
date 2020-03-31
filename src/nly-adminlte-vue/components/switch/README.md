@@ -75,14 +75,14 @@ NlyBootstrapSwitch | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlySwitch } from "./nly-adminlte-vue";
+import { NlySwitch } from "nly-adminlte-vue";
 Vue.component('nly-switch', NlySwitch)
 ```
 
 > 整个switchPlugin出
 
 ```js
-import { switchPlugin } from "./nly-adminlte-vue";
+import { switchPlugin } from "nly-adminlte-vue";
 Vue.use(switchPlugin);
 ```
 

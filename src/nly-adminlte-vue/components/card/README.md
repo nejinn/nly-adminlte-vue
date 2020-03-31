@@ -184,13 +184,13 @@ NlyCardText |  nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlyCardGroup } from "./nly-adminlte-vue";
+import { NlyCardGroup } from "nly-adminlte-vue";
 Vue.component('nly-card-group', NlyCardGroup)
 ```
 
 > 整个cardPlugin导出
 
 ```js
-import { cardPlugin } from "./nly-adminlte-vue";
+import { cardPlugin } from "nly-adminlte-vue";
 Vue.use(cardPlugin);
 ```

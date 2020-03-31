@@ -39,13 +39,13 @@ NlyIcon | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlyIcon } from "./nly-adminlte-vue";
+import { NlyIcon } from "nly-adminlte-vue";
 Vue.component('nly-icon', NlyIcon)
 ```
 
 > 整个iconPlugin导出
 
 ```js
-import { iconPlugin } from "./nly-adminlte-vue";
+import { iconPlugin } from "nly-adminlte-vue";
 Vue.use(iconPlugin);
 ```

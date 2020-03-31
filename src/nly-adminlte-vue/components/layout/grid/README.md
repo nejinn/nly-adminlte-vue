@@ -68,13 +68,13 @@ NlyCol | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlyRow } from "./nly-adminlte-vue";
+import { NlyRow } from "nly-adminlte-vue";
 Vue.component('nly-row', NlyRow)
 ```
 
 > 整个gridPlugin导出
 
 ```js
-import { gridPlugin } from "./nly-adminlte-vue";
+import { gridPlugin } from "nly-adminlte-vue";
 Vue.use(gridPlugin);
 ```

@@ -34,13 +34,13 @@ NlyContainer | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlyContainer } from "./nly-adminlte-vue";
+import { NlyContainer } from "nly-adminlte-vue";
 Vue.component('nly-container', NlyContainer)
 ```
 
 > 整个containerPlugin导出
 
 ```js
-import { containerPlugin } from "./nly-adminlte-vue";
+import { containerPlugin } from "nly-adminlte-vue";
 Vue.use(containerPlugin);
 ```

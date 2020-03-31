@@ -97,13 +97,13 @@ NlyBreadcrumbItem | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlyBreadcrumb } from "./nly-adminlte-vue";
+import { NlyBreadcrumb } from "nly-adminlte-vue";
 Vue.component('nly-breadcrumb', NlyBreadcrumb)
 ```
 
 > 整个breadcrumbPlugin导出
 
 ```js
-import { breadcrumbPlugin } from "./nly-adminlte-vue";
+import { breadcrumbPlugin } from "nly-adminlte-vue";
 Vue.use(breadcrumbPlugin);
 ```

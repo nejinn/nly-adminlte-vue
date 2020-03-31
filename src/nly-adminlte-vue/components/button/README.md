@@ -64,14 +64,14 @@ NlyButtonClose | nly-adminlte-vue
 > 单组件导出
 
 ```js
-import { NlyButtonGroup } from "./nly-adminlte-vue";
+import { NlyButtonGroup } from "nly-adminlte-vue";
 Vue.component('nly-button-group', NlyButtonGroup)
 ```
 
 > 整个buttonPlugin导出
 
 ```js
-import { buttonPlugin } from "./nly-adminlte-vue";
+import { buttonPlugin } from "nly-adminlte-vue";
 Vue.use(buttonPlugin);
 ```
 
