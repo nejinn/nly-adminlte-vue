@@ -139,14 +139,14 @@ Vue.use(NlyAdminlteVue);
 > 比如引入 nly-badge
 
 ```js
-import { NlyBadge } from "./nly-adminlte-vue";
+import { NlyBadge } from "nly-adminlte-vue";
 Vue.component('nly-badge', NlyBadge)
 ```
 
 > 整个badgePlugin导出
 
 ```js
-import { badgePlugin } from "./nly-adminlte-vue";
+import { badgePlugin } from "nly-adminlte-vue";
 Vue.use(badgePlugin);
 ```
 
