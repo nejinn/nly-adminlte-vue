@@ -1504,6 +1504,18 @@
     "description": "滚动到底部按钮文字",
     "type": "String"
   },
+  "nly-log-body/lock-scroll-bottom": {
+    "description": "显示锁定到底部按钮",
+    "type": "Boolean"
+  },
+  "nly-log-body/lock-bottom-icon": {
+    "description": "锁定到底部按钮图标",
+    "type": "String"
+  },
+  "nly-log-body/lock-bottom-text": {
+    "description": "锁定到底部按钮文字",
+    "type": "String"
+  },
   "nly-log-body/scroll-top": {
     "description": "显示滚动到顶部按钮",
     "type": "Boolean"
@@ -1519,10 +1531,6 @@
   "nly-log-body/pre-class": {
     "description": "pre标签自定义css式样",
     "type": "String"
-  },
-  "nly-log-body/transiton": {
-    "description": "开启列表动画",
-    "type": "Boolean"
   },
   "nly-log-line/duration": {
     "description": "时间，传入会渲染time组件",

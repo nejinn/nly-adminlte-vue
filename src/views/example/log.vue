@@ -20,7 +20,21 @@
                 </nly-button>
               </nly-log-tools>
             </nly-log-header>
-            <nly-log-body>
+            <nly-log-body scrollbar :transition="false">
+              <nly-log-line-tree
+                line="1"
+                duration="30"
+                text="init"
+                title="info"
+                icon="nlyfont nly-icon-arrow-bottom"
+              >
+                <nly-log-line
+                  line="-1"
+                  duration="20"
+                  text="测试"
+                  title="dsds"
+                />
+              </nly-log-line-tree>
               <nly-log-line
                 v-for="(item, index) in items"
                 :key="index"
@@ -33,7 +47,7 @@
           </nly-log>
         </nly-col>
       </nly-row>
-      <nly-button @click="test" variant="info" />
+      <nly-button @click="test" variant="info"> 添加日志看看效果 </nly-button>
     </nly-content>
   </nly-content-wrapper>
 </template>

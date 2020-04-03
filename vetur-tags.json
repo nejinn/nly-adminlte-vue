@@ -1128,7 +1128,9 @@
       "top-icon",
       "log-body-class",
       "pre-class",
-      "transiton"
+      "lock-scroll-bottom",
+      "lock-bottom-icon",
+      "lock-bottom-text"
     ]
   },
   "nly-log-line":{

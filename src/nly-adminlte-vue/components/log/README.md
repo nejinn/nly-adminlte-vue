@@ -52,7 +52,9 @@ scroll-top | Boolean | true | 显示滚动到顶部按钮
 top-icon | String | nlyfont nly-icon-logo-aperture | 滚动到顶部图标
 log-body-class | String | | 自定义css式样
 pre-class | String | | pre标签自定义css式样
-transiton | Boolean | true | 开启列表动画
+lock-scroll-bottom | Boolean | true | 显示锁定到底部按钮
+lock-bottom-icon | String | nlyfont nly-icon-logo-ionic | 锁定底部按钮图标
+lock-bottom-text | String | 锁定底部 | 锁定到底部按钮文字
 
 ## 1.5. nly-log-line
 

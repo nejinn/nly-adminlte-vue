@@ -130,12 +130,12 @@ export const NlyLogLine = Vue.extend({
     };
 
     const titleVnodes = () => {
-      if (this.customText) {
+      if (this.customTitle) {
         return h(
           "span",
           {
             staticClass: "title",
-            class: [this.customTextClass]
+            class: [this.customTitleClass]
           },
           this.customTitle
         );
