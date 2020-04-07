@@ -9,7 +9,7 @@ import {
 
 export const props = linkPropsFactory();
 
-const name = NlySidebarBrand;
+const name = "NlySidebarBrand";
 
 export const NlySidebarBrand = Vue.extend({
   name: name,
