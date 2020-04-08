@@ -1,153 +1,150 @@
 {
-  "name": "nly-adminlte-vue",
-  "version": "0.2.0",
-  "private": false,
-  "license": "MIT",
-  "description": "nly adminlte3 components",
-  "author":"Nejinn Lerity",
-  "keywords": [
-    "Bootstrap",
-    "adminlte3",
-    "adminlte3 for Vue",
-    "SSR",
-    "Web",
-    "Components",
-    "Directives",
-    "ARIA",
-    "Accessibility",
-    "Polymer",
-    "Vue",
-    "VueJS",
-    "Vue2",
-    "WebComponents",
-    "jquery",
-    "Popper.js",
-    "Popper",
-    "CSS",
-    "SCSS",
-    "Icons",
-    "Bootstrap Icons",
-    "Flexbox",
-    "Alert",
-    "Breadcrumb",
-    "Button",
-    "Checkbox",
-    "Radio",
-    "Card",
-    "Carousel",
-    "Slider",
-    "Collapse",
-    "Dropdown",
-    "Form",
-    "Select",
-    "Option",
-    "Input",
-    "Jumbotron",
-    "List",
-    "Nav",
-    "Modal",
-    "MessageBox",
-    "Upload",
-    "Dropzone",
-    "Navbar",
-    "Pagination",
-    "Popover",
-    "Progress",
-    "Spinner",
-    "Tab",
-    "Table",
-    "Tag",
-    "Tags",
-    "Toast",
-    "Tooltip",
-    "vue-bootstrap",
-    "vue-strap",
-    "vuestrap",
-    "uiv"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nejinn/nly-adminlte-vue.git"
-  },
-  "main": "dist/nly-adminlte-vue.common.js",
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
-  },
-  "dependencies": {
-    "@popperjs/core": "^2.0.6",
-    "core-js": "^3.6.4",
-    "lodash.clonedeep": "^4.5.0",
-    "overlayscrollbars": "^1.10.3",
-    "overlayscrollbars-vue": "^0.2.1",
-    "popper.js": "^1.16.1",
-    "portal-vue": "^2.1.7",
-    "vue": "^2.6.11",
-    "vue-functional-data-merge": "^3.1.0",
-    "vue-router": "^3.1.5"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.2.0",
-    "@vue/cli-plugin-eslint": "^4.2.0",
-    "@vue/cli-plugin-router": "^4.2.0",
-    "@vue/cli-plugin-unit-jest": "^4.2.0",
-    "@vue/cli-service": "^4.2.0",
-    "@vue/eslint-config-prettier": "^6.0.0",
-    "@vue/test-utils": "1.0.0-beta.31",
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.7.2",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-vue": "^6.1.2",
-    "node-sass": "^4.12.0",
-    "prettier": "^1.19.1",
-    "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended",
-      "@vue/prettier"
+    "name": "nly-adminlte-vue",
+    "version": "0.3.8",
+    "private": false,
+    "license": "MIT",
+    "keywords": [
+      "Bootstrap",
+      "adminlte3",
+      "adminlte3 for Vue",
+      "SSR",
+      "Web",
+      "Components",
+      "Directives",
+      "ARIA",
+      "Accessibility",
+      "Polymer",
+      "Vue",
+      "VueJS",
+      "Vue2",
+      "WebComponents",
+      "jquery",
+      "Popper.js",
+      "Popper",
+      "CSS",
+      "SCSS",
+      "Icons",
+      "Bootstrap Icons",
+      "Flexbox",
+      "Alert",
+      "Breadcrumb",
+      "Button",
+      "Checkbox",
+      "Radio",
+      "Card",
+      "Carousel",
+      "Slider",
+      "Collapse",
+      "Dropdown",
+      "Form",
+      "Select",
+      "Option",
+      "Input",
+      "Jumbotron",
+      "List",
+      "Nav",
+      "Modal",
+      "MessageBox",
+      "Upload",
+      "Dropzone",
+      "Navbar",
+      "Pagination",
+      "Popover",
+      "Progress",
+      "Spinner",
+      "Tab",
+      "Table",
+      "Tag",
+      "Tags",
+      "Toast",
+      "Tooltip",
+      "vue-bootstrap",
+      "vue-strap",
+      "vuestrap",
+      "uiv"
     ],
-    "parserOptions": {
-      "parser": "babel-eslint"
+    "main": "dist/nly-adminlte-vue.common.js",
+    "description": "nly adminlte3 components",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/nejinn/nly-adminlte-vue.git"
     },
-    "rules": {},
-    "overrides": [
-      {
-        "files": [
-          "**/__tests__/*.{j,t}s?(x)",
-          "**/tests/unit/**/*.spec.{j,t}s?(x)"
-        ],
-        "env": {
-          "jest": true
+    "scripts": {
+      "serve": "vue-cli-service serve",
+      "build": "vue-cli-service build",
+      "test:unit": "vue-cli-service test:unit",
+      "lint": "vue-cli-service lint",
+      "lib": "vue-cli-service build --target lib --name nly-adminlte-vue --dest dist src/index.js"
+    },
+    "dependencies": {
+      "@popperjs/core": "^2.0.6",
+      "core-js": "^3.6.4",
+      "lodash.clonedeep": "^4.5.0",
+      "overlayscrollbars": "^1.10.3",
+      "overlayscrollbars-vue": "^0.2.1",
+      "popper.js": "^1.16.1",
+      "portal-vue": "^2.1.7",
+      "vue": "^2.6.11",
+      "vue-functional-data-merge": "^3.1.0",
+      "vue-router": "^3.1.5"
+    },
+    "devDependencies": {
+      "@vue/cli-plugin-babel": "^4.2.0",
+      "@vue/cli-plugin-eslint": "^4.2.0",
+      "@vue/cli-plugin-router": "^4.2.0",
+      "@vue/cli-plugin-unit-jest": "^4.2.0",
+      "@vue/cli-service": "^4.2.0",
+      "@vue/eslint-config-prettier": "^6.0.0",
+      "@vue/test-utils": "1.0.0-beta.31",
+      "babel-eslint": "^10.0.3",
+      "eslint": "^6.7.2",
+      "eslint-plugin-prettier": "^3.1.1",
+      "eslint-plugin-vue": "^6.1.2",
+      "node-sass": "^4.12.0",
+      "prettier": "^1.19.1",
+      "sass-loader": "^8.0.2",
+      "vue-template-compiler": "^2.6.11"
+    },
+    "eslintConfig": {
+      "root": true,
+      "env": {
+        "node": true
+      },
+      "extends": [
+        "plugin:vue/essential",
+        "eslint:recommended",
+        "@vue/prettier"
+      ],
+      "parserOptions": {
+        "parser": "babel-eslint"
+      },
+      "rules": {},
+      "overrides": [
+        {
+          "files": [
+            "**/__tests__/*.{j,t}s?(x)",
+            "**/tests/unit/**/*.spec.{j,t}s?(x)"
+          ],
+          "env": {
+            "jest": true
+          }
         }
-      }
+      ]
+    },
+    "browserslist": [
+      "> 1%",
+      "last 2 versions"
+    ],
+    "jest": {
+      "preset": "@vue/cli-plugin-unit-jest"
+    },
+    "vetur": {
+      "tags": "dist/vetur-tags.json",
+      "attributes": "dist/vetur-attributes.json"
+    },
+    "files": [
+      "packages",
+      "dist"
     ]
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ],
-  "jest": {
-    "preset": "@vue/cli-plugin-unit-jest"
-  },
-  "vetur": {
-    "tags": "dist/vetur-tags.json",
-    "attributes": "dist/vetur-attributes.json"
-  },
-  "engines": {
-    "node": ">= 10.0.0",
-    "npm": ">= 6.0.0"
-  },
-  "files": [
-    "packages",
-    "dist"
-  ]
-}
+  }
+  

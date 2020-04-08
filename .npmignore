@@ -1,20 +1,24 @@
-.DS_Store
-node_modules
 .history
-src
+example
+node_modules
 public
-tests
 static
-dist
+testes
+
 
 .gitattributes
 .gitignore
 .npmignore
 .markdownlint.json
+.travis.yml
 
 babel.config.js
 package-lock.json
+LICENSE
 vue.config.js
+
+vetur-attributes.json
+vetur-tags.json
 
 # local env files
 .env.local
