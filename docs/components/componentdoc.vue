@@ -455,8 +455,10 @@ import Vue from "vue";
 import { kebabCase } from "../utils";
 import NlyAnchoredHeading from "./NlyAnchoredHeading";
 
+const name = "NlyComponentDoc";
+
 export default {
-  name: "BVComponentdoc",
+  name: name,
   components: { NlyAnchoredHeading },
   props: {
     component: {},
