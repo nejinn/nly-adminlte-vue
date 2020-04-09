@@ -2,11 +2,11 @@
 <!-- TOC -->
 
 - [1. badge](#1-badge)
-  - [1.1. nly-badge](#11-nly-badge)
-    - [1.1.1. props](#111-props)
-  - [1.2. 单包导出](#12-单包导出)
-    - [1.2.1. 包含组件](#121-包含组件)
-    - [1.2.2. 导出方法](#122-导出方法)
+    - [1.1. nly-badge](#11-nly-badge)
+        - [1.1.1. props](#111-props)
+    - [1.2. 单包导出](#12-单包导出)
+        - [1.2.1. 包含组件](#121-包含组件)
+        - [1.2.2. 导出方法](#122-导出方法)
 
 <!-- /TOC -->
 ## 1.1. nly-badge
@@ -16,10 +16,11 @@
 > 比如可以
 
 ```html
-<h1><nly-badge variant='info'>info</nly-badge></h1>
+<h1><nly-badge variant='danger'>info</nly-badge></h1>
 <h2><nly-badge variant='info'>info</nly-badge></h2>
-<h3><nly-badge variant='info'>info</nly-badge></h3>
+<h3><nly-badge variant='success'>info</nly-badge></h3>
 <h4><nly-badge variant='info'>info</nly-badge></h4>
+<!-- nly-badge.vue -->
 ```
 
 > 提供了一个设置badge大小的props size

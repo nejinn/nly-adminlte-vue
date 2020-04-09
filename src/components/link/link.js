@@ -69,7 +69,7 @@ export const propsFactory = () => ({
 export const props = propsFactory();
 
 const name = "NlyLink";
-export const NlyLink = /*#__PURE__*/ Vue.extend({
+export const NlyLink = Vue.extend({
   name: name,
   mixins: [normalizeSlotMixin],
   inheritAttrs: false,

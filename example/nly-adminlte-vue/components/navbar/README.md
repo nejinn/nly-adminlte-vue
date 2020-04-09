@@ -27,8 +27,7 @@
 -|-|-|-
 header | Boolean | false | 左右布局菜单,非左右布局是传入会导致左侧右移,请配合nly-container-wrapper一起用
 expand | String | navbar-expand | 菜单栏屏幕变化收起断点,默认是sm断点,可选xl,lg,md,sm,no
-variant | String | white | 菜单主题颜色,可选primary,secondary,success,info,warning,danger,lightblue,navy,olive,lime,fuchsia,maroon,blue,indigo,purple,pink,red,orange,yellow,green,teal,cyan,white,gray,
-graydark
+variant | String | white | 菜单主题颜色,可选primary,secondary,success,info,warning,danger,lightblue,navy,olive,lime,fuchsia,maroon,blue,indigo,purple,pink,red,orange,yellow,green,teal,cyan,white,gray,graydark
 dark | Boolean | false | 字体颜色，默认是黑色，设置true为白色
 size | String | 无 | 菜单字体大小,可选sm,lg
 boder | Boolean | true | 菜单底边框，header为true的时候生效
@@ -48,6 +47,8 @@ navbar-class | String | | 自定义css式样
 -|-|-|-
 to | String | 无 | router-link模式to路由，传to的情况下会渲染成router-link
 href | String | 无 | 传link会渲染成a href标签，优先级别会to低，link，to都传入会渲染成router-link，两者都不传入会渲染成router-link，且指向/#
+target | String | '_self' | target属性,支持所有target值_blank，_self，_parent，_top，framename
+
 
 ## 1.4. nly-navbar-brandimg
 
