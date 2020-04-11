@@ -4,9 +4,6 @@
 - [1. badge](#1-badge)
     - [1.1. nly-badge](#11-nly-badge)
         - [1.1.1. props](#111-props)
-    - [1.2. 单包导出](#12-单包导出)
-        - [1.2.1. 包含组件](#121-包含组件)
-        - [1.2.2. 导出方法](#122-导出方法)
 
 <!-- /TOC -->
 ## 1.1. nly-badge
@@ -39,30 +36,4 @@ badge-class | String | | 自定义css式样，如果需要放在navbar中，可�
 pill | String | false | 形状，默认小圆角，设置为true，大圆角型
 variant | String |  | badge类颜色。可选  primary，secondary，success，info，warning，danger，light，dark
 
-## 1.2. 单包导出
 
-> 如果只需要使用badgePlugin中的组件，请使用单个组件导出.
-
-### 1.2.1. 包含组件
-
-> badgePlugin包括以下组件
-
-名称 | 导出路径
--|-
-NlyBadge | nly-adminlte-vue
-
-### 1.2.2. 导出方法
-
-> 单组件导出
-
-```js
-import { NlyBadge } from "nly-adminlte-vue";
-Vue.component('nly-badge', NlyBadge)
-```
-
-> 整个badgePlugin导出
-
-```js
-import { badgePlugin } from "nly-adminlte-vue";
-Vue.use(badgePlugin);
-```

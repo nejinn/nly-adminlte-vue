@@ -25,21 +25,21 @@ export default {
 
     // Sidebar column
     const $sidebarCol = h(
-      "b-col",
+      "nly-col",
       {
         staticClass: "bd-sidebar border-bottom-0",
-        props: { cols: 12, md: 3, xl: 2 }
+        props: { xs: "12", md: "3", xl: "2" }
       },
       [h(BVSearch), h(BVSidebar)]
     );
 
     // Content column
     const $contentCol = h(
-      "b-col",
+      "nly-col",
       {
         staticClass: "bd-content",
         class: ["pb-md-3", "pl-md-5"],
-        props: { cols: 12, md: 9, xl: 8 }
+        props: { xs: "12", md: "9", xl: "8" }
       },
       [
         h(BVBreadcrumbs, { class: ["float-left", "mt-2", "mb-0", "mb-lg-2"] }),
@@ -51,11 +51,11 @@ export default {
 
     // TOC column
     const $tocCol = h(
-      "b-col",
+      "nly-col",
       {
         staticClass: "bd-toc",
         class: ["d-none", "d-xl-block"],
-        props: { tag: "nav", xl: 2 },
+        props: { tag: "nav", xl: "2" },
         attrs: {
           "aria-label": "Secondary navigation",
           "aria-hidden": this.hasToc ? null : "true"
@@ -65,8 +65,8 @@ export default {
     );
 
     // Container
-    const $container = h("b-container", { props: { fluid: true } }, [
-      h("b-row", { class: ["flex-xl-nowrap2"] }, [
+    const $container = h("nly-container", { props: { fluid: true } }, [
+      h("nly-row", { class: ["flex-xl-nowrap2"] }, [
         $sidebarCol,
         $contentCol,
         $tocCol

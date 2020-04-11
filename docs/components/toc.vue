@@ -1,6 +1,6 @@
 <template>
-  <b-nav v-b-scrollspy="{ offset }" class="section-nav" vertical>
-    <b-nav-item
+  <nly-nav v-b-scrollspy="{ offset }" class="section-nav" vertical>
+    <nly-nav-item
       v-if="toc.title && toc.top"
       :href="toc.top"
       class="toc-entry mb-2"
@@ -8,7 +8,7 @@
       @click="scrollIntoView($event, toc.top)"
     >
       <span v-html="toc.title"></span>
-    </b-nav-item>
+    </nly-nav-item>
 
     <li
       v-for="h2 in toc.toc"
@@ -22,12 +22,12 @@
       >
         <span v-html="h2.label"></span>
       </nly-link>
-      <b-nav
+      <nly-nav
         v-if="h2.toc && h2.toc.length > 0"
         :key="`sub-${h2.href}`"
         vertical
       >
-        <b-nav-item
+        <nly-nav-item
           v-for="h3 in h2.toc"
           :key="h3.href"
           :href="h3.href"
@@ -35,10 +35,10 @@
           @click="scrollIntoView($event, h3.href)"
         >
           <span v-html="h3.label"></span>
-        </b-nav-item>
-      </b-nav>
+        </nly-nav-item>
+      </nly-nav>
     </li>
-  </b-nav>
+  </nly-nav>
 </template>
 
 <script>

@@ -1,11 +1,11 @@
-import logo from "../../../example/assets/nly-adminlte-vue/img/NLYLOGO.png";
+import logo from "../..//static/logo.png";
 import { version } from "../../content";
 
 export const navbarList = [
   {
     _type: "nly-navbar",
     dark: true,
-    navbarClass: "nly-adminlte-vue-docs-header-navbar",
+    navbarClass: "nly-adminlte-vue-docs-header-navbar bd-navbar flex-md-row",
     expand: "md",
     variant: "info",
     _children: [
@@ -108,6 +108,10 @@ export const navbarList = [
             target: "_blank",
             _children: [
               {
+                _type: "template",
+                _name: "GitHub "
+              },
+              {
                 _type: "nly-icon",
                 icon: "nlyfont nly-icon-github"
               }
@@ -119,6 +123,10 @@ export const navbarList = [
             target: "_blank",
             _children: [
               {
+                _type: "template",
+                _name: "Demo "
+              },
+              {
                 _type: "nly-icon",
                 icon: "nlyfont nly-icon-project-manage"
               }
@@ -129,6 +137,10 @@ export const navbarList = [
             href: "https://nejinn.github.io/nly-adminlte-vue-demo",
             target: "_blank",
             _children: [
+              {
+                _type: "template",
+                _name: "打赏 "
+              },
               {
                 _type: "nly-icon",
                 icon: "nlyfont nly-icon-dashang"

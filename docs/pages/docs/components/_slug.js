@@ -20,7 +20,6 @@ export default {
     return Boolean(componentsMeta[params.slug]);
   },
   async asyncData({ params }) {
-    console.log(111, params);
     const readme = (await getReadMe(params.slug)).default;
     const meta = componentsMeta[params.slug];
     return { meta, readme };

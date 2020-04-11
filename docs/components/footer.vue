@@ -1,18 +1,18 @@
 <template>
   <footer :class="['bd-footer', 'text-muted', { 'docs-border': isDocs }]">
-    <b-container>
-      <b-row class="justify-content-center">
-        <b-col cols="12" sm order-sm="3" class="text-center text-sm-right">
+    <nly-container>
+      <nly-row class="justify-content-center">
+        <nly-col cols="12" sm order-sm="3" class="text-center text-sm-right">
           <b-img
             src="~static/logo.svg"
             class="mb-4 mt-0 mt-sm-4"
-            alt="BootstrapVue logo"
+            alt="nly-adminlte-vue logo"
             width="100"
             fluid
           ></b-img>
-        </b-col>
+        </nly-col>
 
-        <b-col cols="auto" md="4" class="text-left">
+        <nly-col cols="auto" md="4" class="text-left">
           <h5 class="bd-text-purple-bright mb-1">Documentation</h5>
           <ul class="list-unstyled ml-3">
             <li><nly-link to="/" exact>Home</nly-link></li>
@@ -24,9 +24,9 @@
             <li><nly-link to="/docs/misc" exact>Miscellaneous</nly-link></li>
             <li><nly-link to="/play" exact>Playground</nly-link></li>
           </ul>
-        </b-col>
+        </nly-col>
 
-        <b-col cols="auto" class="text-left">
+        <nly-col cols="auto" class="text-left">
           <h5 class="bd-text-purple-bright mb-1">Community</h5>
           <ul class="list-unstyled ml-3">
             <li>
@@ -54,14 +54,14 @@
               >
             </li>
           </ul>
-          <h5 class="bd-text-purple-bright mb-1 mt-3">Release notes</h5>
+          <h5 class="bd-text-purple-bright mnly-1 mt-3">Release notes</h5>
           <ul class="list-unstyled ml-3">
             <li>
               <nly-link to="/docs/misc/changelog" exact>Changelog</nly-link>
             </li>
           </ul>
-        </b-col>
-      </b-row>
+        </nly-col>
+      </nly-row>
 
       <hr />
 
@@ -93,7 +93,7 @@
           ></template
         >.
       </p>
-    </b-container>
+    </nly-container>
   </footer>
 </template>
 

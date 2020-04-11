@@ -1,5 +1,4 @@
 import { parseReadme } from "~/utils";
-import CarbonAd from "~/components/carbon-ad";
 import Main from "~/components/main";
 import QuickLinks from "~/components/quick-links";
 import Section from "~/components/section";
@@ -27,7 +26,6 @@ export default {
   name: "BDVDocs",
   layout: "docs",
   components: {
-    CarbonAd,
     Main,
     QuickLinks,
     Section
@@ -70,7 +68,6 @@ export default {
   template: `
     <Main>
       <Section tag="header">${titleLead}</Section>
-      <CarbonAd key="ad-/docs"></CarbonAd>
       <QuickLinks key="quick-/docs"></QuickLinks>
       <Section>${body}</Section>
     </Main>`

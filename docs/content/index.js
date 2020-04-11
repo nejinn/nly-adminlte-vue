@@ -37,24 +37,24 @@ export const misc = importAll(miscContext);
 
 export const nav = [
   {
-    title: "Getting started",
+    title: "开始",
     base: "",
     exact: true
   },
   {
-    title: "Components",
+    title: "components",
     base: "components/",
     pages: components,
     description: "BootstrapVue components and component group plugins"
   },
   {
-    title: "Directives",
+    title: "directives",
     base: "directives/",
     pages: directives,
     description: "BootstrapVue directives and directive group plugins"
   },
   {
-    title: "Icons",
+    title: "图标",
     base: "icons",
     version: "2.3.0",
     description: "BootstrapVue icons"

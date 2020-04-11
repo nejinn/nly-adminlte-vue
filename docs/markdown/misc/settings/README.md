@@ -28,8 +28,8 @@ not defined in the default will generate a console warning.
 
 When you `Vue.use(BootstrapVue)`, you can optionally pass a configuration object which specifies new
 values to replace the default values. For example if you wish to define new breakpoint names (which
-will generate appropriate properties on components such as `<b-col>` and `<b-form-group>`), so that
-the new breakpoints are `['aa', 'bb', 'cc', 'dd']` then `<b-col>` will now have `bb`, `cc`, and `dd`
+will generate appropriate properties on components such as `<nly-col>` and `<b-form-group>`), so that
+the new breakpoints are `['aa', 'bb', 'cc', 'dd']` then `<nly-col>` will now have `bb`, `cc`, and `dd`
 props instead of `sm`, `md`, `lg` and `xl` props (Similar for the `label-cols-{breakpoint}` and
 `label-align-{breakpoint}`props on `<b-form-group>`):
 

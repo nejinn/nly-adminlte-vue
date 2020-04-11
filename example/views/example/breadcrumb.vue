@@ -92,7 +92,8 @@ export default {
         {
           text: "home",
           to: "/",
-          icon: "nlyfont nly-icon-home-fill"
+          icon: "nlyfont nly-icon-home-fill",
+          linkClass: "text-danger"
         },
         {
           text: "collapse",

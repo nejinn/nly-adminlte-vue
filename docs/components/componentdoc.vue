@@ -31,7 +31,7 @@
           <nly-badge
             tag="a"
             v-if="componentFunctional"
-            variant="pink"
+            bg-variant="pink"
             target="_blank"
             href="https://vuejs.org/v2/guide/render-function.html#Functional-Components"
           >
@@ -98,7 +98,7 @@
           <div class="alert alert-info">
             <p class="mb-0 small">
               Note: component aliases are only available when importing all of
-              BootstrapVue or using the component group plugin.
+              nly-adminlte-vue or using the component group plugin.
             </p>
           </div>
         </nly-card-body>
@@ -114,67 +114,75 @@
           >
             prop参数
           </nly-anchored-heading>
-          <nly-table
-            :items="propsItems"
-            :fields="propsFields"
-            primary-key="prop"
-            table-class="bv-docs-table"
-            responsive="sm"
-            sort-icon-left
-            bordered
-            striped
-          >
-            <template v-slot:cell(prop)="{ value, item }">
-              <code class="text-nowrap notranslate" translate="no">{{
-                value
-              }}</code
-              ><br />
-              <nly-badge v-if="item.required" variant="info"
-                >Required</nly-badge
-              >
-              <nly-badge
-                v-if="item.settings"
-                variant="dark"
-                href="/docs/misc/settings"
-                title="Configurable in settings"
-                >Settings</nly-badge
-              >
-              <nly-badge v-if="item.version" variant="secondary"
-                >v{{ item.version }}+</nly-badge
-              >
-              <nly-badge v-if="item.isVModel" variant="primary"
-                >v-model</nly-badge
-              >
-              <nly-badge v-if="item.xss" variant="warning"
-                >Use with caution</nly-badge
-              >
-              <nly-badge v-if="item.deprecated" variant="danger"
-                >Deprecated</nly-badge
-              >
-              <nly-badge v-else-if="item.deprecation" variant="warning"
-                >Deprecation</nly-badge
-              >
-            </template>
-            <template v-slot:cell(type)="{ value }">
-              <span v-html="value"></span>
-            </template>
-            <template v-slot:cell(defaultValue)="{ value }">
-              <code
-                v-if="value"
-                class="word-wrap-normal notranslate"
-                translate="no"
-                >{{ value }}</code
-              >
-            </template>
-            <template v-slot:row-details="{ item }">
-              <p v-if="typeof item.deprecated === 'string'" class="mb-1 small">
-                {{ item.deprecated }}
-              </p>
-              <p v-if="typeof item.deprecation === 'string'" class="mb-1 small">
-                {{ item.deprecation }}
-              </p>
-            </template>
-          </nly-table>
+          <div class="table-responsive">
+            <nly-table
+              :items="propsItems"
+              :fields="propsFields"
+              primary-key="prop"
+              table-class="bv-docs-table"
+              responsive="sm"
+              sort-icon-left
+              bordered
+              striped
+            >
+              <template v-slot:cell(prop)="{ value, item }">
+                <code class="text-nowrap notranslate" translate="no">{{
+                  value
+                }}</code
+                ><br />
+                <nly-badge v-if="item.required" variant="info"
+                  >Required</nly-badge
+                >
+                <nly-badge
+                  v-if="item.settings"
+                  variant="dark"
+                  href="/docs/misc/settings"
+                  title="Configurable in settings"
+                  >Settings</nly-badge
+                >
+                <nly-badge v-if="item.version" variant="secondary"
+                  >v{{ item.version }}+</nly-badge
+                >
+                <nly-badge v-if="item.isVModel" variant="primary"
+                  >v-model</nly-badge
+                >
+                <nly-badge v-if="item.xss" variant="warning"
+                  >Use with caution</nly-badge
+                >
+                <nly-badge v-if="item.deprecated" variant="danger"
+                  >Deprecated</nly-badge
+                >
+                <nly-badge v-else-if="item.deprecation" variant="warning"
+                  >Deprecation</nly-badge
+                >
+              </template>
+              <template v-slot:cell(type)="{ value }">
+                <span v-html="value"></span>
+              </template>
+              <template v-slot:cell(defaultValue)="{ value }">
+                <code
+                  v-if="value"
+                  class="word-wrap-normal notranslate"
+                  translate="no"
+                  >{{ value }}</code
+                >
+              </template>
+              <template v-slot:row-details="{ item }">
+                <p
+                  v-if="typeof item.deprecated === 'string'"
+                  class="mb-1 small"
+                >
+                  {{ item.deprecated }}
+                </p>
+                <p
+                  v-if="typeof item.deprecation === 'string'"
+                  class="mb-1 small"
+                >
+                  {{ item.deprecation }}
+                </p>
+              </template>
+            </nly-table>
+          </div>
           <div v-if="hasRouterProps" class="alert alert-info">
             <p class="mb-0 small">
               <code class="notranslate" translate="no">{{ tag }}</code> supports
@@ -653,13 +661,13 @@ export default {
       return `<${this.componentName}>`;
     },
     githubURL() {
-      const name = this.componentName.replace(/^b-/, "");
+      const name = this.componentName.replace(/^nly-/, "");
       if (name.indexOf("{") !== -1) {
         // Example component (most likely an auto generated component)
         return "";
       }
       const base =
-        "https://github.com/bootstrap-vue/bootstrap-vue/tree/dev/src/components";
+        "https://github.com/nejinn/nly-adminlte-vue/tree/master/src/components";
       const slug = this.$route.params.slug;
       // Always point to the `.js` file (which may import a `.vue` file)
       return `${base}/${slug}/${name}.js`;

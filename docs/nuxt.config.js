@@ -122,7 +122,7 @@ renderer.heading = function(text, level, raw, slugger) {
     ANCHOR_LINK_HEADING_LEVELS.indexOf(level) !== -1
       ? `<a class="anchorjs-link" href="#${link}" aria-labelledby="${link}"></a>`
       : "";
-  const attrs = `id="${link}" class="bv-no-focus-ring"`;
+  const attrs = `id="${link}" class="nly-no-focus-ring"`;
   return `<h${level} ${attrs}>${getTextMarkup(text + anchor)}</h${level}>\n`;
 };
 
@@ -138,7 +138,7 @@ renderer.table = function() {
   table = table
     .replace(
       "<table>",
-      '<table class="b-table table table-bordered table-striped bv-docs-table">'
+      '<table class="nly-table table table-bordered table-striped bv-docs-table">'
     )
     .replace("<thead>", '<thead class="thead-default">');
   return `<div class="table-responsive-sm">${table}</div>`;
@@ -237,9 +237,9 @@ module.exports = {
         // Add BootstrapVue specific component asset items
         "b-img": "src",
         "b-img-lazy": ["src", "blank-src"],
-        "b-card": "img-src",
-        "b-card-img": "src",
-        "b-card-img-lazy": ["src", "blank-src"],
+        "nly-card": "img-src",
+        "nly-card-img": "src",
+        "nly-card-img-lazy": ["src", "blank-src"],
         "b-carousel-slide": "img-src",
         "b-embed": "src"
       };
@@ -254,21 +254,13 @@ module.exports = {
   pwa: {
     icon: {
       // iconFileName: 'icon.png',
-      iconSrc: "~/static/icon.png"
+      iconSrc: "../static/icon.png"
     },
     manifest: {
-      name: "BootstrapVue",
-      short_name: "BootstrapVue",
-      description: "Quickly integrate Bootstrap v4 components with Vue.js",
-      theme_color: "#563d7c"
-    },
-    meta: {
-      // `ogHost` is required for `og:image` to be populated
-      ogHost: "https://bootstrap-vue.js.org",
-      ogImage: true,
-      twitterCard: "summary",
-      twitterSite: "@BootstrapVue",
-      twitterCreator: "@BootstrapVue"
+      name: "NlyAdminlteVue",
+      short_name: "NlyAdminlteVue",
+      description: "一个Adminlte3的Vue2.js组件库",
+      theme_color: "#007bff"
     }
   },
 
@@ -291,12 +283,12 @@ module.exports = {
   buildModules: ["@nuxtjs/google-analytics"],
   modules: ["@nuxtjs/pwa"],
 
-  "google-analytics": {
-    id: "UA-89526435-1",
-    autoTracking: {
-      exception: true
-    }
-  },
+  //   "google-analytics": {
+  //     id: "UA-89526435-1",
+  //     autoTracking: {
+  //       exception: true
+  //     }
+  //   },
 
   head: {
     meta: [{ "http-equiv": "X-UA-Compatible", content: "IE=edge" }],
@@ -314,7 +306,7 @@ module.exports = {
     "codemirror/lib/codemirror.css",
     "../example/assets/adminlte/css/adminlte.css",
     // "../scripts/index.scss", // BootstrapVue SCSS
-    "./assets/css/docs.min.css",
-    "./assets/scss/styles.scss"
+    "./assets/css/docs.min.css"
+    // "~/assets/scss/index.scss"
   ]
 };

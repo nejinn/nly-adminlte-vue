@@ -1,10 +1,10 @@
 <template>
   <section
     v-if="components.length > 0 || directives.length > 0"
-    class="content"
+    class="bd-content"
   >
     <template v-if="components.length > 0">
-      <article class="content">
+      <article class="bd-content">
         <nly-anchored-heading id="importing-individual-components" level="3">
           单个组件导入
         </nly-anchored-heading>

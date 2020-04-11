@@ -1,20 +1,20 @@
 <template>
   <nav
-    :class="['bd-quick-links', 'mb-3', 'd-xl-none', { 'd-none': !hasContent }]"
+    :class="['bd-quick-links', 'mb-3', { 'd-none': !hasContent }]"
     :aria-hidden="hasContent ? null : 'true'"
   >
     <header v-if="hasContent">
-      <b-button
-        v-b-toggle.bd-quick-links-collapse
+      <nly-button
+        v-nly-toggle.bd-quick-links-collapse
         class="font-weight-bold"
-        variant="outline-secondary"
+        variant="outlineSecondary"
         size="sm"
         block
       >
         {{ toogleText }}
-      </b-button>
+      </nly-button>
     </header>
-    <b-collapse
+    <nly-collapse
       v-if="hasContent"
       id="bd-quick-links-collapse"
       v-model="expanded"
@@ -32,7 +32,7 @@
           </li>
         </ul>
       </li>
-    </b-collapse>
+    </nly-collapse>
   </nav>
 </template>
 
@@ -68,7 +68,7 @@ export default {
       return !!this.toc.toc;
     },
     toogleText() {
-      return `${this.expanded ? "Hide" : "Show"} page table of contents`;
+      return `${this.expanded ? "收起" : "展开"} 文档目录`;
     }
   },
   created() {

@@ -1,69 +1,67 @@
 <template>
-  <b-container fluid tag="main" class="pb-5">
+  <nly-container fluid tag="main" class="pnly-5">
     <!-- Introduction -->
     <div class="bd-content mb-4">
       <h1>
         <span class="bd-content-title">{{ title }}</span>
       </h1>
-      <b-row align-v="center">
-        <b-col>
+      <nly-row row-class="align-items-center">
+        <nly-col>
           <p class="bd-lead">
             Here you can interactively play and test components with a fresh
             Vue.js instance. Please refer to the
             <nly-link to="/docs">Docs</nly-link> section for more information
             about available components and usage.
           </p>
-        </b-col>
-        <b-col lg="auto">
-          <BVCarbonAd class="my-3 my-lg-1"></BVCarbonAd>
-        </b-col>
-      </b-row>
+        </nly-col>
+        <nly-col lg="auto"> </nly-col>
+      </nly-row>
     </div>
 
     <!-- Compiler loading state -->
-    <b-row v-if="loading">
-      <b-col class="mb-2 mb-md-0">
+    <nly-row v-if="loading">
+      <nly-col class="mb-2 mb-md-0">
         <!-- Loading indicator -->
         <b-alert variant="info" class="text-center" show>
           Loading JavaScript compiler...
         </b-alert>
-      </b-col>
-    </b-row>
+      </nly-col>
+    </nly-row>
 
     <!-- Transpiler warning -->
-    <b-container v-if="ready && needsTranspiler">
-      <b-row>
-        <b-col>
-          <b-alert variant="info" class="mb-3" show fade dismissible>
+    <nly-container v-if="ready && needsTranspiler">
+      <nly-row>
+        <nly-col>
+          <nly-alert variant="info" class="mnly-3" show fade dismissible>
             Your browser does not support modern ES6 JavaScript syntax. However,
             the code in the JavaScipt editor will be transpiled to work with
             your browser, except for any ES6 code that is in the Template editor
             (i.e. destructuring, arrow functions, etc.)
-          </b-alert>
-        </b-col>
-      </b-row>
-    </b-container>
+          </nly-alert>
+        </nly-col>
+      </nly-row>
+    </nly-container>
 
     <!-- Actions -->
-    <b-row>
-      <b-col class="mb-2 mb-md-0">
+    <nly-row>
+      <nly-col class="mb-2 mb-md-0">
         <!-- Reset action -->
-        <b-btn
+        <nly-button
           size="sm"
           variant="danger"
           :disabled="isDefault || isBusy"
           @click="reset"
         >
           Reset to default
-        </b-btn>
-      </b-col>
+        </nly-button>
+      </nly-col>
 
       <!-- Export actions -->
-      <b-col md="auto" class="mt-2 mt-md-0">
+      <nly-col md="auto" class="mt-2 mt-md-0">
         <b class="d-block d-sm-inline-block mr-sm-2 mb-1 mb-sm-0">Export to</b>
 
         <!-- Export to CodePen -->
-        <b-form
+        <nly-form
           class="d-inline-block mr-1 notranslate"
           translate="no"
           method="post"
@@ -71,13 +69,13 @@
           target="_blank"
         >
           <input type="hidden" name="data" :value="codepenData" />
-          <b-btn size="sm" type="submit" :disabled="!isOk || isBusy"
-            >CodePen</b-btn
+          <nly-button size="sm" type="submit" :disabled="!isOk || isBusy"
+            >CodePen</nly-button
           >
-        </b-form>
+        </nly-form>
 
         <!-- Export to CodeSandbox -->
-        <b-form
+        <nly-form
           class="d-inline-block mr-1 notranslate"
           translate="no"
           method="post"
@@ -85,13 +83,13 @@
           target="_blank"
         >
           <input type="hidden" name="parameters" :value="codesandboxData" />
-          <b-btn size="sm" type="submit" :disabled="!isOk || isBusy"
-            >CodeSandbox</b-btn
+          <nly-button size="sm" type="submit" :disabled="!isOk || isBusy"
+            >CodeSandbox</nly-button
           >
-        </b-form>
+        </nly-form>
 
         <!-- Export to JSFiddle -->
-        <b-form
+        <nly-form
           class="d-inline-block notranslate"
           translate="no"
           method="post"
@@ -109,46 +107,56 @@
           />
           <input type="hidden" name="css" :value="exportData.css" />
           <input type="hidden" name="js_wrap" value="l" />
-          <b-btn size="sm" type="submit" :disabled="!isOk || isBusy"
-            >JSFiddle</b-btn
+          <nly-button size="sm" type="submit" :disabled="!isOk || isBusy"
+            >JSFiddle</nly-button
           >
-        </b-form>
-      </b-col>
-    </b-row>
+        </nly-form>
+      </nly-col>
+    </nly-row>
 
     <!-- Editors / Result / Console -->
     <transition-group tag="div" class="row" name="flip">
       <!-- Left/Top column -->
-      <b-col key="A" :cols="full ? 12 : null">
+      <nly-col key="A" :cols="full ? 12 : null">
         <transition-group tag="div" class="row" name="flip">
           <!-- Template column -->
-          <b-col key="A1" :md="vertical && !full ? 6 : 12" sm="12" class="mt-3">
+          <nly-col
+            key="A1"
+            :md="vertical && !full ? '6' : '12'"
+            sm="12"
+            class="mt-3"
+          >
             <!-- Template -->
-            <b-card no-body header-tag="header">
+            <nly-card tag="header">
               <template v-slot:header>
                 <div class="d-flex justify-content-between align-items-center">
                   <h5 class="mb-0">
                     <span class="notranslate" translate="no">Template</span>
                   </h5>
-                  <b-btn
+                  <nly-button
                     size="sm"
                     variant="outline-info"
                     class="d-none d-md-inline-block"
                     @click="toggleFull"
                   >
                     <span>{{ full ? "Split" : "Full" }}</span>
-                  </b-btn>
+                  </nly-button>
                 </div>
               </template>
 
               <BVCodeMirror v-model="html" mode="htmlmixed"></BVCodeMirror>
-            </b-card>
-          </b-col>
+            </nly-card>
+          </nly-col>
 
           <!-- JavaScript column -->
-          <b-col key="A2" :md="vertical && !full ? 6 : 12" sm="12" class="mt-3">
+          <nly-col
+            key="A2"
+            :md="vertical && !full ? '6' : '12'"
+            sm="12"
+            class="mt-3"
+          >
             <!-- JavaScript -->
-            <b-card no-body header-tag="header">
+            <nly-card tag="header">
               <template v-slot:header>
                 <div class="d-flex justify-content-between align-items-center">
                   <h5 class="mb-0">
@@ -157,31 +165,31 @@
                       compiling</small
                     >
                   </h5>
-                  <b-btn
+                  <nly-button
                     size="sm"
-                    variant="outline-info"
+                    variant="outlineInfo"
                     class="d-none d-md-inline-block"
                     @click="toggleFull"
                   >
                     <span>{{ full ? "Split" : "Full" }}</span>
-                  </b-btn>
+                  </nly-button>
                 </div>
               </template>
 
               <BVCodeMirror v-model="js" mode="javascript"></BVCodeMirror>
-            </b-card>
-          </b-col>
+            </nly-card>
+          </nly-col>
         </transition-group>
-      </b-col>
+      </nly-col>
 
       <!-- Right/bottom column -->
-      <b-col key="B" :md="vertical || full ? 12 : 6" sm="12">
-        <b-row>
+      <nly-col key="B" :md="vertical || full ? '12' : '6'" sm="12">
+        <nly-row>
           <!-- Result column -->
-          <b-col cols="12" class="mt-3">
+          <nly-col xs="12" class="mt-3">
             <!-- Result -->
-            <b-card no-body class="play-result" header-tag="header">
-              <template v-slot:header>
+            <nly-card class="play-result" tag="header">
+              <nly-card-header>
                 <div class="d-flex justify-content-between align-items-center">
                   <h5 class="mb-0">
                     <span>Result</span>
@@ -189,45 +197,45 @@
                       building</small
                     >
                   </h5>
-                  <b-btn
+                  <nly-button
                     v-if="!full"
                     size="sm"
-                    variant="outline-info"
+                    variant="outlineInfo"
                     class="d-none d-md-inline-block"
                     @click="toggleVertical"
                   >
                     <span>{{ vertical ? "Horizontal" : "Vertical" }}</span>
-                  </b-btn>
+                  </nly-button>
                 </div>
-              </template>
+              </nly-card-header>
 
-              <b-card-body
+              <nly-card-body
                 ref="result"
                 class="play-result-body notranslate"
                 translate="no"
-              ></b-card-body>
-            </b-card>
-          </b-col>
+              ></nly-card-body>
+            </nly-card>
+          </nly-col>
 
           <!-- Console column -->
-          <b-col cols="12" class="mt-3 notranslate" translate="no">
+          <nly-col xs="12" class="mt-3 notranslate" translate="no">
             <!-- Console -->
-            <b-card no-body header-tag="header">
-              <template v-slot:header>
+            <nly-card no-body header-tag="header">
+              <nly-card-header>
                 <div class="d-flex justify-content-between align-items-center">
                   <h5 class="mb-0">
                     <span>Console log</span>
                   </h5>
-                  <b-btn
+                  <nly-button
                     :disabled="messages.length === 0"
                     size="sm"
                     variant="outline-danger"
                     @click="clear"
                   >
                     <span>Clear</span>
-                  </b-btn>
+                  </nly-button>
                 </div>
-              </template>
+              </nly-card-header>
 
               <transition-group
                 tag="ul"
@@ -242,7 +250,7 @@
                   :key="`console-${msg[2]}`"
                   class="py-2 d-flex"
                 >
-                  <b-badge
+                  <nly-badge
                     :variant="msg[0]"
                     class="mr-1"
                     style="font-size:90%;"
@@ -254,7 +262,7 @@
                         ? "warn"
                         : "log"
                     }}
-                  </b-badge>
+                  </nly-badge>
                   <span
                     :class="[
                       `text-${msg[0]}`,
@@ -267,12 +275,12 @@
                   >
                 </b-list-group-item>
               </transition-group>
-            </b-card>
-          </b-col>
-        </b-row>
-      </b-col>
+            </nly-card>
+          </nly-col>
+        </nly-row>
+      </nly-col>
     </transition-group>
-  </b-container>
+  </nly-container>
 </template>
 
 <style scoped>
@@ -315,23 +323,22 @@ import debounce from "lodash/debounce";
 import { getParameters as getCodeSandboxParameters } from "codesandbox/lib/api/define";
 import needsTranspiler from "~/utils/needs-transpiler";
 import { version as bootstrapVueVersion, vueVersion } from "~/content";
-import BVCarbonAd from "~/components/carbon-ad";
 import BVCodeMirror from "~/components/code-mirror";
 
 // --- Constants ---
 
 const DEFAULT_HTML = `<div>
-  <b-button size="sm" @click="toggle">
+  <nly-button variant='warning' size="sm" @click="toggle">
     {{ show ? 'Hide' : 'Show' }} Alert
-  </b-button>
-  <b-alert
+  </nly-button>
+  <nly-alert
     v-model="show"
     class="mt-3"
     dismissible
     @dismissed="dismissed"
   >
     Hello {{ name }}!
-  </b-alert>
+  </nly-alert>
 </div>`;
 
 const DEFAULT_JS = `{
@@ -386,7 +393,6 @@ const indent = (value, count = 2, { indent } = { indent: " " }) => {
 
 export default {
   components: {
-    BVCarbonAd,
     BVCodeMirror
   },
   data() {
