@@ -1743,7 +1743,7 @@ svg {
 	font-weight: 600;
 }
 .bd-code pre.editable::after {
-	content: '(Double click to edit)';
+	content: '(双击编辑)';
 	top: 5px;
 	right: 10px;
 }
@@ -1753,7 +1753,7 @@ svg {
 	cursor: pointer;
 }
 .bd-code pre.editable.live::after {
-	content: 'Live';
+	content: '运行在';
 }
 .bd-code pre.editable.error {
 	border: 1px solid #dc3545;

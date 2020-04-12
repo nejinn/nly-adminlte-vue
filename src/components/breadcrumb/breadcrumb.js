@@ -39,42 +39,13 @@ export const NlyBreadcrumb = Vue.extend({
       });
     }
 
-    return h("ol", mergeData(data, { staticClass: "breadcrumb" }), childNodes);
+    return h(
+      "ol",
+      mergeData(data, {
+        staticClass: "breadcrumb",
+        class: [props.breadcrumbClass]
+      }),
+      childNodes
+    );
   }
-  //   computed: {
-  //     customProps: function() {
-  //       return {
-  //         item: this.item,
-  //         breadcrumbClass: this.breadcrumbClass
-  //       };
-  //     }
-  //   },
-  //   render(h) {
-  //     console.log(Array.isArray(this.customProps.item));
-  //     const itemVnodes = () => {
-  //       const itemArray = [];
-  //       if (this.customProps.item) {
-  //         this.customProps.item.forEach(itemProps => {
-  //           itemArray.push(
-  //             h(NlyBreadcrumbItem, {
-  //               props: itemProps
-  //             })
-  //           );
-  //         });
-  //       } else {
-  //         itemArray.push(this.$slots.default);
-  //       }
-
-  //       return itemArray;
-  //     };
-
-  //     return h(
-  //       "ol",
-  //       {
-  //         staticClass: "breadcrumb",
-  //         class: [this.customProps.breadcrumbClass]
-  //       },
-  //       itemVnodes()
-  //     );
-  //   }
 });

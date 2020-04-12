@@ -30,6 +30,7 @@ import { renderFunctionPlugin } from "./render-function";
 import { paginationPlugin } from "./pagination";
 import { formPlguin } from "./form";
 import { logPlugin } from "./log";
+import { listGroupPlugin } from "./list-group";
 
 export const componentsPlugin = nlyPluginFactory({
   plugins: {
@@ -62,6 +63,7 @@ export const componentsPlugin = nlyPluginFactory({
     renderFunctionPlugin,
     paginationPlugin,
     formPlguin,
-    logPlugin
+    logPlugin,
+    listGroupPlugin
   }
 });
