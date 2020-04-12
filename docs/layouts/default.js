@@ -1,8 +1,8 @@
-import Footer from "~/components/footer";
-import NlyHeader from "../components/NlyHeader";
+import NlyDocsFooter from "../components/NlyDocsFooter";
+import NlyDocsHeader from "../components/NlyDocsHeader";
 
 export default {
-  name: "BVDefaultLayout",
+  name: "NlyDocsDefaultLayout",
   functional: true,
-  render: h => [h(NlyHeader), h("nuxt"), h(Footer)]
+  render: h => [h(NlyDocsHeader), h("nuxt"), h(NlyDocsFooter)]
 };

@@ -1,7 +1,7 @@
 import { parseReadme } from "~/utils";
-import Main from "~/components/main";
-import QuickLinks from "~/components/quick-links";
-import Section from "~/components/section";
+import NlyDocsMain from "../../components/nly-docs-main";
+import NlyDocsQuickLinks from "../../components/NlyDocsQuickLinks";
+import NlyDocsSection from "~/components/nly-docs-section";
 import docsMixin from "~/plugins/docs-mixin";
 import {
   defaultConfig,
@@ -26,9 +26,9 @@ export default {
   name: "BDVDocs",
   layout: "docs",
   components: {
-    Main,
-    QuickLinks,
-    Section
+    NlyDocsMain,
+    NlyDocsQuickLinks,
+    NlyDocsSection
   },
   mixins: [docsMixin],
   data() {
@@ -66,9 +66,9 @@ export default {
   },
   // We use a string template here so that the docs README can do interpolation
   template: `
-    <Main>
-      <Section tag="header">${titleLead}</Section>
-      <QuickLinks key="quick-/docs"></QuickLinks>
-      <Section>${body}</Section>
-    </Main>`
+    <NlyDocsMain>
+      <NlyDocsSection tag="header">${titleLead}</NlyDocsSection>
+      <NlyDocsQuickLinks key="quick-/docs"></NlyDocsQuickLinks>
+      <NlyDocsSection>${body}</NlyDocsSection>
+    </NlyDocsMain>`
 };

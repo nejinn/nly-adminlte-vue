@@ -55,7 +55,7 @@
 import { offsetTop, scrollTo } from "~/utils";
 
 export default {
-  name: "BVQuickLinks",
+  name: "NlyDocsQuickLinks",
   data() {
     return {
       toc: {},

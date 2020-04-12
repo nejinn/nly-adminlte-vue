@@ -4,23 +4,34 @@ const navLookup = nav.reduce(
   {}
 );
 
-const name = "NlyBreadcrumbs";
+const name = "NlyDocsBreadcrumbs";
 export default {
   name: name,
   computed: {
     items() {
       const items = [
-        { text: "Home", to: "/" },
-        { text: "Docs", to: "/docs" }
+        { text: "首页", to: "/", icon: "nlyfont nly-icon-breadcrumb-fill" },
+        { text: "文档", to: "/docs", icon: "nlyfont nly-icon-news-fill" }
       ];
 
       const section = this.$route.name.split("-")[1] || "";
       if (section) {
         const sectionMeta = navLookup[section] || {};
+        const sectionIcon =
+          (sectionMeta.title || section) === "组件"
+            ? "nlyfont nly-icon-logo-pinterest"
+            : (sectionMeta.title || section) === "指令"
+            ? "nlyfont nly-icon-analytics"
+            : (sectionMeta.title || section) === "主题设置"
+            ? "nlyfont nly-icon-color-palette"
+            : (sectionMeta.title || section) === "其他"
+            ? "nlyfont nly-icon-filing"
+            : "nlyfont nly-icon-logo-codepen";
 
         items.push({
           text: sectionMeta.title || section,
-          to: ["/docs", section].join("/")
+          to: ["/docs", section].join("/"),
+          icon: sectionIcon
         });
 
         const slug = this.$route.params.slug || "";

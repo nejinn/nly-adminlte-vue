@@ -20,7 +20,7 @@
 
 <script>
 import { navbarList } from "./config/header-navbar";
-const name = "NlyAdminlteVueDocsHeader";
+const name = "NlyDocsHeader";
 export default {
   name: name,
   data() {

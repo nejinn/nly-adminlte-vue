@@ -5,7 +5,7 @@
     aria-label="Main navigation"
   >
     <nly-link to="/" exact router-tag="div" active-class="active">
-      <nly-link to="/" exact class="bd-toc-link" active-class="">Home</nly-link>
+      <nly-link to="/" exact class="bd-toc-link" active-class="">首页</nly-link>
     </nly-link>
 
     <nly-link
@@ -98,7 +98,7 @@
 
     <nly-link to="/play" exact router-tag="div" active-class="active">
       <nly-link to="/play" exact class="bd-toc-link" active-class=""
-        >Playground</nly-link
+        >在线测试代码</nly-link
       >
     </nly-link>
   </nav>
@@ -108,7 +108,7 @@
 import { nav } from "~/content";
 
 export default {
-  name: "BVSidebar",
+  name: "NlyDocsSidebar",
   data() {
     return { nav };
   },

@@ -2,7 +2,7 @@
  * docs-mixin: used by any page under /docs path
  */
 import { makeTOC, scrollTo, offsetTop } from "~/utils";
-import { bvDescription, nav } from "~/content";
+import { NlyDocsDescription, nav } from "~/content";
 
 const TOC_CACHE = {};
 
@@ -42,7 +42,7 @@ export default {
           ? this.meta.description
           : sectionMeta && sectionMeta.description
           ? sectionMeta.description
-          : bvDescription;
+          : NlyDocsDescription;
       const meta = [
         {
           hid: "og:title",

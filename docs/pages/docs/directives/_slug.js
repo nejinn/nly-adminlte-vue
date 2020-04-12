@@ -1,7 +1,7 @@
-import NlyAnchoredHeading from "../../../components/NlyAnchoredHeading";
-import NlyImportDoc from "../../../components/NlyImportDoc";
-import MainDocs from "~/components/main-docs";
-import Section from "~/components/section";
+import NlyDocsAnchoredHeading from "../../../components/NlyDocsAnchoredHeading";
+import NlyDocsImportDoc from "../../../components/NlyDocsImportDoc";
+import NlyDocsMainDocs from "~/components/nly-docs-main-docs";
+import NlyDocsSection from "~/components/nly-docs-section";
 import docsMixin from "~/plugins/docs-mixin";
 import { directives as directivesMeta } from "~/content";
 
@@ -10,9 +10,9 @@ const getReadMe = name =>
     `~/../src/directives/${name}/README.md` /* webpackChunkName: "docs/directives" */
   );
 
-// @vue/component
+const name = "NlyDocsDirectives";
 export default {
-  name: "BDVDirectives",
+  name: name,
   layout: "docs",
   mixins: [docsMixin],
   validate({ params }) {
@@ -25,22 +25,22 @@ export default {
   },
   render(h) {
     const $referenceSection = h(
-      Section,
+      NlyDocsSection,
       { class: ["bd-component-reference"] },
       [
         // Heading
         h(
-          NlyAnchoredHeading,
+          NlyDocsAnchoredHeading,
           { props: { id: "directive-reference" } },
           "Directive reference"
         ),
         // Directive importing information
-        h(NlyImportDoc, { props: { meta: this.meta } })
+        h(NlyDocsImportDoc, { props: { meta: this.meta } })
       ]
     );
 
     return h(
-      MainDocs,
+      NlyDocsMainDocs,
       {
         staticClass: "bd-components",
         props: {

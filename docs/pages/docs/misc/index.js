@@ -1,9 +1,9 @@
-import SectionToc from '~/components/section-toc'
-import docsMixin from '~/plugins/docs-mixin'
+import NlyDocsSectionToc from "~/components/NlyDocsSectionToc";
+import docsMixin from "~/plugins/docs-mixin";
 
 // @vue/component
 export default {
-  name: 'BVDocsMiscIndex',
-  extends: SectionToc,
+  name: "NlyDocsMiscIndex",
+  extends: NlyDocsSectionToc,
   mixins: [docsMixin]
-}
+};

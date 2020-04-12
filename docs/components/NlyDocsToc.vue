@@ -1,5 +1,5 @@
 <template>
-  <nly-nav v-b-scrollspy="{ offset }" class="section-nav" vertical>
+  <nly-nav class="section-nav" vertical>
     <nly-nav-item
       v-if="toc.title && toc.top"
       :href="toc.top"
@@ -45,7 +45,7 @@
 import { offsetTop, scrollTo } from "~/utils";
 
 export default {
-  name: "BVToc",
+  name: "NlyDocsToc",
   data() {
     return {
       toc: {},

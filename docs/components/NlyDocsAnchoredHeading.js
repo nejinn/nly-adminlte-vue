@@ -1,6 +1,6 @@
 import { mergeData } from "vue-functional-data-merge";
 
-const name = "NlyAnchoredHeading";
+const name = "NlyDocsAnchoredHeading";
 export default {
   name: name,
   functional: true,

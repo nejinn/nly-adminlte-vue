@@ -1,12 +1,11 @@
-import Main from "~/components/main";
-import QuickLinks from "~/components/quick-links";
-import Section from "~/components/section";
+import NlyDocsMain from "~/components/nly-docs-main";
+import NlyDocsQuickLinks from "./NlyDocsQuickLinks";
+import NlyDocsSection from "~/components/nly-docs-section";
 import { parseReadme } from "~/utils";
 import { mergeData } from "vue-functional-data-merge";
 
-// @vue/component
 export default {
-  name: "BVMainDocs",
+  name: "NlyDocsMainDocs",
   functional: true,
   props: {
     tag: {
@@ -28,7 +27,7 @@ export default {
     const { version } = meta || {};
 
     // Lead section
-    const $leadSection = h(Section, {
+    const $leadSection = h(NlyDocsSection, {
       props: { tag: "header", play: false },
       domProps: { innerHTML: titleLead || "" }
     });
@@ -36,7 +35,7 @@ export default {
     // Available since section
     let $availableSinceSection = h();
     if (version) {
-      $availableSinceSection = h(Section, { props: { play: false } }, [
+      $availableSinceSection = h(NlyDocsSection, { props: { play: false } }, [
         h("p", { staticClass: "font-italic" }, [
           "Available in nly-adminlte-vue since ",
           h("code", { staticClass: "text-nowrap" }, `v${version}`)
@@ -45,15 +44,15 @@ export default {
     }
 
     // Quick links
-    const $quickLinks = h(QuickLinks);
+    const $quickLinks = h(NlyDocsQuickLinks);
 
     // Body section
-    const $bodySection = h(Section, {
+    const $bodySection = h(NlyDocsSection, {
       props: { play: true },
       domProps: { innerHTML: body || "" }
     });
 
-    return h(Main, mergeData(data, { props: { tag } }), [
+    return h(NlyDocsMain, mergeData(data, { props: { tag } }), [
       $leadSection,
       $availableSinceSection,
       $quickLinks,

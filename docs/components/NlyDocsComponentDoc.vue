@@ -19,12 +19,12 @@
               查看源码
             </nly-button>
           </nly-card-tool>
-          <nly-anchored-heading
+          <nly-docs-anchored-heading
             :id="`comp-ref-${componentNameClean}`"
             level="3"
           >
             <code class="notranslate bigger" translate="no">{{ tag }}</code>
-          </nly-anchored-heading>
+          </nly-docs-anchored-heading>
           <nly-badge v-if="version" variant="success"
             >v{{ version }}+</nly-badge
           >
@@ -77,13 +77,13 @@
         </ul>
 
         <nly-card-body v-if="aliases && aliases.length > 0" class="bd-content">
-          <nly-anchored-heading
+          <nly-docs-anchored-heading
             :id="`comp-ref-${componentName}-aliases`"
             level="4"
             class="mb-3"
           >
             Component aliases
-          </nly-anchored-heading>
+          </nly-docs-anchored-heading>
           <p>
             <code class="notranslate" translate="no">{{ tag }}</code> can also
             be used via the following aliases:
@@ -107,13 +107,13 @@
           v-if="propsItems && propsItems.length > 0"
           class="bd-content"
         >
-          <nly-anchored-heading
+          <nly-docs-anchored-heading
             :id="`comp-ref-${componentName}-props`"
             level="4"
             class="mb-3"
           >
             prop参数
-          </nly-anchored-heading>
+          </nly-docs-anchored-heading>
           <div class="table-responsive">
             <nly-table
               :items="propsItems"
@@ -228,13 +228,13 @@
         </nly-card-body>
 
         <article v-if="componentVModel" class="bd-content">
-          <nly-anchored-heading
+          <nly-docs-anchored-heading
             :id="`comp-ref-${componentName}-v-model`"
             level="4"
             class="mb-3"
           >
             <code class="notranslate" translate="no">v-model</code>
-          </nly-anchored-heading>
+          </nly-docs-anchored-heading>
           <nly-table-lite
             :items="[componentVModel]"
             :fields="[{ key: 'prop', label: 'Property' }, 'event']"
@@ -255,13 +255,13 @@
         </article>
 
         <article v-if="slots && slots.length > 0" class="bd-content">
-          <nly-anchored-heading
+          <nly-docs-anchored-heading
             :id="`comp-ref-${componentName}-slots`"
             level="4"
             class="mb-3"
           >
             Slots
-          </nly-anchored-heading>
+          </nly-docs-anchored-heading>
           <nly-table
             :items="slotsItems"
             :fields="slotsFields"
@@ -337,13 +337,13 @@
         </article>
 
         <article v-if="events && events.length > 0" class="bd-content">
-          <nly-anchored-heading
+          <nly-docs-anchored-heading
             :id="`comp-ref-${componentName}-events`"
             level="4"
             class="mb-3"
           >
             Events
-          </nly-anchored-heading>
+          </nly-docs-anchored-heading>
           <nly-table
             :items="events"
             :fields="eventsFields"
@@ -382,14 +382,14 @@
           v-if="rootEventListeners && rootEventListeners.length > 0"
           class="bd-content"
         >
-          <nly-anchored-heading
+          <nly-docs-anchored-heading
             :id="`comp-ref-${componentName}-rootEventListeners`"
             level="4"
             class="mb-3"
           >
             <code class="notranslate" translate="no">$root</code> event
             listeners
-          </nly-anchored-heading>
+          </nly-docs-anchored-heading>
           <p>
             You can control
             <code class="notranslate" translate="no">{{ tag }}</code> by
@@ -461,13 +461,13 @@ ul.component-ref-mini-toc:empty {
 import Vue from "vue";
 // Fallback descriptions for common props (mainly router-link props)
 import { kebabCase } from "../utils";
-import NlyAnchoredHeading from "./NlyAnchoredHeading";
+import NlyDocsAnchoredHeading from "./NlyDocsAnchoredHeading";
 
-const name = "NlyComponentDoc";
+const name = "NlyDocsComponentDoc";
 
 export default {
   name: name,
-  components: { NlyAnchoredHeading },
+  components: { NlyDocsAnchoredHeading },
   props: {
     component: {},
     srcComponent: {

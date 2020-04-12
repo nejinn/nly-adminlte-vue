@@ -1,15 +1,15 @@
 <template>
-  <Main>
-    <Section tag="header">
+  <NlyDocsMain>
+    <NlyDocsSection tag="header">
       <h1 :id="id" class="nly-no-focus-ring" tabindex="-1">
         <span class="bd-content-title">
           {{ groupTitle }}
-          <span class="small text-muted">- table of contents</span>
+          <span class="small text-muted">- 内容</span>
         </span>
       </h1>
       <p v-if="groupDescription" class="bd-lead">{{ groupDescription }}</p>
-    </Section>
-    <Section>
+    </NlyDocsSection>
+    <NlyDocsSection>
       <b-list-group
         tag="nav"
         :aria-label="`${groupTitle} section navigation`"
@@ -29,8 +29,8 @@
           >
         </b-list-group-item>
       </b-list-group>
-    </Section>
-  </Main>
+    </NlyDocsSection>
+  </NlyDocsMain>
 </template>
 
 <style scoped>
@@ -40,8 +40,8 @@
 </style>
 
 <script>
-import Main from "~/components/main";
-import Section from "~/components/section";
+import NlyDocsMain from "~/components/nly-docs-main";
+import NlyDocsSection from "~/components/nly-docs-section";
 import { nav } from "~/content";
 
 // Normalize nav into a lookup object
@@ -52,11 +52,11 @@ const groups = nav.reduce((obj, g) => {
 }, {});
 
 export default {
-  name: "BVSectionToc",
+  name: "NlyDocsSectionToc",
   layout: "docs",
   components: {
-    Main,
-    Section
+    NlyDocsMain,
+    NlyDocsSection
   },
   computed: {
     slug() {

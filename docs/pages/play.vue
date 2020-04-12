@@ -1,8 +1,8 @@
 <template>
-  <nly-container fluid tag="main" class="pnly-5">
+  <nly-container fluid tag="main" class="pb-5">
     <!-- Introduction -->
     <div class="bd-content mb-4">
-      <h1>
+      <h1 style="margin-top:">
         <span class="bd-content-title">{{ title }}</span>
       </h1>
       <nly-row row-class="align-items-center">
@@ -32,7 +32,7 @@
     <nly-container v-if="ready && needsTranspiler">
       <nly-row>
         <nly-col>
-          <nly-alert variant="info" class="mnly-3" show fade dismissible>
+          <nly-alert variant="info" class="mb-3" show fade dismissible>
             Your browser does not support modern ES6 JavaScript syntax. However,
             the code in the JavaScipt editor will be transpiled to work with
             your browser, except for any ES6 code that is in the Template editor
@@ -69,7 +69,11 @@
           target="_blank"
         >
           <input type="hidden" name="data" :value="codepenData" />
-          <nly-button size="sm" type="submit" :disabled="!isOk || isBusy"
+          <nly-button
+            size="sm"
+            type="submit"
+            :disabled="!isOk || isBusy"
+            bg-variant="pink"
             >CodePen</nly-button
           >
         </nly-form>
@@ -83,7 +87,11 @@
           target="_blank"
         >
           <input type="hidden" name="parameters" :value="codesandboxData" />
-          <nly-button size="sm" type="submit" :disabled="!isOk || isBusy"
+          <nly-button
+            size="sm"
+            type="submit"
+            :disabled="!isOk || isBusy"
+            bg-variant="orange"
             >CodeSandbox</nly-button
           >
         </nly-form>
@@ -107,7 +115,11 @@
           />
           <input type="hidden" name="css" :value="exportData.css" />
           <input type="hidden" name="js_wrap" value="l" />
-          <nly-button size="sm" type="submit" :disabled="!isOk || isBusy"
+          <nly-button
+            size="sm"
+            type="submit"
+            :disabled="!isOk || isBusy"
+            bg-variant="green"
             >JSFiddle</nly-button
           >
         </nly-form>
@@ -127,24 +139,28 @@
             class="mt-3"
           >
             <!-- Template -->
-            <nly-card tag="header">
-              <template v-slot:header>
+            <nly-card tag="header" height-control>
+              <nly-card-header>
                 <div class="d-flex justify-content-between align-items-center">
                   <h5 class="mb-0">
                     <span class="notranslate" translate="no">Template</span>
                   </h5>
                   <nly-button
                     size="sm"
-                    variant="outline-info"
+                    variant="outlineInfo"
                     class="d-none d-md-inline-block"
                     @click="toggleFull"
                   >
                     <span>{{ full ? "Split" : "Full" }}</span>
                   </nly-button>
                 </div>
-              </template>
-
-              <BVCodeMirror v-model="html" mode="htmlmixed"></BVCodeMirror>
+              </nly-card-header>
+              <nly-card-body>
+                <NlyDocsCodeMirror
+                  v-model="html"
+                  mode="htmlmixed"
+                ></NlyDocsCodeMirror>
+              </nly-card-body>
             </nly-card>
           </nly-col>
 
@@ -156,8 +172,8 @@
             class="mt-3"
           >
             <!-- JavaScript -->
-            <nly-card tag="header">
-              <template v-slot:header>
+            <nly-card tag="header" height-control>
+              <nly-card-header>
                 <div class="d-flex justify-content-between align-items-center">
                   <h5 class="mb-0">
                     <span class="notranslate" translate="no">JavaScript</span>
@@ -174,9 +190,14 @@
                     <span>{{ full ? "Split" : "Full" }}</span>
                   </nly-button>
                 </div>
-              </template>
+              </nly-card-header>
 
-              <BVCodeMirror v-model="js" mode="javascript"></BVCodeMirror>
+              <nly-card-body>
+                <NlyDocsCodeMirror
+                  v-model="js"
+                  mode="javascript"
+                ></NlyDocsCodeMirror>
+              </nly-card-body>
             </nly-card>
           </nly-col>
         </transition-group>
@@ -220,7 +241,7 @@
           <!-- Console column -->
           <nly-col xs="12" class="mt-3 notranslate" translate="no">
             <!-- Console -->
-            <nly-card no-body header-tag="header">
+            <nly-card tag="header" height-control>
               <nly-card-header>
                 <div class="d-flex justify-content-between align-items-center">
                   <h5 class="mb-0">
@@ -229,7 +250,7 @@
                   <nly-button
                     :disabled="messages.length === 0"
                     size="sm"
-                    variant="outline-danger"
+                    variant="outlineDanger"
                     @click="clear"
                   >
                     <span>Clear</span>
@@ -237,44 +258,49 @@
                 </div>
               </nly-card-header>
 
-              <transition-group
-                tag="ul"
-                name="flip-list"
-                class="list-group list-group-flush play-log"
-              >
-                <b-list-group-item v-if="!messages.length" key="empty-console">
-                  &nbsp;
-                </b-list-group-item>
-                <b-list-group-item
-                  v-for="msg in messages"
-                  :key="`console-${msg[2]}`"
-                  class="py-2 d-flex"
+              <nly-card-body>
+                <transition-group
+                  tag="ul"
+                  name="flip-list"
+                  class="list-group list-group-flush play-log"
                 >
-                  <nly-badge
-                    :variant="msg[0]"
-                    class="mr-1"
-                    style="font-size:90%;"
+                  <b-list-group-item
+                    v-if="!messages.length"
+                    key="empty-console"
                   >
-                    {{
-                      msg[0] === "danger"
-                        ? "error"
-                        : msg[0] === "warning"
-                        ? "warn"
-                        : "log"
-                    }}
-                  </nly-badge>
-                  <span
-                    :class="[
-                      `text-${msg[0]}`,
-                      'text-monospace',
-                      'small',
-                      'd-block'
-                    ]"
-                    style="white-space: pre-wrap;"
-                    >{{ msg[1] }}</span
+                    &nbsp;
+                  </b-list-group-item>
+                  <b-list-group-item
+                    v-for="msg in messages"
+                    :key="`console-${msg[2]}`"
+                    class="py-2 d-flex"
                   >
-                </b-list-group-item>
-              </transition-group>
+                    <nly-badge
+                      :variant="msg[0]"
+                      class="mr-1"
+                      style="font-size:90%;"
+                    >
+                      {{
+                        msg[0] === "danger"
+                          ? "error"
+                          : msg[0] === "warning"
+                          ? "warn"
+                          : "log"
+                      }}
+                    </nly-badge>
+                    <span
+                      :class="[
+                        `text-${msg[0]}`,
+                        'text-monospace',
+                        'small',
+                        'd-block'
+                      ]"
+                      style="white-space: pre-wrap;"
+                      >{{ msg[1] }}</span
+                    >
+                  </b-list-group-item>
+                </transition-group>
+              </nly-card-body>
             </nly-card>
           </nly-col>
         </nly-row>
@@ -283,7 +309,7 @@
   </nly-container>
 </template>
 
-<style scoped>
+<style>
 .play-result-body,
 .play-log {
   min-height: 300px;
@@ -323,7 +349,7 @@ import debounce from "lodash/debounce";
 import { getParameters as getCodeSandboxParameters } from "codesandbox/lib/api/define";
 import needsTranspiler from "~/utils/needs-transpiler";
 import { version as bootstrapVueVersion, vueVersion } from "~/content";
-import BVCodeMirror from "~/components/code-mirror";
+import NlyDocsCodeMirror from "../components/nly-docs-code-mirror";
 
 // --- Constants ---
 
@@ -393,7 +419,7 @@ const indent = (value, count = 2, { indent } = { indent: " " }) => {
 
 export default {
   components: {
-    BVCodeMirror
+    NlyDocsCodeMirror
   },
   data() {
     return {
@@ -414,7 +440,7 @@ export default {
   },
   computed: {
     title() {
-      return "Online Playground";
+      return "在线测试nly-adminlte-vue代码";
     },
     isDefault() {
       // Check if editors contain default JS and template

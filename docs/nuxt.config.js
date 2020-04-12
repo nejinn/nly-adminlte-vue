@@ -269,7 +269,7 @@ module.exports = {
     routes: () => [
       ...getRoutesByDir("src", "components"),
       ...getRoutesByDir("src", "directives", ["modal", "toggle"]),
-      ...getRoutesByDir("docs/markdown", "reference"),
+      //   ...getRoutesByDir("docs/markdown", "reference"),
       ...getRoutesByDir("docs/markdown", "misc")
     ]
   },

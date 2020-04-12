@@ -1,6 +1,6 @@
-// @vue/component
+const name = "NlyDocsFeedback";
 export default {
-  name: "BVFeedback",
+  name: name,
   data() {
     return {
       baseUrl: "https://github.com/nejinn/nly-adminlte-vue"

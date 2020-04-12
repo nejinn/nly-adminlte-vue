@@ -1,6 +1,6 @@
-// @vue/component
+const name = "NlyDocsCodeMirror";
 export default {
-  name: "BVCodeMirror",
+  name: name,
   props: {
     value: {
       type: String,
