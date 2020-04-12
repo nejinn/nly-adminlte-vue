@@ -4,7 +4,7 @@ import { reference as referenceMeta } from "~/content";
 
 const getReadMe = name =>
   import(
-    `~/markdown/reference/${name}/README.md` /* webpackChunkName: "docs/reference" */
+    `../../../markdown/reference/${name}/README.md` /* webpackChunkName: "docs/reference" */
   );
 
 // @vue/component

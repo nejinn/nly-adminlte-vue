@@ -5,7 +5,7 @@ import { misc as miscMeta, defaultConfig } from "~/content";
 
 const getReadMe = name =>
   import(
-    `~/markdown/misc/${name}/README.md` /* webpackChunkName: "docs/misc" */
+    `../../../markdown/misc/${name}/README.md` /* webpackChunkName: "docs/misc" */
   );
 
 const replacer = (key, value) => (typeof value === "undefined" ? null : value);
