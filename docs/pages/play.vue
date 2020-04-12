@@ -1,69 +1,65 @@
 <template>
-  <b-container fluid tag="main" class="pb-5">
+  <nly-container fluid tag="main" class="pb-5">
     <!-- Introduction -->
     <div class="bd-content mb-4">
-      <h1>
+      <h1 style="margin-top:">
         <span class="bd-content-title">{{ title }}</span>
       </h1>
-      <b-row align-v="center">
-        <b-col>
+      <nly-row row-class="align-items-center">
+        <nly-col>
           <p class="bd-lead">
-            Here you can interactively play and test components with a fresh
-            Vue.js instance. Please refer to the
-            <nly-link to="/docs">Docs</nly-link> section for more information
-            about available components and usage.
+            您可以在这里测试有关NlyAdminlteVue的任何组件指令代码，在使用之前请您先查看
+            <nly-link to="/docs">文档</nly-link> 部分，以获知使用方法
           </p>
-        </b-col>
-        <b-col lg="auto">
-          <BVCarbonAd class="my-3 my-lg-1"></BVCarbonAd>
-        </b-col>
-      </b-row>
+        </nly-col>
+        <nly-col lg="auto"> </nly-col>
+      </nly-row>
     </div>
 
     <!-- Compiler loading state -->
-    <b-row v-if="loading">
-      <b-col class="mb-2 mb-md-0">
+    <nly-row v-if="loading">
+      <nly-col class="mb-2 mb-md-0">
         <!-- Loading indicator -->
         <b-alert variant="info" class="text-center" show>
           Loading JavaScript compiler...
         </b-alert>
-      </b-col>
-    </b-row>
+      </nly-col>
+    </nly-row>
 
     <!-- Transpiler warning -->
-    <b-container v-if="ready && needsTranspiler">
-      <b-row>
-        <b-col>
-          <b-alert variant="info" class="mb-3" show fade dismissible>
+    <nly-container v-if="ready && needsTranspiler">
+      <nly-row>
+        <nly-col>
+          <nly-alert variant="info" class="mb-3" show fade dismissible>
             Your browser does not support modern ES6 JavaScript syntax. However,
             the code in the JavaScipt editor will be transpiled to work with
             your browser, except for any ES6 code that is in the Template editor
             (i.e. destructuring, arrow functions, etc.)
-          </b-alert>
-        </b-col>
-      </b-row>
-    </b-container>
+          </nly-alert>
+        </nly-col>
+      </nly-row>
+    </nly-container>
 
     <!-- Actions -->
-    <b-row>
-      <b-col class="mb-2 mb-md-0">
+    <nly-row>
+      <nly-col class="mb-2 mb-md-0">
         <!-- Reset action -->
-        <b-btn
+        <nly-button
           size="sm"
           variant="danger"
           :disabled="isDefault || isBusy"
           @click="reset"
         >
           Reset to default
-        </b-btn>
-      </b-col>
+        </nly-button>
+      </nly-col>
 
       <!-- Export actions -->
-      <b-col md="auto" class="mt-2 mt-md-0">
+      <nly-col md="auto" class="mt-2 mt-md-0">
         <b class="d-block d-sm-inline-block mr-sm-2 mb-1 mb-sm-0">Export to</b>
 
         <!-- Export to CodePen -->
-        <b-form
+        <nly-form
           class="d-inline-block mr-1 notranslate"
           translate="no"
           method="post"
@@ -71,13 +67,17 @@
           target="_blank"
         >
           <input type="hidden" name="data" :value="codepenData" />
-          <b-btn size="sm" type="submit" :disabled="!isOk || isBusy"
-            >CodePen</b-btn
+          <nly-button
+            size="sm"
+            type="submit"
+            :disabled="!isOk || isBusy"
+            bg-variant="pink"
+            >CodePen</nly-button
           >
-        </b-form>
+        </nly-form>
 
         <!-- Export to CodeSandbox -->
-        <b-form
+        <nly-form
           class="d-inline-block mr-1 notranslate"
           translate="no"
           method="post"
@@ -85,13 +85,17 @@
           target="_blank"
         >
           <input type="hidden" name="parameters" :value="codesandboxData" />
-          <b-btn size="sm" type="submit" :disabled="!isOk || isBusy"
-            >CodeSandbox</b-btn
+          <nly-button
+            size="sm"
+            type="submit"
+            :disabled="!isOk || isBusy"
+            bg-variant="orange"
+            >CodeSandbox</nly-button
           >
-        </b-form>
+        </nly-form>
 
         <!-- Export to JSFiddle -->
-        <b-form
+        <nly-form
           class="d-inline-block notranslate"
           translate="no"
           method="post"
@@ -109,47 +113,65 @@
           />
           <input type="hidden" name="css" :value="exportData.css" />
           <input type="hidden" name="js_wrap" value="l" />
-          <b-btn size="sm" type="submit" :disabled="!isOk || isBusy"
-            >JSFiddle</b-btn
+          <nly-button
+            size="sm"
+            type="submit"
+            :disabled="!isOk || isBusy"
+            bg-variant="green"
+            >JSFiddle</nly-button
           >
-        </b-form>
-      </b-col>
-    </b-row>
+        </nly-form>
+      </nly-col>
+    </nly-row>
 
     <!-- Editors / Result / Console -->
     <transition-group tag="div" class="row" name="flip">
       <!-- Left/Top column -->
-      <b-col key="A" :cols="full ? 12 : null">
+      <nly-col key="A" :cols="full ? 12 : null">
         <transition-group tag="div" class="row" name="flip">
           <!-- Template column -->
-          <b-col key="A1" :md="vertical && !full ? 6 : 12" sm="12" class="mt-3">
+          <nly-col
+            key="A1"
+            :md="vertical && !full ? '6' : '12'"
+            sm="12"
+            class="mt-3"
+          >
             <!-- Template -->
-            <b-card no-body header-tag="header">
-              <template v-slot:header>
+            <nly-card tag="header">
+              <nly-card-header>
                 <div class="d-flex justify-content-between align-items-center">
                   <h5 class="mb-0">
                     <span class="notranslate" translate="no">Template</span>
                   </h5>
-                  <b-btn
+                  <nly-button
                     size="sm"
-                    variant="outline-info"
+                    variant="outlineInfo"
                     class="d-none d-md-inline-block"
                     @click="toggleFull"
                   >
                     <span>{{ full ? "Split" : "Full" }}</span>
-                  </b-btn>
+                  </nly-button>
                 </div>
-              </template>
-
-              <BVCodeMirror v-model="html" mode="htmlmixed"></BVCodeMirror>
-            </b-card>
-          </b-col>
+              </nly-card-header>
+              <nly-card-body>
+                <NlyDocsCodeMirror
+                  v-model="html"
+                  mode="htmlmixed"
+                ></NlyDocsCodeMirror>
+              </nly-card-body>
+            </nly-card>
+          </nly-col>
 
           <!-- JavaScript column -->
-          <b-col key="A2" :md="vertical && !full ? 6 : 12" sm="12" class="mt-3">
+          <nly-col
+            key="A2"
+            :md="vertical && !full ? '6' : '12'"
+            sm="12"
+            class="mt-3"
+          >
             <!-- JavaScript -->
-            <b-card no-body header-tag="header">
-              <template v-slot:header>
+            <nly-card tag="header">
+              <nly-card-header>
                 <div class="d-flex justify-content-between align-items-center">
                   <h5 class="mb-0">
                     <span class="notranslate" translate="no">JavaScript</span>
@@ -157,31 +179,36 @@
                       compiling</small
                     >
                   </h5>
-                  <b-btn
+                  <nly-button
                     size="sm"
-                    variant="outline-info"
+                    variant="outlineInfo"
                     class="d-none d-md-inline-block"
                     @click="toggleFull"
                   >
                     <span>{{ full ? "Split" : "Full" }}</span>
-                  </b-btn>
+                  </nly-button>
                 </div>
-              </template>
+              </nly-card-header>
 
-              <BVCodeMirror v-model="js" mode="javascript"></BVCodeMirror>
-            </b-card>
-          </b-col>
+              <nly-card-body>
+                <NlyDocsCodeMirror
+                  v-model="js"
+                  mode="javascript"
+                ></NlyDocsCodeMirror>
+              </nly-card-body>
+            </nly-card>
+          </nly-col>
         </transition-group>
-      </b-col>
+      </nly-col>
 
       <!-- Right/bottom column -->
-      <b-col key="B" :md="vertical || full ? 12 : 6" sm="12">
-        <b-row>
+      <nly-col key="B" :md="vertical || full ? '12' : '6'" sm="12">
+        <nly-row>
           <!-- Result column -->
-          <b-col cols="12" class="mt-3">
+          <nly-col xs="12" class="mt-3">
             <!-- Result -->
-            <b-card no-body class="play-result" header-tag="header">
-              <template v-slot:header>
+            <nly-card class="play-result" tag="header">
+              <nly-card-header>
                 <div class="d-flex justify-content-between align-items-center">
                   <h5 class="mb-0">
                     <span>Result</span>
@@ -189,93 +216,98 @@
                       building</small
                     >
                   </h5>
-                  <b-btn
+                  <nly-button
                     v-if="!full"
                     size="sm"
-                    variant="outline-info"
+                    variant="outlineInfo"
                     class="d-none d-md-inline-block"
                     @click="toggleVertical"
                   >
                     <span>{{ vertical ? "Horizontal" : "Vertical" }}</span>
-                  </b-btn>
+                  </nly-button>
                 </div>
-              </template>
+              </nly-card-header>
 
-              <b-card-body
+              <nly-card-body
                 ref="result"
                 class="play-result-body notranslate"
                 translate="no"
-              ></b-card-body>
-            </b-card>
-          </b-col>
+              ></nly-card-body>
+            </nly-card>
+          </nly-col>
 
           <!-- Console column -->
-          <b-col cols="12" class="mt-3 notranslate" translate="no">
+          <nly-col xs="12" class="mt-3 notranslate" translate="no">
             <!-- Console -->
-            <b-card no-body header-tag="header">
-              <template v-slot:header>
+            <nly-card tag="header">
+              <nly-card-header>
                 <div class="d-flex justify-content-between align-items-center">
                   <h5 class="mb-0">
                     <span>Console log</span>
                   </h5>
-                  <b-btn
+                  <nly-button
                     :disabled="messages.length === 0"
                     size="sm"
-                    variant="outline-danger"
+                    variant="outlineDanger"
                     @click="clear"
                   >
                     <span>Clear</span>
-                  </b-btn>
+                  </nly-button>
                 </div>
-              </template>
+              </nly-card-header>
 
-              <transition-group
-                tag="ul"
-                name="flip-list"
-                class="list-group list-group-flush play-log"
-              >
-                <b-list-group-item v-if="!messages.length" key="empty-console">
-                  &nbsp;
-                </b-list-group-item>
-                <b-list-group-item
-                  v-for="msg in messages"
-                  :key="`console-${msg[2]}`"
-                  class="py-2 d-flex"
+              <nly-card-body>
+                <transition-group
+                  tag="ul"
+                  name="flip-list"
+                  class="list-group list-group-flush play-log"
                 >
-                  <b-badge
-                    :variant="msg[0]"
-                    class="mr-1"
-                    style="font-size:90%;"
+                  <nly-list-group-item
+                    v-if="!messages.length"
+                    key="empty-console"
                   >
-                    {{
-                      msg[0] === "danger"
-                        ? "error"
-                        : msg[0] === "warning"
-                        ? "warn"
-                        : "log"
-                    }}
-                  </b-badge>
-                  <span
-                    :class="[
-                      `text-${msg[0]}`,
-                      'text-monospace',
-                      'small',
-                      'd-block'
-                    ]"
-                    style="white-space: pre-wrap;"
-                    >{{ msg[1] }}</span
+                    &nbsp;
+                  </nly-list-group-item>
+                  <nly-list-group-item
+                    v-for="msg in messages"
+                    :key="`console-${msg[2]}`"
+                    class="py-2 d-flex"
                   >
-                </b-list-group-item>
-              </transition-group>
-            </b-card>
-          </b-col>
-        </b-row>
-      </b-col>
+                    <nly-badge
+                      :variant="msg[0]"
+                      class="mr-1"
+                      style="font-size:90%;"
+                    >
+                      {{
+                        msg[0] === "danger"
+                          ? "error"
+                          : msg[0] === "warning"
+                          ? "warn"
+                          : "log"
+                      }}
+                    </nly-badge>
+                    <span
+                      :class="[
+                        `text-${msg[0]}`,
+                        'text-monospace',
+                        'small',
+                        'd-block'
+                      ]"
+                      style="white-space: pre-wrap;"
+                      >{{ msg[1] }}</span
+                    >
+                  </nly-list-group-item>
+                </transition-group>
+              </nly-card-body>
+            </nly-card>
+          </nly-col>
+        </nly-row>
+      </nly-col>
     </transition-group>
-  </b-container>
+  </nly-container>
 </template>
 
-<style scoped>
+<style>
 .play-result-body,
 .play-log {
   min-height: 300px;
@@ -314,45 +346,36 @@ import Vue from "vue";
 import debounce from "lodash/debounce";
 import { getParameters as getCodeSandboxParameters } from "codesandbox/lib/api/define";
 import needsTranspiler from "~/utils/needs-transpiler";
-import { version as bootstrapVueVersion, vueVersion } from "~/content";
-import BVCarbonAd from "~/components/carbon-ad";
-import BVCodeMirror from "~/components/code-mirror";
+import { version as nlyAdminlteVueVersion, vueVersion } from "~/content";
+import NlyDocsCodeMirror from "../components/nly-docs-code-mirror";
 
 // --- Constants ---
 
 const DEFAULT_HTML = `<div>
-  <b-button size="sm" @click="toggle">
-    {{ show ? 'Hide' : 'Show' }} Alert
-  </b-button>
-  <b-alert
-    v-model="show"
-    class="mt-3"
-    dismissible
-    @dismissed="dismissed"
-  >
+  <nly-button variant='warning' size="sm" @click="toggle">
+    {{ show ? 'Hide' : 'Show' }}
+  </nly-button>
+  <nly-badge variant='info' v-show='show'>
     Hello {{ name }}!
-  </b-alert>
+  </nly-badge>
 </div>`;
 
 const DEFAULT_JS = `{
   data() {
     return {
-      name: 'BootstrapVue',
+      name: 'NlyAdminlteVue',
       show: true
     }
   },
   watch: {
     show(newVal) {
-      console.log('Alert is now ' + (newVal ? 'visible' : 'hidden'))
+      console.log('Badge is now ' + (newVal ? 'visible' : 'hidden'))
     }
   },
   methods: {
     toggle() {
       console.log('Toggle button clicked')
       this.show = !this.show
-    },
-    dismissed() {
-      console.log('Alert dismissed')
     }
   }
 }`;
@@ -386,8 +409,7 @@ const indent = (value, count = 2, { indent } = { indent: " " }) => {
 
 export default {
   components: {
-    BVCarbonAd,
-    BVCodeMirror
+    NlyDocsCodeMirror
   },
   data() {
     return {
@@ -408,7 +430,7 @@ export default {
   },
   computed: {
     title() {
-      return "Online Playground";
+      return "在线测试nly-adminlte-vue代码";
     },
     isDefault() {
       // Check if editors contain default JS and template
@@ -451,14 +473,13 @@ export default {
         extendedHtml: `<div id="app">\r\n${indent(html, 2)}\r\n</div>`,
         extendedJs,
         externalCss: [
-          //   `//unpkg.com/bootstrap@${bootstrapVersion}/dist/css/bootstrap.min.css`,
-          `//unpkg.com/bootstrap-vue@${bootstrapVueVersion}/dist/bootstrap-vue.css`
+          `//unpkg.com/nly-adminlte-vue@${nlyAdminlteVueVersion}/dist/adminlte/css/adminlte.css`,
+          `//unpkg.com/nly-adminlte-vue@${nlyAdminlteVueVersion}/dist/nly-adminlte-vue.css`
         ],
         externalJs: [
           "//unpkg.com/babel-polyfill/dist/polyfill.min.js",
           `//unpkg.com/vue@${vueVersion}/dist/vue.min.js`,
-          `//unpkg.com/bootstrap-vue@${bootstrapVueVersion}/dist/bootstrap-vue.js`,
-          `//unpkg.com/bootstrap-vue@${bootstrapVueVersion}/dist/bootstrap-vue-icons.js`
+          `//unpkg.com/nly-adminlte-vue@${nlyAdminlteVueVersion}/dist/nly-adminlte-vue.common.js`
         ]
       };
     },
@@ -507,20 +528,20 @@ export default {
       const htmlContent = '<div id="app"></div>';
       const jsContent = [
         "import Vue from 'vue'",
-        "import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'",
+        "import { NlyAdminlteVue } from 'nly-adminlte-vue'",
         "import App from './App'",
         "",
-        "import 'bootstrap/dist/css/bootstrap.css'",
-        "import 'bootstrap-vue/dist/bootstrap-vue.css'",
+        "import 'nly-adminlte-vue/dist/adminlte/css/adminlte.css'",
+        "import 'nly-adminlte-vue/dist/adminlte/fontawesome-free/css/all.css'",
+        "import 'nly-adminlte-vue/dist/adminlte/icon/iconfont.css'",
+        "import 'nly-adminlte-vue/dist/nly-adminlte-vue.css'",
         "",
-        "Vue.use(BootstrapVue)",
-        "Vue.use(BootstrapVueIcons)",
+        "Vue.use(NlyAdminlteVue )",
         "",
         "new Vue({ el: '#app', render: h => h(App) })"
       ].join("\r\n");
       const dependencies = {
-        // bootstrap: bootstrapVersion,
-        "bootstrap-vue": bootstrapVueVersion,
+        "nly-adminlte-vue": nlyAdminlteVueVersion,
         vue: vueVersion
       };
       return getCodeSandboxParameters({
@@ -679,7 +700,7 @@ export default {
         } catch (err) {}
       }
       this.playVM = vm = null;
-      this.$refs.result.innerHTML = "";
+      this.$refs.result.$el.innerHTML = "";
     },
     createVM() {
       const playground = this;
@@ -769,7 +790,7 @@ export default {
       // Try and build the user app
       try {
         const holder = document.createElement("div");
-        this.$refs.result.appendChild(holder);
+        this.$refs.result.$el.appendChild(holder);
         this.playVM = new Vue({
           ...options,
           el: holder,
@@ -973,9 +994,8 @@ export default {
     }
   },
   head() {
-    const title = `${this.title} | BootstrapVue`;
-    const description =
-      "Interactively play and test BootstrapVue components online.";
+    const title = `${this.title} | NlyAdminlteVue`;
+    const description = "测试NlyAdminlteVu的组件和指令";
     return {
       title,
       meta: [

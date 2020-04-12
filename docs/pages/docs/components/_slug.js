@@ -1,8 +1,8 @@
-import NlyAnchoredHeading from "../../../components/NlyAnchoredHeading";
-import Componentdoc from "~/components/componentdoc";
-import NlyImportDoc from "../../../components/NlyImportDoc";
-import MainDocs from "~/components/main-docs";
-import Section from "~/components/section";
+import NlyDocsAnchoredHeading from "../../../components/NlyDocsAnchoredHeading";
+import NlyDocsComponentDoc from "~/components/NlyDocsComponentDoc";
+import NlyDocsImportDoc from "../../../components/NlyDocsImportDoc";
+import NlyDocsMainDocs from "~/components/nly-docs-main-docs";
+import NlyDocsSection from "~/components/nly-docs-section";
 import docsMixin from "~/plugins/docs-mixin";
 import { components as componentsMeta } from "~/content";
 
@@ -11,16 +11,15 @@ const getReadMe = name =>
     `~/../src/components/${name}/README.md` /* webpackChunkName: "docs/components" */
   );
 
-// @vue/component
+const name = "NlyDocsComponents";
 export default {
-  name: "BDVComponents",
+  name: name,
   layout: "docs",
   mixins: [docsMixin],
   validate({ params }) {
     return Boolean(componentsMeta[params.slug]);
   },
   async asyncData({ params }) {
-    console.log(111, params);
     const readme = (await getReadMe(params.slug)).default;
     const meta = componentsMeta[params.slug];
     return { meta, readme };
@@ -28,12 +27,12 @@ export default {
   render(h) {
     // Reference section
     const $referenceSection = h(
-      Section,
+      NlyDocsSection,
       { class: ["bd-component-reference"] },
       [
         // Heading
         h(
-          NlyAnchoredHeading,
+          NlyDocsAnchoredHeading,
           { props: { id: "component-reference" } },
           "Component reference"
         ),
@@ -48,7 +47,7 @@ export default {
             props: propsMeta,
             version
           }) =>
-            h(Componentdoc, {
+            h(NlyDocsComponentDoc, {
               props: {
                 component,
                 events,
@@ -61,12 +60,12 @@ export default {
             })
         ),
         // Component importing information
-        h(NlyImportDoc, { props: { meta: this.meta } })
+        h(NlyDocsImportDoc, { props: { meta: this.meta } })
       ]
     );
 
     return h(
-      MainDocs,
+      NlyDocsMainDocs,
       {
         key: this.$route.path,
         staticClass: "bd-components",

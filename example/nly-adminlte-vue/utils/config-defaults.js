@@ -6,7 +6,9 @@ export default deepFreeze({
     textVariant: null,
     ariaLabel: "Close"
   },
-
+  NlyListGroupItem: {
+    variant: undefined
+  },
   NlyProgress: {
     variant: null
   },

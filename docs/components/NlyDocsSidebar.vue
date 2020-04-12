@@ -5,7 +5,7 @@
     aria-label="Main navigation"
   >
     <nly-link to="/" exact router-tag="div" active-class="active">
-      <nly-link to="/" exact class="bd-toc-link" active-class="">Home</nly-link>
+      <nly-link to="/" exact class="bd-toc-link" active-class="">首页</nly-link>
     </nly-link>
 
     <nly-link
@@ -24,30 +24,30 @@
         active-class=""
       >
         {{ group.title }}
-        <b-badge
+        <nly-badge
           v-if="group.new"
           tag="small"
           variant="success"
           class="text-uppercase"
-          >New</b-badge
+          >New</nly-badge
         >
-        <b-badge
+        <nly-badge
           v-if="group.breaking"
           tag="small"
           variant="danger"
           class="text-uppercase"
-          >Breaking change</b-badge
+          >Breaking change</nly-badge
         >
-        <b-badge
+        <nly-badge
           v-if="group.beta"
           tag="small"
           variant="warning"
           class="text-uppercase"
-          >Beta</b-badge
+          >Beta</nly-badge
         >
       </nly-link>
 
-      <b-nav class="bd-sidenav">
+      <nly-nav class="bd-sidenav">
         <nly-link
           v-for="page in group.pages"
           :key="page.title"
@@ -63,42 +63,42 @@
             active-class=""
           >
             {{ page.title }}
-            <b-badge
+            <nly-badge
               v-if="page.new"
               tag="small"
               variant="success"
               class="text-uppercase"
-              >New</b-badge
+              >New</nly-badge
             >
-            <b-badge
+            <nly-badge
               v-if="page.enhanced"
               tag="small"
               variant="info"
               class="text-uppercase"
-              >Enhanced</b-badge
+              >Enhanced</nly-badge
             >
-            <b-badge
+            <nly-badge
               v-if="page.breaking"
               tag="small"
               variant="danger"
               class="text-uppercase"
-              >Breaking change</b-badge
+              >Breaking change</nly-badge
             >
-            <b-badge
+            <nly-badge
               v-if="page.beta"
               tag="small"
               variant="warning"
               class="text-uppercase"
-              >Beta</b-badge
+              >Beta</nly-badge
             >
           </nly-link>
         </nly-link>
-      </b-nav>
+      </nly-nav>
     </nly-link>
 
     <nly-link to="/play" exact router-tag="div" active-class="active">
       <nly-link to="/play" exact class="bd-toc-link" active-class=""
-        >Playground</nly-link
+        >在线测试代码</nly-link
       >
     </nly-link>
   </nav>
@@ -108,7 +108,7 @@
 import { nav } from "~/content";
 
 export default {
-  name: "BVSidebar",
+  name: "NlyDocsSidebar",
   data() {
     return { nav };
   },

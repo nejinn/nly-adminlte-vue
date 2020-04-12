@@ -6,6 +6,10 @@
 .nly-adminlte-vue-docs-header-navbar {
   box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25),
     inset 0 -1px 5px rgba(0, 0, 0, 0.25);
+  /* left: 0;
+  position: fixed;
+  right: 0;
+  z-index: 1037; */
 }
 
 .nly-adminlte-vue-docs-header-navbar-brandimg-class {
@@ -16,7 +20,7 @@
 
 <script>
 import { navbarList } from "./config/header-navbar";
-const name = "NlyAdminlteVueDocsHeader";
+const name = "NlyDocsHeader";
 export default {
   name: name,
   data() {

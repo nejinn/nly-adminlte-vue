@@ -37,40 +37,39 @@ export const misc = importAll(miscContext);
 
 export const nav = [
   {
-    title: "Getting started",
+    title: "开始",
     base: "",
     exact: true
   },
   {
-    title: "Components",
+    title: "组件",
     base: "components/",
     pages: components,
-    description: "BootstrapVue components and component group plugins"
+    description: "NlyAdminlteVue 组件和插件"
   },
   {
-    title: "Directives",
+    title: "指令",
     base: "directives/",
     pages: directives,
-    description: "BootstrapVue directives and directive group plugins"
+    description: "NlyAdminlteVue 指令和插件"
   },
   {
-    title: "Icons",
+    title: "图标",
     base: "icons",
     version: "2.3.0",
-    description: "BootstrapVue icons"
+    description: "NlyAdminlteVue icons"
   },
+  //   {
+  //     title: "主题设置",
+  //     base: "reference/",
+  //     pages: reference,
+  //     description: "NlyAdminlteVue 主题设置"
+  //   },
   {
-    title: "Reference",
-    base: "reference/",
-    pages: reference,
-    description: "BootstrapVue and Bootstrap reference documentation"
-  },
-  {
-    title: "Misc",
+    title: "其他",
     base: "misc/",
     pages: misc,
-    description:
-      "BootstrapVue changelog, settings, and miscellaneous additional resources"
+    description: "NlyAdminlteVue 升级日志等"
   }
 ];
 
@@ -83,6 +82,6 @@ export const portalVueVersion = parseVersion(dependencies["portal-vue"]);
 export const nuxtVersion = parseVersion(devDependencies.nuxt);
 export const vueVersion = parseVersion(dependencies.vue);
 export const defaultConfig = DEFAULT_CONFIG;
-export const bvDescription = description;
+export const NlyDocsDescription = description;
 
 export { version };

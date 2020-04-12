@@ -154,7 +154,7 @@
 
     &.editable {
       &::after {
-        content: "(Double click to edit)";
+        content: "(双击编辑)";
         top: 5px;
         right: 10px;
       }
@@ -169,7 +169,7 @@
 
       &.live {
         &::after {
-          content: "Live";
+          content: "演示";
         }
       }
 

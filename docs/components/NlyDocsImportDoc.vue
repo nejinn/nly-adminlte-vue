@@ -1,13 +1,16 @@
 <template>
   <section
     v-if="components.length > 0 || directives.length > 0"
-    class="content"
+    class="bd-content"
   >
     <template v-if="components.length > 0">
-      <article class="content">
-        <nly-anchored-heading id="importing-individual-components" level="3">
+      <article class="bd-content">
+        <nly-docs-anchored-heading
+          id="importing-individual-components"
+          level="3"
+        >
           单个组件导入
-        </nly-anchored-heading>
+        </nly-docs-anchored-heading>
 
         <p>
           你可以从下表给出的导出路径和导出名称导入单个组件包
@@ -50,9 +53,12 @@
 
     <template v-if="directives.length > 0">
       <article class="bd-content">
-        <nly-anchored-heading id="importing-individual-directives" level="3">
+        <nly-docs-anchored-heading
+          id="importing-individual-directives"
+          level="3"
+        >
           单个指令导出
-        </nly-anchored-heading>
+        </nly-docs-anchored-heading>
 
         <p>
           你可以从下表给出的导出路径和导出名称导入单个指令包
@@ -94,9 +100,9 @@
     </template>
 
     <article class="bd-content">
-      <nly-anchored-heading id="importing-as-a-plugin" level="3">
+      <nly-docs-anchored-heading id="importing-as-a-plugin" level="3">
         导出作为插件
-      </nly-anchored-heading>
+      </nly-docs-anchored-heading>
 
       <p v-if="isComponentRoute">
         导出的插件包括上表中列出的组件<span v-if="directives.length">
@@ -152,11 +158,11 @@
 import startCase from "lodash/startCase";
 import hljs from "../utils/hljs";
 import { kebabCase } from "../utils";
-import NlyAnchoredHeading from "./NlyAnchoredHeading";
+import NlyDocsAnchoredHeading from "./NlyDocsAnchoredHeading";
 
 const importPath = "nly-adminlte-vue";
 
-const name = "NlyImportDoc";
+const name = "NlyDocsImportDoc";
 
 export default {
   name: name,
@@ -202,7 +208,7 @@ export default {
       ]
     };
   },
-  components: { NlyAnchoredHeading },
+  components: { NlyDocsAnchoredHeading },
   props: {
     meta: {}
   },
