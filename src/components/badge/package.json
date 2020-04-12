@@ -1,40 +1,21 @@
 {
-  "name": "@nly-adminlte-vue/badge", 
-  "version": "1.0.0", 
+  "name": "@bootstrap-vue/badge",
+  "version": "1.0.0",
   "meta": {
-    "title": "Badge", 
-    "description": "用于内容的额外小表情, 几乎可以包裹所有元素", 
+    "title": "Badge",
+    "description": "Small and adaptive tag for adding context to just about any content.",
     "components": [
       {
-        "component": "NlyBadge", 
+        "component": "BBadge",
         "props": [
           {
-            "prop": "variant", 
-            "description": "badge类颜色. 可选  primary, secondary, success, info, warning, danger, light, dark"
-          }, 
+            "prop": "variant",
+            "settings": true,
+            "description": "Applies one of the Bootstrap theme color variants to the component"
+          },
           {
-            "prop": "pill", 
-            "description": "形状, 默认小圆角, 设置为true, 大圆角型"
-          }, 
-          {
-            "prop": "size", 
-            "description": "大小, 可选sm, lg, 会强制覆盖父元素以上设置的大小. 默认最小. 其次sm, 最大lg"
-          }, 
-          {
-            "prop": "bgVariant", 
-            "description": "背景色, 默认无背景. 可选primary, secondary, success, info, warning, danger, light, dark, lightblue, navy, olive, lime, fuchsia, maroon, blue, indigo, purple, pink, red, orange, yellow, green, teal, cyan, white, gray, graydark, 会覆盖variant props"
-          }, 
-          {
-            "prop": "bgGradientVariant", 
-            "description": "渐变背景色, 默认无背景. 可选primary, secondary, success, info, warning, danger, light, dark, lightblue, navy, olive, lime, fuchsia, maroon, blue, indigo, purple, pink, red, orange, yellow, green, teal, cyan, white, gray, graydark, 会覆盖variant props"
-          }, 
-          {
-            "prop": "tag", 
-            "description": "标签, 默认span"
-          }, 
-          {
-            "prop": "badgeClass", 
-            "description": "自定义css式样, 如果需要放在navbar中, 可以传入navbar-badge, 这样会让badge变成右上角小图标, 在一般情况下不会挡住navbar-item"
+            "prop": "pill",
+            "description": "When set to 'true', renders the badge in pill style"
           }
         ]
       }
