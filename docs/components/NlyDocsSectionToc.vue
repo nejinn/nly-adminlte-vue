@@ -10,12 +10,12 @@
       <p v-if="groupDescription" class="bd-lead">{{ groupDescription }}</p>
     </NlyDocsSection>
     <NlyDocsSection>
-      <b-list-group
+      <nly-list-group
         tag="nav"
         :aria-label="`${groupTitle} section navigation`"
         class="mb-5"
       >
-        <b-list-group-item
+        <nly-list-group-item
           v-for="page in pages"
           :key="page.slug"
           :to="`/docs/${slug}/${page.slug}`"
@@ -27,8 +27,8 @@
           <nly-badge v-if="page.version" variant="secondary"
             >v{{ page.version }}</nly-badge
           >
-        </b-list-group-item>
-      </b-list-group>
+        </nly-list-group-item>
+      </nly-list-group>
     </NlyDocsSection>
   </NlyDocsMain>
 </template>

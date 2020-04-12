@@ -8,10 +8,8 @@
       <nly-row row-class="align-items-center">
         <nly-col>
           <p class="bd-lead">
-            Here you can interactively play and test components with a fresh
-            Vue.js instance. Please refer to the
-            <nly-link to="/docs">Docs</nly-link> section for more information
-            about available components and usage.
+            您可以在这里测试有关NlyAdminlteVue的任何组件指令代码，在使用之前请您先查看
+            <nly-link to="/docs">文档</nly-link> 部分，以获知使用方法
           </p>
         </nly-col>
         <nly-col lg="auto"> </nly-col>
@@ -139,7 +137,7 @@
             class="mt-3"
           >
             <!-- Template -->
-            <nly-card tag="header" height-control>
+            <nly-card tag="header">
               <nly-card-header>
                 <div class="d-flex justify-content-between align-items-center">
                   <h5 class="mb-0">
@@ -172,7 +170,7 @@
             class="mt-3"
           >
             <!-- JavaScript -->
-            <nly-card tag="header" height-control>
+            <nly-card tag="header">
               <nly-card-header>
                 <div class="d-flex justify-content-between align-items-center">
                   <h5 class="mb-0">
@@ -241,7 +239,7 @@
           <!-- Console column -->
           <nly-col xs="12" class="mt-3 notranslate" translate="no">
             <!-- Console -->
-            <nly-card tag="header" height-control>
+            <nly-card tag="header">
               <nly-card-header>
                 <div class="d-flex justify-content-between align-items-center">
                   <h5 class="mb-0">
@@ -264,13 +262,13 @@
                   name="flip-list"
                   class="list-group list-group-flush play-log"
                 >
-                  <b-list-group-item
+                  <nly-list-group-item
                     v-if="!messages.length"
                     key="empty-console"
                   >
                     &nbsp;
-                  </b-list-group-item>
-                  <b-list-group-item
+                  </nly-list-group-item>
+                  <nly-list-group-item
                     v-for="msg in messages"
                     :key="`console-${msg[2]}`"
                     class="py-2 d-flex"
@@ -298,7 +296,7 @@
                       style="white-space: pre-wrap;"
                       >{{ msg[1] }}</span
                     >
-                  </b-list-group-item>
+                  </nly-list-group-item>
                 </transition-group>
               </nly-card-body>
             </nly-card>
@@ -348,44 +346,36 @@ import Vue from "vue";
 import debounce from "lodash/debounce";
 import { getParameters as getCodeSandboxParameters } from "codesandbox/lib/api/define";
 import needsTranspiler from "~/utils/needs-transpiler";
-import { version as bootstrapVueVersion, vueVersion } from "~/content";
+import { version as nlyAdminlteVueVersion, vueVersion } from "~/content";
 import NlyDocsCodeMirror from "../components/nly-docs-code-mirror";
 
 // --- Constants ---
 
 const DEFAULT_HTML = `<div>
   <nly-button variant='warning' size="sm" @click="toggle">
-    {{ show ? 'Hide' : 'Show' }} Alert
+    {{ show ? 'Hide' : 'Show' }}
   </nly-button>
-  <nly-alert
-    v-model="show"
-    class="mt-3"
-    dismissible
-    @dismissed="dismissed"
-  >
+  <nly-badge variant='info' v-show='show'>
     Hello {{ name }}!
-  </nly-alert>
+  </nly-badge>
 </div>`;
 
 const DEFAULT_JS = `{
   data() {
     return {
-      name: 'BootstrapVue',
+      name: 'NlyAdminlteVue',
       show: true
     }
   },
   watch: {
     show(newVal) {
-      console.log('Alert is now ' + (newVal ? 'visible' : 'hidden'))
+      console.log('Badge is now ' + (newVal ? 'visible' : 'hidden'))
     }
   },
   methods: {
     toggle() {
       console.log('Toggle button clicked')
       this.show = !this.show
-    },
-    dismissed() {
-      console.log('Alert dismissed')
     }
   }
 }`;
@@ -483,14 +473,13 @@ export default {
         extendedHtml: `<div id="app">\r\n${indent(html, 2)}\r\n</div>`,
         extendedJs,
         externalCss: [
-          //   `//unpkg.com/bootstrap@${bootstrapVersion}/dist/css/bootstrap.min.css`,
-          `//unpkg.com/bootstrap-vue@${bootstrapVueVersion}/dist/bootstrap-vue.css`
+          `//unpkg.com/nly-adminlte-vue@${nlyAdminlteVueVersion}/dist/adminlte/css/adminlte.css`,
+          `//unpkg.com/nly-adminlte-vue@${nlyAdminlteVueVersion}/dist/nly-adminlte-vue.css`
         ],
         externalJs: [
           "//unpkg.com/babel-polyfill/dist/polyfill.min.js",
           `//unpkg.com/vue@${vueVersion}/dist/vue.min.js`,
-          `//unpkg.com/bootstrap-vue@${bootstrapVueVersion}/dist/bootstrap-vue.js`,
-          `//unpkg.com/bootstrap-vue@${bootstrapVueVersion}/dist/bootstrap-vue-icons.js`
+          `//unpkg.com/nly-adminlte-vue@${nlyAdminlteVueVersion}/dist/nly-adminlte-vue.common.js`
         ]
       };
     },
@@ -539,20 +528,20 @@ export default {
       const htmlContent = '<div id="app"></div>';
       const jsContent = [
         "import Vue from 'vue'",
-        "import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'",
+        "import { NlyAdminlteVue } from 'nly-adminlte-vue'",
         "import App from './App'",
         "",
-        "import 'bootstrap/dist/css/bootstrap.css'",
-        "import 'bootstrap-vue/dist/bootstrap-vue.css'",
+        "import 'nly-adminlte-vue/dist/adminlte/css/adminlte.css'",
+        "import 'nly-adminlte-vue/dist/adminlte/fontawesome-free/css/all.css'",
+        "import 'nly-adminlte-vue/dist/adminlte/icon/iconfont.css'",
+        "import 'nly-adminlte-vue/dist/nly-adminlte-vue.css'",
         "",
-        "Vue.use(BootstrapVue)",
-        "Vue.use(BootstrapVueIcons)",
+        "Vue.use(NlyAdminlteVue )",
         "",
         "new Vue({ el: '#app', render: h => h(App) })"
       ].join("\r\n");
       const dependencies = {
-        // bootstrap: bootstrapVersion,
-        "bootstrap-vue": bootstrapVueVersion,
+        "nly-adminlte-vue": nlyAdminlteVueVersion,
         vue: vueVersion
       };
       return getCodeSandboxParameters({
@@ -711,7 +700,7 @@ export default {
         } catch (err) {}
       }
       this.playVM = vm = null;
-      this.$refs.result.innerHTML = "";
+      this.$refs.result.$el.innerHTML = "";
     },
     createVM() {
       const playground = this;
@@ -801,7 +790,7 @@ export default {
       // Try and build the user app
       try {
         const holder = document.createElement("div");
-        this.$refs.result.appendChild(holder);
+        this.$refs.result.$el.appendChild(holder);
         this.playVM = new Vue({
           ...options,
           el: holder,
@@ -1005,9 +994,8 @@ export default {
     }
   },
   head() {
-    const title = `${this.title} | BootstrapVue`;
-    const description =
-      "Interactively play and test BootstrapVue components online.";
+    const title = `${this.title} | NlyAdminlteVue`;
+    const description = "测试NlyAdminlteVu的组件和指令";
     return {
       title,
       meta: [
