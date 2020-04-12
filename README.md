@@ -65,10 +65,7 @@
 
 # 3. 文档
 
-> 直接从github上clone的项目，可以从src进入adminlte-vue下面的components和directives,打开对应的组件或者指令文件夹，查看README.md
-比如查看badge的文件，点击[badgeREADME.md](https://github.com/nejinn/nly-adminlte-vue/blob/master/src/nly-adminlte-vue/components/badge/README.md)
-
-> 从npm下载的文件，可以在packages文件夹下面的components和directives中打开对应的组件或者指令文件夹，查看README.md
+> [nly-daminlte-vue-docs](http://nlyadminltevue.nejinn.com/)
 
 # 4. 进度
 

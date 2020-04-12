@@ -64,49 +64,6 @@
                   </feMerge>
                 </filter>
               </defs>
-              <style type="text/css">
-                .st0 {
-                  display: none;
-                  fill: #a67c52;
-                }
-
-                .st1 {
-                  display: none;
-                  fill: url(#SVGID_1_);
-                }
-
-                .st2 {
-                  fill: url(#SVGID_2_);
-                }
-
-                .st3 {
-                  fill: url(#SVGID_3_);
-                }
-
-                .st4 {
-                  fill: url(#SVGID_4_);
-                }
-
-                .st5 {
-                  fill: url(#SVGID_5_);
-                }
-
-                .st6 {
-                  fill: url(#SVGID_6_);
-                }
-
-                .st7 {
-                  fill: url(#SVGID_7_);
-                }
-
-                .st8 {
-                  fill: url(#SVGID_8_);
-                }
-
-                .st9 {
-                  fill: #3e2723;
-                }
-              </style>
               <g :filter="isIE ? 'url(#logo-shadow)' : null">
                 <g
                   class="logo-green-v"
@@ -473,7 +430,52 @@
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
+.img-size-32 {
+  height: 32px;
+}
+
+.st0 {
+  display: none;
+  fill: #a67c52;
+}
+
+.st1 {
+  display: none;
+  fill: url(#SVGID_1_);
+}
+
+.st2 {
+  fill: url(#SVGID_2_);
+}
+
+.st3 {
+  fill: url(#SVGID_3_);
+}
+
+.st4 {
+  fill: url(#SVGID_4_);
+}
+
+.st5 {
+  fill: url(#SVGID_5_);
+}
+
+.st6 {
+  fill: url(#SVGID_6_);
+}
+
+.st7 {
+  fill: url(#SVGID_7_);
+}
+
+.st8 {
+  fill: url(#SVGID_8_);
+}
+
+.st9 {
+  fill: #3e2723;
+}
 .contributor {
   width: 55px;
 }
