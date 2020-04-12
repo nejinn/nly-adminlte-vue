@@ -65,7 +65,7 @@
 
 # 3. 文档
 
-> [nly-daminlte-vue-docs](http://nlyadminltevue.nejinn.com/)
+> [nly-daminlte-vue-docs](http://nly-adminlte-vue.nejinn.com/)
 
 # 4. 进度
 
