@@ -453,16 +453,13 @@
             </nly-sidebar-nav-item>
 
             <nly-sidebar-nav-item
-              to="/table"
+              to="/log"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-icon-grid"
+              icon="nav-icon far nlyfont nly-icon-router-link-fill"
               exact
             >
-              table
-              <nly-badge bg-variant="fuchsia" badge-class="right" size="sm">
-                NEW
-              </nly-badge>
+              log
             </nly-sidebar-nav-item>
           </nly-sidebar-nav-tree>
 
@@ -491,13 +488,23 @@
             </nly-sidebar-nav-item>
 
             <nly-sidebar-nav-item
-              to="/log"
+              to="/listgroup"
               link-class="xxx zzz"
               class="sss"
               icon="nav-icon far nlyfont nly-icon-router-link-fill"
               exact
             >
-              log
+              listgroup
+            </nly-sidebar-nav-item>
+
+            <nly-sidebar-nav-item
+              to="/modal"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-icon-router-link-fill"
+              exact
+            >
+              modal
             </nly-sidebar-nav-item>
           </nly-sidebar-nav-tree>
         </nly-sidebar-nav>

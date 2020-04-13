@@ -328,6 +328,71 @@
           </nly-card>
         </nly-col>
       </nly-row>
+
+      <nly-row>
+        <nly-col>
+          <nly-card>
+            <nly-card-header>
+              Select table
+            </nly-card-header>
+            <nly-card-body>
+              <div>
+                <nly-table
+                  ref="selectableTable"
+                  selectable
+                  :select-mode="selectMode"
+                  :items="items"
+                  :fields="fields"
+                  @row-selected="onRowSelected"
+                  responsive="sm"
+                >
+                  <!-- Example scoped slot for select state illustrative purposes -->
+                  <template v-slot:cell(selected)="{ rowSelected }">
+                    <template v-if="rowSelected">
+                      <span aria-hidden="true">&check;</span>
+                      <span class="sr-only">Selected</span>
+                    </template>
+                    <template v-else>
+                      <span aria-hidden="true">&nbsp;</span>
+                      <span class="sr-only">Not selected</span>
+                    </template>
+                  </template>
+                </nly-table>
+                <p>
+                  <nly-button
+                    size="sm"
+                    @click="selectAllRows"
+                    variant="info"
+                    button-class="mr-2"
+                    >全选</nly-button
+                  >
+                  <nly-button
+                    size="sm"
+                    @click="clearSelected"
+                    variant="info"
+                    button-class="mr-2"
+                    >清除全选</nly-button
+                  >
+                  <nly-button
+                    size="sm"
+                    @click="selectThirdRow"
+                    variant="info"
+                    button-class="mr-2"
+                    >选择第三个</nly-button
+                  >
+                  <nly-button size="sm" @click="unselectThirdRow" variant="info"
+                    >清除第三个</nly-button
+                  >
+                </p>
+                <p>
+                  Selected Rows:<br />
+                  {{ selected }}
+                </p>
+              </div>
+            </nly-card-body>
+          </nly-card>
+        </nly-col>
+      </nly-row>
     </nly-content>
   </nly-content-wrapper>
 </template>
@@ -670,10 +735,42 @@ export default {
         }
       ],
       show1: true,
-      show2: true
+      show2: true,
+      modes: ["multi", "single", "range"],
+      fields: ["selected", "isActive", "age", "first_name", "last_name"],
+      items: [
+        {
+          isActive: true,
+          age: 40,
+          first_name: "Dickerson",
+          last_name: "Macdonald"
+        },
+        { isActive: false, age: 21, first_name: "Larsen", last_name: "Shaw" },
+        { isActive: false, age: 89, first_name: "Geneva", last_name: "Wilson" },
+        { isActive: true, age: 38, first_name: "Jami", last_name: "Carney" }
+      ],
+      selectMode: "multi",
+      selected: []
     };
   },
   methods: {
+    onRowSelected(items) {
+      this.selected = items;
+    },
+    selectAllRows() {
+      this.$refs.selectableTable.selectAllRows();
+    },
+    clearSelected() {
+      this.$refs.selectableTable.clearSelected();
+    },
+    selectThirdRow() {
+      // Rows are indexed from 0, so the third row is index 2
+      this.$refs.selectableTable.selectRow(2);
+    },
+    unselectThirdRow() {
+      // Rows are indexed from 0, so the third row is index 2
+      this.$refs.selectableTable.unselectRow(2);
+    },
     rowClass(item, type) {
       if (!item || type !== "row") return;
       if (item.status === "awesome") return "table-success";

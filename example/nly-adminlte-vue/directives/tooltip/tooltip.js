@@ -260,7 +260,7 @@ const removeTooltip = el => {
 };
 
 // Export our directive
-export const NlyTooltip = {
+export const YNlyTooltip = {
   bind(el, bindings, vnode) {
     applyTooltip(el, bindings, vnode);
   },

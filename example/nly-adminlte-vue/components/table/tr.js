@@ -47,7 +47,6 @@ export const NlyTr = Vue.extend({
       return this.nlyaTableRowGroup.isDark;
     },
     isStacked() {
-      // Sniffed by <nly-td> / <nly-th>
       return this.nlyaTableRowGroup.isStacked;
     },
     isResponsive() {
@@ -55,14 +54,9 @@ export const NlyTr = Vue.extend({
       return this.nlyaTableRowGroup.isResponsive;
     },
     isStickyHeader() {
-      // Sniffed by <nly-td> / <nly-th>
-      // Sticky headers are only supported in thead
       return this.nlyaTableRowGroup.isStickyHeader;
     },
     hasStickyHeader() {
-      // Sniffed by <b-tr> / <nly-td> / <nly-th>
-      // Needed to handle header background classes, due to lack of
-      // background color inheritance with Bootstrap v4 table CSS
       return !this.isStacked && this.nlyaTableRowGroup.hasStickyHeader;
     },
     tableVariant() {

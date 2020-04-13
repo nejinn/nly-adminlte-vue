@@ -19,7 +19,7 @@ export default {
     },
     selectedVariant: {
       type: String,
-      default: () => getComponentConfig("BTable", "selectedVariant")
+      default: () => getComponentConfig("NlyTable", "selectedVariant")
     },
     noSelectOnClick: {
       // Disable use of click handlers for row selection
