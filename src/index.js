@@ -159,12 +159,12 @@ export { tooltipPlugin } from "./components/tooltip";
 export { NlyTooltip } from "./components/tooltip/tooltip";
 
 export { cardDirectivePlugin } from "./directives/card";
-export { NlyCardMaximized } from "./directives/card/maximized-card";
+export { YNlyCardMaximized } from "./directives/card/maximized-card";
 
 export { collapseSidebarPlugins } from "./components/layout/collapsesidebar";
 
 export { toggleDirectivePlugin } from "./directives/toggle";
-export { NlyToggle } from "./directives/toggle/toggle";
+export { YNlyToggle } from "./directives/toggle/toggle";
 
 export { collapseSidebarDirectivePlugin } from "./directives/sidebarcollapse";
 export { NlySidebarCollapse } from "./directives/sidebarcollapse/sidebar-collapse";
@@ -173,5 +173,11 @@ export { NlyControlSidebarCollapse } from "./directives/sidebarcollapse/control-
 export { listGroupPlugin } from "./components/list-group";
 export { NlyListGroup } from "./components/list-group/list-group";
 export { NlyListGroupItem } from "./components/list-group/list-group-item";
+
+export { modalPlugin } from "./components/modal";
+export { NlyModal } from "./components/modal/modal";
+
+export { yNlyModalPlugin } from "./directives/modal";
+export { YNlyModal } from "./directives/modal/modal";
 
 export default NlyAdminlteVue;

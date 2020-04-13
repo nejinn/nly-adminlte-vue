@@ -3,7 +3,7 @@ import { toInteger } from "../../utils/number";
 
 import { changeAfterIcon, changeBeforeIcon } from "../../utils/card";
 
-export const NlyCardMaximized = {
+export const YNlyCardMaximized = {
   bind(el, binding, vnode) {
     const cardMaximizedId = nlyCardId(Object.keys(binding.modifiers)[0]);
     el.onclick = () => {
