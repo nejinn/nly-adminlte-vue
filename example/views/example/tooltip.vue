@@ -37,7 +37,7 @@
                 <nly-button id="tooltip-target-1" variant="info">
                   移上来
                 </nly-button>
-                <nly-tooltip target="tooltip-target-1" triggers="hover">
+                <nly-tooltip target="tooltip-target-1" show>
                   组件tooltip
                 </nly-tooltip>
               </div>

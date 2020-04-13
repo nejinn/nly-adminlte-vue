@@ -1,12 +1,12 @@
 import { nlyPluginFactory } from "../../utils/plugins";
-import { NlyCardMaximized } from "./maximized-card";
-import { NlyCardCollapse } from "./collapse-card";
+import { YNlyCardMaximized } from "./maximized-card";
+import { YNlyCardCollapse } from "./collapse-card";
 
 const cardDirectivePlugin = nlyPluginFactory({
   directives: {
-    NlyCardMaximized,
-    NlyCardCollapse
+    YNlyCardMaximized,
+    YNlyCardCollapse
   }
 });
 
-export { cardDirectivePlugin, NlyCardMaximized, NlyCardCollapse };
+export { cardDirectivePlugin, YNlyCardMaximized, YNlyCardCollapse };

@@ -29,6 +29,10 @@ const pagination = () => import("../views/example/pagination.vue");
 const forminput = () => import("../views/example/form-input.vue");
 const formfeedback = () => import("../views/example/form-feedback.vue");
 
+const listgroup = () => import("../views/example/listgroup.vue");
+
+const modal = () => import("../views/example/modal.vue");
+
 const log = () => import("../views/example/log.vue");
 
 const routes = [
@@ -151,6 +155,16 @@ const routes = [
         path: "/log",
         name: "log",
         component: log
+      },
+      {
+        path: "/listgroup",
+        name: "listgroup",
+        component: listgroup
+      },
+      {
+        path: "/modal",
+        name: "modal",
+        component: modal
       }
     ]
   },

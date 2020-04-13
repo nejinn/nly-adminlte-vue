@@ -1,8 +1,8 @@
-import { NlyTooltip } from "./tooltip";
+import { YNlyTooltip } from "./tooltip";
 import { nlyPluginFactory } from "../../utils/plugins";
 
-const nlyTooltipPlugin = nlyPluginFactory({
-  directives: { NlyTooltip }
+const yNlyTooltipPlugin = nlyPluginFactory({
+  directives: { YNlyTooltip }
 });
 
-export { nlyTooltipPlugin, NlyTooltip };
+export { yNlyTooltipPlugin, YNlyTooltip };

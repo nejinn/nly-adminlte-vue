@@ -31,6 +31,7 @@ import { paginationPlugin } from "./pagination";
 import { formPlguin } from "./form";
 import { logPlugin } from "./log";
 import { listGroupPlugin } from "./list-group";
+import { modalPlugin } from "./modal";
 
 export const componentsPlugin = nlyPluginFactory({
   plugins: {
@@ -64,6 +65,7 @@ export const componentsPlugin = nlyPluginFactory({
     paginationPlugin,
     formPlguin,
     logPlugin,
-    listGroupPlugin
+    listGroupPlugin,
+    modalPlugin
   }
 });

@@ -2964,3 +2964,8 @@
 	background-color: #666;
 	border-radius: 6px;
 }
+
+.modal-backdrop {
+    opacity: 0.5;
+  }
+  

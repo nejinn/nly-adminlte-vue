@@ -34,7 +34,6 @@
 
 </p>
 
-> 2020/3/28-2020/4/2 大概5天时间因为python项目比较忙，会暂停更新组件。
 
 # 1. nly-adminlte-vue
 <!-- TOC -->
@@ -104,6 +103,8 @@
 * input框 input
 * 表单验证 feedback
 * 日志组件 log
+* 列表 list-group
+* modal
 
 ## 4.2. 指令
 
@@ -112,6 +113,7 @@
 * 卡片最大化指令 v-nly-card-maximized
 * 折叠版收起展开指令 v-nly-toggle
 * 提示工具指令 v-nly-tooltip
+* v-nly-modal
 
 ## 4.3. 使用
 

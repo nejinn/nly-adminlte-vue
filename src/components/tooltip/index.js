@@ -1,10 +1,10 @@
 import { NlyTooltip } from "./tooltip";
-import { nlyTooltipPlugin } from "../../directives/tooltip";
+import { yNlyTooltipPlugin } from "../../directives/tooltip";
 import { nlyPluginFactory } from "../../utils/plugins";
 
 const tooltipPlugin = nlyPluginFactory({
   components: { NlyTooltip },
-  plugins: { nlyTooltipPlugin }
+  plugins: { yNlyTooltipPlugin }
 });
 
 export { tooltipPlugin, NlyTooltip };

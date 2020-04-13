@@ -34,6 +34,25 @@ export default deepFreeze({
     headVariant: null,
     footVariant: null
   },
+  NlyModal: {
+    titleTag: "h5",
+    size: "md",
+    headerBgVariant: undefined,
+    headerBorderVariant: undefined,
+    headerTextVariant: undefined,
+    headerCloseVariant: undefined,
+    bodyBgVariant: undefined,
+    bodyTextVariant: undefined,
+    footerBgVariant: undefined,
+    footerBorderVariant: undefined,
+    footerTextVariant: undefined,
+    cancelTitle: "Cancel",
+    cancelVariant: "secondary",
+    okTitle: "OK",
+    okVariant: "primary",
+    headerCloseContent: "&times;",
+    headerCloseLabel: "Close"
+  },
   NlyTime: {
     labelNoTimeSelected: "No time selected",
     labelSelected: "Selected time",
