@@ -2289,6 +2289,12 @@
           ></template
         >.
       </p>
+      <p>
+        Nejinn Lerity 版权所有
+        <a href="http://www.beian.miit.gov.cn/" target="_blank"
+          >湘ICP备19026885号</a
+        >
+      </p>
     </nly-container>
   </footer>
 </template>
