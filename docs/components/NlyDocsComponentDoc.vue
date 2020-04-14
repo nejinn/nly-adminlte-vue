@@ -460,6 +460,7 @@ ul.component-ref-mini-toc:empty {
 <script>
 import Vue from "vue";
 // Fallback descriptions for common props (mainly router-link props)
+import commonProps from "../common-props.json";
 import { kebabCase } from "../utils";
 import NlyDocsAnchoredHeading from "./NlyDocsAnchoredHeading";
 
@@ -621,12 +622,16 @@ export default {
                 /"/g,
                 "'"
               );
-
+        const fallbackMeta = commonProps[prop] || {};
         const description =
-          typeof meta.description === "undefined" ? "" : meta.description;
-
+          typeof meta.description === "undefined"
+            ? fallbackMeta.description
+            : meta.description;
         const settings = meta.settings || false;
-        const version = typeof meta.version === "undefined" ? "" : meta.version;
+        const version =
+          typeof meta.version === "undefined"
+            ? fallbackMeta.version
+            : meta.version;
 
         return {
           prop: kebabCase(prop),

@@ -3,7 +3,7 @@ export const textSizeOptions = {
   sm: "text-sm",
   md: "text-md",
   lg: "text-lg",
-  xl: "text-lg"
+  xl: "text-xl"
 };
 
 export const textVariantOptions = {
