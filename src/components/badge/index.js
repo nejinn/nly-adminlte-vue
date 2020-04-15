@@ -1,8 +1,8 @@
 import { NlyBadge } from "./badge";
 import { nlyPluginFactory } from "../../utils/plugins";
 
-const badgePlugin = nlyPluginFactory({
+const BadgePlugin = nlyPluginFactory({
   components: { NlyBadge }
 });
 
-export { badgePlugin, NlyBadge };
+export { BadgePlugin, NlyBadge };

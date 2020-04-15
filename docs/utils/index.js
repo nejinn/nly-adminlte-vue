@@ -165,7 +165,7 @@ export const makeTOC = (readme, meta = null) => {
           }),
           // Add component import sub-heading
           {
-            label: "Importing individual components",
+            label: "单个组件导入",
             href: "#importing-individual-components"
           }
         );
@@ -173,35 +173,35 @@ export const makeTOC = (readme, meta = null) => {
       // Add directive import sub-heading
       if (hasDirectives) {
         componentToc.push({
-          label: "Importing individual directives",
+          label: "单个指令导入",
           href: "#importing-individual-directives"
         });
       }
       // Add plugin import sub-heading
       componentToc.push({
-        label: "Importing as a Vue.js plugin",
+        label: "导出作为插件",
         href: "#importing-as-a-plugin"
       });
       // Add component reference heading
       toc.push({
-        label: "Component reference",
+        label: "组件参数",
         href: "#component-reference",
         toc: componentToc
       });
     } else if (isDirective) {
       // Add directive reference heading
       toc.push({
-        label: "Directive reference",
+        label: "指令餐宿",
         href: "#directive-reference",
         toc: [
           // Directive import sub-heading
           {
-            label: "Importing individual directives",
+            label: "单个指令导出",
             href: "#importing-individual-directives"
           },
           // Plugin import sub-heading
           {
-            label: "Importing as a Vue.js plugin",
+            label: "导出作为插件",
             href: "#importing-as-a-plugin"
           }
         ]

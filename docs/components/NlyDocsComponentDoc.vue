@@ -85,8 +85,8 @@
             Component aliases
           </nly-docs-anchored-heading>
           <p>
-            <code class="notranslate" translate="no">{{ tag }}</code> can also
-            be used via the following aliases:
+            <code class="notranslate" translate="no">{{ tag }}</code>
+            组件可以用以下简写
           </p>
           <ul>
             <li v-for="alias in aliases" :key="alias">
@@ -97,8 +97,7 @@
           </ul>
           <div class="alert alert-info">
             <p class="mb-0 small">
-              Note: component aliases are only available when importing all of
-              nly-adminlte-vue or using the component group plugin.
+              注意: 组件简写只有在导出为插件的时候才可以用
             </p>
           </div>
         </nly-card-body>
@@ -460,6 +459,7 @@ ul.component-ref-mini-toc:empty {
 <script>
 import Vue from "vue";
 // Fallback descriptions for common props (mainly router-link props)
+import commonProps from "../common-props.json";
 import { kebabCase } from "../utils";
 import NlyDocsAnchoredHeading from "./NlyDocsAnchoredHeading";
 
@@ -621,12 +621,16 @@ export default {
                 /"/g,
                 "'"
               );
-
+        const fallbackMeta = commonProps[prop] || {};
         const description =
-          typeof meta.description === "undefined" ? "" : meta.description;
-
+          typeof meta.description === "undefined"
+            ? fallbackMeta.description
+            : meta.description;
         const settings = meta.settings || false;
-        const version = typeof meta.version === "undefined" ? "" : meta.version;
+        const version =
+          typeof meta.version === "undefined"
+            ? fallbackMeta.version
+            : meta.version;
 
         return {
           prop: kebabCase(prop),

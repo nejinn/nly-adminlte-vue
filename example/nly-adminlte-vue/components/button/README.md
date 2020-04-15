@@ -1,77 +1,196 @@
-# 1. button
-<!-- TOC -->
+# Button
 
-- [1. button](#1-button)
-  - [1.1. nly-button](#11-nly-button)
-    - [1.1.1. props](#111-props)
-  - [1.2. nly-button-group](#12-nly-button-group)
-    - [1.2.1. props](#121-props)
-  - [1.3. 单包导出](#13-单包导出)
-    - [1.3.1. 包含组件](#131-包含组件)
-    - [1.3.2. 导出方法](#132-导出方法)
+> 按钮，接受所有 nly-link props,会渲染成<a>标签按钮,用 role='button'来实现按钮特征
 
-<!-- /TOC -->
-## 1.1. nly-button
+## variant
 
-> 按钮 支持颜色，形状，绑定事件需要加修饰符.native
+> btn 类颜色，支持 adminlte3 的基础主题颜色，支持边框颜色
 
-### 1.1.1. props
+```html
+<div>
+	<nly-button variant="default">default</nly-button>
+	<nly-button variant="dark">dark</nly-button>
+	<nly-button variant="light">light</nly-button>
+	<nly-button variant="primary">primary</nly-button>
+	<nly-button variant="secondary">secondary</nly-button>
+	<nly-button variant="success">success</nly-button>
+	<nly-button variant="info">info</nly-button>
+	<nly-button variant="warning">warning</nly-button>
+	<nly-button variant="danger">danger</nly-button>
+</div>
 
-参数 | 类型 |  默认值 | 描述
--|-|-|-
-block | Boolean | false | 按钮填充父级div
-variant | String | default | 按钮颜色 可选  default，primary，secondary，success，info，danger，warning，outlineDefaul，outlinePrimary，outlineSecondary，outlineSuccess，outlineInfo，outlineDanger，outlineWarning。要设置透明，传入null。
-bg-gradient | String | 无 | 按钮渐变色颜色，和variant只能选择一个。可选primary，secondary，success，info，danger，warning
-bg-variant | String | | 背景色，primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark。
-size | String | 无 | 按钮大小，可选lg，sm，sx
-type | String | button | 按钮类型，可选button，submit
-shape | String | 无 | 按钮形状，可选roundedFlat，roundedPill，roundedCircle，roundedLg，roundedSm
-disabled | Boolean | false | 禁用按钮
-pressed | Boolean | false |按钮激活按下效果
-tool | Boolean | false | 工具类按钮，默认非工具类。此时variant参数在不点击的情况下，只会改变边框颜色。可以使用bg-variant和bg-gradient props改变背景色
-button-class | String | 无 | 自定义式样
-app | Boolean | false | app类按钮.一般情况下是对图标使用的按钮。可以将图标变小，居中。
+<div class="mt-2">
+	<nly-button variant="outlineDark">outlineDark</nly-button>
+	<nly-button variant="outlineLight">outlineLight</nly-button>
+	<nly-button variant="outlinePrimary">outlinePrimary</nly-button>
+	<nly-button variant="outlineSecondary">outlineSecondary</nly-button>
+	<nly-button variant="outlineSuccess">outlineSuccess</nly-button>
+	<nly-button variant="outlineInfo">outlineInfo</nly-button>
+	<nly-button variant="outlineWarning">outlineWarning</nly-button>
+	<nly-button variant="outlineDanger">outlineDanger</nly-button>
+</div>
 
-## 1.2. nly-button-group
-
-> 按钮组
-
-### 1.2.1. props
-
-参数 | 类型 |  默认值 | 描述
--|-|-|-
-vertical | Boolean | false | 是否垂直
-group-size | String |  | 大小，可选'lg'，'sm'
-group-tag | String | div | 标签
-button-group-class | String | | 自定义css式样
-
-## 1.3. 单包导出
-
-> 如果只需要使用buttonPlugin中的组件，请使用单个组件导出.
-
-### 1.3.1. 包含组件
-
-> buttonPlugin包括以下组件
-
-名称 | 导出路径
--|-
-NlyButtonGroup | nly-adminlte-vue
-NlyButton | nly-adminlte-vue
-NlyButtonClose | nly-adminlte-vue
-
-### 1.3.2. 导出方法
-
-> 单组件导出
-
-```js
-import { NlyButtonGroup } from "nly-adminlte-vue";
-Vue.component('nly-button-group', NlyButtonGroup)
+<!-- nly-button.vue -->
 ```
 
-> 整个buttonPlugin导出
+## bg-variant
 
-```js
-import { buttonPlugin } from "nly-adminlte-vue";
-Vue.use(buttonPlugin);
+> bg 类颜色
+
+```html
+<nly-button bg-variant="default">default</nly-button>
+<nly-button bg-variant="dark">dark</nly-button>
+<nly-button bg-variant="light">light</nly-button>
+<nly-button bg-variant="primary">primary</nly-button>
+<nly-button bg-variant="secondary">secondary</nly-button>
+<nly-button bg-variant="success">success</nly-button>
+<nly-button bg-variant="info">info</nly-button>
+<nly-button bg-variant="warning">warning</nly-button>
+<nly-button bg-variant="danger">danger</nly-button>
+<nly-button bg-variant="lightblue">lightblue</nly-button>
+<nly-button bg-variant="navy">navy</nly-button>
+<nly-button bg-variant="olive">olive</nly-button>
+<nly-button bg-variant="lime">lime</nly-button>
+<nly-button bg-variant="fuchsia">fuchsia</nly-button>
+<nly-button bg-variant="maroon">maroon</nly-button>
+<nly-button bg-variant="blue">blue</nly-button>
+<nly-button bg-variant="indigo">indigo</nly-button>
+<nly-button bg-variant="purple">purple</nly-button>
+<nly-button bg-variant="pink">pink</nly-button>
+<nly-button bg-variant="red">red</nly-button>
+<nly-button bg-variant="orange">orange</nly-button>
+<nly-button bg-variant="yellow">yellow</nly-button>
+<nly-button bg-variant="green">green</nly-button>
+<nly-button bg-variant="teal">teal</nly-button>
+<nly-button bg-variant="cyan">cyan</nly-button>
+<nly-button bg-variant="white">white</nly-button>
+<nly-button bg-variant="gray">gray</nly-button>
+<nly-button bg-variant="graydark">graydark</nly-button>
+
+<!-- nly-button.vue -->
 ```
 
+## bg-gradient-variant
+
+> bg-gradient 类颜色，渐变色
+
+```html
+<nly-button bg-gradient-variant="default">default</nly-button>
+<nly-button bg-gradient-variant="dark">dark</nly-button>
+<nly-button bg-gradient-variant="light">light</nly-button>
+<nly-button bg-gradient-variant="primary">primary</nly-button>
+<nly-button bg-gradient-variant="secondary">secondary</nly-button>
+<nly-button bg-gradient-variant="success">success</nly-button>
+<nly-button bg-gradient-variant="info">info</nly-button>
+<nly-button bg-gradient-variant="warning">warning</nly-button>
+<nly-button bg-gradient-variant="danger">danger</nly-button>
+<nly-button bg-gradient-variant="lightblue">lightblue</nly-button>
+<nly-button bg-gradient-variant="navy">navy</nly-button>
+<nly-button bg-gradient-variant="olive">olive</nly-button>
+<nly-button bg-gradient-variant="lime">lime</nly-button>
+<nly-button bg-gradient-variant="fuchsia">fuchsia</nly-button>
+<nly-button bg-gradient-variant="maroon">maroon</nly-button>
+<nly-button bg-gradient-variant="blue">blue</nly-button>
+<nly-button bg-gradient-variant="indigo">indigo</nly-button>
+<nly-button bg-gradient-variant="purple">purple</nly-button>
+<nly-button bg-gradient-variant="pink">pink</nly-button>
+<nly-button bg-gradient-variant="red">red</nly-button>
+<nly-button bg-gradient-variant="orange">orange</nly-button>
+<nly-button bg-gradient-variant="yellow">yellow</nly-button>
+<nly-button bg-gradient-variant="green">green</nly-button>
+<nly-button bg-gradient-variant="teal">teal</nly-button>
+<nly-button bg-gradient-variant="cyan">cyan</nly-button>
+<nly-button bg-gradient-variant="white">white</nly-button>
+<nly-button bg-gradient-variant="gray">gray</nly-button>
+<nly-button bg-gradient-variant="graydark">graydark</nly-button>
+
+<!-- nly-button.vue -->
+```
+
+## size
+
+> 按钮大小，可选 lg，sm，sx
+
+```html
+<nly-button bg-gradient-variant="graydark" size="xs">graydark</nly-button>
+<nly-button bg-gradient-variant="graydark" size="sm">graydark</nly-button>
+<nly-button bg-gradient-variant="graydark" size="lg">graydark</nly-button>
+
+<!-- nly-button.vue -->
+```
+
+## block
+
+> 使按钮填充整个父元素
+
+```html
+<div>
+	<nly-button bg-gradient-variant="graydark" block>block</nly-button>
+</div>
+
+<!-- nly-button.vue -->
+```
+
+## disabled
+
+> 禁用按钮， 禁用状态无法点击，无法触发 click 事件
+
+```html
+<nly-button bg-gradient-variant="graydark" disabled> disabled</nly-button>
+<nly-button bg-gradient-variant="graydark"> diabled</nly-button>
+
+<nly-button bg-gradient-variant="info" disabled> disabled</nly-button>
+<nly-button bg-gradient-variant="info"> diabled</nly-button>
+
+<!-- nly-button.vue -->
+```
+
+## shape
+
+> 按钮形状，方形，小圆角，大圆角
+
+```html
+<nly-button bg-gradient-variant="graydark" shape="roundedFlat">
+	roundedFlat</nly-button
+>
+<nly-button bg-gradient-variant="graydark" shape="roundedPill">
+	roundedPill</nly-button
+>
+<nly-button bg-gradient-variant="graydark" shape="roundedCircle">
+	roundedCircle</nly-button
+>
+<nly-button bg-gradient-variant="info" shape="roundedLg"> roundedLg</nly-button>
+<nly-button bg-gradient-variant="info" shape="roundedSm"> roundedSm</nly-button>
+
+<!-- nly-button.vue -->
+```
+
+## tool
+
+> 工具类按钮，一般建议用在 nly-card-header 组件中的nly-card-tool组件中
+
+```html
+<nly-button tool> tool</nly-button>
+
+<nly-card header-variant="pink" header-outline>
+	<nly-card-header>
+		<nly-card-tool>
+			<nly-button tool> tool</nly-button>
+		</nly-card-tool>
+	</nly-card-header>
+</nly-card>
+
+<!-- nly-button.vue -->
+```
+
+## app
+
+> app类按钮
+
+```html
+<nly-button app variant="danger"> 
+    <nly-icon icon="nlyfont nly-icon-breadcrumb-fill" />
+</nly-button>
+
+<!-- nly-button.vue -->
+```

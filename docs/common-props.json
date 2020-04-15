@@ -1,66 +1,69 @@
 {
   "id": {
-    "description": "Used to set the 'id' attribute on the rendered content, and used as the base to generate any additional element IDs as needed"
+    "description": "设置id"
   },
   "variant": {
-    "description": "Applies one of the Bootstrap theme color variants to the component"
+    "description": "主题颜色，可选  primary， secondary， success， info， warning， danger， light， dark"
   },
   "textVariant": {
-    "description": "Applies one of the Bootstrap theme color variants to the text"
+    "description": "文字颜色，可选  primary， secondary， success， info， warning， danger， light， dark"
   },
   "bgVariant": {
-    "description": "Applies one of the Bootstrap theme color variants to the background"
+    "description": "背景色， 可选背景色， 默认无背景， 可选 primary， secondary， success， info， warning， danger， light， dark， lightblue， navy， olive， lime， fuchsia， maroon， blue， indigo， purple， pink， red， orange， yellow， green， teal， cyan， white， gray， graydark"
+  },
+  "bgGradientVariant": {
+    "description": "渐变背景色， 默认无背景， 可选 primary， secondary， success， info， warning， danger， light， dark， lightblue， navy， olive， lime， fuchsia， maroon， blue， indigo， purple， pink， red， orange， yellow， green， teal， cyan， white， gray， graydark"
   },
   "borderVariant": {
-    "description": "Applies one of the Bootstrap theme color variants to the border"
+    "description": "边框颜色， 可选 primary， secondary， success， info， warning， danger， light， dark"
   },
   "headerVariant": {
-    "description": "Applies one of the Bootstrap theme color variants to the header"
+    "description": "头部颜色， 可选 primary， secondary， success， info， warning， danger， light， dark， lightblue， navy， olive， lime， fuchsia， maroon， blue， indigo， purple， pink， red， orange， yellow， green， teal， cyan， white， gray， graydark"
   },
   "headerTextVariant": {
-    "description": "Applies one of the Bootstrap theme color variants to the header text"
+    "description": "Applies one of the adminlte theme color variants to the header text"
   },
   "titleTextVariant": {
-    "description": "Applies one of the Bootstrap theme color variants to the title text"
+    "description": "Applies one of the adminlte theme color variants to the title text"
   },
   "subTitleTextVariant": {
-    "description": "Applies one of the Bootstrap theme color variants to the sub title text"
+    "description": "Applies one of the adminlte theme color variants to the sub title text"
   },
   "headerBgVariant": {
-    "description": "Applies one of the Bootstrap theme color variants to the header background"
+    "description": "Applies one of the adminlte theme color variants to the header background"
   },
   "headerBorderVariant": {
-    "description": "Applies one of the Bootstrap theme color variants to the header border"
+    "description": "Applies one of the adminlte theme color variants to the header border"
   },
   "footerVariant": {
-    "description": "Applies one of the Bootstrap theme color variants to the footer"
+    "description": "Applies one of the adminlte theme color variants to the footer"
   },
   "footerTextVariant": {
-    "description": "Applies one of the Bootstrap theme color variants to the footer text"
+    "description": "Applies one of the adminlte theme color variants to the footer text"
   },
   "footerBgVariant": {
-    "description": "Applies one of the Bootstrap theme color variants to the footer background"
+    "description": "Applies one of the adminlte theme color variants to the footer background"
   },
   "footerBorderVariant": {
-    "description": "Applies one of the Bootstrap theme color variants to the footer border"
+    "description": "Applies one of the adminlte theme color variants to the footer border"
   },
   "bodyVariant": {
-    "description": "Applies one of the Bootstrap theme color variants to the body"
+    "description": "Applies one of the adminlte theme color variants to the body"
   },
   "bodyTextVariant": {
-    "description": "Applies one of the Bootstrap theme color variants to the body text"
+    "description": "Applies one of the adminlte theme color variants to the body text"
   },
   "bodyBgVariant": {
-    "description": "Applies one of the Bootstrap theme color variants to the body background"
+    "description": "Applies one of the adminlte theme color variants to the body background"
   },
   "bodyBorderVariant": {
-    "description": "Applies one of the Bootstrap theme color variants to the body border"
+    "description": "Applies one of the adminlte theme color variants to the body border"
   },
   "tag": {
-    "description": "Specify the HTML tag to render instead of the default tag"
+    "description": "标签"
   },
   "headerTag": {
-    "description": "Specify the HTML tag to render instead of the default tag for the header"
+    "description": "header标签"
   },
   "footerTag": {
     "description": "Specify the HTML tag to render instead of the default tag for the footer"
@@ -111,10 +114,10 @@
     "description": "Text content to place in the sub title"
   },
   "size": {
-    "description": "Set the size of the component's appearance. 'sm', 'md' (default), or 'lg'"
+    "description": "大小，可选xs，sm，md，lg，xl"
   },
   "required": {
-    "description": "Adds the 'required' attribute to the form control"
+    "description": "必填"
   },
   "form": {
     "description": "ID of the form that the form control belongs to. Sets the 'form' attribute on the control"
@@ -126,19 +129,19 @@
     "description": "Sets the 'placeholder' attribute value on the form control"
   },
   "disabled": {
-    "description": "When set to 'true', disables the component's functionality and places it in a disabled state"
+    "description": "禁用，设置true为禁用状态"
   },
   "readonly": {
-    "description": "Sets the 'readonly' attribute on the form control"
+    "description": "只读，设置readonly为只读状态"
   },
   "plaintext": {
-    "description": "Set the form control as readonly and renders the control to look like plain text (no borders)"
+    "description": "无边框状态input框"
   },
   "autocomplete": {
-    "description": "Sets the 'autocomplete' attribute value on the form control"
+    "description": "自动填充，可以on，off"
   },
   "autofocus": {
-    "description": "When set to 'true', attempts to auto-focus the control when it is mounted, or re-activated when in a keep-alive. Does not set the 'autofocus' attribute on the control"
+    "description": "设置true，会自动聚焦"
   },
   "state": {
     "description": "Controls the validation state appearance of the component. 'true' for valid, 'false' for invalid', or 'null' for no validation state"
@@ -165,13 +168,13 @@
     "description": "Renders the content of the component in-place in the DOM, rather than portalling it to be appended to the body element"
   },
   "src": {
-    "description": "URL to set for the 'src' attribute"
+    "description": "src标签的url"
   },
   "alt": {
-    "description": "Value to set for the 'alt' attribute"
+    "description": "src的alt属性"
   },
   "role": {
-    "description": "Sets the ARIA attribute 'role' to a specific value"
+    "description": "role属性"
   },
   "ariaRole": {
     "description": "Sets the ARIA attribute 'role' to a specific value"
@@ -189,48 +192,48 @@
     "description": "When the rendered element is an aria-live region (for screen reader users), set to either 'polite' or 'assertive'"
   },
   "fade": {
-    "description": "When set to 'true', enables the fade animation/transition on the component"
+    "description": "动画，设置true开启动画"
   },
   "noFade": {
-    "description": "When set to 'true', disables the fade animation/transition on the component"
+    "description": "无动画，设置true关闭动画"
   },
   "active": {
-    "description": "When set to 'true', places the component in the active state with active styling"
+    "description": "设置true处于激活状态"
   },
   "rel": {
-    "description": "Sets the 'rel' attribute on the rendered link"
+    "description": "设置rel属性"
   },
   "target": {
-    "description": "Sets the 'target' attribute on the rendered link"
+    "description": "link的target属性，可选_blank，_self，_parent，_top，framename"
   },
   "href": {
-    "description": "Denotes the target URL of the link for standard a links"
+    "description": "普通url"
   },
   "to": {
-    "description": "router-link prop: Denotes the target route of the link. When clicked, the value of the to prop will be passed to router.push() internally, so the value can be either a string or a Location descriptor object"
+    "description": "router-link router.push()跳转"
   },
   "replace": {
-    "description": "router-link prop: Setting the replace prop will call 'router.replace()' instead of 'router.push()' when clicked, so the navigation will not leave a history record"
+    "description": "router-link router.replace()跳转"
   },
   "append": {
-    "description": "router-link prop: Setting append prop always appends the relative path to the current path"
+    "description": "router-link，需要使用to或者replace或者href这个props，将需要跳转的url字符串添加到当前url的后面再跳转。设置append=true，比如当前http://localhost:8080/link，to='collapse'，则会跳转到http://localhost:8080/link/collapse"
   },
   "exact": {
-    "description": "router-link prop: The default active class matching behavior is inclusive match. Setting this prop forces the mode to exactly match the route"
+    "description": "router-link，设置true开启路由匹配模式"
   },
   "activeClass": {
-    "description": "router-link prop: Configure the active CSS class applied when the link is active. Typically you will want to set this to class name 'active'"
+    "description": "激活状态css类名"
   },
   "exactActiveClass": {
-    "description": "router-link prop: Configure the active CSS class applied when the link is active with exact match. Typically you will want to set this to class name 'active'"
+    "description": "exact为true的情况下，当路由匹配成功，会激活exactActiveClass。类似active-class，是一个自定义css类"
   },
   "routerTag": {
-    "description": "router-link prop: Specify which tag to render, and it will still listen to click events for navigation. 'router-tag' translates to the tag prop on the final rendered router-link. Typically you should use the default value"
+    "description": "router-link 标签，通常建议不修改"
   },
   "event": {
-    "description": "router-link prop: Specify the event that triggers the link. In most cases you should leave this as the default"
+    "description": "点击事件，尽量不要和to以及href同时使用，如果同时使用，点击事件和跳转会依次发生"
   },
   "noPrefetch": {
-    "description": "nuxt-link prop: To improve the responsiveness of your Nuxt.js applications, when the link will be displayed within the viewport, Nuxt.js will automatically prefetch the code splitted page. Setting 'no-prefetch' will disabled this feature for the specific link"
+    "description": "nuxt-link "
   }
 }

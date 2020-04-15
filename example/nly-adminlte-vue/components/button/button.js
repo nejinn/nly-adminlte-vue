@@ -43,7 +43,7 @@ const btnProps = {
     type: Boolean,
     default: false
   },
-  bgGradient: {
+  bgGradientVariant: {
     type: String
   },
   buttonClass: {
@@ -102,8 +102,8 @@ const customClass = props => {
   const btnBlock = () => (props.block ? "btn-block" : null);
   const customSize = () => nlyGetOptionsByKeyEqual(btnSizeOptions, props.size);
   const btnShape = () => nlyGetOptionsByKeyEqual(btnShapeOptions, props.shape);
-  const btnBgGradient = () =>
-    nlyGetOptionsByKeyEqual(bgGradientOptions, props.bgGradient);
+  const btnBgGradientVariant = () =>
+    nlyGetOptionsByKeyEqual(bgGradientOptions, props.bgGradientVariant);
   const btnBgVariant = () =>
     nlyGetOptionsByKeyEqual(bgVariantOptions, props.bgVariant);
   const btnDisabled = () => (props.disabled ? "disabled" : null);
@@ -115,7 +115,7 @@ const customClass = props => {
   return [
     btnVariant(),
     btnBgVariant(),
-    btnBgGradient(),
+    btnBgGradientVariant(),
     btnBlock(),
     customSize(),
     btnShape(),

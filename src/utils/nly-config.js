@@ -3,7 +3,7 @@ export const textSizeOptions = {
   sm: "text-sm",
   md: "text-md",
   lg: "text-lg",
-  xl: "text-lg"
+  xl: "text-xl"
 };
 
 export const textVariantOptions = {
@@ -37,6 +37,8 @@ export const textVariantOptions = {
 };
 
 export const btnVariantOptinos = {
+  dark: "btn-dark",
+  light: "btn-light",
   default: "btn-default",
   primary: "btn-primary",
   secondary: "btn-secondary",
@@ -44,7 +46,8 @@ export const btnVariantOptinos = {
   info: "btn-info",
   danger: "btn-danger",
   warning: "btn-warning",
-  outlineDefault: "btn-outline-default",
+  outlineDark: "btn-outline-dark",
+  outlineLight: "btn-outline-light",
   outlinePrimary: "btn-outline-primary",
   outlineSecondary: "btn-outline-secondary",
   outlineSuccess: "btn-outline-success",

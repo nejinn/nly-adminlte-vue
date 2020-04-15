@@ -40,7 +40,7 @@ export const NlyBreadcrumbItem = Vue.extend({
           staticClass: "breadcrumb-item",
           class: [props.active ? "active" : "", props.itemClass]
         }),
-        [h(NlyBreadcrumbLink, { props }, children)]
+        [h(NlyBreadcrumbLink, { class: [props.linkClass], props }, children)]
       );
     }
   }
