@@ -1753,7 +1753,7 @@ svg {
 	cursor: pointer;
 }
 .bd-code pre.editable.live::after {
-	content: '运行在';
+	content: '运行中';
 }
 .bd-code pre.editable.error {
 	border: 1px solid #dc3545;

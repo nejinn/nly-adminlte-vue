@@ -1,8 +1,8 @@
-import Vue from "../../../utils/vue";
+import Vue from "../../utils/vue";
 
-const name = "NlyContentHeader";
+const name = "NlyContent";
 
-export const NlyContentHeader = Vue.extend({
+export const NlyContent = Vue.extend({
   name: name,
   props: {
     tag: {
@@ -21,7 +21,7 @@ export const NlyContentHeader = Vue.extend({
     return h(
       this.customProps.tag,
       {
-        staticClass: "content-header"
+        staticClass: "content"
       },
       this.$slots.default
     );

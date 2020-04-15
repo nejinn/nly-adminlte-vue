@@ -1,8 +1,8 @@
-import Vue from "../../../utils/vue";
+import Vue from "../../utils/vue";
 
-const name = "NlyContainerWrapper";
+const name = "NlyWrapper";
 
-export const NlyContainerWrapper = Vue.extend({
+export const NlyWrapper = Vue.extend({
   name: name,
   props: {
     //边侧栏最小化

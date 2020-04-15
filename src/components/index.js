@@ -1,28 +1,29 @@
 import { nlyPluginFactory } from "../utils/plugins";
 
-import { badgePlugin } from "./badge";
-import { buttonPlugin } from "./button";
+import { BadgePlugin } from "./badge";
+import { BreadcrumbPlugin } from "./breadcrumb";
+import { ButtonPlugin } from "./button";
+import { ButtonGroupPlugin } from "./button-group";
 import { cardPlugin } from "./card";
 import { collapsePlugin } from "./collapse";
-import { controlSidebarPlugin } from "./controlsidebar";
+import { ControlSidebarPlugin } from "./controlsidebar";
 import { dropdownPlugin } from "./dropdown";
 import { iconPlugin } from "./icon";
-import { containerPlugin } from "./layout/container";
-import { contentPlugin } from "./layout/content";
-import { gridPlugin } from "./layout/grid";
-import { wrapperPlugin } from "./layout/wrapper";
+import { ContainerPlugin } from "./container";
+import { ContentPlugin } from "./content";
+import { GridPlugin } from "./grid";
+import { WrapperPlugin } from "./wrapper";
 import { linkPlugin } from "./link";
 import { navPlugin } from "./nav";
 import { navbarPlugin } from "./navbar";
 import { overlayPlugin } from "./overlay";
 import { sidebarPlugin } from "./sidebar";
 import { switchPlugin } from "./switch";
-import { collapseSidebarPlugins } from "./layout/collapsesidebar";
+import { CollapseSidebarPlugins } from "./collapsesidebar";
 import { toastPlugin } from "./toast";
 import { spinnerPlugin } from "./spinner";
 import { progressPlugin } from "./progress";
 import { timelinePlugin } from "./timeline";
-import { breadcrumbPlugin } from "./breadcrumb";
 import { infoboxPlugin } from "./info-box";
 import { tablePlugin } from "./table";
 import { tooltipPlugin } from "./tooltip";
@@ -35,29 +36,30 @@ import { modalPlugin } from "./modal";
 
 export const componentsPlugin = nlyPluginFactory({
   plugins: {
-    badgePlugin,
-    buttonPlugin,
+    BadgePlugin,
+    BreadcrumbPlugin,
+    ButtonPlugin,
+    ButtonGroupPlugin,
     cardPlugin,
     collapsePlugin,
-    controlSidebarPlugin,
+    ControlSidebarPlugin,
     dropdownPlugin,
     iconPlugin,
-    containerPlugin,
-    contentPlugin,
-    gridPlugin,
-    wrapperPlugin,
+    ContainerPlugin,
+    ContentPlugin,
+    GridPlugin,
+    WrapperPlugin,
     linkPlugin,
     navPlugin,
     navbarPlugin,
     overlayPlugin,
     sidebarPlugin,
     switchPlugin,
-    collapseSidebarPlugins,
+    CollapseSidebarPlugins,
     toastPlugin,
     spinnerPlugin,
     progressPlugin,
     timelinePlugin,
-    breadcrumbPlugin,
     infoboxPlugin,
     tablePlugin,
     tooltipPlugin,

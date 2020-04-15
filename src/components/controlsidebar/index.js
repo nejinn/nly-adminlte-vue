@@ -3,7 +3,7 @@ import { NlyControlSidebarContainer } from "./control-sidebar-container";
 import { NlyControlSidebar } from "./control-sidebar";
 import { NlyControlSidebarButton } from "./control-sidebar-button";
 
-const controlSidebarPlugin = nlyPluginFactory({
+const ControlSidebarPlugin = nlyPluginFactory({
   components: {
     NlyControlSidebarContainer,
     NlyControlSidebar,
@@ -12,7 +12,7 @@ const controlSidebarPlugin = nlyPluginFactory({
 });
 
 export {
-  controlSidebarPlugin,
+  ControlSidebarPlugin,
   NlyControlSidebarContainer,
   NlyControlSidebar,
   NlyControlSidebarButton

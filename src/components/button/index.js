@@ -1,13 +1,13 @@
 import { nlyPluginFactory } from "../../utils/plugins";
 import { NlyButton } from "./button";
-import { NlyButtonGroup } from "./button-group";
 import { NlyButtonClose } from "./button-close";
 
-const buttonPlugin = nlyPluginFactory({
+const ButtonPlugin = nlyPluginFactory({
   components: {
     NlyButton,
-    NlyButtonGroup,
-    NlyButtonClose
+    NlyBtn: NlyButton,
+    NlyButtonClose,
+    NlyBtnClose: NlyButtonClose
   }
 });
-export { buttonPlugin, NlyButton, NlyButtonGroup, NlyButtonClose };
+export { ButtonPlugin, NlyButton, NlyButtonClose };

@@ -18,13 +18,19 @@ const NlyAdminlteVue = {
 
 export { install, NAME, NlyAdminlteVue };
 
-export { badgePlugin } from "./components/badge";
+export { BadgePlugin } from "./components/badge";
 export { NlyBadge } from "./components/badge/badge";
 
-export { buttonPlugin } from "./components/button";
-export { NlyButtonGroup } from "./components/button/button-group";
+export { BreadcrumbPlugin } from "./components/breadcrumb";
+export { NlyBreadcrumbItem } from "./components/breadcrumb/breadcrumb-item";
+export { NlyBreadcrumb } from "./components/breadcrumb/breadcrumb";
+
+export { ButtonPlugin } from "./components/button";
 export { NlyButton } from "./components/button/button";
 export { NlyButtonClose } from "./components/button/button-close";
+
+export { ButtonGroupPlugin } from "./components/button-group";
+export { NlyButtonGroup } from "./components/button-group/button-group";
 
 export { cardPlugin } from "./components/card";
 export { NlyCardGroup } from "./components/card/card-group";
@@ -133,10 +139,6 @@ export { NlyTimelineItem } from "./components/timeline/timeline-item";
 export { NlyTimelineHeader } from "./components/timeline/timeline-header";
 export { NlyTimelineBody } from "./components/timeline/timeline-body";
 export { NlyTimelineFooter } from "./components/timeline/timeline-footer";
-
-export { breadcrumbPlugin } from "./components/breadcrumb";
-export { NlyBreadcrumbItem } from "./components/breadcrumb/breadcrumb-item";
-export { NlyBreadcrumb } from "./components/breadcrumb/breadcrumb";
 
 export { infoboxPlugin } from "./components/info-box";
 export { NlyInfobox } from "./components/info-box/infobox";
