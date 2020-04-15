@@ -4,20 +4,20 @@ import { badgePlugin } from "./badge";
 import { buttonPlugin } from "./button";
 import { cardPlugin } from "./card";
 import { collapsePlugin } from "./collapse";
-import { controlSidebarPlugin } from "./controlsidebar";
+import { ControlSidebarPlugin } from "./controlsidebar";
 import { dropdownPlugin } from "./dropdown";
 import { iconPlugin } from "./icon";
-import { containerPlugin } from "./layout/container";
-import { contentPlugin } from "./layout/content";
-import { gridPlugin } from "./layout/grid";
-import { wrapperPlugin } from "./layout/wrapper";
+import { ContainerPlugin } from "./container";
+import { ContentPlugin } from "./content";
+import { GridPlugin } from "./grid";
+import { WrapperPlugin } from "./wrapper";
 import { linkPlugin } from "./link";
 import { navPlugin } from "./nav";
 import { navbarPlugin } from "./navbar";
 import { overlayPlugin } from "./overlay";
 import { sidebarPlugin } from "./sidebar";
 import { switchPlugin } from "./switch";
-import { collapseSidebarPlugins } from "./layout/collapsesidebar";
+import { CollapseSidebarPlugins } from "./collapsesidebar";
 import { toastPlugin } from "./toast";
 import { spinnerPlugin } from "./spinner";
 import { progressPlugin } from "./progress";
@@ -39,20 +39,20 @@ export const componentsPlugin = nlyPluginFactory({
     buttonPlugin,
     cardPlugin,
     collapsePlugin,
-    controlSidebarPlugin,
+    ControlSidebarPlugin,
     dropdownPlugin,
     iconPlugin,
-    containerPlugin,
-    contentPlugin,
-    gridPlugin,
-    wrapperPlugin,
+    ContainerPlugin,
+    ContentPlugin,
+    GridPlugin,
+    WrapperPlugin,
     linkPlugin,
     navPlugin,
     navbarPlugin,
     overlayPlugin,
     sidebarPlugin,
     switchPlugin,
-    collapseSidebarPlugins,
+    CollapseSidebarPlugins,
     toastPlugin,
     spinnerPlugin,
     progressPlugin,

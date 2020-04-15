@@ -1,5 +1,5 @@
 <template>
-  <nly-container-wrapper
+  <nly-wrapper
     side-mini
     layout="fixed"
     wrapper-class="XXXX"
@@ -185,7 +185,7 @@
       </nly-navbar-nav>
     </nly-navbar>
 
-    <nly-sidebar-container :hover="sidebar.hover" :variant="sidebar.variant">
+    <nly-wrapper-sidebar :hover="sidebar.hover" :variant="sidebar.variant">
       <nly-sidebar-brand to="collapse" :variant="sidebar.brand.variant">
         <nly-sidebar-brandimg :src="logo" elevation circle />
         <nly-sidebar-brandtext>NLY Adminlte Vue</nly-sidebar-brandtext>
@@ -509,9 +509,9 @@
           </nly-sidebar-nav-tree>
         </nly-sidebar-nav>
       </nly-sidebar>
-    </nly-sidebar-container>
+    </nly-wrapper-sidebar>
     <router-view />
-    <nly-collapse-footer :size="footerSizeSm">
+    <nly-wrapper-footer :size="footerSizeSm">
       <strong
         >Copyright © 2020
         <a href="https://github.com/nejinn/nly-adminlte-vue">nly-adminlte-vue</a
@@ -521,8 +521,8 @@
       <div class="float-right d-none d-sm-inline-block">
         <b>Version</b> 0.1.9
       </div>
-    </nly-collapse-footer>
-    <nly-control-sidebar-container :size="controlSidebarSizeSm">
+    </nly-wrapper-footer>
+    <nly-wrapper-control-sidebar :size="controlSidebarSizeSm">
       <!-- Control sidebar content goes here -->
       <nly-control-sidebar class="p-3">
         <h5>主题设置</h5>
@@ -702,9 +702,9 @@
           </div>
         </div>
       </nly-control-sidebar>
-    </nly-control-sidebar-container>
+    </nly-wrapper-control-sidebar>
     <nly-overlay v-nly-sidebar-collapse.overlay sidebar />
-  </nly-container-wrapper>
+  </nly-wrapper>
 </template>
 
 <script>

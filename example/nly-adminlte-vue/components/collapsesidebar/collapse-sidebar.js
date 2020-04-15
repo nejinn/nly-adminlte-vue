@@ -1,9 +1,9 @@
-import Vue from "../../../utils/vue";
+import Vue from "../../utils/vue";
 
 import {
   nlyGetOptionsByValueInclusion,
   nlyGetOptionsByKeyEqual
-} from "../../../utils/get-options";
+} from "../../utils/get-options";
 
 const name = "NlyCollapseSidebar";
 

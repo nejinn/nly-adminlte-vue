@@ -2,16 +2,14 @@
 <!-- TOC -->
 
 - [1. wrapper](#1-wrapper)
-    - [1.1. nly-container-wrapper](#11-nly-container-wrapper)
+    - [1.1. nlywrapper](#11-nlywrapper)
         - [1.1.1. props](#111-props)
-    - [1.2. nly-wrapper](#12-nly-wrapper)
-        - [1.2.1. props](#121-props)
-    - [1.3. 单包导出](#13-单包导出)
-        - [1.3.1. 包含组件](#131-包含组件)
-        - [1.3.2. 导出方法](#132-导出方法)
+    - [1.2. 单包导出](#12-单包导出)
+        - [1.2.1. 包含组件](#121-包含组件)
+        - [1.2.2. 导出方法](#122-导出方法)
 
 <!-- /TOC -->
-## 1.1. nly-container-wrapper
+## 1.1. nlywrapper
 
 > 此组件会修改body的class,props参数自由搭配会有不同的布局,请自由发挥
 
@@ -27,17 +25,14 @@ top-nav | Boolean | 无 | 头部导航顶格无边侧栏布局
 warpper-class | String | 无 | wrapper 式样
 container-class | String | 无 | body式样
 
-## 1.2. nly-wrapper
-
-### 1.2.1. props
 
 无
 
-## 1.3. 单包导出
+## 1.2. 单包导出
 
 > 如果只需要使用wrapperPlugin中的组件，请使用单个组件导出
 
-### 1.3.1. 包含组件
+### 1.2.1. 包含组件
 
 > wrapperPlugin包括以下组件
 
@@ -46,7 +41,7 @@ container-class | String | 无 | body式样
 NlyContainerWrapper | nly-adminlte-vue
 NlyWrapper | nly-adminlte-vue
 
-### 1.3.2. 导出方法
+### 1.2.2. 导出方法
 
 > 单组件导出
 

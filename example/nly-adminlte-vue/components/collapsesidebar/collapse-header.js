@@ -1,5 +1,5 @@
-import Vue from "../../../utils/vue";
-import { nlyGetOptionsByKeyEqual } from "../../../utils/get-options";
+import Vue from "../../utils/vue";
+import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
 
 const name = "NlyCollapseHeader";
 

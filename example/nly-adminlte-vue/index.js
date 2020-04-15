@@ -44,7 +44,7 @@ export { NlyCollapseTransition } from "./utils/collapse-transition";
 export { NlyCollapseNoclass } from "./components/collapse/collapse-noclass";
 export { NlyCollapseNoclassTransition } from "./utils/collapse-noclass-transition";
 
-export { controlSidebarPlugin } from "./components/controlsidebar";
+export { ControlSidebarPlugin } from "./components/controlsidebar";
 export { NlyControlSidebarContainer } from "./components/controlsidebar/control-sidebar-container";
 export { NlyControlSidebar } from "./components/controlsidebar/control-sidebar";
 export { NlyControlSidebarButton } from "./components/controlsidebar/control-sidebar-button";
@@ -56,21 +56,25 @@ export { NlyDropdownMenu } from "./components/dropdown/dropdown-menu";
 export { iconPlugin } from "./components/icon";
 export { NlyIcon } from "./components/icon/icon";
 
-export { containerPlugin } from "./components/layout/container";
-export { NlyContainer } from "./components/layout/container/container";
+export { ContainerPlugin } from "./components/container";
+export { NlyContainer } from "./components/container/container";
 
-export { contentPlugin } from "./components/layout/content";
-export { NlyContent } from "./components/layout/content/content";
-export { NlyContentHeader } from "./components/layout/content/content-header";
-export { NlyContentWrapper } from "./components/layout/content/content-wrapper";
+export { ContentPlugin } from "./components/content";
+export { NlyContent } from "./components/content/content";
+export { NlyContentHeader } from "./components/content/content-header";
+export { NlyContentWrapper } from "./components/content/content-wrapper";
 
-export { gridPlugin } from "./components/layout/grid";
-export { NlyRow } from "./components/layout/grid/row";
-export { NlyCol } from "./components/layout/grid/col";
+export { GridPlugin } from "./components/grid";
+export { NlyRow } from "./components/grid/row";
+export { NlyCol } from "./components/grid/col";
 
-export { wrapperPlugin } from "./components/layout/wrapper";
-export { NlyContainerWrapper } from "./components/layout/wrapper/container-wrapper";
-export { NlyWrapper } from "./components/layout/wrapper/wrapper";
+export { WrapperPlugin } from "./components/wrapper";
+export { NlyWrapper } from "./components/wrapper/wrapper";
+export { NlyWrapperFooter } from "./components/wrapper/wrapper-footer";
+export { NlyWrapperHeader } from "./components/wrapper/wrapper-header";
+export { NlyWrapperSidebar } from "./components/wrapper/wrapper-sidebar";
+export { NlyWrapperControlSidebar } from "./components/wrapper/wrapper-control-sidebar";
+export { NlyWrapperContent } from "./components/wrapper/wrapper-content";
 
 export { linkPlugin } from "./components/link";
 export { NlyLink } from "./components/link/link";
@@ -161,7 +165,12 @@ export { NlyTooltip } from "./components/tooltip/tooltip";
 export { cardDirectivePlugin } from "./directives/card";
 export { YNlyCardMaximized } from "./directives/card/maximized-card";
 
-export { collapseSidebarPlugins } from "./components/layout/collapsesidebar";
+export { CollapseSidebarPlugins } from "./components/collapsesidebar";
+export { NlyCollapseFooter } from "./components/collapsesidebar/collapse-footer";
+export { NlyCollapseHeader } from "./components/collapsesidebar/collapse-header";
+export { NlyCollapseMain } from "./components/collapsesidebar/collapse-main";
+export { NlyCollapseSidebar } from "./components/collapsesidebar/collapse-sidebar";
+export { NlyCollapseWrapper } from "./components/collapsesidebar/collapse-wrapper";
 
 export { toggleDirectivePlugin } from "./directives/toggle";
 export { YNlyToggle } from "./directives/toggle/toggle";

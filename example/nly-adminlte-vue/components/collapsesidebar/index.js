@@ -1,11 +1,11 @@
-import { nlyPluginFactory } from "../../../utils/plugins";
+import { nlyPluginFactory } from "../../utils/plugins";
 import { NlyCollapseWrapper } from "./collapse-wrapper";
 import { NlyCollapseHeader } from "./collapse-header";
 import { NlyCollapseSidebar } from "./collapse-sidebar";
 import { NlyCollapseMain } from "./collapse-main";
 import { NlyCollapseFooter } from "./collapse-footer";
 
-const collapseSidebarPlugins = nlyPluginFactory({
+const CollapseSidebarPlugins = nlyPluginFactory({
   components: {
     NlyCollapseWrapper,
     NlyCollapseHeader,
@@ -15,7 +15,7 @@ const collapseSidebarPlugins = nlyPluginFactory({
   }
 });
 export {
-  collapseSidebarPlugins,
+  CollapseSidebarPlugins,
   NlyCollapseWrapper,
   NlyCollapseHeader,
   NlyCollapseSidebar,

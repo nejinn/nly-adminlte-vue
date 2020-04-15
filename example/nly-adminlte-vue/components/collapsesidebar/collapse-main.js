@@ -1,6 +1,6 @@
 /* <div class="content-wrapper" style="min-height: 268px;"></div>; */
 
-import Vue from "../../../utils/vue";
+import Vue from "../../utils/vue";
 
 const name = "NlyCollapseMain";
 

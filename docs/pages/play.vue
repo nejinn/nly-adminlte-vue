@@ -898,22 +898,19 @@ export default {
       this.messages.splice(0);
     },
     reset() {
-      this.$bvModal
-        .msgBoxConfirm(
-          "Are you sure that you want to reset to the playground to the default values?",
-          {
-            title: "Please Confirm Reset",
-            size: "sm",
-            buttonSize: "sm",
-            okTitle: "YES",
-            cancelTitle: "NO",
-            titleTag: "h6",
-            headerClass: "p-2",
-            footerClass: "p-2",
-            hideHeaderClose: false,
-            centered: true
-          }
-        )
+      this.$nlyaModal
+        .msgBoxConfirm("您确定要重置代码吗？", {
+          title: "请确认是否需要重置",
+          size: "sm",
+          buttonSize: "sm",
+          okTitle: "是",
+          cancelTitle: "否",
+          titleTag: "h6",
+          headerClass: "p-2",
+          footerClass: "p-2",
+          hideHeaderClose: false,
+          centered: true
+        })
         .then(value => {
           if (value) {
             this.doReset();

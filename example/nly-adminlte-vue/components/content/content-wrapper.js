@@ -1,13 +1,13 @@
-import Vue from "../../../utils/vue";
+import Vue from "../../utils/vue";
 
-const name = "NlyContent";
+const name = "NlyContentWrapper";
 
-export const NlyContent = Vue.extend({
+export const NlyContentWrapper = Vue.extend({
   name: name,
   props: {
     tag: {
       type: String,
-      default: "section"
+      default: "div"
     }
   },
   computed: {
@@ -21,7 +21,7 @@ export const NlyContent = Vue.extend({
     return h(
       this.customProps.tag,
       {
-        staticClass: "content"
+        staticClass: "content-wrapper"
       },
       this.$slots.default
     );
