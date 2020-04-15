@@ -1,7 +1,7 @@
 import { NlyButtonGroup } from "./button-group";
-import { pluginFactory } from "../../utils/plugins";
+import { nlyPluginFactory } from "../../utils/plugins";
 
-const ButtonGroupPlugin = pluginFactory({
+const ButtonGroupPlugin = nlyPluginFactory({
   components: {
     NlyButtonGroup,
     NlyBtnGroup: NlyButtonGroup
