@@ -2,9 +2,9 @@
 
 > 一个对正文进行补充的小标签。
 
-## size
+## 总览
 
-> 一般情况下 badge 的大小时由父元素或者以上的元素决定的。
+> nly-badge组件在一般情况下，大小由父元素或者以上的元素决定的。
 
 ```html
 <h1><nly-badge variant="info">info</nly-badge></h1>
@@ -15,9 +15,11 @@
 <!-- nly-badge.vue -->
 ```
 
+## size
+
 > nly-badge 提供了一个设置 badge 大小的 props size
 
-> tag 设为 a 标的时候，有鼠标悬浮效果
+> 请注意这时候可能会由于与文本内容或者同级元素的font-size和line-height不同而导致并不会对齐显示
 
 ```html
 <nly-badge bg-variant="primary" size="xs">

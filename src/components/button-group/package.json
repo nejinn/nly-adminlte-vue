@@ -1,0 +1,32 @@
+{
+    "name": "@nly-adminlte-vue/button-group",
+    "version": "1.0.0",
+    "meta": {
+        "title": "Button Group",
+        "description": "按钮组",
+        "components": [
+            {
+                "component": "NlyButtonGroup",
+                "description": "把多个按钮放在一个组里，可以水平也可以垂直",
+                "props": [
+                    {
+                        "prop": "vertical",
+                        "description": "设置true时，按钮组垂直排列"
+                    },
+                    {
+                        "prop": "size",
+                        "description": "btn-group类， 可选sm，lg"
+                    },
+                    {
+                        "prop": "buttonGroupClass",
+                        "description": "自定义css类"
+                    }
+                ],
+                "aliases": [
+                    "NlyBtnGroup"
+                ]
+            }
+        ]
+    }
+}
+  

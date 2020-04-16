@@ -9,7 +9,7 @@
                 "component": "NlyButton",
                 "aliases": [
                     "NlyBtn"
-                  ],
+                ],
 				"props": [
 					{
 						"prop": "size",
@@ -64,7 +64,10 @@
                 ]
             },
             {
-				"component": "NlyButtonClose",
+                "component": "NlyButtonClose",
+                "aliases": [
+                    "NlyBtnClose"
+                ],
 				"props": [
 					{
 						"prop": "content",

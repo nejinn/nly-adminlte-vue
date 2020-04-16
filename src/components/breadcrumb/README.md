@@ -1,6 +1,31 @@
 # Breadcrumb
 
-> 面包屑导航
+> 面包屑导航， 类似于嵌套路径，可以显示出当前route的父级以上的router，并可以点击跳转直达
+
+## 总览
+
+> 面包屑导航在存在route重定向的情况下，可能会存在某个元素指向的url就是当前route，在vue版本或者vue-router版本过低的情况下（目前知道vue-router 3以下会导致此问题，但不百分比百保证），会报错如下
+
+```js
+Uncaught (in promise) NavigationDuplicated {_name: "NavigationDuplicated", name: "NavigationDuplicated"}
+```
+
+> 解决方法可以尝试
+
+```js
+// main.js写入
+
+import Router from 'vue-router'
+ 
+const originalPush = Router.prototype.push
+Router.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
+
+// 或者降低vue-router版本
+npm i vue-router@3.0 -S
+```
+
 
 ## item
 

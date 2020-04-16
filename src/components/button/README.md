@@ -194,3 +194,15 @@
 
 <!-- nly-button.vue -->
 ```
+
+## link props
+
+> 接收 nly-link 组件参数，会变成 a 标签按钮
+
+```html
+<nly-button variant="danger"> Button</nly-button>
+<nly-button variant="danger" to="/">Link to</nly-button>
+<nly-button variant="danger" href="#">Link href</nly-button>
+
+<!-- nly-button.vue -->
+```
