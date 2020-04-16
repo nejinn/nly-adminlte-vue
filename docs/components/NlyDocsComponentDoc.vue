@@ -43,13 +43,13 @@
           <li v-if="aliases && aliases.length > 0">
             <a :href="`#comp-ref-${componentName}-aliases`">
               <code class="notranslate" translate="no">{{ tag }}</code>
-              Component aliases
+              组件简写
             </a>
           </li>
           <li v-if="propsItems && propsItems.length > 0">
             <a :href="`#comp-ref-${componentName}-props`">
               <code class="notranslate" translate="no">{{ tag }}</code>
-              Properties
+              props 参数
             </a>
           </li>
           <li v-if="componentVModel">
@@ -82,7 +82,7 @@
             level="4"
             class="mb-3"
           >
-            Component aliases
+            组件简写
           </nly-docs-anchored-heading>
           <p>
             <code class="notranslate" translate="no">{{ tag }}</code>
@@ -111,7 +111,7 @@
             level="4"
             class="mb-3"
           >
-            prop参数
+            props 参数
           </nly-docs-anchored-heading>
           <div class="table-responsive">
             <nly-table

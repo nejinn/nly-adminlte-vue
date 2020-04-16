@@ -167,7 +167,7 @@
 
 ## tool
 
-> 工具类按钮，一般建议用在 nly-card-header 组件中的nly-card-tool组件中
+> 工具类按钮，一般建议用在 nly-card-header 组件中的 nly-card-tool 组件中
 
 ```html
 <nly-button tool> tool</nly-button>
@@ -185,12 +185,23 @@
 
 ## app
 
-> app类按钮
+> app 类按钮
 
 ```html
-<nly-button app variant="danger"> 
-    <nly-icon icon="nlyfont nly-icon-breadcrumb-fill" />
+<nly-button app variant="danger">
+	<nly-icon icon="nlyfont nly-icon-breadcrumb-fill" />
 </nly-button>
+
+<!-- nly-button.vue -->
+```
+
+## link props
+
+> 接收 nly-link 组件参数，会变成 a 标签按钮
+
+```html
+<nly-button variant="danger"> Button</nly-button>
+<nly-button variant="danger" to="/">Link to</nly-button>
 
 <!-- nly-button.vue -->
 ```

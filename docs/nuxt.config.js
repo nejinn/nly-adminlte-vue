@@ -277,7 +277,8 @@ module.exports = {
   plugins: [
     "~/plugins/nly-adminlte-vue.js",
     "~/plugins/play.js",
-    "~/plugins/docs.js"
+    "~/plugins/docs.js",
+    "~/plugins/baiduStatistics.js"
   ],
 
   buildModules: ["@nuxtjs/google-analytics"],
@@ -291,12 +292,18 @@ module.exports = {
   //   },
 
   head: {
+    htmlAttrs: {
+      lang: "zh-CN"
+    },
     meta: [{ "http-equiv": "X-UA-Compatible", content: "IE=edge" }],
     script: [
       {
         src:
           "//polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver",
         crossorigin: "anonymous"
+      },
+      {
+        src: "https://hm.baidu.com/hm.js?a456470c754d18e3dbca1b414f500bcd"
       }
     ]
   },
