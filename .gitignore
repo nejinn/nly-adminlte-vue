@@ -5,6 +5,7 @@ static/nly.ai
 static/nly.svg
 dist
 .nuxt
+adminlte
 
 # local env files
 .env.local
