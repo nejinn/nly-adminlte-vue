@@ -156,12 +156,36 @@
                 "description": "卡片图片",
                 "props": [
                     {
-                        "prop": "cardTitleClass",
+                        "prop": "cardImgClass",
                         "description": "自定义css类"
                     },
                     {
-                        "prop": "left",
-                        "description": "与副标题位置关系"
+                        "prop": "top",
+                        "description": "top圆角"
+                    },
+                    {
+                        "prop": "buttom",
+                        "description": "buttom圆角"
+                    }
+                ]
+            },
+            {
+                "component": "NlyCardTool",
+                "description": "卡片工具，放在header下式样生效",
+                "props": [
+                    {
+                        "prop": "cardToolClass",
+                        "description": "自定义css类"
+                    }
+                ]
+            },
+            {
+                "component": "NlyCardText",
+                "description": "卡片文本",
+                "props": [
+                    {
+                        "prop": "cardTextClass",
+                        "description": "自定义css类"
                     }
                 ]
             }
