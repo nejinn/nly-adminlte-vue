@@ -281,7 +281,7 @@ module.exports = {
     "~/plugins/baiduStatistics.js"
   ],
 
-  buildModules: ["@nuxtjs/google-analytics"],
+  //   buildModules: ["@nuxtjs/google-analytics"],
   modules: ["@nuxtjs/pwa"],
 
   //   "google-analytics": {

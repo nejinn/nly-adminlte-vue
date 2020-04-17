@@ -9,7 +9,7 @@ export const textSizeOptions = {
 export const textVariantOptions = {
   primary: "text-primary",
   secondary: "text-secondary",
-  succes: "text-succes",
+  success: "text-success",
   info: "text-info",
   warning: "text-warning",
   danger: "text-danger",
