@@ -62,6 +62,10 @@
 > demo可以看到跟master同步的组件。点击下面
 [nly-daminlte-vue-demo](https://nejinn.github.io/nly-adminlte-vue-demo)
 
+![demoPic](https://github.com/nejinn/nly-adminlte-vue/blob/master/static/demoPic.png)
+![demo](https://github.com/nejinn/nly-adminlte-vue/blob/master/static/demo.gif)
+![demoPic](https://github.com/nejinn/nly-adminlte-vue/blob/master/static/demo1.gif)
+
 # 3. 文档
 
 > [nly-daminlte-vue-docs](http://nly-adminlte-vue.nejinn.com/)
