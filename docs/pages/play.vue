@@ -50,7 +50,7 @@
           :disabled="isDefault || isBusy"
           @click="reset"
         >
-          Reset to default
+          重置为默认代码
         </nly-button>
       </nly-col>
 
@@ -149,7 +149,7 @@
                     class="d-none d-md-inline-block"
                     @click="toggleFull"
                   >
-                    <span>{{ full ? "Split" : "Full" }}</span>
+                    <span>{{ full ? "半屏" : "全屏" }}</span>
                   </nly-button>
                 </div>
               </nly-card-header>
@@ -185,7 +185,7 @@
                     class="d-none d-md-inline-block"
                     @click="toggleFull"
                   >
-                    <span>{{ full ? "Split" : "Full" }}</span>
+                    <span>{{ full ? "半屏" : "全屏" }}</span>
                   </nly-button>
                 </div>
               </nly-card-header>
@@ -223,7 +223,7 @@
                     class="d-none d-md-inline-block"
                     @click="toggleVertical"
                   >
-                    <span>{{ vertical ? "Horizontal" : "Vertical" }}</span>
+                    <span>{{ vertical ? "水平" : "垂直" }}</span>
                   </nly-button>
                 </div>
               </nly-card-header>
@@ -251,7 +251,7 @@
                     variant="outlineDanger"
                     @click="clear"
                   >
-                    <span>Clear</span>
+                    <span>清空</span>
                   </nly-button>
                 </div>
               </nly-card-header>
@@ -453,7 +453,7 @@ export default {
       };
     },
     layout() {
-      return this.full ? "full" : this.vertical ? "vertical" : "horizontal";
+      return this.full ? "全屏" : this.vertical ? "垂直" : "水平";
     },
     exportData() {
       const html = this.html.trim();
@@ -952,12 +952,12 @@ export default {
       this.html = storage.getItem(STORAGE_KEYS.html) || DEFAULT_HTML.trim();
       this.js = storage.getItem(STORAGE_KEYS.js) || DEFAULT_JS.trim();
       const layout = storage.getItem(STORAGE_KEYS.layout) || "horizontal";
-      if (layout === "full") {
+      if (layout === "全屏") {
         this.full = true;
-      } else if (layout === "vertical") {
+      } else if (layout === "垂直") {
         this.vertical = true;
         this.full = false;
-      } else if (layout === "horizontal") {
+      } else if (layout === "水平") {
         this.vertical = false;
         this.full = false;
       }

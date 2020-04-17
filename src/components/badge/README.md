@@ -12,6 +12,7 @@
 <h3><nly-badge variant="info">info</nly-badge></h3>
 <h4><nly-badge variant="info">info</nly-badge></h4>
 
+<!-- 总览.name -->
 <!-- nly-badge.vue -->
 ```
 
@@ -42,6 +43,7 @@
 	xl
 </nly-badge>
 
+<!-- size.name -->
 <!-- nly-badge.vue -->
 ```
 
@@ -70,6 +72,7 @@
 	xl
 </nly-badge>
 
+<!-- pill.name -->
 <!-- nly-badge.vue -->
 ```
 
@@ -90,6 +93,7 @@
 	button
 </nly-badge>
 
+<!-- tag.name -->
 <!-- nly-badge.vue -->
 ```
 
@@ -130,6 +134,7 @@
 	light
 </nly-badge>
 
+<!-- variant.name -->
 <!-- nly-badge.vue -->
 ```
 
@@ -246,6 +251,7 @@
 	graydark
 </nly-badge>
 
+<!-- bg-variant.name -->
 <!-- nly-badge.vue -->
 ```
 
@@ -362,5 +368,6 @@
 	graydark
 </nly-badge>
 
+<!-- bg-gradient-variant.name -->
 <!-- nly-badge.vue -->
 ```

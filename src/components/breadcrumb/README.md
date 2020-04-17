@@ -79,6 +79,7 @@ npm i vue-router@3.0 -S
 	}
 </script>
 
+<!-- item.name -->
 <!-- nly-breadcrumb.vue -->
 ```
 
@@ -137,6 +138,7 @@ npm i vue-router@3.0 -S
 	}
 </script>
 
+<!-- icon.name -->
 <!-- nly-breadcrumb.vue -->
 ```
 
@@ -156,6 +158,7 @@ npm i vue-router@3.0 -S
 	</nly-breadcrumb>
 </template>
 
+<!-- icon.name -->
 <!-- nly-breadcrumb.vue -->
 ```
 
@@ -180,6 +183,7 @@ npm i vue-router@3.0 -S
 	</nly-breadcrumb>
 </template>
 
+<!-- text.name -->
 <!-- nly-breadcrumb.vue -->
 ```
 
@@ -211,5 +215,6 @@ npm i vue-router@3.0 -S
 	</nly-breadcrumb>
 </template>
 
+<!-- target.name -->
 <!-- nly-breadcrumb.vue -->
 ```

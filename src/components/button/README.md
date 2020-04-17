@@ -2,6 +2,20 @@
 
 > 按钮，接受所有 nly-link props,会渲染成<a>标签按钮,用 role='button'来实现按钮特征
 
+## 总览
+
+> nly-button 组件因为有 3 种类型的背景色，所以默认是没有颜色的，按钮组件支持原生点击事件
+
+```html
+<nly-button >默认</nly-button>
+<nly-button variant="dark">dark</nly-button>
+<nly-button variant="light">light</nly-button>
+<nly-button variant="primary">primary</nly-button>
+
+<!-- 总览.name -->
+<!-- nly-button.vue -->
+```
+
 ## variant
 
 > btn 类颜色，支持 adminlte3 的基础主题颜色，支持边框颜色
@@ -30,6 +44,7 @@
 	<nly-button variant="outlineDanger">outlineDanger</nly-button>
 </div>
 
+<!-- variant.name -->
 <!-- nly-button.vue -->
 ```
 
@@ -67,6 +82,7 @@
 <nly-button bg-variant="gray">gray</nly-button>
 <nly-button bg-variant="graydark">graydark</nly-button>
 
+<!-- bg-variant.name -->
 <!-- nly-button.vue -->
 ```
 
@@ -104,6 +120,7 @@
 <nly-button bg-gradient-variant="gray">gray</nly-button>
 <nly-button bg-gradient-variant="graydark">graydark</nly-button>
 
+<!-- bg-gradient-variant.name -->
 <!-- nly-button.vue -->
 ```
 
@@ -116,6 +133,7 @@
 <nly-button bg-gradient-variant="graydark" size="sm">graydark</nly-button>
 <nly-button bg-gradient-variant="graydark" size="lg">graydark</nly-button>
 
+<!-- size.name-->
 <!-- nly-button.vue -->
 ```
 
@@ -128,6 +146,7 @@
 	<nly-button bg-gradient-variant="graydark" block>block</nly-button>
 </div>
 
+<!-- block.name-->
 <!-- nly-button.vue -->
 ```
 
@@ -142,6 +161,7 @@
 <nly-button bg-gradient-variant="info" disabled> disabled</nly-button>
 <nly-button bg-gradient-variant="info"> diabled</nly-button>
 
+<!-- disabled.name-->
 <!-- nly-button.vue -->
 ```
 
@@ -157,17 +177,18 @@
 	roundedPill</nly-button
 >
 <nly-button bg-gradient-variant="graydark" shape="roundedCircle">
-	roundedCircle</nly-button
+	Cir</nly-button
 >
 <nly-button bg-gradient-variant="info" shape="roundedLg"> roundedLg</nly-button>
 <nly-button bg-gradient-variant="info" shape="roundedSm"> roundedSm</nly-button>
 
+<!-- shap.name -->
 <!-- nly-button.vue -->
 ```
 
 ## tool
 
-> 工具类按钮，一般建议用在 nly-card-header 组件中的nly-card-tool组件中
+> 工具类按钮，一般建议用在 nly-card-header 组件中的 nly-card-tool 组件中
 
 ```html
 <nly-button tool> tool</nly-button>
@@ -180,18 +201,20 @@
 	</nly-card-header>
 </nly-card>
 
+<!-- tool.name -->
 <!-- nly-button.vue -->
 ```
 
 ## app
 
-> app类按钮
+> app 类按钮
 
 ```html
-<nly-button app variant="danger"> 
-    <nly-icon icon="nlyfont nly-icon-breadcrumb-fill" />
+<nly-button app variant="danger">
+	<nly-icon icon="nlyfont nly-icon-breadcrumb-fill" />
 </nly-button>
 
+<!-- app.name -->
 <!-- nly-button.vue -->
 ```
 
@@ -204,5 +227,6 @@
 <nly-button variant="danger" to="/">Link to</nly-button>
 <nly-button variant="danger" href="#">Link href</nly-button>
 
+<!-- link props.name -->
 <!-- nly-button.vue -->
 ```

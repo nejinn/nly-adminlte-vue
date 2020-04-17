@@ -5,6 +5,8 @@ import hljs from "../utils/hljs";
 
 // --- Constants ---
 
+const RX_TITLE_NAME = /<!-- (.*)\.name -->/;
+const RX_TITLE_NAME_DEFINITION = /<!-- (.*)\.name -->/;
 const RX_NAME = /<!-- (.*)\.vue -->/;
 const RX_NAME_DEFINITION = /<!-- .*\.vue -->/;
 const RX_TEMPLATE = /<template>([\s\S]*)<\/template>/;
@@ -49,7 +51,7 @@ const parseVueTemplate = text => {
   return { template, script, options };
 };
 
-const createVM = (name, node, vnode) => {
+const createVM = (name, node, vnode, name_title) => {
   try {
     // Try to parse the vue template
     const vt = parseVueTemplate(node.textContent);
@@ -64,11 +66,44 @@ const createVM = (name, node, vnode) => {
     const holder = document.createElement("div");
     container.parentNode.insertBefore(holder, container);
 
+    const bdExample = Vue.extend({
+      ...options,
+      template: `<div class="bd-example vue-example vue-example-${name}" translate="no">${template}</div>`
+    });
+
     // Create VM
     return new Vue({
       ...options,
       el: holder,
-      template: `<div class="bd-example vue-example vue-example-${name}" translate="no">${template}</div>`,
+      data: {
+        btnName: "收起"
+      },
+      components: {
+        bdExample: bdExample
+      },
+      template: `
+      <nly-card header-outline header-variant='pink'>
+      <nly-card-header>
+      <nly-spinner type='grow' sm variant='success' /> <span class='text-lg font-weight-bolder text-primary'>${name_title}</span> <nly-spinner variant='success' type='grow' sm />
+      <nly-card-tool>
+      <nly-button tool @click='collaspe'>{{btnName}}代码</nly-button>
+      </nly-card-tool>
+      </nly-card-header>
+      <nly-card-body>
+      <bd-example />
+      </nly-card-body>
+      </nly-card>`,
+      methods: {
+        collaspe() {
+          if (container.style.display == "") {
+            container.style.display = "none";
+            this.btnName = "展开";
+          } else {
+            container.style.display = "";
+            this.btnName = "收起";
+          }
+        }
+      },
       router: vnode.context.$router
     });
   } catch (e) {
@@ -104,6 +139,8 @@ const processExamples = (el, binding, vnode) => {
   pres.forEach(pre => {
     // Store example name globally
     const name = match(RX_NAME, pre.textContent);
+    const name_title =
+      match(RX_TITLE_NAME, pre.textContent) || "NlyAdminlteVue";
 
     // Exit early when no name is given
     if (!name) {
@@ -111,7 +148,11 @@ const processExamples = (el, binding, vnode) => {
     }
 
     // Remove name definition
-    const text = pre.textContent.replace(RX_NAME_DEFINITION, "").trim();
+    const text = pre.textContent
+      .replace(RX_NAME_DEFINITION, "")
+      .replace(RX_TITLE_NAME_DEFINITION, "")
+      .trim();
+
     pre.textContent = text;
 
     // Highlight again
@@ -124,7 +165,7 @@ const processExamples = (el, binding, vnode) => {
     pre.$_v_play_content = pre.textContent.trim();
 
     // Initial load
-    let vm = createVM(name, pre, vnode);
+    let vm = createVM(name, pre, vnode, name_title);
 
     // Ensure we destroy the VM when parent is destroyed
     vnode.context.$options.beforeDestroy.push(() => destroyVM(name, vm));
@@ -155,7 +196,7 @@ const processExamples = (el, binding, vnode) => {
 
         // Recreate VM
         destroyVM(name, vm);
-        vm = createVM(name, pre, vnode);
+        vm = createVM(name, pre, vnode, name_title);
 
         // Toggle error class
         if (vm === null) {

@@ -1,12 +1,15 @@
 # Link
 
-## 默认
+> nly-link组件是一个用来代替<a>标签的组件，支持普通href跳转，支持router-link跳转，也支持nuxt-link，可以匹配当前路由以实现自定义css类等。
+
+## 总览
 
 ```html
 <nly-link>
 	nly-link
 </nly-link>
 
+<!-- 总览.name -->
 <!-- nly-link.vue -->
 ```
 
@@ -30,6 +33,7 @@
 	}
 </script>
 
+<!-- click.name -->
 <!-- nly-link.vue -->
 ```
 
@@ -42,6 +46,7 @@
 	nly-link
 </nly-link>
 
+<!-- active.name -->
 <!-- nly-link.vue -->
 ```
 
@@ -66,6 +71,7 @@
 	</nly-link>
 </template>
 
+<!-- disabled.name -->
 <!-- nly-link.vue -->
 ```
 
@@ -78,18 +84,20 @@
 	nly-link
 </nly-link>
 
+<!-- to.name -->
 <!-- nly-link.vue -->
 ```
 
 ## href
 
-> 普通跳转，会刷新页面
+> 普通跳转，会刷新页面，传入#会默认阻止跳转
 
 ```html
 <nly-link to="docs">
 	nly-link
 </nly-link>
 
+<!-- href.name -->
 <!-- nly-link.vue -->
 ```
 
@@ -98,10 +106,11 @@
 > router-link， router.replace()跳转
 
 ```html
-<nly-link replace="docs">
+<nly-link replace>
 	nly-link
 </nly-link>
 
+<!-- replace.name -->
 <!-- nly-link.vue -->
 ```
 
@@ -114,6 +123,7 @@
 	nly-link
 </nly-link>
 
+<!-- append.name -->
 <!-- nly-link.vue -->
 ```
 
@@ -130,5 +140,6 @@
 	_parent
 </nly-link>
 
+<!-- target.name -->
 <!-- nly-link.vue -->
 ```
