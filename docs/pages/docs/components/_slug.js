@@ -34,7 +34,7 @@ export default {
         h(
           NlyDocsAnchoredHeading,
           { props: { id: "component-reference" } },
-          "Component reference"
+          "组件参数"
         ),
         // Component reference information
         ...this.meta.components.map(

@@ -10,7 +10,7 @@ export const NlyCardTitle = Vue.extend({
     textVariant: {
       type: String
     },
-    titleClass: {
+    cardTitleClass: {
       type: String
     },
     tag: {
@@ -29,7 +29,7 @@ export const NlyCardTitle = Vue.extend({
           textVariantOptions,
           this.textVariant
         ),
-        titleClass: this.titleClass,
+        cardTitleClass: this.cardTitleClass,
         tag: this.tag,
         left: this.left ? "card-title-left" : ""
       };
@@ -42,7 +42,7 @@ export const NlyCardTitle = Vue.extend({
         staticClass: "card-title",
         class: [
           this.customProps.textVariant,
-          this.customProps.titleClass,
+          this.customProps.cardTitleClass,
           this.customProps.left
         ]
       },

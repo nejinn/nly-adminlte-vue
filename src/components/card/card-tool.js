@@ -5,7 +5,7 @@ const name = "NlyCardTool";
 export const NlyCardTool = Vue.extend({
   name: name,
   props: {
-    toolClass: {
+    cardToolClass: {
       type: String
     },
     tag: {
@@ -16,7 +16,7 @@ export const NlyCardTool = Vue.extend({
   computed: {
     customProps() {
       return {
-        toolClass: this.toolClass,
+        cardToolClass: this.cardToolClass,
         tag: this.tag
       };
     }
@@ -26,7 +26,7 @@ export const NlyCardTool = Vue.extend({
       this.customProps.tag,
       {
         staticClass: "card-tools",
-        class: [this.customProps.toolClass]
+        class: [this.customProps.cardToolClass]
       },
       this.$slots.default
     );

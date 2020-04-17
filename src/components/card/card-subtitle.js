@@ -14,7 +14,7 @@ export const NlyCardSubtitle = Vue.extend({
     textVariant: {
       type: String
     },
-    subtitleClass: {
+    cardSubtitleClass: {
       type: String
     },
     tag: {
@@ -29,7 +29,7 @@ export const NlyCardSubtitle = Vue.extend({
           textVariantOptions,
           this.textVariant
         ),
-        subtitleClass: this.subtitleClass,
+        cardSubtitleClass: this.cardSubtitleClass,
         tag: this.tag
       };
     }
@@ -39,7 +39,10 @@ export const NlyCardSubtitle = Vue.extend({
       this.customProps.tag,
       {
         staticClass: "card-subtitle",
-        class: [this.customProps.textVariant, this.customProps.subtitleClass]
+        class: [
+          this.customProps.textVariant,
+          this.customProps.cardSubtitleClass
+        ]
       },
       this.$slots.default
     );

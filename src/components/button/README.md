@@ -7,10 +7,24 @@
 > nly-button 组件因为有 3 种类型的背景色，所以默认是没有颜色的，按钮组件支持原生点击事件
 
 ```html
-<nly-button >默认</nly-button>
+<nly-button>默认</nly-button>
 <nly-button variant="dark">dark</nly-button>
-<nly-button variant="light">light</nly-button>
 <nly-button variant="primary">primary</nly-button>
+<nly-button variant="primary">
+	<nly-icon icon="nlyfont nly-icon-outlet" />
+</nly-button>
+<nly-button variant="info">
+	<nly-icon icon="nlyfont nly-icon-outlet" />
+</nly-button>
+<nly-button variant="outlineDanger">
+	<nly-icon icon="nlyfont nly-icon-outlet" />
+</nly-button>
+<nly-button variant="success">
+	<nly-icon icon="nlyfont nly-icon-outlet" />
+</nly-button>
+<nly-button variant="secondary">
+	<nly-icon icon="nlyfont nly-icon-outlet" />
+</nly-button>
 
 <!-- 总览.name -->
 <!-- nly-button.vue -->
@@ -147,6 +161,37 @@
 </div>
 
 <!-- block.name-->
+<!-- nly-button.vue -->
+```
+
+## click
+
+> 点击事件，鼠标事件，原生事件
+
+```html
+<template>
+	<div>
+		<nly-button variant="danger" @click="clickFunc">点击</nly-button>
+		<nly-button
+			variant="danger"
+			@click="clickFunc"
+			button-class="ml-2"
+			disabled
+			>点击</nly-button
+		>
+	</div>
+</template>
+<script>
+	export default {
+		methods: {
+			clickFunc() {
+				alert('Hello NlyadminlteVue')
+			},
+		},
+	}
+</script>
+
+<!-- click.name -->
 <!-- nly-button.vue -->
 ```
 
