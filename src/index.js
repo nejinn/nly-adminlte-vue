@@ -32,7 +32,7 @@ export { NlyButtonClose } from "./components/button/button-close";
 export { ButtonGroupPlugin } from "./components/button-group";
 export { NlyButtonGroup } from "./components/button-group/button-group";
 
-export { cardPlugin } from "./components/card";
+export { CardPlugin } from "./components/card";
 export { NlyCardGroup } from "./components/card/card-group";
 export { NlyCard } from "./components/card/card";
 export { NlyCardHeader } from "./components/card/card-header";

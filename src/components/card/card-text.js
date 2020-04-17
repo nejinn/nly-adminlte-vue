@@ -6,7 +6,7 @@ const name = "NlyCardText";
 export const NlyCardText = Vue.extend({
   name: name,
   props: {
-    textClass: {
+    cardTextClass: {
       type: String
     },
     tag: {
@@ -20,7 +20,7 @@ export const NlyCardText = Vue.extend({
   computed: {
     customProps() {
       return {
-        textClass: this.textClass,
+        cardTextClass: this.cardTextClass,
         tag: this.tag,
         textVariant: nlyGetOptionsByKeyEqual(
           textVariantOptions,
@@ -34,7 +34,7 @@ export const NlyCardText = Vue.extend({
       this.customProps.tag,
       {
         staticClass: "card-text",
-        class: [this.customProps.textClass, this.customProps.textVariant]
+        class: [this.customProps.cardTextClass, this.customProps.cardTextClass]
       },
       this.$slots.default
     );

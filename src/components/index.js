@@ -4,7 +4,7 @@ import { BadgePlugin } from "./badge";
 import { BreadcrumbPlugin } from "./breadcrumb";
 import { ButtonPlugin } from "./button";
 import { ButtonGroupPlugin } from "./button-group";
-import { cardPlugin } from "./card";
+import { CardPlugin } from "./card";
 import { collapsePlugin } from "./collapse";
 import { ControlSidebarPlugin } from "./controlsidebar";
 import { dropdownPlugin } from "./dropdown";
@@ -40,7 +40,7 @@ export const componentsPlugin = nlyPluginFactory({
     BreadcrumbPlugin,
     ButtonPlugin,
     ButtonGroupPlugin,
-    cardPlugin,
+    CardPlugin,
     collapsePlugin,
     ControlSidebarPlugin,
     dropdownPlugin,

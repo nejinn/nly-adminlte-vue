@@ -17,7 +17,7 @@ export const NlyCardImg = Vue.extend({
       type: String,
       required: true
     },
-    imgClass: {
+    cardImgClass: {
       type: String
     }
   },
@@ -30,13 +30,13 @@ export const NlyCardImg = Vue.extend({
           ? "card-img-buttom"
           : "card-img",
         src: this.src,
-        imgClass: this.imgClass
+        cardImgClass: this.cardImgClass
       };
     }
   },
   render(h) {
     return h("img", {
-      class: [this.customProps.customClass, this.customProps.imgClass],
+      class: [this.customProps.customClass, this.customProps.cardImgClass],
       attrs: {
         src: this.customProps.src
       }
