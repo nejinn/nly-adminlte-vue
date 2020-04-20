@@ -7,7 +7,7 @@ export const NlyWrapperContent = Vue.extend({
   props: {
     tag: {
       type: String,
-      default: "div"
+      default: "section"
     }
   },
   computed: {
