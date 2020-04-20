@@ -26,7 +26,7 @@ export const NlyWrapperHeader = Vue.extend({
       type: Boolean,
       default: true
     },
-    navbarClass: {
+    wrapperHeaderClass: {
       type: String
     },
     tag: {
@@ -46,32 +46,54 @@ export const NlyWrapperHeader = Vue.extend({
       return this.nav ? "navbar" : "";
     },
     customNavbarExpand: function() {
-      return this.expand == "xl"
-        ? "navbar-expand-xl"
-        : this.expand == "lg"
-        ? "navbar-expand-lg"
-        : this.expand == "md"
-        ? "navbar-expand-md"
-        : this.expand == "sm"
-        ? "navbar-expand-sm"
-        : this.expand == "no"
-        ? "navbar-no-expand"
-        : "navbar-expand";
+      if (this.nav) {
+        return this.expand == "xl"
+          ? "navbar-expand-xl"
+          : this.expand == "lg"
+          ? "navbar-expand-lg"
+          : this.expand == "md"
+          ? "navbar-expand-md"
+          : this.expand == "sm"
+          ? "navbar-expand-sm"
+          : this.expand == "no"
+          ? "navbar-no-expand"
+          : this.expand == "expand"
+          ? "navbar-expand"
+          : "";
+      } else {
+        return "";
+      }
     },
     customnNvbarVariant: function() {
-      return nlyGetOptionsByKeyEqual(navbarVariantOpitons, this.variant);
+      if (this.nav) {
+        return nlyGetOptionsByKeyEqual(navbarVariantOpitons, this.variant);
+      } else {
+        return "";
+      }
     },
     customNavbarFontSize: function() {
-      return nlyGetOptionsByKeyEqual(textSizeOptions, this.size);
+      if (this.nav) {
+        return nlyGetOptionsByKeyEqual(textSizeOptions, this.size);
+      } else {
+        return "";
+      }
     },
     customNavbarBorder: function() {
-      return this.border ? "" : "border-bottom-0";
+      if (this.nav) {
+        return this.border ? "" : "border-bottom-0";
+      } else {
+        return "";
+      }
     },
-    customNavbarClass: function() {
-      return this.navbarClass;
+    customWrapperHeaderClass: function() {
+      return this.wrapperHeaderClass;
     },
     customNavbarDark() {
-      return this.dark ? "navbar-dark" : "navbar-light";
+      if (this.nav) {
+        return this.dark ? "navbar-dark" : "navbar-light";
+      } else {
+        return "";
+      }
     }
   },
   render(h) {
@@ -85,7 +107,7 @@ export const NlyWrapperHeader = Vue.extend({
           this.customnNvbarVariant,
           this.customNavbarFontSize,
           this.customNavbarBorder,
-          this.customNavbarClass
+          this.customWrapperHeaderClass
         ]
       },
       this.$slots.default
