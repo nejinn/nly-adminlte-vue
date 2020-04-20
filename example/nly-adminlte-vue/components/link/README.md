@@ -93,7 +93,7 @@
 > 普通跳转，会刷新页面，传入#会默认阻止跳转
 
 ```html
-<nly-link to="docs">
+<nly-link href="docs">
 	nly-link
 </nly-link>
 
