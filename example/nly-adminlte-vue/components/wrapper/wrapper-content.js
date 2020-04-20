@@ -7,7 +7,7 @@ export const NlyWrapperContent = Vue.extend({
   props: {
     tag: {
       type: String,
-      default: "section"
+      default: "div"
     }
   },
   computed: {
@@ -21,7 +21,7 @@ export const NlyWrapperContent = Vue.extend({
     return h(
       this.customProps.tag,
       {
-        staticClass: "content"
+        staticClass: "content-wrapper"
       },
       this.$slots.default
     );
