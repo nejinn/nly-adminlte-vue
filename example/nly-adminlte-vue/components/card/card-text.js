@@ -1,22 +1,31 @@
 import Vue from "../../utils/vue";
 import { textVariantOptions } from "../../utils/nly-config";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
+import { mergeData } from "vue-functional-data-merge";
+
 const name = "NlyCardText";
+
+export const props = {
+  cardTextClass: {
+    type: String
+  },
+  tag: {
+    type: String,
+    default: "p"
+  },
+  textVariant: {
+    type: String
+  }
+};
+
+const customClass = props => {
+  return [];
+};
 
 export const NlyCardText = Vue.extend({
   name: name,
-  props: {
-    cardTextClass: {
-      type: String
-    },
-    tag: {
-      type: String,
-      default: "p"
-    },
-    textVariant: {
-      type: String
-    }
-  },
+  props,
+  functional: true,
   computed: {
     customProps() {
       return {

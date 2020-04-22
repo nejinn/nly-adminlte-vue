@@ -23,11 +23,11 @@ export const props = {
 };
 
 const customClass = props => {
-  return {
-    textVariant: nlyGetOptionsByKeyEqual(textVariantOptions, props.textVariant),
-    cardTitleClass: props.cardTitleClass,
-    left: props.left ? "card-title-left" : ""
-  };
+  const textVariant = () =>
+    nlyGetOptionsByKeyEqual(textVariantOptions, props.textVariant);
+  const cardTitleClass = props.cardTitleClass;
+  const left = props.left ? "card-title-left" : "";
+  return [textVariant(), cardTitleClass, left];
 };
 
 export const NlyCardTitle = Vue.extend({
