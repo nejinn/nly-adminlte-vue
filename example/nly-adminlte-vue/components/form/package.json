@@ -1,0 +1,57 @@
+{
+	"name": "@nly-adminlte-vue/form",
+	"version": "1.0.0",
+	"meta": {
+		"title": "Form",
+		"description": "表单",
+		"components": [
+			{
+				"component": "NlyForm",
+				"props": [
+					{
+						"prop": "inline",
+						"description": "表单inline布局，设置true标签、控件，按钮都会处于一个水平线上"
+					},
+					{
+						"prop": "novalidate",
+						"description": "禁用浏览器html5表单验证机制，默认禁用。设置true，禁用浏览器html5表单验证机制"
+					},
+					{
+						"prop": "validated",
+						"description": "添加表单自动验证类。设置true，表单会添加was-validated。将会自动触发空间的feedback"
+					}
+				],
+				"events": [
+					{
+						"event": "submit",
+						"description": "提交表单数据",
+						"args": [
+							{
+								"arg": "event",
+								"type": "事件",
+								"description": "原生提交事件"
+							}
+						]
+					}
+				]
+			},
+			{
+				"component": "NlyFormFeedback",
+				"props": [
+					{
+						"prop": "tooltip",
+						"description": "设置为true时，feedback呈现方式为tooltip，呈现级别对应props valid的值"
+					},
+					{
+						"prop": "force-show",
+						"description": "强制显示feedback"
+                    },
+                    {
+						"prop": "text",
+						"description": "feedback validation文本内容"
+					}
+				]
+			}
+		]
+	}
+}

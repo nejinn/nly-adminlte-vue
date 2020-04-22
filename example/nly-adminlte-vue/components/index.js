@@ -5,6 +5,7 @@ import { BreadcrumbPlugin } from "./breadcrumb";
 import { ButtonPlugin } from "./button";
 import { ButtonGroupPlugin } from "./button-group";
 import { CardPlugin } from "./card";
+import { FormInputPlugin } from "./form-input";
 import { collapsePlugin } from "./collapse";
 import { ControlSidebarPlugin } from "./controlsidebar";
 import { dropdownPlugin } from "./dropdown";
@@ -41,6 +42,7 @@ export const componentsPlugin = nlyPluginFactory({
     ButtonPlugin,
     ButtonGroupPlugin,
     CardPlugin,
+    FormInputPlugin,
     collapsePlugin,
     ControlSidebarPlugin,
     dropdownPlugin,

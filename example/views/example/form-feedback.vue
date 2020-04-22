@@ -21,7 +21,7 @@
                 feedback state:valid,invalid,warning
               </nly-card-text>
               <nly-form-input valid="valid" />
-              <nly-form-feedback> 我是valid</nly-form-feedback>
+              <nly-form-feedback state="valid"> 我是valid</nly-form-feedback>
               <nly-form-input valid="invalid" />
               <nly-form-feedback state="invalid">
                 我是invalid</nly-form-feedback
@@ -30,6 +30,43 @@
               <nly-form-feedback state="warning">
                 我是warning
               </nly-form-feedback>
+              <p>input</p>
+              <div>
+                <nly-form-input :valid="inputValid" v-model="inputValidModel" />
+                <nly-form-feedback state="valid">我是valid</nly-form-feedback>
+                <nly-form-feedback state="invalid"
+                  >我是invalid</nly-form-feedback
+                >
+              </div>
+
+              <p>input</p>
+              <div>
+                <nly-form-input type="email" />
+                <nly-form-feedback state="valid" force-show
+                  >valid force-show</nly-form-feedback
+                >
+                <nly-form-feedback state="invalid" force-show
+                  >invalid force-show</nly-form-feedback
+                >
+
+                <nly-form-feedback state="warning" force-show
+                  >warning force-show</nly-form-feedback
+                >
+              </div>
+
+              <div>
+                <nly-form-input type="email" />
+                <nly-form-feedback state="valid" force-show
+                  >valid force-show</nly-form-feedback
+                >
+                <nly-form-feedback state="invalid" force-show tooltip
+                  >invalid force-show</nly-form-feedback
+                >
+
+                <nly-form-feedback state="warning" force-show
+                  >warning force-show</nly-form-feedback
+                >
+              </div>
             </nly-card-body>
           </nly-card>
         </nly-col>
@@ -62,8 +99,17 @@
 export default {
   data() {
     return {
-      text: "text"
+      text: "text",
+      inputValidModel: ""
     };
+  },
+  computed: {
+    inputValid() {
+      return this.inputValidModel.length < 10 &&
+        this.inputValidModel.length >= 5
+        ? "valid"
+        : "invalid";
+    }
   }
 };
 </script>

@@ -1,16 +1,16 @@
-import Vue from "../../../utils/vue";
-import { nlyGetOptionInclusion } from "../../../utils/get-options";
+import Vue from "../../utils/vue";
+import { nlyGetOptionInclusion } from "../../utils/get-options";
 import {
   inputTypeOptions,
   inputMaxMinStepOptions
-} from "../../../utils/nly-config";
-import { toString } from "../../../utils/string";
-import { isFunction } from "../../../utils/inspect";
-import idMixin from "../../../mixins/id";
-import formTextMixin from "../../../mixins/form/form-text";
-import formMixin from "../../../mixins/form/form";
-import formSizeMixin from "../../../mixins/form/form-szie";
-import formValid from "../../../mixins/form/form-valid";
+} from "../../utils/nly-config";
+import { toString } from "../../utils/string";
+import { isFunction } from "../../utils/inspect";
+import idMixin from "../../mixins/id";
+import formTextMixin from "../../mixins/form/form-text";
+import formMixin from "../../mixins/form/form";
+import formSizeMixin from "../../mixins/form/form-szie";
+import formValid from "../../mixins/form/form-valid";
 // import { toFloat } from "../../../utils/number";
 
 const name = "NlyFormInput";

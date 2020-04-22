@@ -436,8 +436,14 @@ export const inputMaxMinStepOptions = [
 
 export const formValidOptions = ["valid", "invalid", "warning", "novalid"];
 
-export const formFeedBackOptions = {
+export const formFeedBackValidOptions = {
   valid: "valid-feedback",
   invalid: "invalid-feedback",
   warning: "warning-feedback"
+};
+
+export const formFeedBackTooltipOptions = {
+  valid: "valid-tooltip",
+  invalid: "invalid-tooltip",
+  warning: "warning-tooltip"
 };
