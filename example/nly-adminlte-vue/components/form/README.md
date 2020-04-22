@@ -74,5 +74,38 @@ order-xl | String |  | 宽度在xl及以上断点排列顺序,可选同上
 
 参数 | 类型 |  默认值 | 描述
 -|-|-|-
-state | String | valid | 类型验证提示，可选valid,invalid,warning
-text | String |  | 文本内容
+id | String |  | id
+tag | String |  | id
+id | String |  | id
+
+
+
+  id: {
+    type: String
+  },
+  tag: {
+    type: String,
+    default: "span"
+  },
+  tooltip: {
+    type: Boolean,
+    default: false
+  },
+  forceShow: {
+    type: Boolean,
+    default: false
+  },
+  state: {
+    type: String,
+    default: "novalid",
+    validator: state => nlyGetOptionInclusion(formValidOptions, state)
+  },
+  ariaLive: {
+    type: String
+  },
+  role: {
+    type: String
+  },
+  text: {
+    type: String
+  }

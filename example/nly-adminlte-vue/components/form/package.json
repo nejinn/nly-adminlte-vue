@@ -1,0 +1,78 @@
+{
+	"name": "@nly-adminlte-vue/form",
+	"version": "1.0.0",
+	"meta": {
+		"title": "Form",
+		"description": "表单",
+		"components": [
+			{
+				"component": "NlyForm",
+				"props": [
+					{
+						"prop": "inline",
+						"description": "表单inline布局，设置true标签、控件，按钮都会处于一个水平线上"
+					},
+					{
+						"prop": "novalidate",
+						"description": "禁用浏览器html5表单验证机制，默认禁用。设置true，禁用浏览器html5表单验证机制"
+					},
+					{
+						"prop": "validated",
+						"description": "添加表单自动验证类。设置true，表单会添加was-validated。将会自动触发空间的feedback"
+					}
+				],
+				"events": [
+					{
+						"event": "submit",
+						"description": "提交表单数据",
+						"args": [
+							{
+								"arg": "event",
+								"type": "事件",
+								"description": "原生提交事件"
+							}
+						]
+					}
+				]
+			},
+			{
+				"component": "NlyBreadcrumbItem",
+				"props": [
+					{
+						"prop": "text",
+						"description": "文本内容"
+					},
+					{
+						"prop": "html",
+						"description": "html文本内容"
+					},
+					{
+						"prop": "icon",
+						"description": "icon图标"
+					},
+					{
+						"prop": "itemClass",
+						"description": "item自定义css式样"
+					},
+					{
+						"prop": "linkClass",
+						"description": "item中link自定义css式样"
+					}
+				],
+				"events": [
+					{
+						"event": "click",
+						"description": "点击触发事件",
+						"args": [
+							{
+								"arg": "event",
+								"type": "鼠标事件",
+								"description": "原生点击事件"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}
