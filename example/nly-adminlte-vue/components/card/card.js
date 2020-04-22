@@ -88,121 +88,126 @@ import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
 import { NlyIcon } from "../icon/icon";
 import { NlyOverlay } from "../overlay/overlay";
 import { nlyCardId } from "../../utils/mixin-id";
+import { mergeData } from "vue-functional-data-merge";
+
+export const props = {
+  headerVariant: {
+    type: String
+  },
+  headerOutline: {
+    type: Boolean,
+    default: false
+  },
+  cardOutlineTabs: {
+    type: Boolean,
+    default: false
+  },
+  cardTabs: {
+    type: Boolean,
+    default: false
+  },
+  textVariant: {
+    type: String
+  },
+  bgVariant: {
+    type: String
+  },
+  bgGradientVariant: {
+    type: String
+  },
+  heightControl: {
+    type: Boolean,
+    default: false
+  },
+  cardClass: {
+    type: String
+  },
+  loading: {
+    type: Boolean,
+    default: false
+  },
+  loadingContent: {
+    type: String
+  },
+  loadingContentTag: {
+    type: String,
+    default: "p"
+  },
+  loadingContentClass: {
+    type: String
+  },
+  loadingIcon: {
+    type: String,
+    default: "fas fa-2x fa-sync-alt fa-spin"
+  },
+  loadingImgSrc: {
+    type: String
+  },
+  loadingImgClass: {
+    type: String
+  },
+  tag: {
+    type: String,
+    default: "div"
+  },
+  dark: {
+    type: Boolean,
+    default: false
+  },
+  id: {
+    type: String
+  }
+};
+
+const customAttrs = props => {
+  const id = () => nlyCardId(props.id);
+  return {
+    id: id()
+  };
+};
+
+const customClass = props => {
+  const headerVariant = () =>
+    nlyGetOptionsByKeyEqual(cardVariantOptions, props.headerVariant);
+  const headerOutline = () => (props.headerOutline ? "card-outline" : "");
+  const cardOutlineTabs = props.cardOutlineTabs ? "card-outline-tabs" : "";
+  const cardTabs = props.cardTabs ? "card-tabs" : "";
+  const textVariant = () =>
+    nlyGetOptionsByKeyEqual(textVariantOptions, props.textVariant);
+  const bgVariant = () =>
+    nlyGetOptionsByKeyEqual(bgVariantOptions, props.bgVariant);
+  const bgGradientVariant = () =>
+    nlyGetOptionsByKeyEqual(bgGradientOptions, props.bgGradientVariant);
+  const heightControl = props.heightControl ? "height-control" : "";
+  const cardClass = props.cardClass;
+
+  return [
+    headerVariant(),
+    headerOutline(),
+    cardOutlineTabs,
+    cardTabs,
+    textVariant(),
+    bgVariant(),
+    bgGradientVariant(),
+    heightControl,
+    cardClass
+  ];
+};
 
 const name = "NlyCard";
 
 export const NlyCard = Vue.extend({
   name: name,
-  props: {
-    headerVariant: {
-      type: String
-    },
-    headerOutline: {
-      type: Boolean,
-      default: false
-    },
-    cardOutlineTabs: {
-      type: Boolean,
-      default: false
-    },
-    cardTabs: {
-      type: Boolean,
-      default: false
-    },
-    textVariant: {
-      type: String
-    },
-    bgVariant: {
-      type: String
-    },
-    bgGradientVariant: {
-      type: String
-    },
-    heightControl: {
-      type: Boolean,
-      default: false
-    },
-    cardClass: {
-      type: String
-    },
-    loading: {
-      type: Boolean,
-      default: false
-    },
-    loadingContent: {
-      type: String
-    },
-    loadingContentTag: {
-      type: String,
-      default: "p"
-    },
-    loadingContentClass: {
-      type: String
-    },
-    loadingIcon: {
-      type: String,
-      default: "fas fa-2x fa-sync-alt fa-spin"
-    },
-    loadingImgSrc: {
-      type: String
-    },
-    loadingImgClass: {
-      type: String
-    },
-    tag: {
-      type: String,
-      default: "div"
-    },
-    dark: {
-      type: Boolean,
-      default: false
-    },
-    id: {
-      type: String
-    }
-  },
-  computed: {
-    customProps: function() {
-      return {
-        headerVariant: nlyGetOptionsByKeyEqual(
-          cardVariantOptions,
-          this.headerVariant
-        ),
-        headerOutline: this.headerOutline ? "card-outline" : "",
-        cardOutlineTabs: this.cardOutlineTabs ? "card-outline-tabs" : "",
-        cardTabs: this.cardTabs ? "card-tabs" : "",
-        textVariant: nlyGetOptionsByKeyEqual(
-          textVariantOptions,
-          this.textVariant
-        ),
-        bgVariant: nlyGetOptionsByKeyEqual(bgVariantOptions, this.bgVariant),
-        bgGradientVariant: nlyGetOptionsByKeyEqual(
-          bgGradientOptions,
-          this.bgGradientVariant
-        ),
-        heightControl: this.heightControl ? "height-control" : "",
-        cardClass: this.cardClass,
-        loading: this.loading,
-        loadingContent: this.loadingContent,
-        loadingContentTag: this.loadingContentTag,
-        loadingContentClass: this.loadingContentClass,
-        loadingIcon: this.loadingIcon,
-        loadingImgSrc: this.loadingImgSrc,
-        loadingImgClass: this.loadingImgClass,
-        tag: this.tag,
-        dark: this.dark,
-        id: nlyCardId(this.id)
-      };
-    }
-  },
-  render(h) {
+  props,
+  functional: true,
+  render(h, { props, data, children }) {
     const overlayArray = () => {
-      if (this.customProps.loadingContent) {
+      if (props.loadingContent) {
         return h(
           NlyOverlay,
           {
             props: {
-              dark: this.customProps.dark
+              dark: props.dark
             }
           },
           [loadingContentArray()]
@@ -212,7 +217,7 @@ export const NlyCard = Vue.extend({
           NlyOverlay,
           {
             props: {
-              dark: this.customProps.dark
+              dark: props.dark
             }
           },
           [loadingIcon()]
@@ -222,18 +227,18 @@ export const NlyCard = Vue.extend({
 
     const loadingContentArray = () => {
       return h(
-        this.customProps.loadingContentTag,
+        props.loadingContentTag,
         {
-          class: [this.customProps.loadingContentClass]
+          class: [props.loadingContentClass]
         },
-        this.customProps.loadingContent
+        props.loadingContent
       );
     };
 
     const loadingIcon = () => {
       return h(NlyIcon, {
         props: {
-          icon: this.customProps.loadingIcon
+          icon: props.loadingIcon
         }
       });
     };
@@ -242,42 +247,30 @@ export const NlyCard = Vue.extend({
       return h("img", {
         attrs: {
           alt: "loading-img",
-          src: this.customProps.loadingImgSrc
+          src: props.loadingImgSrc
         },
         staticClass: "loading-img",
-        class: [this.customProps.loadingImgClass]
+        class: [props.loadingImgClass]
       });
     };
 
     const loadingArray = () => {
-      if (this.customProps.loading && !this.customProps.loadingImg) {
-        return [this.$slots.default, overlayArray()];
-      } else if (this.customProps.loading && this.customProps.loadingImg) {
-        return [this.$slots.default, loadingImgArray()];
+      if (props.loading && !props.loadingImg) {
+        return [children, overlayArray()];
+      } else if (props.loading && props.loadingImg) {
+        return [children, loadingImgArray()];
       } else {
-        return [this.$slots.default];
+        return children;
       }
     };
     return h(
-      this.customProps.tag,
-      {
-        attrs: {
-          id: this.customProps.id
-        },
+      props.tag,
+      mergeData(data, {
+        attrs: customAttrs(props),
         staticClass: "card",
-        class: [
-          this.customProps.headerVariant,
-          this.customProps.headerOutline,
-          this.customProps.cardOutlineTabs,
-          this.customProps.cardTabs,
-          this.customProps.textVariant,
-          this.customProps.bgVariant,
-          this.customProps.bgGradientVariant,
-          this.customProps.heightControl,
-          this.customProps.cardClass
-        ]
-      },
-      [loadingArray()]
+        class: customClass(props)
+      }),
+      loadingArray()
     );
   }
 });

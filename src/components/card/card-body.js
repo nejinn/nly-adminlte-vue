@@ -8,64 +8,64 @@ import {
 
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
 
+import { mergeData } from "vue-functional-data-merge";
+
+export const props = {
+  bgVariant: {
+    type: String
+  },
+  bgGradientVariant: {
+    type: String
+  },
+  imgOverlay: {
+    type: Boolean,
+    default: false
+  },
+  textVariant: {
+    type: String
+  },
+  cardBodyClass: {
+    type: String
+  },
+  tag: {
+    type: String,
+    default: "div"
+  }
+};
+
+const customClass = props => {
+  const bgVariant = () =>
+    nlyGetOptionsByKeyEqual(bgVariantOptions, props.bgVariant);
+  const bgGradientVariant = () =>
+    nlyGetOptionsByKeyEqual(bgGradientOptions, props.bgGradientVariant);
+  const textVariant = () =>
+    nlyGetOptionsByKeyEqual(textVariantOptions, props.textVariant);
+  const imgOverlay = props.imgOverlay ? "card-img-overlay" : "";
+  const cardBodyClass = props.cardBodyClass;
+
+  return [
+    bgVariant(),
+    bgGradientVariant(),
+    textVariant(),
+    imgOverlay,
+    cardBodyClass
+  ];
+};
+
 const name = "NlyCardBody";
 
 export const NlyCardBody = Vue.extend({
   name: name,
-  props: {
-    bgVariant: {
-      type: String
-    },
-    bgGradientVariant: {
-      type: String
-    },
-    imgOverlay: {
-      type: Boolean,
-      default: false
-    },
-    textVariant: {
-      type: String
-    },
-    cardBodyClass: {
-      type: String
-    },
-    tag: {
-      type: String,
-      default: "div"
-    }
-  },
-  computed: {
-    customProps: function() {
-      return {
-        bgVariant: nlyGetOptionsByKeyEqual(bgVariantOptions, this.bgVariant),
-        bgGradientVariant: nlyGetOptionsByKeyEqual(
-          bgGradientOptions,
-          this.bgGradientVariant
-        ),
-        textVariant: nlyGetOptionsByKeyEqual(
-          textVariantOptions,
-          this.textVariant
-        ),
-        imgOverlay: this.imgOverlay ? "card-img-overlay" : "",
-        cardBodyClass: this.cardBodyClass,
-        tag: this.tag
-      };
-    }
-  },
-  render(h) {
+  props,
+  functional: true,
+  render(h, { props, data, children }) {
     return h(
-      this.customProps.tag,
-      {
+      props.tag,
+      mergeData(data, {
         staticClass: "card-body",
-        class: [
-          this.customProps.bgVariant,
-          this.customProps.bgGradientVariant,
-          this.customProps.textVariant,
-          this.customProps.imgOverlay,
-          this.customProps.cardBodyClass
-        ]
-      },
-      this.$slots.default
+        class: customClass(props)
+      }),
+      children
     );
   }
 });
