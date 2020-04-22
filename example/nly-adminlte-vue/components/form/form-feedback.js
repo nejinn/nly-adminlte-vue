@@ -1,5 +1,9 @@
 import Vue from "../../utils/vue";
-import { formValidOptions, formFeedBackOptions } from "../../utils/nly-config";
+import {
+  formValidOptions,
+  formFeedBackValidOptions,
+  formFeedBackTooltipOptions
+} from "../../utils/nly-config";
 import {
   nlyGetOptionInclusion,
   nlyGetOptionsByKeyEqual
@@ -26,7 +30,7 @@ export const props = {
   },
   state: {
     type: String,
-    default: "novalid",
+    default: "valid",
     validator: state => nlyGetOptionInclusion(formValidOptions, state)
   },
   ariaLive: {
@@ -43,8 +47,8 @@ export const props = {
 const coustomclass = props => {
   const validClass = () =>
     props.tooltip
-      ? "invalid-tooltip"
-      : nlyGetOptionsByKeyEqual(formFeedBackOptions, props.state);
+      ? nlyGetOptionsByKeyEqual(formFeedBackTooltipOptions, props.state)
+      : nlyGetOptionsByKeyEqual(formFeedBackValidOptions, props.state);
 
   const showClass =
     props.forceShow === true || props.state === "novalid" ? "d-block" : null;

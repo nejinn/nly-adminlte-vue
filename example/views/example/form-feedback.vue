@@ -42,9 +42,29 @@
               <p>input</p>
               <div>
                 <nly-form-input type="email" />
-                <nly-form-feedback state="valid">我是valid</nly-form-feedback>
-                <nly-form-feedback state="invalid"
-                  >我是invalid</nly-form-feedback
+                <nly-form-feedback state="valid" force-show
+                  >valid force-show</nly-form-feedback
+                >
+                <nly-form-feedback state="invalid" force-show
+                  >invalid force-show</nly-form-feedback
+                >
+
+                <nly-form-feedback state="warning" force-show
+                  >warning force-show</nly-form-feedback
+                >
+              </div>
+
+              <div>
+                <nly-form-input type="email" />
+                <nly-form-feedback state="valid" force-show
+                  >valid force-show</nly-form-feedback
+                >
+                <nly-form-feedback state="invalid" force-show tooltip
+                  >invalid force-show</nly-form-feedback
+                >
+
+                <nly-form-feedback state="warning" force-show
+                  >warning force-show</nly-form-feedback
                 >
               </div>
             </nly-card-body>

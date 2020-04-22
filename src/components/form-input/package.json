@@ -1,12 +1,12 @@
 {
-	"name": "@nly-adminlte-vue/form",
+	"name": "@nly-adminlte-vue/form-input",
 	"version": "1.0.0",
 	"meta": {
-		"title": "Form",
-		"description": "表单",
+		"title": "Form Input",
+		"description": "表单input控件",
 		"components": [
 			{
-				"component": "NlyForm",
+				"component": "NlyFormInput",
 				"props": [
 					{
 						"prop": "inline",
@@ -43,7 +43,7 @@
 						"description": "设置为true时，feedback呈现方式为tooltip，呈现级别对应props valid的值"
 					},
 					{
-						"prop": "forceShow",
+						"prop": "force-show",
 						"description": "强制显示feedback"
                     },
                     {

@@ -144,7 +144,7 @@
     "description": "设置true，会自动聚焦"
   },
   "state": {
-    "description": "Controls the validation state appearance of the component. 'true' for valid, 'false' for invalid', or 'null' for no validation state"
+    "description": "控制组件validation状态。可选 'valid'，'invalid'，'warning'，'novalid'。设置为'novalid'时，没有validation提示"
   },
   "options": {
     "description": "Array of items to render in the component"
@@ -189,7 +189,7 @@
     "description": "The ID of the element that provides additional context for this component. Used as the value for the 'aria-describedby' attribute"
   },
   "ariaLive": {
-    "description": "When the rendered element is an aria-live region (for screen reader users), set to either 'polite' or 'assertive'"
+    "description": "对屏幕阅读客户端设置aria-live区域。可选 'polite'，'assertive'"
   },
   "fade": {
     "description": "动画，设置true开启动画"

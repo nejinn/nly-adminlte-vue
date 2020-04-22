@@ -36,40 +36,19 @@
 				]
 			},
 			{
-				"component": "NlyBreadcrumbItem",
+				"component": "NlyFormFeedback",
 				"props": [
 					{
+						"prop": "tooltip",
+						"description": "设置为true时，feedback呈现方式为tooltip，呈现级别对应props valid的值"
+					},
+					{
+						"prop": "force-show",
+						"description": "强制显示feedback"
+                    },
+                    {
 						"prop": "text",
-						"description": "文本内容"
-					},
-					{
-						"prop": "html",
-						"description": "html文本内容"
-					},
-					{
-						"prop": "icon",
-						"description": "icon图标"
-					},
-					{
-						"prop": "itemClass",
-						"description": "item自定义css式样"
-					},
-					{
-						"prop": "linkClass",
-						"description": "item中link自定义css式样"
-					}
-				],
-				"events": [
-					{
-						"event": "click",
-						"description": "点击触发事件",
-						"args": [
-							{
-								"arg": "event",
-								"type": "鼠标事件",
-								"description": "原生点击事件"
-							}
-						]
+						"description": "feedback validation文本内容"
 					}
 				]
 			}
