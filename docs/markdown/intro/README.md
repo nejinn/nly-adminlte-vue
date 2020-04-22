@@ -40,7 +40,7 @@ npm install nly-adminlte-vue
 <script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
 
 <!-- 引入nly-adminlte-vue JS入口文件-->
-<link type="text/css" rel="stylesheet" href="//unpkg.com/nly-adminlte-vue@latest/dist/nly-adminlte-vue.common.js" />
+<script src="//unpkg.com/nly-adminlte-vue@latest/dist/nly-adminlte-vue.common.js"></script>
 
 <!-- 引入nly-adminlte-vue CSS文件 -->
 <link type="text/css" rel="stylesheet" href="//unpkg.com/nly-adminlte-vue@latest/dist/nly-adminlte-vue.css" />
