@@ -1,34 +1,30 @@
 import Vue from "../../utils/vue";
+import { mergeData } from "vue-functional-data-merge";
 
 const name = "NlyCardTool";
 
+export const props = {
+  cardToolClass: {
+    type: String
+  },
+  tag: {
+    type: String,
+    default: "div"
+  }
+};
+
 export const NlyCardTool = Vue.extend({
   name: name,
-  props: {
-    cardToolClass: {
-      type: String
-    },
-    tag: {
-      type: String,
-      default: "div"
-    }
-  },
-  computed: {
-    customProps() {
-      return {
-        cardToolClass: this.cardToolClass,
-        tag: this.tag
-      };
-    }
-  },
-  render(h) {
+  props,
+  functional: true,
+  render(h, { props, data, children }) {
     return h(
-      this.customProps.tag,
-      {
+      props.tag,
+      mergeData(data, {
         staticClass: "card-tools",
-        class: [this.customProps.cardToolClass]
-      },
-      this.$slots.default
+        class: [props.cardToolClass]
+      }),
+      children
     );
   }
 });
