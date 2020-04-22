@@ -19,33 +19,26 @@ export const props = {
 };
 
 const customClass = props => {
-  return [];
+  const cardTextClass = props.cardTextClass;
+  const textVariant = () =>
+    nlyGetOptionsByKeyEqual(textVariantOptions, props.textVariant);
+
+  return [textVariant(), cardTextClass];
 };
 
 export const NlyCardText = Vue.extend({
   name: name,
   props,
   functional: true,
-  computed: {
-    customProps() {
-      return {
-        cardTextClass: this.cardTextClass,
-        tag: this.tag,
-        textVariant: nlyGetOptionsByKeyEqual(
-          textVariantOptions,
-          this.textVariant
-        )
-      };
-    }
-  },
-  render(h) {
+
+  render(h, { props, data, children }) {
     return h(
-      this.customProps.tag,
-      {
+      props.tag,
+      mergeData(data, {
         staticClass: "card-text",
-        class: [this.customProps.cardTextClass, this.customProps.cardTextClass]
-      },
-      this.$slots.default
+        class: customClass(props)
+      }),
+      children
     );
   }
 });

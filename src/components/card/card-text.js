@@ -1,42 +1,44 @@
 import Vue from "../../utils/vue";
 import { textVariantOptions } from "../../utils/nly-config";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
+import { mergeData } from "vue-functional-data-merge";
+
 const name = "NlyCardText";
+
+export const props = {
+  cardTextClass: {
+    type: String
+  },
+  tag: {
+    type: String,
+    default: "p"
+  },
+  textVariant: {
+    type: String
+  }
+};
+
+const customClass = props => {
+  const cardTextClass = props.cardTextClass;
+  const textVariant = () =>
+    nlyGetOptionsByKeyEqual(textVariantOptions, props.textVariant);
+
+  return [textVariant(), cardTextClass];
+};
 
 export const NlyCardText = Vue.extend({
   name: name,
-  props: {
-    cardTextClass: {
-      type: String
-    },
-    tag: {
-      type: String,
-      default: "p"
-    },
-    textVariant: {
-      type: String
-    }
-  },
-  computed: {
-    customProps() {
-      return {
-        cardTextClass: this.cardTextClass,
-        tag: this.tag,
-        textVariant: nlyGetOptionsByKeyEqual(
-          textVariantOptions,
-          this.textVariant
-        )
-      };
-    }
-  },
-  render(h) {
+  props,
+  functional: true,
+
+  render(h, { props, data, children }) {
     return h(
-      this.customProps.tag,
-      {
+      props.tag,
+      mergeData(data, {
         staticClass: "card-text",
-        class: [this.customProps.cardTextClass, this.customProps.cardTextClass]
-      },
-      this.$slots.default
+        class: customClass(props)
+      }),
+      children
     );
   }
 });
