@@ -108,9 +108,9 @@ export const NlyWrapperHeader = Vue.extend({
   functional: true,
   render(h, { props, data, children }) {
     return h(
-      props.tag,
+      props.nav ? "nav" : props.tag,
       mergeData(data, {
-        staticClass: "main-header",
+        staticClass: props.nav ? "navbar" : "main-header",
         class: customClass(props)
       }),
       children

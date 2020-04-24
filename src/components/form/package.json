@@ -43,7 +43,7 @@
 						"description": "设置为true时，feedback呈现方式为tooltip，呈现级别对应props valid的值"
 					},
 					{
-						"prop": "forceShow",
+						"prop": "force-show",
 						"description": "强制显示feedback"
                     },
                     {

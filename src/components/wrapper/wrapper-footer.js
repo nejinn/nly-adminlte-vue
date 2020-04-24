@@ -13,7 +13,7 @@ export const props = {
   bgGradientVariant: {
     type: String
   },
-  mainFooterClass: {
+  wrapperFooterClass: {
     type: String
   },
   tag: {

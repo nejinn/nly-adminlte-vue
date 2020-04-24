@@ -33,6 +33,11 @@ const modal = () => import("../views/example/modal.vue");
 
 const log = () => import("../views/example/log.vue");
 
+const topNav = () => import("../views/example/topNav.vue");
+const boxed = () => import("../views/example/boxed.vue");
+const fixedSidebar = () => import("../views/example/fixedSidebar.vue");
+const fixedNavbar = () => import("../views/example/fixedNavbar.vue");
+
 const routes = [
   {
     path: "/",
@@ -165,6 +170,26 @@ const routes = [
     path: "/test",
     name: "indextest",
     component: indextest
+  },
+  {
+    path: "/top-nav",
+    name: "topNav",
+    component: topNav
+  },
+  {
+    path: "/boxed",
+    name: "boxed",
+    component: boxed
+  },
+  {
+    path: "/fixed-sidebar",
+    name: "fixedSidebar",
+    component: fixedSidebar
+  },
+  {
+    path: "/fixed-navbar",
+    name: "fixedNavbar",
+    component: fixedNavbar
   }
 ];
 
