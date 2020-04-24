@@ -34,36 +34,33 @@
 
 </p>
 
-# 1. nly-adminlte-vue
 
+# 1. nly-adminlte-vue
 <!-- TOC -->
 
 - [1. nly-adminlte-vue](#1-nly-adminlte-vue)
-- [2. 在线 demo](#2-在线-demo)
+- [2. demo](#2-demo)
 - [3. 文档](#3-文档)
 - [4. 进度](#4-进度)
     - [4.1. 组件](#41-组件)
     - [4.2. 指令](#42-指令)
     - [4.3. 使用](#43-使用)
-        - [4.3.1. 可以直接 clone 下载项目](#431-可以直接-clone-下载项目)
-        - [4.3.2. 从 npm 下载](#432-从-npm-下载)
+        - [4.3.1. 可以直接clone下载项目](#431-可以直接clone下载项目)
+        - [4.3.2. 从npm下载](#432-从npm下载)
 - [5. 感谢](#5-感谢)
 
 <!-- /TOC -->
 
-> nly-adminlte-vue 是一个基于 adminlte3 封装的 vue 组件库。干掉 jq，让 vue 更好的使用 adminlte3。
+> nly-adminlte-vue是一个基于adminlte3封装的vue组件库。干掉jq，让vue更好的使用adminlte3。
 
 > 欢迎贡献代码
 
-> 欢迎加群交流 QQ 群：927568606
+> 欢迎加群交流 QQ群：927568606
 
-# 2. 在线 demo
+# 2. demo
 
-> 在线 demo 可以看到跟 master 同步的组件。点击下面。
-
-Github 版在线 Demo:[nly-daminlte-vue-demo](https://nejinn.github.io/nly-adminlte-vue-demo)
-
-文档版在线 Demo:[nly-daminlte-vue-demo](http://nly-adminlte-vue-demo.nejinn.com)
+> demo可以看到跟master同步的组件。点击下面
+[nly-daminlte-vue-demo](https://nejinn.github.io/nly-adminlte-vue-demo)
 
 ![demoPic](https://github.com/nejinn/nly-adminlte-vue/blob/master/static/demoPic.png)
 ![demo](https://github.com/nejinn/nly-adminlte-vue/blob/master/static/demo.gif)
@@ -79,85 +76,93 @@ Github 版在线 Demo:[nly-daminlte-vue-demo](https://nejinn.github.io/nly-admin
 
 ## 4.1. 组件
 
--   皮肤 theme
--   折叠板 collapse
--   导航栏 navbar
--   导航 nav
--   栅格布局 grid row col
--   容器 container
--   正文容器 content
--   包装容器 wrapper
--   文字路由 link
--   按钮 button
--   开关 switch
--   卡片 card
--   小标签 badge
--   下拉菜单 dropdown
--   图标 icon
--   右侧收缩板 control-sidebar
--   罩层 overlay
--   弹框消息 toast
--   旋转 loading spinner
--   进度条 progress
--   时间轴 timeline
--   面包屑导航 breadcrumb
--   信息箱 infobox
--   表格 table 表格是 bootstrapVue 的组件。传送门[bootstrapVue](https://bootstrap-vue.js.org)
--   提示工具 tooltip
--   分页 paginaton
--   渲染函数 renderfunction 根据数组渲染整个页面的组件
--   表单 form
--   input 框 input
--   表单验证 feedback
--   日志组件 log
--   列表 list-group
--   modal
+* 皮肤  theme
+* 折叠板 collapse
+* 导航栏 navbar
+* 导航 nav
+* 栅格布局 grid row col
+* 容器 container
+* 正文容器 content
+* 包装容器 wrapper
+* 文字路由 link
+* 按钮 button
+* 开关 switch
+* 卡片 card
+* 小标签 badge
+* 下拉菜单 dropdown
+* 图标 icon
+* 右侧收缩板 control-sidebar
+* 罩层 overlay
+* 弹框消息 toast
+* 旋转loading spinner
+* 进度条 progress
+* 时间轴 timeline
+* 面包屑导航 breadcrumb
+* 信息箱 infobox
+* 表格 table 表格是bootstrapVue的组件。传送门[bootstrapVue](https://bootstrap-vue.js.org)
+* 提示工具 tooltip
+* 分页 paginaton
+* 渲染函数 renderfunction 根据数组渲染整个页面的组件
+* 表单 form
+* input框 input
+* 表单验证 feedback
+* 日志组件 log
+* 列表 list-group
+* modal
 
 ## 4.2. 指令
 
--   左侧导航栏收起指令 v-nly-sidebar-collapse
--   右侧收缩版收起指令 v-nly-control-sidebar-collapse
--   卡片最大化指令 v-nly-card-maximized
--   折叠版收起展开指令 v-nly-toggle
--   提示工具指令 v-nly-tooltip
--   v-nly-modal
+* 左侧导航栏收起指令 v-nly-sidebar-collapse
+* 右侧收缩版收起指令 v-nly-control-sidebar-collapse
+* 卡片最大化指令 v-nly-card-maximized
+* 折叠版收起展开指令 v-nly-toggle
+* 提示工具指令 v-nly-tooltip
+* v-nly-modal
 
 ## 4.3. 使用
 
-### 4.3.1. 可以直接 clone 下载项目
+### 4.3.1. 可以直接clone下载项目
 
 ```html
-git clone https://github.com/nejinn/nly-adminlte-vue.git npm install npm run
-serve // 查看example，所有组件demo都在这里 http://localhost:8080
+git clone https://github.com/nejinn/nly-adminlte-vue.git
+
+npm install 
+
+npm run serve
+
+// 查看example，所有组件demo都在这里
+http://localhost:8080
 ```
 
-### 4.3.2. 从 npm 下载
+### 4.3.2. 从npm下载
 
--   整包引入
-
+* 整包引入
 ```html
-npm install nly-adminlte-vue main.js import
-"nly-adminlte-vue/dist/adminlte/css/adminlte.css"; import
-"nly-adminlte-vue/dist/adminlte/fontawesome-free/css/all.css"; import
-"nly-adminlte-vue/dist/adminlte/icon/iconfont.css"; import
-"nly-adminlte-vue/dist/nly-adminlte-vue.css"; import { NlyAdminlteVue } from
-"nly-adminlte-vue"; Vue.use(NlyAdminlteVue);
-```
 
--   单包引入
+npm install nly-adminlte-vue
+
+main.js
+import "nly-adminlte-vue/dist/adminlte/css/adminlte.css";
+import "nly-adminlte-vue/dist/adminlte/fontawesome-free/css/all.css";
+import "nly-adminlte-vue/dist/adminlte/icon/iconfont.css";
+import "nly-adminlte-vue/dist/nly-adminlte-vue.css";
+import { NlyAdminlteVue } from "nly-adminlte-vue";
+Vue.use(NlyAdminlteVue);
+```
+* 单包引入
 
 > 比如引入 nly-badge
 
 ```js
-import { NlyBadge } from 'nly-adminlte-vue'
+import { NlyBadge } from "nly-adminlte-vue";
 Vue.component('nly-badge', NlyBadge)
 ```
 
-> 整个 badgePlugin 导出
+> 整个badgePlugin导出
 
 ```js
-import { badgePlugin } from 'nly-adminlte-vue'
-Vue.use(badgePlugin)
+import { badgePlugin } from "nly-adminlte-vue";
+Vue.use(badgePlugin);
 ```
 
 # 5. 感谢
