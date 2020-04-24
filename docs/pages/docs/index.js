@@ -9,10 +9,7 @@ import {
   popperVersion,
   portalVueVersion,
   version,
-  vueVersion,
-  overlayscrollbarsVersion,
-  overlayscrollbarsVueVersion,
-  lodashClonedeepVersion
+  vueVersion
 } from "~/content";
 import meta from "~/markdown/intro/meta.json";
 import readme from "~/markdown/intro/README.md";
@@ -49,33 +46,6 @@ export default {
       portalVueVersion,
       portalVueVersionMinor: portalVueVersion.replace(minorRE, "$1"),
       portalVueVersionMajor: portalVueVersion.replace(majorRE, "$1"),
-      overlayscrollbarsVersion,
-      overlayscrollbarsVersionMinor: overlayscrollbarsVersion.replace(
-        minorRE,
-        "$1"
-      ),
-      overlayscrollbarsVersionMajor: overlayscrollbarsVersion.replace(
-        majorRE,
-        "$1"
-      ),
-      overlayscrollbarsVueVersion,
-      overlayscrollbarsVueVersionMinor: overlayscrollbarsVueVersion.replace(
-        minorRE,
-        "$1"
-      ),
-      overlayscrollbarsVueVersionMajor: overlayscrollbarsVueVersion.replace(
-        majorRE,
-        "$1"
-      ),
-      lodashClonedeepVersion,
-      lodashClonedeepVersionMinor: lodashClonedeepVersion.replace(
-        minorRE,
-        "$1"
-      ),
-      lodashClonedeepVersionMajor: lodashClonedeepVersion.replace(
-        majorRE,
-        "$1"
-      ),
       titleLead,
       body,
       readme,
