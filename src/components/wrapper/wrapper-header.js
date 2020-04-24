@@ -74,7 +74,7 @@ const customClass = props => {
   };
   const customNavbarBorder = () => {
     if (props.nav) {
-      return this.border ? "" : "border-bottom-0";
+      return props.border ? "" : "border-bottom-0";
     } else {
       return "";
     }

@@ -447,3 +447,13 @@ export const formFeedBackTooltipOptions = {
   invalid: "invalid-tooltip",
   warning: "warning-tooltip"
 };
+
+export const breakPointValidOptions = ["xs", "sm", "md", "lg", "lx"];
+
+export const breakPointOptions = {
+  xs: 0,
+  sm: 576,
+  md: 768,
+  lg: 992,
+  xl: 1200
+};

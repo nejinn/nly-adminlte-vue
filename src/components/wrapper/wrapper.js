@@ -1,5 +1,8 @@
 import Vue from "../../utils/vue";
 
+import { breakPointOptions } from "../../utils/nly-config";
+import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
+
 const name = "NlyWrapper";
 
 export const NlyWrapper = Vue.extend({
@@ -37,6 +40,9 @@ export const NlyWrapper = Vue.extend({
     }
   },
   computed: {
+    breakPointNumber() {
+      return nlyGetOptionsByKeyEqual(breakPointOptions, this.breakPoint);
+    },
     sideMiniClass: function() {
       return this.sideMini ? "sidebar-mini" : "";
     },
