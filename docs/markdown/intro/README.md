@@ -1,6 +1,7 @@
 # 开始
 
 > 快速开始使用 NlyAdminlteVue。一个基于 bootstrap 和 Adminlte 3 的响应式 Vue2.js 组件库。
+> NlyAdminlteVue 是一个移动优先的响应式组件库，每个组件在不同的屏幕宽度有不同的式样，以容器布局，栅格系统来适配不同的屏幕。
 
 ## 依赖包
 
@@ -23,7 +24,7 @@ NlyAdminlteVue 需要依赖以下几个包才能运行
 -   [指令](/docs/directives) - 指令和指令插件的文档
 -   [图标](/docs/icons) - NlyAdminlteVue nlyfont icon
 -   [其他](/docs/misc) - 其他杂项
--   [在线测试代码](/play) - 在这里您可以测试NlyAdminlteVue的所有组件
+-   [在线测试代码](/play) - 在这里您可以测试 NlyAdminlteVue 的所有组件
 
 ## 安装命令
 
@@ -43,45 +44,66 @@ npm install nly-adminlte-vue
 <script src="//unpkg.com/nly-adminlte-vue@latest/dist/nly-adminlte-vue.common.js"></script>
 
 <!-- 引入nly-adminlte-vue CSS文件 -->
-<link type="text/css" rel="stylesheet" href="//unpkg.com/nly-adminlte-vue@latest/dist/nly-adminlte-vue.css" />
+<link
+	type="text/css"
+	rel="stylesheet"
+	href="//unpkg.com/nly-adminlte-vue@latest/dist/nly-adminlte-vue.css"
+/>
 
 <!-- 引入adminlte3 CSS文件 -->
-<link type="text/css" rel="stylesheet" href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/css/adminlte.css" />
+<link
+	type="text/css"
+	rel="stylesheet"
+	href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/css/adminlte.css"
+/>
 
 <!-- 引入nlyfont icon CSS文件 -->
-<link type="text/css" rel="stylesheet" href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/icon/iconfont.css" />
+<link
+	type="text/css"
+	rel="stylesheet"
+	href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/icon/iconfont.css"
+/>
 
 <!-- 引入免费fontawesome icon CSS文件 -->
-<link type="text/css" rel="stylesheet" href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/fontawesome-free/css/all.css" />
+<link
+	type="text/css"
+	rel="stylesheet"
+	href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/fontawesome-free/css/all.css"
+/>
 ```
 
 如果您需要支持低版本浏览器，请添加
 
 ```html
-<script src="//polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver" crossorigin="anonymous"></script>
+<script
+	src="//polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver"
+	crossorigin="anonymous"
+></script>
 ```
 
 ## 全局引入
 
 ```js
-import "nly-adminlte-vue/dist/adminlte/css/adminlte.css";
-import "nly-adminlte-vue/dist/adminlte/fontawesome-free/css/all.css";
-import "nly-adminlte-vue/dist/adminlte/icon/iconfont.css";
-import "nly-adminlte-vue/dist/nly-adminlte-vue.css";
-import { NlyAdminlteVue } from "nly-adminlte-vue";
-Vue.use(NlyAdminlteVue);
+import 'nly-adminlte-vue/dist/adminlte/css/adminlte.css'
+import 'nly-adminlte-vue/dist/adminlte/fontawesome-free/css/all.css'
+import 'nly-adminlte-vue/dist/adminlte/icon/iconfont.css'
+import 'nly-adminlte-vue/dist/nly-adminlte-vue.css'
+import { NlyAdminlteVue } from 'nly-adminlte-vue'
+Vue.use(NlyAdminlteVue)
 ```
 
 ## 单包引入
 
 单组件引入
+
 ```js
-import { NlyBadge } from "nly-adminlte-vue";
+import { NlyBadge } from 'nly-adminlte-vue'
 Vue.component('nly-badge', NlyBadge)
 ```
 
 单个插件引入
+
 ```js
-import { BadgePlugin } from "nly-adminlte-vue";
-Vue.use(BadgePlugin);
+import { BadgePlugin } from 'nly-adminlte-vue'
+Vue.use(BadgePlugin)
 ```
