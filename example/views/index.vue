@@ -511,7 +511,7 @@
       </nly-sidebar>
     </nly-wrapper-sidebar>
     <router-view />
-    <nly-wrapper-footer :size="footerSizeSm">
+    <nly-wrapper-footer :size="footerSizeSm" bg-variant="info">
       <strong
         >Copyright © 2020
         <a href="https://github.com/nejinn/nly-adminlte-vue">nly-adminlte-vue</a

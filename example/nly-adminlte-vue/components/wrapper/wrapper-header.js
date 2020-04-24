@@ -1,116 +1,119 @@
 import Vue from "../../utils/vue";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
 import { navbarVariantOpitons, textSizeOptions } from "../../utils/nly-config";
+import { mergeData } from "vue-functional-data-merge";
+
+export const props = {
+  expand: {
+    type: String
+  },
+  variant: {
+    type: String,
+    default: "white"
+  },
+  dark: {
+    type: Boolean,
+    default: false
+  },
+  size: {
+    type: String,
+    default: ""
+  },
+  border: {
+    type: Boolean,
+    default: true
+  },
+  wrapperHeaderClass: {
+    type: String
+  },
+  tag: {
+    type: String,
+    default: "header"
+  },
+  nav: {
+    type: Boolean,
+    default: false
+  }
+};
+
+const customClass = props => {
+  const customNavbarExpand = () => {
+    if (props.nav) {
+      return props.expand == "xl"
+        ? "navbar-expand-xl"
+        : props.expand == "lg"
+        ? "navbar-expand-lg"
+        : props.expand == "md"
+        ? "navbar-expand-md"
+        : props.expand == "sm"
+        ? "navbar-expand-sm"
+        : props.expand == "no"
+        ? "navbar-no-expand"
+        : props.expand == "expand"
+        ? "navbar-expand"
+        : "";
+    } else {
+      return "";
+    }
+  };
+
+  const customnNvbarVariant = () => {
+    if (props.nav) {
+      return nlyGetOptionsByKeyEqual(navbarVariantOpitons, props.variant);
+    } else {
+      return "";
+    }
+  };
+
+  const customNavbarFontSize = () => {
+    if (props.nav) {
+      return nlyGetOptionsByKeyEqual(textSizeOptions, props.size);
+    } else {
+      return "";
+    }
+  };
+  const customNavbarBorder = () => {
+    if (props.nav) {
+      return this.border ? "" : "border-bottom-0";
+    } else {
+      return "";
+    }
+  };
+  const customWrapperHeaderClass = () => {
+    return props.wrapperHeaderClass;
+  };
+  const customNavbarDark = () => {
+    if (props.nav) {
+      return props.dark ? "navbar-dark" : "navbar-light";
+    } else {
+      return "";
+    }
+  };
+
+  return [
+    customNavbarExpand(),
+    customnNvbarVariant(),
+    customNavbarFontSize(),
+    customNavbarBorder(),
+    customWrapperHeaderClass(),
+    customNavbarDark()
+  ];
+};
 
 const name = "NlyWrapperHeader";
 
 export const NlyWrapperHeader = Vue.extend({
   name: name,
-  props: {
-    expand: {
-      type: String
-    },
-    variant: {
-      type: String,
-      default: "white"
-    },
-    dark: {
-      type: Boolean,
-      default: false
-    },
-    size: {
-      type: String,
-      default: ""
-    },
-    border: {
-      type: Boolean,
-      default: true
-    },
-    wrapperHeaderClass: {
-      type: String
-    },
-    tag: {
-      type: String,
-      default: "header"
-    },
-    nav: {
-      type: Boolean,
-      default: false
-    }
-  },
-  computed: {
-    customTag() {
-      return this.tag;
-    },
-    customNav() {
-      return this.nav ? "navbar" : "";
-    },
-    customNavbarExpand: function() {
-      if (this.nav) {
-        return this.expand == "xl"
-          ? "navbar-expand-xl"
-          : this.expand == "lg"
-          ? "navbar-expand-lg"
-          : this.expand == "md"
-          ? "navbar-expand-md"
-          : this.expand == "sm"
-          ? "navbar-expand-sm"
-          : this.expand == "no"
-          ? "navbar-no-expand"
-          : this.expand == "expand"
-          ? "navbar-expand"
-          : "";
-      } else {
-        return "";
-      }
-    },
-    customnNvbarVariant: function() {
-      if (this.nav) {
-        return nlyGetOptionsByKeyEqual(navbarVariantOpitons, this.variant);
-      } else {
-        return "";
-      }
-    },
-    customNavbarFontSize: function() {
-      if (this.nav) {
-        return nlyGetOptionsByKeyEqual(textSizeOptions, this.size);
-      } else {
-        return "";
-      }
-    },
-    customNavbarBorder: function() {
-      if (this.nav) {
-        return this.border ? "" : "border-bottom-0";
-      } else {
-        return "";
-      }
-    },
-    customWrapperHeaderClass: function() {
-      return this.wrapperHeaderClass;
-    },
-    customNavbarDark() {
-      if (this.nav) {
-        return this.dark ? "navbar-dark" : "navbar-light";
-      } else {
-        return "";
-      }
-    }
-  },
-  render(h) {
+  props,
+  functional: true,
+  render(h, { props, data, children }) {
     return h(
-      this.customTag,
-      {
+      props.tag,
+      mergeData(data, {
         staticClass: "main-header",
-        class: [
-          this.customNavbarExpand,
-          this.customNavbarDark,
-          this.customnNvbarVariant,
-          this.customNavbarFontSize,
-          this.customNavbarBorder,
-          this.customWrapperHeaderClass
-        ]
-      },
-      this.$slots.default
+        class: customClass(props)
+      }),
+      children
     );
   }
 });
