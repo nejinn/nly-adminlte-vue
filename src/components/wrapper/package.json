@@ -1,0 +1,131 @@
+{
+    "name": "@nly-adminlte-vue/wrapper",
+    "version": "1.0.0",
+    "meta": {
+        "title": "Wrapper",
+        "description": "wrapper布局，是NlyadminlteVue的布局组件，支持多种布局",
+        "components": [
+            {
+                "component": "NlyWrapper",
+                "description": "wrapper布局容器，用来控制body class属性",
+                "props": [
+                    {
+                        "prop": "sideMini",
+                        "description": "给body添加sidebar-mini class属性，允许左侧导航栏收起为只有图标式样"
+                    },
+                    {
+                        "prop": "layout",
+                        "description": "页面布局，可选fixed和boxed"
+                    },
+                    {
+                        "prop": "navbarFixed",
+                        "description": "头部菜单fixed布局，头部菜单固定在顶部，跟随滚动条一起滚动"
+                    },
+                    {
+                        "prop": "footerFixed",
+                        "description": "footer fixed布局，footer固定在底部，跟随滚动条一起滚动"
+                    },
+                    {
+                        "prop": "topNav",
+                        "description": "顶部菜单布局，会覆盖所有与sidebar有关的props，设置为true时，sidebar会消失，不会出现在窗口"
+                    },
+                    {
+                        "prop": "wrapperClass",
+                        "description": "wrapper自定义css"
+                    },
+                    {
+                        "prop": "containerClass",
+                        "description": "body自定义css"
+                    }
+
+                ]
+            },
+            {
+                "component": "NlyWrapperSidebar",
+                "description": "wrapper布局左侧导航栏",
+                "props": [
+                    {
+                        "prop": "hover",
+                        "description": "设置为true，左侧导航栏收起时，有鼠标悬停效果"
+                    },
+                    {
+                        "prop": "elevation",
+                        "description": "阴影大小，可选 sm，md，lg，xl"
+                    },
+                    {
+                        "prop": "wrapperSidebarClass",
+                        "description": "自定义css"
+                    }
+                ]
+            },
+            {
+                "component": "NlyWrapperHeader",
+                "description": "wrapper布局header",
+                "props": [
+                    {
+                        "prop": "expand",
+                        "description": "nav props 设置为true时有效。折叠导航栏的断点，可选sm，md，lg，xl，no，expand。设置no的时候，navbar垂直布局，设置expand时候，不会出现折叠"
+                    },
+                    {
+                        "prop": "variant",
+                        "description": "nav props 设置为true时有效。主题颜色，可选 primary， secondary， success， info， warning， danger， light， dark"
+                    },
+                    {
+                        "prop": "dark",
+                        "description": "nav props 设置为true时有效。导航栏字体颜色"
+                    },
+                    {
+                        "prop": "size",
+                        "description": "nav props 设置为true时有效。导航栏字体大小"
+                    },
+                    {
+                        "prop": "border",
+                        "description": "nav props 设置为true时有效。navbar底边框"
+                    },
+                    {
+                        "prop": "nav",
+                        "description": "设置为true时，变成navbar容器"
+                    },
+                    {
+                        "prop": "wrapperHeaderClass",
+                        "description": "自定义css"
+                    }
+                ]
+            },
+            {
+                "component": "NlyWrapperFooter",
+                "description": "wrapper布局footer",
+                "props": [
+                    {
+                        "prop": "wrapperFooterClass",
+                        "description": "自定义css"
+                    },
+                    {
+                        "prop": "cardBodyClass",
+                        "description": "自定义css类"
+                    }
+                ]
+            },
+            {
+                "component": "NlyWrapperControlSidebar",
+                "description": "wrapper布局右侧收缩帆板",
+                "props": [
+                    {
+                        "prop": "controlSidebarClass",
+                        "description": "自定义css"
+                    },
+                    {
+                        "prop": "size",
+                        "description": "字体大小，可选xs，sm，md，lg，xl"
+                    }
+                ]
+            },
+            {
+                "component": "NlyWrapperContent",
+                "description": "wrapper布局正文",
+                "props": []
+            }
+        ]
+    }
+}
+  

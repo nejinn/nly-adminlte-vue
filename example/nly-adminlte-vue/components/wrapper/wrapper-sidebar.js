@@ -7,53 +7,59 @@ import {
   sidebarContainerVariantOpitons
 } from "../../utils/nly-config";
 
+import { mergeData } from "vue-functional-data-merge";
+
+export const props = {
+  variant: {
+    type: String,
+    default: "darkPrimary"
+  },
+  hover: {
+    type: Boolean,
+    default: true
+  },
+  elevation: {
+    type: String,
+    default: "xl"
+  },
+  tag: {
+    type: String,
+    default: "aside"
+  },
+  wrapperSidebarClass: {
+    type: String
+  }
+};
+
+const customClass = props => {
+  const customVariant = () =>
+    nlyGetOptionsByKeyEqual(sidebarContainerVariantOpitons, props.variant);
+  const customHover = props.hover ? "" : "sidebar-no-expand";
+  const customElevation = () =>
+    nlyGetOptionsByKeyEqual(sidebarElevationOptions, props.elevation);
+
+  return [
+    customVariant(),
+    customHover,
+    customElevation(),
+    props.wrapperSidebarClass
+  ];
+};
+
 const name = "NlyWrapperSidebar";
 
 export const NlyWrapperSidebar = Vue.extend({
   name: name,
-  props: {
-    variant: {
-      type: String,
-      default: "darkPrimary"
-    },
-    hover: {
-      type: Boolean,
-      default: true
-    },
-    elevation: {
-      type: String,
-      default: "xl"
-    },
-    tag: {
-      type: String,
-      default: "aside"
-    }
-  },
-  computed: {
-    customVariant: function() {
-      return nlyGetOptionsByKeyEqual(
-        sidebarContainerVariantOpitons,
-        this.variant
-      );
-    },
-    customHover: function() {
-      return this.hover ? "" : "sidebar-no-expand";
-    },
-    customElevation: function() {
-      return nlyGetOptionsByKeyEqual(sidebarElevationOptions, this.elevation);
-    },
-    customTag: function() {
-      return this.tag;
-    }
-  },
-  render(h) {
+  props,
+  functional: true,
+  render(h, { props, data, children }) {
     return h(
-      this.customTag,
-      {
+      props.tag,
+      mergeData(data, {
         staticClass: "main-sidebar",
-        class: [this.customVariant, this.customElevation, this.customHover]
-      },
-      this.$slots.default
+        class: customClass(props)
+      }),
+      children
     );
   }
 });

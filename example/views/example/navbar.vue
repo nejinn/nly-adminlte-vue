@@ -388,8 +388,9 @@
                 </nly-nav-item>
               </nly-navbar-nav>
             </nly-navbar>
-          </nly-container> </nly-col
-      ></nly-row>
+          </nly-container>
+        </nly-col>
+      </nly-row>
 
       <nly-row>
         <nly-col>
@@ -968,8 +969,9 @@
                   <i class="fas fa-th-large"></i>
                 </nly-nav-item>
               </nly-navbar-nav>
-            </nly-navbar> </nly-container
-        ></nly-col>
+            </nly-navbar>
+          </nly-container>
+        </nly-col>
       </nly-row>
       <nly-row>
         <nly-col>

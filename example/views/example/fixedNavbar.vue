@@ -1,7 +1,7 @@
 <template>
   <nly-wrapper
     side-mini
-    layout="fixed"
+    navbar-fixed
     wrapper-class="XXXX"
     container-class="zzz"
   >
@@ -510,7 +510,7 @@
         </nly-sidebar-nav>
       </nly-sidebar>
     </nly-wrapper-sidebar>
-    <router-view />
+    <nly-wrapper-content style="min-height: 100vh;"> </nly-wrapper-content>
     <nly-wrapper-footer :size="footerSizeSm" bg-variant="info">
       <strong
         >Copyright © 2020
@@ -708,7 +708,7 @@
 </template>
 
 <script>
-import logo from "../assets/nly-adminlte-vue/img/NLYLOGO.png";
+import logo from "../../assets/nly-adminlte-vue/img/NLYLOGO.png";
 export default {
   data() {
     return {
