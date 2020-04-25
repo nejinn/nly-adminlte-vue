@@ -69,6 +69,12 @@ export const navbarList = [
                 exact: true,
                 exactActiveClass: "active",
                 _name: "在线代码测试"
+              },
+              {
+                _type: "nly-nav-item",
+                href: "http://nly-adminlte-vue-demo.nejinn.com/",
+                _name: "在线Demo",
+                target: "_blank"
               }
             ]
           }

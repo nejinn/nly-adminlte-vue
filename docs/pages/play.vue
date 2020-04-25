@@ -312,7 +312,6 @@
 .play-log {
   min-height: 300px;
 }
-
 .flip-move {
   transition: all 0.3s;
 }
@@ -329,11 +328,9 @@
 .flip-list-move {
   transform: 0.3s;
 }
-
 .bv-carbon-ad {
   min-height: 130px;
 }
-
 @media (min-width: 992px) {
   .bv-carbon-ad {
     min-width: 330px;
@@ -348,9 +345,7 @@ import { getParameters as getCodeSandboxParameters } from "codesandbox/lib/api/d
 import needsTranspiler from "~/utils/needs-transpiler";
 import { version as nlyAdminlteVueVersion, vueVersion } from "~/content";
 import NlyDocsCodeMirror from "../components/nly-docs-code-mirror";
-
 // --- Constants ---
-
 const DEFAULT_HTML = `<div>
   <nly-button variant='warning' size="sm" @click="toggle">
     {{ show ? 'Hide' : 'Show' }}
@@ -359,7 +354,6 @@ const DEFAULT_HTML = `<div>
     Hello {{ name }}!
   </nly-badge>
 </div>`;
-
 const DEFAULT_JS = `{
   data() {
     return {
@@ -379,7 +373,6 @@ const DEFAULT_JS = `{
     }
   }
 }`;
-
 const storage =
   typeof window !== "undefined" ? window.localStorage || null : null;
 const STORAGE_KEY_PREFIX = "BV_playground";
@@ -389,16 +382,12 @@ const STORAGE_KEYS = {
   layout: `${STORAGE_KEY_PREFIX}_layout`,
   timestamp: `${STORAGE_KEY_PREFIX}_ts`
 };
-
 // Maximum age of localStorage before we revert back to defaults
 const STORAGE_MAX_RETENTION = 7 * 24 * 60 * 60 * 1000; // 7 days
-
 // --- Helper functions ---
-
 // Remove a node from its parent's children
 const removeNode = node =>
   node && node.parentNode && node.parentNode.removeChild(node);
-
 // Indent a value by the given count
 const indent = (value, count = 2, { indent } = { indent: " " }) => {
   if (count === 0) {
@@ -406,7 +395,6 @@ const indent = (value, count = 2, { indent } = { indent: " " }) => {
   }
   return value.replace(/^(?!\s*$)/gm, indent.repeat(count));
 };
-
 export default {
   components: {
     NlyDocsCodeMirror
@@ -458,14 +446,12 @@ export default {
     exportData() {
       const html = this.html.trim();
       const js = this.js.trim() || "{}";
-
       let extendedJs =
         js === "{}"
           ? "{ el: '#app' }"
           : js.replace(/^\{/, "{\r\n  el: '#app',");
       extendedJs = `new Vue(${extendedJs})`;
       extendedJs = `window.onload = () => {\r\n${indent(extendedJs, 2)}\r\n}`;
-
       return {
         html,
         js,
@@ -700,21 +686,18 @@ export default {
         } catch (err) {}
       }
       this.playVM = vm = null;
-      this.$refs.result.$el.innerHTML = "";
+      this.$refs.result.innerHTML = "";
     },
     createVM() {
       const playground = this;
       const js = this.compiledJs;
       const html = this.html.trim();
-
       // Disable the export buttons
       this.isOk = false;
-
       if (js === null) {
         // Error compiling JS
         return;
       }
-
       // Options gets assiged to by our eval of the compiled JS
       // eslint-disable-next-line prefer-const
       let options = {};
@@ -730,7 +713,6 @@ export default {
         window.console.error("Error in javascript", err);
         return;
       }
-
       // Sanitize template possibilities
       if (
         !html &&
@@ -786,11 +768,10 @@ export default {
           }
         });
       }
-
       // Try and build the user app
       try {
         const holder = document.createElement("div");
-        this.$refs.result.$el.appendChild(holder);
+        this.$refs.result.appendChild(holder);
         this.playVM = new Vue({
           ...options,
           el: holder,
@@ -814,7 +795,6 @@ export default {
         this.errHandler(err, "app create");
         return;
       }
-
       // We got this far, so save the JS/HTML changes to
       // localStorage and enable export buttons
       this.isOk = true;
@@ -986,7 +966,6 @@ export default {
         // Fallback, but not a true polyfill
         // Only needed for Opera Mini
         (cb => setTimeout(cb, 16));
-
       return raf(fn);
     }
   },
