@@ -1,0 +1,24 @@
+{
+    "name": "@nly-adminlte-vue/container",
+    "version": "1.0.0",
+    "meta": {
+        "title": "Container",
+        "description": "容器",
+        "components": [
+            {
+                "component": "NlyContainer",
+                "description": "容器",
+                "props": [
+                    {
+                        "prop": "fluid",
+                        "description": "100%宽度"
+                    },
+                    {
+                        "prop": "containerClass",
+                        "description": "自定义css"
+                    }
+                ]
+            }
+        ]
+    }
+}
