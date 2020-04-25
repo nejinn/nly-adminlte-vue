@@ -5,7 +5,7 @@ import {
   overLayCollapseEvent
 } from "../../utils/sidebar-collapse";
 
-export const NlySidebarCollapse = {
+export const VNlySidebarCollapse = {
   bind(el, binding, vnode) {
     const instanceNameList = Object.keys(binding.modifiers);
     if (instanceNameList.indexOf("navitem") != -1) {

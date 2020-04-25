@@ -1,10 +1,10 @@
 import { nlyPluginFactory } from "../../utils/plugins";
-import { YNlyToggle } from "./toggle";
+import { VNlyToggle } from "./toggle";
 
-const toggleDirectivePlugin = nlyPluginFactory({
+const VNlyTogglePlugin = nlyPluginFactory({
   directives: {
-    YNlyToggle
+    VNlyToggle
   }
 });
 
-export { toggleDirectivePlugin, YNlyToggle };
+export { VNlyTogglePlugin, VNlyToggle };

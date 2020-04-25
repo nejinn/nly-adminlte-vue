@@ -50,7 +50,7 @@ const parseBindings = (
   vnode
 ) => /* istanbul ignore next: not easy to test */ {
   // We start out with a basic config
-  const NAME = "BTooltip";
+  const NAME = "NlyTooltip";
   // Default config
   let config = {
     title: undefined,
@@ -260,7 +260,7 @@ const removeTooltip = el => {
 };
 
 // Export our directive
-export const YNlyTooltip = {
+export const VNlyTooltip = {
   bind(el, bindings, vnode) {
     applyTooltip(el, bindings, vnode);
   },

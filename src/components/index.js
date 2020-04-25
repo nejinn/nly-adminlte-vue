@@ -5,8 +5,8 @@ import { BreadcrumbPlugin } from "./breadcrumb";
 import { ButtonPlugin } from "./button";
 import { ButtonGroupPlugin } from "./button-group";
 import { CardPlugin } from "./card";
+import { CollapsePlugin } from "./collapse";
 import { FormInputPlugin } from "./form-input";
-import { collapsePlugin } from "./collapse";
 import { ControlSidebarPlugin } from "./controlsidebar";
 import { dropdownPlugin } from "./dropdown";
 import { iconPlugin } from "./icon";
@@ -27,7 +27,7 @@ import { progressPlugin } from "./progress";
 import { timelinePlugin } from "./timeline";
 import { infoboxPlugin } from "./info-box";
 import { tablePlugin } from "./table";
-import { tooltipPlugin } from "./tooltip";
+import { TooltipPlugin } from "./tooltip";
 import { renderFunctionPlugin } from "./render-function";
 import { paginationPlugin } from "./pagination";
 import { formPlguin } from "./form";
@@ -42,8 +42,8 @@ export const componentsPlugin = nlyPluginFactory({
     ButtonPlugin,
     ButtonGroupPlugin,
     CardPlugin,
+    CollapsePlugin,
     FormInputPlugin,
-    collapsePlugin,
     ControlSidebarPlugin,
     dropdownPlugin,
     iconPlugin,
@@ -64,7 +64,7 @@ export const componentsPlugin = nlyPluginFactory({
     timelinePlugin,
     infoboxPlugin,
     tablePlugin,
-    tooltipPlugin,
+    TooltipPlugin,
     renderFunctionPlugin,
     paginationPlugin,
     formPlguin,

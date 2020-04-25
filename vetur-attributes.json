@@ -1631,5 +1631,85 @@
   "nly-log-line-tree/visible": {
     "description": "默认收起折叠后log，设置true会打开",
     "type": "Boolean"
+  },
+  "nly-wrapper/side-mini": {
+    "description": "给body添加sidebar-mini class属性，允许左侧导航栏收起为只有图标式样",
+    "type": "Boolean"
+  },
+  "nly-wrapper/layout": {
+    "description": "页面布局，可选fixed和boxed",
+    "type": "String"
+  },
+  "nly-wrapper/navbar-fixed": {
+    "description": "头部菜单fixed布局，头部菜单固定在顶部，跟随滚动条一起滚动",
+    "type": "Boolean"
+  },
+  "nly-wrapper/footer-fixed": {
+    "description": "footer fixed布局，footer固定在底部，跟随滚动条一起滚动",
+    "type": "Boolean"
+  },
+  "nly-wrapper/top-nav": {
+    "description": "顶部菜单布局，会覆盖所有与sidebar有关的props，设置为true时，sidebar会消失，不会出现在窗口",
+    "type": "Boolean"
+  },
+  "nly-wrapper/wrapper-class": {
+    "description": "wrapper自定义css",
+    "type": "String"
+  },
+  "nly-wrapper/container-class": {
+    "description": "body自定义css",
+    "type": "String"
+  },
+  "nly-wrapper-sidebar/variant": {
+    "description": "主题颜色，可选 primary， secondary， success， info， warning， danger， light， dark",
+    "type": "String"
+  },
+  "nly-wrapper-sidebar/hover": {
+    "description": "设置为true，左侧导航栏收起时，有鼠标悬停效果",
+    "type": "Boolean"
+  },
+  "nly-wrapper-sidebar/elevation": {
+    "description": "阴影大小，可选 sm，md，lg，xl",
+    "type": "String"
+  },
+  "nly-wrapper-sidebar/tag": {
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-wrapper-sidebar/wrapper-sidebar-class": {
+    "description": "自定义css",
+    "type": "String"
+  },
+  "nly-wrapper-header/expand": {
+    "description": "nav props 设置为true时有效。折叠导航栏的断点，可选sm，md，lg，xl，no，expand。设置no的时候，navbar垂直布局，设置expand时候，不会出现折叠",
+    "type": "String"
+  },
+  "nly-wrapper-header/variant": {
+    "description": "nav props 设置为true时有效。主题颜色，可选 primary， secondary， success， info， warning， danger， light， dark",
+    "type": "String"
+  },  
+  "nly-wrapper-header/dark": {
+    "description": "nav props 设置为true时有效。导航栏字体颜色",
+    "type": "Boolean"
+  },  
+  "nly-wrapper-header/size": {
+    "description": "nav props 设置为true时有效。导航栏字体大小",
+    "type": "String"
+  },
+  "nly-wrapper-header/border": {
+    "description": "nav props 设置为true时有效。navbar底边框",
+    "type": "Boolean"
+  },
+  "nly-wrapper-header/wrapper-header-class": {
+    "description": "自定义css",
+    "type": "String"
+  },
+  "nly-wrapper-header/tag": {
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-wrapper-header/nav": {
+    "description": "设置为true时，变成navbar容器",
+    "type": "Boolean"
   }
 }

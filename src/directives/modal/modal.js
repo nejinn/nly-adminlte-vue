@@ -113,7 +113,7 @@ const updated = () => {};
 /*
  * Export our directive
  */
-export const YNlyModal = {
+export const VNlyModal = {
   inserted: componentUpdated,
   updated,
   componentUpdated,

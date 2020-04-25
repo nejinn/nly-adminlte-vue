@@ -1167,5 +1167,40 @@
       "visible",
       "high-light"
     ]
+  },
+  "nly-wrapper":{
+    "description": "wrapper布局容器，用来控制body class属性",
+    "attributes": [
+      "side-mini",
+      "layout",
+      "navbar-fixed",
+      "footer-fixed",
+      "top-nav",
+      "wrapper-class",
+      "container-class"
+    ]
+  },
+  "nly-wrapper-sidebar":{
+    "description": "wrapper布局左侧导航栏",
+    "attributes": [
+      "variant",
+      "hover",
+      "elevation",
+      "tag",
+      "wrapper-sidebar-class"
+    ]
+  },
+  "nly-wrapper-header":{
+    "description": "wrapper布局header",
+    "attributes": [
+      "expand",
+      "variant",
+      "dark",
+      "size",
+      "border",
+      "wrapper-header-class",
+      "tag",
+      "nav"
+    ]
   }
 }

@@ -1,0 +1,54 @@
+{
+    "name": "@nly-adminlte-vue/collapse",
+    "version": "1.0.0",
+    "meta": {
+        "title": "Collapse",
+        "description": "折叠版,支持任何元素折叠,支持手风琴模式",
+        "directives": [
+            {
+                "directive": "VNlyToggle",
+                "description": "Directive for toggling a collapse by ID",
+                "expression": "String",
+                "modifiers": [
+                    {
+                        "name": "{collapseId}",
+                        "pattern": "[a-zA-Z][a-zA-Z0-9_\\-]*",
+                        "description": "Collapse ID to open. Replace `{collapseId}` with the collapse's ID"
+                    }
+                ]
+            }
+        ],
+        "components": [
+            {
+                "component": "NlyCollapse",
+                "description": "折叠版容器",
+                "props": [
+                    {
+                        "prop": "id",
+                        "description": "折叠组id,使用v-nly-toggle绑定此id,可以实现对应的折叠版展开收起"
+                    },
+                    {
+                        "prop": "isNav",
+                        "description": "菜单模式，会添加class='navbar-collapse'"
+                    },
+                    {
+                        "prop": "accordion",
+                        "description": "手风琴模式，手风琴分组字段"
+                    },
+                    {
+                        "prop": "visible",
+                        "description": "设置true，会展开折叠版,"
+                    },
+                    {
+                        "prop": "appear",
+                        "description": "初始化展开动画"
+                    },
+                    {
+                        "prop": "collapse-class",
+                        "description": "自定义css"
+                    }
+                ]
+            }
+        ]
+    }
+}

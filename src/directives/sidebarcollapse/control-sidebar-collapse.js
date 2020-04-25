@@ -7,7 +7,7 @@ import {
   getScrollHeight
 } from "../../utils/sidebar-collapse";
 
-export const NlyControlSidebarCollapse = {
+export const VNlyControlSidebarCollapse = {
   bind(el) {
     el.onclick = () => {
       const windowHeight = document.documentElement.clientHeight;

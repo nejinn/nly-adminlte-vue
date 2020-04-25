@@ -138,7 +138,7 @@ export const nlyRegisterDirective = (Vue, name, def) => {
   if (Vue && name && def) {
     // Ensure that any leading V is removed from the
     // name, as Vue adds it automatically
-    Vue.directive(name.replace(/^YNly/, "Nly"), def);
+    Vue.directive(name.replace(/^VNly/, "Nly"), def);
   }
 };
 

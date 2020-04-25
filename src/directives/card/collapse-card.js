@@ -7,7 +7,7 @@
 //   afterLeaveCollpase
 // } from "../../utils/card";
 
-export const YNlyCardCollapse = {
+export const VNlyCardCollapse = {
   bind(el, binding, vnode) {
     const cardCollapseRef = Object.keys(binding.modifiers)[0];
     el.onclick = () => {
