@@ -108,7 +108,7 @@
 * 表单验证 feedback
 * 日志组件 log
 * 列表 list-group
-* modal
+* 弹框 modal
 
 ## 4.2. 指令
 
@@ -117,7 +117,8 @@
 * 卡片最大化指令 v-nly-card-maximized
 * 折叠版收起展开指令 v-nly-toggle
 * 提示工具指令 v-nly-tooltip
-* v-nly-modal
+* 弹框工具指令 v-nly-modal
+* 滚动条工具指令 v-nly-scrollspy
 
 ## 4.3. 使用
 
