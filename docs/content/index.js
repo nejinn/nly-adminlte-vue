@@ -83,5 +83,14 @@ export const nuxtVersion = parseVersion(devDependencies.nuxt);
 export const vueVersion = parseVersion(dependencies.vue);
 export const defaultConfig = DEFAULT_CONFIG;
 export const NlyDocsDescription = description;
+export const overlayscrollbarsVersion = parseVersion(
+  dependencies["overlayscrollbars"]
+);
+export const overlayscrollbarsVueVersion = parseVersion(
+  dependencies["overlayscrollbars-vue"]
+);
+export const lodashClonedeepVersion = parseVersion(
+  dependencies["lodash.clonedeep"]
+);
 
 export { version };
