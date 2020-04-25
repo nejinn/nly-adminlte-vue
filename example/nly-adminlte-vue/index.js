@@ -44,7 +44,7 @@ export { NlyCardImg } from "./components/card/card-img";
 export { NlyCardTool } from "./components/card/card-tool";
 export { NlyCardText } from "./components/card/card-text";
 
-export { collapsePlugin } from "./components/collapse";
+export { CollapsePlugin } from "./components/collapse";
 export { NlyCollapse } from "./components/collapse/collapse";
 export { NlyCollapseTransition } from "./utils/collapse-transition";
 export { NlyCollapseNoclass } from "./components/collapse/collapse-noclass";
@@ -161,11 +161,14 @@ export { NlyLogLine } from "./components/log/log-line";
 export { NlyLogLineTree } from "./components/log/log-line-tree";
 export { NlyLogTools } from "./components/log/log-tools";
 
-export { tooltipPlugin } from "./components/tooltip";
+export { TooltipPlugin } from "./components/tooltip";
 export { NlyTooltip } from "./components/tooltip/tooltip";
 
-export { cardDirectivePlugin } from "./directives/card";
-export { YNlyCardMaximized } from "./directives/card/maximized-card";
+export { VNlyTooltipPlugin } from "./directives/tooltip";
+export { VNlyTooltip } from "./directives/tooltip/tooltip";
+
+export { VNlyCardPlugin } from "./directives/card";
+export { VNlyCardMaximized } from "./directives/card/maximized-card";
 
 export { CollapseSidebarPlugins } from "./components/collapsesidebar";
 export { NlyCollapseFooter } from "./components/collapsesidebar/collapse-footer";
@@ -174,12 +177,12 @@ export { NlyCollapseMain } from "./components/collapsesidebar/collapse-main";
 export { NlyCollapseSidebar } from "./components/collapsesidebar/collapse-sidebar";
 export { NlyCollapseWrapper } from "./components/collapsesidebar/collapse-wrapper";
 
-export { toggleDirectivePlugin } from "./directives/toggle";
-export { YNlyToggle } from "./directives/toggle/toggle";
+export { VNlyTogglePlugin } from "./directives/toggle";
+export { VNlyToggle } from "./directives/toggle/toggle";
 
-export { collapseSidebarDirectivePlugin } from "./directives/sidebarcollapse";
-export { NlySidebarCollapse } from "./directives/sidebarcollapse/sidebar-collapse";
-export { NlyControlSidebarCollapse } from "./directives/sidebarcollapse/control-sidebar-collapse";
+export { VNlyCollapseSidebarPlugin } from "./directives/sidebarcollapse";
+export { VNlySidebarCollapse } from "./directives/sidebarcollapse/sidebar-collapse";
+export { VNlyControlSidebarCollapse } from "./directives/sidebarcollapse/control-sidebar-collapse";
 
 export { listGroupPlugin } from "./components/list-group";
 export { NlyListGroup } from "./components/list-group/list-group";
@@ -188,7 +191,7 @@ export { NlyListGroupItem } from "./components/list-group/list-group-item";
 export { modalPlugin } from "./components/modal";
 export { NlyModal } from "./components/modal/modal";
 
-export { yNlyModalPlugin } from "./directives/modal";
-export { YNlyModal } from "./directives/modal/modal";
+export { VNlyModalPlugin } from "./directives/modal";
+export { VNlyModal } from "./directives/modal/modal";
 
 export default NlyAdminlteVue;

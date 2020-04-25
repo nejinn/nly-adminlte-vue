@@ -1,8 +1,8 @@
-import { YNlyModal } from "./modal";
+import { VNlyModal } from "./modal";
 import { nlyPluginFactory } from "../../utils/plugins";
 
-const yNlyModalPlugin = nlyPluginFactory({
-  directives: { YNlyModal }
+const VNlyModalPlugin = nlyPluginFactory({
+  directives: { VNlyModal }
 });
 
-export { yNlyModalPlugin, YNlyModal };
+export { VNlyModalPlugin, VNlyModal };

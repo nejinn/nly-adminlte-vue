@@ -63,7 +63,7 @@ const handleUpdate = (el, binding, vnode) => {
   setAttr(el, "aria-controls", el[NLY_TOGGLE_CONTROLS]);
 };
 
-export const YNlyToggle = {
+export const VNlyToggle = {
   bind(el, binding, vnode) {
     const targets = bindTargets(vnode, binding, listenTypes, handleTargets);
     if (isBrowser && vnode.context && targets.length > 0) {
