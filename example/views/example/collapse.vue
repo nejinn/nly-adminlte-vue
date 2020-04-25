@@ -103,10 +103,8 @@
                   icon="nav-icon fas nlyfont nly-logo-aperture"
                   link-class="bg-info"
                   visible
+                  text="accordion1"
                 >
-                  <template slot="link">
-                    accordion1
-                  </template>
                   <template slot="linktool">
                     <nly-badge variant="primary" badge-class="right" pill>
                     </nly-badge>
@@ -133,10 +131,8 @@
                   accordion="collapsenoclass"
                   icon="nav-icon fas nlyfont nly-nav-fill"
                   link-class="bg-info"
+                  text="accordion2"
                 >
-                  <template slot="link">
-                    accordion2
-                  </template>
                   <nly-sidebar-nav-item
                     link-class="xxx zzz"
                     class="sss"
@@ -151,10 +147,8 @@
                   accordion="collapsenoclass"
                   icon="nav-icon fas nlyfont nly-magic-cube"
                   link-class="bg-info"
+                  text="accordion3"
                 >
-                  <template slot="link">
-                    accordion3
-                  </template>
                   <nly-sidebar-nav-item
                     link-class="xxx zzz"
                     class="sss"

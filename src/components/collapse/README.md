@@ -232,10 +232,8 @@ leaveToClass: "collapse"
 		icon="nav-icon fas nlyfont nly-logo-aperture"
 		link-class="bg-info"
 		visible
+        text='accordion1'
 	>
-		<template slot="link">
-			accordion1
-		</template>
 		<template slot="linktool">
 			<nly-badge variant="primary" badge-class="right" pill> </nly-badge>
 		</template>
@@ -253,10 +251,8 @@ leaveToClass: "collapse"
 		accordion="collapsenoclass"
 		icon="nav-icon fas nlyfont nly-nav-fill"
 		link-class="bg-info"
+        text='accordion2'
 	>
-		<template slot="link">
-			accordion2
-		</template>
 		<nly-sidebar-nav-item link-class="xxx zzz" class="sss" icon="nav-icon far nlyfont nly-nav-tool">
 			上面的有visible props，所以他最开始就打开了
 		</nly-sidebar-nav-item>
@@ -267,10 +263,8 @@ leaveToClass: "collapse"
 		accordion="collapsenoclass"
 		icon="nav-icon fas nlyfont nly-magic-cube"
 		link-class="bg-info"
+        text='accordion3'
 	>
-		<template slot="link">
-			accordion3
-		</template>
 		<nly-sidebar-nav-item link-class="xxx zzz" class="sss" icon="nav-icon far nlyfont nly-keypad" exact>
 			我跟上面的2个都是accordion='collapse'，所以我们是同一组手风琴
 		</nly-sidebar-nav-item>
@@ -372,4 +366,3 @@ this.$root.$emit('nly::toggle::collapse', 'my-collapse-id')
 **注意:** 
 
 `<nly-collapse>` 组件有时候动画会失效，请使用 `<nly-collapse-noclass>` 代替
-<!-- Component reference added automatically from component package.json -->

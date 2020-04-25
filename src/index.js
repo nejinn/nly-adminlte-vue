@@ -194,4 +194,7 @@ export { NlyModal } from "./components/modal/modal";
 export { VNlyModalPlugin } from "./directives/modal";
 export { VNlyModal } from "./directives/modal/modal";
 
+export { VNlyScrollspyPlugin } from "./directives/scrollspy";
+export { VNlyScrollspy } from "./directives/scrollspy/scrollspy";
+
 export default NlyAdminlteVue;

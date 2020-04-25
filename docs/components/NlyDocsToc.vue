@@ -1,5 +1,5 @@
 <template>
-  <nly-nav class="section-nav" vertical>
+  <nly-nav class="section-nav" vertical v-nly-scrollspy="{ offset }">
     <nly-nav-item
       v-if="toc.title && toc.top"
       :href="toc.top"
