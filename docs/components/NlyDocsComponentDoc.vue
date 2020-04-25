@@ -227,206 +227,213 @@
         </nly-card-body>
 
         <article v-if="componentVModel" class="bd-content">
-          <nly-docs-anchored-heading
-            :id="`comp-ref-${componentName}-v-model`"
-            level="4"
-            class="mb-3"
-          >
-            <code class="notranslate" translate="no">v-model</code>
-          </nly-docs-anchored-heading>
-          <nly-table-lite
-            :items="[componentVModel]"
-            :fields="[{ key: 'prop', label: 'Property' }, 'event']"
-            table-class="bv-docs-table"
-            responsive="sm"
-            bordered
-            striped
-          >
-            <template v-slot:cell(prop)="{ value }">
-              <code class="notranslate" translate="no">{{
-                kebabCase(value)
-              }}</code>
-            </template>
-            <template v-slot:cell(event)="{ value }">
-              <code class="notranslate" translate="no">{{ value }}</code>
-            </template>
-          </nly-table-lite>
+          <nly-card-body>
+            <nly-docs-anchored-heading
+              :id="`comp-ref-${componentName}-v-model`"
+              level="4"
+              class="mb-3"
+            >
+              <code class="notranslate" translate="no">v-model</code>
+            </nly-docs-anchored-heading>
+            <nly-table-lite
+              :items="[componentVModel]"
+              :fields="[{ key: 'prop', label: 'Property' }, 'event']"
+              table-class="bv-docs-table"
+              responsive="sm"
+              bordered
+              striped
+            >
+              <template v-slot:cell(prop)="{ value }">
+                <code class="notranslate" translate="no">{{
+                  kebabCase(value)
+                }}</code>
+              </template>
+              <template v-slot:cell(event)="{ value }">
+                <code class="notranslate" translate="no">{{ value }}</code>
+              </template>
+            </nly-table-lite>
+          </nly-card-body>
         </article>
 
         <article v-if="slots && slots.length > 0" class="bd-content">
-          <nly-docs-anchored-heading
-            :id="`comp-ref-${componentName}-slots`"
-            level="4"
-            class="mb-3"
-          >
-            Slots
-          </nly-docs-anchored-heading>
-          <nly-table
-            :items="slotsItems"
-            :fields="slotsFields"
-            primary-key="name"
-            table-class="bv-docs-table"
-            responsive="sm"
-            sort-icon-left
-            bordered
-            striped
-          >
-            <template v-slot:cell(name)="{ value, item }">
-              <code class="text-nowrap notranslate" translate="no">{{
-                value
-              }}</code>
-              <nly-badge v-if="item.version" variant="secondary"
-                >v{{ item.version }}+</nly-badge
-              >
-            </template>
-            <template
-              v-slot:cell(scope)="{ value, detailsShowing, toggleDetails }"
+          <nly-card-body>
+            <nly-docs-anchored-heading
+              :id="`comp-ref-${componentName}-slots`"
+              level="4"
+              class="mb-3"
             >
-              <nly-button
-                v-if="value"
-                variant="outline-info"
-                size="sm"
-                class="py-0"
-                @click="toggleDetails()"
+              Slots
+            </nly-docs-anchored-heading>
+            <nly-table
+              :items="slotsItems"
+              :fields="slotsFields"
+              primary-key="name"
+              table-class="bv-docs-table"
+              responsive="sm"
+              sort-icon-left
+              bordered
+              striped
+            >
+              <template v-slot:cell(name)="{ value, item }">
+                <code class="text-nowrap notranslate" translate="no">{{
+                  value
+                }}</code>
+                <nly-badge v-if="item.version" variant="secondary"
+                  >v{{ item.version }}+</nly-badge
+                >
+              </template>
+              <template
+                v-slot:cell(scope)="{ value, detailsShowing, toggleDetails }"
               >
-                {{ detailsShowing ? "Hide scope" : "Show scope" }}
-              </nly-button>
-              <span v-else>No</span>
-            </template>
-            <template v-slot:row-details="{ item }">
-              <nly-table-lite
-                :items="item.scope"
-                :fields="[
-                  { key: 'prop', label: 'Property' },
-                  'type',
-                  'description'
-                ]"
-                primary-key="prop"
-                class="m-0"
-                dark
-                caption-top
-                small
-              >
-                <template v-slot:thead-top>
-                  <nly-tr>
-                    <nly-th colspan="3" class="text-center">
-                      <code class="text-nowrap notranslate" translate="no">{{
-                        item.name
-                      }}</code>
-                      Slot scoped properties
-                    </nly-th>
-                  </nly-tr>
-                </template>
-                <template v-slot:cell(prop)="{ value, item }">
-                  <code class="text-nowrap notranslate" translate="no">{{
-                    value
-                  }}</code>
-                  <nly-badge v-if="item.version" variant="secondary"
-                    >v{{ item.version }}+</nly-badge
-                  >
-                </template>
-                <template v-slot:cell(type)="{ value }">
-                  <code class="text-nowrap notranslate" translate="no">{{
-                    value || "Any"
-                  }}</code>
-                </template>
-              </nly-table-lite>
-            </template>
-          </nly-table>
+                <nly-button
+                  v-if="value"
+                  variant="outlineInfo"
+                  size="sm"
+                  class="py-0"
+                  @click="toggleDetails()"
+                >
+                  {{ detailsShowing ? "隐藏 scope" : "显示 scope" }}
+                </nly-button>
+                <span v-else>No</span>
+              </template>
+              <template v-slot:row-details="{ item }">
+                <nly-table-lite
+                  :items="item.scope"
+                  :fields="[
+                    { key: 'prop', label: 'Property' },
+                    { key: 'type', label: '类型' },
+                    { key: 'description', label: '描述' }
+                  ]"
+                  primary-key="prop"
+                  class="m-0"
+                  caption-top
+                  small
+                >
+                  <template v-slot:thead-top>
+                    <nly-tr>
+                      <nly-th colspan="3" class="text-center">
+                        <code class="text-nowrap notranslate" translate="no">{{
+                          item.name
+                        }}</code>
+                        Slot scoped properties
+                      </nly-th>
+                    </nly-tr>
+                  </template>
+                  <template v-slot:cell(prop)="{ value, item }">
+                    <code class="text-nowrap notranslate" translate="no">{{
+                      value
+                    }}</code>
+                    <nly-badge v-if="item.version" variant="secondary"
+                      >v{{ item.version }}+</nly-badge
+                    >
+                  </template>
+                  <template v-slot:cell(type)="{ value }">
+                    <code class="text-nowrap notranslate" translate="no">{{
+                      value || "Any"
+                    }}</code>
+                  </template>
+                </nly-table-lite>
+              </template>
+            </nly-table>
+          </nly-card-body>
         </article>
 
         <article v-if="events && events.length > 0" class="bd-content">
-          <nly-docs-anchored-heading
-            :id="`comp-ref-${componentName}-events`"
-            level="4"
-            class="mb-3"
-          >
-            Events
-          </nly-docs-anchored-heading>
-          <nly-table
-            :items="events"
-            :fields="eventsFields"
-            primary-key="event"
-            table-class="bv-docs-table"
-            responsive="sm"
-            bordered
-            striped
-          >
-            <template v-slot:cell(event)="{ value, item }">
-              <code class="notranslate" translate="no">{{ value }}</code>
-              <nly-badge v-if="item.version" variant="secondary"
-                >v{{ item.version }}+</nly-badge
-              >
-            </template>
-            <template v-slot:cell(args)="{ value, item }">
-              <ol v-if="value && value.length > 0" class="list-unstyled mb-0">
-                <li
-                  v-for="(arg, idx) in value"
-                  :key="`event-${item.event}-${arg.arg || idx}`"
+          <nly-card-body>
+            <nly-docs-anchored-heading
+              :id="`comp-ref-${componentName}-events`"
+              level="4"
+              class="mb-3"
+            >
+              Events
+            </nly-docs-anchored-heading>
+            <nly-table
+              :items="events"
+              :fields="eventsFields"
+              primary-key="event"
+              table-class="bv-docs-table"
+              responsive="sm"
+              bordered
+              striped
+            >
+              <template v-slot:cell(event)="{ value, item }">
+                <code class="notranslate" translate="no">{{ value }}</code>
+                <nly-badge v-if="item.version" variant="secondary"
+                  >v{{ item.version }}+</nly-badge
                 >
-                  <template v-if="arg.arg">
-                    <code class="notranslate" translate="no">{{
-                      arg.arg
-                    }}</code>
-                    -
-                  </template>
-                  <span v-if="arg.description">{{ arg.description }}</span>
-                </li>
-              </ol>
-            </template>
-          </nly-table>
+              </template>
+              <template v-slot:cell(args)="{ value, item }">
+                <ol v-if="value && value.length > 0" class="list-unstyled mb-0">
+                  <li
+                    v-for="(arg, idx) in value"
+                    :key="`event-${item.event}-${arg.arg || idx}`"
+                  >
+                    <template v-if="arg.arg">
+                      <code class="notranslate" translate="no">{{
+                        arg.arg
+                      }}</code>
+                      -
+                    </template>
+                    <span v-if="arg.description">{{ arg.description }}</span>
+                  </li>
+                </ol>
+              </template>
+            </nly-table>
+          </nly-card-body>
         </article>
 
         <article
           v-if="rootEventListeners && rootEventListeners.length > 0"
           class="bd-content"
         >
-          <nly-docs-anchored-heading
-            :id="`comp-ref-${componentName}-rootEventListeners`"
-            level="4"
-            class="mb-3"
-          >
-            <code class="notranslate" translate="no">$root</code> event
-            listeners
-          </nly-docs-anchored-heading>
-          <p>
-            You can control
-            <code class="notranslate" translate="no">{{ tag }}</code> by
-            emitting the following events on
-            <samp class="notranslate" translate="no">$root</samp>:
-          </p>
-          <nly-table-lite
-            :items="rootEventListeners"
-            :fields="rootEventListenersFields"
-            primary-key="event"
-            table-class="bv-docs-table"
-            responsive="sm"
-            bordered
-            striped
-          >
-            <template v-slot:cell(event)="{ value, item }">
-              <code class="text-nowrap notranslate" translate="no">{{
-                value
-              }}</code>
-              <nly-badge v-if="item.version" variant="secondary"
-                >v{{ item.version }}+</nly-badge
-              >
-            </template>
-            <template v-slot:cell(args)="{ value, item }">
-              <p
-                v-for="arg in value"
-                :key="`event-${item.event}-${arg.arg ? arg.arg : 'none'}`"
-                class="mb-1"
-              >
-                <template v-if="arg.arg">
-                  <code class="text-nowrap notranslate" translate="no">{{
-                    arg.arg
-                  }}</code>
-                  <span v-if="arg.description"> - {{ arg.description }}</span>
-                </template>
-              </p>
-            </template>
-          </nly-table-lite>
+          <nly-card-body>
+            <nly-docs-anchored-heading
+              :id="`comp-ref-${componentName}-rootEventListeners`"
+              level="4"
+              class="mb-3"
+            >
+              <code class="notranslate" translate="no">$root</code> event
+              listeners
+            </nly-docs-anchored-heading>
+            <p>
+              你可以通过
+              <samp class="notranslate" translate="no">$root</samp>
+              emit以下事件来控制组件(指令)
+              <code class="notranslate" translate="no">{{ tag }}</code>
+            </p>
+            <nly-table-lite
+              :items="rootEventListeners"
+              :fields="rootEventListenersFields"
+              primary-key="event"
+              table-class="bv-docs-table"
+              responsive="sm"
+              bordered
+              striped
+            >
+              <template v-slot:cell(event)="{ value, item }">
+                <code class="text-nowrap notranslate" translate="no">{{
+                  value
+                }}</code>
+                <nly-badge v-if="item.version" variant="secondary"
+                  >v{{ item.version }}+</nly-badge
+                >
+              </template>
+              <template v-slot:cell(args)="{ value, item }">
+                <p
+                  v-for="arg in value"
+                  :key="`event-${item.event}-${arg.arg ? arg.arg : 'none'}`"
+                  class="mb-1"
+                >
+                  <template v-if="arg.arg">
+                    <code class="text-nowrap notranslate" translate="no">{{
+                      arg.arg
+                    }}</code>
+                    <span v-if="arg.description"> - {{ arg.description }}</span>
+                  </template>
+                </p>
+              </template>
+            </nly-table-lite>
+          </nly-card-body>
         </article>
       </nly-card>
     </nly-col>

@@ -4,6 +4,7 @@ import { VNlyCardPlugin } from "./card";
 import { VNlyTogglePlugin } from "./toggle";
 import { VNlyModalPlugin } from "./modal";
 import { VNlyTooltipPlugin } from "./tooltip";
+import { VNlyScrollspyPlugin } from "./scrollspy";
 
 export const directivesPlugin = nlyPluginFactory({
   plugins: {
@@ -11,6 +12,7 @@ export const directivesPlugin = nlyPluginFactory({
     VNlyCollapseSidebarPlugin,
     VNlyTogglePlugin,
     VNlyModalPlugin,
-    VNlyTooltipPlugin
+    VNlyTooltipPlugin,
+    VNlyScrollspyPlugin
   }
 });
