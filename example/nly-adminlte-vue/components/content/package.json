@@ -9,16 +9,17 @@
             {
                 "component": "NlyContentWrapper",
                 "description": "NlyAdminlteVue自带wrapper布局的content容器，和NlyWrapperContent组件是一样的",
-                "props": [
-                    {
-                        "prop": "fluid",
-                        "description": "100%宽度"
-                    },
-                    {
-                        "prop": "containerClass",
-                        "description": "自定义css"
-                    }
-                ]
+                "props": []
+            },
+            {
+                "component": "NlyContent",
+                "description": "正文容器",
+                "props": []
+            },
+            {
+                "component": "NlyContentHeader",
+                "description": "正文容器头部",
+                "props": []
             }
         ]
     }

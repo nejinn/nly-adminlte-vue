@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "meta": {
         "title": "Wrapper",
-        "description": "wrapper布局，是NlyadminlteVue的布局组件，支持多种布局",
+        "subtitle":"布局组件",
+        "description": "wrapper布局，是NlyadminlteVue页面结构布局组件，支持 Top Navigation，Boxed， Fixed Navbar，Fixed Footer， Collapsed Sidebar等布局",
         "components": [
             {
                 "component": "NlyWrapper",

@@ -4,7 +4,7 @@
 
 ## 总览
 
-> nly-button-group 按钮组默认水平布局，子组件中的 nly-button 边角会发生变化
+`nly-button-group` 按钮组默认水平布局，子组件中的 `nly-button` 边角会发生变化
 
 ```html
 <nly-button-group>
@@ -37,7 +37,7 @@
 
 ## vertical
 
-> 按钮组垂直布局
+按钮组垂直布局
 
 ```html
 <nly-button-group vertical>
@@ -50,7 +50,7 @@
 <!-- nly-button-group.vue -->
 ```
 
-> roundedFlat
+roundedFlat
 
 ```html
 <nly-button-group vertical>
@@ -63,7 +63,7 @@
 <!-- nly-button-group.vue -->
 ```
 
-> roundedPill
+roundedPill
 
 ```html
 <nly-button-group vertical>
@@ -78,7 +78,7 @@
 
 ## size
 
-> 按钮组大小
+按钮组大小
 
 ```html
 <nly-button-group size="sm">
@@ -126,7 +126,7 @@
 <!-- nly-button-group.vue -->
 ```
 
-> nly-button-group size 会使得 nly-button 的 size 失效
+`nly-button-group` 的 `size` 会覆盖 `nly-button` 的 `size` 失效
 
 ```html
 <nly-button-group size="sm">

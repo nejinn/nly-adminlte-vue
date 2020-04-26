@@ -2,7 +2,8 @@
 	"name": "@nly-adminlte-vue/badge",
 	"version": "1.0.0",
 	"meta": {
-		"title": "Badge",
+        "title": "Badge",
+        "subtitle":"徽章",
 		"description": "一个对正文进行补充的小标签",
 		"components": [
 			{

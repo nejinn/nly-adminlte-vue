@@ -2,7 +2,8 @@
 	"name": "@nly-adminlte-vue/link",
 	"version": "1.0.0",
 	"meta": {
-		"title": "Link",
+        "title": "Link",
+        "subtitle":"a标签",
 		"description": "用来代替<a>标签。支持router-link，click等",
 		"components": [
 			{
