@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "meta": {
         "title": "Card",
-        "description": "卡片",
+        "subtitle":"卡片",
+        "description": "卡片，包括卡片组，卡片header，body，footer，img，title，tool等组件",
         "components": [
             {
                 "component": "NlyCardGroup",

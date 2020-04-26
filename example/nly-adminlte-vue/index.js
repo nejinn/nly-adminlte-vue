@@ -170,13 +170,6 @@ export { VNlyTooltip } from "./directives/tooltip/tooltip";
 export { VNlyCardPlugin } from "./directives/card";
 export { VNlyCardMaximized } from "./directives/card/maximized-card";
 
-export { CollapseSidebarPlugins } from "./components/collapsesidebar";
-export { NlyCollapseFooter } from "./components/collapsesidebar/collapse-footer";
-export { NlyCollapseHeader } from "./components/collapsesidebar/collapse-header";
-export { NlyCollapseMain } from "./components/collapsesidebar/collapse-main";
-export { NlyCollapseSidebar } from "./components/collapsesidebar/collapse-sidebar";
-export { NlyCollapseWrapper } from "./components/collapsesidebar/collapse-wrapper";
-
 export { VNlyTogglePlugin } from "./directives/toggle";
 export { VNlyToggle } from "./directives/toggle/toggle";
 

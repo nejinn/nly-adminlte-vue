@@ -2,8 +2,9 @@
 	"name": "@nly-adminlte-vue/button",
 	"version": "1.0.0",
 	"meta": {
-		"title": "Button",
-		"description": "按钮",
+        "title": "Button",
+        "subtitle":"按钮",
+		"description": "具有NlyAdminlteVue主题特征的按钮",
 		"components": [
 			{
                 "component": "NlyButton",

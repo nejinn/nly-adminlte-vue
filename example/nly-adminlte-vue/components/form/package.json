@@ -2,7 +2,8 @@
 	"name": "@nly-adminlte-vue/form",
 	"version": "1.0.0",
 	"meta": {
-		"title": "Form",
+        "title": "Form",
+        "subtitle":"表单",
 		"description": "表单",
 		"components": [
 			{

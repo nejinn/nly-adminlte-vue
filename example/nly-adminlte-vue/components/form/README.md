@@ -2,10 +2,12 @@
 <!-- TOC -->
 
 - [1. form](#1-form)
-    - [1.1. nly-form](#11-nly-form)
-        - [1.1.1. props](#111-props)
-    - [1.2. nly-form-input](#12-nly-form-input)
-        - [1.2.1. props](#121-props)
+  - [1.1. nly-form](#11-nly-form)
+    - [1.1.1. props](#111-props)
+  - [1.2. nly-form-input](#12-nly-form-input)
+    - [1.2.1. props](#121-props)
+  - [1.3. nly-form-feedback](#13-nly-form-feedback)
+    - [1.3.1. props](#131-props)
 
 <!-- /TOC -->
 ## 1.1. nly-form
@@ -66,3 +68,44 @@ order-md | String |  | 宽度在md及以上断点排列顺序,可选同上
 order-lg | String |  | 宽度在lg及以上断点排列顺序,可选同上
 order-xl | String |  | 宽度在xl及以上断点排列顺序,可选同上
 
+## 1.3. nly-form-feedback
+
+### 1.3.1. props
+
+参数 | 类型 |  默认值 | 描述
+-|-|-|-
+id | String |  | id
+tag | String |  | id
+id | String |  | id
+
+
+
+  id: {
+    type: String
+  },
+  tag: {
+    type: String,
+    default: "span"
+  },
+  tooltip: {
+    type: Boolean,
+    default: false
+  },
+  forceShow: {
+    type: Boolean,
+    default: false
+  },
+  state: {
+    type: String,
+    default: "novalid",
+    validator: state => nlyGetOptionInclusion(formValidOptions, state)
+  },
+  ariaLive: {
+    type: String
+  },
+  role: {
+    type: String
+  },
+  text: {
+    type: String
+  }

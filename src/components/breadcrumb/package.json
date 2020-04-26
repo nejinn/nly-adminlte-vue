@@ -2,8 +2,9 @@
 	"name": "@nly-adminlte-vue/breadcrumb",
 	"version": "1.0.0",
 	"meta": {
-		"title": "Breadcrumb",
-		"description": "面包屑导航",
+        "title": "Breadcrumb",
+        "subtitle":"面包屑导航",
+		"description": "面包屑导航， 类似于嵌套路由，可以显示出当前route的父级以上的router，可点击跳转",
 		"components": [
 			{
 				"component": "NlyBreadcrumb",

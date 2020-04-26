@@ -375,7 +375,7 @@ const DEFAULT_JS = `{
 }`;
 const storage =
   typeof window !== "undefined" ? window.localStorage || null : null;
-const STORAGE_KEY_PREFIX = "BV_playground";
+const STORAGE_KEY_PREFIX = "VNLY_playground";
 const STORAGE_KEYS = {
   html: `${STORAGE_KEY_PREFIX}_html`,
   js: `${STORAGE_KEY_PREFIX}_js`,

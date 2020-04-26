@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "meta": {
         "title": "Button Group",
-        "description": "按钮组",
+        "subtitle":"按钮组",
+        "description": "按钮组，可以把一系列按钮放到一个组里，可以水平排列，可以垂直排列，默认水平排列",
         "components": [
             {
                 "component": "NlyButtonGroup",

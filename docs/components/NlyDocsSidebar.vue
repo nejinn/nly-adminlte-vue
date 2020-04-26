@@ -29,7 +29,7 @@
           tag="small"
           variant="success"
           class="text-uppercase"
-          >New</nly-badge
+          >新增</nly-badge
         >
         <nly-badge
           v-if="group.breaking"
@@ -43,7 +43,7 @@
           tag="small"
           variant="warning"
           class="text-uppercase"
-          >Beta</nly-badge
+          >测试</nly-badge
         >
       </nly-link>
 
@@ -62,13 +62,13 @@
             class="nav-link"
             active-class=""
           >
-            {{ page.title }}
+            {{ page.title }}{{ page.subtitle ? " - " : "" }}{{ page.subtitle }}
             <nly-badge
               v-if="page.new"
               tag="small"
               variant="success"
               class="text-uppercase"
-              >New</nly-badge
+              >新增</nly-badge
             >
             <nly-badge
               v-if="page.enhanced"
@@ -89,7 +89,7 @@
               tag="small"
               variant="warning"
               class="text-uppercase"
-              >Beta</nly-badge
+              >测试</nly-badge
             >
           </nly-link>
         </nly-link>

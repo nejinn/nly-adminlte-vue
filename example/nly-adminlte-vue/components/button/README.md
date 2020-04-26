@@ -1,10 +1,11 @@
 # Button
 
-> 按钮，接受所有 nly-link props,会渲染成<a>标签按钮,用 role='button'来实现按钮特征
+> 具有NlyAdminlteVue主题特征的按钮
 
 ## 总览
 
-> nly-button 组件因为有 3 种类型的背景色，所以默认是没有颜色的，按钮组件支持原生点击事件
+nly-button 组件因为有 3 种类型的背景色，所以默认是没有颜色的，按钮组件支持原生点击事件
+接受所有 `nly-link` props,会渲染成<a>标签按钮,用 `role='button'` 来实现按钮特征
 
 ```html
 <nly-button>默认</nly-button>
@@ -32,7 +33,7 @@
 
 ## variant
 
-> btn 类颜色，支持 adminlte3 的基础主题颜色，支持边框颜色
+`btn-*` 类颜色，支持 adminlte3 的基础主题颜色，支持边框颜色
 
 ```html
 <div>
@@ -64,7 +65,7 @@
 
 ## bg-variant
 
-> bg 类颜色
+`bg-*` 类颜色
 
 ```html
 <nly-button bg-variant="default">default</nly-button>
@@ -102,7 +103,7 @@
 
 ## bg-gradient-variant
 
-> bg-gradient 类颜色，渐变色
+`bg-gradient-*` 类颜色，渐变色
 
 ```html
 <nly-button bg-gradient-variant="default">default</nly-button>
@@ -140,7 +141,7 @@
 
 ## size
 
-> 按钮大小，可选 lg，sm，sx
+按钮大小，可选 `lg`，`sm`，`sx`
 
 ```html
 <nly-button bg-gradient-variant="graydark" size="xs">graydark</nly-button>
@@ -153,7 +154,7 @@
 
 ## block
 
-> 使按钮填充整个父元素
+使按钮填充整个父元素
 
 ```html
 <div>
@@ -166,7 +167,7 @@
 
 ## click
 
-> 点击事件，鼠标事件，原生事件
+点击事件，鼠标事件，原生事件
 
 ```html
 <template>
@@ -197,7 +198,7 @@
 
 ## disabled
 
-> 禁用按钮， 禁用状态无法点击，无法触发 click 事件
+禁用按钮， 禁用状态无法点击，无法触发 click 事件
 
 ```html
 <nly-button bg-gradient-variant="graydark" disabled> disabled</nly-button>
@@ -212,7 +213,7 @@
 
 ## shape
 
-> 按钮形状，方形，小圆角，大圆角
+按钮形状，方形，小圆角，大圆角
 
 ```html
 <nly-button bg-gradient-variant="graydark" shape="roundedFlat">
@@ -233,7 +234,7 @@
 
 ## tool
 
-> 工具类按钮，一般建议用在 nly-card-header 组件中的 nly-card-tool 组件中
+工具类按钮，一般建议用在 `nly-card-header` 组件中的 `nly-card-tool` 组件中
 
 ```html
 <nly-button tool> tool</nly-button>
@@ -252,7 +253,7 @@
 
 ## app
 
-> app 类按钮
+`app` 类按钮
 
 ```html
 <nly-button app variant="danger">
@@ -265,7 +266,7 @@
 
 ## link props
 
-> 接收 nly-link 组件参数，会变成 a 标签按钮
+接收 `nly-link` 组件参数，会变成 a 标签按钮
 
 ```html
 <nly-button variant="danger"> Button</nly-button>

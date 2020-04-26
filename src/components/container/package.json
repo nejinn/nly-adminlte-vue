@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "meta": {
         "title": "Container",
-        "description": "容器",
+        "subtitle":"布局容器",
+        "description": "一个有宽度设置的布局容器",
         "components": [
             {
                 "component": "NlyContainer",
