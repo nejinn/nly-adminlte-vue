@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "meta": {
         "title": "Collapse",
-        "description": "折叠板,支持任何元素折叠,支持手风琴模式",
+        "subtitle":"折叠板",
+        "description": "折叠板,几乎支持任何元素折叠,支持手风琴模式，有2个折叠板组件",
         "directives": [
             {
                 "directive": "VNlyToggle",

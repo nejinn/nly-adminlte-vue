@@ -4,7 +4,7 @@
 
 ## 总览
 
-> nly-badge组件在一般情况下，大小由父元素或者以上的元素决定的。
+`nly-badge` 组件在一般情况下，大小由父元素或者以上的元素决定的。
 
 ```html
 <h1><nly-badge variant="info">info</nly-badge></h1>
@@ -18,9 +18,9 @@
 
 ## size
 
-> nly-badge 提供了一个设置 badge 大小的 props size
+`nly-badge` 提供了一个设置 badge 大小的 props size
 
-> 请注意这时候可能会由于与文本内容或者同级元素的font-size和line-height不同而导致并不会对齐显示
+请注意这时候可能会由于与文本内容或者同级元素的`font-size`和`line-height`不同而导致并不会对齐显示
 
 ```html
 <nly-badge bg-variant="primary" size="xs">
@@ -49,7 +49,7 @@
 
 ## pill
 
-> 默认 badge 是小圆角形，设置 pill 之后，变成大圆角
+默认 `badge` 是小圆角形，设置 `pill` 之后，变成大圆角
 
 ```html
 <nly-badge bg-variant="primary" pill size="xs">
@@ -78,7 +78,7 @@
 
 ## tag
 
-> 可以给 badge 设置 tag 标签。
+可以给 `badge` 设置 `tag` 标签。
 
 ```html
 <nly-badge bg-variant="primary" tag="a">
@@ -99,7 +99,7 @@
 
 ## variant
 
-> badge 类颜色，默认无颜色
+`badge-*` 类颜色，默认无颜色
 
 ```html
 <nly-badge variant="primary">
@@ -140,7 +140,7 @@
 
 ## bg-variant
 
-> bg类背景色
+`bg-*` 类背景色
 
 ```html
 <nly-badge bg-variant="light">
@@ -257,7 +257,7 @@
 
 ## bg-gradient-variant
 
-> 渐变色背景色
+`bg-gradient-*` 渐变色背景色
 
 ```html
 <nly-badge size='xl' bg-gradient-variant="light">

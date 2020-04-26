@@ -1,58 +1,75 @@
-# 1. wrapper
-<!-- TOC -->
+# Wrapper
 
-- [1. wrapper](#1-wrapper)
-    - [1.1. nlywrapper](#11-nlywrapper)
-        - [1.1.1. props](#111-props)
-    - [1.2. 单包导出](#12-单包导出)
-        - [1.2.1. 包含组件](#121-包含组件)
-        - [1.2.2. 导出方法](#122-导出方法)
+> NlyAdminlteVue 布局组件，支持 Top Navigation，Boxed， Fixed Navbar，Fixed Footer， Collapsed Sidebar
+## Top Navigation
 
-<!-- /TOC -->
-## 1.1. nlywrapper
-
-> 此组件会修改body的class,props参数自由搭配会有不同的布局,请自由发挥
-
-### 1.1.1. props
-
-参数 | 类型 |  默认值 | 描述
--|-|-|-
-side-mini | Boolean | 无 | 边侧栏是否可以收起,true可以收起,false将边侧画板左侧滑入消失
-layout | String | 无 | 整体布局,可选fixed和boxed
-navbar-fixed | Boolean | 无 | 头部导航fixed布局
-footer-fixed | Boolean | 无 | 底部fixed布局
-top-nav | Boolean | 无 | 头部导航顶格无边侧栏布局
-warpper-class | String | 无 | wrapper 式样
-container-class | String | 无 | body式样
-
-
-无
-
-## 1.2. 单包导出
-
-> 如果只需要使用wrapperPlugin中的组件，请使用单个组件导出
-
-### 1.2.1. 包含组件
-
-> wrapperPlugin包括以下组件
-
-名称 | 导出路径
--|-
-NlyContainerWrapper | nly-adminlte-vue
-NlyWrapper | nly-adminlte-vue
-
-### 1.2.2. 导出方法
-
-> 单组件导出
-
-```js
-import { NlyWrapper } from "nly-adminlte-vue";
-Vue.component('nly-wrapper', NlyWrapper)
+> top navigation 是一种正常的 navbar-content-footer 上中下布局，在线 demo [Top Navigation](http://nly-adminlte-vue-demo.nejinn.com/#/top-nav)
+```html
+<nly-wrapper top-nav>
+	<nly-wrapper-header> </nly-wrapper-header>
+	<nly-wrapper-content> </nly-wrapper-content>
+	<nly-wrapper-footer> </nly-wrapper-footer>
+</nly-wrapper>
 ```
 
-> 整个wrapperPlugin导出
+## Boxed
 
-```js
-import { wrapperPlugin } from "nly-adminlte-vue";
-Vue.use(wrapperPlugin);
+> Boxed 是一种非全屏的盒子容器 左右上中下布局，在线 demo [Boxed](http://nly-adminlte-vue-demo.nejinn.com/#/boxed)
+> 左右上中下布局请注意添加罩层<nly-overlay sidebar />
+```html
+<nly-wrapper side-mini layout="boxed">
+	<nly-wrapper-header> </nly-wrapper-header>
+	<nly-wrapper-sidebar> </nly-wrapper-sidebar>
+	<nly-wrapper-content> </nly-wrapper-content>
+	<nly-wrapper-control-sidebar> </nly-wrapper-control-sidebar>
+	<nly-wrapper-footer> </nly-wrapper-footer>
+	<nly-overlay sidebar />
+</nly-wrapper>
+```
+
+## Fixed Sidebar
+
+> Fixed Sidebar 是一种固定左侧导航栏 左右上中下布局，在线 demo [Fixed Sidebar](http://nly-adminlte-vue-demo.nejinn.com/#/fixed-sidebar)
+> 左右上中下布局请注意添加罩层<nly-overlay sidebar />
+```html
+<nly-wrapper side-mini layout="fixed">
+	<nly-wrapper-header> </nly-wrapper-header>
+	<nly-wrapper-sidebar> </nly-wrapper-sidebar>
+	<nly-wrapper-content> </nly-wrapper-content>
+	<nly-wrapper-control-sidebar> </nly-wrapper-control-sidebar>
+	<nly-wrapper-footer> </nly-wrapper-footer>
+	<nly-overlay sidebar />
+</nly-wrapper>
+```
+
+## Fixed Navbar
+
+> Fixed Navbar 是一种固定头部侧导航栏 左右上中下布局，在线 demo [Fixed Navbar](http://nly-adminlte-vue-demo.nejinn.com/#/fixed-navbar)
+> 左右上中下布局请注意添加罩层<nly-overlay sidebar />
+> 当左侧导航栏内容不够高的时候，左下角会出现一个白色方格，这是 adminlte3 自带 bug，请谨慎使用这种布局
+```html
+<nly-wrapper side-mini navbar-fixed>
+	<nly-wrapper-header> </nly-wrapper-header>
+	<nly-wrapper-sidebar> </nly-wrapper-sidebar>
+	<nly-wrapper-content> </nly-wrapper-content>
+	<nly-wrapper-control-sidebar> </nly-wrapper-control-sidebar>
+	<nly-wrapper-footer> </nly-wrapper-footer>
+	<nly-overlay sidebar />
+</nly-wrapper>
+```
+
+## Collapsed Sidebar
+
+> Collapsed Sidebar 是一种可收起展开左侧导航栏 左右上中下布局，在线 demo [Collapsed Sidebar](http://nly-adminlte-vue-demo.nejinn.com/#/)
+> 左右上中下布局请注意添加罩层<nly-overlay sidebar />
+> 这种布局下，fixed props 用来开启左侧导航栏 scrollbar 美化插件，如果不传入 fixed,请给 nly-sidebar 组件传入 scrollbar=false，否则滚动条失效。
+```html
+<nly-wrapper side-mini fixed>
+	<nly-wrapper-header> </nly-wrapper-header>
+	<nly-wrapper-sidebar> </nly-wrapper-sidebar>
+	<nly-wrapper-content> </nly-wrapper-content>
+	<nly-wrapper-control-sidebar> </nly-wrapper-control-sidebar>
+	<nly-wrapper-footer> </nly-wrapper-footer>
+	<nly-overlay sidebar />
+</nly-wrapper>
 ```

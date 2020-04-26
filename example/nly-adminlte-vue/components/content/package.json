@@ -1,14 +1,14 @@
 {
-    "name": "@nly-adminlte-vue/container",
+    "name": "@nly-adminlte-vue/content",
     "version": "1.0.0",
     "meta": {
-        "title": "Container",
-        "subtitle":"布局容器",
-        "description": "一个有宽度设置的布局容器",
+        "title": "Content",
+        "subtitle":"正文容器",
+        "description": "content是用来包裹正文的容器，主要包括wrapper，header，content组件",
         "components": [
             {
-                "component": "NlyContainer",
-                "description": "容器",
+                "component": "NlyContentWrapper",
+                "description": "NlyAdminlteVue自带wrapper布局的content容器，和NlyWrapperContent组件是一样的",
                 "props": [
                     {
                         "prop": "fluid",

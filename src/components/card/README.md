@@ -1,8 +1,10 @@
 # Card
 
+> 卡片，包括卡片组，卡片header，body，footer，img，title，tool等组件
+
 ## 总览
 
-> 卡片包括卡片组，卡片，卡片 header，卡片 body，卡片 footer3 个主要部分
+卡片包括卡片组，卡片，卡片 header，卡片 body，卡片 footer 3 个主要部分
 
 ```html
 <nly-row>
@@ -51,7 +53,7 @@
 
 ## card variant
 
-> 卡片颜色可以支持 bg-_ 类和 bg-gradient-_ 类
+卡片颜色可以支持 `g-*` 类和 `bg-gradient-*` 类
 
 ### bg-variant
 
@@ -88,7 +90,7 @@
 
 ### bg-gradient-variant
 
-> 渐变色背景色
+渐变色背景色
 
 ```html
 <nly-row>
@@ -119,7 +121,7 @@
 <!-- nly-card.vue -->
 ```
 
-> 当 header，body，footer 都设置 bg-variant 和 bg-gradient-variant 时，card 的 bg-variant 和 bg-gradient-variant 会被覆盖对应部分。
+当 header，body，footer 都设置 `bg-variant` 和 `bg-gradient-variant` 时，`card` 的 `bg-variant` 和 `bg-gradient-variant` 会被覆盖对应部分。
 
 ```html
 <nly-row>
@@ -178,7 +180,7 @@
 
 ## header-variant
 
-> nly-card 设置 nly-card-header 背景色，当 nly-card-header 设置了 bg-variant 和 bg-gradient-variant 时，header-variant 失效
+`nly-card` 设置 `nly-card-header` 背景色，当 `nly-card-header` 设置了 `bg-variant` 和 `bg-gradient-variant` 时，`header-variant` 失效
 
 ```html
 <nly-row>
@@ -211,7 +213,7 @@
 
 ## header-outline
 
-> header-outline 只有在 headr-variant 有效的时候才会生效，nly-header 的 variant prop 会使 header-outline 失效
+`header-outline` 只有在 `headr-variant` 有效的时候才会生效，`nly-header` 的 `variant prop` 会使 `header-outline` 失效
 
 ```html
 <nly-row>
@@ -268,7 +270,7 @@
 
 ## tabs
 
-> 让 card 变成 tabs
+让 card 变成 tabs
 
 ```html
 <nly-row>
@@ -338,7 +340,7 @@
 
 ## loading
 
-> 开启 loading 罩层，有 text loading，icon loading， img loading
+开启 `loading` 罩层，有 text loading，icon loading， img loading
 
 ```html
 <nly-row>

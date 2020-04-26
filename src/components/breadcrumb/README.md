@@ -1,10 +1,10 @@
 # Breadcrumb
 
-> 面包屑导航， 类似于嵌套路径，可以显示出当前route的父级以上的router，并可以点击跳转直达
+> 面包屑导航， 类似于嵌套路由，可以显示出当前route的父级以上的router，可点击跳转
 
 ## 总览
 
-> 面包屑导航在存在route重定向的情况下，可能会存在某个元素指向的url就是当前route，在vue版本或者vue-router版本过低的情况下（目前知道vue-router 3以下会导致此问题，但不百分比百保证），会报错如下
+面包屑导航在存在route重定向的情况下，可能会存在某个元素指向的url就是当前route，在vue版本或者vue-router版本过低的情况下（目前知道vue-router 3以下会导致此问题，但不百分比百保证），会报错如下
 
 ```js
 Uncaught (in promise) NavigationDuplicated {_name: "NavigationDuplicated", name: "NavigationDuplicated"}
@@ -29,7 +29,7 @@ npm i vue-router@3.0 -S
 
 ## item
 
-> 数组元素，可以生成多个nly-breadcrumb-item
+数组元素，可以生成多个 `nly-breadcrumb-item`
 
 ```html
 <template>
@@ -85,7 +85,7 @@ npm i vue-router@3.0 -S
 
 ## icon
 
-> icon 图标
+`icon` 图标
 
 ```html
 <template>
@@ -164,7 +164,7 @@ npm i vue-router@3.0 -S
 
 ## text
 
-> 文本内容
+文本内容
 
 ```html
 <template>
@@ -189,7 +189,7 @@ npm i vue-router@3.0 -S
 
 ## target
 
-> 决定新路由跳转窗口
+决定新路由跳转窗口
 
 ```html
 <template>
