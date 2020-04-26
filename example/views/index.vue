@@ -522,9 +522,13 @@
         <b>Version</b> 0.1.9
       </div>
     </nly-wrapper-footer>
-    <nly-wrapper-control-sidebar :size="controlSidebarSizeSm">
+    <nly-wrapper-control-sidebar
+      :size="controlSidebarSizeSm"
+      bg-variant="info"
+      bg-gradient-variant="pink"
+    >
       <!-- Control sidebar content goes here -->
-      <nly-control-sidebar class="p-3">
+      <nly-control-sidebar-container class="p-3">
         <h5>主题设置</h5>
         <hr class="mb-2 bg-light" />
         <div class="mb-1">
@@ -649,11 +653,12 @@
         </div>
         <div class="d-flex">
           <div class="d-flex flex-wrap mb-3">
-            <nly-controlSidebar-button
+            <nly-control-sidebar-button
               v-for="(item, index) in navbar.variantOption"
               :key="index"
+              :id="index + 'navbarVariantOption'"
               :bg-variant="item"
-              @click.native="changeNavbarVariant(item)"
+              @click="changeNavbarVariant(item)"
             />
           </div>
         </div>
@@ -665,11 +670,12 @@
         <hr class="mb-2 bg-light" />
         <div class="d-flex">
           <div class="d-flex flex-wrap mb-3">
-            <nly-controlSidebar-button
+            <nly-control-sidebar-button
               v-for="(item, index) in sidebar.darkVariantOption"
               :key="index"
+              :id="index + 'sidebarDarkVariantOption'"
               :bg-variant="item.b"
-              @click.native="changeSidebarVariant(item.a)"
+              @click="changeSidebarVariant(item.a)"
             />
           </div>
         </div>
@@ -679,11 +685,12 @@
         <hr class="mb-2 bg-light" />
         <div class="d-flex">
           <div class="d-flex flex-wrap mb-3">
-            <nly-controlSidebar-button
+            <nly-control-sidebar-button
               v-for="(item, index) in sidebar.lightVariantOption"
               :key="index"
+              :id="index + 'sidebarLightVariantOption'"
               :bg-variant="item.b"
-              @click.native="changeSidebarVariant(item.a)"
+              @click="changeSidebarVariant(item.a)"
             />
           </div>
         </div>
@@ -693,15 +700,16 @@
         <hr class="mb-2 bg-light" />
         <div class="d-flex">
           <div class="d-flex flex-wrap mb-3">
-            <nly-controlSidebar-button
+            <nly-control-sidebar-button
               v-for="(item, index) in sidebar.brand.variantOption"
               :key="index"
+              :id="index + 'brandeVariantOption'"
               :bg-variant="item"
-              @click.native="changeSidebarBrandVariant(item)"
+              @click="changeSidebarBrandVariant(item)"
             />
           </div>
         </div>
-      </nly-control-sidebar>
+      </nly-control-sidebar-container>
     </nly-wrapper-control-sidebar>
     <nly-overlay v-nly-sidebar-collapse.overlay sidebar />
   </nly-wrapper>

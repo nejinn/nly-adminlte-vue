@@ -50,18 +50,6 @@ export { NlyCollapseTransition } from "./utils/collapse-transition";
 export { NlyCollapseNoclass } from "./components/collapse/collapse-noclass";
 export { NlyCollapseNoclassTransition } from "./utils/collapse-noclass-transition";
 
-export { ControlSidebarPlugin } from "./components/controlsidebar";
-export { NlyControlSidebarContainer } from "./components/controlsidebar/control-sidebar-container";
-export { NlyControlSidebar } from "./components/controlsidebar/control-sidebar";
-export { NlyControlSidebarButton } from "./components/controlsidebar/control-sidebar-button";
-
-export { dropdownPlugin } from "./components/dropdown";
-export { NlyDropdown } from "./components/dropdown/dropdown";
-export { NlyDropdownMenu } from "./components/dropdown/dropdown-menu";
-
-export { iconPlugin } from "./components/icon";
-export { NlyIcon } from "./components/icon/icon";
-
 export { ContainerPlugin } from "./components/container";
 export { NlyContainer } from "./components/container/container";
 
@@ -69,6 +57,18 @@ export { ContentPlugin } from "./components/content";
 export { NlyContent } from "./components/content/content";
 export { NlyContentHeader } from "./components/content/content-header";
 export { NlyContentWrapper } from "./components/content/content-wrapper";
+
+export { ControlSidebarPlugin } from "./components/control-sidebar";
+export { NlyControlSidebarContainer } from "./components/control-sidebar/control-sidebar-container";
+export { NlyControlSidebar } from "./components/control-sidebar/control-sidebar";
+export { NlyControlSidebarButton } from "./components/control-sidebar/control-sidebar-button";
+
+export { dropdownPlugin } from "./components/dropdown";
+export { NlyDropdown } from "./components/dropdown/dropdown";
+export { NlyDropdownMenu } from "./components/dropdown/dropdown-menu";
+
+export { iconPlugin } from "./components/icon";
+export { NlyIcon } from "./components/icon/icon";
 
 export { GridPlugin } from "./components/grid";
 export { NlyRow } from "./components/grid/row";

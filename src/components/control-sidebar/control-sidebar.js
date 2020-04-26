@@ -18,7 +18,7 @@ export const props = {
   size: {
     type: String
   },
-  wrapperControlSidebarClass: {
+  controlSidebarClass: {
     type: String
   },
   tag: {
@@ -50,13 +50,13 @@ const customClass = props => {
     bgVariant(),
     bgGradientVariant(),
     size(),
-    props.controlSidebarContainerClass
+    props.controlSidebarClass
   ];
 };
 
-const name = "NlyWrapperControlSidebar";
+const name = "NlyControlSidebar";
 
-export const NlyWrapperControlSidebar = Vue.extend({
+export const NlyControlSidebar = Vue.extend({
   name: name,
   props,
   functional: true,
