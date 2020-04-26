@@ -3,8 +3,34 @@
     "version": "1.0.0",
     "meta": {
         "title": "Wrapper",
-        "subtitle":"布局组件",
+        "subtitle": "布局组件",
         "description": "wrapper布局，是NlyadminlteVue页面结构布局组件，支持 Top Navigation，Boxed， Fixed Navbar，Fixed Footer， Collapsed Sidebar等布局",
+        "directives": [
+            {
+                "directive": "VNlyControlSidebarCollapse",
+                "description": "右侧滑板收起展开指令",
+                "expression": "String",
+                "modifiers": [
+                    {
+                        "name": "",
+                        "pattern": "[a-zA-Z][a-zA-Z0-9_\\-]*",
+                        "description": "不需要传入参数，直接绑定便可控制右侧滑板收起展开"
+                    }
+                ]
+            },
+            {
+                "directive": "VNlySidebarCollapse",
+                "description": "左侧导航栏收起展开指令，此指令只能绑定在nly-nav-item组件和nly-overlay组件上",
+                "expression": "String",
+                "modifiers": [
+                    {
+                        "name": "{collapseItem}",
+                        "pattern": "[a-zA-Z][a-zA-Z0-9_\\-]*",
+                        "description": "传入对应绑定的元素来控制左侧导航栏收起展开，可选navitem，overlay，绑定在nly-nav-item上请传入navitem，绑定在nly-overlay上请传入overlay"
+                    }
+                ]
+            }
+        ],
         "components": [
             {
                 "component": "NlyWrapper",
@@ -38,7 +64,6 @@
                         "prop": "containerClass",
                         "description": "body自定义css"
                     }
-
                 ]
             },
             {
@@ -109,15 +134,27 @@
             },
             {
                 "component": "NlyWrapperControlSidebar",
-                "description": "wrapper布局右侧收缩帆板",
+                "description": "wrapper布局右侧收缩滑板",
                 "props": [
                     {
-                        "prop": "controlSidebarClass",
+                        "prop": "wrapperControlSidebarClass",
                         "description": "自定义css"
                     },
                     {
                         "prop": "size",
                         "description": "字体大小，可选xs，sm，md，lg，xl"
+                    },
+                    {
+                        "prop": "light",
+                        "description": "默认背景色，默认为false，背景色为dark，设置true，背景色为light"
+                    },
+                    {
+                        "prop": "bgVariant",
+                        "description": "背景色，会覆盖prop light， 可选背景色， 默认无背景， 可选 primary， secondary， success， info， warning， danger， light， dark， lightblue， navy， olive， lime， fuchsia， maroon， blue， indigo， purple， pink， red， orange， yellow， green， teal， cyan， white， gray， graydark"
+                    },
+                    {
+                        "prop": "bgGradientVariant",
+                        "description": "渐变背景色， 会覆盖prop light 和 prop bg-variant， 可选 primary， secondary， success， info， warning， danger， light， dark， lightblue， navy， olive， lime， fuchsia， maroon， blue， indigo， purple， pink， red， orange， yellow， green， teal， cyan， white， gray， graydark"
                     }
                 ]
             },

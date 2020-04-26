@@ -6,12 +6,12 @@ import { ButtonPlugin } from "./button";
 import { ButtonGroupPlugin } from "./button-group";
 import { CardPlugin } from "./card";
 import { CollapsePlugin } from "./collapse";
-import { FormInputPlugin } from "./form-input";
-import { ControlSidebarPlugin } from "./controlsidebar";
-import { dropdownPlugin } from "./dropdown";
-import { iconPlugin } from "./icon";
 import { ContainerPlugin } from "./container";
 import { ContentPlugin } from "./content";
+import { ControlSidebarPlugin } from "./control-sidebar";
+import { FormInputPlugin } from "./form-input";
+import { dropdownPlugin } from "./dropdown";
+import { iconPlugin } from "./icon";
 import { GridPlugin } from "./grid";
 import { WrapperPlugin } from "./wrapper";
 import { linkPlugin } from "./link";
@@ -42,12 +42,12 @@ export const componentsPlugin = nlyPluginFactory({
     ButtonGroupPlugin,
     CardPlugin,
     CollapsePlugin,
-    FormInputPlugin,
-    ControlSidebarPlugin,
-    dropdownPlugin,
-    iconPlugin,
     ContainerPlugin,
     ContentPlugin,
+    ControlSidebarPlugin,
+    dropdownPlugin,
+    FormInputPlugin,
+    iconPlugin,
     GridPlugin,
     WrapperPlugin,
     linkPlugin,

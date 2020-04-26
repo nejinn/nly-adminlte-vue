@@ -50,18 +50,6 @@ export { NlyCollapseTransition } from "./utils/collapse-transition";
 export { NlyCollapseNoclass } from "./components/collapse/collapse-noclass";
 export { NlyCollapseNoclassTransition } from "./utils/collapse-noclass-transition";
 
-export { ControlSidebarPlugin } from "./components/controlsidebar";
-export { NlyControlSidebarContainer } from "./components/controlsidebar/control-sidebar-container";
-export { NlyControlSidebar } from "./components/controlsidebar/control-sidebar";
-export { NlyControlSidebarButton } from "./components/controlsidebar/control-sidebar-button";
-
-export { dropdownPlugin } from "./components/dropdown";
-export { NlyDropdown } from "./components/dropdown/dropdown";
-export { NlyDropdownMenu } from "./components/dropdown/dropdown-menu";
-
-export { iconPlugin } from "./components/icon";
-export { NlyIcon } from "./components/icon/icon";
-
 export { ContainerPlugin } from "./components/container";
 export { NlyContainer } from "./components/container/container";
 
@@ -69,6 +57,18 @@ export { ContentPlugin } from "./components/content";
 export { NlyContent } from "./components/content/content";
 export { NlyContentHeader } from "./components/content/content-header";
 export { NlyContentWrapper } from "./components/content/content-wrapper";
+
+export { ControlSidebarPlugin } from "./components/control-sidebar";
+export { NlyControlSidebarContainer } from "./components/control-sidebar/control-sidebar-container";
+export { NlyControlSidebar } from "./components/control-sidebar/control-sidebar";
+export { NlyControlSidebarButton } from "./components/control-sidebar/control-sidebar-button";
+
+export { dropdownPlugin } from "./components/dropdown";
+export { NlyDropdown } from "./components/dropdown/dropdown";
+export { NlyDropdownMenu } from "./components/dropdown/dropdown-menu";
+
+export { iconPlugin } from "./components/icon";
+export { NlyIcon } from "./components/icon/icon";
 
 export { GridPlugin } from "./components/grid";
 export { NlyRow } from "./components/grid/row";
@@ -173,9 +173,9 @@ export { VNlyCardMaximized } from "./directives/card/maximized-card";
 export { VNlyTogglePlugin } from "./directives/toggle";
 export { VNlyToggle } from "./directives/toggle/toggle";
 
-export { VNlyCollapseSidebarPlugin } from "./directives/sidebarcollapse";
-export { VNlySidebarCollapse } from "./directives/sidebarcollapse/sidebar-collapse";
-export { VNlyControlSidebarCollapse } from "./directives/sidebarcollapse/control-sidebar-collapse";
+export { VNlyCollapseSidebarPlugin } from "./directives/sidebar-collapse";
+export { VNlySidebarCollapse } from "./directives/sidebar-collapse/sidebar-collapse";
+export { VNlyControlSidebarCollapse } from "./directives/sidebar-collapse/control-sidebar-collapse";
 
 export { listGroupPlugin } from "./components/list-group";
 export { NlyListGroup } from "./components/list-group/list-group";

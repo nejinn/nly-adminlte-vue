@@ -1,5 +1,5 @@
 import { nlyPluginFactory } from "../utils/plugins";
-import { VNlyCollapseSidebarPlugin } from "./sidebarcollapse";
+import { VNlyCollapseSidebarPlugin } from "./sidebar-collapse";
 import { VNlyCardPlugin } from "./card";
 import { VNlyTogglePlugin } from "./toggle";
 import { VNlyModalPlugin } from "./modal";
