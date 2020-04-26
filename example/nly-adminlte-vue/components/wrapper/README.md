@@ -12,7 +12,9 @@
 
 ### `v-nly-control-sidebar-collapse` 右侧滑板指令
 
-`nly-wrapper-control-sidebar` 的收起和展开以及浮动在右侧并自适应上下距离都是由指令 `v-nly-control-sidebar-collapse` 来实现的，单独使用并无效果。详情请参考指令文档
+`nly-wrapper-control-sidebar` 的收起和展开以及浮动在右侧并自适应上下距离都是由指令 `v-nly-control-sidebar-collapse` 来实现的，单独使用并无效果。
+
+详情请参考指令 **[文档](http://nly-adminlte-vue.nejinn.com/docs/directives/sidebar-collapse)**
 
 **注意:**
 
@@ -24,7 +26,9 @@
 
 ### `v-nly-sidebar-collapse` 左侧导航栏指令
 
-`nly-wrapper-sidebar` 的收起和展开以及浮动在右侧并自适应上下距离都是由指令 `v-nly-sidebar-collapse` 来实现的，单独使用并无效果。详情请参考指令文档
+`nly-wrapper-sidebar` 的收起和展开以及浮动在右侧并自适应上下距离都是由指令 `v-nly-sidebar-collapse` 来实现的，单独使用并无效果。
+
+详情请参考指令 **[文档](http://nly-adminlte-vue.nejinn.com/docs/directives/sidebar-collapse)**
 
 **注意:**
 
