@@ -9,10 +9,10 @@
     "description": "文字颜色，可选  primary， secondary， success， info， warning， danger， light， dark， lightblue， navy， olive， lime， fuchsia， maroon， blue， indigo， purple， pink， red， orange， yellow， green， teal， cyan， white， gray， graydark"
   },
   "bgVariant": {
-    "description": "背景色， 可选背景色， 默认无背景， 可选 primary， secondary， success， info， warning， danger， light， dark， lightblue， navy， olive， lime， fuchsia， maroon， blue， indigo， purple， pink， red， orange， yellow， green， teal， cyan， white， gray， graydark"
+    "description": "背景色， 可选背景色，可选 primary， secondary， success， info， warning， danger， light， dark， lightblue， navy， olive， lime， fuchsia， maroon， blue， indigo， purple， pink， red， orange， yellow， green， teal， cyan， white， gray， graydark"
   },
   "bgGradientVariant": {
-    "description": "渐变背景色， 默认无背景， 可选 primary， secondary， success， info， warning， danger， light， dark， lightblue， navy， olive， lime， fuchsia， maroon， blue， indigo， purple， pink， red， orange， yellow， green， teal， cyan， white， gray， graydark"
+    "description": "渐变背景色， 可选 primary， secondary， success， info， warning， danger， light， dark， lightblue， navy， olive， lime， fuchsia， maroon， blue， indigo， purple， pink， red， orange， yellow， green， teal， cyan， white， gray， graydark"
   },
   "borderVariant": {
     "description": "边框颜色， 可选 primary， secondary， success， info， warning， danger， light， dark"

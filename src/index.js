@@ -173,9 +173,9 @@ export { VNlyCardMaximized } from "./directives/card/maximized-card";
 export { VNlyTogglePlugin } from "./directives/toggle";
 export { VNlyToggle } from "./directives/toggle/toggle";
 
-export { VNlyCollapseSidebarPlugin } from "./directives/sidebarcollapse";
-export { VNlySidebarCollapse } from "./directives/sidebarcollapse/sidebar-collapse";
-export { VNlyControlSidebarCollapse } from "./directives/sidebarcollapse/control-sidebar-collapse";
+export { VNlyCollapseSidebarPlugin } from "./directives/sidebar-collapse";
+export { VNlySidebarCollapse } from "./directives/sidebar-collapse/sidebar-collapse";
+export { VNlyControlSidebarCollapse } from "./directives/sidebar-collapse/control-sidebar-collapse";
 
 export { listGroupPlugin } from "./components/list-group";
 export { NlyListGroup } from "./components/list-group/list-group";

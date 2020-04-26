@@ -5,6 +5,8 @@ import { NlyWrapperHeader } from "./wrapper-header";
 import { NlyWrapperSidebar } from "./wrapper-sidebar";
 import { NlyWrapperControlSidebar } from "./wrapper-control-sidebar";
 import { NlyWrapperContent } from "./wrapper-content";
+import { VNlyControlSidebarCollapse } from "../../directives/sidebar-collapse";
+import { VNlySidebarCollapse } from "../../directives/sidebar-collapse";
 
 const WrapperPlugin = nlyPluginFactory({
   components: {
@@ -13,9 +15,11 @@ const WrapperPlugin = nlyPluginFactory({
     NlyWrapperHeader,
     NlyWrapperSidebar,
     NlyWrapperControlSidebar,
-    NlyWrapperContent
+    NlyWrapperContent,
+    directives: { VNlyControlSidebarCollapse, VNlySidebarCollapse }
   }
 });
+
 export {
   WrapperPlugin,
   NlyWrapper,

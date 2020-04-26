@@ -1,61 +1,23 @@
-# 1. control sidebar
+# Control Sidebar
 
-> 右侧收缩菜单(滑板)
+> Control Sidebar 是一个可收缩的右侧滑板，浮动在右侧，自适应布局 header 和 footer 距离
 
-<!-- TOC -->
+## 使用方法
 
-- [1. control sidebar](#1-control-sidebar)
-  - [1.1. nly-control-sidebar-container](#11-nly-control-sidebar-container)
-  - [1.2. nly-control-sidebar](#12-nly-control-sidebar)
-    - [1.2.1. props](#121-props)
-  - [1.3. 单包导出](#13-单包导出)
-    - [1.3.1. 包含组件](#131-包含组件)
-    - [1.3.2. 导出方法](#132-导出方法)
+Control Sidebar 的收起和展开以及浮动在右侧并自适应上下距离都是由指令 `v-nly-control-sidebar-collapse` 来实现的，单独使用并无效果
 
-<!-- /TOC -->
+**注意:**
 
-## 1.1. nly-control-sidebar-container
+-   请保证一个页面只有一个 Control Sidebar，因为指令 `v-nly-control-sidebar-collapse` 无需传入任何参数，会同时控制 windows 中所有的 Control sidebar
+-   请保证 `nly-control-sidebar` 组件和指令 `v-nly-control-sidebar-collapse` 同时使用，否则组件 `nly-control-sidebar` 会失效
+-   `v-nly-control-sidebar-collapse` 指令可以当定在任何组件上。请尽量不要在绑定指令的组件上 click 事件。
+-   `v-nly-control-sidebar-collapse`是修改 body class
+-   `nly-control-sidebar` 和 组件 `nly-wrapper-control-sidebar` 作用是相同的，请保证不要同时出现这两个组件
 
-> 右侧收缩菜单容器，请保持一个页面只有一个这样的容器，由于指令v-nly-control-sidebar-collapse是定向指向此容器的。如果需要多个，请重新封装指定。详情请查看v-nly-control-sidebar-collapse源码。一般情况下容器请配合指令v-nly-control-sidebar-collapse一起使用。在指令v-nly-control-sidebar-collapse的文档有以下一段话请注意
-
->> 此指令用来控制control-sidebar（右侧收缩菜单栏）收起展开，同时使得control-sidebar的height，top，button自适应滚动条改变以及页面高度改变，使control-sidebar始终自适应悬浮在右侧
-
-
-## 1.2. nly-control-sidebar
-
-> 右侧收缩菜单栏
-
-### 1.2.1. props
-
-参数 | 类型 |  默认值 | 描述
--|-|-|-
-scrollbar | Boolean | true | 是否overlayscrollbars组件。默认开启，此组件是一个滚动条组件，可以使滚动条出现时不挤压其他容器位置
-
-## 1.3. 单包导出
-
-> 如果只需要使用controlSidebarPlugin中的组件，请使用单个组件导出
-
-### 1.3.1. 包含组件
-
-> controlSidebarPlugin包括以下组件
-
-名称 | 导出路径
--|-
-NlyControlSidebarContainer | nly-adminlte-vue
-NlyControlSidebar | nly-adminlte-vue
-
-### 1.3.2. 导出方法
-
-> 单组件导出
-
-```js
-import { NlyControlSidebar } from "nly-adminlte-vue";
-Vue.component('nly-control-sidebar', NlyControlSidebar)
+```html
+<nly-control-sidebar>
+	<nly-control-sidebar-container> </nly-control-sidebar-container>
+</nly-control-sidebar>
 ```
 
-> 整个controlSidebarPlugin导出
-
-```js
-import { controlSidebarPlugin } from "nly-adminlte-vue";
-Vue.use(controlSidebarPlugin);
-```
+`nly-control-sidebar` 支持设置 `light`、 `bg-varaint-*`、 `bg-gradient-variant-*` props 来设置主题颜色

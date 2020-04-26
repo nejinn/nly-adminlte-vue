@@ -23,7 +23,7 @@
 
 参数 | 描述
 -|-
-modifiers | 可选navitem，overlay，绑定在nly-nav-item上请传入navitem，绑定在nly-overlay上请传入navitemoverlay
+modifiers | 可选navitem，overlay，绑定在nly-nav-item上请传入navitem，绑定在nly-overlay上请传入overlay
 
 #### 1.1.1.1. demo
 
