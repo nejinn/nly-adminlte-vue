@@ -24,7 +24,8 @@ const btnProps = {
     default: false
   },
   variant: {
-    type: String
+    type: String,
+    default: "default"
   },
   bgVariant: {
     type: String
@@ -95,17 +96,23 @@ const isButton = props =>
 const isNonStandardTag = props => !isLink(props) && !isButton(props);
 
 const customClass = props => {
-  const btnVariant = () =>
-    props.variant
-      ? nlyGetOptionsByKeyEqual(btnVariantOptinos, props.variant)
-      : null;
+  const btnVariant = () => {
+    if (!props.bgVariant && !props.bgGradientVariant) {
+      return nlyGetOptionsByKeyEqual(btnVariantOptinos, props.variant);
+    } else {
+      return null;
+    }
+  };
+
   const btnBlock = () => (props.block ? "btn-block" : null);
   const customSize = () => nlyGetOptionsByKeyEqual(btnSizeOptions, props.size);
   const btnShape = () => nlyGetOptionsByKeyEqual(btnShapeOptions, props.shape);
   const btnBgGradientVariant = () =>
     nlyGetOptionsByKeyEqual(bgGradientOptions, props.bgGradientVariant);
   const btnBgVariant = () =>
-    nlyGetOptionsByKeyEqual(bgVariantOptions, props.bgVariant);
+    props.bgGradientVariant
+      ? null
+      : nlyGetOptionsByKeyEqual(bgVariantOptions, props.bgVariant);
   const btnDisabled = () => (props.disabled ? "disabled" : null);
   const btnPressed = () => (props.pressed ? "active" : null);
   const btnTool = () => (props.tool ? "btn-tool" : null);
