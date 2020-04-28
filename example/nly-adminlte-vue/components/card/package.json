@@ -165,8 +165,8 @@
                         "description": "top圆角"
                     },
                     {
-                        "prop": "buttom",
-                        "description": "buttom圆角"
+                        "prop": "bottom",
+                        "description": "bottom圆角"
                     }
                 ]
             },

@@ -38,12 +38,19 @@ const boxed = () => import("../views/example/boxed.vue");
 const fixedSidebar = () => import("../views/example/fixedSidebar.vue");
 const fixedNavbar = () => import("../views/example/fixedNavbar.vue");
 
+const tabs = () => import("../views/example/tab.vue");
+
 const routes = [
   {
     path: "/",
     name: "Home",
     component: index,
     children: [
+      {
+        path: "/tabs",
+        name: "tabs",
+        component: tabs
+      },
       {
         path: "/container",
         name: "container",

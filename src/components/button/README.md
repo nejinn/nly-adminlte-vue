@@ -5,26 +5,26 @@
 ## 总览
 
 nly-button 组件因为有 3 种类型的背景色，所以默认是没有颜色的，按钮组件支持原生点击事件
-接受所有 `nly-link` props,会渲染成<a>标签按钮,用 `role='button'` 来实现按钮特征
+接受所有 `nly-link` props, 会渲染成<a>标签按钮, 用 `role='button'` 来实现按钮特征
 
-```html
+``` html
 <nly-button>默认</nly-button>
 <nly-button variant="dark">dark</nly-button>
 <nly-button variant="primary">primary</nly-button>
 <nly-button variant="primary">
-	<nly-icon icon="nlyfont nly-icon-outlet" />
+    <nly-icon icon="nlyfont nly-icon-outlet" />
 </nly-button>
 <nly-button variant="info">
-	<nly-icon icon="nlyfont nly-icon-outlet" />
+    <nly-icon icon="nlyfont nly-icon-outlet" />
 </nly-button>
 <nly-button variant="outlineDanger">
-	<nly-icon icon="nlyfont nly-icon-outlet" />
+    <nly-icon icon="nlyfont nly-icon-outlet" />
 </nly-button>
 <nly-button variant="success">
-	<nly-icon icon="nlyfont nly-icon-outlet" />
+    <nly-icon icon="nlyfont nly-icon-outlet" />
 </nly-button>
 <nly-button variant="secondary">
-	<nly-icon icon="nlyfont nly-icon-outlet" />
+    <nly-icon icon="nlyfont nly-icon-outlet" />
 </nly-button>
 
 <!-- 总览.name -->
@@ -35,28 +35,28 @@ nly-button 组件因为有 3 种类型的背景色，所以默认是没有颜色
 
 `btn-*` 类颜色，支持 adminlte3 的基础主题颜色，支持边框颜色
 
-```html
+``` html
 <div>
-	<nly-button variant="default">default</nly-button>
-	<nly-button variant="dark">dark</nly-button>
-	<nly-button variant="light">light</nly-button>
-	<nly-button variant="primary">primary</nly-button>
-	<nly-button variant="secondary">secondary</nly-button>
-	<nly-button variant="success">success</nly-button>
-	<nly-button variant="info">info</nly-button>
-	<nly-button variant="warning">warning</nly-button>
-	<nly-button variant="danger">danger</nly-button>
+    <nly-button variant="default">default</nly-button>
+    <nly-button variant="dark">dark</nly-button>
+    <nly-button variant="light">light</nly-button>
+    <nly-button variant="primary">primary</nly-button>
+    <nly-button variant="secondary">secondary</nly-button>
+    <nly-button variant="success">success</nly-button>
+    <nly-button variant="info">info</nly-button>
+    <nly-button variant="warning">warning</nly-button>
+    <nly-button variant="danger">danger</nly-button>
 </div>
 
 <div class="mt-2">
-	<nly-button variant="outlineDark">outlineDark</nly-button>
-	<nly-button variant="outlineLight">outlineLight</nly-button>
-	<nly-button variant="outlinePrimary">outlinePrimary</nly-button>
-	<nly-button variant="outlineSecondary">outlineSecondary</nly-button>
-	<nly-button variant="outlineSuccess">outlineSuccess</nly-button>
-	<nly-button variant="outlineInfo">outlineInfo</nly-button>
-	<nly-button variant="outlineWarning">outlineWarning</nly-button>
-	<nly-button variant="outlineDanger">outlineDanger</nly-button>
+    <nly-button variant="outlineDark">outlineDark</nly-button>
+    <nly-button variant="outlineLight">outlineLight</nly-button>
+    <nly-button variant="outlinePrimary">outlinePrimary</nly-button>
+    <nly-button variant="outlineSecondary">outlineSecondary</nly-button>
+    <nly-button variant="outlineSuccess">outlineSuccess</nly-button>
+    <nly-button variant="outlineInfo">outlineInfo</nly-button>
+    <nly-button variant="outlineWarning">outlineWarning</nly-button>
+    <nly-button variant="outlineDanger">outlineDanger</nly-button>
 </div>
 
 <!-- variant.name -->
@@ -67,7 +67,7 @@ nly-button 组件因为有 3 种类型的背景色，所以默认是没有颜色
 
 `bg-*` 类颜色
 
-```html
+``` html
 <nly-button bg-variant="default">default</nly-button>
 <nly-button bg-variant="dark">dark</nly-button>
 <nly-button bg-variant="light">light</nly-button>
@@ -105,7 +105,7 @@ nly-button 组件因为有 3 种类型的背景色，所以默认是没有颜色
 
 `bg-gradient-*` 类颜色，渐变色
 
-```html
+``` html
 <nly-button bg-gradient-variant="default">default</nly-button>
 <nly-button bg-gradient-variant="dark">dark</nly-button>
 <nly-button bg-gradient-variant="light">light</nly-button>
@@ -141,9 +141,9 @@ nly-button 组件因为有 3 种类型的背景色，所以默认是没有颜色
 
 ## size
 
-按钮大小，可选 `lg`，`sm`，`sx`
+按钮大小，可选 `lg` ， `sm` ， `sx` 
 
-```html
+``` html
 <nly-button bg-gradient-variant="graydark" size="xs">graydark</nly-button>
 <nly-button bg-gradient-variant="graydark" size="sm">graydark</nly-button>
 <nly-button bg-gradient-variant="graydark" size="lg">graydark</nly-button>
@@ -156,9 +156,9 @@ nly-button 组件因为有 3 种类型的背景色，所以默认是没有颜色
 
 使按钮填充整个父元素
 
-```html
+``` html
 <div>
-	<nly-button bg-gradient-variant="graydark" block>block</nly-button>
+    <nly-button bg-gradient-variant="graydark" block>block</nly-button>
 </div>
 
 <!-- block.name-->
@@ -169,27 +169,21 @@ nly-button 组件因为有 3 种类型的背景色，所以默认是没有颜色
 
 点击事件，鼠标事件，原生事件
 
-```html
+``` html
 <template>
-	<div>
-		<nly-button variant="danger" @click="clickFunc">点击</nly-button>
-		<nly-button
-			variant="danger"
-			@click="clickFunc"
-			button-class="ml-2"
-			disabled
-			>点击</nly-button
-		>
-	</div>
+    <div>
+        <nly-button variant="danger" @click="clickFunc">点击</nly-button>
+        <nly-button variant="danger" @click="clickFunc" button-class="ml-2" disabled>点击</nly-button>
+    </div>
 </template>
 <script>
-	export default {
-		methods: {
-			clickFunc() {
-				alert('Hello NlyadminlteVue')
-			},
-		},
-	}
+    export default {
+        methods: {
+            clickFunc() {
+                alert('Hello NlyadminlteVue')
+            },
+        },
+    }
 </script>
 
 <!-- click.name -->
@@ -200,7 +194,7 @@ nly-button 组件因为有 3 种类型的背景色，所以默认是没有颜色
 
 禁用按钮， 禁用状态无法点击，无法触发 click 事件
 
-```html
+``` html
 <nly-button bg-gradient-variant="graydark" disabled> disabled</nly-button>
 <nly-button bg-gradient-variant="graydark"> diabled</nly-button>
 
@@ -215,16 +209,13 @@ nly-button 组件因为有 3 种类型的背景色，所以默认是没有颜色
 
 按钮形状，方形，小圆角，大圆角
 
-```html
+``` html
 <nly-button bg-gradient-variant="graydark" shape="roundedFlat">
-	roundedFlat</nly-button
->
+    roundedFlat</nly-button>
 <nly-button bg-gradient-variant="graydark" shape="roundedPill">
-	roundedPill</nly-button
->
+    roundedPill</nly-button>
 <nly-button bg-gradient-variant="graydark" shape="roundedCircle">
-	Cir</nly-button
->
+    Cir</nly-button>
 <nly-button bg-gradient-variant="info" shape="roundedLg"> roundedLg</nly-button>
 <nly-button bg-gradient-variant="info" shape="roundedSm"> roundedSm</nly-button>
 
@@ -236,15 +227,15 @@ nly-button 组件因为有 3 种类型的背景色，所以默认是没有颜色
 
 工具类按钮，一般建议用在 `nly-card-header` 组件中的 `nly-card-tool` 组件中
 
-```html
+``` html
 <nly-button tool> tool</nly-button>
 
 <nly-card header-variant="pink" header-outline>
-	<nly-card-header>
-		<nly-card-tool>
-			<nly-button tool> tool</nly-button>
-		</nly-card-tool>
-	</nly-card-header>
+    <nly-card-header>
+        <nly-card-tool>
+            <nly-button tool> tool</nly-button>
+        </nly-card-tool>
+    </nly-card-header>
 </nly-card>
 
 <!-- tool.name -->
@@ -255,9 +246,9 @@ nly-button 组件因为有 3 种类型的背景色，所以默认是没有颜色
 
 `app` 类按钮
 
-```html
+``` html
 <nly-button app variant="danger">
-	<nly-icon icon="nlyfont nly-icon-breadcrumb-fill" />
+    <nly-icon icon="nlyfont nly-icon-breadcrumb-fill" />
 </nly-button>
 
 <!-- app.name -->
@@ -268,7 +259,7 @@ nly-button 组件因为有 3 种类型的背景色，所以默认是没有颜色
 
 接收 `nly-link` 组件参数，会变成 a 标签按钮
 
-```html
+``` html
 <nly-button variant="danger"> Button</nly-button>
 <nly-button variant="danger" to="/">Link to</nly-button>
 <nly-button variant="danger" href="#">Link href</nly-button>

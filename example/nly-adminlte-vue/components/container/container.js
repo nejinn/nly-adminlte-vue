@@ -1,40 +1,36 @@
 import Vue from "../../utils/vue";
+import { mergeData } from "vue-functional-data-merge";
+
+export const props = {
+  fluid: {
+    type: Boolean,
+    default: false
+  },
+  containerClass: {
+    type: String
+  },
+  tag: {
+    type: String,
+    default: "div"
+  }
+};
 
 const name = "NlyContainer";
 
 export const NlyContainer = Vue.extend({
   name: name,
-  props: {
-    fluid: {
-      type: Boolean,
-      default: false
-    },
-    containerClass: {
-      type: String
-    },
-    tag: {
-      type: String,
-      default: "div"
-    }
-  },
-  computed: {
-    customFluid: function() {
-      return this.fluid ? "container-fluid" : "container";
-    },
-    customContainerClass: function() {
-      return this.containerClass;
-    },
-    customTag: function() {
-      return this.tag;
-    }
-  },
-  render(h) {
+  props,
+  functional: true,
+  render(h, { props, data, children }) {
     return h(
-      this.customTag,
-      {
-        class: [this.customFluid, this.customContainerClass]
-      },
-      this.$slots.default
+      props.tag,
+      mergeData(data, {
+        class: [
+          props.fluid ? "container-fluid" : "container",
+          props.containerClass
+        ]
+      }),
+      children
     );
   }
 });

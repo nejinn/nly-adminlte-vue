@@ -1,168 +1,168 @@
 {
-  "name": "nly-adminlte-vue",
-  "version": "0.4.3",
-  "private": false,
-  "license": "MIT",
-  "keywords": [
-    "Bootstrap",
-    "adminlte3",
-    "adminlte3 for Vue",
-    "SSR",
-    "Web",
-    "Components",
-    "Directives",
-    "ARIA",
-    "Accessibility",
-    "Polymer",
-    "Vue",
-    "VueJS",
-    "Vue2",
-    "WebComponents",
-    "jquery",
-    "Popper.js",
-    "Popper",
-    "CSS",
-    "SCSS",
-    "Icons",
-    "Bootstrap Icons",
-    "Flexbox",
-    "Alert",
-    "Breadcrumb",
-    "Button",
-    "Checkbox",
-    "Radio",
-    "Card",
-    "Carousel",
-    "Slider",
-    "Collapse",
-    "Dropdown",
-    "Form",
-    "Select",
-    "Option",
-    "Input",
-    "Jumbotron",
-    "List",
-    "Nav",
-    "Modal",
-    "MessageBox",
-    "Upload",
-    "Dropzone",
-    "Navbar",
-    "Pagination",
-    "Popover",
-    "Progress",
-    "Spinner",
-    "Tab",
-    "Table",
-    "Tag",
-    "Tags",
-    "Toast",
-    "Tooltip",
-    "vue-bootstrap",
-    "vue-strap",
-    "vuestrap",
-    "uiv"
-  ],
-  "main": "dist/nly-adminlte-vue.common.js",
-  "description": "nly adminlte3 components",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nejinn/nly-adminlte-vue.git"
-  },
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "docs-dev": "cross-env NODE_ENV=docs nuxt dev -c docs/nuxt.config.js",
-    "docs-gen": "cross-env NODE_ENV=docs nuxt generate -c docs/nuxt.config.js",
-    "docs-build": "cross-env NODE_ENV=docs nuxt build -c docs/nuxt.config.js",
-    "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint",
-    "npm-lib": "vue-cli-service build --target lib --name nly-adminlte-vue --dest dist src/index.js",
-    "npm-default": "npm config set registry https://registry.npmjs.org",
-    "npm-taobao": "npm config set registry http://registry.npm.taobao.org/",
-    "npm-publish": "npm publish",
-    "npm-login": "npm login"
-  },
-  "dependencies": {
-    "@popperjs/core": "^2.0.6",
-    "core-js": "^3.6.4",
-    "lodash.clonedeep": "^4.5.0",
-    "overlayscrollbars": "^1.10.3",
-    "overlayscrollbars-vue": "^0.2.1",
-    "popper.js": "^1.16.1",
-    "portal-vue": "^2.1.7",
-    "vue": "^2.6.11",
-    "vue-functional-data-merge": "^3.1.0",
-    "vue-router": "^3.1.5"
-  },
-  "devDependencies": {
-    "@babel/standalone": "^7.9.5",
-    "@nuxtjs/google-analytics": "^2.2.3",
-    "@nuxtjs/pwa": "^3.0.0-beta.20",
-    "@vue/cli-plugin-babel": "^4.2.0",
-    "@vue/cli-plugin-eslint": "^4.2.0",
-    "@vue/cli-plugin-router": "^4.2.0",
-    "@vue/cli-plugin-unit-jest": "^4.2.0",
-    "@vue/cli-service": "^4.2.0",
-    "@vue/eslint-config-prettier": "^6.0.0",
-    "@vue/test-utils": "1.0.0-beta.31",
-    "babel-eslint": "^10.0.3",
-    "bootstrap": "^4.4.1",
-    "codemirror": "^5.52.2",
-    "codesandbox": "^2.1.12",
-    "cross-env": "^7.0.2",
-    "eslint": "^6.7.2",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-vue": "^6.1.2",
-    "highlight.js": "^9.18.1",
-    "html-loader": "^1.1.0",
-    "lodash": "^4.17.15",
-    "marked": "^0.8.2",
-    "node-sass": "^4.12.0",
-    "nuxt": "^2.12.2",
-    "prettier": "^1.19.1",
-    "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended",
-      "@vue/prettier"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {},
-    "overrides": [
-      {
-        "files": [
-          "**/__tests__/*.{j,t}s?(x)",
-          "**/tests/unit/**/*.spec.{j,t}s?(x)"
-        ],
-        "env": {
-          "jest": true
-        }
-      }
-    ]
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ],
-  "jest": {
-    "preset": "@vue/cli-plugin-unit-jest"
-  },
-  "vetur": {
-    "tags": "dist/vetur-tags.json",
-    "attributes": "dist/vetur-attributes.json"
-  },
-  "files": [
-    "packages",
-    "dist"
-  ]
+	"name": "nly-adminlte-vue",
+	"version": "0.4.3",
+	"private": false,
+	"license": "MIT",
+	"keywords": [
+		"Bootstrap",
+		"adminlte3",
+		"adminlte3 for Vue",
+		"SSR",
+		"Web",
+		"Components",
+		"Directives",
+		"ARIA",
+		"Accessibility",
+		"Polymer",
+		"Vue",
+		"VueJS",
+		"Vue2",
+		"WebComponents",
+		"jquery",
+		"Popper.js",
+		"Popper",
+		"CSS",
+		"SCSS",
+		"Icons",
+		"Bootstrap Icons",
+		"Flexbox",
+		"Alert",
+		"Breadcrumb",
+		"Button",
+		"Checkbox",
+		"Radio",
+		"Card",
+		"Carousel",
+		"Slider",
+		"Collapse",
+		"Dropdown",
+		"Form",
+		"Select",
+		"Option",
+		"Input",
+		"Jumbotron",
+		"List",
+		"Nav",
+		"Modal",
+		"MessageBox",
+		"Upload",
+		"Dropzone",
+		"Navbar",
+		"Pagination",
+		"Popover",
+		"Progress",
+		"Spinner",
+		"Tab",
+		"Table",
+		"Tag",
+		"Tags",
+		"Toast",
+		"Tooltip",
+		"vue-bootstrap",
+		"vue-strap",
+		"vuestrap",
+		"uiv"
+	],
+	"main": "dist/nly-adminlte-vue.common.js",
+	"description": "nly adminlte3 components",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nejinn/nly-adminlte-vue.git"
+	},
+	"scripts": {
+		"serve": "vue-cli-service serve",
+		"build": "vue-cli-service build",
+		"docs-dev": "cross-env NODE_ENV=docs nuxt dev -c docs/nuxt.config.js",
+		"docs-gen": "cross-env NODE_ENV=docs nuxt generate -c docs/nuxt.config.js",
+		"docs-build": "cross-env NODE_ENV=docs nuxt build -c docs/nuxt.config.js",
+		"test:unit": "vue-cli-service test:unit",
+		"lint": "vue-cli-service lint",
+		"npm-lib": "vue-cli-service build --target lib --name nly-adminlte-vue --dest dist src/index.js",
+		"npm-default": "npm config set registry https://registry.npmjs.org",
+		"npm-taobao": "npm config set registry http://registry.npm.taobao.org/",
+		"npm-publish": "npm publish",
+		"npm-login": "npm login"
+	},
+	"dependencies": {
+		"@popperjs/core": "^2.0.6",
+		"core-js": "^3.6.4",
+		"lodash.clonedeep": "^4.5.0",
+		"overlayscrollbars": "^1.10.3",
+		"overlayscrollbars-vue": "^0.2.1",
+		"popper.js": "^1.16.1",
+		"portal-vue": "^2.1.7",
+		"vue": "^2.6.11",
+		"vue-functional-data-merge": "^3.1.0",
+		"vue-router": "^3.1.5"
+	},
+	"devDependencies": {
+		"@babel/standalone": "^7.9.5",
+		"@nuxtjs/google-analytics": "^2.2.3",
+		"@nuxtjs/pwa": "^3.0.0-beta.20",
+		"@vue/cli-plugin-babel": "^4.2.0",
+		"@vue/cli-plugin-eslint": "^4.2.0",
+		"@vue/cli-plugin-router": "^4.2.0",
+		"@vue/cli-plugin-unit-jest": "^4.2.0",
+		"@vue/cli-service": "^4.2.0",
+		"@vue/eslint-config-prettier": "^6.0.0",
+		"@vue/test-utils": "1.0.0-beta.31",
+		"babel-eslint": "^10.0.3",
+		"bootstrap": "^4.4.1",
+		"codemirror": "^5.52.2",
+		"codesandbox": "^2.1.12",
+		"cross-env": "^7.0.2",
+		"eslint": "^6.7.2",
+		"eslint-plugin-prettier": "^3.1.1",
+		"eslint-plugin-vue": "^6.1.2",
+		"highlight.js": "^9.18.1",
+		"html-loader": "^1.1.0",
+		"lodash": "^4.17.15",
+		"marked": "^0.8.2",
+		"node-sass": "^4.12.0",
+		"nuxt": "^2.12.2",
+		"prettier": "^1.19.1",
+		"sass-loader": "^8.0.2",
+		"vue-template-compiler": "^2.6.11"
+	},
+	"eslintConfig": {
+		"root": true,
+		"env": {
+			"node": true
+		},
+		"extends": [
+			"plugin:vue/essential",
+			"eslint:recommended",
+			"@vue/prettier"
+		],
+		"parserOptions": {
+			"parser": "babel-eslint"
+		},
+		"rules": {},
+		"overrides": [
+			{
+				"files": [
+					"**/__tests__/*.{j,t}s?(x)",
+					"**/tests/unit/**/*.spec.{j,t}s?(x)"
+				],
+				"env": {
+					"jest": true
+				}
+			}
+		]
+	},
+	"browserslist": [
+		"> 1%",
+		"last 2 versions"
+	],
+	"jest": {
+		"preset": "@vue/cli-plugin-unit-jest"
+	},
+	"vetur": {
+		"tags": "dist/vetur-tags.json",
+		"attributes": "dist/vetur-attributes.json"
+	},
+	"files": [
+		"packages",
+		"dist"
+	]
 }
