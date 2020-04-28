@@ -1,13 +1,15 @@
 import { nlyInstallFactory } from "./utils/plugins";
 import { componentsPlugin } from "./components";
 import { directivesPlugin } from "./directives";
+import { iconsPlugin } from "./icons/plugin";
 
 const NAME = "NlyAdminlteVue";
 
 const install = nlyInstallFactory({
   plugins: {
     componentsPlugin,
-    directivesPlugin
+    directivesPlugin,
+    iconsPlugin
   }
 });
 
@@ -66,9 +68,6 @@ export { NlyControlSidebarButton } from "./components/control-sidebar/control-si
 export { dropdownPlugin } from "./components/dropdown";
 export { NlyDropdown } from "./components/dropdown/dropdown";
 export { NlyDropdownMenu } from "./components/dropdown/dropdown-menu";
-
-export { iconPlugin } from "./components/icon";
-export { NlyIcon } from "./components/icon/icon";
 
 export { GridPlugin } from "./components/grid";
 export { NlyRow } from "./components/grid/row";
@@ -193,5 +192,8 @@ export { VNlyScrollspy } from "./directives/scrollspy/scrollspy";
 export { TabsPlugin } from "./components/tabs";
 export { NlyTab } from "./components/tabs/tab";
 export { NlyTabs } from "./components/tabs/tabs";
+
+export { iconsPlugin } from "./icons/plugin";
+export { NlyIcon } from "./icons/icon";
 
 export default NlyAdminlteVue;

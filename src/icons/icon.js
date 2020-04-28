@@ -1,6 +1,6 @@
-import Vue from "../../utils/vue";
-import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
-import { textSizeOptions } from "../../utils/nly-config";
+import Vue from "../utils/vue";
+import { nlyGetOptionsByKeyEqual } from "../utils/get-options";
+import { textSizeOptions } from "../utils/nly-config";
 
 const name = "NlyIcon";
 

@@ -18,7 +18,9 @@
             label-for="bv-icons-table-search"
             label-cols-sm="auto"
             label-align-sm="right"
-            :description="`Showing ${filteredIcons.length} of ${totalIcons} icons`"
+            :description="
+              `Showing ${filteredIcons.length} of ${totalIcons} icons`
+            "
           >
             <b-input-group>
               <b-input-group-prepend is-text>
@@ -53,7 +55,9 @@
           <div class="card bg-light p-3" :title="icon.name">
             <b-icon :icon="icon.name" class="mx-auto"></b-icon>
           </div>
-          <b-form-text class="mt-1 text-break" :title="icon.name">{{ icon.name }}</b-form-text>
+          <b-form-text class="mt-1 text-break" :title="icon.name">{{
+            icon.name
+          }}</b-form-text>
         </b-col>
       </transition-group>
       <div aria-live="polite" aria-atomic="true">
@@ -124,40 +128,42 @@
 </style>
 
 <script>
-import { iconNames } from '~/../src/icons'
+import { iconNames } from "~/../src/icons";
 
 const icons = iconNames
-  .filter(name => name !== 'BIcon')
+  .filter(name => name !== "BIcon")
   .sort()
   .map(fullName => {
     return {
       component: fullName,
       name: fullName
-        .replace(/^BIcon/, '')
-        .replace(/\B([A-Z])/g, '-$1')
+        .replace(/^BIcon/, "")
+        .replace(/\B([A-Z])/g, "-$1")
         .toLowerCase()
-    }
-  })
+    };
+  });
 
 export default {
-  name: 'BVIconsTable',
+  name: "BVIconsTable",
   data() {
     return {
-      iconFilter: '',
+      iconFilter: "",
       totalIcons: icons.length
-    }
+    };
   },
   computed: {
     filteredIcons() {
       const terms = this.iconFilter
         .trim()
         .toLowerCase()
-        .split(/\s+/)
+        .split(/\s+/);
       if (terms.length === 0) {
-        return icons.slice()
+        return icons.slice();
       }
-      return icons.filter(icon => terms.every(term => icon.name.indexOf(term) !== -1))
+      return icons.filter(icon =>
+        terms.every(term => icon.name.indexOf(term) !== -1)
+      );
     }
   }
-}
+};
 </script>

@@ -56,7 +56,7 @@ export const nav = [
   {
     title: "图标",
     base: "icons",
-    version: "2.3.0",
+    version: "0.4.3",
     description: "NlyAdminlteVue icons"
   },
   //   {

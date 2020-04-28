@@ -225,7 +225,7 @@ export default {
     },
     pluginName() {
       // Directive plugin names are prefixed with `VB`
-      const prefix = this.isComponentRoute ? "" : "VB";
+      const prefix = this.isComponentRoute ? "" : "VNLY";
       return `${prefix}${startCase(this.pluginDir).replace(/\s+/g, "")}Plugin`;
     },
     componentImports() {
