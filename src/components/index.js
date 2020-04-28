@@ -33,6 +33,7 @@ import { formPlguin } from "./form";
 import { logPlugin } from "./log";
 import { listGroupPlugin } from "./list-group";
 import { modalPlugin } from "./modal";
+import { TabsPlugin } from "./tabs";
 
 export const componentsPlugin = nlyPluginFactory({
   plugins: {
@@ -68,6 +69,7 @@ export const componentsPlugin = nlyPluginFactory({
     formPlguin,
     logPlugin,
     listGroupPlugin,
-    modalPlugin
+    modalPlugin,
+    TabsPlugin
   }
 });

@@ -6,7 +6,7 @@ export const props = {
     type: Boolean,
     default: false
   },
-  buttom: {
+  bottom: {
     type: Boolean,
     default: false
   },
@@ -21,11 +21,11 @@ export const props = {
 
 const customClass = props => {
   const top = props.top ? "card-img-top" : "";
-  const buttom = props.buttom ? "card-img-buttom" : "";
-  const baseClass = !props.top && !props.buttom ? "card-img" : "";
+  const bottom = props.bottom ? "card-img-bottom" : "";
+  const baseClass = !props.top && !props.bottom ? "card-img" : "";
   const cardImgClass = props.cardImgClass;
 
-  return [top, buttom, baseClass, cardImgClass];
+  return [top, bottom, baseClass, cardImgClass];
 };
 
 const name = "NlyCardImg";
@@ -34,25 +34,14 @@ export const NlyCardImg = Vue.extend({
   name: name,
   props,
   functional: true,
-  computed: {
-    customProps: function() {
-      return {
-        customClass: this.top
-          ? "card-img-top"
-          : this.buttom
-          ? "card-img-buttom"
-          : "card-img",
-        src: this.src,
-        cardImgClass: this.cardImgClass
-      };
-    }
-  },
   render(h, { props, data, children }) {
     return h(
       "img",
       mergeData(data, {
         class: customClass(props),
-        src: props.src
+        attrs: {
+          src: props.src
+        }
       }),
       children
     );

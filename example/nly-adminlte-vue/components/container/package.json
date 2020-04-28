@@ -1,25 +1,25 @@
 {
-    "name": "@nly-adminlte-vue/container",
-    "version": "1.0.0",
-    "meta": {
-        "title": "Container",
-        "subtitle":"布局容器",
-        "description": "一个有宽度设置的布局容器",
-        "components": [
-            {
-                "component": "NlyContainer",
-                "description": "容器",
-                "props": [
-                    {
-                        "prop": "fluid",
-                        "description": "100%宽度"
-                    },
-                    {
-                        "prop": "containerClass",
-                        "description": "自定义css"
-                    }
-                ]
-            }
-        ]
-    }
+	"name": "@nly-adminlte-vue/container",
+	"version": "1.0.0",
+	"meta": {
+		"title": "Container",
+		"subtitle": "布局容器",
+		"description": "一个提供了宽度的居中布局容器",
+		"components": [
+			{
+				"component": "NlyContainer",
+				"description": "容器",
+				"props": [
+					{
+						"prop": "fluid",
+						"description": "100%宽度"
+					},
+					{
+						"prop": "containerClass",
+						"description": "自定义css"
+					}
+				]
+			}
+		]
+	}
 }
