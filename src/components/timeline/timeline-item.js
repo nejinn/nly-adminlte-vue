@@ -21,7 +21,7 @@
 }
 
 import Vue from "../../utils/vue";
-import { NlyIcon } from "../../icons/icon";
+import { NlyIcon } from "../icons/icon";
 
 const name = "NlyTimelineItem";
 

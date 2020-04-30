@@ -1,15 +1,13 @@
 import { nlyInstallFactory } from "./utils/plugins";
 import { componentsPlugin } from "./components";
 import { directivesPlugin } from "./directives";
-import { iconsPlugin } from "./icons/plugin";
 
 const NAME = "NlyAdminlteVue";
 
 const install = nlyInstallFactory({
   plugins: {
     componentsPlugin,
-    directivesPlugin,
-    iconsPlugin
+    directivesPlugin
   }
 });
 
@@ -193,7 +191,7 @@ export { TabsPlugin } from "./components/tabs";
 export { NlyTab } from "./components/tabs/tab";
 export { NlyTabs } from "./components/tabs/tabs";
 
-export { iconsPlugin } from "./icons/plugin";
-export { NlyIcon } from "./icons/icon";
+export { NlyAdminlteVueIcons } from "./components/icons/plugin";
+// export { NlyIcon } from "./icons/icon";
 
 export default NlyAdminlteVue;

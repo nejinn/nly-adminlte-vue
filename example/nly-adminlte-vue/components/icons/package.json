@@ -1,0 +1,20 @@
+{
+  "name": "@nly-adminlte-vue/Icons",
+  "version": "1.0.0",
+  "meta": {
+    "title": "Icons",
+    "subtitle": "图标",
+    "description": "图标",
+    "components": [
+      {
+        "component": "NlyIcon",
+        "props": [
+          {
+            "prop": "icon",
+            "description": "图标名称"
+          }
+        ]
+      }
+    ]
+  }
+}

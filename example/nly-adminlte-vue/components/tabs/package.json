@@ -1,133 +1,130 @@
 {
-  "name": "@bootstrap-vue/tabs",
+  "name": "@nly-adminlte-vue/card",
   "version": "1.0.0",
   "meta": {
     "title": "Tabs",
-    "description": "Create a widget of tabbable panes of local content. The tabs component is built upon navs and cards internally, and provides full keyboard navigation control of the tabs.",
+    "subtitle": "标签页",
+    "description": "一个基于nav和card的切换面板tab组件",
     "components": [
       {
-        "component": "BTabs",
+        "component": "NlyTabs",
         "props": [
           {
             "prop": "pills",
-            "description": "Renders the nav items with the appearance of pill buttons"
+            "description": "tab切换nav元素(切换按钮)渲染为圆角按钮形状"
           },
           {
             "prop": "small",
-            "description": "Makes the nav smaller"
+            "description": "小号nav元素(切换按钮)"
           },
           {
             "prop": "align",
-            "description": "Align the nav items in the nav: 'start' (or 'left'), 'center', 'end' (or 'right')"
+            "description": "nav元素(切换按钮)文字对齐方式， 可选 'start' ('left'), 'center', 'end' ('right')"
           },
           {
             "prop": "fill",
-            "description": "Proportionately fills all horizontal space with nav items. All horizontal space is occupied, but not every nav item has the same width"
+            "description": "nav元素(切换按钮)填充整个card宽度，但并不是每个nav元素(切换按钮)宽度都会相同"
           },
           {
             "prop": "justified",
-            "description": "Fills all horizontal space with nav items, but unlike 'fill', every nav item will be the same width"
+            "description": "nav元素(切换按钮)填充整个card宽度，每个nav元素(切换按钮)宽度都会相同"
           },
           {
             "prop": "vertical",
-            "description": "Renders the nav vertically"
+            "description": "垂直tab"
           },
           {
             "prop": "card",
-            "description": "When set to true, renders the tabs the the appropriate styles to be placed into a 'b-card'"
-          },
-          {
-            "prop": "vertical",
-            "description": "Renders the tab controls vertically"
+            "description": "设置true会渲染成nly-card"
           },
           {
             "prop": "end",
-            "description": "Place the tab controls at the bottom (horizontal tabs), or right (vertical tabs)"
+            "description": "设置为true，水平tab会把nav元素(切换按钮)放到底部，垂直tab会把nav元素(切换按钮)放到右侧"
           },
           {
             "prop": "lazy",
-            "description": "Lazily render the b-tab contents when shown"
+            "description": "懒加载"
           },
           {
             "prop": "noNavStyle",
-            "description": "Do not render the tab controls with tab styling"
+            "description": "不渲染nav的css式样"
           },
           {
             "prop": "noKeyNav",
-            "description": "Disable keyboard navigation of the tab controls"
+            "description": "禁用选项卡控件的键盘导航"
           },
           {
             "prop": "contentClass",
-            "description": "CSS class (or classes) to apply to the tab-content wrapper"
+            "description": "tab-content元素自定义css"
           },
           {
             "prop": "navClass",
-            "description": "CSS class (or classes) to apply to the tablist (nav) wrapper"
+            "description": "nav自定义css"
           },
           {
             "prop": "navWrapperClass",
-            "description": "CSS class (or classes) to apply to the tab controls wrapper element"
+            "description": "wraaper元素自定义css"
           },
           {
             "prop": "activeTabClass",
-            "description": "CSS class (or classes) to apply to the currently active tab"
+            "description": "tab选项卡激活css"
           },
           {
             "prop": "activeNavItemClass",
-            "description": "CSS class (or classes) to apply to the active nav item tab control"
+            "description": "选项卡渲染成nav-item时激活css"
           },
           {
             "prop": "value",
-            "description": "Currently visible tab index (zero-based)"
+            "description": "当前可见的选项卡值"
           }
         ],
         "events": [
           {
             "event": "input",
-            "description": "Emitted when a tab is shown. Used to update the v-model",
+            "description": "更新v-model值时触发",
             "args": [
               {
                 "arg": "tabIndex",
                 "type": "Number",
-                "description": "Current selected tab index (0-based index)"
+                "description": "当前可见tab的index"
               }
             ]
           },
           {
             "event": "activate-tab",
-            "version": "2.1.0",
-            "description": "Emitted just before a tab is shown/activated. Cancelable",
+            "version": "0.4.4",
+            "description": "准备激活tab之前的index",
             "args": [
               {
                 "arg": "newTabIndex",
                 "type": "Number",
-                "description": "Tab being activated (0-based index)"
+                "description": "tab激活之后的index"
               },
               {
                 "arg": "prevTabIndex",
                 "type": "Number",
-                "description": "Tab that is currently active (0-based index). Will be -1 if no current active tab"
+                "description": "当前激活的tab的index，如果没有激活，那么默认为-1"
               },
               {
-                "arg": "bvEvt",
-                "type": "BvEvent",
-                "description": "BvEvent object. Call bvEvt.preventDefault() to cancel"
+                "arg": "nlyEvt",
+                "type": "NlyEvent",
+                "description": "NlyEvent对象. 防止冒泡"
               }
             ]
           },
           {
             "event": "changed",
-            "description": "Emitted when a tab is added, removed, or tabs are re-ordered",
+            "description": "当一个tab被移除或者重新排序，或者新增一个tab时触发",
             "args": [
               {
                 "arg": "currentTabs",
                 "type": "Array",
-                "description": "Array of the current b-tab instances, in document order."
+                "description": "当前tabs中tab集合"
               },
               {
                 "arg": "previousTabs",
                 "type": "Array",
-                "description": "Array of the previous b-tab instances, in document order."
+                "description": "未更新之前的tabs的tab集合"
               }
             ]
           }
@@ -135,56 +132,52 @@
         "slots": [
           {
             "name": "tabs-start",
-            "description": "Additional tab buttons without tab content placed before content tab buttons"
+            "description": "在有内容的选项卡前面添加没有内容的选项卡"
           },
           {
             "name": "tabs-end",
-            "description": "Additional tab buttons without tab content placed after content tab buttons"
+            "description": "在有内容的选项卡最后面添加没有内容的选项卡"
           },
           {
             "name": "empty",
-            "description": "Renders this slot if no tabs are present"
+            "description": "当没有tab时渲染"
           }
         ]
       },
       {
-        "component": "BTab",
+        "component": "NlyTab",
         "props": [
           {
             "prop": "buttonId",
-            "description": "Use a specific ID for this tab's tab control button. If not provided, one will automatically be generated"
+            "description": "如果传入， 则可设置一个按钮来操作对应id的nly-tab可见状态，如果没用传入，会自动生成一个"
           },
           {
             "prop": "titleItemClass",
-            "description": "CSS class (or classes) to apply to the tab's control button 'li' element"
+            "description": "选项卡控制器 li标签的 自定义css"
           },
           {
             "prop": "titleLinkClass",
-            "description": "CSS class (or classes) to apply to the tab's control button inner link element"
+            "description": "选项卡控制器里包裹的a标签自定义css"
           },
           {
             "prop": "titleLinkAttributes",
-            "version": "2.6.0",
-            "description": "Attributes to apply to the tab's control button inner link element"
-          },
-          {
-            "prop": "noBody",
-            "description": "When the parent b-tabs has the 'card' prop set, do not render a card-body wrapper"
+            "version": "0.4.4",
+            "description": "选项卡控制器里包裹的a标签 attributes属性"
           },
           {
             "prop": "lazy",
-            "description": "Lazily render this tab's content when shown"
+            "description": "懒加载"
           }
         ],
         "events": [
           {
             "event": "click",
-            "description": "Emitted when a tab is clicked, or is activated by keyboard navigation",
+            "description": "点击tab时触发",
             "args": [
               {
                 "arg": "evt",
-                "type": "MouseEvent",
-                "description": "Original event object"
+                "type": "鼠标事件",
+                "description": "原生事件"
               }
             ]
           }
@@ -192,7 +185,7 @@
         "slots": [
           {
             "name": "title",
-            "description": "Slot for custom tab title"
+            "description": "tab标题插槽"
           }
         ]
       }

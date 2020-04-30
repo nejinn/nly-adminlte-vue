@@ -11,8 +11,9 @@ import "./assets/nly-adminlte-vue/nly-adminlte-vue.css";
 import "./assets/font/font.css";
 import "./assets/nly-adminlte-vue/icon/iconfont.css";
 
-import { NlyAdminlteVue } from "./nly-adminlte-vue";
+import { NlyAdminlteVue, NlyAdminlteVueIcons } from "./nly-adminlte-vue";
 Vue.use(NlyAdminlteVue);
+Vue.use(NlyAdminlteVueIcons);
 
 new Vue({
   router,

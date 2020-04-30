@@ -42,11 +42,11 @@
 - [2. demo](#2-demo)
 - [3. 文档](#3-文档)
 - [4. 进度](#4-进度)
-    - [4.1. 组件](#41-组件)
-    - [4.2. 指令](#42-指令)
-    - [4.3. 使用](#43-使用)
-        - [4.3.1. 可以直接clone下载项目](#431-可以直接clone下载项目)
-        - [4.3.2. 从npm下载](#432-从npm下载)
+  - [4.1. 组件](#41-组件)
+  - [4.2. 指令](#42-指令)
+  - [4.3. 使用](#43-使用)
+    - [4.3.1. 可以直接clone下载项目](#431-可以直接clone下载项目)
+    - [4.3.2. 从npm下载](#432-从npm下载)
 - [5. 感谢](#5-感谢)
 
 <!-- /TOC -->
@@ -147,8 +147,9 @@ import "nly-adminlte-vue/dist/adminlte/css/adminlte.css";
 import "nly-adminlte-vue/dist/adminlte/fontawesome-free/css/all.css";
 import "nly-adminlte-vue/dist/adminlte/icon/iconfont.css";
 import "nly-adminlte-vue/dist/nly-adminlte-vue.css";
-import { NlyAdminlteVue } from "nly-adminlte-vue";
+import { NlyAdminlteVue, NlyAdminlteVueIcons } from "nly-adminlte-vue";
 Vue.use(NlyAdminlteVue);
+Vue.use(NlyAdminlteVueIcons);
 ```
 * 单包引入
 

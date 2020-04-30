@@ -1,4 +1,4 @@
-import { nlyPluginFactory } from "../utils/plugins";
+import { nlyPluginFactory } from "../../utils/plugins";
 import { NlyIcon } from "./icon";
 
 const IconPlugin = nlyPluginFactory({

@@ -1,7 +1,7 @@
 import Vue from "../../utils/vue";
 import { mergeData } from "vue-functional-data-merge";
 import { NlyBreadcrumbLink, props as itemProps } from "./breadcrumb-link";
-import { NlyIcon } from "../../icons/icon";
+import { NlyIcon } from "../icons/icon";
 
 export const props = {
   ...itemProps,

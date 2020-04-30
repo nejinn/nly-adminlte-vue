@@ -85,7 +85,7 @@ import {
   bgVariantOptions
 } from "../../utils/nly-config";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
-import { NlyIcon } from "../../icons/icon";
+import { NlyIcon } from "../icons/icon";
 import { NlyOverlay } from "../overlay/overlay";
 import { nlyCardId } from "../../utils/mixin-id";
 import { mergeData } from "vue-functional-data-merge";
