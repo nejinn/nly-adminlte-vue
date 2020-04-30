@@ -1,5 +1,5 @@
 import Vue from "../../utils/vue";
-import { NlyIcon } from "../icon";
+import { NlyIcon } from "../icons/icon";
 import { bgVariantOptions, bgGradientOptions } from "../../utils/nly-config";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
 

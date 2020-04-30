@@ -1,6 +1,6 @@
 import Vue from "../../utils/vue";
 import { NlyLink } from "../link";
-import { NlyIcon } from "../icon";
+import { NlyIcon } from "../icons/icon";
 import idMixins from "../../mixins/id";
 // import { NlyLogAddTransitionGroup } from "../../utils/log-add-transition-group";
 import "overlayscrollbars/css/OverlayScrollbars.css";

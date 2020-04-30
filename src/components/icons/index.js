@@ -1,10 +1,10 @@
 import { nlyPluginFactory } from "../../utils/plugins";
 import { NlyIcon } from "./icon";
 
-const iconPlugin = nlyPluginFactory({
+const IconPlugin = nlyPluginFactory({
   components: {
     NlyIcon
   }
 });
 
-export { iconPlugin, NlyIcon };
+export { IconPlugin, NlyIcon };

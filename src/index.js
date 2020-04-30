@@ -67,9 +67,6 @@ export { dropdownPlugin } from "./components/dropdown";
 export { NlyDropdown } from "./components/dropdown/dropdown";
 export { NlyDropdownMenu } from "./components/dropdown/dropdown-menu";
 
-export { iconPlugin } from "./components/icon";
-export { NlyIcon } from "./components/icon/icon";
-
 export { GridPlugin } from "./components/grid";
 export { NlyRow } from "./components/grid/row";
 export { NlyCol } from "./components/grid/col";
@@ -193,5 +190,8 @@ export { VNlyScrollspy } from "./directives/scrollspy/scrollspy";
 export { TabsPlugin } from "./components/tabs";
 export { NlyTab } from "./components/tabs/tab";
 export { NlyTabs } from "./components/tabs/tabs";
+
+export { NlyAdminlteVueIcons } from "./components/icons/plugin";
+// export { NlyIcon } from "./icons/icon";
 
 export default NlyAdminlteVue;

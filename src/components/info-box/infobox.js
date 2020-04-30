@@ -1,7 +1,7 @@
 import Vue from "../../utils/vue";
 import { bgVariantOptions, bgGradientOptions } from "../../utils/nly-config";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
-import { NlyIcon } from "../icon/icon";
+import { NlyIcon } from "../icons/icon";
 import { NlyOverlay } from "../overlay/overlay";
 
 const name = "NlyInfobox";

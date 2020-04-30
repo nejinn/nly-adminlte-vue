@@ -1,5 +1,5 @@
 {
-  "name": "Intro",
-  "title": "Getting Started",
-  "description": "Get started with BootstrapVue, based on the world's most popular framework - Bootstrap v4, for building responsive, mobile-first sites using Vue.js"
+  "name": "简介",
+  "title": "开始",
+  "description": "快速开始使用 NlyAdminlteVue。一个基于 bootstrap 和 Adminlte 3 的响应式 Vue2.js 组件库。"
 }
