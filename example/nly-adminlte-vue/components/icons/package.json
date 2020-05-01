@@ -4,7 +4,7 @@
   "meta": {
     "title": "Icons",
     "subtitle": "图标",
-    "description": "图标",
+    "description": "图标默认是基于iconfont的图标，可以适用于任何其他icon",
     "components": [
       {
         "component": "NlyIcon",

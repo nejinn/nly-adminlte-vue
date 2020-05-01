@@ -98,7 +98,7 @@
 
     <nly-link to="/play" exact router-tag="div" active-class="active">
       <nly-link to="/play" exact class="bd-toc-link" active-class=""
-        >在线测试代码</nly-link
+        >在线体验</nly-link
       >
     </nly-link>
   </nav>

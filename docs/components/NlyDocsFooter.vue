@@ -2230,7 +2230,7 @@
               <nly-link to="/docs/icons" exact>图标</nly-link>
             </li>
             <li>
-              <nly-link to="/play" exact>在线测试代码</nly-link>
+              <nly-link to="/play" exact>在线体验</nly-link>
             </li>
           </ul>
         </nly-col>

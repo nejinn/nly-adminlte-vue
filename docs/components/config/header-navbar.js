@@ -68,7 +68,7 @@ export const navbarList = [
                 to: "/play",
                 exact: true,
                 exactActiveClass: "active",
-                _name: "在线代码测试"
+                _name: "在线体验"
               },
               {
                 _type: "nly-nav-item",
