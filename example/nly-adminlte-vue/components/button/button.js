@@ -97,7 +97,7 @@ const isNonStandardTag = props => !isLink(props) && !isButton(props);
 
 const customClass = props => {
   const btnVariant = () => {
-    if (!props.bgVariant && !props.bgGradientVariant) {
+    if (!props.bgVariant && !props.bgGradientVariant && !props.tool) {
       return nlyGetOptionsByKeyEqual(btnVariantOptinos, props.variant);
     } else {
       return null;

@@ -24,7 +24,7 @@ NlyAdminlteVue 需要依赖以下几个包才能运行
 -   [指令](/docs/directives) - 指令和指令插件的文档
 -   [图标](/docs/icons) - NlyAdminlteVue nlyfont icon
 -   [其他](/docs/misc) - 其他杂项
--   [在线测试代码](/play) - 在这里您可以测试 NlyAdminlteVue 的所有组件
+-   [在线体验](/play) - 在这里您可以体验 NlyAdminlteVue 的所有组件
 
 ## 安装命令
 
@@ -88,10 +88,16 @@ import 'nly-adminlte-vue/dist/adminlte/css/adminlte.css'
 import 'nly-adminlte-vue/dist/adminlte/fontawesome-free/css/all.css'
 import 'nly-adminlte-vue/dist/adminlte/icon/iconfont.css'
 import 'nly-adminlte-vue/dist/nly-adminlte-vue.css'
-import { NlyAdminlteVue, NlyAdminlteVueIcons } from "./nly-adminlte-vue";
+import { NlyAdminlteVue, NlyAdminlteVueIcons } from "nly-adminlte-vue";
 Vue.use(NlyAdminlteVue);
 Vue.use(NlyAdminlteVueIcons);
 ```
+
+**注意：**
+
+* `NlyAdminlteVue`  中并不包含icon。
+* 如果您需要使用 `nly-icon` 组件和自带的 `icon` 图标，需要 额外 `import { NlyAdminlteVueIcons } from "nly-adminlte-vue"` 和 `import 'nly-adminlte-vue/dist/adminlte/icon/iconfont.css'`
+* 某些组件中默认会带有 `nly-icon` 组件, 需要  `import 'nly-adminlte-vue/dist/adminlte/icon/iconfont.css'` 才会生效
 
 ## 单包引入
 

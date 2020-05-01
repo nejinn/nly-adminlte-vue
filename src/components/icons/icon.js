@@ -1,38 +1,38 @@
 import Vue from "../../utils/vue";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
 import { textSizeOptions } from "../../utils/nly-config";
+import { mergeData } from "vue-functional-data-merge";
+
+export const props = {
+  size: {
+    type: String
+  },
+  tag: {
+    type: String,
+    default: "i"
+  },
+  icon: {
+    type: String
+  }
+};
+
+const customClass = props => {
+  return [props.icon, nlyGetOptionsByKeyEqual(textSizeOptions, props.size)];
+};
 
 const name = "NlyIcon";
 
 export const NlyIcon = Vue.extend({
   name: name,
-  props: {
-    size: {
-      type: String
-    },
-    tag: {
-      type: String,
-      default: "i"
-    },
-    icon: {
-      type: String
-    }
-  },
-  computed: {
-    customClass: function() {
-      return [this.icon, nlyGetOptionsByKeyEqual(textSizeOptions, this.size)];
-    },
-    customTag: function() {
-      return this.tag;
-    }
-  },
-  render(h) {
+  props,
+  functional: true,
+  render(h, { props, data, children }) {
     return h(
-      this.customTag,
-      {
-        class: this.customClass
-      },
-      this.$slots.default
+      props.tag,
+      mergeData(data, {
+        class: customClass(props)
+      }),
+      children
     );
   }
 });
