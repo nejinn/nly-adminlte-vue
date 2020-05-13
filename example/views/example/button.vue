@@ -201,40 +201,6 @@
                 </nly-button>
               </nly-button-group>
             </div>
-
-            <div style="margin: 1rem;">
-              <nly-dropdown
-                vertical
-                dropdown-size="sm"
-                dropdown-toggle
-                text="dropdown"
-                data-show="dropdown-test1"
-                variant="danger"
-              >
-                <nly-button variant="warning">
-                  vertical dropdown-size="sm" dropdown-toggle text="dropdown"
-                  data-show="dropdown-test1"
-                </nly-button>
-              </nly-dropdown>
-              <nly-dropdown-menu id="dropdown-test1">
-                sss
-              </nly-dropdown-menu>
-            </div>
-
-            <div style="margin: 1rem;">
-              <nly-dropdown
-                text="dropdown"
-                data-show="dropdown-test2"
-                variant="danger"
-              >
-                <nly-button variant="warning">
-                  text="dropdown"
-                </nly-button>
-              </nly-dropdown>
-              <nly-dropdown-menu id="dropdown-test2">
-                sss
-              </nly-dropdown-menu>
-            </div>
           </nly-container>
         </nly-col>
       </nly-row>

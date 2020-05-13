@@ -2836,3 +2836,43 @@ html.os-html>.os-host>.os-scrollbar {
 .modal-backdrop {
     opacity: 0.5;
 }
+
+.dropdown:not(.dropleft) .dropdown-toggle.dropdown-toggle-no-caret::after {
+  display: none !important;
+}
+
+.dropdown.dropleft .dropdown-toggle.dropdown-toggle-no-caret::before {
+  display: none !important;
+}
+
+.dropdown .dropdown-menu:focus {
+  outline: none;
+}
+
+.nly-dropdown-form {
+  display: inline-block;
+  padding: 0.25rem 1.5rem;
+  width: 100%;
+  clear: both;
+  font-weight: 400;
+}
+
+.nly-dropdown-form:focus {
+  outline: 1px dotted !important;
+  outline: 5px auto -webkit-focus-ring-color !important;
+}
+
+.nly-dropdown-form.disabled, .nly-dropdown-form:disabled {
+  outline: 0 !important;
+  color: #6c757d;
+  pointer-events: none;
+}
+
+.nly-dropdown-text {
+  display: inline-block;
+  padding: 0.25rem 1.5rem;
+  margin-bottom: 0;
+  width: 100%;
+  clear: both;
+  font-weight: lighter;
+}

@@ -1,11 +1,11 @@
-import { IconPlugin } from "./index";
+import { IconsPlugin } from "./index";
 import { nlyInstallFactory } from "../../utils/plugins";
 
 const NAME = "NlyAdminlteVueIcons";
 
 const install = nlyInstallFactory({
   plugins: {
-    IconPlugin
+    IconsPlugin
   }
 });
 

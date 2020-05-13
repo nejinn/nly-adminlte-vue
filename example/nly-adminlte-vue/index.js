@@ -63,9 +63,16 @@ export { NlyControlSidebarContainer } from "./components/control-sidebar/control
 export { NlyControlSidebar } from "./components/control-sidebar/control-sidebar";
 export { NlyControlSidebarButton } from "./components/control-sidebar/control-sidebar-button";
 
-export { dropdownPlugin } from "./components/dropdown";
+export { DropdownPlugin } from "./components/dropdown";
 export { NlyDropdown } from "./components/dropdown/dropdown";
-export { NlyDropdownMenu } from "./components/dropdown/dropdown-menu";
+export { NlyDropdownDivider } from "./components/dropdown/dropdown-divider";
+export { NlyDropdownForm } from "./components/dropdown/dropdown-form";
+export { NlyDropdownGroup } from "./components/dropdown/dropdown-group";
+export { NlyDropdownHeader } from "./components/dropdown/dropdown-header";
+export { NlyDropdownItem } from "./components/dropdown/dropdown-item";
+export { NlyDropdownItemButton } from "./components/dropdown/dropdown-item-button";
+export { NlyDropdownText } from "./components/dropdown/dropdown-text";
+export { NlyDropdownFooter } from "./components/dropdown/dropdown-footer";
 
 export { GridPlugin } from "./components/grid";
 export { NlyRow } from "./components/grid/row";

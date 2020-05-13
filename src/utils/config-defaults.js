@@ -76,5 +76,11 @@ export default deepFreeze({
   },
   NlyFormText: {
     textVariant: "muted"
+  },
+  NlyDropdown: {
+    toggleText: "Nly Toggle Dropdown",
+    size: undefined,
+    variant: "secondary",
+    splitVariant: undefined
   }
 });

@@ -1,0 +1,327 @@
+{
+  "name": "@nly-adminlte-vue//dropdown",
+  "version": "1.0.0",
+  "meta": {
+    "title": "Dropdown",
+    "subtitle": "下拉菜单",
+    "description": "下拉菜单，一个可以切换显示和隐藏下拉列表的组件。",
+    "components": [
+      {
+        "component": "NlyDropdown",
+        "aliases": [
+          "NlyDd"
+        ],
+        "props": [
+          {
+            "prop": "size",
+            "settings": true,
+            "description": "下拉菜单大小， 可选 'sm', 'md' (默认), or 'lg'"
+          },
+          {
+            "prop": "text",
+            "description": "下拉菜单按钮文字内容"
+          },
+          {
+            "prop": "html",
+            "description": "下拉菜单按钮中嵌入html，请谨慎使用"
+          },
+          {
+            "prop": "dropup",
+            "description": "设置为true，下拉菜单出现在按钮上方"
+          },
+          {
+            "prop": "dropright",
+            "description": "设置为true，下拉菜单出现在按钮右侧"
+          },
+          {
+            "prop": "dropleft",
+            "description": "设置为true，下拉菜单出现在按钮左侧"
+          },
+          {
+            "prop": "right",
+            "description": "设置为true，下拉菜单右侧对齐"
+          },
+          {
+            "prop": "noFlip",
+            "description": "设置为true，禁止下拉菜单自动调整方向"
+          },
+          {
+            "prop": "offset",
+            "description": "下拉菜单位置偏移像素"
+          },
+          {
+            "prop": "lazy",
+            "description": "设置true，懒加载，只有点击之后，才会生成dom"
+          },
+          {
+            "prop": "popperOpts",
+            "description": "接收其他Popper.js配置，详情请参考 https://popper.js.org/"
+          },
+          {
+            "prop": "toggleText",
+            "settings": true,
+            "description": "设置 ARIA label (sr-only) 文字， 只有split为true时生效"
+          },
+          {
+            "prop": "menuClass",
+            "description": "menu自定义css"
+          },
+          {
+            "prop": "toggleTag",
+            "description": "使用prop html时的标签，请谨慎使用"
+          },
+          {
+            "prop": "toggleClass",
+            "description": "下拉按钮自定义css"
+          },
+          {
+            "prop": "block",
+            "version": "0.4.4",
+            "description": "下拉按钮填充满整个父元素"
+          },
+          {
+            "prop": "noCaret",
+            "description": "隐藏下拉按钮的图标"
+          },
+          {
+            "prop": "split",
+            "description": "设置true为split模式， 按钮跟图标会分开"
+          },
+          {
+            "prop": "splitHref",
+            "description": "使用split模式时，设置路由跳转类型为href"
+          },
+          {
+            "prop": "splitTo",
+            "description": "使用split模式时，设置路由跳转类型为to"
+          },
+          {
+            "prop": "splitVariant",
+            "settings": true,
+            "description": "使用split模式时，按钮颜色，可选同variant"
+          },
+          {
+            "prop": "splitButtonType",
+            "description": "使用split模式时，按钮类型， 可选 'button', 'submit', 'reset'"
+          },
+          {
+            "prop": "splitClass",
+            "version": "2.2.0",
+            "description": "使用split模式时，按钮自定义css"
+          },
+          {
+            "prop": "boundary",
+            "description": "设置下拉菜单列表出现的容器， 可选 'scrollParent', 'window', 'viewport', 或着自行指定的dom。详情请参考 https://popper.js.org/"
+          }
+        ],
+        "events": [
+          {
+            "event": "show",
+            "description": "在下拉菜单显示之前emit事件，可回调",
+            "args": [
+              {
+                "arg": "nlyEvt",
+                "type": "NlyEvent",
+                "description": "NlyEvent 对象. 可调用 nlyEvt.preventDefault() 停止展示."
+              }
+            ]
+          },
+          {
+            "event": "shown",
+            "description": "在下拉菜单显示之后emit事件"
+          },
+          {
+            "event": "hide",
+            "description": "在下拉菜单隐藏之前emit事件，可回调",
+            "args": [
+              {
+                "arg": "nlyEvt",
+                "type": "NlyEvent",
+                "description": "NlyEvent 对象. 可调用 nlyEvt.preventDefault() 停止隐藏."
+              }
+            ]
+          },
+          {
+            "event": "hidden",
+            "description": "在下拉菜单隐藏之后emit事件."
+          },
+          {
+            "event": "toggle",
+            "description": "下拉按钮点击时emit事件"
+          },
+          {
+            "event": "click",
+            "description": "split模式时， 下拉按钮点击emit事件",
+            "args": [
+              {
+                "arg": "event",
+                "type": "鼠标事件",
+                "description": "原生事件"
+              }
+            ]
+          },
+          {
+            "event": "nly::dropdown::show",
+            "description": "在下拉菜单显示之前emit到root事件，可回调",
+            "args": [
+              {
+                "arg": "nlyEvt",
+                "type": "NlyEvent",
+                "description": "NlyEvent对象， 调用 nltEvt.preventDefault() 阻止显示"
+              }
+            ]
+          },
+          {
+            "event": "nly::dropdown::hide",
+            "description": "在下拉菜单隐藏之前emit到root事件，可回调",
+            "args": [
+              {
+                "arg": "nlyEvt",
+                "type": "NlyEvent",
+                "description": "NlyEvent对象， 调用 nltEvt.preventDefault() 阻止隐藏"
+              }
+            ]
+          }
+        ],
+        "slots": [
+          {
+            "name": "button-content",
+            "description": "用来设置按钮内容，替换掉text等，可以插入其他组件"
+          },
+          {
+            "name": "default",
+            "description": "下拉菜单默认插槽",
+            "scope": [
+              {
+                "prop": "hide",
+                "type": "Function",
+                "description": "用来隐藏下拉菜单"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "NlyDropdownItem",
+        "aliases": [
+          "NlyDdItem"
+        ],
+        "props": [
+          {
+            "prop": "linkClass",
+            "version": "0.4.4",
+            "description": "link元素自定义css"
+          }
+        ],
+        "events": [
+          {
+            "event": "click",
+            "description": "点击emit事件",
+            "args": [
+              {
+                "name": "event",
+                "type": "鼠标事件",
+                "description": "原生事件"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "NlyDropdownItemButton",
+        "aliases": [
+          "NlyDropdownItemBtn",
+          "NlyDdItemButton",
+          "NlyDdItemBtn"
+        ],
+        "props": [
+          {
+            "prop": "buttonClass",
+            "version": "0.4.4",
+            "description": "按钮元素自定义css"
+          }
+        ],
+        "events": [
+          {
+            "event": "click",
+            "description": "点击emit事件",
+            "args": [
+              {
+                "name": "event",
+                "type": "鼠标事件",
+                "description": "原生事件"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "NlyDropdownDivider",
+        "aliases": [
+          "NlyDdDivider"
+        ]
+      },
+      {
+        "component": "NlyDropdownForm",
+        "aliases": [
+          "NlyDdForm"
+        ],
+        "props": [
+          {
+            "prop": "inline",
+            "description": "设置true，表单都布局为一行"
+          },
+          {
+            "prop": "novalidate",
+            "description": "设置true，自带验证失效"
+          },
+          {
+            "prop": "validated",
+            "description": "设置true，开启自带验证"
+          },
+          {
+            "prop": "formClass",
+            "version": "0.4.4",
+            "description": "自定义css"
+          }
+        ]
+      },
+      {
+        "component": "NlyDropdownText",
+        "aliases": [
+          "NlyDdText"
+        ]
+      },
+      {
+        "component": "NlyDropdownGroup",
+        "aliases": [
+          "NlyDdGroup"
+        ],
+        "props": [
+          {
+            "prop": "headerClasses",
+            "description": "header自定义css"
+          }
+        ],
+        "slots": [
+          {
+            "name": "header",
+            "description": "header插槽内容"
+          }
+        ]
+      },
+      {
+        "component": "NlyDropdownHeader",
+        "aliases": [
+          "NlyDdHeader"
+        ]
+      },
+      {
+        "component": "NlyDropdownFooter",
+        "aliases": [
+          "NlyDdFooter"
+        ]
+      }
+    ]
+  }
+}

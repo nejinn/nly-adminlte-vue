@@ -10,7 +10,7 @@ import { ContainerPlugin } from "./container";
 import { ContentPlugin } from "./content";
 import { ControlSidebarPlugin } from "./control-sidebar";
 import { FormInputPlugin } from "./form-input";
-import { dropdownPlugin } from "./dropdown";
+import { DropdownPlugin } from "./dropdown";
 import { GridPlugin } from "./grid";
 import { WrapperPlugin } from "./wrapper";
 import { linkPlugin } from "./link";
@@ -45,7 +45,7 @@ export const componentsPlugin = nlyPluginFactory({
     ContainerPlugin,
     ContentPlugin,
     ControlSidebarPlugin,
-    dropdownPlugin,
+    DropdownPlugin,
     FormInputPlugin,
     GridPlugin,
     WrapperPlugin,
