@@ -186,7 +186,7 @@
     "description": "The ID of the element that provides a label for this component. Used as the value for the 'aria-labelledby' attribute"
   },
   "ariaDescribedby": {
-    "description": "The ID of the element that provides additional context for this component. Used as the value for the 'aria-describedby' attribute"
+    "description": "'aria-describedby' 属性"
   },
   "ariaLive": {
     "description": "对屏幕阅读客户端设置aria-live区域。可选 'polite'，'assertive'"

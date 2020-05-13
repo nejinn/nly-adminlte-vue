@@ -180,7 +180,7 @@
         </nly-nav-dropdown>
 
         <nly-nav-item v-nly-control-sidebar-collapse>
-          <nly-icon icon="nlyfont nly-iconfont nly-icon-settings" />
+          <nly-icon icon="nlyfont nly-icon-setting-fill" />
         </nly-nav-item>
       </nly-navbar-nav>
     </nly-navbar>
@@ -214,7 +214,7 @@
             to="/"
             link-class="xxx zzz"
             class="sss"
-            icon="nav-icon fas nlyfont nly-icon-color-palette"
+            icon="nav-icon fas nlyfont nly-icon-dashboard"
             exact
           >
             home
@@ -260,7 +260,7 @@
               to="/nav"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-icon-keypad"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
             >
               nav
@@ -270,7 +270,7 @@
               to="/container"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-icon-container"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
             >
               container
@@ -280,7 +280,7 @@
               to="/grid"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-icon-layout"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
             >
               grid
@@ -296,7 +296,7 @@
               to="/link"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-icon-router-link"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
             >
               link
@@ -316,7 +316,7 @@
               to="/switch"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-icon-switch"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
             >
               switch
@@ -326,7 +326,7 @@
               to="/card"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-icon-filing"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
             >
               card
@@ -336,7 +336,7 @@
               to="/badge"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-icon-badge-small"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
             >
               badge
@@ -357,7 +357,7 @@
               to="/toast"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-icon-toaster"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
             >
               toast
@@ -377,7 +377,7 @@
               to="/progress"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-icon-cog"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
             >
               progress
@@ -416,7 +416,7 @@
               to="/infobox"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-icon-byobu"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
             >
               infobox
@@ -426,7 +426,7 @@
               to="/table"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-icon-table"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
             >
               table
@@ -436,7 +436,7 @@
               to="/tooltip"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-icon-tooltip"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
             >
               tooltip
@@ -446,7 +446,7 @@
               to="/pagination"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-icon-pagination"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
             >
               pagination
@@ -456,7 +456,7 @@
               to="/log"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-icon-router-link-fill"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
             >
               log
@@ -472,7 +472,7 @@
               to="/forminput"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-icon-byobu"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
             >
               form-input
@@ -481,7 +481,7 @@
               to="/formfeedback"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-icon-byobu"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
             >
               form-feedback
@@ -491,7 +491,7 @@
               to="/listgroup"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-icon-router-link-fill"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
             >
               listgroup
@@ -501,7 +501,7 @@
               to="/modal"
               link-class="xxx zzz"
               class="sss"
-              icon="nav-icon far nlyfont nly-icon-router-link-fill"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
             >
               modal

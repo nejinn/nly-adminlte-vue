@@ -1,250 +1,223 @@
 import Vue from "../../utils/vue";
-import {
-  nlyGetOptionsByKeyEqual,
-  nlyGetOptionsByItem
-} from "../../utils/get-options";
-import { NlyButton, props as propsFactory } from "../button/button";
-import { createPopper } from "@popperjs/core";
-import {
-  nlyDropdownParentId,
-  nlyDropdownId,
-  nlyDropdownMenuId
-} from "../../utils/mixin-id";
-import {
-  bgGradientOptions,
-  dropdownPlacementOptions
-} from "../../utils/nly-config";
+import { arrayIncludes } from "../../utils/array";
+import { stripTags } from "../../utils/html";
+import { getComponentConfig } from "../../utils/config";
+import idMixin from "../../mixins/id";
+import dropdownMixin from "../../mixins/dropdown";
+import normalizeSlotMixin from "../../mixins/normalize-slot";
+import { NlyButton } from "../button/button";
 
-const name = "NlyDropdown";
+const NAME = "NlyDropdown";
+
+export const props = {
+  text: {
+    // Button label
+    type: String,
+    default: ""
+  },
+  html: {
+    // Button label
+    type: String
+    // default: undefined
+  },
+  size: {
+    type: String,
+    default: () => getComponentConfig(NAME, "size")
+  },
+  variant: {
+    type: String,
+    default: () => getComponentConfig(NAME, "variant")
+  },
+  block: {
+    type: Boolean,
+    default: false
+  },
+  menuClass: {
+    type: [String, Array, Object]
+    // default: null
+  },
+  toggleTag: {
+    type: String,
+    default: "button"
+  },
+  toggleText: {
+    // This really should be toggleLabel
+    type: String,
+    default: () => getComponentConfig(NAME, "toggleText")
+  },
+  toggleClass: {
+    type: [String, Array, Object]
+    // default: null
+  },
+  noCaret: {
+    type: Boolean,
+    default: false
+  },
+  split: {
+    type: Boolean,
+    default: false
+  },
+  splitHref: {
+    type: String
+    // default: undefined
+  },
+  splitTo: {
+    type: [String, Object]
+    // default: undefined
+  },
+  splitVariant: {
+    type: String,
+    default: () => getComponentConfig(NAME, "splitVariant")
+  },
+  splitClass: {
+    type: [String, Array, Object]
+    // default: null
+  },
+  splitButtonType: {
+    type: String,
+    default: "button",
+    validator: value => arrayIncludes(["button", "submit", "reset"], value)
+  },
+  lazy: {
+    // If true, only render menu contents when open
+    type: Boolean,
+    default: false
+  },
+  role: {
+    type: String,
+    default: "menu"
+  }
+};
 
 export const NlyDropdown = Vue.extend({
-  name: name,
-  data() {
-    return {
-      show: false,
-      dropdown: "",
-      dropdownMenu: "",
-      dropdownInstance: null,
-      dropdownBoundary: ""
-    };
-  },
-  props: {
-    ...propsFactory,
-    vertical: {
-      type: Boolean,
-      default: false
-    },
-    dropdownSize: {
-      type: String
-    },
-    dropdownTag: {
-      type: String,
-      default: "div"
-    },
-    dropdownToggle: {
-      type: Boolean,
-      default: false
-    },
-    dropdownIcon: {
-      type: Boolean,
-      default: false
-    },
-    text: {
-      type: String
-    },
-    toggleText: {
-      type: String,
-      default: "Nly Toggle Dropdown"
-    },
-    dropdownClass: {
-      type: String
-    },
-    dataShow: {
-      type: String,
-      required: true
-    },
-    placement: {
-      type: String,
-      default: "auto"
-    }
-  },
+  name: NAME,
+  mixins: [idMixin, dropdownMixin, normalizeSlotMixin],
+  props,
   computed: {
-    customDropdownTag: function() {
-      return this.dropdownTag;
-    },
-    customVertical: function() {
-      return this.vertical ? "btn-group-vertical" : "btn-group";
-    },
-    customDropdownSize: function() {
-      return nlyGetOptionsByKeyEqual(bgGradientOptions, this.dropdownSize);
-    },
-    customDropdownToggle: function() {
-      return this.dropdownToggle ? "dropdown-toggle" : "";
-    },
-    customDropdownIcon: function() {
-      if (this.dropdownToggle) {
-        return this.dropdownIcon ? "dropdown-icon" : "";
-      } else {
-        return "";
-      }
-    },
-    customText: function() {
-      return this.text;
-    },
-    customToggleText: function() {
-      return this.toggleText;
-    },
-    customDropdownClass: function() {
-      return this.dropdownClass;
-    },
-    customDataShow: function() {
-      return this.dataShow;
-    },
-    customDropdownId: function() {
-      return nlyDropdownId(this.dataShow);
-    },
-    customDropdownParentId: function() {
-      return nlyDropdownParentId(this.dataShow);
-    },
-    customDropDownMenuId: function() {
-      return nlyDropdownMenuId(this.dataShow);
-    },
-    customPlacement: function() {
-      return nlyGetOptionsByItem(dropdownPlacementOptions, this.placement);
-    }
-  },
-  methods: {
-    dropdownCreate() {
-      this.dropdownInstance = createPopper(this.dropdown, this.dropdownMenu, {
-        placement: this.customPlacement,
-        modifiers: [
-          {
-            name: "flip",
-            options: {
-              fallbackPlacements: ["auto"]
-            },
-            enabled: true
-          },
-          {
-            name: "preventOverflow",
-            options: {
-              boundary: this.dropdownBoundary
-            }
-          }
-        ]
-      });
-    },
-    dropdownDestroy() {
-      if (this.dropdownInstance) {
-        this.dropdownInstance.destroy();
-        this.dropdownInstance = null;
-      }
-    },
-    dropdownShow() {
-      if (this.show == false) {
-        this.dropdownMenu.classList.add("show");
-        this.dropdown.setAttribute("aria-expanded", true);
-        this.dropdownCreate(
-          this.dropdownInstance,
-          this.dropdown,
-          this.dropdownMenu
-        );
-        this.show = true;
-      } else {
-        this.dropdownMenu.classList.remove("show");
-        this.dropdown.setAttribute("aria-expanded", false);
-        this.dropdownDestroy(this.dropdownInstance);
-        this.show = false;
-      }
-    },
-    dropdownHide() {
-      this.dropdownInstance = null;
-      this.dropdownMenu.classList.remove("show");
-      this.dropdown.setAttribute("aria-expanded", false);
-      this.dropdownDestroy(this.dropdownInstance);
-    },
-    clickOutside(e) {
-      if (!this.$el.contains(e.target)) {
-        this.show = false;
-        this.dropdownInstance = null;
-        this.dropdownMenu.classList.remove("show");
-        this.dropdown.setAttribute("aria-expanded", false);
-        this.dropdownDestroy(this.dropdownInstance);
-      }
-    }
-  },
-  mounted() {
-    this.dropdown = document.querySelector(`#${this.customDropdownId}`);
-    this.dropdownMenu = document.querySelector(`#${this.customDropDownMenuId}`);
-    this.dropdownBoundary = document.querySelector(
-      `#${this.customDropdownParentId}`
-    );
-
-    this.dropdownInstance = null;
-
-    this.dropdown.addEventListener("click", this.dropdownShow);
-  },
-  watch: {
-    show(newVal) {
-      if (newVal == true) {
-        document.addEventListener("click", this.clickOutside);
-      } else {
-        document.removeEventListener("click", this.clickOutside);
-      }
-    }
-  },
-
-  render(h) {
-    let toggleDropdownArray = "";
-    if (this.customToggleText) {
-      toggleDropdownArray = h(
-        "span",
+    dropdownClasses() {
+      return [
+        this.directionClass,
         {
-          staticClass: "sr-only"
-        },
-        this.customToggleText
-      );
-    } else {
-      toggleDropdownArray = "";
+          show: this.visible,
+          "btn-group": this.split || !this.block,
+          "d-flex": this.block && this.split,
+          "position-static": this.boundary !== "scrollParent" || !this.boundary
+        }
+      ];
+    },
+    menuClasses() {
+      return [
+        this.menuClass,
+        {
+          "dropdown-menu-right": this.right,
+          show: this.visible
+        }
+      ];
+    },
+    toggleClasses() {
+      return [
+        this.toggleClass,
+        {
+          "dropdown-toggle-split": this.split,
+          "dropdown-toggle-no-caret": this.noCaret && !this.split
+        }
+      ];
     }
-    const hoverArray = h(
+  },
+  render(h) {
+    let split = h();
+    const buttonContent =
+      this.normalizeSlot("button-content") || this.html || stripTags(this.text);
+    if (this.split) {
+      const btnProps = {
+        variant: this.splitVariant || this.variant,
+        size: this.size,
+        block: this.block,
+        disabled: this.disabled
+      };
+      // We add these as needed due to router-link issues with defined property with undefined/null values
+      if (this.splitTo) {
+        btnProps.to = this.splitTo;
+      } else if (this.splitHref) {
+        btnProps.href = this.splitHref;
+      } else if (this.splitButtonType) {
+        btnProps.type = this.splitButtonType;
+      }
+      split = h(
+        NlyButton,
+        {
+          ref: "button",
+          props: btnProps,
+          class: this.splitClass,
+          attrs: {
+            id: this.safeId("_NLY_button_")
+          },
+          on: {
+            click: this.onSplitClick
+          }
+        },
+        [buttonContent]
+      );
+    }
+    const toggle = h(
       NlyButton,
       {
+        ref: "toggle",
+        staticClass: "dropdown-toggle",
+        class: this.toggleClasses,
         props: {
-          block: this.block,
+          tag: this.toggleTag,
           variant: this.variant,
-          bgVariant: this.bgGradient,
           size: this.size,
-          type: this.type,
-          shape: this.shape,
-          disabled: this.disabled,
-          bgGradient: this.bgGradient,
-          buttonClass: this.buttonClass,
-          tool: this.tool,
-          app: this.app,
-          tag: this.tag,
-          pressed: this.pressed
+          block: this.block && !this.split,
+          disabled: this.disabled
         },
         attrs: {
-          id: this.customDropdownId
+          id: this.safeId("_NLY_toggle_"),
+          "aria-haspopup": "true",
+          "aria-expanded": this.visible ? "true" : "false"
+        },
+        on: {
+          mousedown: this.onMousedown,
+          click: this.toggle,
+          keydown: this.toggle
         }
       },
-      [this.customText, toggleDropdownArray]
+      [
+        this.split
+          ? h("span", { class: ["sr-only"] }, [this.toggleText])
+          : buttonContent
+      ]
     );
-
-    return h(
-      this.customDropdownTag,
+    const menu = h(
+      "ul",
       {
-        class: [
-          this.customVertical,
-          this.customDropdownSize,
-          this.customDropdownClass
-        ],
+        ref: "menu",
+        staticClass: "dropdown-menu",
+        class: this.menuClasses,
         attrs: {
-          id: this.customDropdownParentId
+          role: this.role,
+          tabindex: "-1",
+          "aria-labelledby": this.safeId(
+            this.split ? "_NLY_button_" : "_NLY_toggle_"
+          )
+        },
+        on: {
+          keydown: this.onKeydown
         }
       },
-      [this.$slots.default, hoverArray]
+      !this.lazy || this.visible
+        ? this.normalizeSlot("default", { hide: this.hide })
+        : [h()]
+    );
+    return h(
+      "div",
+      {
+        staticClass: "dropdown nly-dropdown",
+        class: this.dropdownClasses,
+        attrs: { id: this.safeId() }
+      },
+      [split, toggle, menu]
     );
   }
 });

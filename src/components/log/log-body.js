@@ -46,7 +46,7 @@ export const NlyLogBody = Vue.extend({
     },
     lockBottomIcon: {
       type: String,
-      default: "nlyfont nly-icon-router-link-fill"
+      default: "nlyfont nly-icon-logo-ionic"
     },
     lockBottomText: {
       type: String,

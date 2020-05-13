@@ -83,7 +83,7 @@
 * 栅格布局 grid row col
 * 容器 container
 * 正文容器 content
-* 包装容器 wrapper
+* 布局容器 wrapper
 * 文字路由 link
 * 按钮 button
 * 开关 switch
@@ -109,6 +109,7 @@
 * 日志组件 log
 * 列表 list-group
 * 弹框 modal
+* tab标签 tabs
 
 ## 4.2. 指令
 

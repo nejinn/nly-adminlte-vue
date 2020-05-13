@@ -40,6 +40,8 @@ const fixedNavbar = () => import("../views/example/fixedNavbar.vue");
 
 const tabs = () => import("../views/example/tab.vue");
 
+const dropdown = () => import("../views/example/dropdown.vue");
+
 const routes = [
   {
     path: "/",
@@ -50,6 +52,11 @@ const routes = [
         path: "/tabs",
         name: "tabs",
         component: tabs
+      },
+      {
+        path: "/dropdown",
+        name: "dropdown",
+        component: dropdown
       },
       {
         path: "/container",

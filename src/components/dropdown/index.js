@@ -1,11 +1,48 @@
-import { nlyPluginFactory } from "../../utils/plugins";
 import { NlyDropdown } from "./dropdown";
-import { NlyDropdownMenu } from "./dropdown-menu";
+import { NlyDropdownItem } from "./dropdown-item";
+import { NlyDropdownItemButton } from "./dropdown-item-button";
+import { NlyDropdownHeader } from "./dropdown-header";
+import { NlyDropdownDivider } from "./dropdown-divider";
+import { NlyDropdownForm } from "./dropdown-form";
+import { NlyDropdownText } from "./dropdown-text";
+import { NlyDropdownGroup } from "./dropdown-group";
+import { NlyDropdownFooter } from "./dropdown-footer";
+import { nlyPluginFactory } from "../../utils/plugins";
 
-const dropdownPlugin = nlyPluginFactory({
+const DropdownPlugin = nlyPluginFactory({
   components: {
     NlyDropdown,
-    NlyDropdownMenu
+    NlyDd: NlyDropdown,
+    NlyDropdownItem,
+    NlyDdItem: NlyDropdownItem,
+    NlyDropdownItemButton,
+    NlyDropdownItemBtn: NlyDropdownItemButton,
+    NlyDdItemButton: NlyDropdownItemButton,
+    NlyDdItemBtn: NlyDropdownItemButton,
+    NlyDropdownHeader,
+    NlyDdHeader: NlyDropdownHeader,
+    NlyDropdownDivider,
+    NlyDdDivider: NlyDropdownDivider,
+    NlyDropdownForm,
+    NlyDdForm: NlyDropdownForm,
+    NlyDropdownText,
+    NlyDdText: NlyDropdownText,
+    NlyDropdownGroup,
+    NlyDdGroup: NlyDropdownGroup,
+    NlyDropdownFooter,
+    NlyDdFooter: NlyDropdownFooter
   }
 });
-export { dropdownPlugin, NlyDropdown, NlyDropdownMenu };
+
+export {
+  DropdownPlugin,
+  NlyDropdown,
+  NlyDropdownItem,
+  NlyDropdownItemButton,
+  NlyDropdownHeader,
+  NlyDropdownDivider,
+  NlyDropdownForm,
+  NlyDropdownText,
+  NlyDropdownGroup,
+  NlyDropdownFooter
+};
