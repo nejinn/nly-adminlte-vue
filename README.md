@@ -42,11 +42,11 @@
 - [2. demo](#2-demo)
 - [3. 文档](#3-文档)
 - [4. 进度](#4-进度)
-  - [4.1. 组件](#41-组件)
-  - [4.2. 指令](#42-指令)
-  - [4.3. 使用](#43-使用)
-    - [4.3.1. 可以直接clone下载项目](#431-可以直接clone下载项目)
-    - [4.3.2. 从npm下载](#432-从npm下载)
+    - [4.1. 组件](#41-组件)
+    - [4.2. 指令](#42-指令)
+    - [4.3. 使用](#43-使用)
+        - [4.3.1. 可以直接clone下载项目](#431-可以直接clone下载项目)
+        - [4.3.2. 从npm下载](#432-从npm下载)
 - [5. 感谢](#5-感谢)
 
 <!-- /TOC -->
@@ -60,7 +60,7 @@
 # 2. demo
 
 > demo可以看到跟master同步的组件。点击下面
-[nly-daminlte-vue-demo](https://nejinn.github.io/nly-adminlte-vue-demo)
+[nly-daminlte-vue-demo](http://nly-adminlte-vue-demo.nejinn.com/#/)
 
 ![demoPic](https://github.com/nejinn/nly-adminlte-vue/blob/master/static/demoPic.png)
 ![demo](https://github.com/nejinn/nly-adminlte-vue/blob/master/static/demo.gif)
