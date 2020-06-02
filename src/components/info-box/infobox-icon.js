@@ -2,54 +2,53 @@ import Vue from "../../utils/vue";
 import { NlyIcon } from "../icons/icon";
 import { bgVariantOptions, bgGradientOptions } from "../../utils/nly-config";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
+import { mergeData } from "vue-functional-data-merge";
+
+export const props = {
+  icon: {
+    type: String,
+    required: true
+  },
+  bgVariant: {
+    type: String
+  },
+  bgGradientVariant: {
+    type: String
+  },
+  infoboxIconClass: {
+    type: String
+  },
+  tag: {
+    type: String,
+    default: "span"
+  }
+};
+
+const customClass = props => {
+  const bgVariant = () =>
+    nlyGetOptionsByKeyEqual(bgVariantOptions, props.bgVariant);
+  const bgGradientVariant = () =>
+    nlyGetOptionsByKeyEqual(bgGradientOptions, props.bgGradientVariant);
+  return [bgVariant(), bgGradientVariant(), props.infoboxIconClass];
+};
 
 const name = "NlyInfoboxIcon";
 
 export const NlyInfoboxIcon = Vue.extend({
   name: name,
-  props: {
-    icon: {
-      type: String,
-      required: true
-    },
-    bgVariant: {
-      type: String
-    },
-    bgGradientVariant: {
-      type: String
-    },
-    infoboxIconClass: {
-      type: String
-    }
-  },
-  computed: {
-    customProps: function() {
-      return {
-        icon: this.icon,
-        bgVariant: nlyGetOptionsByKeyEqual(bgVariantOptions, this.bgVariant),
-        bgGradientVariant: nlyGetOptionsByKeyEqual(
-          bgGradientOptions,
-          this.bgGradientVariant
-        ),
-        infoboxIconClass: this.infoboxIconClass
-      };
-    }
-  },
-  render(h) {
+  functional: true,
+  props,
+  render(h, { props, data }) {
     return h(
-      "span",
-      {
+      props.tag,
+      mergeData(data, {
         staticClass: "info-box-icon",
-        class: [
-          this.customProps.infoboxIconClass,
-          this.customProps.bgVariant,
-          this.customProps.bgGradientVariant
-        ]
-      },
+        class: customClass(props)
+      }),
       [
         h(NlyIcon, {
           props: {
-            icon: this.customProps.icon
+            icon: props.icon
           }
         })
       ]
