@@ -1,0 +1,120 @@
+{
+  "name": "@nly-adminlte-vue/info-box",
+  "version": "1.0.0",
+  "meta": {
+    "title": "Info Box",
+    "subtitle": "信息盒",
+    "description": "信息盒是一个用于展示简单重要数据的卡片组件",
+    "components": [
+      {
+        "component": "NlyInfobox",
+        "props": [
+          {
+            "prop": "dark",
+            "description": "loading式样，默认light，设置dark=true为黑色"
+          },
+          {
+            "prop": "loading",
+            "description": "开启图标，图片和文字loading"
+          },
+          {
+            "prop": "loadingContent",
+            "description": "自定义loading文字内容，设置loading为true的时候，生效，传入内容会覆盖icon-loading"
+          },
+          {
+            "prop": "loadingContentTag",
+            "description": "自定义loading文字内容标签，设置loading为true的时候，生效"
+          },
+          {
+            "prop": "loadingContentClass",
+            "description": "自定义loading文字内容css式样，设置loading为true的时候，生效"
+          },
+          {
+            "prop": "loadingIcon",
+            "description": "开启loading情况下默认loading内容。如果传入loading-content，会覆盖loading-icon"
+          },
+          {
+            "prop": "loadingImgSrc",
+            "description": "loading图片url，在设置loading为true的时候，传入loading-img-src参数会显示loadingimg"
+          },
+          {
+            "prop": "loadingImgClass",
+            "description": "loading图片自定义css式样，在传入loading-img-src的时候，loading-img-class生效"
+          }
+        ]
+      },
+      {
+        "component": "NlyInfoboxBody",
+        "props": [
+          {
+            "prop": "text",
+            "description": "传入text会渲染一个nly-infobox-text组件"
+          },
+          {
+            "prop": "textClass",
+            "description": "nly-infobox-text组件自定义css"
+          },
+          {
+            "prop": "number",
+            "description": "传入number会渲染一个nly-infobox-number组件"
+          },
+          {
+            "prop": "numberClass",
+            "description": "nly-infobox-number组件自定义css"
+          },
+          {
+            "prop": "infoBoxBodyClass",
+            "description": "自定义css式样"
+          },
+          {
+            "prop": "progressValue",
+            "description": "传入progress-value会渲染一个nly-progress组件，value为progress-value"
+          },
+          {
+            "prop": "progressDescription",
+            "description": "传入progress-description会渲染一个nly-progress-description组件，text为progress-description"
+          }
+        ]
+      },
+      {
+        "component": "NlyInfoboxIcon",
+        "props": [
+          {
+            "prop": "icon",
+            "description": "图标名称"
+          },
+          {
+            "prop": "infoboxIconClass",
+            "description": "自定义css式样"
+          }
+        ]
+      },
+      {
+        "component": "NlyInfoboxNumber",
+        "props": [
+          {
+            "prop": "number",
+            "description": "组件文本内容。当number不以props传入而是用默认插槽传入时，不会转换为货币数字"
+          },
+          {
+            "prop": "numberClass",
+            "description": "自定义css式样"
+          }
+        ]
+      },
+      {
+        "component": "NlyInfoboxText",
+        "props": [
+          {
+            "prop": "textClass",
+            "description": "自定义css"
+          },
+          {
+            "prop": "text",
+            "description": "文本内容"
+          }
+        ]
+      }
+    ]
+  }
+}

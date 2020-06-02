@@ -6,40 +6,59 @@ import { NlyInfoboxText } from "./infobox-text";
 import { NlyInfoboxNumber } from "./infobox-number";
 import { NlyProgress } from "../progress/progress";
 import { NlyProgressDescription } from "../progress/progress-description";
+import { mergeData } from "vue-functional-data-merge";
+
+export const props = {
+  bgVariant: {
+    type: String
+  },
+  bgGradientVariant: {
+    type: String
+  },
+  infoboxBodyClass: {
+    type: String
+  },
+  text: {
+    type: String
+  },
+  textClass: {
+    type: String
+  },
+  number: {
+    type: [String, Number]
+  },
+  numberClass: {
+    type: String
+  },
+  progressValue: {
+    type: [String, Number]
+  },
+  progressDescription: {
+    type: String
+  },
+  tag: {
+    type: String,
+    default: "div"
+  }
+};
+
+const customClass = props => {
+  const bgVariant = () =>
+    nlyGetOptionsByKeyEqual(bgVariantOptions, props.bgVariant);
+  const bgGradientVariant = () =>
+    nlyGetOptionsByKeyEqual(bgGradientOptions, props.bgGradientVariant);
+
+  const infoboxBodyClass = props.infoboxBodyClass;
+
+  return [bgVariant(), bgGradientVariant(), infoboxBodyClass];
+};
 
 const name = "NlyInfoboxBody";
 
 export const NlyInfoboxBody = Vue.extend({
   name: name,
-  props: {
-    bgVariant: {
-      type: String
-    },
-    bgGradientVariant: {
-      type: String
-    },
-    infoboxBodyClass: {
-      type: String
-    },
-    text: {
-      type: String
-    },
-    textClass: {
-      type: String
-    },
-    number: {
-      type: [String, Number]
-    },
-    numberClass: {
-      type: String
-    },
-    progressValue: {
-      type: [String, Number]
-    },
-    progressDescription: {
-      type: String
-    }
-  },
+  props,
+  functional: true,
   computed: {
     customProps: function() {
       return {
@@ -58,64 +77,60 @@ export const NlyInfoboxBody = Vue.extend({
       };
     }
   },
-  render(h) {
+  render(h, { props, data, children }) {
     const textArray = () => {
-      if (this.customProps.text) {
+      if (props.text) {
         return h(NlyInfoboxText, {
           props: {
-            textClass: this.customProps.textClass,
-            text: this.customProps.text
+            textClass: props.textClass,
+            text: props.text
           }
         });
       }
     };
 
     const numberArray = () => {
-      if (this.customProps.number) {
+      if (props.number) {
         return h(NlyInfoboxNumber, {
           props: {
-            numberClass: this.customProps.numberClass,
-            number: this.customProps.number
+            numberClass: props.numberClass,
+            number: props.number
           }
         });
       }
     };
 
     const progressArray = () => {
-      if (this.customProps.progressValue) {
+      if (props.progressValue) {
         return h(NlyProgress, {
           props: {
-            value: this.customProps.progressValue
+            value: props.progressValue
           }
         });
       }
     };
 
     const progressDescriptionArray = () => {
-      if (this.customProps.progressDescription) {
+      if (props.progressDescription) {
         return h(NlyProgressDescription, {
           props: {
-            text: this.customProps.progressDescription
+            text: props.progressDescription
           }
         });
       }
     };
     return h(
-      "div",
-      {
+      props.tag,
+      mergeData(data, {
         staticClass: "info-box-content",
-        class: [
-          this.customProps.infoboxBodyClass,
-          this.customProps.bgVariant,
-          this.customProps.bgGradientVariant
-        ]
-      },
+        class: customClass(props)
+      }),
       [
         textArray(),
         numberArray(),
         progressArray(),
         progressDescriptionArray(),
-        this.$slots.default
+        children
       ]
     );
   }

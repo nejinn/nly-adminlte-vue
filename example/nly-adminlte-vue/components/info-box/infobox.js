@@ -3,74 +3,69 @@ import { bgVariantOptions, bgGradientOptions } from "../../utils/nly-config";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
 import { NlyIcon } from "../icons/icon";
 import { NlyOverlay } from "../overlay/overlay";
+import { mergeData } from "vue-functional-data-merge";
+
+export const props = {
+  bgVariant: {
+    type: String
+  },
+  bgGradientVariant: {
+    type: String
+  },
+  tag: {
+    type: String,
+    default: "div"
+  },
+  loading: {
+    type: Boolean,
+    default: false
+  },
+  loadingContent: {
+    type: String
+  },
+  loadingContentTag: {
+    type: String,
+    default: "p"
+  },
+  loadingContentClass: {
+    type: String
+  },
+  loadingIcon: {
+    type: String,
+    default: "fas fa-2x fa-sync-alt fa-spin"
+  },
+  loadingImgSrc: {
+    type: String
+  },
+  loadingImgClass: {
+    type: String
+  },
+  dark: {
+    type: Boolean,
+    default: false
+  }
+};
+
+const customBgVariant = props =>
+  nlyGetOptionsByKeyEqual(bgVariantOptions, props.bgVariant);
+
+const customBgGradientVariant = props =>
+  nlyGetOptionsByKeyEqual(bgGradientOptions, props.bgGradientVariant);
 
 const name = "NlyInfobox";
 
 export const NlyInfobox = Vue.extend({
   name: name,
-  props: {
-    bgVariant: {
-      type: String
-    },
-    bgGradientVariant: {
-      type: String
-    },
-    loading: {
-      type: Boolean,
-      default: false
-    },
-    loadingContent: {
-      type: String
-    },
-    loadingContentTag: {
-      type: String,
-      default: "p"
-    },
-    loadingContentClass: {
-      type: String
-    },
-    loadingIcon: {
-      type: String,
-      default: "fas fa-2x fa-sync-alt fa-spin"
-    },
-    loadingImgSrc: {
-      type: String
-    },
-    loadingImgClass: {
-      type: String
-    },
-    dark: {
-      type: Boolean,
-      default: false
-    }
-  },
-  computed: {
-    customProps: function() {
-      return {
-        bgVariant: nlyGetOptionsByKeyEqual(bgVariantOptions, this.bgVariant),
-        bgGradientVariant: nlyGetOptionsByKeyEqual(
-          bgGradientOptions,
-          this.bgGradientVariant
-        ),
-        loading: this.loading,
-        loadingContent: this.loadingContent,
-        loadingContentTag: this.loadingContentTag,
-        loadingContentClass: this.loadingContentClass,
-        loadingIcon: this.loadingIcon,
-        loadingImgSrc: this.loadingImgSrc,
-        loadingImgClass: this.loadingImgClass,
-        dark: this.dark
-      };
-    }
-  },
-  render(h) {
+  functional: true,
+  props,
+  render(h, { props, data, children }) {
     const overlayArray = () => {
-      if (this.customProps.loadingContent) {
+      if (props.loadingContent) {
         return h(
           NlyOverlay,
           {
             props: {
-              dark: this.customProps.dark
+              dark: props.dark
             }
           },
           [loadingContentArray()]
@@ -80,7 +75,7 @@ export const NlyInfobox = Vue.extend({
           NlyOverlay,
           {
             props: {
-              dark: this.customProps.dark
+              dark: props.dark
             }
           },
           [loadingIcon()]
@@ -90,18 +85,18 @@ export const NlyInfobox = Vue.extend({
 
     const loadingContentArray = () => {
       return h(
-        this.customProps.loadingContentTag,
+        props.loadingContentTag,
         {
-          class: [this.customProps.loadingContentClass]
+          class: [props.loadingContentClass]
         },
-        this.customProps.loadingContent
+        props.loadingContent
       );
     };
 
     const loadingIcon = () => {
       return h(NlyIcon, {
         props: {
-          icon: this.customProps.loadingIcon
+          icon: props.loadingIcon
         }
       });
     };
@@ -110,29 +105,29 @@ export const NlyInfobox = Vue.extend({
       return h("img", {
         attrs: {
           alt: "loading-img",
-          src: this.customProps.loadingImgSrc
+          src: props.loadingImgSrc
         },
         staticClass: "loading-img",
-        class: [this.customProps.loadingImgClass]
+        class: [props.loadingImgClass]
       });
     };
 
     const loadingArray = () => {
-      if (this.customProps.loading && !this.customProps.loadingImgSrc) {
-        return [this.$slots.default, overlayArray()];
-      } else if (this.customProps.loading && this.customProps.loadingImgSrc) {
-        return [this.$slots.default, loadingImgArray()];
+      if (props.loading && !props.loadingImgSrc) {
+        return [children, overlayArray()];
+      } else if (props.loading && props.loadingImgSrc) {
+        return [children, loadingImgArray()];
       } else {
-        return [this.$slots.default];
+        return children;
       }
     };
     return h(
-      "div",
-      {
+      props.tag,
+      mergeData(data, {
         staticClass: "info-box",
-        class: [this.customProps.bgVariant, this.customProps.bgGradientVariant]
-      },
-      [loadingArray()]
+        class: [customBgVariant(props), customBgGradientVariant(props)]
+      }),
+      loadingArray()
     );
   }
 });
