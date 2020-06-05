@@ -71,6 +71,8 @@
 
 > [nly-daminlte-vue-docs](http://nly-adminlte-vue.nejinn.com/)
 
+**注意** : 目前文档还没有完全迁移到网站上，网站上没有文档的可以在对应组件文件夹下面的README.md查看
+
 # 4. 进度
 
 > 目前已经封装完成
