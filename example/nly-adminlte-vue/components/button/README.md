@@ -12,24 +12,19 @@ nly-button 组件因为有 3 种类型的背景色，所以默认是没有颜色
 <nly-button variant="dark">dark</nly-button>
 <nly-button variant="primary">primary</nly-button>
 <nly-button variant="primary">
-    <nly-icon icon="nlyfont nly-icon-sr-chuangxinfuwu-fill
--icon-outlet" />
+    <nly-icon icon="nlyfont nly-icon-outlet" />
 </nly-button>
 <nly-button variant="info">
-    <nly-icon icon="nlyfont nly-icon-sr-chuangxinfuwu-fill
--icon-outlet" />
+    <nly-icon icon="nlyfont nly-icon-outlet" />
 </nly-button>
 <nly-button variant="outlineDanger">
-    <nly-icon icon="nlyfont nly-icon-sr-chuangxinfuwu-fill
--icon-outlet" />
+    <nly-icon icon="nlyfont nly-icon-outlet" />
 </nly-button>
 <nly-button variant="success">
-    <nly-icon icon="nlyfont nly-icon-sr-chuangxinfuwu-fill
--icon-outlet" />
+    <nly-icon icon="nlyfont nly-icon-outlet" />
 </nly-button>
 <nly-button variant="secondary">
-    <nly-icon icon="nlyfont nly-icon-sr-chuangxinfuwu-fill
--icon-outlet" />
+    <nly-icon icon="nlyfont nly-icon-outlet" />
 </nly-button>
 
 <!-- 总览.name -->
@@ -166,7 +161,7 @@ nly-button 组件因为有 3 种类型的背景色，所以默认是没有颜色
     <nly-button bg-gradient-variant="graydark" block>block</nly-button>
 </div>
 
-<!-- block.name -->
+<!-- block.name-->
 <!-- nly-button.vue -->
 ```
 
@@ -253,8 +248,7 @@ nly-button 组件因为有 3 种类型的背景色，所以默认是没有颜色
 
 ``` html
 <nly-button app variant="danger">
-    <nly-icon icon="nlyfont nly-icon-sr-chuangxinfuwu-fill
--icon-breadcrumb-fill" />
+    <nly-icon icon="nlyfont nly-icon-breadcrumb-fill" />
 </nly-button>
 
 <!-- app.name -->
