@@ -60,6 +60,7 @@ export default {
         {
           duration: "20s",
           title: "info",
+          icon: "nlyfont nly-icon-arrow-bottom",
           text:
             "$ git clone --depth=50 --branch=[secure] https://github.com/[secure]/nly-adminlte-vue.git [secure]/nly-adminlte-vue"
         }

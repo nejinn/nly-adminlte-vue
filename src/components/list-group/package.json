@@ -4,7 +4,7 @@
   "meta": {
     "title": "List group",
     "subtitle": "列表组",
-    "description": "列表组是一个非常灵活的且可以以列表形式展示其他任何组件的组件，甚至可以用作导航。",
+    "description": "列表组是一个非常灵活的且可以以列表形式展示其他任何组件的组件，甚至可以用作导航",
     "components": [
       {
         "component": "NlyListGroup",
