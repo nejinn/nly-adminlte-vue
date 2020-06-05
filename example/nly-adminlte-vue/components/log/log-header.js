@@ -1,20 +1,32 @@
 import Vue from "../../utils/vue";
+import { mergeData } from "vue-functional-data-merge";
 
 const name = "NlyLogHeader";
 
+export const props = {
+  title: {
+    type: String
+  },
+  titleClass: {
+    type: String
+  },
+  logHeaderClass: {
+    type: String
+  },
+  tag: {
+    type: String,
+    default: "div"
+  },
+  titleTag: {
+    type: String,
+    default: "div"
+  }
+};
+
 export const NlyLogHeader = Vue.extend({
   name: name,
-  props: {
-    title: {
-      type: String
-    },
-    titleClass: {
-      type: String
-    },
-    logHeaderClass: {
-      type: String
-    }
-  },
+  props,
+  functional: true,
   computed: {
     customTitle() {
       return this.title;
@@ -26,38 +38,38 @@ export const NlyLogHeader = Vue.extend({
       return this.logHeaderClass;
     }
   },
-  render(h) {
+  render(h, { props, data, children }) {
     const headerVnodes = () => {
-      if (this.title) {
+      if (props.title) {
         return h(
-          "div",
-          {
+          props.tag,
+          mergeData(data, {
             staticClass: "nly-log-header",
-            class: [this.customHeaderClass]
-          },
+            class: [props.logHeaderClass]
+          }),
           [
             h(
-              "div",
+              props.titleTag,
               {
                 staticClass: "nly-log-header-title",
-                class: [this.customTitleClass]
+                class: [props.titleClass]
               },
-              this.customTitle
+              props.title
             ),
-            this.$slots.default
+            children
           ]
         );
       } else {
         return h(
-          "div",
+          props.tag,
           {
-            staticClass: "nly-log-header"
+            staticClass: "nly-log-header",
+            class: [props.logHeaderClass]
           },
-          this.$slots.default
+          children
         );
       }
     };
-
     return headerVnodes();
   }
 });

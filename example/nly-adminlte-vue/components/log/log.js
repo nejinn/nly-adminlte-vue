@@ -1,22 +1,44 @@
 import Vue from "../../utils/vue";
+import { mergeData } from "vue-functional-data-merge";
 
 const name = "NlyLog";
 
+export const props = {
+  tag: {
+    type: String,
+    default: "div"
+  },
+  logClass: {
+    type: String
+  },
+  containerClass: {
+    type: String
+  },
+  containerTag: {
+    type: String,
+    default: "div"
+  }
+};
+
 export const NlyLog = Vue.extend({
   name: name,
-  render(h) {
+  props,
+  functional: true,
+  render(h, { props, data, children }) {
     return h(
-      "div",
-      {
-        staticClass: "nly-log"
-      },
+      props.tag,
+      mergeData(data, {
+        staticClass: "nly-log",
+        class: [props.logClass]
+      }),
       [
         h(
-          "div",
+          props.containerTag,
           {
-            staticClass: "nly-log-container"
+            staticClass: "nly-log-container",
+            class: [props.containerClass]
           },
-          this.$slots.default
+          children
         )
       ]
     );
