@@ -1,48 +1,56 @@
 import Vue from "../../utils/vue";
+import { mergeData } from "vue-functional-data-merge";
 
 const name = "NlyLogLine";
 
+export const props = {
+  duration: {
+    type: String
+  },
+  durationClass: {
+    type: String
+  },
+  line: {
+    type: [String, Number]
+  },
+  lineClass: {
+    type: String
+  },
+  text: {
+    type: String
+  },
+  textClass: {
+    type: String
+  },
+  title: {
+    type: String
+  },
+  titleClass: {
+    type: String
+  },
+  icon: {
+    type: String
+  },
+  iconClass: {
+    type: String
+  },
+  logLineClass: {
+    type: String
+  },
+  highLight: {
+    type: Boolean,
+    default: false
+  },
+  tag: {
+    type: String,
+    default: "div"
+  }
+};
+
 export const NlyLogLine = Vue.extend({
   name: name,
-  props: {
-    duration: {
-      type: String
-    },
-    durationClass: {
-      type: String
-    },
-    line: {
-      type: [String, Number]
-    },
-    lineClass: {
-      type: String
-    },
-    text: {
-      type: String
-    },
-    textClass: {
-      type: String
-    },
-    title: {
-      type: String
-    },
-    titleClass: {
-      type: String
-    },
-    icon: {
-      type: String
-    },
-    iconClass: {
-      type: String
-    },
-    logLineClass: {
-      type: String
-    },
-    highLight: {
-      type: Boolean,
-      default: false
-    }
-  },
+  props,
+  functional: true,
   computed: {
     customLogLineClass() {
       return this.logLineClass;
@@ -81,82 +89,83 @@ export const NlyLogLine = Vue.extend({
       return this.highLight ? "highlight" : "";
     }
   },
-  render(h) {
+  render(h, { props, data, children }) {
     const durationVnodes = () => {
-      if (this.customDuration) {
+      if (props.customDuration) {
         return h(
           "span",
           {
             staticClass: "duration",
-            class: [this.customDurationClass]
+            class: [props.durationClass]
           },
-          this.customDuration
+          props.duration
         );
       }
     };
 
     const lineVnodes = () => {
-      if (this.customLine || this.customLine === 0) {
+      if (props.line || props.line === 0) {
         return h(
           "span",
           {
             staticClass: "index",
-            class: [this.customLineClass]
+            class: [props.lineClass]
           },
-          this.customLine
+          props.line
         );
       }
     };
 
     const textVnodes = () => {
-      if (this.customText) {
+      if (props.text) {
         return h(
           "span",
           {
             staticClass: "text",
-            class: [this.customTextClass]
+            class: [props.textClass]
           },
-          this.customText
+          props.text
         );
       } else {
         return h(
           "span",
           {
-            class: [this.customTextClass]
+            class: [props.textClass]
           },
-          this.$slots.default
+          children
         );
       }
     };
 
     const titleVnodes = () => {
-      if (this.customTitle) {
+      if (props.title) {
         return h(
           "span",
           {
             staticClass: "title",
-            class: [this.customTitleClass]
+            class: [props.titleClass]
           },
-          this.customTitle
+          props.title
         );
       }
     };
 
     const iconVnode = () => {
-      if (this.customIcon) {
+      if (props.icon) {
         return h("span", {
           staticClass: "left",
-          class: [this.customIcon, this.customIconClass]
+          class: [props.icon, props.iconClass]
         });
       }
     };
 
     return h(
-      "div",
-      {
+      props.tag,
+      mergeData(data, {
         staticClass: "nly-log-line",
-        class: [this.customLogLineClass, this.customHighLight]
-      },
+        class: [props.logLineClass, props.highLight ? "highlight" : ""]
+      }),
+
       [iconVnode(), lineVnodes(), durationVnodes(), titleVnodes(), textVnodes()]
     );
   }
