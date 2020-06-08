@@ -1,149 +1,119 @@
 import Vue from "../../utils/vue";
+import { mergeData } from "vue-functional-data-merge";
+
+export const props = {
+  tag: {
+    type: String,
+    default: "div"
+  },
+  col: {
+    type: Boolean,
+    default: false
+  },
+  xs: {
+    type: String
+  },
+  sm: {
+    type: String
+  },
+  md: {
+    type: String
+  },
+  lg: {
+    type: String
+  },
+  xl: {
+    type: String
+  },
+  offsetXs: {
+    type: String
+  },
+  offsetSm: {
+    type: String
+  },
+  offsetMd: {
+    type: String
+  },
+  offsetLg: {
+    type: String
+  },
+  offsetXl: {
+    type: String
+  },
+  orderXs: {
+    type: String
+  },
+  orderSm: {
+    type: String
+  },
+  orderMd: {
+    type: String
+  },
+  orderLg: {
+    type: String
+  },
+  orderXl: {
+    type: String
+  },
+  colClass: {
+    type: String
+  }
+};
+
+const customClass = props => {
+  const customCol = props.col ? "col" : "";
+  const customXs = props.xs ? `col-${props.xs}` : "";
+  const customSm = props.sm ? `col-sm-${props.sm}` : "";
+  const customMd = props.md ? `col-md-${props.md}` : "";
+  const customLg = props.lg ? `col-lg-${props.lg}` : "";
+  const customXl = props.xl ? `col-xl-${props.xl}` : "";
+  const customOffsetXs = props.offsetXs ? `offset-${props.offsetXs}` : "";
+  const customOffsetSm = props.offsetSm ? `offset-sm-${props.offsetSm}` : "";
+  const customOffsetMd = props.offsetMd ? `offset-md-${props.offsetMd}` : "";
+  const customOffsetLg = props.offsetLg ? `offset-lg-${props.offsetLg}` : "";
+  const customOffsetXl = props.offsetXl ? `offset-xl-${props.offsetXl}` : "";
+  const customOrderXs = props.orderXs ? `order-${props.orderXs}` : "";
+  const customOrderSm = props.orderSm ? `order-sm-${props.orderSm}` : "";
+  const customOrderMd = props.orderMd ? `order-md-${props.orderMd}` : "";
+  const customOrderLg = props.orderLg ? `order-lg-${props.orderLg}` : "";
+  const customOrderXl = props.orderXl ? `order-xl-${props.orderXl}` : "";
+  const customColClass = props.colClass;
+
+  return [
+    customCol,
+    customXs,
+    customSm,
+    customMd,
+    customLg,
+    customXl,
+    customOffsetXs,
+    customOffsetSm,
+    customOffsetMd,
+    customOffsetLg,
+    customOffsetXl,
+    customOrderXs,
+    customOrderSm,
+    customOrderMd,
+    customOrderLg,
+    customOrderXl,
+    customColClass
+  ];
+};
 
 const name = "NlyCol";
 
 export const NlyCol = Vue.extend({
   name: name,
-  props: {
-    tag: {
-      type: String,
-      default: "div"
-    },
-    col: {
-      type: Boolean,
-      default: false
-    },
-    xs: {
-      type: String
-    },
-    sm: {
-      type: String
-    },
-    md: {
-      type: String
-    },
-    lg: {
-      type: String
-    },
-    xl: {
-      type: String
-    },
-    offsetXs: {
-      type: String
-    },
-    offsetSm: {
-      type: String
-    },
-    offsetMd: {
-      type: String
-    },
-    offsetLg: {
-      type: String
-    },
-    offsetXl: {
-      type: String
-    },
-    orderXs: {
-      type: String
-    },
-    orderSm: {
-      type: String
-    },
-    orderMd: {
-      type: String
-    },
-    orderLg: {
-      type: String
-    },
-    orderXl: {
-      type: String
-    },
-    colClass: {
-      type: String
-    }
-  },
-  computed: {
-    customTag: function() {
-      return this.tag;
-    },
-    customCol: function() {
-      return this.col ? "col" : "";
-    },
-    customXs: function() {
-      return this.xs ? `col-${this.xs}` : "";
-    },
-    customSm: function() {
-      return this.sm ? `col-sm-${this.sm}` : "";
-    },
-    customMd: function() {
-      return this.md ? `col-md-${this.md}` : "";
-    },
-    customLg: function() {
-      return this.lg ? `col-lg-${this.lg}` : "";
-    },
-    customXl: function() {
-      return this.xl ? `col-xl-${this.xl}` : "";
-    },
-    customOffsetXs: function() {
-      return this.offsetXs ? `offset-${this.offsetXs}` : "";
-    },
-    customOffsetSm: function() {
-      return this.offsetSm ? `offset-sm-${this.offsetSm}` : "";
-    },
-    customOffsetMd: function() {
-      return this.offsetMd ? `offset-md-${this.offsetMd}` : "";
-    },
-    customOffsetLg: function() {
-      return this.offsetLg ? `offset-lg-${this.offsetLg}` : "";
-    },
-    customOffsetXl: function() {
-      return this.offsetXl ? `offset-xl-${this.offsetXl}` : "";
-    },
-    customOrderXs: function() {
-      return this.orderXs ? `order-${this.orderXs}` : "";
-    },
-    customOrderSm: function() {
-      return this.orderSm ? `order-sm-${this.orderSm}` : "";
-    },
-    customOrderMd: function() {
-      return this.orderMd ? `order-md-${this.orderMd}` : "";
-    },
-    customOrderLg: function() {
-      return this.orderLg ? `order-lg-${this.orderLg}` : "";
-    },
-    customOrderXl: function() {
-      return this.orderXl ? `order-xl-${this.orderXl}` : "";
-    },
-    customColClass: function() {
-      return this.colClass;
-    }
-  },
-  render(h) {
+  props,
+  functional: true,
+  render(h, { props, data, children }) {
     return h(
-      this.customTag,
-      {
-        staticClass: this.customCol ? "" : "col",
-        class: [
-          this.customCol,
-          this.customXl,
-          this.customLg,
-          this.customMd,
-          this.customSm,
-          this.customXs,
-          this.customOffsetXl,
-          this.customOffsetLg,
-          this.customOffsetMd,
-          this.customOffsetSm,
-          this.customOffsetXs,
-          this.customOrderXl,
-          this.customOrderLg,
-          this.customOrderMd,
-          this.customOrderSm,
-          this.customOrderXs,
-          this.customColClass
-        ]
-      },
-      this.$slots.default
+      props.tag,
+      mergeData(data, {
+        staticClass: props.col ? "" : "col",
+        class: customClass(props)
+      }),
+      children
     );
   }
 });

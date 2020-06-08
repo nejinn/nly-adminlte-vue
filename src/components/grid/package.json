@@ -1,0 +1,119 @@
+{
+  "name": "@nly-adminlte-vue/grid",
+  "version": "1.0.0",
+  "meta": {
+    "title": "Grid",
+    "subtitle": "栅格布局",
+    "description": "一个移动端优先的flexbox网格系统",
+    "components": [
+      {
+        "component": "NlyRow",
+        "description": "NlyAdminlteVue自带wrapper布局的content容器，和NlyWrapperContent组件是一样的",
+        "props": [
+          {
+            "prop": "noGutters",
+            "description": "去除栅格间距"
+          },
+          {
+            "prop": "colsXs",
+            "description": "宽度xs及以上断点一行列数，可选1，2，3，4，5，6"
+          },
+          {
+            "prop": "colsSm",
+            "description": "宽度sm及以上断点一行列数，可选1，2，3，4，5，6"
+          },
+          {
+            "prop": "colsMd",
+            "description": "宽度md及以上断点一行列数，可选1，2，3，4，5，6"
+          },
+          {
+            "prop": "colsLg",
+            "description": "宽度lg及以上断点一行列数，可选1，2，3，4，5，6"
+          },
+          {
+            "prop": "colsXl",
+            "description": "宽度xl及以上断点一行列数，可选1，2，3，4，5，6"
+          },
+          {
+            "prop": "rowClass",
+            "description": "自定义css式样，可自定义实现需要，也可以使用align-items-start所有行顶部对齐，row align-items-center所有行锤子居中对齐，align-items-end所有行底部对齐，justify-content-start所有行水平左对齐，justify-content-center所有行水平居中对齐，justify-content-end所有行右对齐，justify-content-around所有行非起始中间对齐，justify-content-between所有行左右对齐"
+          }
+        ]
+      },
+      {
+        "component": "NlyCol",
+        "description": "正文容器",
+        "props": [
+          {
+            "prop": "col",
+            "description": "在没有其他props的情况下，所有列等宽"
+          },
+          {
+            "prop": "xs",
+            "description": "宽度在xs及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据子节点自动宽度"
+          },
+          {
+            "prop": "sm",
+            "description": "宽度在sm及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据子节点自动宽度"
+          },
+          {
+            "prop": "md",
+            "description": "宽度在md及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据子节点自动宽度"
+          },
+          {
+            "prop": "lg",
+            "description": "宽度在lg及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据子节点自动宽度"
+          },
+          {
+            "prop": "xl",
+            "description": "宽度在xl及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据子节点自动宽度"
+          },
+          {
+            "prop": "offsetXs",
+            "description": "宽度在xs及以上断点右移列数,可选0，2，3，4，5，6，7，8，9，10，11"
+          },
+          {
+            "prop": "offsetSm",
+            "description": "宽度在sm及以上断点右移列数,可选0，2，3，4，5，6，7，8，9，10，11"
+          },
+          {
+            "prop": "offsetMd",
+            "description": "宽度在md及以上断点右移列数,可选0，2，3，4，5，6，7，8，9，10，11"
+          },
+          {
+            "prop": "offsetLg",
+            "description": "宽度在Lg及以上断点右移列数,可选0，2，3，4，5，6，7，8，9，10，11"
+          },
+          {
+            "prop": "offsetXl",
+            "description": "宽度在xl及以上断点右移列数,可选0，2，3，4，5，6，7，8，9，10，11"
+          },
+          {
+            "prop": "orderXs",
+            "description": "宽度在xs及以上断点排列顺序,可选0，1，2，3，4，5，6，7，8，9，10，11，12"
+          },
+          {
+            "prop": "orderSm",
+            "description": "宽度在sm及以上断点排列顺序,可选0，1，2，3，4，5，6，7，8，9，10，11，12"
+          },
+          {
+            "prop": "orderMd",
+            "description": "宽度在md及以上断点排列顺序,可选0，1，2，3，4，5，6，7，8，9，10，11，12"
+          },
+          {
+            "prop": "orderLg",
+            "description": "宽度在lg及以上断点排列顺序,可选0，1，2，3，4，5，6，7，8，9，10，11，12"
+          },
+          {
+            "prop": "orderXl",
+            "description": "宽度在xl及以上断点排列顺序,可选0，1，2，3，4，5，6，7，8，9，10，11，12"
+          },
+          {
+            "prop": "colClass",
+            "description": "自定义css式样,可以用自定义css式样或者adminlte自定义式样让col实现对齐等其他功能align-self-start顶部对齐，align-self-center中间对齐，align-self-end底部对齐"
+          }
+        ]
+      }
+    ]
+  }
+}
