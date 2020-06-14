@@ -29,9 +29,12 @@ export const props = {
     type: String,
     default: () => getComponentConfig(NAME, "variant")
   },
+  bgGradientVariant: {
+    type: String
+  },
   ...linkProps
 };
-// @vue/component
+
 export const NlyListGroupItem = Vue.extend({
   name: NAME,
   functional: true,
@@ -70,6 +73,7 @@ export const NlyListGroupItem = Vue.extend({
       class: {
         [`list-group-item-${props.variant}`]: props.variant,
         "list-group-item-action": isAction,
+        [`bg-gradient-${props.bgGradientVariant}`]: props.bgGradientVariant,
         active: props.active,
         disabled: props.disabled
       }
