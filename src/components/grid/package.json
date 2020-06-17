@@ -4,7 +4,7 @@
   "meta": {
     "title": "Grid",
     "subtitle": "栅格布局",
-    "description": "一个移动端优先的flexbox网格系统",
+    "description": "一个移动端优先的flexbox网格布局系统",
     "components": [
       {
         "component": "NlyRow",
@@ -50,23 +50,23 @@
           },
           {
             "prop": "xs",
-            "description": "宽度在xs及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据子节点自动宽度"
+            "description": "宽度在xs及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据断点自动宽度"
           },
           {
             "prop": "sm",
-            "description": "宽度在sm及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据子节点自动宽度"
+            "description": "宽度在sm及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据断点自动宽度"
           },
           {
             "prop": "md",
-            "description": "宽度在md及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据子节点自动宽度"
+            "description": "宽度在md及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据断点自动宽度"
           },
           {
             "prop": "lg",
-            "description": "宽度在lg及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据子节点自动宽度"
+            "description": "宽度在lg及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据断点自动宽度"
           },
           {
             "prop": "xl",
-            "description": "宽度在xl及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据子节点自动宽度"
+            "description": "宽度在xl及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据断点自动宽度"
           },
           {
             "prop": "offsetXs",

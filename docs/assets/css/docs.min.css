@@ -1784,17 +1784,17 @@ svg {
 		margin-top: 3rem;
 	}
 }
-.bv-example-row .row + .row {
+.nly-example-row .row + .row {
 	margin-top: 1rem;
 }
-.bv-example-row .row > .col:not(.header),
-.bv-example-row .row > [class^='col-'] {
+.nly-example-row .row > .col:not(.header),
+.nly-example-row .row > [class^='col-'] {
 	padding-top: 0.75rem;
 	padding-bottom: 0.75rem;
 	background-color: rgba(86, 61, 124, 0.15);
 	border: 1px solid rgba(86, 61, 124, 0.2);
 }
-.bv-example-row-flex-cols .row {
+.nly-example-row-flex-cols .row {
 	min-height: 10rem;
 	background-color: rgba(255, 0, 0, 0.1);
 }

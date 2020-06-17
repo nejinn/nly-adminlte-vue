@@ -11,19 +11,23 @@ export const props = {
     default: false
   },
   xs: {
-    type: String
+    type: [String, Number]
   },
   sm: {
-    type: String
+    default: false,
+    type: [String, Boolean, Number]
   },
   md: {
-    type: String
+    default: false,
+    type: [String, Boolean, Number]
   },
   lg: {
-    type: String
+    default: false,
+    type: [String, Boolean, Number]
   },
   xl: {
-    type: String
+    default: false,
+    type: [String, Boolean, Number]
   },
   offsetXs: {
     type: String
@@ -61,12 +65,53 @@ export const props = {
 };
 
 const customClass = props => {
-  const customCol = props.col ? "col" : "";
+  const customCol =
+    props.xs ||
+    props.sm === "" ||
+    props.md === "" ||
+    props.lg === "" ||
+    props.xl === "" ||
+    props.sm ||
+    props.md ||
+    props.lg ||
+    props.xl
+      ? ""
+      : props.col
+      ? "col"
+      : "";
   const customXs = props.xs ? `col-${props.xs}` : "";
-  const customSm = props.sm ? `col-sm-${props.sm}` : "";
-  const customMd = props.md ? `col-md-${props.md}` : "";
-  const customLg = props.lg ? `col-lg-${props.lg}` : "";
-  const customXl = props.xl ? `col-xl-${props.xl}` : "";
+  const customSm =
+    props.sm === ""
+      ? "col-sm"
+      : props.sm === true
+      ? "col-sm"
+      : props.sm
+      ? `col-sm-${props.sm}`
+      : "";
+  const customMd =
+    props.md === ""
+      ? "col-md"
+      : props.md === true
+      ? "col-md"
+      : props.md
+      ? `col-md-${props.md}`
+      : "";
+  const customLg =
+    props.lg === ""
+      ? "col-lg"
+      : props.lg === true
+      ? "col-lg"
+      : props.lg
+      ? `col-lg-${props.lg}`
+      : "";
+  const customXl =
+    props.xl === ""
+      ? "col-lg"
+      : props.xl === true
+      ? "col-xl"
+      : props.xl
+      ? `col-xl-${props.xl}`
+      : "";
   const customOffsetXs = props.offsetXs ? `offset-${props.offsetXs}` : "";
   const customOffsetSm = props.offsetSm ? `offset-sm-${props.offsetSm}` : "";
   const customOffsetMd = props.offsetMd ? `offset-md-${props.offsetMd}` : "";
@@ -110,7 +155,19 @@ export const NlyCol = Vue.extend({
     return h(
       props.tag,
       mergeData(data, {
-        staticClass: props.col ? "" : "col",
+        staticClass:
+          props.col ||
+          props.xs ||
+          props.sm ||
+          props.md ||
+          props.lg ||
+          props.xl ||
+          props.sm === "" ||
+          props.md === "" ||
+          props.lg === "" ||
+          props.xl === ""
+            ? ""
+            : "col",
         class: customClass(props)
       }),
       children
