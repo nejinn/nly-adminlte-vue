@@ -161,6 +161,19 @@
             >
           </nly-row>
         </div>
+
+        <nly-container class="nly-example-row">
+          <nly-row>
+            <nly-col sm="8">col-sm-8</nly-col>
+            <nly-col sm="4">col-sm-4</nly-col>
+          </nly-row>
+
+          <nly-row>
+            <nly-col sm>col-sm</nly-col>
+            <nly-col sm>col-sm</nly-col>
+            <nly-col sm>col-sm</nly-col>
+          </nly-row>
+        </nly-container>
       </div>
     </nly-content>
   </nly-content-wrapper>
