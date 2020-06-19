@@ -457,3 +457,21 @@ export const breakPointOptions = {
   lg: 992,
   xl: 1200
 };
+
+export const rowAlignHOptions = ["start", "center", "end", "around", "between"];
+
+export const rowAlignVOptions = [
+  "start",
+  "baseline",
+  "end",
+  "stretch",
+  "center"
+];
+
+export const colAlignSelfOptions = [
+  "start",
+  "center",
+  "end",
+  "baseline",
+  "stretch"
+];

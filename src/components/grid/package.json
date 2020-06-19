@@ -15,6 +15,14 @@
             "description": "去除栅格间距"
           },
           {
+            "prop": "alignV",
+            "description": "设置整行垂直对齐方式，可选  start, baseline, end, stretch,center"
+          },
+          {
+            "prop": "alignH",
+            "description": "设置整行水平对齐方式，可选  start, center, end, around, between"
+          },
+          {
             "prop": "colsXs",
             "description": "宽度xs及以上断点一行列数，可选1，2，3，4，5，6"
           },

@@ -1,5 +1,7 @@
 import Vue from "../../utils/vue";
 import { mergeData } from "vue-functional-data-merge";
+import { colAlignSelfOptions } from "../../utils/nly-config";
+import { nlyGetOptionInclusion } from "../../utils/get-options";
 
 export const props = {
   tag: {
@@ -28,6 +30,12 @@ export const props = {
   xl: {
     default: false,
     type: [String, Boolean, Number]
+  },
+  alignSelf: {
+    type: String,
+    default: null,
+    validator: alignSelf =>
+      nlyGetOptionInclusion(colAlignSelfOptions, alignSelf)
   },
   offsetXs: {
     type: String
@@ -124,6 +132,9 @@ const customClass = props => {
   const customOrderXl = props.orderXl ? `order-xl-${props.orderXl}` : "";
   const customColClass = props.colClass;
 
+  const colAlignSelfClass =
+    props.alignSelf != null ? `align-self-${props.alignSelf}` : null;
+
   return [
     customCol,
     customXs,
@@ -131,6 +142,7 @@ const customClass = props => {
     customMd,
     customLg,
     customXl,
+    colAlignSelfClass,
     customOffsetXs,
     customOffsetSm,
     customOffsetMd,
