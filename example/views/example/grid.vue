@@ -174,6 +174,12 @@
             <nly-col sm>col-sm</nly-col>
           </nly-row>
         </nly-container>
+
+        <nly-row align-v="start">
+          <nly-col>One of three columns</nly-col>
+          <nly-col>One of three columns</nly-col>
+          <nly-col>One of three columns</nly-col>
+        </nly-row>
       </div>
     </nly-content>
   </nly-content-wrapper>

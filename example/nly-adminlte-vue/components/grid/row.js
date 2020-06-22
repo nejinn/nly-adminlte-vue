@@ -1,5 +1,7 @@
 import Vue from "../../utils/vue";
 import { mergeData } from "vue-functional-data-merge";
+import { nlyGetOptionInclusion } from "../../utils/get-options";
+import { rowAlignHOptions, rowAlignVOptions } from "../../utils/nly-config";
 
 export const props = {
   tag: {
@@ -9,6 +11,16 @@ export const props = {
   noGutters: {
     type: Boolean,
     default: false
+  },
+  alignH: {
+    type: String,
+    default: null,
+    validator: alignH => nlyGetOptionInclusion(rowAlignHOptions, alignH)
+  },
+  alignV: {
+    type: String,
+    default: null,
+    validator: alignV => nlyGetOptionInclusion(rowAlignVOptions, alignV)
   },
   colsXs: {
     type: String
@@ -38,9 +50,15 @@ const customClass = props => {
   const customColsLg = props.colsLg ? `row-cols-lg-${props.colsLg}` : "";
   const customColsXl = props.colsXl ? `row-cols-lx-${props.colsXl}` : "";
   const customRowClass = props.rowClass;
+  const rowAlignHClass =
+    props.alignH != null ? `justify-content-${props.alignH}` : null;
+  const rowalignVClass =
+    props.alignV != null ? `align-items-${props.alignV}` : null;
 
   return [
     customNoGutters,
+    rowAlignHClass,
+    rowalignVClass,
     customColsXs,
     customColsSm,
     customColsMd,
