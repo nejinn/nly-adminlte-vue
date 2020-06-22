@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "10716945",
+      "name": "赞赏",
+      "font_class": "zanshang",
+      "unicode": "e80a",
+      "unicode_decimal": 59402
+    },
+    {
+      "icon_id": "14729311",
+      "name": "logo-github",
+      "font_class": "logo-github",
+      "unicode": "e769",
+      "unicode_decimal": 59241
+    },
+    {
       "icon_id": "12971678",
       "name": "logo-angular",
       "font_class": "logo-angular",

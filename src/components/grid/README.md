@@ -391,3 +391,68 @@
 <!-- 整行水平对齐.name -->
 <!-- nly-grid-align-h.vue -->
 ```
+
+## 排序
+
+### 重新排序
+
+`nly-col` 可以设置 prop `order-*` 来重新排序。 `order-xs` , `order-sm` , `order-md` , `order-lg` , `order-xl` 分别代表 5 个断点下的排列循序。
+
+```html
+<nly-row style="padding-bottom:10px">
+  <nly-col order-xs="1" order-sm="2" order-md="3" order-lg="4" style="background-color: #28a745;"> order-xs="1" order-sm="2" order-md="3" order-lg="4"</nly-col>
+
+  <nly-col order-xs="2" order-sm="3" order-md="4" order-lg="1" style="background-color: #17a2b8;"> order-xs="2" order-sm="3" order-md="4" order-lg="1"</nly-col>
+
+  <nly-col order-xs="3" order-sm="4" order-md="1" order-lg="2" style="background-color: #ffc107;"> order-xs="3" order-sm="4" order-md="1" order-lg="2"</nly-col>
+
+  <nly-col order-xs="4" order-sm="1" order-md="2" order-lg="3" style="background-color: #dc3545;"> order-xs="4" order-sm="1" order-md="2" order-lg="3"</nly-col>
+</nly-row>
+
+<!-- 排序.name -->
+<!-- nly-grid-order.vue -->
+```
+
+### 位置偏移
+
+`nly-col` 可以设置 prop `offset-*` 来设置偏移量。 `offset-xs` , `offset-sm` , `offset-md` , `offset-lg` , `offset-xl` 分别代表 5 个断点下的偏移量。
+
+```html
+<nly-container fluid class="nly-example-row">
+  <nly-row>
+    <nly-col md="4">md="4"</nly-col>
+    <nly-col md="4" offset-md="4">md="4" offset-md="4"</nly-col>
+  </nly-row>
+
+  <nly-row>
+    <nly-col md="3" offset-md="3">md="3" offset-md="3"</nly-col>
+    <nly-col md="3" offset-md="3">md="3" offset-md="3"</nly-col>
+  </nly-row>
+
+  <nly-row>
+    <nly-col md="6" offset-md="3">md="6" offset-md="3"</nly-col>
+  </nly-row>
+</nly-container>
+
+<!-- 偏移量.name -->
+<!-- nly-grid-offset.vue -->
+```
+
+如果您需要重置偏移量，您可以设置 `offset-* = 0`
+
+```html
+<nly-container fluid class="nly-example-row">
+  <nly-row>
+    <nly-col sm="5" md="6">sm="5" md="6"</nly-col>
+    <nly-col sm="5" offset-sm="2" md="6" offset-md="0">sm="5" offset-sm="2" md="6" offset-md="0"</nly-col>
+  </nly-row>
+
+  <nly-row>
+    <nly-col sm="6" md="5" lg="6">sm="6" md="5" lg="6"</nly-col>
+    <nly-col sm="6" md="5" offset-md="2" lg="6" offset-lg="0">sm="6" md="5" offset-md="2" col-lg="6" offset-lg="0"</nly-col>
+  </nly-row>
+</nly-container>
+
+<!-- 偏移量.name -->
+<!-- nly-grid-offset.vue -->
+```
