@@ -2285,6 +2285,24 @@ export const logoIconUnicode = `
 export const logoIconFontClass = `
 <div class="content font-class">
         <ul class="icon_lists dib-box">
+
+          <li class="dib">
+            <span class="icon nlyfont nly-icon-zanshang"></span>
+            <div class="name">
+              logo-angular
+            </div>
+            <div class="code-name">.nly-icon-zanshang
+            </div>
+          </li>
+
+          <li class="dib">
+            <span class="icon nlyfont nly-icon-logo-github"></span>
+            <div class="name">
+              logo-angular
+            </div>
+            <div class="code-name">.nly-icon-logo-github
+            </div>
+          </li>
           
           <li class="dib">
             <span class="icon nlyfont nly-icon-logo-angular"></span>

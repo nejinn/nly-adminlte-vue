@@ -119,7 +119,7 @@ export const navbarList = [
               },
               {
                 _type: "nly-icon",
-                icon: "nlyfont nly-icon-github"
+                icon: "nlyfont nly-icon-logo-github"
               }
             ]
           },
@@ -134,7 +134,7 @@ export const navbarList = [
               },
               {
                 _type: "nly-icon",
-                icon: "nlyfont nly-icon-project-manage"
+                icon: "nlyfont nly-icon-sr-kejixiangmu"
               }
             ]
           },
@@ -149,7 +149,7 @@ export const navbarList = [
               },
               {
                 _type: "nly-icon",
-                icon: "nlyfont nly-icon-dashang"
+                icon: "nlyfont nly-icon-zanshang"
               }
             ]
           }
