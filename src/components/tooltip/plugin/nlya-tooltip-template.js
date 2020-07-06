@@ -42,7 +42,7 @@ export const NlyaTooltipTemplate = /*#__PURE__*/ Vue.extend({
           // Disables pointer events to hide the tooltip when the user
           // hovers over its content
           noninteractive: !this.interactive,
-          [`b-${this.templateType}-${this.variant}`]: this.variant,
+          [`nly-${this.templateType}-${this.variant}`]: this.variant,
 
           [`bs-${this.templateType}-${this.attachment}`]: this.attachment
         },
