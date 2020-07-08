@@ -1,9 +1,9 @@
 import { nlyPluginFactory } from "../../utils/plugins";
 import { NlyPagination } from "./pagination";
 
-const paginationPlugin = nlyPluginFactory({
+const PaginationPlugin = nlyPluginFactory({
   components: {
     NlyPagination
   }
 });
-export { paginationPlugin, NlyPagination };
+export { PaginationPlugin, NlyPagination };

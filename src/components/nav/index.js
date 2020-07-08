@@ -3,7 +3,7 @@ import { NlyNav } from "./nav";
 import { NlyNavItem } from "./nav-item";
 import { NlyNavDropdown } from "./nav-dropdown";
 
-const navPlugin = nlyPluginFactory({
+const NavPlugin = nlyPluginFactory({
   components: {
     NlyNav,
     NlyNavItem,
@@ -11,4 +11,4 @@ const navPlugin = nlyPluginFactory({
   }
 });
 
-export { navPlugin, NlyNav, NlyNavItem, NlyNavDropdown };
+export { NavPlugin, NlyNav, NlyNavItem, NlyNavDropdown };

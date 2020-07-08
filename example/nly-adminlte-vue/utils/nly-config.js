@@ -475,3 +475,5 @@ export const colAlignSelfOptions = [
   "baseline",
   "stretch"
 ];
+
+export const fromGroupSize = ["sm"];

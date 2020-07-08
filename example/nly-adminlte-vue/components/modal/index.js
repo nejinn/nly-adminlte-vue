@@ -3,11 +3,11 @@ import { NlyModal } from "./modal";
 import { NlyAModalPlugin } from "./helpers/nlya-modal";
 import { nlyPluginFactory } from "../../utils/plugins";
 
-const modalPlugin = /*#__PURE__*/ nlyPluginFactory({
+const ModalPlugin = /*#__PURE__*/ nlyPluginFactory({
   components: { NlyModal },
   //   directives: { VBModal },
   // $bvModal injection
   plugins: { NlyAModalPlugin }
 });
 
-export { modalPlugin, NlyModal };
+export { ModalPlugin, NlyModal };

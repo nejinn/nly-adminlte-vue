@@ -126,15 +126,15 @@ export const NlyFormInput = Vue.extend({
       return isFunction(this.formatter);
     }
   },
-  // watch: {
-  //   value: function(newVal) {
-  //     const stringValue = toString(newVal);
-  //     if (stringValue !== this.localValue && newVal !== this.cloneValue) {
-  //       this.localValue = stringValue;
-  //       this.cloneValue = newVal;
-  //     }
-  //   }
-  // },
+  watch: {
+    value: function(newVal) {
+      const stringValue = toString(newVal);
+      if (stringValue !== this.localValue && newVal !== this.cloneValue) {
+        this.localValue = stringValue;
+        this.cloneValue = newVal;
+      }
+    }
+  },
   methods: {},
   mounted() {
     const value = this.value;

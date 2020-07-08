@@ -6,7 +6,7 @@ import { NlyNavbarBrandimg } from "./navbar-brandimg";
 import { NlyNavbarBrandtext } from "./navbar-brandtext";
 import { NlyNavbarToggle } from "./navbar-toggle";
 
-const navbarPlugin = nlyPluginFactory({
+const NavbarPlugin = nlyPluginFactory({
   components: {
     NlyNavbar,
     NlyNavbarNav,
@@ -18,7 +18,7 @@ const navbarPlugin = nlyPluginFactory({
 });
 
 export {
-  navbarPlugin,
+  NavbarPlugin,
   NlyNavbar,
   NlyNavbarNav,
   NlyNavbarBrand,

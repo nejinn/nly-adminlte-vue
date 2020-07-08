@@ -6,7 +6,7 @@ import { NlyLogTools } from "./log-tools";
 import { NlyLogBody } from "./log-body";
 import { NlyLog } from "./log";
 
-const logPlugin = nlyPluginFactory({
+const LogPlugin = nlyPluginFactory({
   components: {
     NlyLogLine,
     NlyLogLineTree,
@@ -18,7 +18,7 @@ const logPlugin = nlyPluginFactory({
 });
 
 export {
-  logPlugin,
+  LogPlugin,
   NlyLogLine,
   NlyLogLineTree,
   NlyLogTools,

@@ -9,30 +9,30 @@ import { CollapsePlugin } from "./collapse";
 import { ContainerPlugin } from "./container";
 import { ContentPlugin } from "./content";
 import { ControlSidebarPlugin } from "./control-sidebar";
-import { FormInputPlugin } from "./form-input";
 import { DropdownPlugin } from "./dropdown";
+import { FormPlugin } from "./form";
+import { FormInputPlugin } from "./form-input";
 import { GridPlugin } from "./grid";
-import { WrapperPlugin } from "./wrapper";
-import { linkPlugin } from "./link";
-import { navPlugin } from "./nav";
-import { navbarPlugin } from "./navbar";
-import { overlayPlugin } from "./overlay";
-import { sidebarPlugin } from "./sidebar";
+import { InfoboxPlugin } from "./info-box";
+import { LinkPlugin } from "./link";
+import { ListGroupPlugin } from "./list-group";
+import { LogPlugin } from "./log";
+import { ModalPlugin } from "./modal";
+import { NavPlugin } from "./nav";
+import { NavbarPlugin } from "./navbar";
+import { OverlayPlugin } from "./overlay";
+import { PaginationPlugin } from "./pagination";
+import { ProgressPlugin } from "./progress";
+import { SidebarPlugin } from "./sidebar";
+import { SpinnerPlugin } from "./spinner";
 import { switchPlugin } from "./switch";
 import { toastPlugin } from "./toast";
-import { spinnerPlugin } from "./spinner";
-import { progressPlugin } from "./progress";
 import { timelinePlugin } from "./timeline";
-import { infoboxPlugin } from "./info-box";
 import { tablePlugin } from "./table";
 import { TooltipPlugin } from "./tooltip";
-import { renderFunctionPlugin } from "./render-function";
-import { paginationPlugin } from "./pagination";
-import { formPlguin } from "./form";
-import { logPlugin } from "./log";
-import { listGroupPlugin } from "./list-group";
-import { modalPlugin } from "./modal";
+import { RenderFunctionPlugin } from "./render-function";
 import { TabsPlugin } from "./tabs";
+import { WrapperPlugin } from "./wrapper";
 
 export const componentsPlugin = nlyPluginFactory({
   plugins: {
@@ -49,25 +49,25 @@ export const componentsPlugin = nlyPluginFactory({
     FormInputPlugin,
     GridPlugin,
     WrapperPlugin,
-    linkPlugin,
-    navPlugin,
-    navbarPlugin,
-    overlayPlugin,
-    sidebarPlugin,
+    LinkPlugin,
+    ListGroupPlugin,
+    NavPlugin,
+    NavbarPlugin,
+    OverlayPlugin,
+    SidebarPlugin,
     switchPlugin,
     toastPlugin,
-    spinnerPlugin,
-    progressPlugin,
+    SpinnerPlugin,
+    ProgressPlugin,
     timelinePlugin,
-    infoboxPlugin,
+    InfoboxPlugin,
     tablePlugin,
     TooltipPlugin,
-    renderFunctionPlugin,
-    paginationPlugin,
-    formPlguin,
-    logPlugin,
-    listGroupPlugin,
-    modalPlugin,
+    RenderFunctionPlugin,
+    PaginationPlugin,
+    FormPlugin,
+    LogPlugin,
+    ModalPlugin,
     TabsPlugin
   }
 });
