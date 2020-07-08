@@ -1,10 +1,10 @@
 import { nlyPluginFactory } from "../../utils/plugins";
 import { NlyLink } from "./link";
 
-const linkPlugin = nlyPluginFactory({
+const LinkPlugin = nlyPluginFactory({
   components: {
     NlyLink
   }
 });
 
-export { linkPlugin, NlyLink };
+export { LinkPlugin, NlyLink };

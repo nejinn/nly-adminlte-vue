@@ -3,7 +3,7 @@ import { NlyProgress } from "./progress";
 import { NlyProgressBar } from "./progress-bar";
 import { NlyProgressDescription } from "./progress-description";
 
-const progressPlugin = nlyPluginFactory({
+const ProgressPlugin = nlyPluginFactory({
   components: {
     NlyProgress,
     NlyProgressBar,
@@ -11,4 +11,4 @@ const progressPlugin = nlyPluginFactory({
   }
 });
 
-export { progressPlugin, NlyProgress, NlyProgressBar, NlyProgressDescription };
+export { ProgressPlugin, NlyProgress, NlyProgressBar, NlyProgressDescription };

@@ -74,42 +74,69 @@ export { NlyDropdownItemButton } from "./components/dropdown/dropdown-item-butto
 export { NlyDropdownText } from "./components/dropdown/dropdown-text";
 export { NlyDropdownFooter } from "./components/dropdown/dropdown-footer";
 
+export { FormPlugin } from "./components/form";
+export { NlyForm } from "./components/form/form";
+export { NlyFormFeedback } from "./components/form/form-feedback";
+
+export { FormInputPlugin } from "./components/form-input";
+export { NlyFormInput } from "./components/form-input/form-input";
+
 export { GridPlugin } from "./components/grid";
 export { NlyRow } from "./components/grid/row";
 export { NlyCol } from "./components/grid/col";
 
-export { WrapperPlugin } from "./components/wrapper";
-export { NlyWrapper } from "./components/wrapper/wrapper";
-export { NlyWrapperFooter } from "./components/wrapper/wrapper-footer";
-export { NlyWrapperHeader } from "./components/wrapper/wrapper-header";
-export { NlyWrapperSidebar } from "./components/wrapper/wrapper-sidebar";
-export { NlyWrapperControlSidebar } from "./components/wrapper/wrapper-control-sidebar";
-export { NlyWrapperContent } from "./components/wrapper/wrapper-content";
+export { InfoboxPlugin } from "./components/info-box";
+export { NlyInfobox } from "./components/info-box/infobox";
+export { NlyInfoboxIcon } from "./components/info-box/infobox-icon";
+export { NlyInfoboxBody } from "./components/info-box/infobox-body";
+export { NlyInfoboxText } from "./components/info-box/infobox-text";
+export { NlyInfoboxNumber } from "./components/info-box/infobox-number";
 
-export { linkPlugin } from "./components/link";
+export { LinkPlugin } from "./components/link";
 export { NlyLink } from "./components/link/link";
 
-export { navPlugin } from "./components/nav";
+export { ListGroupPlugin } from "./components/list-group";
+export { NlyListGroup } from "./components/list-group/list-group";
+export { NlyListGroupItem } from "./components/list-group/list-group-item";
+
+export { LogPlugin } from "./components/log";
+export { NlyLog } from "./components/log/log";
+export { NlyLogHeader } from "./components/log/log-header";
+export { NlyLogBody } from "./components/log/log-body";
+export { NlyLogLine } from "./components/log/log-line";
+export { NlyLogLineTree } from "./components/log/log-line-tree";
+export { NlyLogTools } from "./components/log/log-tools";
+
+export { ModalPlugin } from "./components/modal";
+export { NlyModal } from "./components/modal/modal";
+
+export { NavPlugin } from "./components/nav";
 export { NlyNav } from "./components/nav/nav";
 export { NlyNavItem } from "./components/nav/nav-item";
 export { NlyNavDropdown } from "./components/nav/nav-dropdown";
 
-export { navbarPlugin } from "./components/navbar";
+export { NavbarPlugin } from "./components/navbar";
 export { NlyNavbar } from "./components/navbar/navbar";
 export { NlyNavbarNav } from "./components/navbar/navbar-nav";
 export { NlyNavbarBrand } from "./components/navbar/navbar-brand";
 export { NlyNavbarBrandtext } from "./components/navbar/navbar-brandtext";
 export { NlyNavbarToggle } from "./components/navbar/navbar-toggle";
 
-export { overlayPlugin } from "./components/overlay";
+export { OverlayPlugin } from "./components/overlay";
 export { NlyOverlay } from "./components/overlay/overlay";
 
-export { progressPlugin } from "./components/progress";
+export { PaginationPlugin } from "./components/pagination";
+export { NlyPagination } from "./components/pagination/pagination";
+
+export { ProgressPlugin } from "./components/progress";
 export { NlyProgress } from "./components/progress/progress";
 export { NlyProgressBar } from "./components/progress/progress-bar";
 export { NlyProgressDescription } from "./components/progress/progress-description";
 
-export { sidebarPlugin } from "./components/sidebar";
+export { RenderFunctionPlugin } from "./components/render-function";
+export { NlyRenderFunction } from "./components/render-function/render-function";
+
+export { SidebarPlugin } from "./components/sidebar";
 export { NlySidebarContainer } from "./components/sidebar/sidebar-container";
 export { NlySidebarBrand } from "./components/sidebar/sidebar-brand";
 export { NlySidebarBrandimg } from "./components/sidebar/sidebar-brandimg";
@@ -123,7 +150,7 @@ export { NlySidebarNavItem } from "./components/sidebar/sidebar-nav-item";
 export { NlySidebarNavTree } from "./components/sidebar/sidebar-nav-tree";
 export { NlySidebarNavHeader } from "./components/sidebar/sidebar-nav-header";
 
-export { spinnerPlugin } from "./components/spinner";
+export { SpinnerPlugin } from "./components/spinner";
 export { NlySpinner } from "./components/spinner/spinner";
 
 export { switchPlugin } from "./components/switch";
@@ -144,29 +171,16 @@ export { NlyTimelineHeader } from "./components/timeline/timeline-header";
 export { NlyTimelineBody } from "./components/timeline/timeline-body";
 export { NlyTimelineFooter } from "./components/timeline/timeline-footer";
 
-export { infoboxPlugin } from "./components/info-box";
-export { NlyInfobox } from "./components/info-box/infobox";
-export { NlyInfoboxIcon } from "./components/info-box/infobox-icon";
-export { NlyInfoboxBody } from "./components/info-box/infobox-body";
-export { NlyInfoboxText } from "./components/info-box/infobox-text";
-export { NlyInfoboxNumber } from "./components/info-box/infobox-number";
-
-export { paginationPlugin } from "./components/pagination";
-export { NlyPagination } from "./components/pagination/pagination";
-
-export { renderFunctionPlugin } from "./components/render-function";
-export { NlyRenderFunction } from "./components/render-function/render-function";
-
-export { logPlugin } from "./components/log";
-export { NlyLog } from "./components/log/log";
-export { NlyLogHeader } from "./components/log/log-header";
-export { NlyLogBody } from "./components/log/log-body";
-export { NlyLogLine } from "./components/log/log-line";
-export { NlyLogLineTree } from "./components/log/log-line-tree";
-export { NlyLogTools } from "./components/log/log-tools";
-
 export { TooltipPlugin } from "./components/tooltip";
 export { NlyTooltip } from "./components/tooltip/tooltip";
+
+export { WrapperPlugin } from "./components/wrapper";
+export { NlyWrapper } from "./components/wrapper/wrapper";
+export { NlyWrapperFooter } from "./components/wrapper/wrapper-footer";
+export { NlyWrapperHeader } from "./components/wrapper/wrapper-header";
+export { NlyWrapperSidebar } from "./components/wrapper/wrapper-sidebar";
+export { NlyWrapperControlSidebar } from "./components/wrapper/wrapper-control-sidebar";
+export { NlyWrapperContent } from "./components/wrapper/wrapper-content";
 
 export { VNlyTooltipPlugin } from "./directives/tooltip";
 export { VNlyTooltip } from "./directives/tooltip/tooltip";
@@ -180,13 +194,6 @@ export { VNlyToggle } from "./directives/toggle/toggle";
 export { VNlyCollapseSidebarPlugin } from "./directives/sidebar-collapse";
 export { VNlySidebarCollapse } from "./directives/sidebar-collapse/sidebar-collapse";
 export { VNlyControlSidebarCollapse } from "./directives/sidebar-collapse/control-sidebar-collapse";
-
-export { listGroupPlugin } from "./components/list-group";
-export { NlyListGroup } from "./components/list-group/list-group";
-export { NlyListGroupItem } from "./components/list-group/list-group-item";
-
-export { modalPlugin } from "./components/modal";
-export { NlyModal } from "./components/modal/modal";
 
 export { VNlyModalPlugin } from "./directives/modal";
 export { VNlyModal } from "./directives/modal/modal";

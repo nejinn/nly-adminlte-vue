@@ -1,10 +1,10 @@
 import { nlyPluginFactory } from "../../utils/plugins";
 import { NlySpinner } from "./spinner";
 
-const spinnerPlugin = nlyPluginFactory({
+const SpinnerPlugin = nlyPluginFactory({
   components: {
     NlySpinner
   }
 });
 
-export { spinnerPlugin, NlySpinner };
+export { SpinnerPlugin, NlySpinner };

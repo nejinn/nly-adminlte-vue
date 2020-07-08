@@ -5,7 +5,7 @@ import { NlyInfoboxBody } from "./infobox-body";
 import { NlyInfoboxText } from "./infobox-text";
 import { NlyInfoboxNumber } from "./infobox-number";
 
-const infoboxPlugin = nlyPluginFactory({
+const InfoboxPlugin = nlyPluginFactory({
   components: {
     NlyInfobox,
     NlyInfoboxIcon,
@@ -16,7 +16,7 @@ const infoboxPlugin = nlyPluginFactory({
 });
 
 export {
-  infoboxPlugin,
+  InfoboxPlugin,
   NlyInfobox,
   NlyInfoboxIcon,
   NlyInfoboxBody,

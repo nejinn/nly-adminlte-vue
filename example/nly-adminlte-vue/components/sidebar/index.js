@@ -12,7 +12,7 @@ import { NlySidebarNavItem } from "./sidebar-nav-item";
 import { NlySidebarNavTree } from "./sidebar-nav-tree";
 import { NlySidebarNavHeader } from "./sidebar-nav-header";
 
-const sidebarPlugin = nlyPluginFactory({
+const SidebarPlugin = nlyPluginFactory({
   components: {
     NlySidebarContainer,
     NlySidebarBrand,
@@ -30,7 +30,7 @@ const sidebarPlugin = nlyPluginFactory({
 });
 
 export {
-  sidebarPlugin,
+  SidebarPlugin,
   NlySidebarContainer,
   NlySidebarBrand,
   NlySidebarBrandimg,
