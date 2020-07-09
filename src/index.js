@@ -78,6 +78,9 @@ export { FormPlugin } from "./components/form";
 export { NlyForm } from "./components/form/form";
 export { NlyFormFeedback } from "./components/form/form-feedback";
 
+export { FormGroupPlugin } from "./components/form-group";
+export { NlyFormGroup } from "./components/form-group/form-group";
+
 export { FormInputPlugin } from "./components/form-input";
 export { NlyFormInput } from "./components/form-input/form-input";
 

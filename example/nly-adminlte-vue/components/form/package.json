@@ -19,7 +19,7 @@
 					},
 					{
 						"prop": "validated",
-						"description": "添加表单自动验证类。设置true，表单会添加was-validated。将会自动触发空间的feedback"
+						"description": "添加表单自动验证类。设置true，表单会添加was-validated。将会自动触发控件的feedback"
 					}
 				],
 				"events": [
