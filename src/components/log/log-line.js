@@ -51,47 +51,9 @@ export const NlyLogLine = Vue.extend({
   name: name,
   props,
   functional: true,
-  computed: {
-    customLogLineClass() {
-      return this.logLineClass;
-    },
-    customDuration() {
-      return this.duration;
-    },
-    customDurationClass() {
-      return this.durationClass;
-    },
-    customLine() {
-      return this.line;
-    },
-    customLineClass() {
-      return this.lineClass;
-    },
-    customText() {
-      return this.text;
-    },
-    customTextClass() {
-      return this.textClass;
-    },
-    customTitle() {
-      return this.title;
-    },
-    customTitleClass() {
-      return this.titleClass;
-    },
-    customIcon() {
-      return this.icon;
-    },
-    customIconClass() {
-      return this.iconClass;
-    },
-    customHighLight() {
-      return this.highLight ? "highlight" : "";
-    }
-  },
   render(h, { props, data, children }) {
     const durationVnodes = () => {
-      if (props.customDuration) {
+      if (props.duration) {
         return h(
           "span",
           {
@@ -163,7 +125,10 @@ export const NlyLogLine = Vue.extend({
       props.tag,
       mergeData(data, {
         staticClass: "nly-log-line",
-        class: [props.logLineClass, props.highLight ? "highlight" : ""]
+        class: [
+          props.logLineClass,
+          props.highLight ? "nly-log-line-highlight" : ""
+        ]
       }),
 
       [iconVnode(), lineVnodes(), durationVnodes(), titleVnodes(), textVnodes()]

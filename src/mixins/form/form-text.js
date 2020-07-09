@@ -1,6 +1,5 @@
 import { isFunction } from "../../utils/inspect";
-import { toString, toInteger } from "../../utils/string";
-import { mathMax } from "../../utils/math";
+import { toString } from "../../utils/string";
 
 export default {
   model: {
@@ -48,19 +47,11 @@ export default {
       type: Boolean,
       default: false
     },
-    number: {
-      type: Boolean,
-      default: false
-    },
+
     lazy: {
       // Only update the `v-model` on blur/change events
       type: Boolean,
       default: false
-    },
-    // 防抖
-    debounce: {
-      type: [Number, String],
-      default: 0
     }
   },
   data() {
@@ -72,9 +63,6 @@ export default {
   computed: {
     customHasFormatter() {
       return isFunction(this.formatter);
-    },
-    computedDebounce() {
-      return mathMax(toInteger(this.debounce, 0), 0);
     }
   },
   watch: {
@@ -87,8 +75,6 @@ export default {
     }
   },
   mounted() {
-    this.$_inputDebounceTimer = null;
-    this.$on("hook:beforeDestroy", this.clearDebounce);
     const value = this.value;
     const stringValue = toString(value);
     if (stringValue !== this.localValue && value !== this.cloneValue) {
@@ -97,10 +83,6 @@ export default {
     }
   },
   methods: {
-    clearDebounce() {
-      clearTimeout(this.$_inputDebounceTimer);
-      this.$_inputDebounceTimer = null;
-    },
     // 转换格式
     formatValue(value, evt, force = false) {
       value = toString(value);

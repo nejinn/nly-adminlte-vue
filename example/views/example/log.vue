@@ -20,13 +20,14 @@
                 </nly-button>
               </nly-log-tools>
             </nly-log-header>
-            <nly-log-body scrollbar :transition="false">
+            <nly-log-body>
               <nly-log-line-tree
                 line="1"
                 duration="30"
                 text="init"
                 title="info"
                 icon="nlyfont nly-icon-arrow-bottom"
+                high-light
               >
                 <nly-log-line
                   line="-1"

@@ -476,4 +476,4 @@ export const colAlignSelfOptions = [
   "stretch"
 ];
 
-export const fromGroupSize = ["sm"];
+export const formGroupSize = ["sm", "lg"];

@@ -42,6 +42,8 @@ const tabs = () => import("../views/example/tab.vue");
 
 const dropdown = () => import("../views/example/dropdown.vue");
 
+const formGroup = () => import("../views/example/form-group.vue");
+
 const routes = [
   {
     path: "/",
@@ -177,6 +179,11 @@ const routes = [
         path: "/modal",
         name: "modal",
         component: modal
+      },
+      {
+        path: "formgroup",
+        name: "formGroup",
+        component: formGroup
       }
     ]
   },

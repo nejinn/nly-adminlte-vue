@@ -55,6 +55,10 @@ export const NlyLogBody = Vue.extend({
     topIcon: {
       type: String,
       default: "nlyfont nly-icon-logo-aperture"
+    },
+    topText: {
+      type: String,
+      default: "Top"
     }
   },
   computed: {
@@ -65,6 +69,7 @@ export const NlyLogBody = Vue.extend({
         logBodyClass: this.logBodyClass,
         preClass: this.preClass,
         topIcon: this.topIcon,
+        topText: this.topText,
         bottomIcon: this.bottomIcon,
         bottomText: this.bottomText,
         lockScrollBottom: this.lockScrollBottom,
@@ -222,7 +227,7 @@ export const NlyLogBody = Vue.extend({
             }
           },
           [
-            "top",
+            this.customProps.topText,
             h(NlyIcon, {
               class: [this.customProps.topIcon]
             })

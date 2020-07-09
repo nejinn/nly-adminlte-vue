@@ -2768,11 +2768,11 @@ html.os-html>.os-host>.os-scrollbar {
     color: rgb(255, 255, 255);
 }
 
-.nly-log-body .nly-log-line.highlight {
+.nly-log-body .nly-log-line.nly-log-line-highlight {
     background-color: #9d9d9d;
 }
 
-.nly-log-body .nly-log-line.highlight .index, .nly-log-body .nly-log-line.highlight .duration, .nly-log-body .nly-log-line.highlight .title, .nly-log-body .nly-log-line.highlight .text {
+.nly-log-body .nly-log-line.nly-log-line-highlight .index, .nly-log-body .nly-log-line.nly-log-line-highlight .duration, .nly-log-body .nly-log-line.nly-log-line-highlight .title, .nly-log-body .nly-log-line.nly-log-line-highlight .text {
     color: rgb(238, 237, 237);
 }
 

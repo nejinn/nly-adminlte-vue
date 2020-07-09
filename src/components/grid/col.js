@@ -38,34 +38,34 @@ export const props = {
       nlyGetOptionInclusion(colAlignSelfOptions, alignSelf)
   },
   offsetXs: {
-    type: String
+    type: [String, Number]
   },
   offsetSm: {
-    type: String
+    type: [String, Number]
   },
   offsetMd: {
-    type: String
+    type: [String, Number]
   },
   offsetLg: {
-    type: String
+    type: [String, Number]
   },
   offsetXl: {
-    type: String
+    type: [String, Number]
   },
   orderXs: {
-    type: String
+    type: [String, Number]
   },
   orderSm: {
-    type: String
+    type: [String, Number]
   },
   orderMd: {
-    type: String
+    type: [String, Number]
   },
   orderLg: {
-    type: String
+    type: [String, Number]
   },
   orderXl: {
-    type: String
+    type: [String, Number]
   },
   colClass: {
     type: String
@@ -120,16 +120,26 @@ const customClass = props => {
       : props.xl
       ? `col-xl-${props.xl}`
       : "";
-  const customOffsetXs = props.offsetXs ? `offset-${props.offsetXs}` : "";
-  const customOffsetSm = props.offsetSm ? `offset-sm-${props.offsetSm}` : "";
-  const customOffsetMd = props.offsetMd ? `offset-md-${props.offsetMd}` : "";
-  const customOffsetLg = props.offsetLg ? `offset-lg-${props.offsetLg}` : "";
-  const customOffsetXl = props.offsetXl ? `offset-xl-${props.offsetXl}` : "";
-  const customOrderXs = props.orderXs ? `order-${props.orderXs}` : "";
-  const customOrderSm = props.orderSm ? `order-sm-${props.orderSm}` : "";
-  const customOrderMd = props.orderMd ? `order-md-${props.orderMd}` : "";
-  const customOrderLg = props.orderLg ? `order-lg-${props.orderLg}` : "";
-  const customOrderXl = props.orderXl ? `order-xl-${props.orderXl}` : "";
+  const customOffsetXs =
+    props.offsetXs === 0 || props.offsetXs ? `offset-${props.offsetXs}` : "";
+  const customOffsetSm =
+    props.offsetSm === 0 || props.offsetSm ? `offset-sm-${props.offsetSm}` : "";
+  const customOffsetMd =
+    props.offsetMd === 0 || props.offsetMd ? `offset-md-${props.offsetMd}` : "";
+  const customOffsetLg =
+    props.offsetLg === 0 || props.offsetLg ? `offset-lg-${props.offsetLg}` : "";
+  const customOffsetXl =
+    props.offsetXl === 0 || props.offsetXl ? `offset-xl-${props.offsetXl}` : "";
+  const customOrderXs =
+    props.orderXs === 0 || props.orderXs ? `order-${props.orderXs}` : "";
+  const customOrderSm =
+    props.orderSm === 0 || props.orderSm ? `order-sm-${props.orderSm}` : "";
+  const customOrderMd =
+    props.orderMd === 0 || props.orderMd ? `order-md-${props.orderMd}` : "";
+  const customOrderLg =
+    props.orderLg === 0 || props.orderLg ? `order-lg-${props.orderLg}` : "";
+  const customOrderXl =
+    props.orderXl === 0 || props.orderXl ? `order-xl-${props.orderXl}` : "";
   const customColClass = props.colClass;
 
   const colAlignSelfClass =

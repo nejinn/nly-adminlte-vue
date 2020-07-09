@@ -15,10 +15,14 @@ const name = "NlyLogLineTree";
 
 export const NlyLogLineTree = Vue.extend({
   name: name,
+  model: {
+    prop: "visible",
+    event: "input"
+  },
   mixins: [listenOnRootMixin, idMIxins],
   data() {
     return {
-      toggleState: false
+      toggleState: this.visible
     };
   },
   props: {
@@ -47,7 +51,8 @@ export const NlyLogLineTree = Vue.extend({
       type: String
     },
     icon: {
-      type: String
+      type: String,
+      default: "nlyfont nly-icon-arrow-bottom"
     },
     iconClass: {
       type: String

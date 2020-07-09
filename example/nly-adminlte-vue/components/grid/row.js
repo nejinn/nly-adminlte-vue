@@ -23,22 +23,22 @@ export const props = {
     validator: alignV => nlyGetOptionInclusion(rowAlignVOptions, alignV)
   },
   colsXs: {
-    type: String
+    type: [String, Number]
   },
   colsSm: {
-    type: String
+    type: [String, Number]
   },
   colsMd: {
-    type: String
+    type: [String, Number]
   },
   colsLg: {
-    type: String
+    type: [String, Number]
   },
   colsXl: {
-    type: String
+    type: [String, Number]
   },
   rowClass: {
-    String
+    type: String
   }
 };
 
