@@ -117,6 +117,10 @@
             "description": "宽度在xl及以上断点排列顺序,可选0，1，2，3，4，5，6，7，8，9，10，11，12"
           },
           {
+            "prop": "alignSelf",
+            "description": "水平對齊方式, 可选 start, center, end, baseline , stretch"
+          },
+          {
             "prop": "colClass",
             "description": "自定义css式样,可以用自定义css式样或者adminlte自定义式样让col实现对齐等其他功能align-self-start顶部对齐，align-self-center中间对齐，align-self-end底部对齐"
           }

@@ -31,51 +31,51 @@
           },
           {
             "prop": "labelColsXs",
-            "description": "在XS及以上断点的宽度,可选1,2,3,4,5,6,7,8,9,10,11,12, true, false"
+            "description": "在XS及以上断点的宽度,可选1,2,3,4,5,6,7,8,9,10,11,12, true, false, auto"
           },
           {
             "prop": "labelColsSm",
-            "description": "在SM及以上断点的宽度,可选1,2,3,4,5,6,7,8,9,10,11,12, true, false"
+            "description": "在SM及以上断点的宽度,可选1,2,3,4,5,6,7,8,9,10,11,12, true, false, auto"
           },
           {
             "prop": "labelColsMd",
-            "description": "在MD及以上断点的宽度,可选1,2,3,4,5,6,7,8,9,10,11,12, true, false"
+            "description": "在MD及以上断点的宽度,可选1,2,3,4,5,6,7,8,9,10,11,12, true, false, auto"
           },
           {
             "prop": "labelColsLg",
-            "description": "在LG及以上断点的宽度,可选1,2,3,4,5,6,7,8,9,10,11,12, true, false"
+            "description": "在LG及以上断点的宽度,可选1,2,3,4,5,6,7,8,9,10,11,12, true, false, auto"
           },
           {
             "prop": "labelColsXl",
-            "description": "在XL及以上断点的宽度,可选1,2,3,4,5,6,7,8,9,10,11,12, true, false"
+            "description": "在XL及以上断点的宽度,可选1,2,3,4,5,6,7,8,9,10,11,12, true, false, auto"
           },
           {
             "prop": "labelColsOffsetXs",
-            "description": "在XS及以上断点的偏移量,可选0,2,3,4,5,6,7,8,9,10,11"
+            "description": "在XS及以上断点的偏移量,可选0,1,2,3,4,5,6,7,8,9,10,11"
           },
           {
             "prop": "labelColsOffsetSm",
-            "description": "在SM及以上断点的偏移量,可选0,2,3,4,5,6,7,8,9,10,11"
+            "description": "在SM及以上断点的偏移量,可选0,1,2,3,4,5,6,7,8,9,10,11"
           },
           {
             "prop": "labelColsOffsetMd",
-            "description": "在MD及以上断点的偏移量,可选0,2,3,4,5,6,7,8,9,10,11"
+            "description": "在MD及以上断点的偏移量,可选0,1,2,3,4,5,6,7,8,9,10,11"
           },
           {
             "prop": "labelColsOffsetLg",
-            "description": "在LG及以上断点的偏移量,可选0,2,3,4,5,6,7,8,9,10,11"
+            "description": "在LG及以上断点的偏移量,可选0,1,2,3,4,5,6,7,8,9,10,11"
           },
           {
             "prop": "labelColsOffsetXl",
-            "description": "在XL及以上断点的偏移量,可选0,2,3,4,5,6,7,8,9,10,11"
+            "description": "在XL及以上断点的偏移量,可选0,1,2,3,4,5,6,7,8,9,10,11"
           },
           {
             "prop": "labelColsOrderXs",
-            "description": "在XS及以上断点的排序,可选0,2,3,4,5,6,7,8,9,10,11,12"
+            "description": "在XS及以上断点的排序,可选0,1,2,3,4,5,6,7,8,9,10,11,12"
           },
           {
             "prop": "labelColsOrderSm",
-            "description": "在SM及以上断点的排序,可选0,2,3,4,5,6,7,8,9,10,11, 12"
+            "description": "在SM及以上断点的排序,可选0,1,2,3,4,5,6,7,8,9,10,11, 12"
           },
           {
             "prop": "labelColsOrderMd",
@@ -146,34 +146,26 @@
             "description": "禁用 form group的 fieldset 和label-for"
           }
         ],
-        "events": [
+        "slots": [
           {
-            "event": "submit",
-            "description": "提交表单数据",
-            "args": [
-              {
-                "arg": "event",
-                "type": "事件",
-                "description": "原生提交事件"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "component": "NlyFormFeedback",
-        "props": [
-          {
-            "prop": "tooltip",
-            "description": "设置为true时,feedback呈现方式为tooltip,呈现级别对应props valid的值"
+            "name": "label",
+            "description": "label 元素插槽"
           },
           {
-            "prop": "forceShow",
-            "description": "强制显示feedback"
+            "name": "description",
+            "description": "description 元素插槽"
           },
           {
-            "prop": "text",
-            "description": "feedback validation文本内容"
+            "name": "invalid-feedback",
+            "description": "invalid-feedback 元素插槽"
+          },
+          {
+            "name": "valid-feedback",
+            "description": "valid-feedback 元素插槽"
+          },
+          {
+            "name": "warning-feedback",
+            "description": "warning-feedback 元素插槽"
           }
         ]
       }

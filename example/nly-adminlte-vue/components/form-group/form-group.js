@@ -113,7 +113,7 @@ export const NlyFormGroup = Vue.extend({
                   for: this.customProps.labelFor || null
                 }
               },
-              this.customProps.label
+              [this.customProps.label]
             )
           ]
         );
@@ -200,6 +200,11 @@ export const NlyFormGroup = Vue.extend({
         }
       });
 
+      result.push(this.$slots["invalid-feedback"]);
+      result.push(this.$slots["valid-feedback"]);
+      result.push(this.$slots["warning-feedback"]);
+      result.push(this.$slots["description"]);
+
       if (this.customProps.description) {
         result.push(
           h(
@@ -238,7 +243,7 @@ export const NlyFormGroup = Vue.extend({
                 role: "group"
               }
             },
-            [labelVnodes(), h("div", {}, childVnodes())]
+            [labelVnodes(), this.$slots.label, h("div", {}, childVnodes())]
           );
         } else {
           return h(
@@ -259,7 +264,11 @@ export const NlyFormGroup = Vue.extend({
                 role: "group"
               }
             },
-            [labelVnodes(), h("div", { staticClass: "col" }, childVnodes())]
+            [
+              labelVnodes(),
+              this.$slots.label,
+              h("div", { staticClass: "col" }, childVnodes())
+            ]
           );
         }
       } else {
@@ -282,7 +291,7 @@ export const NlyFormGroup = Vue.extend({
                 role: "group"
               }
             },
-            [h("div", {}, childVnodes())]
+            [this.$slots.label, h("div", {}, childVnodes())]
           );
         } else {
           return h(
@@ -303,7 +312,7 @@ export const NlyFormGroup = Vue.extend({
                 role: "group"
               }
             },
-            [h("div", { staticClass: "col" }, childVnodes())]
+            [this.$slots.label, h("div", { staticClass: "col" }, childVnodes())]
           );
         }
       }

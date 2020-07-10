@@ -150,6 +150,9 @@
               :valid="state"
               trim
             ></nly-form-input>
+            <template slot="invalid-feedback">
+              <nly-form-feedback state="invalid"> zzzz</nly-form-feedback>
+            </template>
           </nly-form-group>
         </nly-col>
       </nly-row>
