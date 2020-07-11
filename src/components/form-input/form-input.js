@@ -4,26 +4,41 @@ import {
   inputTypeOptions,
   inputMaxMinStepOptions
 } from "../../utils/nly-config";
-import { toString } from "../../utils/string";
 import { isFunction } from "../../utils/inspect";
 import idMixin from "../../mixins/id";
 import formTextMixin from "../../mixins/form/form-text";
 import formMixin from "../../mixins/form/form";
 import formSizeMixin from "../../mixins/form/form-szie";
 import formValid from "../../mixins/form/form-valid";
+import { eventOn, eventOff, eventOnOff } from "../../utils/events";
+import formSelectionMixin from "../../mixins/form/form-selection";
+import formValidityMixin from "../../mixins/form/form-validity";
 // import { toFloat } from "../../../utils/number";
 
 const name = "NlyFormInput";
 
 export const NlyFormInput = Vue.extend({
   name: name,
-  mixins: [formTextMixin, formMixin, idMixin, formSizeMixin, formValid],
+  mixins: [
+    formTextMixin,
+    formMixin,
+    idMixin,
+    formSizeMixin,
+    formValid,
+    formSelectionMixin,
+    formValidityMixin
+  ],
   props: {
     // input类型
     type: {
       type: String,
       default: "text",
       validator: type => nlyGetOptionInclusion(inputTypeOptions, type)
+    },
+    noWheel: {
+      // Disable mousewheel to prevent wheel from changing values (i.e. number/date).
+      type: Boolean,
+      default: false
     },
     //颜色拾取器默认类型
     colorDefault: {
@@ -79,7 +94,9 @@ export const NlyFormInput = Vue.extend({
     },
     computedClass() {
       const variantClass =
-        this.type === "range" ? `custom-range-${this.variant}` : null;
+        this.type === "range" && this.variant
+          ? `custom-range-${this.variant}`
+          : null;
       const rangeClass = this.type === "range" ? "custom-range" : null;
       const plaintextClass = () => {
         if (this.plaintext && this.type !== "range" && this.type !== "color") {
@@ -127,22 +144,48 @@ export const NlyFormInput = Vue.extend({
     }
   },
   watch: {
-    value: function(newVal) {
-      const stringValue = toString(newVal);
-      if (stringValue !== this.localValue && newVal !== this.cloneValue) {
-        this.localValue = stringValue;
-        this.cloneValue = newVal;
-      }
+    noWheel(newVal) {
+      this.setWheelStopper(newVal);
     }
   },
-  methods: {},
-  mounted() {
-    const value = this.value;
-    const stringValue = toString(value);
-    if (stringValue !== this.localValue && value !== this.cloneValue) {
-      this.localValue = stringValue;
-      this.cloneValue = value;
+  methods: {
+    setWheelStopper(on) {
+      const input = this.$el;
+      // We use native events, so that we don't interfere with propagation
+      eventOnOff(on, input, "focus", this.onWheelFocus);
+      eventOnOff(on, input, "blur", this.onWheelBlur);
+      if (!on) {
+        eventOff(document, "wheel", this.stopWheel);
+      }
+    },
+    onWheelFocus() {
+      eventOn(document, "wheel", this.stopWheel);
+    },
+    onWheelBlur() {
+      eventOff(document, "wheel", this.stopWheel);
+    },
+    stopWheel(evt) {
+      evt.preventDefault();
+      this.$el.blur();
     }
+  },
+  mounted() {
+    this.setWheelStopper(this.noWheel);
+  },
+  deactivated() {
+    // Turn off listeners when keep-alive component deactivated
+    /* istanbul ignore next */
+    this.setWheelStopper(false);
+  },
+  /* istanbul ignore next */
+  activated() {
+    // Turn on listeners (if no-wheel) when keep-alive component activated
+    /* istanbul ignore next */
+    this.setWheelStopper(this.noWheel);
+  },
+  beforeDestroy() {
+    /* istanbul ignore next */
+    this.setWheelStopper(false);
   },
   render(h) {
     var self = this;

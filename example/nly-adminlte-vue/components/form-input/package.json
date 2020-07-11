@@ -1,0 +1,217 @@
+{
+  "name": "@nly-adminlte-vue/form-input",
+  "version": "1.0.0",
+  "meta": {
+    "title": "Form Input",
+    "subtitle": "输入框",
+    "description": "输入框,  支持多种类型的 input 输入框",
+    "components": [
+      {
+        "component": "NlyFormInput",
+        "props": [
+          {
+            "prop": "value",
+            "description": "输入框的值,  `v-model` 会把值传给value"
+          },
+          {
+            "prop": "formatter",
+            "description": "格式化输入的值,  即格式化value。 应传入函数,  会对输入的值进行函数指定的格式转换"
+          },
+          {
+            "prop": "lazyFormatter",
+            "description": "在设置formatter的情况下,  可以开启 `lazy-formatter` 实现懒加载格式转化模式"
+          },
+          {
+            "prop": "trim",
+            "description": "去除value值前后的空格"
+          },
+          {
+            "prop": "lazy",
+            "description": "设置lazy的时候,  `v-model`获取的值将由事件 change/blur 触发,  而不再是事件 input,  lazy的效果等同于v-model.lazy,  注意 `v-model.lazy' 不适用于input组件"
+          },
+          {
+            "prop": "disabled",
+            "description": "禁用 input 输入框"
+          },
+          {
+            "prop": "size",
+            "description": "大小, 可选 sm,  lg"
+          },
+          {
+            "prop": "col",
+            "description": "在没有其他props的情况下,  所有列等宽, 放在class='row'的元素下有效"
+          },
+          {
+            "prop": "xs",
+            "description": "在XS及以上断点的宽度, 可选1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, auto"
+          },
+          {
+            "prop": "sm",
+            "description": "在SM及以上断点的宽度, 可选1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, auto"
+          },
+          {
+            "prop": "md",
+            "description": "在MD及以上断点的宽度, 可选1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, auto"
+          },
+          {
+            "prop": "lg",
+            "description": "在LG及以上断点的宽度, 可选1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, auto"
+          },
+          {
+            "prop": "xl",
+            "description": "在XL及以上断点的宽度, 可选1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, auto"
+          },
+          {
+            "prop": "offsetXs",
+            "description": "在XS及以上断点的偏移量, 可选0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11"
+          },
+          {
+            "prop": "offsetSm",
+            "description": "在SM及以上断点的偏移量, 可选0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11"
+          },
+          {
+            "prop": "offsetMd",
+            "description": "在MD及以上断点的偏移量, 可选0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11"
+          },
+          {
+            "prop": "offsetLg",
+            "description": "在LG及以上断点的偏移量, 可选0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11"
+          },
+          {
+            "prop": "offsetXl",
+            "description": "在XL及以上断点的偏移量, 可选0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11"
+          },
+          {
+            "prop": "orderXs",
+            "description": "在XS及以上断点的排序, 可选0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12"
+          },
+          {
+            "prop": "orderSm",
+            "description": "在SM及以上断点的排序, 可选0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,  12"
+          },
+          {
+            "prop": "orderMd",
+            "description": "在MD及以上断点的排序, 可选0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,  12"
+          },
+          {
+            "prop": "orderLg",
+            "description": "在LG及以上断点的排序, 可选0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,  12"
+          },
+          {
+            "prop": "orderXl",
+            "description": "在XL及以上断点的排序, 可选0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,  12"
+          },
+          {
+            "prop": "valid",
+            "description": "验证提示,  可选valid, invalid, warning, novalid"
+          },
+          {
+            "prop": "type",
+            "description": "类型,  默认text, 不传默认text。可选text, password, email, number, url, tel, search, range, color, date, time, datetime, datetime-local, month, week"
+          },
+          {
+            "prop": "colorDefault",
+            "description": "类型,  默认text, 不传默认text。可选text, password, email, number, url, tel, search, range, color, date, time, datetime, datetime-local, month, week"
+          },
+          {
+            "prop": "type",
+            "description": "类型,  默认text, 不传默认text。可选text, password, email, number, url, tel, search, range, color, date, time, datetime, datetime-local, month, week"
+          },
+          {
+            "prop": "debounce",
+            "description": "防抖时间间隔"
+          },
+          {
+            "prop": "max",
+            "description": "输入值的最大范围,  设置 prop type=number和range才有效"
+          },
+          {
+            "prop": "min",
+            "description": "输入值的最小范围,  设置 type=number和range才有效"
+          },
+          {
+            "prop": "maxlength",
+            "description": "输入值的最大长度,  设置 type='text'或者'password'时有用"
+          },
+          {
+            "prop": "step",
+            "description": "有效间隔,  设置 type=number和range才有效"
+          },
+          {
+            "prop": "list",
+            "description": "输入时出现预先设定的  datalist 下拉列表 的id,  type=password无效"
+          },
+          {
+            "prop": "variant",
+            "description": "设置type为range时的颜色,  可选 可选 primary,  secondary,  success,  info,  warning,  danger,  light,  dark,  lightblue,  navy,  olive,  lime,  fuchsia,  maroon,  blue,  indigo,  purple,  pink,  red,  orange,  yellow,  green,  teal,  cyan,  white,  gray,  graydark"
+          },
+          {
+            "prop": "noWheel",
+            "description": "禁止鼠标滚动增加数字大小",
+            "version": "0.4.7"
+          },
+          {
+            "prop": "number",
+            "description": "设置true, 会将执行 parseFloat(value), 将value转为float。请注意设置对应的类型，否则报错",
+            "version": "0.4.7"
+          }
+        ],
+        "events": [
+          {
+            "event": "input",
+            "description": "Input event triggered by user interaction. Emitted after any formatting (not including 'trim' or 'number' props) and after the v-model is updated",
+            "args": [
+              {
+                "arg": "value",
+                "type": [
+                  "String",
+                  "Number"
+                ],
+                "description": "Current value of input"
+              }
+            ]
+          },
+          {
+            "event": "change",
+            "description": "Change event triggered by user interaction. Emitted after any formatting (not including 'trim' or 'number' props) and after the v-model is updated.",
+            "args": [
+              {
+                "arg": "value",
+                "type": [
+                  "String",
+                  "Number"
+                ],
+                "description": "Current value of input"
+              }
+            ]
+          },
+          {
+            "event": "update",
+            "description": "Emitted to update the v-model",
+            "args": [
+              {
+                "arg": "value",
+                "type": [
+                  "String",
+                  "Number"
+                ],
+                "description": "Value of input, after any formatting. Not emitted if the value does not change"
+              }
+            ]
+          },
+          {
+            "event": "blur",
+            "description": "Emitted after the input looses focus",
+            "args": [
+              {
+                "arg": "event",
+                "type": "FocusEvent",
+                "description": "Native blur event (before any formatting)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

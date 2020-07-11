@@ -1,5 +1,7 @@
 import { isFunction } from "../../utils/inspect";
 import { toString } from "../../utils/string";
+import { mathMax } from "../../utils/math";
+import { toInteger, toFloat } from "../../utils/number";
 
 export default {
   model: {
@@ -47,11 +49,19 @@ export default {
       type: Boolean,
       default: false
     },
-
+    number: {
+      type: Boolean,
+      default: false
+    },
     lazy: {
       // Only update the `v-model` on blur/change events
       type: Boolean,
       default: false
+    },
+    debounce: {
+      // Debounce timout (in ms). Not applicable with `lazy` prop
+      type: [Number, String],
+      default: 0
     }
   },
   data() {
@@ -63,26 +73,42 @@ export default {
   computed: {
     customHasFormatter() {
       return isFunction(this.formatter);
+    },
+    computedDebounce() {
+      // Ensure we have a positive number equal to or greater than 0
+      return mathMax(toInteger(this.debounce, 0), 0);
     }
   },
   watch: {
     value(newVal) {
-      const stringValue = toString(newVal);
-      if (stringValue !== this.localValue && newVal !== this.cloneValue) {
-        this.localValue = stringValue;
-        this.cloneValue = newVal;
+      const stringifyValue = toString(newVal);
+      if (stringifyValue !== this.localValue && newVal !== this.vModelValue) {
+        // Clear any pending debounce timeout, as we are overwriting the user input
+        this.clearDebounce();
+        // Update the local values
+        this.localValue = stringifyValue;
+        this.vModelValue = newVal;
       }
     }
   },
   mounted() {
+    // Create non-reactive property and set up destroy handl
+    this.$_inputDebounceTimer = null;
+    this.$on("hook:beforeDestroy", this.clearDebounce);
+    // Preset the internal state
     const value = this.value;
-    const stringValue = toString(value);
-    if (stringValue !== this.localValue && value !== this.cloneValue) {
-      this.localValue = stringValue;
-      this.cloneValue = value;
+    const stringifyValue = toString(value);
+    /* istanbul ignore next */
+    if (stringifyValue !== this.localValue && value !== this.vModelValue) {
+      this.localValue = stringifyValue;
+      this.vModelValue = value;
     }
   },
   methods: {
+    clearDebounce() {
+      clearTimeout(this.$_inputDebounceTimer);
+      this.$_inputDebounceTimer = null;
+    },
     // 转换格式
     formatValue(value, evt, force = false) {
       value = toString(value);
@@ -92,9 +118,14 @@ export default {
       return value;
     },
     // 去除首尾空格
-    trimValue(value) {
+    modifyValue(value) {
+      // Emulate `.trim` modifier behaviour
       if (this.trim) {
         value = value.trim();
+      }
+      // Emulate `.number` modifier behaviour
+      if (this.number) {
+        value = toFloat(value, value);
       }
       return value;
     },
@@ -104,11 +135,20 @@ export default {
       if (lazy && !force) {
         return;
       }
-      value = this.trimValue(value);
-      if (value !== this.cloneValue) {
-        this.cloneValue = value;
-        this.$emit("update", value);
-      } else if (this.customHasFormatter) {
+      value = this.modifyValue(value);
+      if (value !== this.vModelValue) {
+        this.clearDebounce();
+        const doUpdate = () => {
+          this.vModelValue = value;
+          this.$emit("update", value);
+        };
+        const debounce = this.computedDebounce;
+        if (debounce > 0 && !lazy && !force) {
+          this.$_inputDebounceTimer = setTimeout(doUpdate, debounce);
+        } else {
+          doUpdate();
+        }
+      } else if (this.hasFormatter) {
         const $input = this.$refs.input;
         if ($input && value !== $input.value) {
           $input.value = value;
@@ -145,7 +185,7 @@ export default {
       const value = evt.target.value;
       const formattedValue = this.formatValue(value, evt, true);
       if (formattedValue !== false) {
-        this.localValue = toString(this.trimValue(formattedValue));
+        this.localValue = toString(this.modifyValue(formattedValue));
         this.updateValue(formattedValue, true);
       }
       this.$emit("blur", evt);
