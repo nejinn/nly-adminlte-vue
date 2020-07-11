@@ -34,6 +34,9 @@
 
 </p>
 
+</BR>
+
+[English README](https://github.com/nejinn/nly-adminlte-vue) || 中文 README
 
 # 1. nly-adminlte-vue
 <!-- TOC -->
