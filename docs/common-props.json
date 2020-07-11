@@ -120,13 +120,13 @@
     "description": "必填"
   },
   "form": {
-    "description": "ID of the form that the form control belongs to. Sets the 'form' attribute on the control"
+    "description": "指定归属表单，可以放置在表单外面。form 应设置为对应表单的id"
   },
   "name": {
-    "description": "Sets the value of the 'name' attribute on the form control"
+    "description": "设置 表单控件的 'name' attribute 属性"
   },
   "placeholder": {
-    "description": "Sets the 'placeholder' attribute value on the form control"
+    "description": "设置 表单控件的 `placeholder` attribute 属性 "
   },
   "disabled": {
     "description": "禁用，设置true为禁用状态"

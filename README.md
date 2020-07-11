@@ -81,7 +81,7 @@ English README || [中文 README](https://github.com/nejinn/nly-adminlte-vue/tre
 
 **注意** : The documentation has not been completely migrated to the website. If there is no document on the website, you can view it in the README.md under the corresponding component folder.
 
-We also can view demo localhost with `npm run docs-dev`. [docs-dev](#43-install)
+We also can view docs localhost with `npm run docs-dev`. [docs-dev](#43-install)
 
 # 4. Progress
 
