@@ -36,7 +36,7 @@
 
 </BR>
 
-English README || [中文 README](https://github.com/nejinn/nly-adminlte-vue/tree/master/zh)
+[English README](https://github.com/nejinn/nly-adminlte-vue) || 中文 README
 
 # 1. nly-adminlte-vue
 
@@ -64,11 +64,15 @@ English README || [中文 README](https://github.com/nejinn/nly-adminlte-vue/tre
 # 2. demo
 
 > demo 可以看到跟 master 同步的组件。点击下面
+
 > [demo-国内](http://nly-adminlte-vue-demo.nejinn.com/#/)
+
 > [demo-github](https://nejinn.github.io/nly-adminlte-vue-demo/)
 
 ![demoPic](https://github.com/nejinn/nly-adminlte-vue/blob/master/static/demoPic.png)
+
 ![demo](https://github.com/nejinn/nly-adminlte-vue/blob/master/static/demo.gif)
+
 ![demoPic](https://github.com/nejinn/nly-adminlte-vue/blob/master/static/demo1.gif)
 
 # 3. 文档
@@ -76,6 +80,8 @@ English README || [中文 README](https://github.com/nejinn/nly-adminlte-vue/tre
 > [nly-daminlte-vue-docs](http://nly-adminlte-vue.nejinn.com/)
 
 **注意** : 目前文档还没有完全迁移到网站上，网站上没有文档的可以在对应组件文件夹下面的 README.md 查看
+
+在本地 运行 docs-dev 命令也可以查看文档。 [docs-dev](#43-install)
 
 # 4. 进度
 
@@ -134,8 +140,17 @@ English README || [中文 README](https://github.com/nejinn/nly-adminlte-vue/tre
 ### 4.3.1. 可以直接 clone 下载项目
 
 ```html
-git clone https://github.com/nejinn/nly-adminlte-vue.git npm install npm run
-serve // 查看example，所有组件demo都在这里 http://localhost:8080
+git clone https://github.com/nejinn/nly-adminlte-vue.git 
+
+npm install 
+
+npm runserve 
+
+// 查看example，所有组件demo都在这里 
+http://localhost:8080
+
+// 查看本地文档
+npm run docs-dev
 ```
 
 ### 4.3.2. 从 npm 下载
