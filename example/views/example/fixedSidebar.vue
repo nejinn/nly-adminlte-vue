@@ -4,6 +4,7 @@
     layout="fixed"
     wrapper-class="XXXX"
     container-class="zzz"
+    fxied
   >
     <nly-navbar
       :variant="navbar.variant"
@@ -21,17 +22,13 @@
           active
           class="d-none d-sm-inline-block"
           :to="{ name: 'collapse' }"
+          >home</nly-nav-item
         >
-          home
-        </nly-nav-item>
+        <nly-nav-item disabled class="d-none d-sm-inline-block"
+          >home</nly-nav-item
+        >
 
-        <nly-nav-item disabled class="d-none d-sm-inline-block">
-          home
-        </nly-nav-item>
-
-        <nly-nav-item class="d-none d-sm-inline-block">
-          home
-        </nly-nav-item>
+        <nly-nav-item class="d-none d-sm-inline-block">home</nly-nav-item>
 
         <nly-nav-dropdown
           id="menudropdon1"
@@ -46,19 +43,19 @@
             <nly-icon icon="nlyfont nly-icon-notification-fill" />
           </template>
           <template slot="menucontent">
-            <nly-nav-item :nav-item="false" dropdown-item to="/">
-              我是nav-item="false"
-            </nly-nav-item>
-            <nly-nav-item :nav-item="false" dropdown-item to="nav">
-              dropdown-item
-            </nly-nav-item>
+            <nly-nav-item :nav-item="false" dropdown-item to="/"
+              >我是nav-item="false"</nly-nav-item
+            >
+            <nly-nav-item :nav-item="false" dropdown-item to="nav"
+              >dropdown-item</nly-nav-item
+            >
 
-            <nly-nav-item :nav-item="false" dropdown-item to="/" disabled>
-              我是disabled
-            </nly-nav-item>
-            <nly-nav-item :nav-item="false" dropdown-item to="nav" append>
-              我是append
-            </nly-nav-item>
+            <nly-nav-item :nav-item="false" dropdown-item to="/" disabled
+              >我是disabled</nly-nav-item
+            >
+            <nly-nav-item :nav-item="false" dropdown-item to="nav" append
+              >我是append</nly-nav-item
+            >
 
             <nly-nav-dropdown
               id="menudropdon2"
@@ -71,20 +68,17 @@
               size="lg"
               direction="none"
             >
-              <template slot="linkcontent">
-                我是悬浮菜单
-              </template>
+              <template slot="linkcontent">我是悬浮菜单</template>
               <template slot="menucontent">
                 <nly-nav-item
                   :nav-item="false"
                   dropdown-item
                   :to="{ name: 'button' }"
+                  >我是nav-item="false"</nly-nav-item
                 >
-                  我是nav-item="false"
-                </nly-nav-item>
-                <nly-nav-item :nav-item="false" dropdown-item>
-                  dropdown-item
-                </nly-nav-item>
+                <nly-nav-item :nav-item="false" dropdown-item
+                  >dropdown-item</nly-nav-item
+                >
 
                 <nly-nav-dropdown
                   :nav-item="false"
@@ -95,20 +89,17 @@
                   direction="none"
                   id="menudropdon3"
                 >
-                  <template slot="linkcontent">
-                    我是三级
-                  </template>
+                  <template slot="linkcontent">我是三级</template>
                   <template slot="menucontent">
                     <nly-nav-item
                       :nav-item="false"
                       dropdown-item
                       :to="{ name: 'button' }"
+                      >我是nav-item="false"</nly-nav-item
                     >
-                      我是nav-item="false"
-                    </nly-nav-item>
-                    <nly-nav-item :nav-item="false" dropdown-item>
-                      dropdown-item
-                    </nly-nav-item>
+                    <nly-nav-item :nav-item="false" dropdown-item
+                      >dropdown-item</nly-nav-item
+                    >
                   </template>
                 </nly-nav-dropdown>
               </template>
@@ -124,16 +115,14 @@
           hover
           item-class="d-none d-sm-inline-block"
         >
-          <template slot="linkcontent">
-            我是悬浮菜单
-          </template>
+          <template slot="linkcontent">我是悬浮菜单</template>
           <template slot="menucontent">
-            <nly-nav-item :nav-item="false" dropdown-item to="/">
-              我是nav-item="false"
-            </nly-nav-item>
-            <nly-nav-item :nav-item="false" dropdown-item to="nav">
-              dropdown-item
-            </nly-nav-item>
+            <nly-nav-item :nav-item="false" dropdown-item to="/"
+              >我是nav-item="false"</nly-nav-item
+            >
+            <nly-nav-item :nav-item="false" dropdown-item to="nav"
+              >dropdown-item</nly-nav-item
+            >
           </template>
         </nly-nav-dropdown>
       </nly-navbar-nav>
@@ -148,12 +137,12 @@
             <nly-icon icon="nlyfont nly-icon-notification-fill" />
           </template>
           <template slot="menucontent">
-            <nly-nav-item :nav-item="false" dropdown-item to="/">
-              我是nav-item="false"
-            </nly-nav-item>
-            <nly-nav-item :nav-item="false" dropdown-item to="nav">
-              dropdown-item
-            </nly-nav-item>
+            <nly-nav-item :nav-item="false" dropdown-item to="/"
+              >我是nav-item="false"</nly-nav-item
+            >
+            <nly-nav-item :nav-item="false" dropdown-item to="nav"
+              >dropdown-item</nly-nav-item
+            >
           </template>
         </nly-nav-dropdown>
 
@@ -165,17 +154,17 @@
         >
           <template slot="linkcontent">
             <nly-icon icon="nlyfont nly-icon-mail-fill" />
-            <nly-badge bg-variant="fuchsia" badge-class="navbar-badge">
-              12
-            </nly-badge>
+            <nly-badge bg-variant="fuchsia" badge-class="navbar-badge"
+              >12</nly-badge
+            >
           </template>
           <template slot="menucontent">
-            <nly-nav-item :nav-item="false" dropdown-item to="/">
-              我是nav-item="false"
-            </nly-nav-item>
-            <nly-nav-item :nav-item="false" dropdown-item to="nav">
-              dropdown-item
-            </nly-nav-item>
+            <nly-nav-item :nav-item="false" dropdown-item to="/"
+              >我是nav-item="false"</nly-nav-item
+            >
+            <nly-nav-item :nav-item="false" dropdown-item to="nav"
+              >dropdown-item</nly-nav-item
+            >
           </template>
         </nly-nav-dropdown>
 
@@ -194,9 +183,9 @@
       <nly-sidebar>
         <nly-sidebar-userpanel class="mt-3 pb-3 mb-3 d-flex">
           <nly-sidebar-userpanel-img :src="logo" class="SSS" />
-          <nly-sidebar-userpanel-info to="collapse">
-            Nejinn lerity
-          </nly-sidebar-userpanel-info>
+          <nly-sidebar-userpanel-info to="collapse"
+            >Nejinn lerity</nly-sidebar-userpanel-info
+          >
         </nly-sidebar-userpanel>
         <nly-sidebar-nav
           class="mt-2"
@@ -207,9 +196,7 @@
           :child-indent="sidebar.sidebarShape.childIndent"
           sidebar-nav-class="zzz"
         >
-          <nly-sidebar-nav-header>
-            Dashboard
-          </nly-sidebar-nav-header>
+          <nly-sidebar-nav-header>Dashboard</nly-sidebar-nav-header>
           <nly-sidebar-nav-item
             to="/"
             link-class="xxx zzz"
@@ -218,16 +205,14 @@
             exact
           >
             home
-            <nly-badge bg-variant="teal" badge-class="right">
-              NEW
-            </nly-badge>
+            <nly-badge bg-variant="teal" badge-class="right">NEW</nly-badge>
           </nly-sidebar-nav-item>
 
           <nly-sidebar-nav-header>
             components
-            <nly-badge bg-variant="maroon" badge-class="float-sm-right">
-              15
-            </nly-badge>
+            <nly-badge bg-variant="maroon" badge-class="float-sm-right"
+              >15</nly-badge
+            >
           </nly-sidebar-nav-header>
 
           <nly-sidebar-nav-tree
@@ -242,9 +227,8 @@
               class="sss"
               icon="nav-icon far nlyfont nly-icon-logo-chrome"
               exact
+              >collapse</nly-sidebar-nav-item
             >
-              collapse
-            </nly-sidebar-nav-item>
 
             <nly-sidebar-nav-item
               to="/navbar"
@@ -252,9 +236,8 @@
               class="sss"
               icon="nav-icon far nlyfont nly-icon-nav-tool"
               exact
+              >navbar</nly-sidebar-nav-item
             >
-              navbar
-            </nly-sidebar-nav-item>
 
             <nly-sidebar-nav-item
               to="/nav"
@@ -262,9 +245,8 @@
               class="sss"
               icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
+              >nav</nly-sidebar-nav-item
             >
-              nav
-            </nly-sidebar-nav-item>
 
             <nly-sidebar-nav-item
               to="/container"
@@ -272,9 +254,8 @@
               class="sss"
               icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
+              >container</nly-sidebar-nav-item
             >
-              container
-            </nly-sidebar-nav-item>
 
             <nly-sidebar-nav-item
               to="/grid"
@@ -282,9 +263,8 @@
               class="sss"
               icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
+              >grid</nly-sidebar-nav-item
             >
-              grid
-            </nly-sidebar-nav-item>
           </nly-sidebar-nav-tree>
 
           <nly-sidebar-nav-tree
@@ -298,9 +278,8 @@
               class="sss"
               icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
+              >link</nly-sidebar-nav-item
             >
-              link
-            </nly-sidebar-nav-item>
 
             <nly-sidebar-nav-item
               to="/button"
@@ -308,9 +287,8 @@
               class="sss"
               icon="nav-icon far nlyfont nly-icon-logo-ionic"
               exact
+              >button</nly-sidebar-nav-item
             >
-              button
-            </nly-sidebar-nav-item>
 
             <nly-sidebar-nav-item
               to="/switch"
@@ -318,9 +296,8 @@
               class="sss"
               icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
+              >switch</nly-sidebar-nav-item
             >
-              switch
-            </nly-sidebar-nav-item>
 
             <nly-sidebar-nav-item
               to="/card"
@@ -328,9 +305,8 @@
               class="sss"
               icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
+              >card</nly-sidebar-nav-item
             >
-              card
-            </nly-sidebar-nav-item>
 
             <nly-sidebar-nav-item
               to="/badge"
@@ -338,9 +314,8 @@
               class="sss"
               icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
+              >badge</nly-sidebar-nav-item
             >
-              badge
-            </nly-sidebar-nav-item>
           </nly-sidebar-nav-tree>
 
           <nly-sidebar-nav-tree
@@ -349,9 +324,7 @@
             text="components-three"
           >
             <template slot="linktool">
-              <nly-badge variant="info" badge-class="right">
-                5
-              </nly-badge>
+              <nly-badge variant="info" badge-class="right">5</nly-badge>
             </template>
             <nly-sidebar-nav-item
               to="/toast"
@@ -359,9 +332,8 @@
               class="sss"
               icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
+              >toast</nly-sidebar-nav-item
             >
-              toast
-            </nly-sidebar-nav-item>
 
             <nly-sidebar-nav-item
               to="/spinner"
@@ -369,9 +341,8 @@
               class="sss"
               icon="nav-icon far nlyfont nly-icon-logo-pinterest"
               exact
+              >spinner</nly-sidebar-nav-item
             >
-              spinner
-            </nly-sidebar-nav-item>
 
             <nly-sidebar-nav-item
               to="/progress"
@@ -379,9 +350,8 @@
               class="sss"
               icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
+              >progress</nly-sidebar-nav-item
             >
-              progress
-            </nly-sidebar-nav-item>
 
             <nly-sidebar-nav-item
               to="/timeline"
@@ -389,9 +359,8 @@
               class="sss"
               icon="nav-icon far nlyfont nly-icon-logo-ionitron"
               exact
+              >timeline</nly-sidebar-nav-item
             >
-              timeline
-            </nly-sidebar-nav-item>
 
             <nly-sidebar-nav-item
               to="/breadcrumb"
@@ -401,9 +370,9 @@
               exact
             >
               breadcrumb
-              <nly-badge bg-variant="fuchsia" badge-class="right" size="sm">
-                NEW
-              </nly-badge>
+              <nly-badge bg-variant="fuchsia" badge-class="right" size="sm"
+                >NEW</nly-badge
+              >
             </nly-sidebar-nav-item>
           </nly-sidebar-nav-tree>
 
@@ -418,9 +387,8 @@
               class="sss"
               icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
+              >infobox</nly-sidebar-nav-item
             >
-              infobox
-            </nly-sidebar-nav-item>
 
             <nly-sidebar-nav-item
               to="/table"
@@ -428,9 +396,8 @@
               class="sss"
               icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
+              >table</nly-sidebar-nav-item
             >
-              table
-            </nly-sidebar-nav-item>
 
             <nly-sidebar-nav-item
               to="/tooltip"
@@ -438,9 +405,8 @@
               class="sss"
               icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
+              >tooltip</nly-sidebar-nav-item
             >
-              tooltip
-            </nly-sidebar-nav-item>
 
             <nly-sidebar-nav-item
               to="/pagination"
@@ -448,9 +414,8 @@
               class="sss"
               icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
+              >pagination</nly-sidebar-nav-item
             >
-              pagination
-            </nly-sidebar-nav-item>
 
             <nly-sidebar-nav-item
               to="/log"
@@ -458,9 +423,8 @@
               class="sss"
               icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
+              >log</nly-sidebar-nav-item
             >
-              log
-            </nly-sidebar-nav-item>
           </nly-sidebar-nav-tree>
 
           <nly-sidebar-nav-tree
@@ -474,18 +438,16 @@
               class="sss"
               icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
+              >form-input</nly-sidebar-nav-item
             >
-              form-input
-            </nly-sidebar-nav-item>
             <nly-sidebar-nav-item
               to="/formfeedback"
               link-class="xxx zzz"
               class="sss"
               icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
+              >form-feedback</nly-sidebar-nav-item
             >
-              form-feedback
-            </nly-sidebar-nav-item>
 
             <nly-sidebar-nav-item
               to="/listgroup"
@@ -493,9 +455,8 @@
               class="sss"
               icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
+              >listgroup</nly-sidebar-nav-item
             >
-              listgroup
-            </nly-sidebar-nav-item>
 
             <nly-sidebar-nav-item
               to="/modal"
@@ -503,28 +464,61 @@
               class="sss"
               icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
+              >modal</nly-sidebar-nav-item
             >
-              modal
-            </nly-sidebar-nav-item>
+
+            <nly-sidebar-nav-item
+              to="/tabs"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
+              exact
+              >tabs</nly-sidebar-nav-item
+            >
+
+            <nly-sidebar-nav-item
+              to="/dropdown"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
+              exact
+              >dropdown</nly-sidebar-nav-item
+            >
+
+            <nly-sidebar-nav-item
+              to="/formgroup"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
+              exact
+              >formgroup</nly-sidebar-nav-item
+            >
           </nly-sidebar-nav-tree>
         </nly-sidebar-nav>
       </nly-sidebar>
     </nly-wrapper-sidebar>
-    <nly-wrapper-content style="min-height: 100vh;"> </nly-wrapper-content>
+    <div style="height:100vh">
+      <router-view />
+    </div>
     <nly-wrapper-footer :size="footerSizeSm" bg-variant="info">
-      <strong
-        >Copyright © 2020
+      <strong>
+        Copyright © 2020
         <a href="https://github.com/nejinn/nly-adminlte-vue">nly-adminlte-vue</a
-        >.</strong
-      >
+        >.
+      </strong>
       All rights reserved.
       <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 0.1.9
+        <b>Version</b>
+        {{ version }}
       </div>
     </nly-wrapper-footer>
-    <nly-wrapper-control-sidebar :size="controlSidebarSizeSm">
+    <nly-wrapper-control-sidebar
+      :size="controlSidebarSizeSm"
+      bg-variant="info"
+      bg-gradient-variant="pink"
+    >
       <!-- Control sidebar content goes here -->
-      <nly-control-sidebar class="p-3">
+      <nly-control-sidebar-container class="p-3">
         <h5>主题设置</h5>
         <hr class="mb-2 bg-light" />
         <div class="mb-1">
@@ -649,11 +643,12 @@
         </div>
         <div class="d-flex">
           <div class="d-flex flex-wrap mb-3">
-            <nly-controlSidebar-button
+            <nly-control-sidebar-button
               v-for="(item, index) in navbar.variantOption"
               :key="index"
+              :id="index + 'navbarVariantOption'"
               :bg-variant="item"
-              @click.native="changeNavbarVariant(item)"
+              @click="changeNavbarVariant(item)"
             />
           </div>
         </div>
@@ -665,11 +660,12 @@
         <hr class="mb-2 bg-light" />
         <div class="d-flex">
           <div class="d-flex flex-wrap mb-3">
-            <nly-controlSidebar-button
+            <nly-control-sidebar-button
               v-for="(item, index) in sidebar.darkVariantOption"
               :key="index"
+              :id="index + 'sidebarDarkVariantOption'"
               :bg-variant="item.b"
-              @click.native="changeSidebarVariant(item.a)"
+              @click="changeSidebarVariant(item.a)"
             />
           </div>
         </div>
@@ -679,11 +675,12 @@
         <hr class="mb-2 bg-light" />
         <div class="d-flex">
           <div class="d-flex flex-wrap mb-3">
-            <nly-controlSidebar-button
+            <nly-control-sidebar-button
               v-for="(item, index) in sidebar.lightVariantOption"
               :key="index"
+              :id="index + 'sidebarLightVariantOption'"
               :bg-variant="item.b"
-              @click.native="changeSidebarVariant(item.a)"
+              @click="changeSidebarVariant(item.a)"
             />
           </div>
         </div>
@@ -693,15 +690,16 @@
         <hr class="mb-2 bg-light" />
         <div class="d-flex">
           <div class="d-flex flex-wrap mb-3">
-            <nly-controlSidebar-button
+            <nly-control-sidebar-button
               v-for="(item, index) in sidebar.brand.variantOption"
               :key="index"
+              :id="index + 'brandeVariantOption'"
               :bg-variant="item"
-              @click.native="changeSidebarBrandVariant(item)"
+              @click="changeSidebarBrandVariant(item)"
             />
           </div>
         </div>
-      </nly-control-sidebar>
+      </nly-control-sidebar-container>
     </nly-wrapper-control-sidebar>
     <nly-overlay v-nly-sidebar-collapse.overlay sidebar />
   </nly-wrapper>
@@ -709,9 +707,11 @@
 
 <script>
 import logo from "../../assets/nly-adminlte-vue/img/NLYLOGO.png";
+import version from "../../../package.json";
 export default {
   data() {
     return {
+      version: version.version,
       logo,
       navbar: {
         border: true,
