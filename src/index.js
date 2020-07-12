@@ -117,6 +117,8 @@ export { NavPlugin } from "./components/nav";
 export { NlyNav } from "./components/nav/nav";
 export { NlyNavItem } from "./components/nav/nav-item";
 export { NlyNavDropdown } from "./components/nav/nav-dropdown";
+export { NlyNavForm } from "./components/nav/nav-form";
+export { NlyNavText } from "./components/nav/nav-text";
 
 export { NavbarPlugin } from "./components/navbar";
 export { NlyNavbar } from "./components/navbar/navbar";
@@ -215,6 +217,5 @@ export { NlyTab } from "./components/tabs/tab";
 export { NlyTabs } from "./components/tabs/tabs";
 
 export { NlyAdminlteVueIcons } from "./components/icons/plugin";
-// export { NlyIcon } from "./icons/icon";
 
 export default NlyAdminlteVue;
