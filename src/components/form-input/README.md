@@ -297,7 +297,7 @@
 
 **注意**
 
-- `range` 类型时，设置 `size` 是无效的， 除非将其放到具有 `size` 的 `nly-input-group` 组件中
+`range` 类型时，设置 `size` 是无效的， 除非将其放到具有 `size` 的 `nly-input-group` 组件中
 
 ### 宽度，顺序，偏移
 

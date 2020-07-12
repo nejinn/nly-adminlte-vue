@@ -115,7 +115,7 @@
                 ],
                 "rootEventListeners": [
                     {
-                        "event": "nly::toggle::collapse",
+                        "event": "nlya::toggle::collapse",
                         "description": "在$root上Emitted事件,用来控制对应折叠板的展开收起状态",
                         "args": [
                             {
@@ -222,7 +222,7 @@
                 ],
                 "rootEventListeners": [
                     {
-                        "event": "nly::toggle::collapse",
+                        "event": "nlya::toggle::collapse",
                         "description": "在$root上Emitted事件,用来控制对应折叠板的展开收起状态",
                         "args": [
                             {

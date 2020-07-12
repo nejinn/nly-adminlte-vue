@@ -23,7 +23,7 @@ const EVENT_ACCORDION = "nly::collapse::accordion";
 // This event is NOT to be documented as people should not be using it
 const EVENT_STATE_SYNC = "nly::collapse::sync::state";
 // Events we listen to on `$root`
-const EVENT_TOGGLE = "nly::toggle::collapse";
+const EVENT_TOGGLE = "nlya::toggle::collapse";
 const EVENT_STATE_REQUEST = "nly::request::collapse::state";
 
 // Event listener options

@@ -690,10 +690,10 @@ export const NlyaTooltip = Vue.extend({
       if ($root) {
         const method = on ? "$on" : "$off";
         const type = this.templateType;
-        $root[method](`nly::hide::${type}`, this.doHide);
-        $root[method](`nly::show::${type}`, this.doShow);
-        $root[method](`nly::disable::${type}`, this.doDisable);
-        $root[method](`nly::enable::${type}`, this.doEnable);
+        $root[method](`nlya::hide::${type}`, this.doHide);
+        $root[method](`nlya::show::${type}`, this.doShow);
+        $root[method](`nlya::disable::${type}`, this.doDisable);
+        $root[method](`nlya::enable::${type}`, this.doEnable);
       }
     },
     setWhileOpenListeners(on) {

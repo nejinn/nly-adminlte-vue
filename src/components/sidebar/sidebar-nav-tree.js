@@ -3,7 +3,7 @@ import listenOnRootMixin from "../../mixins/listen-on-root";
 import { NlyLink } from "../link/link";
 import { NlyCollapseNoclass } from "../collapse/collapse-noclass";
 
-const EVENT_TOGGLE = "nly::toggle::collapse";
+const EVENT_TOGGLE = "nlya::toggle::collapse";
 
 const EVENT_STATE = "nly::collapse::state";
 

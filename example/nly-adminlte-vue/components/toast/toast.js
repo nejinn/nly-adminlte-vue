@@ -243,10 +243,10 @@ export const NlyToast = Vue.extend({
         componentId: this.safeId()
       });
     },
-    emitEvent(bvEvt) {
-      const type = bvEvt.type;
-      this.$root.$emit(`nly::toast:${type}`, bvEvt);
-      this.$emit(type, bvEvt);
+    emitEvent(nlyaEvt) {
+      const type = nlyaEvt.type;
+      this.$root.$emit(`nly::toast:${type}`, nlyaEvt);
+      this.$emit(type, nlyaEvt);
     },
     ensureToaster() {
       if (this.static) {

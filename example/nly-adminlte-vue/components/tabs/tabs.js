@@ -329,7 +329,7 @@ export const NlyTabs = /*#__PURE__*/ Vue.extend({
   },
   created() {
     this.currentTab = toInteger(this.value, -1);
-    this._bvObserver = null;
+    this._nlyaObserver = null;
     // For SSR and to make sure only a single tab is shown on mount
     // We wrap this in a `$nextTick()` to ensure the child tabs have been created
     this.$nextTick(() => {
@@ -395,17 +395,17 @@ export const NlyTabs = /*#__PURE__*/ Vue.extend({
           });
         };
         // Watch for changes to <b-tab> sub components
-        this._bvObserver = observeDom(this.$refs.tabsContainer, handler, {
+        this._nlyaObserver = observeDom(this.$refs.tabsContainer, handler, {
           childList: true,
           subtree: false,
           attributes: true,
           attributeFilter: ["id"]
         });
       } else {
-        if (this._bvObserver && this._bvObserver.disconnect) {
-          this._bvObserver.disconnect();
+        if (this._nlyaObserver && this._nlyaObserver.disconnect) {
+          this._nlyaObserver.disconnect();
         }
-        this._bvObserver = null;
+        this._nlyaObserver = null;
       }
     },
     getTabs() {
@@ -627,7 +627,7 @@ export const NlyTabs = /*#__PURE__*/ Vue.extend({
           tabs: tabs,
           id:
             tab.controlledBy ||
-            (tab.safeId ? tab.safeId(`_BV_tab_button_`) : null),
+            (tab.safeId ? tab.safeId(`_NLYA_tab_button_`) : null),
           controls: tab.safeId ? tab.safeId() : null,
           tabIndex,
           setSize: tabs.length,
@@ -654,7 +654,7 @@ export const NlyTabs = /*#__PURE__*/ Vue.extend({
         class: this.localNavClass,
         attrs: {
           role: "tablist",
-          id: this.safeId("_BV_tab_controls_")
+          id: this.safeId("_NLYA_tab_controls_")
         },
         props: {
           fill: this.fill,
@@ -676,7 +676,7 @@ export const NlyTabs = /*#__PURE__*/ Vue.extend({
     nav = h(
       "div",
       {
-        key: "bv-tabs-nav",
+        key: "nlya-tabs-nav",
         class: [
           {
             "card-header": this.card && !this.vertical && !this.end,
@@ -694,7 +694,7 @@ export const NlyTabs = /*#__PURE__*/ Vue.extend({
       empty = h(
         "div",
         {
-          key: "bv-empty-tab",
+          key: "nlya-empty-tab",
           class: ["tab-pane", "active", { "card-body": this.card }]
         },
         this.normalizeSlot("empty")

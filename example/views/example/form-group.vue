@@ -4,7 +4,7 @@
       <nly-container fluid>
         <nly-row class="mb-2">
           <nly-col sm="6">
-            <h1>nly-badge</h1>
+            <h1>nly-form-group</h1>
           </nly-col>
         </nly-row>
       </nly-container>

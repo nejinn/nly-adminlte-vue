@@ -8,8 +8,8 @@ content 组件主要是给正文提供一个容器，用法和 `nly-contaier`并
 
 **注意:**
 
--   请尽量避免 `nly-content-wrapper` 组件和 `nly-wrapper-content` 组件出现在同一个页面中，这两个组件功能可以互换
--   content 正文容器是非必须的，页面中也可以用 `nly-container` 容器组件来代替
+- 请尽量避免 `nly-content-wrapper` 组件和 `nly-wrapper-content` 组件出现在同一个页面中，这两个组件功能可以互换
+- content 正文容器是非必须的，页面中也可以用 `nly-container` 容器组件来代替
 
 以下这个写法是配合左右行中下布局的写法，默认 `nly-content-wrapper` 会有一个 `margin-left: 250px` 偏移属性。
 
@@ -17,12 +17,12 @@ content 组件主要是给正文提供一个容器，用法和 `nly-contaier`并
 
 ```html
 <nly-content-wrapper>
-	<nly-content-header>
-		header
-	</nly-content-header>
-	<nly-content>
-		content
-	</nly-content>
+  <nly-content-header>
+    header
+  </nly-content-header>
+  <nly-content>
+    content
+  </nly-content>
 </nly-content-wrapper>
 
 <!-- 总览.name -->
@@ -33,12 +33,12 @@ content 组件主要是给正文提供一个容器，用法和 `nly-contaier`并
 
 ```html
 <nly-content>
-	<nly-content-header>
-		header
-	</nly-content-header>
-	<nly-content>
-		content
-	</nly-content>
+  <nly-content-header>
+    header
+  </nly-content-header>
+  <nly-content>
+    content
+  </nly-content>
 </nly-content>
 
 <!-- 无偏移正文容器.name -->

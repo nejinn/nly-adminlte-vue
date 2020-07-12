@@ -18,7 +18,7 @@ const NLY_TOGGLE_STATE = "__NLY_toggle_STATE__";
 const NLY_TOGGLE_CONTROLS = "__NLY_toggle_CONTROLS__";
 const NLY_TOGGLE_TARGETS = "__NLY_toggle_TARGETS__";
 
-const EVENT_TOGGLE = "nly::toggle::collapse";
+const EVENT_TOGGLE = "nlya::toggle::collapse";
 
 const EVENT_STATE = "nly::collapse::state";
 

@@ -29,7 +29,7 @@
 
 **注意**
 
-- 使用 `modal-footer` 插槽时，默认的 确定 和 取消 按钮不会显示，需要您自己设置。如果您使用 `modal-header` 插槽，默认的页眉关闭按钮 X 也不会显示，也无法使用 `modal-title` 插槽。
+使用 `modal-footer` 插槽时，默认的 确定 和 取消 按钮不会显示，需要您自己设置。如果您使用 `modal-header` 插槽，默认的页眉关闭按钮 X 也不会显示，也无法使用 `modal-title` 插槽。
 
 ## 切换 `nly-modal` 的隐藏和展示状态
 
@@ -88,7 +88,7 @@
 </div>
 
 <!-- $nlyaModal 显示隐藏.name -->
-<!-- nly-modal-bv-modal-hide-show.vue -->
+<!-- nly-modal-hide-show.vue -->
 ```
 
 `this.$nlyaModal` 同样可以使用于 显示 **[模态消息框](#模态消息框)**
@@ -142,14 +142,14 @@
 </script>
 
 <!-- show,hide,toggle 显示隐藏.name -->
-<!-- nly-modal-bv-modal-hide-show.vue -->
+<!-- nly-modal-modal-hide-show.vue -->
 ```
 
 `hide()` 可以接受一个 `trigger` 参数 来阻止模态框关闭，具体请查看 **[阻止关闭](#阻止关闭)**
 
 **注意**
 
-- 建议使用 `$nlyaModal` 方法而不是 `ref` 这种方法
+建议使用 `$nlyaModal` 方法而不是 `ref` 这种方法
 
 ### 使用 `v-model`
 
@@ -179,7 +179,7 @@
 </script>
 
 <!-- v-model 显示隐藏.name -->
-<!-- nly-modal-bv-modal-hide-show.vue -->
+<!-- nly--modal-hide-show.vue -->
 ```
 
 ### 使用具名插槽
@@ -188,41 +188,201 @@
 
 ### 将事件发射到 root
 
-您可以将 `nly::show::modal` , `nly::hide::modal` 和 `nly::toggle::modal` 事件发射到\$root，其他组件或者元素可以来调用对应的方法来显示和隐藏对应的模态框
+您可以将 `nlya::show::modal` , `nlya::hide::modal` 和 `nlya::toggle::modal` 事件发射到\$root，其他组件或者元素可以来调用对应的方法来显示和隐藏对应的模态框
 
 第一个参数为对应的上述三个方法，第二个参数对应模态框 id，或 css 元素选择器，第三个元素为需要绑定控制事件的元素，最好用 `ref` 获取
 
 ```html
-<div>
-  <nly-button @click="showModal" ref="btnShow">show</nly-button>
-  <nly-button @click="toggleModal" ref="btnToggle">Toggle</nly-button>
+<template>
+  <div>
+    <nly-button @click="showModal" variant="outlineDanger" ref="btnShowRoot"
+      >show</nly-button
+    >
+    <nly-button @click="toggleModal" variant="outlineDanger" ref="btnToggleRoot"
+      >Toggle</nly-button
+    >
 
-  <nly-modal id="modal-1">
-    <div class="d-block">Hello NlyAdminlteVue</div>
-    <nly-button @click="hideModal">hide</nly-button>
-    <nly-button @click="toggleModal">Toggle</nly-button>
-  </nly-modal>
-</div>
+    <nly-modal id="modal-root">
+      <div class="d-block">Hello NlyAdminlteVue</div>
+      <nly-button @click="hideModal" variant="outlineDanger">hide</nly-button>
+      <nly-button @click="toggleModal" variant="outlineDanger"
+        >Toggle</nly-button
+      >
+    </nly-modal>
+  </div>
+</template>
+
+<script>
+  export default {
+    methods: {
+      showModal() {
+        this.$root.$emit('nlya::show::modal', 'modal-root', '#btnShowRoot')
+      },
+      hideModal() {
+        this.$root.$emit('nlya::hide::modal', 'modal-root', '#btnShowRoot')
+      },
+      toggleModal() {
+        this.$root.$emit('nlya::toggle::modal', 'modal-root', '#btnToggleRoot')
+      },
+    },
+  }
+</script>
+
+<!-- $root 显示隐藏.name -->
+<!-- nly-modal-modal-hide-show.vue -->
 ```
 
+## 阻止关闭
+
+可以绑定 `.preventDefault()` 方法到 `ok` (确定按钮), `cancel` (取消按钮),`close`(modal 头部的关闭按钮),`hide`事件上 来阻止`nly-modal` 关闭
+
+`.preventDefault()` 使用的时候，必须是同步事件，不支持异步
+
+```html
+<template>
+  <div>
+    <nly-button v-nly-modal.modal-prevent-closing>Open Modal</nly-button>
+
+    <div class="mt-3">
+      提交的姓名:
+      <div v-if="submittedNames.length === 0">--</div>
+      <ul v-else class="mb-0 pl-3">
+        <li v-for="name in submittedNames">{{ name }}</li>
+      </ul>
+    </div>
+
+    <nly-modal
+      id="modal-prevent-closing"
+      ref="modal"
+      title="提交您的姓名"
+      @show="resetModal"
+      @hidden="resetModal"
+      @ok="handleOk"
+    >
+      <form ref="form" @submit.stop.prevent="handleSubmit">
+        <nly-form-group
+          :valid="nameState"
+          label="Name"
+          label-for="name-input"
+          invalid-feedback="姓名必填"
+        >
+          <nly-form-input
+            id="name-input"
+            v-model="name"
+            :valid="nameState"
+            required
+          ></nly-form-input>
+        </nly-form-group>
+      </form>
+    </nly-modal>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        name: '',
+        nameState: 'novalid',
+        submittedNames: [],
+      }
+    },
+    methods: {
+      checkFormValidity() {
+        const valid = this.$refs.form.checkValidity() ? 'valid' : 'invalid'
+        this.nameState = valid
+        return valid
+      },
+      resetModal() {
+        this.name = ''
+        this.nameState = 'novalid'
+      },
+      handleOk(nlyaModalEvt) {
+        nlyaModalEvt.preventDefault()
+        this.handleSubmit()
+      },
+      handleSubmit() {
+        if (this.checkFormValidity() === 'invalid') {
+          return
+        }
+        this.submittedNames.push(this.name)
+        this.$nextTick(() => {
+          this.$nlyaModal.hide('modal-prevent-closing')
+        })
+      },
+    },
+  }
+</script>
+
+<!-- 阻止关闭.name -->
+<!-- nly-modal-modal-hide-show.vue -->
+```
+
+**注意**
+
+- `ok` (确定按钮), `cancel` (取消按钮), `colse` (modal 头部的关闭按钮) 都是内置的 `确定按钮`, `取消按钮`, `modal 头部的关闭按钮` 触发的. 如果您对这些适用卤具名按钮， 请使用 `hide` 事件来触发。
+
+`ok` (确定按钮), `cancel` (取消按钮),`close`(modal 头部的关闭按钮),`hide`事件`(nlyaModalEvt)`包含以下方法和属性：
+
+| Property or Method | Type     | Description                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `preventDefault()` | Method   | 阻止关闭                                                                                                                                                                                                                                                                                                                                                               |
+| `trigger`          | Property | 可以是以下选项: `ok` (默认的 **OK** 按钮点击调用 Clicked), `cancel` (默认的 **Cancel** 按钮点击调用), `esc` (按下 <kbd>Esc</kbd> 按键调用), `backdrop` (点击 modal 罩层调用), `headerclose` (modal 头部 x 关闭按钮调用), 这些应该作为只一个参数传给 `hide()` 方法, 如果不需要设置，请传入 `null` 或者不传入，`trigger` 的使用方法请看下面 [trigger 源码](#trigger源码) |
+| `target`           | Property | model 元素                                                                                                                                                                                                                                                                                                                                                             |
+| `vueTarget`        | property | vue 实例的 model 元素                                                                                                                                                                                                                                                                                                                                                  |
+| `componentId`      | property | modal 的 id                                                                                                                                                                                                                                                                                                                                                            |
+
+**注意**
+
+### trigger 源码
+
 ```js
-export default {
-  methods: {
-    showModal() {
-      this.$root.$emit('nly::show::modal', 'modal-1', '#btnShow')
-    },
-    hideModal() {
-      this.$root.$emit('nly::hide::modal', 'modal-1', '#btnShow')
-    },
-    toggleModal() {
-      this.$root.$emit('nly::toggle::modal', 'modal-1', '#btnToggle')
-    },
-  },
+hide(trigger = "") {
+  if (!this.isVisible || this.isClosing) {
+    /* istanbul ignore next */
+    return;
+  }
+  this.isClosing = true;
+  const hideEvt = this.buildEvent("hide", {
+    cancelable: trigger !== "FORCE",
+    trigger: trigger || null
+  });
+  // We emit specific event for one of the three built-in buttons
+  if (trigger === "ok") {
+    this.$emit("ok", hideEvt);
+  } else if (trigger === "cancel") {
+    this.$emit("cancel", hideEvt);
+  } else if (trigger === "headerclose") {
+    this.$emit("close", hideEvt);
+  }
+  this.emitEvent(hideEvt);
+  // Hide if not canceled
+  if (hideEvt.defaultPrevented || !this.isVisible) {
+    this.isClosing = false;
+    // Ensure v-model reflects current state
+    this.updateModel(true);
+    return;
+  }
+  // Stop observing for content changes
+  if (this._observer) {
+    this._observer.disconnect();
+    this._observer = null;
+  }
+  // Trigger the hide transition
+  this.isVisible = false;
+  // Update the v-model
+  this.updateModel(false);
 }
 ```
 
-## 模态消息框
+## model 主体内容
 
-## 阻止关闭
+### 使用 `grid` 布局和 `container` 布局和 `wrapper` 布局
+
+在 model 中可以任意嵌套 `nly-container`, `nly-row`, `nly-col`, `nly-wrapper` 系列 布局
+
+### 
+
+## 模态消息框
 
 ## 具名插槽

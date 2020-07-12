@@ -6,18 +6,18 @@
 
 `nly-badge` 组件在一般情况下，大小由父元素或者以上的元素决定的。
 
-```html
+``` html
 <h1>
-  <nly-badge variant="info">info</nly-badge>
+    <nly-badge variant="info">info</nly-badge>
 </h1>
 <h2>
-  <nly-badge variant="info">info</nly-badge>
+    <nly-badge variant="info">info</nly-badge>
 </h2>
 <h3>
-  <nly-badge variant="info">info</nly-badge>
+    <nly-badge variant="info">info</nly-badge>
 </h3>
 <h4>
-  <nly-badge variant="info">info</nly-badge>
+    <nly-badge variant="info">info</nly-badge>
 </h4>
 
 <!-- 总览.name -->
@@ -30,25 +30,25 @@
 
 请注意这时候可能会由于与文本内容或者同级元素的 `font-size` 和 `line-height` 不同而导致并不会对齐显示
 
-```html
+``` html
 <nly-badge bg-variant="primary" size="xs">
-  xs
+    xs
 </nly-badge>
 
 <nly-badge bg-variant="primary" size="sm">
-  sm
+    sm
 </nly-badge>
 
 <nly-badge bg-variant="primary" size="md">
-  md
+    md
 </nly-badge>
 
 <nly-badge bg-variant="primary" size="lg">
-  lg
+    lg
 </nly-badge>
 
 <nly-badge bg-variant="primary" size="xl">
-  xl
+    xl
 </nly-badge>
 
 <!-- size.name -->
@@ -59,25 +59,25 @@
 
 默认 `badge` 是小圆角形，设置 `pill` 之后，变成大圆角
 
-```html
+``` html
 <nly-badge bg-variant="primary" pill size="xs">
-  xs
+    xs
 </nly-badge>
 
 <nly-badge bg-variant="primary" pill size="sm">
-  sm
+    sm
 </nly-badge>
 
 <nly-badge bg-variant="primary" pill size="md">
-  md
+    md
 </nly-badge>
 
 <nly-badge bg-variant="primary" pill size="lg">
-  lg
+    lg
 </nly-badge>
 
 <nly-badge bg-variant="primary" pill size="xl">
-  xl
+    xl
 </nly-badge>
 
 <!-- pill.name -->
@@ -88,17 +88,17 @@
 
 可以给 `badge` 设置 `tag` 标签。
 
-```html
+``` html
 <nly-badge bg-variant="primary" tag="a">
-  a
+    a
 </nly-badge>
 
 <nly-badge bg-variant="primary" tag="div">
-  div
+    div
 </nly-badge>
 
 <nly-badge bg-variant="primary" tag="button" badge-class="btn">
-  button
+    button
 </nly-badge>
 
 <!-- tag.name -->
@@ -109,37 +109,37 @@
 
 `badge-*` 类颜色，默认无颜色
 
-```html
+``` html
 <nly-badge variant="primary">
-  primary
+    primary
 </nly-badge>
 
 <nly-badge variant="secondary">
-  secondary
+    secondary
 </nly-badge>
 
 <nly-badge variant="success">
-  success
+    success
 </nly-badge>
 
 <nly-badge variant="info">
-  info
+    info
 </nly-badge>
 
 <nly-badge variant="warning">
-  warning
+    warning
 </nly-badge>
 
 <nly-badge variant="danger">
-  danger
+    danger
 </nly-badge>
 
 <nly-badge variant="dark">
-  dark
+    dark
 </nly-badge>
 
 <nly-badge variant="light">
-  light
+    light
 </nly-badge>
 
 <!-- variant.name -->
@@ -150,113 +150,113 @@
 
 `bg-*` 类背景色
 
-```html
+``` html
 <nly-badge bg-variant="light">
-  light
+    light
 </nly-badge>
 
 <nly-badge bg-variant="dark">
-  dark
+    dark
 </nly-badge>
 
 <nly-badge bg-variant="primary">
-  primary
+    primary
 </nly-badge>
 
 <nly-badge bg-variant="secondary">
-  secondary
+    secondary
 </nly-badge>
 
 <nly-badge bg-variant="success">
-  success
+    success
 </nly-badge>
 
 <nly-badge bg-variant="info">
-  info
+    info
 </nly-badge>
 
 <nly-badge bg-variant="warning">
-  warning
+    warning
 </nly-badge>
 
 <nly-badge bg-variant="danger">
-  danger
+    danger
 </nly-badge>
 
 <nly-badge bg-variant="lightblue">
-  lightblue
+    lightblue
 </nly-badge>
 
 <nly-badge bg-variant="navy">
-  navy
+    navy
 </nly-badge>
 
 <nly-badge bg-variant="olive">
-  olive
+    olive
 </nly-badge>
 
 <nly-badge bg-variant="lime">
-  lime
+    lime
 </nly-badge>
 
 <nly-badge bg-variant="fuchsia">
-  fuchsia
+    fuchsia
 </nly-badge>
 
 <nly-badge bg-variant="maroon">
-  maroon
+    maroon
 </nly-badge>
 
 <nly-badge bg-variant="blue">
-  blue
+    blue
 </nly-badge>
 
 <nly-badge bg-variant="indigo">
-  indigo
+    indigo
 </nly-badge>
 
 <nly-badge bg-variant="purple">
-  purple
+    purple
 </nly-badge>
 
 <nly-badge bg-variant="pink">
-  pink
+    pink
 </nly-badge>
 
 <nly-badge bg-variant="red">
-  red
+    red
 </nly-badge>
 
 <nly-badge bg-variant="orange">
-  orange
+    orange
 </nly-badge>
 
 <nly-badge bg-variant="yellow">
-  yellow
+    yellow
 </nly-badge>
 
 <nly-badge bg-variant="green">
-  green
+    green
 </nly-badge>
 
 <nly-badge bg-variant="teal">
-  teal
+    teal
 </nly-badge>
 
 <nly-badge bg-variant="cyan">
-  cyan
+    cyan
 </nly-badge>
 
 <nly-badge bg-variant="white">
-  white
+    white
 </nly-badge>
 
 <nly-badge bg-variant="gray">
-  gray
+    gray
 </nly-badge>
 
 <nly-badge bg-variant="graydark">
-  graydark
+    graydark
 </nly-badge>
 
 <!-- bg-variant.name -->
@@ -267,113 +267,113 @@
 
 `bg-gradient-*` 渐变色背景色
 
-```html
-<nly-badge size="xl" bg-gradient-variant="light">
-  light
+``` html
+<nly-badge size='xl' bg-gradient-variant="light">
+    light
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="dark">
-  dark
+<nly-badge size='xl' bg-gradient-variant="dark">
+    dark
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="primary">
-  primary
+<nly-badge size='xl' bg-gradient-variant="primary">
+    primary
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="secondary">
-  secondary
+<nly-badge size='xl' bg-gradient-variant="secondary">
+    secondary
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="success">
-  success
+<nly-badge size='xl' bg-gradient-variant="success">
+    success
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="info">
-  info
+<nly-badge size='xl' bg-gradient-variant="info">
+    info
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="warning">
-  warning
+<nly-badge size='xl' bg-gradient-variant="warning">
+    warning
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="danger">
-  danger
+<nly-badge size='xl' bg-gradient-variant="danger">
+    danger
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="lightblue">
-  lightblue
+<nly-badge size='xl' bg-gradient-variant="lightblue">
+    lightblue
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="navy">
-  navy
+<nly-badge size='xl' bg-gradient-variant="navy">
+    navy
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="olive">
-  olive
+<nly-badge size='xl' bg-gradient-variant="olive">
+    olive
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="lime">
-  lime
+<nly-badge size='xl' bg-gradient-variant="lime">
+    lime
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="fuchsia">
-  fuchsia
+<nly-badge size='xl' bg-gradient-variant="fuchsia">
+    fuchsia
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="maroon">
-  maroon
+<nly-badge size='xl' bg-gradient-variant="maroon">
+    maroon
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="blue">
-  blue
+<nly-badge size='xl' bg-gradient-variant="blue">
+    blue
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="indigo">
-  indigo
+<nly-badge size='xl' bg-gradient-variant="indigo">
+    indigo
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="purple">
-  purple
+<nly-badge size='xl' bg-gradient-variant="purple">
+    purple
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="pink">
-  pink
+<nly-badge size='xl' bg-gradient-variant="pink">
+    pink
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="red">
-  red
+<nly-badge size='xl' bg-gradient-variant="red">
+    red
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="orange">
-  orange
+<nly-badge size='xl' bg-gradient-variant="orange">
+    orange
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="yellow">
-  yellow
+<nly-badge size='xl' bg-gradient-variant="yellow">
+    yellow
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="green">
-  green
+<nly-badge size='xl' bg-gradient-variant="green">
+    green
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="teal">
-  teal
+<nly-badge size='xl' bg-gradient-variant="teal">
+    teal
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="cyan">
-  cyan
+<nly-badge size='xl' bg-gradient-variant="cyan">
+    cyan
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="white">
-  white
+<nly-badge size='xl' bg-gradient-variant="white">
+    white
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="gray">
-  gray
+<nly-badge size='xl' bg-gradient-variant="gray">
+    gray
 </nly-badge>
 
-<nly-badge size="xl" bg-gradient-variant="graydark">
-  graydark
+<nly-badge size='xl' bg-gradient-variant="graydark">
+    graydark
 </nly-badge>
 
 <!-- bg-gradient-variant.name -->

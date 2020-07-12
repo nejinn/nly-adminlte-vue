@@ -124,6 +124,7 @@
 - 弹框 modal
 - tab 标签 tabs
 - 表单组 form-group
+- 弹出框 popover
 
 ## 4.2. 指令
 
@@ -134,6 +135,8 @@
 - 提示工具指令 v-nly-tooltip
 - 弹框工具指令 v-nly-modal
 - 滚动条工具指令 v-nly-scrollspy
+- 弹出框指令 v-nly-popover
+- 收起展开指令 v-nly-toggle
 
 ## 4.3. 使用
 

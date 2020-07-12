@@ -384,10 +384,10 @@ export default {
 
 ### 通过 \$root 控制折叠板展开状态
 
-通过传递 id 和 `nly::toggle::collapse`事件来控制对应 id 的折叠板状态
+通过传递 id 和 `nlya::toggle::collapse`事件来控制对应 id 的折叠板状态
 
 ```js
-this.$root.$emit('nly::toggle::collapse', 'my-collapse-id')
+this.$root.$emit('nlya::toggle::collapse', 'my-collapse-id')
 ```
 
 ## 可选范围默认插槽

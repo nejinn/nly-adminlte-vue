@@ -423,9 +423,9 @@
 | `<nly-dropdown-header>`      | 下拉菜单 header。                                                             | `<nly-dd-header>`                                                        |
 | `<nly-dropdown-footer>`      | 下拉菜单 footer。                                                             | `<nly-dd-footer>`                                                        |
 
-**注意:**
+**注意:** 
 
-- 不支持嵌套子菜单
+* 不支持嵌套子菜单
 
 ### `<nly-dropdown-item>`
 
