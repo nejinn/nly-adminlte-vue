@@ -92,6 +92,20 @@
           </nly-modal>
         </nly-col>
       </nly-row>
+      <nly-row>
+        <nly-col>
+          <nly-button @click="showModalRoot" ref="btnShow">show</nly-button>
+          <nly-button @click="toggleModalRoot" ref="btnToggle"
+            >Toggle</nly-button
+          >
+
+          <nly-modal id="modal-root">
+            <div class="d-block">Hello NlyAdminlteVue</div>
+            <nly-button @click="hideModalRoot">hide</nly-button>
+            <nly-button @click="toggleModalRoot">Toggle</nly-button>
+          </nly-modal>
+        </nly-col>
+      </nly-row>
     </nly-content>
   </nly-content-wrapper>
 </template>
@@ -109,6 +123,15 @@ export default {
       // We pass the ID of the button that we want to return focus to
       // when the modal has hidden
       this.$refs["my-modal"].toggle("#toggle-btn");
+    },
+    showModalRoot() {
+      this.$root.$emit("nlya::show::modal", "modal-root", "#btnShow");
+    },
+    hideModalRoot() {
+      this.$root.$emit("nlya::hide::modal", "modal-root", "#btnShow");
+    },
+    toggleModalRoot() {
+      this.$root.$emit("nlya::toggle::modal", "modal-root", "#btnToggle");
     }
   }
 };
