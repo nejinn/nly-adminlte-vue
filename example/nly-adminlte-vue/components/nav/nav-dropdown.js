@@ -108,9 +108,15 @@ export const NlyNavDropdown = Vue.extend({
     shadow: {
       type: String,
       default: "shadow"
+    },
+    text: {
+      type: String
     }
   },
   computed: {
+    customText() {
+      return this.text;
+    },
     coustomItemTag: function() {
       return this.itemTag;
     },
@@ -252,7 +258,7 @@ export const NlyNavDropdown = Vue.extend({
           click: this.onClick
         }
       },
-      this.$slots.linkcontent
+      [this.customText, this.$slots.linkcontent]
     );
 
     const menuArray = h(
@@ -270,19 +276,20 @@ export const NlyNavDropdown = Vue.extend({
           this.menuShow
         ]
       },
-      this.$slots.menucontent
+      [this.$slots.default, this.$slots.menucontent]
     );
 
     return h(
       this.coustomItemTag,
       {
+        staticClass: "dropdown",
         class: [
           this.customNavItem,
-          this.customHover,
           this.customSubmenu,
           this.customDirection,
           this.customItemClass,
-          this.itemShow
+          this.itemShow,
+          this.customHover
         ]
       },
       [linkArray, menuArray]
