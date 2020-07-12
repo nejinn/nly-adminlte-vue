@@ -8,7 +8,7 @@
 
 **注意：**
 
--   区别在于 `nly-collaspe` 的动画需要依赖一些 admintle 3 自带的 css 式样:
+- 区别在于 `nly-collaspe` 的动画需要依赖一些 admintle 3 自带的 css 式样:
 
 ```
 css: true,
@@ -20,30 +20,34 @@ leaveActiveClass: "collapsing",
 leaveToClass: "collapse"
 ```
 
--   `nly-collapse` 组件在某些情况下动画会失效. 比如被包裹的元素存在 `margin` 属性等.
+- `nly-collapse` 组件在某些情况下动画会失效. 比如被包裹的元素存在 `margin` 属性等.
 
--   `nly-collapse`使用的动画组件是 `NlyCollapseTransition`
+- `nly-collapse`使用的动画组件是 `NlyCollapseTransition`
 
--   `nly-collapse-noclass` 使用的动画组件是 `NlyCollapseNoclassTransition`
+- `nly-collapse-noclass` 使用的动画组件是 `NlyCollapseNoclassTransition`
 
 ```html
 <div>
-	<nly-button v-nly-toggle.collapse-1 variant="primary">Toggle 折叠板</nly-button>
-	<nly-collapse id="collapse-1" class="mt-2">
-		<nly-card>
-			<nly-card-body>
-				<p class="card-text">折叠板内容</p>
-				<nly-button v-nly-toggle.collapse-1-inner variant="default" size="sm">嵌套折叠板</nly-button>
-				<nly-collapse id="collapse-1-inner" class="mt-2">
-					<nly-card>
-						<nly-card-body>
-							Hello NlyadminlteVue!
-						</nly-card-body>
-					</nly-card>
-				</nly-collapse>
-			</nly-card-body>
-		</nly-card>
-	</nly-collapse>
+  <nly-button v-nly-toggle.collapse-1 variant="primary"
+    >Toggle 折叠板</nly-button
+  >
+  <nly-collapse id="collapse-1" class="mt-2">
+    <nly-card>
+      <nly-card-body>
+        <p class="card-text">折叠板内容</p>
+        <nly-button v-nly-toggle.collapse-1-inner variant="default" size="sm"
+          >嵌套折叠板</nly-button
+        >
+        <nly-collapse id="collapse-1-inner" class="mt-2">
+          <nly-card>
+            <nly-card-body>
+              Hello NlyadminlteVue!
+            </nly-card-body>
+          </nly-card>
+        </nly-collapse>
+      </nly-card-body>
+    </nly-card>
+  </nly-collapse>
 </div>
 
 <!-- 嵌套折叠板.name -->
@@ -56,17 +60,21 @@ leaveToClass: "collapse"
 
 ```html
 <div>
-	<nly-button v-nly-toggle.collapse-2 class="m-1" variant="default">指令折叠板</nly-button>
+  <nly-button v-nly-toggle.collapse-2 class="m-1" variant="default"
+    >指令折叠板</nly-button
+  >
 
-	<nly-button v-nly-toggle="'collapse-2'" class="m-1" variant="default">指令折叠板</nly-button>
+  <nly-button v-nly-toggle="'collapse-2'" class="m-1" variant="default"
+    >指令折叠板</nly-button
+  >
 
-	<nly-collapse id="collapse-2">
-		<nly-card>
-			<nly-card-body>
-				折叠板内容
-			</nly-card-body>
-		</nly-card>
-	</nly-collapse>
+  <nly-collapse id="collapse-2">
+    <nly-card>
+      <nly-card-body>
+        折叠板内容
+      </nly-card-body>
+    </nly-card>
+  </nly-collapse>
 </div>
 
 <!-- 指令折叠板.name -->
@@ -79,14 +87,16 @@ leaveToClass: "collapse"
 
 ```html
 <div>
-	<nly-button v-nly-toggle.collapse-3 class="m-1" variant="info">指令折叠板</nly-button>
-	<nly-collapse visible id="collapse-3">
-		<nly-card>
-			<nly-card-body>
-				初始状态为展开!
-			</nly-card-body>
-		</nly-card>
-	</nly-collapse>
+  <nly-button v-nly-toggle.collapse-3 class="m-1" variant="info"
+    >指令折叠板</nly-button
+  >
+  <nly-collapse visible id="collapse-3">
+    <nly-card>
+      <nly-card-body>
+        初始状态为展开!
+      </nly-card-body>
+    </nly-card>
+  </nly-collapse>
 </div>
 
 <!-- visible设置初始状态.name -->
@@ -105,34 +115,34 @@ leaveToClass: "collapse"
 
 ```html
 <template>
-	<div>
-		<nly-button
-			:class="visible ? null : 'collapsed'"
-			:aria-expanded="visible ? 'true' : 'false'"
-			aria-controls="collapse-4"
-			@click="visible = !visible"
-			variant="danger"
-		>
-			折叠板
-		</nly-button>
-		<nly-collapse id="collapse-4" v-model="visible" class="mt-2">
-			<nly-card>
-				<nly-card-body>
-					初始状态为展开
-				</nly-card-body>
-			</nly-card>
-		</nly-collapse>
-	</div>
+  <div>
+    <nly-button
+      :class="visible ? null : 'collapsed'"
+      :aria-expanded="visible ? 'true' : 'false'"
+      aria-controls="collapse-4"
+      @click="visible = !visible"
+      variant="danger"
+    >
+      折叠板
+    </nly-button>
+    <nly-collapse id="collapse-4" v-model="visible" class="mt-2">
+      <nly-card>
+        <nly-card-body>
+          初始状态为展开
+        </nly-card-body>
+      </nly-card>
+    </nly-collapse>
+  </div>
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				visible: true,
-			}
-		},
-	}
+  export default {
+    data() {
+      return {
+        visible: true,
+      }
+    },
+  }
 </script>
 
 <!-- v-model.name -->
@@ -145,14 +155,16 @@ leaveToClass: "collapse"
 
 ```html
 <div>
-	<nly-button v-nly-toggle.collapse-a.collapse-b variant="outlineSuccess">同时控制AB折叠板</nly-button>
+  <nly-button v-nly-toggle.collapse-a.collapse-b variant="outlineSuccess"
+    >同时控制AB折叠板</nly-button
+  >
 
-	<nly-collapse id="collapse-a" class="mt-2">
-		<nly-card><nly-card-body>折叠板A</nly-card-body></nly-card>
-	</nly-collapse>
-	<nly-collapse id="collapse-b" class="mt-2">
-		<nly-card><nly-card-body>折叠板B</nly-card-body></nly-card>
-	</nly-collapse>
+  <nly-collapse id="collapse-a" class="mt-2">
+    <nly-card><nly-card-body>折叠板A</nly-card-body></nly-card>
+  </nly-collapse>
+  <nly-collapse id="collapse-b" class="mt-2">
+    <nly-card><nly-card-body>折叠板B</nly-card-body></nly-card>
+  </nly-collapse>
 </div>
 
 <!-- 指令控制多个折叠板.name -->
@@ -165,61 +177,68 @@ leaveToClass: "collapse"
 
 ```html
 <nly-card>
-	<nly-button variant="info" v-nly-toggle.collapseTest1 block>
-		collapseTest1
-	</nly-button>
+  <nly-button variant="info" v-nly-toggle.collapseTest1 block>
+    collapseTest1
+  </nly-button>
 </nly-card>
 <nly-collapse id="collapseTest1">
-	<nly-card>
-		我的标识是collapseTest1 我是一个非手风琴演示，我跟他们都没关系 我是一个非手风琴演示，我跟他们都没关系
-		我是一个非手风琴演示，我跟他们都没关系 我是一个非手风琴演示，我跟他们都没关系 我是一个非手风琴演示，我跟他们都没关系
-	</nly-card>
+  <nly-card>
+    我的标识是collapseTest1 我是一个非手风琴演示，我跟他们都没关系
+    我是一个非手风琴演示，我跟他们都没关系
+    我是一个非手风琴演示，我跟他们都没关系
+    我是一个非手风琴演示，我跟他们都没关系
+    我是一个非手风琴演示，我跟他们都没关系
+  </nly-card>
 </nly-collapse>
 
 <nly-card>
-	<nly-button variant="info" v-nly-toggle.collapseTest2 block>
-		collapseTest2
-	</nly-button>
+  <nly-button variant="info" v-nly-toggle.collapseTest2 block>
+    collapseTest2
+  </nly-button>
 </nly-card>
 <nly-collapse id="collapseTest2">
-	<nly-card>
-		我的标识是collapseTest2 我是一个非手风琴演示，我跟他们都没关系 我是一个非手风琴演示，我跟他们都没关系
-		我是一个非手风琴演示，我跟他们都没关系 我是一个非手风琴演示，我跟他们都没关系 我是一个非手风琴演示，我跟他们都没关系
-	</nly-card>
+  <nly-card>
+    我的标识是collapseTest2 我是一个非手风琴演示，我跟他们都没关系
+    我是一个非手风琴演示，我跟他们都没关系
+    我是一个非手风琴演示，我跟他们都没关系
+    我是一个非手风琴演示，我跟他们都没关系
+    我是一个非手风琴演示，我跟他们都没关系
+  </nly-card>
 </nly-collapse>
 
 <nly-card>
-	<nly-button variant="warning" v-nly-toggle.accordion1 block>
-		accordion1
-	</nly-button>
+  <nly-button variant="warning" v-nly-toggle.accordion1 block>
+    accordion1
+  </nly-button>
 </nly-card>
 <nly-collapse id="accordion1" accordion="accordion">
-	<nly-card>
-		我的标识是id="accordion1" accordion='accordion' 我是一个手风琴演示 我是一个手风琴演示 我是一个手风琴演示 我是一个手风琴演示
-		我是一个手风琴演示
-	</nly-card>
+  <nly-card>
+    我的标识是id="accordion1" accordion='accordion' 我是一个手风琴演示
+    我是一个手风琴演示 我是一个手风琴演示 我是一个手风琴演示 我是一个手风琴演示
+  </nly-card>
 </nly-collapse>
 
 <nly-card>
-	<nly-button variant="warning" v-nly-toggle.accordion2 block>
-		accordion2
-	</nly-button>
+  <nly-button variant="warning" v-nly-toggle.accordion2 block>
+    accordion2
+  </nly-button>
 </nly-card>
 <nly-collapse id="accordion2" accordion="accordion" visible>
-	<nly-card>
-		我的标识是id="accordion2" accordion='accordion' 我是一个手风琴演示 因为我有visible，所以我最开始就被打开了
-	</nly-card>
+  <nly-card>
+    我的标识是id="accordion2" accordion='accordion' 我是一个手风琴演示
+    因为我有visible，所以我最开始就被打开了
+  </nly-card>
 </nly-collapse>
 
 <nly-card>
-	<nly-button variant="warning" v-nly-toggle.accordion3 block>
-		accordion3
-	</nly-button>
+  <nly-button variant="warning" v-nly-toggle.accordion3 block>
+    accordion3
+  </nly-button>
 </nly-card>
 <nly-collapse id="accordion3" accordion="accordion" visible>
-	<nly-card>
-		我的标识是id="accordion3" accordion='accordion' 我是一个手风琴演示
-	</nly-card>
+  <nly-card>
+    我的标识是id="accordion3" accordion='accordion' 我是一个手风琴演示
+  </nly-card>
 </nly-collapse>
 
 <!-- 手风琴模式.name -->
@@ -230,56 +249,74 @@ leaveToClass: "collapse"
 
 ```html
 <nly-sidebar-nav class="mt-2" pill child-indent>
-	<nly-sidebar-nav-tree
-		target="collapsenoclass1"
-		accordion="collapsenoclass"
-		icon="nav-icon fas nlyfont nly-logo-aperture"
-		link-class="bg-info"
-		visible
-		text="accordion1"
-	>
-		<template slot="linktool">
-			<nly-badge variant="primary" badge-class="right" pill> </nly-badge>
-		</template>
+  <nly-sidebar-nav-tree
+    target="collapsenoclass1"
+    accordion="collapsenoclass"
+    icon="nav-icon fas nlyfont nly-logo-aperture"
+    link-class="bg-info"
+    visible
+    text="accordion1"
+  >
+    <template slot="linktool">
+      <nly-badge variant="primary" badge-class="right" pill> </nly-badge>
+    </template>
 
-		<nly-sidebar-nav-item link-class="xxx zzz" class="sss" icon="nav-icon far nlyfont nly-logo-chrome">
-			i have props visible,so i opened here
-			<nly-badge bg-variant="fuchsia" badge-class="right" size="sm">
-				NEW
-			</nly-badge>
-		</nly-sidebar-nav-item>
-	</nly-sidebar-nav-tree>
+    <nly-sidebar-nav-item
+      link-class="xxx zzz"
+      class="sss"
+      icon="nav-icon far nlyfont nly-logo-chrome"
+    >
+      i have props visible,so i opened here
+      <nly-badge bg-variant="fuchsia" badge-class="right" size="sm">
+        NEW
+      </nly-badge>
+    </nly-sidebar-nav-item>
+  </nly-sidebar-nav-tree>
 
-	<nly-sidebar-nav-tree
-		target="collapsenoclass2"
-		accordion="collapsenoclass"
-		icon="nav-icon fas nlyfont nly-nav-fill"
-		link-class="bg-info"
-		text="accordion2"
-	>
-		<nly-sidebar-nav-item link-class="xxx zzz" class="sss" icon="nav-icon far nlyfont nly-nav-tool">
-			上面的有visible props，所以他最开始就打开了
-		</nly-sidebar-nav-item>
-	</nly-sidebar-nav-tree>
+  <nly-sidebar-nav-tree
+    target="collapsenoclass2"
+    accordion="collapsenoclass"
+    icon="nav-icon fas nlyfont nly-nav-fill"
+    link-class="bg-info"
+    text="accordion2"
+  >
+    <nly-sidebar-nav-item
+      link-class="xxx zzz"
+      class="sss"
+      icon="nav-icon far nlyfont nly-nav-tool"
+    >
+      上面的有visible props，所以他最开始就打开了
+    </nly-sidebar-nav-item>
+  </nly-sidebar-nav-tree>
 
-	<nly-sidebar-nav-tree
-		target="collapsenoclass3"
-		accordion="collapsenoclass"
-		icon="nav-icon fas nlyfont nly-magic-cube"
-		link-class="bg-info"
-		text="accordion3"
-	>
-		<nly-sidebar-nav-item link-class="xxx zzz" class="sss" icon="nav-icon far nlyfont nly-keypad" exact>
-			我跟上面的2个都是accordion='collapse'，所以我们是同一组手风琴
-		</nly-sidebar-nav-item>
-	</nly-sidebar-nav-tree>
+  <nly-sidebar-nav-tree
+    target="collapsenoclass3"
+    accordion="collapsenoclass"
+    icon="nav-icon fas nlyfont nly-magic-cube"
+    link-class="bg-info"
+    text="accordion3"
+  >
+    <nly-sidebar-nav-item
+      link-class="xxx zzz"
+      class="sss"
+      icon="nav-icon far nlyfont nly-keypad"
+      exact
+    >
+      我跟上面的2个都是accordion='collapse'，所以我们是同一组手风琴
+    </nly-sidebar-nav-item>
+  </nly-sidebar-nav-tree>
 
-	<nly-sidebar-nav-item link-class="xxx zzz" class="bg-danger" icon="nav-icon far nlyfont nly-keypad" v-nly-toggle.collapseTest>
-		我是一个非手风琴演示
-	</nly-sidebar-nav-item>
-	<nly-collapse id="collapseTest">
-		我是一个非手风琴演示，我跟他们都没关系
-	</nly-collapse>
+  <nly-sidebar-nav-item
+    link-class="xxx zzz"
+    class="bg-danger"
+    icon="nav-icon far nlyfont nly-keypad"
+    v-nly-toggle.collapseTest
+  >
+    我是一个非手风琴演示
+  </nly-sidebar-nav-item>
+  <nly-collapse id="collapseTest">
+    我是一个非手风琴演示，我跟他们都没关系
+  </nly-collapse>
 </nly-sidebar-nav>
 
 <!-- nly-collapse-noclass.name -->
@@ -288,9 +325,9 @@ leaveToClass: "collapse"
 
 **注意:**
 
--   在使用手风琴模式的时候,如果您需要使得屏幕阅读用户能够无障碍阅读，请保证 `<nly-collapse>` 和手风琴开关按钮组件都在同一个设有 `role="tablist"` 的元素中,并且给每个折叠板开关添加一个 `role="tab"`
--   在使用手风琴模式的时候,如果使用 `v-model` 来控制 `<nly-collapse>`,请不要将所有折叠板的`v-model` 和 `visible` 指向同一个变量
--   在手风琴模式中,请确认初始或者同时只有一个折叠板的 `visible` 或者 `v-model` 为 true,否则会造成死循环，导致页面无法渲染，卡死浏览器。
+- 在使用手风琴模式的时候,如果您需要使得屏幕阅读用户能够无障碍阅读，请保证 `<nly-collapse>` 和手风琴开关按钮组件都在同一个设有 `role="tablist"` 的元素中,并且给每个折叠板开关添加一个 `role="tab"`
+- 在使用手风琴模式的时候,如果使用 `v-model` 来控制 `<nly-collapse>`,请不要将所有折叠板的`v-model` 和 `visible` 指向同一个变量
+- 在手风琴模式中,请确认初始或者同时只有一个折叠板的 `visible` 或者 `v-model` 为 true,否则会造成死循环，导致页面无法渲染，卡死浏览器。
 
 ## 根据者的状态来显示和隐藏元素
 
@@ -301,26 +338,26 @@ leaveToClass: "collapse"
 
 ```html
 <template>
-	<div>
-		<nly-button v-nly-toggle.my-collapse variant="info">
-			<span class="when-opened">Close</span>
-			<span class="when-closed">Open</span> My Collapse
-		</nly-button>
-		<nly-collapse id="my-collapse">
-			<nly-card>
-				<nly-card-body>
-					演示
-				</nly-card-body>
-			</nly-card>
-		</nly-collapse>
-	</div>
+  <div>
+    <nly-button v-nly-toggle.my-collapse variant="info">
+      <span class="when-opened">Close</span>
+      <span class="when-closed">Open</span> My Collapse
+    </nly-button>
+    <nly-collapse id="my-collapse">
+      <nly-card>
+        <nly-card-body>
+          演示
+        </nly-card-body>
+      </nly-card>
+    </nly-collapse>
+  </div>
 </template>
 
 <style>
-	.collapsed > .when-opened,
-	:not(.collapsed) > .when-closed {
-		display: none;
-	}
+  .collapsed > .when-opened,
+  :not(.collapsed) > .when-closed {
+    display: none;
+  }
 </style>
 ```
 
@@ -334,12 +371,12 @@ leaveToClass: "collapse"
 
 ```js
 export default {
-	mounted() {
-		this.$root.$on('nly::collapse::state', (collapseId, isJustShown) => {
-			console.log('collapseId:', collapseId)
-			console.log('isJustShown:', isJustShown)
-		})
-	},
+  mounted() {
+    this.$root.$on('nly::collapse::state', (collapseId, isJustShown) => {
+      console.log('collapseId:', collapseId)
+      console.log('isJustShown:', isJustShown)
+    })
+  },
 }
 ```
 
@@ -347,10 +384,10 @@ export default {
 
 ### 通过 \$root 控制折叠板展开状态
 
-通过传递 id 和 `nly::toggle::collapse`事件来控制对应 id 的折叠板状态
+通过传递 id 和 `nlya::toggle::collapse`事件来控制对应 id 的折叠板状态
 
 ```js
-this.$root.$emit('nly::toggle::collapse', 'my-collapse-id')
+this.$root.$emit('nlya::toggle::collapse', 'my-collapse-id')
 ```
 
 ## 可选范围默认插槽
@@ -369,4 +406,4 @@ this.$root.$emit('nly::toggle::collapse', 'my-collapse-id')
 
 **注意:**
 
-`<nly-collapse>` 组件有时候动画会失效，请使用 `<nly-collapse-noclass>` 代替
+- `<nly-collapse>` 组件有时候动画会失效，请使用 `<nly-collapse-noclass>` 代替

@@ -4,7 +4,7 @@ import normalizeSlotMixin from "../../mixins/normalize-slot";
 
 const name = "NlyNavbarToggle";
 
-const EVENT_TOGGLE = "nly::toggle::collapse";
+const EVENT_TOGGLE = "nlya::toggle::collapse";
 
 const EVENT_STATE = "nly::collapse::state";
 

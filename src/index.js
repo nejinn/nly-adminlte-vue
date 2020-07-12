@@ -131,6 +131,9 @@ export { NlyOverlay } from "./components/overlay/overlay";
 export { PaginationPlugin } from "./components/pagination";
 export { NlyPagination } from "./components/pagination/pagination";
 
+export { PopoverPlugin } from "./components/popover";
+export { NlyPopover } from "./components/popover/popover";
+
 export { ProgressPlugin } from "./components/progress";
 export { NlyProgress } from "./components/progress/progress";
 export { NlyProgressBar } from "./components/progress/progress-bar";
@@ -184,6 +187,9 @@ export { NlyWrapperHeader } from "./components/wrapper/wrapper-header";
 export { NlyWrapperSidebar } from "./components/wrapper/wrapper-sidebar";
 export { NlyWrapperControlSidebar } from "./components/wrapper/wrapper-control-sidebar";
 export { NlyWrapperContent } from "./components/wrapper/wrapper-content";
+
+export { VNlyPopoverPlugin } from "./directives/popover";
+export { VNlyPopover } from "./directives/popover/popover";
 
 export { VNlyTooltipPlugin } from "./directives/tooltip";
 export { VNlyTooltip } from "./directives/tooltip/tooltip";

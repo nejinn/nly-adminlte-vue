@@ -124,6 +124,7 @@ We also can view docs localhost with `npm run docs-dev`. [docs-dev](#43-install)
 * modal
 * tabs
 * form-group
+* popover
 
 ## 4.2. Directives
 
@@ -134,6 +135,8 @@ We also can view docs localhost with `npm run docs-dev`. [docs-dev](#43-install)
 * v-nly-tooltip
 * v-nly-modal
 * v-nly-scrollspy
+* v-nly-popover
+* v-nly-toggle
 
 ## 4.3. Install
 

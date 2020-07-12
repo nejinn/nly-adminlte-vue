@@ -82,5 +82,12 @@ export default deepFreeze({
     size: undefined,
     variant: "secondary",
     splitVariant: undefined
+  },
+  NlyPopover: {
+    boundary: "scrollParent",
+    boundaryPadding: 5,
+    customClass: undefined,
+    delay: 50,
+    variant: undefined
   }
 });

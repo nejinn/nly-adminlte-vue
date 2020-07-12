@@ -74,29 +74,29 @@
 
 **注意**
 
-并不是所有的浏览器都支持所有的 `type` 类型，不同的浏览器之间同一个 `type` 类型渲染出来的实际效果也可能不一样， 详细情况清查 [caniuse.com](https://caniuse.com/#search=input)
+- 并不是所有的浏览器都支持所有的 `type` 类型，不同的浏览器之间同一个 `type` 类型渲染出来的实际效果也可能不一样， 详细情况清查 [caniuse.com](https://caniuse.com/#search=input)
 
-如果浏览器不支持 `type` 所选类型，那么会渲染成一个 `text` 类型
+- 如果浏览器不支持 `type` 所选类型，那么会渲染成一个 `text` 类型
 
-我（也就是作者），并没有测试哪些浏览器支持哪些类型， 第一个是因为浏览器太多了，第二是因为我是 **菜鸡**， 欢迎大佬进行测试
+- 我（也就是作者），并没有测试哪些浏览器支持哪些类型， 第一个是因为浏览器太多了，第二是因为我是 **菜鸡**， 欢迎大佬进行测试
 
-Input `datetime-local` 对象是 HTML5 新增的，这玩意我也不明白怎么玩，谨慎使用
+- Input `datetime-local` 对象是 HTML5 新增的，这玩意我也不明白怎么玩，谨慎使用
 
-`datatime` 由于 Chrome 以及 Safari 的支持问题， 请慎用， 尽量使用 `data` 和 `time` 2 种类型分别获取 data 和 time
+- `datatime` 由于 Chrome 以及 Safari 的支持问题， 请慎用， 尽量使用 `data` 和 `time` 2 种类型分别获取 data 和 time
 
-`data` 和 `time` 是渲染成浏览器自带的式样，不是时间日期选择器。如果需要使用对应的选择器，请查看对应的组件
+- `data` 和 `time` 是渲染成浏览器自带的式样，不是时间日期选择器。如果需要使用对应的选择器，请查看对应的组件
 
-不管 `type` 设置什么，value 值的类型始终是一个 `String`，当然 `number`, `range` 除外（也有能是字符串，需要转换，我现在确定了）
+- 不管 `type` 设置什么，value 值的类型始终是一个 `String`，当然 `number`, `range` 除外（也有能是字符串，需要转换，我现在确定了）
 
-`v-model.lazy` 不支持使用的 `nly-form-input`， 如果需要，请使用 prop `lazy`
+- `v-model.lazy` 不支持使用的 `nly-form-input`， 如果需要，请使用 prop `lazy`
 
-`v-model` modifiers， 即 Vue `v-model` 的修饰符，`.number` 和 `.trim` 使用在 `nly-form-input` 上可能会造成鼠标跳转，这是 Vue 自身的问题, 如果需要对应功能，请使用 prop `number` 或 `trim。` 如果哪个大佬发现怎么解决这个问题，请提交一个 [`issue`](https://github.com/nejinn/nly-adminlte-vue/issues)
+- `v-model` modifiers， 即 Vue `v-model` 的修饰符，`.number` 和 `.trim` 使用在 `nly-form-input` 上可能会造成鼠标跳转，这是 Vue 自身的问题, 如果需要对应功能，请使用 prop `number` 或 `trim。` 如果哪个大佬发现怎么解决这个问题，请提交一个 [`issue`](https://github.com/nejinn/nly-adminlte-vue/issues)
 
-旧版本的 Firefox 可能不支持 `type` 为 `range` 下的 `readonly`。 即同时设置 type=range, :readonly=true。
+- 旧版本的 Firefox 可能不支持 `type` 为 `range` 下的 `readonly`。 即同时设置 type=range, :readonly=true。
 
-如果设置的类型不支持 `min`, `max` 或者 `step`。`nly-form-input` 会忽略这些 prop
+- 如果设置的类型不支持 `min`, `max` 或者 `step`。`nly-form-input` 会忽略这些 prop
 
-浏览器兼容性问题还有一大群，我不讲了， 使用这个组件的时候请注意
+- 浏览器兼容性问题还有一大群，我不讲了， 使用这个组件的时候请注意
 
 **关于联想输入和 IME**
 

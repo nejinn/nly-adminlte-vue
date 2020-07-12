@@ -5,7 +5,7 @@ import idMIxins from "../../mixins/id";
 import { NlyLogLine } from "./log-line";
 import { NlyLink } from "../link/link";
 
-const EVENT_TOGGLE = "nly::toggle::collapse";
+const EVENT_TOGGLE = "nlya::toggle::collapse";
 
 const EVENT_STATE = "nly::collapse::state";
 

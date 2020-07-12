@@ -23,6 +23,7 @@ import { NavPlugin } from "./nav";
 import { NavbarPlugin } from "./navbar";
 import { OverlayPlugin } from "./overlay";
 import { PaginationPlugin } from "./pagination";
+import { PopoverPlugin } from "./popover";
 import { ProgressPlugin } from "./progress";
 import { SidebarPlugin } from "./sidebar";
 import { SpinnerPlugin } from "./spinner";
@@ -61,6 +62,7 @@ export const componentsPlugin = nlyPluginFactory({
     toastPlugin,
     SpinnerPlugin,
     ProgressPlugin,
+    PopoverPlugin,
     timelinePlugin,
     InfoboxPlugin,
     tablePlugin,

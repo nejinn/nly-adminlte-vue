@@ -5,6 +5,7 @@ import { VNlyTogglePlugin } from "./toggle";
 import { VNlyModalPlugin } from "./modal";
 import { VNlyTooltipPlugin } from "./tooltip";
 import { VNlyScrollspyPlugin } from "./scrollspy";
+import { VNlyPopoverPlugin } from "./popover";
 
 export const directivesPlugin = nlyPluginFactory({
   plugins: {
@@ -13,6 +14,7 @@ export const directivesPlugin = nlyPluginFactory({
     VNlyTogglePlugin,
     VNlyModalPlugin,
     VNlyTooltipPlugin,
-    VNlyScrollspyPlugin
+    VNlyScrollspyPlugin,
+    VNlyPopoverPlugin
   }
 });

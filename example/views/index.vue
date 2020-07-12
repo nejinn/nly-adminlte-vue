@@ -428,7 +428,7 @@
           </nly-sidebar-nav-tree>
 
           <nly-sidebar-nav-tree
-            target="components-form"
+            target="components-five"
             icon="nav-icon fas nlyfont nly-icon-logo-polymer"
             text="components-form"
           >
@@ -475,7 +475,12 @@
               exact
               >tabs</nly-sidebar-nav-item
             >
-
+          </nly-sidebar-nav-tree>
+          <nly-sidebar-nav-tree
+            target="components-six"
+            icon="nav-icon fas nlyfont nly-icon-logo-polymer"
+            text="components-form"
+          >
             <nly-sidebar-nav-item
               to="/dropdown"
               link-class="xxx zzz"
@@ -492,6 +497,14 @@
               icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
               >formgroup</nly-sidebar-nav-item
+            >
+            <nly-sidebar-nav-item
+              to="/popover"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
+              exact
+              >popover</nly-sidebar-nav-item
             >
           </nly-sidebar-nav-tree>
         </nly-sidebar-nav>
