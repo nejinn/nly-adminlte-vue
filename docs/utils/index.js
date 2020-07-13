@@ -191,7 +191,7 @@ export const makeTOC = (readme, meta = null) => {
     } else if (isDirective) {
       // Add directive reference heading
       toc.push({
-        label: "指令餐宿",
+        label: "指令参数",
         href: "#directive-reference",
         toc: [
           // Directive import sub-heading

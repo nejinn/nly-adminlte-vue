@@ -1,26 +1,35 @@
 import Vue from "../../utils/vue";
+import { mergeData } from "vue-functional-data-merge";
+
 const name = "NlyNavbarBrandtext";
+
+export const props = {
+  textClass: {
+    type: String,
+    default: null
+  },
+  tag: {
+    type: String,
+    default: "span"
+  },
+  weight: {
+    type: Boolean,
+    default: true
+  }
+};
 
 export const NlyNavbarBrandtext = Vue.extend({
   name: name,
-  props: {
-    navbarBrandtextClass: {
-      type: String
-    }
-  },
-  computed: {
-    customNavbarBrandtextClass: function() {
-      return this.navbarBrandtextClass;
-    }
-  },
-  render(h) {
+  props,
+  functional: true,
+  render(h, { props, data, children }) {
     return h(
-      "span",
-      {
-        staticClass: "brand-text font-weight-light",
-        class: [this.customNavbarBrandtextClass]
-      },
-      this.$slots.default
+      props.tag,
+      mergeData(data, {
+        staticClass: "brand-text",
+        class: [props.weight ? "font-weight-light" : null, props.textClass]
+      }),
+      children
     );
   }
 });

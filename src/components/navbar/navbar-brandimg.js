@@ -1,29 +1,41 @@
 import Vue from "../../utils/vue";
+import { mergeData } from "vue-functional-data-merge";
 
 const name = "NlyNavbarBrandimg";
 
+export const props = {
+  src: {
+    type: String,
+    required: true
+  },
+  navbarBrandimgClass: {
+    type: String
+  },
+  alt: {
+    type: String
+  },
+  circle: {
+    type: Boolean,
+    default: false
+  },
+  elevation: {
+    type: Boolean,
+    default: false
+  }
+};
+
+const customClass = props => {
+  return [
+    props.circle ? "img-circle" : null,
+    props.elevation ? "elevation-3" : null,
+    props.navbarBrandimgClass
+  ];
+};
+
 export const NlyNavbarBrandimg = Vue.extend({
   name: name,
-  props: {
-    src: {
-      type: String,
-      required: true
-    },
-    navbarBrandimgClass: {
-      type: String
-    },
-    alt: {
-      type: String
-    },
-    circle: {
-      type: Boolean,
-      default: false
-    },
-    elevation: {
-      type: Boolean,
-      default: false
-    }
-  },
+  props,
+  functional: true,
   computed: {
     customSrc: function() {
       return this.src;
@@ -41,26 +53,22 @@ export const NlyNavbarBrandimg = Vue.extend({
       return this.elevation ? "elevation-3" : "";
     }
   },
-  render(h) {
+  render(h, { props, data, children }) {
     return h(
       "img",
-      {
+      mergeData(data, {
         attrs: {
-          alt: this.customAlt,
-          src: this.customSrc
+          alt: props.alt,
+          src: props.src
         },
         style: {
           opacity: 0.8,
           height: "33px"
         },
         staticClass: "brand-image",
-        class: [
-          this.customCircle,
-          this.customElevation,
-          this.customNavbarBrandimgClass
-        ]
-      },
-      this.$slots.default
+        class: customClass(props)
+      }),
+      children
     );
   }
 });
