@@ -19,7 +19,7 @@ import idMixin from "./id";
 const filterVisibles = els => (els || []).filter(isVisible);
 
 // Root dropdown event names
-const ROOT_DROPDOWN_PREFIX = "nly::dropdown::";
+const ROOT_DROPDOWN_PREFIX = "nlya::dropdown::";
 const ROOT_DROPDOWN_SHOWN = `${ROOT_DROPDOWN_PREFIX}shown`;
 const ROOT_DROPDOWN_HIDDEN = `${ROOT_DROPDOWN_PREFIX}hidden`;
 

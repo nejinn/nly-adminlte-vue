@@ -161,7 +161,7 @@
             ]
           },
           {
-            "event": "nly::dropdown::show",
+            "event": "nlya::dropdown::show",
             "description": "在下拉菜单显示之前emit到root事件，可回调",
             "args": [
               {
@@ -172,7 +172,7 @@
             ]
           },
           {
-            "event": "nly::dropdown::hide",
+            "event": "nlya::dropdown::hide",
             "description": "在下拉菜单隐藏之前emit到root事件，可回调",
             "args": [
               {

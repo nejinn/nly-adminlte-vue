@@ -4,14 +4,14 @@
   "meta": {
     "title": "Navbar",
     "subtitle": "导航栏",
-    "description": "导航栏，作为导航的响应式基础组件，根据屏幕尺寸可收缩堆叠展开。",
+    "description": "导航栏，是导航的响应式基础组件，可以根据屏幕尺寸可收缩堆叠展开",
     "components": [
       {
         "component": "NlyNavbar",
         "props": [
           {
             "prop": "fixed",
-            "description": "让navbar固定。 可选，top， bottom。 选择top会把navbar固定在顶部，选择 bottom会把navbar固定在底部"
+            "description": "让navbar位置固定。 可选，top， bottom。 选择top会把navbar固定在顶部，选择 bottom会把navbar固定在底部"
           },
           {
             "prop": "sticky",
@@ -20,33 +20,108 @@
           {
             "prop": "shadow",
             "description": "菜单阴影，可选shadow，sm，lg，none，作用于ul标签"
+          },
+          {
+            "prop": "header",
+            "description": "左右布局菜单,非左右布局传入会导致左侧右移,请配合 wrapper 布局一起用"
+          },
+          {
+            "prop": "expand",
+            "description": "菜单栏屏幕变化收起断点,默认是sm断点,可选xl,lg,md,sm,no"
+          },
+          {
+            "prop": "dark",
+            "description": "字体颜色，默认是黑色，设置true为白色"
+          },
+          {
+            "prop": "size",
+            "description": "菜单字体大小,可选sm,lg"
+          },
+          {
+            "prop": "border",
+            "description": "菜单底边框，header为true的时候生效"
+          },
+          {
+            "prop": "navbarClass",
+            "description": "自定义css式样"
+          },
+          {
+            "prop": "variant",
+            "description": "导航栏主题颜色, 可选 primary, secondary, success, info, warning, danger, light, dark, lightblue, navy, olive, lime, fuchsia, maroon, blue, indigo, purple, pink, red, orange, yellow, green, teal, cyan, white, gray, graydark"
           }
         ]
       },
       {
         "component": "NlyNavbarNav",
-        "props": []
-      },
-      {
-        "component": "NlyNavItem",
-        "props": []
-      },
-      {
-        "component": "NlyNavbarBrand",
         "props": [
           {
-            "prop": "shadow",
-            "description": "菜单阴影，可选shadow，sm，lg，none，作用于ul标签"
+            "prop": "fill",
+            "description": "按比列填充整个nav，但不是等宽"
+          },
+          {
+            "prop": "justified",
+            "description": "等宽填充整个nav"
+          },
+          {
+            "prop": "align",
+            "description": "nly-nav-item位置，可选 start，left，center，end，right"
+          },
+          {
+            "prop": "small",
+            "description": "小字体"
           }
         ]
       },
       {
-        "component": "NlyNavbarBrandimg",
+        "component": "NlyNavbarBrand",
         "props": []
       },
       {
+        "component": "NlyNavbarBrandimg",
+        "props": [
+          {
+            "prop": "navbarBrandimgClass",
+            "description": "自定义式样"
+          },
+          {
+            "prop": "circle",
+            "description": "圆形"
+          },
+          {
+            "prop": "elevation",
+            "description": "阴影"
+          }
+        ]
+      },
+      {
         "component": "NlyNavbarBrandtext",
-        "props": []
+        "props": [
+          {
+            "prop": "textClass",
+            "description": "自定义css"
+          },
+          {
+            "prop": "weight",
+            "description": "加粗"
+          }
+        ]
+      },
+      {
+        "component": "NlyNavbarToggle",
+        "props": [
+          {
+            "prop": "label",
+            "description": "sr-only 的文本内容"
+          },
+          {
+            "prop": "navbarClass",
+            "description": "自定义css"
+          },
+          {
+            "prop": "target",
+            "description": "对应需要控制折叠展开的被 nly-collapse 包裹的 nly-navbar-nav 的 id" 
+          }
+        ]
       }
     ]
   }

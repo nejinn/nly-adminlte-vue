@@ -25,7 +25,7 @@ import { toString as objectToString } from "../../utils/object";
 import { warn } from "../../utils/warn";
 
 const NAME = "v-ny-scrollspy";
-const ACTIVATE_EVENT = "nly::scrollspy::activate";
+const ACTIVATE_EVENT = "nlya::scrollspy::activate";
 
 const Default = {
   element: "body",

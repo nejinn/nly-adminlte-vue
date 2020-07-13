@@ -73,6 +73,13 @@ const name = "NlyCollapseNoclassTransition";
 
 export const NlyCollapseNoclassTransition = Vue.extend({
   name: name,
+  props: {
+    appear: {
+      // If `true` (and `visible` is `true` on mount), animate initially visible
+      type: Boolean,
+      default: false
+    }
+  },
   functional: true,
   render(h, { data, children }) {
     return h(

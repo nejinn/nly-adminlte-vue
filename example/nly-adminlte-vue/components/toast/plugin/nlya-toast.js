@@ -57,7 +57,7 @@ const plugin = Vue => {
       };
       this.$parent.$once("hook:destroyed", handleDestroy);
       this.$once("hidden", handleDestroy);
-      this.listenOnRoot("nly::toaster::destroyed", toaster => {
+      this.listenOnRoot("nlya::toaster::destroyed", toaster => {
         if (toaster === self.toaster) {
           handleDestroy();
         }
@@ -116,12 +116,12 @@ const plugin = Vue => {
 
     show(id) {
       if (id) {
-        this._root.$emit("nly::show::toast", id);
+        this._root.$emit("nlya::show::toast", id);
       }
     }
 
     hide(id = null) {
-      this._root.$emit("nly::hide::toast", id);
+      this._root.$emit("nlya::hide::toast", id);
     }
   }
 

@@ -88,7 +88,7 @@
 </div>
 
 <!-- $nlyaModal 显示隐藏.name -->
-<!-- nly-modal-bv-modal-hide-show.vue -->
+<!-- nly-modal-hide-show.vue -->
 ```
 
 `this.$nlyaModal` 同样可以使用于 显示 **[模态消息框](#模态消息框)**
@@ -142,7 +142,7 @@
 </script>
 
 <!-- show,hide,toggle 显示隐藏.name -->
-<!-- nly-modal-bv-modal-hide-show.vue -->
+<!-- nly-modal-modal-hide-show.vue -->
 ```
 
 `hide()` 可以接受一个 `trigger` 参数 来阻止模态框关闭，具体请查看 **[阻止关闭](#阻止关闭)**
@@ -179,7 +179,7 @@
 </script>
 
 <!-- v-model 显示隐藏.name -->
-<!-- nly-modal-bv-modal-hide-show.vue -->
+<!-- nly--modal-hide-show.vue -->
 ```
 
 ### 使用具名插槽
@@ -229,7 +229,7 @@
 </script>
 
 <!-- $root 显示隐藏.name -->
-<!-- nly-modal-bv-modal-hide-show.vue -->
+<!-- nly-modal-modal-hide-show.vue -->
 ```
 
 ## 阻止关闭
@@ -315,7 +315,7 @@
 </script>
 
 <!-- 阻止关闭.name -->
-<!-- nly-modal-bv-modal-hide-show.vue -->
+<!-- nly-modal-modal-hide-show.vue -->
 ```
 
 **注意**

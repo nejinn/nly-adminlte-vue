@@ -1,37 +1,34 @@
 import Vue from "../../utils/vue";
-import idMixin from "../../mixins/id";
-import listenOnRootMixin from "../../mixins/listen-on-root";
-import normalizeSlotMixin from "../../mixins/normalize-slot";
-import { isBrowser } from "../../utils/env";
-import { NlyCollapseTransition } from "../../utils/collapse-transition";
+import { NLYACollapse } from "../../utils/nlya-collapse";
 import {
   addClass,
   hasClass,
   removeClass,
   closest,
   matches,
-  getCS,
-  eventOn,
-  eventOff
+  getCS
 } from "../../utils/dom";
+import { isBrowser } from "../../utils/env";
+import { EVENT_OPTIONS_NO_CAPTURE, eventOnOff } from "../../utils/events";
+import idMixin from "../../mixins/id";
+import listenOnRootMixin from "../../mixins/listen-on-root";
+import normalizeSlotMixin from "../../mixins/normalize-slot";
+import {
+  EVENT_TOGGLE,
+  EVENT_STATE,
+  EVENT_STATE_REQUEST,
+  EVENT_STATE_SYNC
+} from "../../directives/toggle/toggle";
 
-// Events we emit on $root
-const EVENT_STATE = "nly::collapse::state";
-const EVENT_ACCORDION = "nly::collapse::accordion";
-// Private event we emit on `$root` to ensure the toggle state is
-// always synced. It gets emitted even if the state has not changed!
-// This event is NOT to be documented as people should not be using it
-const EVENT_STATE_SYNC = "nly::collapse::sync::state";
-// Events we listen to on `$root`
-const EVENT_TOGGLE = "nlya::toggle::collapse";
-const EVENT_STATE_REQUEST = "nly::request::collapse::state";
+// --- Constants ---
 
-// Event listener options
-const EventOptions = { passive: true, capture: false };
+// Accordion event name we emit on `$root`
+const EVENT_ACCORDION = "nlya::collapse::accordion";
 
-const name = "NlyCollapse";
-export const NlyCollapse = Vue.extend({
-  name: name,
+// --- Main component ---
+// @vue/component
+export const NlyCollapse = /*#__PURE__*/ Vue.extend({
+  name: "NlyCollapse",
   mixins: [idMixin, listenOnRootMixin, normalizeSlotMixin],
   model: {
     prop: "visible",
@@ -43,8 +40,8 @@ export const NlyCollapse = Vue.extend({
       default: false
     },
     accordion: {
-      type: String,
-      default: null
+      type: String
+      // default: null
     },
     visible: {
       type: Boolean,
@@ -55,11 +52,9 @@ export const NlyCollapse = Vue.extend({
       default: "div"
     },
     appear: {
+      // If `true` (and `visible` is `true` on mount), animate initially visible
       type: Boolean,
       default: false
-    },
-    collapseClass: {
-      type: String
     }
   },
   data() {
@@ -69,9 +64,6 @@ export const NlyCollapse = Vue.extend({
     };
   },
   computed: {
-    customCollapseClass: function() {
-      return this.collapseClass;
-    },
     classObject() {
       return {
         "navbar-collapse": this.isNav,
@@ -109,7 +101,7 @@ export const NlyCollapse = Vue.extend({
     this.$nextTick(() => {
       this.emitState();
     });
-    // Listen for "Sync state" requests from `v-nly-toggle`
+    // Listen for "Sync state" requests from `v-b-toggle`
     this.listenOnRoot(EVENT_STATE_REQUEST, id => {
       if (id === this.safeId()) {
         this.$nextTick(this.emitSync);
@@ -122,11 +114,13 @@ export const NlyCollapse = Vue.extend({
     // It is emitted regardless if the visible state changes
     this.emitSync();
   },
+  /* istanbul ignore next */
   deactivated() /* istanbul ignore next */ {
     if (this.isNav) {
       this.setWindowEvents(false);
     }
   },
+  /* istanbul ignore next */
   activated() /* istanbul ignore next */ {
     if (this.isNav) {
       this.setWindowEvents(true);
@@ -142,49 +136,56 @@ export const NlyCollapse = Vue.extend({
   },
   methods: {
     setWindowEvents(on) {
-      const method = on ? eventOn : eventOff;
-      method(window, "resize", this.handleResize, EventOptions);
-      method(window, "orientationchange", this.handleResize, EventOptions);
+      eventOnOff(
+        on,
+        window,
+        "resize",
+        this.handleResize,
+        EVENT_OPTIONS_NO_CAPTURE
+      );
+      eventOnOff(
+        on,
+        window,
+        "orientationchange",
+        this.handleResize,
+        EVENT_OPTIONS_NO_CAPTURE
+      );
     },
     toggle() {
       this.show = !this.show;
     },
-    // eslint-disable-next-line no-unused-vars
-    onEnter(el) {
+    onEnter() {
       this.transitioning = true;
       // This should be moved out so we can add cancellable events
       this.$emit("show");
     },
-    // eslint-disable-next-line no-unused-vars
-    onAfterEnter(el) {
+    onAfterEnter() {
       this.transitioning = false;
       this.$emit("shown");
     },
-    // eslint-disable-next-line no-unused-vars
-    onLeave(el) {
+    onLeave() {
       this.transitioning = true;
       // This should be moved out so we can add cancellable events
       this.$emit("hide");
     },
-    // eslint-disable-next-line no-unused-vars
-    onAfterLeave(el) {
+    onAfterLeave() {
       this.transitioning = false;
       this.$emit("hidden");
     },
     emitState() {
       this.$emit("input", this.show);
-      // Let `v-nly-toggle` know the state of this collapse
-      this.$root.$emit(EVENT_STATE, this.safeId(), this.show);
+      // Let `v-b-toggle` know the state of this collapse
+      this.emitOnRoot(EVENT_STATE, this.safeId(), this.show);
       if (this.accordion && this.show) {
         // Tell the other collapses in this accordion to close
-        this.$root.$emit(EVENT_ACCORDION, this.safeId(), this.accordion);
+        this.emitOnRoot(EVENT_ACCORDION, this.safeId(), this.accordion);
       }
     },
     emitSync() {
       // Emit a private event every time this component updates to ensure
       // the toggle button is in sync with the collapse's state
       // It is emitted regardless if the visible state changes
-      this.$root.$emit(EVENT_STATE_SYNC, this.safeId(), this.show);
+      this.emitOnRoot(EVENT_STATE_SYNC, this.safeId(), this.show);
     },
     checkDisplayBlock() {
       // Check to see if the collapse has `display: block !important` set
@@ -250,7 +251,7 @@ export const NlyCollapse = Vue.extend({
     const content = h(
       this.tag,
       {
-        class: [this.classObject, this.customCollapseClass],
+        class: this.classObject,
         directives: [{ name: "show", value: this.show }],
         attrs: { id: this.safeId() },
         on: { click: this.clickHandler }
@@ -258,7 +259,7 @@ export const NlyCollapse = Vue.extend({
       [this.normalizeSlot("default", scope)]
     );
     return h(
-      NlyCollapseTransition,
+      NLYACollapse,
       {
         props: { appear: this.appear },
         on: {

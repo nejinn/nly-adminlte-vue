@@ -1,23 +1,24 @@
 import Vue from "../../utils/vue";
+// import { getComponentConfig } from "../../utils/config";
 import listenOnRootMixin from "../../mixins/listen-on-root";
 import normalizeSlotMixin from "../../mixins/normalize-slot";
+import {
+  VNlyToggle,
+  EVENT_STATE,
+  EVENT_STATE_SYNC
+} from "../../directives/toggle/toggle";
 
-const name = "NlyNavbarToggle";
+// --- Constants ---
 
-const EVENT_TOGGLE = "nlya::toggle::collapse";
+const NAME = "NlyNavbarToggle";
+const CLASS_NAME = "navbar-toggler";
 
-const EVENT_STATE = "nlya::collapse::state";
-
-const EVENT_STATE_SYNC = "nlya::collapse::sync::state";
-
-export const NlyNavbarToggle = Vue.extend({
-  name: name,
+// --- Main component ---
+// @vue/component
+export const NlyNavbarToggle = /*#__PURE__*/ Vue.extend({
+  name: NAME,
+  directives: { NlyToggle: VNlyToggle },
   mixins: [listenOnRootMixin, normalizeSlotMixin],
-  data() {
-    return {
-      toggleState: false
-    };
-  },
   props: {
     label: {
       type: String,
@@ -27,20 +28,15 @@ export const NlyNavbarToggle = Vue.extend({
       type: String,
       required: true
     },
-    navbarClass: {
-      type: String
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
-  computed: {
-    customLabel: function() {
-      return this.label;
-    },
-    customTarget: function() {
-      return this.target;
-    },
-    customNavbarClass: function() {
-      return this.navbarClass;
-    }
+  data() {
+    return {
+      toggleState: false
+    };
   },
   created() {
     this.listenOnRoot(EVENT_STATE, this.handleStateEvt);
@@ -48,34 +44,37 @@ export const NlyNavbarToggle = Vue.extend({
   },
   methods: {
     onClick(evt) {
-      this.$emit("click", evt);
-      if (!evt.defaultPrevented) {
-        this.$root.$emit(EVENT_TOGGLE, this.customTarget);
+      if (!this.disabled) {
+        // Emit courtesy `click` event
+        this.$emit("click", evt);
       }
     },
     handleStateEvt(id, state) {
-      if (id === this.customTarget) {
+      // We listen for state events so that we can pass the
+      // boolean expanded state to the default scoped slot
+      if (id === this.target) {
         this.toggleState = state;
       }
     }
   },
   render(h) {
+    const { disabled } = this;
     return h(
       "button",
       {
-        class: ["navbar-toggler", this.customNavbarClass],
+        staticClass: CLASS_NAME,
+        class: { disabled },
+        directives: [{ name: "NlyToggle", value: this.target }],
         attrs: {
           type: "button",
-          "aria-label": this.customLabel,
-          "aria-controls": this.customTarget,
-          "aria-expanded": this.toggleState ? "true" : "false",
-          "data-target": `#${this.customTarget}`
+          disabled,
+          "aria-label": this.label
         },
         on: { click: this.onClick }
       },
       [
-        this.normalizeSlot("default") ||
-          h("span", { class: ["navbar-toggler-icon"] })
+        this.normalizeSlot("default", { expanded: this.toggleState }) ||
+          h("span", { staticClass: `${CLASS_NAME}-icon` })
       ]
     );
   }

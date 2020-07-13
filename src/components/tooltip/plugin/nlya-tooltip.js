@@ -47,7 +47,7 @@ const NAME = "NlyaTooltip";
 // Modal container selector for appending tooltip/popover
 const MODAL_SELECTOR = ".modal-content";
 // Modal `$root` hidden event
-const MODAL_CLOSE_EVENT = "nly::modal::hidden";
+const MODAL_CLOSE_EVENT = "nlya::modal::hidden";
 
 // For dropdown sniffing
 const DROPDOWN_CLASS = "dropdown";
@@ -634,7 +634,7 @@ export const NlyaTooltip = Vue.extend({
       const $root = this.$root;
       if ($root && $root.$emit) {
         // Emit an event on $root
-        $root.$emit(`nly::${this.templateType}::${evtName}`, nlyaEvt);
+        $root.$emit(`nlya::${this.templateType}::${evtName}`, nlyaEvt);
       }
       this.$emit(evtName, nlyaEvt);
     },

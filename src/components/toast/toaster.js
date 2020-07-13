@@ -71,7 +71,7 @@ export const NlyToaster = Vue.extend({
     } else {
       this.doRender = true;
       this.$once("hook:beforeDestroy", () => {
-        this.$root.$emit("nly::toaster::destroyed", this.staticName);
+        this.$root.$emit("nlya::toaster::destroyed", this.staticName);
       });
     }
   },
