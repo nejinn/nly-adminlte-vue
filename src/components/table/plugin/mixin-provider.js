@@ -91,7 +91,7 @@ export default {
       this._providerUpdate();
     }
     // Listen for global messages to tell us to force refresh the table
-    this.listenOnRoot("nly::refresh::table", id => {
+    this.listenOnRoot("nlya::refresh::table", id => {
       if (id === this.id || id === this) {
         this.refresh();
       }
@@ -124,7 +124,7 @@ export default {
       this.$emit("refreshed");
       // New root emit
       if (this.id) {
-        this.emitOnRoot("nly::table::refreshed", this.id);
+        this.emitOnRoot("nlya::table::refreshed", this.id);
       }
     },
     _providerUpdate() {

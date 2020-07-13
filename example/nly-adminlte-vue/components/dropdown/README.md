@@ -583,7 +583,7 @@
 ```js
 export default {
   mounted() {
-    this.$root.$on('nly::dropdown::show', (nlyEvent) => {
+    this.$root.$on('nlya::dropdown::show', (nlyEvent) => {
       console.log('Dropdown is about to be shown', nlyEvent)
     })
   },

@@ -372,7 +372,7 @@ leaveToClass: "collapse"
 ```js
 export default {
   mounted() {
-    this.$root.$on('nly::collapse::state', (collapseId, isJustShown) => {
+    this.$root.$on('nlya::collapse::state', (collapseId, isJustShown) => {
       console.log('collapseId:', collapseId)
       console.log('isJustShown:', isJustShown)
     })

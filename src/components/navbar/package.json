@@ -4,14 +4,14 @@
   "meta": {
     "title": "Navbar",
     "subtitle": "导航栏",
-    "description": "导航栏，作为导航的响应式基础组件，根据屏幕尺寸可收缩堆叠展开。",
+    "description": "导航栏，是导航的响应式基础组件，可以根据屏幕尺寸可收缩堆叠展开",
     "components": [
       {
         "component": "NlyNavbar",
         "props": [
           {
             "prop": "fixed",
-            "description": "让navbar固定。 可选，top， bottom。 选择top会把navbar固定在顶部，选择 bottom会把navbar固定在底部"
+            "description": "让navbar位置固定。 可选，top， bottom。 选择top会把navbar固定在顶部，选择 bottom会把navbar固定在底部"
           },
           {
             "prop": "sticky",
@@ -44,6 +44,10 @@
           {
             "prop": "navbarClass",
             "description": "自定义css式样"
+          },
+          {
+            "prop": "variant",
+            "description": "导航栏主题颜色, 可选 primary, secondary, success, info, warning, danger, light, dark, lightblue, navy, olive, lime, fuchsia, maroon, blue, indigo, purple, pink, red, orange, yellow, green, teal, cyan, white, gray, graydark"
           }
         ]
       },
@@ -112,6 +116,10 @@
           {
             "prop": "navbarClass",
             "description": "自定义css"
+          },
+          {
+            "prop": "target",
+            "description": "对应需要控制折叠展开的被 nly-collapse 包裹的 nly-navbar-nav 的 id" 
           }
         ]
       }

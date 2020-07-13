@@ -97,7 +97,7 @@
                         "description": "Emitted 当折叠板关闭完成之后时,会emit hidden事件"
                     },
                     {
-                        "event": "nly::collapse::state",
+                        "event": "nlya::collapse::state",
                         "description": "当折叠板折叠状态变化的时候, 会Emitted 状态给 $root",
                         "args": [
                             {
@@ -204,7 +204,7 @@
                         "description": "Emitted 当折叠板关闭完成之后时,会emit hidden事件"
                     },
                     {
-                        "event": "nly::collapse::state",
+                        "event": "nlya::collapse::state",
                         "description": "当折叠板折叠状态变化的时候, 会Emitted 状态给 $root",
                         "args": [
                             {

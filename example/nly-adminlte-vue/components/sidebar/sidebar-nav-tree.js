@@ -3,11 +3,11 @@ import listenOnRootMixin from "../../mixins/listen-on-root";
 import { NlyLink } from "../link/link";
 import { NlyCollapseNoclass } from "../collapse/collapse-noclass";
 
-const EVENT_TOGGLE = "nlya::toggle::collapse";
-
-const EVENT_STATE = "nly::collapse::state";
-
-const EVENT_STATE_SYNC = "nly::collapse::sync::state";
+import {
+  EVENT_TOGGLE,
+  EVENT_STATE,
+  EVENT_STATE_SYNC
+} from "../../directives/toggle/toggle";
 
 const name = "NlySidebarNavTree";
 

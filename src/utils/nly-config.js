@@ -149,7 +149,8 @@ export const navbarVariantOpitons = {
   cyan: "navbar-cyan",
   white: "navbar-white",
   gray: "navbar-gray",
-  graydark: "navbar-gray-dark"
+  graydark: "navbar-gray-dark",
+  dark: "navbar-dark"
 };
 
 export const sidebarBrandVariantOptions = {

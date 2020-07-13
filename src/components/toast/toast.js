@@ -183,18 +183,18 @@ export const NlyToast = Vue.extend({
       }
     });
     // Listen for global $root show events
-    this.listenOnRoot("nly::show::toast", id => {
+    this.listenOnRoot("nlya::show::toast", id => {
       if (id === this.safeId()) {
         this.show();
       }
     });
     // Listen for global $root hide events
-    this.listenOnRoot("nly::hide::toast", id => {
+    this.listenOnRoot("nlya::hide::toast", id => {
       if (!id || id === this.safeId()) {
         this.hide();
       }
     });
-    this.listenOnRoot("nly::toaster::destroyed", toaster => {
+    this.listenOnRoot("nlya::toaster::destroyed", toaster => {
       if (toaster === this.computedToaster) {
         this.hide();
       }
@@ -243,10 +243,10 @@ export const NlyToast = Vue.extend({
         componentId: this.safeId()
       });
     },
-    emitEvent(bvEvt) {
-      const type = bvEvt.type;
-      this.$root.$emit(`nly::toast:${type}`, bvEvt);
-      this.$emit(type, bvEvt);
+    emitEvent(nlyaEvt) {
+      const type = nlyaEvt.type;
+      this.$root.$emit(`nlya::toast:${type}`, nlyaEvt);
+      this.$emit(type, nlyaEvt);
     },
     ensureToaster() {
       if (this.static) {

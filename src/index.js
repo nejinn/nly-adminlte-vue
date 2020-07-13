@@ -48,7 +48,6 @@ export { CollapsePlugin } from "./components/collapse";
 export { NlyCollapse } from "./components/collapse/collapse";
 export { NlyCollapseTransition } from "./utils/collapse-transition";
 export { NlyCollapseNoclass } from "./components/collapse/collapse-noclass";
-export { NlyCollapseNoclassTransition } from "./utils/collapse-noclass-transition";
 
 export { ContainerPlugin } from "./components/container";
 export { NlyContainer } from "./components/container/container";

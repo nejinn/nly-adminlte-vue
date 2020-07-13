@@ -1,15 +1,15 @@
 import Vue from "../../utils/vue";
 import listenOnRootMixin from "../../mixins/listen-on-root";
-import { NlyCollapseNoclass } from "../collapse/collapse-noclass";
+import { NlyCollapse } from "../collapse/collapse";
 import idMIxins from "../../mixins/id";
 import { NlyLogLine } from "./log-line";
 import { NlyLink } from "../link/link";
 
 const EVENT_TOGGLE = "nlya::toggle::collapse";
 
-const EVENT_STATE = "nly::collapse::state";
+const EVENT_STATE = "nlya::collapse::state";
 
-const EVENT_STATE_SYNC = "nly::collapse::sync::state";
+const EVENT_STATE_SYNC = "nlya::collapse::sync::state";
 
 const name = "NlyLogLineTree";
 
@@ -110,7 +110,7 @@ export const NlyLogLineTree = Vue.extend({
   },
   render(h) {
     const treeVnodes = h(
-      NlyCollapseNoclass,
+      NlyCollapse,
       {
         attrs: {
           id: this.safeId()

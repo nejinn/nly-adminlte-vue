@@ -147,6 +147,16 @@
             "prop": "shadow",
             "description": "菜单阴影，可选shadow，sm，lg，none，作用于ul标签"
           }
+        ],
+        "slots":[
+          {
+            "name": "menucontent",
+            "description": "下拉菜单嵌套元素插槽"
+          },
+          {
+            "name": "linkcontent",
+            "description": "下拉菜单按钮插槽"
+          }
         ]
       },
       {
