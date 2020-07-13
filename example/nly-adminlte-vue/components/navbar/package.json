@@ -1,0 +1,53 @@
+{
+  "name": "@nly-adminlte-vue/navbar",
+  "version": "1.0.0",
+  "meta": {
+    "title": "Navbar",
+    "subtitle": "导航栏",
+    "description": "导航栏，作为导航的响应式基础组件，根据屏幕尺寸可收缩堆叠展开。",
+    "components": [
+      {
+        "component": "NlyNavbar",
+        "props": [
+          {
+            "prop": "fixed",
+            "description": "让navbar固定。 可选，top， bottom。 选择top会把navbar固定在顶部，选择 bottom会把navbar固定在底部"
+          },
+          {
+            "prop": "sticky",
+            "description": "设置sticky会让navbar悬浮在浏览器顶部"
+          },
+          {
+            "prop": "shadow",
+            "description": "菜单阴影，可选shadow，sm，lg，none，作用于ul标签"
+          }
+        ]
+      },
+      {
+        "component": "NlyNavbarNav",
+        "props": []
+      },
+      {
+        "component": "NlyNavItem",
+        "props": []
+      },
+      {
+        "component": "NlyNavbarBrand",
+        "props": [
+          {
+            "prop": "shadow",
+            "description": "菜单阴影，可选shadow，sm，lg，none，作用于ul标签"
+          }
+        ]
+      },
+      {
+        "component": "NlyNavbarBrandimg",
+        "props": []
+      },
+      {
+        "component": "NlyNavbarBrandtext",
+        "props": []
+      }
+    ]
+  }
+}

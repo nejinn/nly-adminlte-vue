@@ -1,89 +1,100 @@
 import Vue from "../../utils/vue";
 import { nlyGetOptionsByKeyEqual } from "../../utils/get-options";
 import { navbarVariantOpitons, textSizeOptions } from "../../utils/nly-config";
+import { mergeData } from "vue-functional-data-merge";
 
 const name = "NlyNavbar";
 
+export const props = {
+  //头部菜单
+  header: {
+    type: Boolean,
+    default: false
+  },
+  expand: {
+    type: String
+  },
+  variant: {
+    type: String,
+    default: "white"
+  },
+  dark: {
+    type: Boolean,
+    default: false
+  },
+  size: {
+    type: String,
+    default: ""
+  },
+  border: {
+    type: Boolean,
+    default: true
+  },
+  navbarClass: {
+    type: String
+  },
+  fixed: {
+    type: String
+  },
+  sticky: {
+    type: Boolean,
+    default: false
+  },
+  tag: {
+    type: String,
+    default: "nav"
+  }
+};
+
+const customClass = props => {
+  const customStickyClass = props.sticky === true ? "sticky-top" : null;
+  const customFixedClass = props.fixed ? `fixed-${props.fixed}` : null;
+  const customNavbarHeader = props.header ? "main-header" : "";
+  const customNavbarExpand =
+    props.expand == "xl"
+      ? "navbar-expand-xl"
+      : props.expand == "lg"
+      ? "navbar-expand-lg"
+      : props.expand == "md"
+      ? "navbar-expand-md"
+      : props.expand == "sm"
+      ? "navbar-expand-sm"
+      : props.expand == "no"
+      ? "navbar-no-expand"
+      : "navbar-expand";
+  const customnNvbarVariant = () =>
+    nlyGetOptionsByKeyEqual(navbarVariantOpitons, props.variant);
+  const customNavbarFontSize = () =>
+    nlyGetOptionsByKeyEqual(textSizeOptions, props.size);
+  const customNavbarBorder = props.border ? "" : "border-bottom-0";
+  const customNavbarClass = props.navbarClass;
+  const customNavbarDark = props.dark ? "navbar-dark" : "navbar-light";
+
+  return [
+    customStickyClass,
+    customFixedClass,
+    customNavbarHeader,
+    customNavbarExpand,
+    customnNvbarVariant(),
+    customNavbarFontSize(),
+    customNavbarBorder,
+    customNavbarClass,
+    customNavbarDark
+  ];
+};
+
 export const NlyNavbar = Vue.extend({
   name: name,
-  props: {
-    //头部菜单
-    header: {
-      type: Boolean,
-      default: false
-    },
-    expand: {
-      type: String
-    },
-    variant: {
-      type: String,
-      default: "white"
-    },
-    dark: {
-      type: Boolean,
-      default: false
-    },
-    size: {
-      type: String,
-      default: ""
-    },
-    border: {
-      type: Boolean,
-      default: true
-    },
-    navbarClass: {
-      type: String
-    }
-  },
-  computed: {
-    customNavbarHeader: function() {
-      return this.header ? "main-header" : "";
-    },
-    customNavbarExpand: function() {
-      return this.expand == "xl"
-        ? "navbar-expand-xl"
-        : this.expand == "lg"
-        ? "navbar-expand-lg"
-        : this.expand == "md"
-        ? "navbar-expand-md"
-        : this.expand == "sm"
-        ? "navbar-expand-sm"
-        : this.expand == "no"
-        ? "navbar-no-expand"
-        : "navbar-expand";
-    },
-    customnNvbarVariant: function() {
-      return nlyGetOptionsByKeyEqual(navbarVariantOpitons, this.variant);
-    },
-    customNavbarFontSize: function() {
-      return nlyGetOptionsByKeyEqual(textSizeOptions, this.size);
-    },
-    customNavbarBorder: function() {
-      return this.border ? "" : "border-bottom-0";
-    },
-    customNavbarClass: function() {
-      return this.navbarClass;
-    },
-    customNavbarDark() {
-      return this.dark ? "navbar-dark" : "navbar-light";
-    }
-  },
-  render(h) {
+  functional: true,
+  props,
+  render(h, { props, data, children }) {
     return h(
-      "nav",
-      {
+      props.tag,
+      mergeData(data, {
         staticClass: "navbar",
-        class: [
-          this.customNavbarHeader,
-          this.customNavbarExpand,
-          this.customNavbarDark,
-          this.customnNvbarVariant,
-          this.customNavbarFontSize,
-          this.customNavbarBorder,
-          this.customNavbarClass
-        ]
-      },
-      this.$slots.default
+        class: customClass(props)
+      }),
+      children
     );
   }
 });

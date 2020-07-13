@@ -6,9 +6,9 @@ const name = "NlyNavbarToggle";
 
 const EVENT_TOGGLE = "nlya::toggle::collapse";
 
-const EVENT_STATE = "nly::collapse::state";
+const EVENT_STATE = "nlya::collapse::state";
 
-const EVENT_STATE_SYNC = "nly::collapse::sync::state";
+const EVENT_STATE_SYNC = "nlya::collapse::sync::state";
 
 export const NlyNavbarToggle = Vue.extend({
   name: name,
