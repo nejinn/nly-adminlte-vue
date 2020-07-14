@@ -29,6 +29,16 @@
             "prop": "appendHtml",
             "description": "渲染到 nly-input-group-append 的 html文本"
           }
+        ],
+        "slots":[
+          {
+            "name": "prepend",
+            "description": "此插槽是用来代替 nly-input-group-prepend 的"
+          },
+          {
+            "name": "append",
+            "description": "此插槽是用来代替 nly-input-group-append 的"
+          }
         ]
       },
       {
