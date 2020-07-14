@@ -65,6 +65,10 @@ const btnProps = {
   pressed: {
     type: Boolean,
     default: null
+  },
+  isNavbar: {
+    type: Boolean,
+    default: false
   }
 };
 
@@ -119,6 +123,8 @@ const customClass = props => {
   const btnApp = () => (props.app ? "btn-app" : null);
   const btmCustomClass = () => props.buttonClass;
 
+  const isNavBarClass = props.isNavbar ? "btn-navbar" : null;
+
   return [
     btnVariant(),
     btnBgVariant(),
@@ -130,7 +136,8 @@ const customClass = props => {
     btnPressed(),
     btnTool(),
     btnApp(),
-    btmCustomClass()
+    btmCustomClass(),
+    isNavBarClass
   ];
 };
 

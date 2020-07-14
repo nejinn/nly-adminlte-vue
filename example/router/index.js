@@ -44,6 +44,7 @@ const dropdown = () => import("../views/example/dropdown.vue");
 
 const formGroup = () => import("../views/example/form-group.vue");
 const popover = () => import("../views/example/popover.vue");
+const inputgroup = () => import("../views/example/input-group.vue");
 
 const routes = [
   {
@@ -55,6 +56,11 @@ const routes = [
         path: "/tabs",
         name: "tabs",
         component: tabs
+      },
+      {
+        path: "/inputgroup",
+        name: "inputgroup",
+        component: inputgroup
       },
       {
         path: "/dropdown",

@@ -3298,3 +3298,371 @@ html.os-html>.os-host>.os-scrollbar {
 .nly-popover-dark .popover-body {
   color: #1b1e21;
 }
+
+.custom-checkbox.nly-custom-control-lg,
+.input-group-lg .custom-checkbox {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding-left: 1.875rem;
+}
+
+.custom-checkbox.nly-custom-control-lg .custom-control-label::before,
+.input-group-lg .custom-checkbox .custom-control-label::before {
+  top: 0.3125rem;
+  left: -1.875rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.3rem;
+}
+
+.custom-checkbox.nly-custom-control-lg .custom-control-label::after,
+.input-group-lg .custom-checkbox .custom-control-label::after {
+  top: 0.3125rem;
+  left: -1.875rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-size: 50% 50%;
+}
+
+.custom-checkbox.nly-custom-control-sm,
+.input-group-sm .custom-checkbox {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  padding-left: 1.3125rem;
+}
+
+.custom-checkbox.nly-custom-control-sm .custom-control-label::before,
+.input-group-sm .custom-checkbox .custom-control-label::before {
+  top: 0.21875rem;
+  left: -1.3125rem;
+  width: 0.875rem;
+  height: 0.875rem;
+  border-radius: 0.2rem;
+}
+
+.custom-checkbox.nly-custom-control-sm .custom-control-label::after,
+.input-group-sm .custom-checkbox .custom-control-label::after {
+  top: 0.21875rem;
+  left: -1.3125rem;
+  width: 0.875rem;
+  height: 0.875rem;
+  background-size: 50% 50%;
+}
+
+.custom-switch.nly-custom-control-lg,
+.input-group-lg .custom-switch {
+  padding-left: 2.8125rem;
+}
+
+.custom-switch.nly-custom-control-lg .custom-control-label,
+.input-group-lg .custom-switch .custom-control-label {
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.custom-switch.nly-custom-control-lg .custom-control-label::before,
+.input-group-lg .custom-switch .custom-control-label::before {
+  top: 0.3125rem;
+  height: 1.25rem;
+  left: -2.8125rem;
+  width: 2.1875rem;
+  border-radius: 0.625rem;
+}
+
+.custom-switch.nly-custom-control-lg .custom-control-label::after,
+.input-group-lg .custom-switch .custom-control-label::after {
+  top: calc( 0.3125rem + 2px);
+  left: calc( -2.8125rem + 2px);
+  width: calc( 1.25rem - 4px);
+  height: calc( 1.25rem - 4px);
+  border-radius: 0.625rem;
+  background-size: 50% 50%;
+}
+
+.custom-switch.nly-custom-control-lg .custom-control-input:checked ~ .custom-control-label::after,
+.input-group-lg .custom-switch .custom-control-input:checked ~ .custom-control-label::after {
+  -webkit-transform: translateX(0.9375rem);
+  transform: translateX(0.9375rem);
+}
+
+.custom-switch.nly-custom-control-sm,
+.input-group-sm .custom-switch {
+  padding-left: 1.96875rem;
+}
+
+.custom-switch.nly-custom-control-sm .custom-control-label,
+.input-group-sm .custom-switch .custom-control-label {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.custom-switch.nly-custom-control-sm .custom-control-label::before,
+.input-group-sm .custom-switch .custom-control-label::before {
+  top: 0.21875rem;
+  left: -1.96875rem;
+  width: 1.53125rem;
+  height: 0.875rem;
+  border-radius: 0.4375rem;
+}
+
+.custom-switch.nly-custom-control-sm .custom-control-label::after,
+.input-group-sm .custom-switch .custom-control-label::after {
+  top: calc( 0.21875rem + 2px);
+  left: calc( -1.96875rem + 2px);
+  width: calc( 0.875rem - 4px);
+  height: calc( 0.875rem - 4px);
+  border-radius: 0.4375rem;
+  background-size: 50% 50%;
+}
+
+.custom-switch.nly-custom-control-sm .custom-control-input:checked ~ .custom-control-label::after,
+.input-group-sm .custom-switch .custom-control-input:checked ~ .custom-control-label::after {
+  -webkit-transform: translateX(0.65625rem);
+  transform: translateX(0.65625rem);
+}
+
+.input-group > .input-group-prepend > .btn-group > .btn,
+.input-group > .input-group-append:not(:last-child) > .btn-group > .btn,
+.input-group > .input-group-append:last-child > .btn-group:not(:last-child):not(.dropdown-toggle) > .btn {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.input-group > .input-group-append > .btn-group > .btn,
+.input-group > .input-group-prepend:not(:first-child) > .btn-group > .btn,
+.input-group > .input-group-prepend:first-child > .btn-group:not(:first-child) > .btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.nly-custom-control-lg.custom-file,
+.nly-custom-control-lg .custom-file-input,
+.nly-custom-control-lg .custom-file-label,
+.input-group-lg.custom-file,
+.input-group-lg .custom-file-input,
+.input-group-lg .custom-file-label {
+  font-size: 1.25rem;
+  height: calc(1.5em + 1rem + 2px);
+}
+
+.nly-custom-control-lg .custom-file-label,
+.nly-custom-control-lg .custom-file-label:after,
+.input-group-lg .custom-file-label,
+.input-group-lg .custom-file-label:after {
+  padding: 0.5rem 1rem;
+  line-height: 1.5;
+}
+
+.nly-custom-control-lg .custom-file-label,
+.input-group-lg .custom-file-label {
+  border-radius: 0.3rem;
+}
+
+.nly-custom-control-lg .custom-file-label::after,
+.input-group-lg .custom-file-label::after {
+  font-size: inherit;
+  height: calc( 1.5em + 1rem);
+  border-radius: 0 0.3rem 0.3rem 0;
+}
+
+.nly-custom-control-sm.custom-file,
+.nly-custom-control-sm .custom-file-input,
+.nly-custom-control-sm .custom-file-label,
+.input-group-sm.custom-file,
+.input-group-sm .custom-file-input,
+.input-group-sm .custom-file-label {
+  font-size: 0.875rem;
+  height: calc(1.5em + 0.5rem + 2px);
+}
+
+.nly-custom-control-sm .custom-file-label,
+.nly-custom-control-sm .custom-file-label:after,
+.input-group-sm .custom-file-label,
+.input-group-sm .custom-file-label:after {
+  padding: 0.25rem 0.5rem;
+  line-height: 1.5;
+}
+
+.nly-custom-control-sm .custom-file-label,
+.input-group-sm .custom-file-label {
+  border-radius: 0.2rem;
+}
+
+.nly-custom-control-sm .custom-file-label::after,
+.input-group-sm .custom-file-label::after {
+  font-size: inherit;
+  height: calc( 1.5em + 0.5rem);
+  border-radius: 0 0.2rem 0.2rem 0;
+}
+
+input[type="color"].form-control.form-control-sm,
+.input-group-sm input[type="color"].form-control {
+  height: calc(1.5em + 0.5rem + 2px);
+  padding: 0.125rem 0.25rem;
+}
+
+input[type="color"].form-control.form-control-lg,
+.input-group-lg input[type="color"].form-control {
+  height: calc(1.5em + 1rem + 2px);
+  padding: 0.125rem 0.25rem;
+}
+
+input[type="color"].form-control:disabled {
+  background-color: #adb5bd;
+  opacity: 0.65;
+}
+
+.input-group > .custom-range {
+  position: relative;
+  flex: 1 1 auto;
+  width: 1%;
+  margin-bottom: 0;
+}
+
+.input-group > .custom-range + .form-control,
+.input-group > .custom-range + .form-control-plaintext,
+.input-group > .custom-range + .custom-select,
+.input-group > .custom-range + .custom-range,
+.input-group > .custom-range + .custom-file {
+  margin-left: -1px;
+}
+
+.input-group > .form-control + .custom-range,
+.input-group > .form-control-plaintext + .custom-range,
+.input-group > .custom-select + .custom-range,
+.input-group > .custom-range + .custom-range,
+.input-group > .custom-file + .custom-range {
+  margin-left: -1px;
+}
+
+.input-group > .custom-range:focus {
+  z-index: 3;
+}
+
+.input-group > .custom-range:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.input-group > .custom-range:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.input-group > .custom-range {
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0 0.75rem;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  height: calc(1.5em + 0.75rem + 2px);
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .input-group > .custom-range {
+    transition: none;
+  }
+}
+
+.input-group > .custom-range:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.input-group > .custom-range:disabled, .input-group > .custom-range[readonly] {
+  background-color: #e9ecef;
+}
+
+.input-group-lg > .custom-range {
+  height: calc(1.5em + 1rem + 2px);
+  padding: 0 1rem;
+  border-radius: 0.3rem;
+}
+
+.input-group-sm > .custom-range {
+  height: calc(1.5em + 0.5rem + 2px);
+  padding: 0 0.5rem;
+  border-radius: 0.2rem;
+}
+
+.was-validated .input-group .custom-range:valid, .input-group .custom-range.is-valid {
+  border-color: #28a745;
+}
+
+.was-validated .input-group .custom-range:valid:focus, .input-group .custom-range.is-valid:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.was-validated .input-group .custom-range:invalid, .input-group .custom-range.is-invalid {
+  border-color: #dc3545;
+}
+
+.was-validated .input-group .custom-range:invalid:focus, .input-group .custom-range.is-invalid:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.custom-radio.nly-custom-control-lg,
+.input-group-lg .custom-radio {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  padding-left: 1.875rem;
+}
+
+.custom-radio.nly-custom-control-lg .custom-control-label::before,
+.input-group-lg .custom-radio .custom-control-label::before {
+  top: 0.3125rem;
+  left: -1.875rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+}
+
+.custom-radio.nly-custom-control-lg .custom-control-label::after,
+.input-group-lg .custom-radio .custom-control-label::after {
+  top: 0.3125rem;
+  left: -1.875rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: no-repeat 50% / 50% 50%;
+}
+
+.custom-radio.nly-custom-control-sm,
+.input-group-sm .custom-radio {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  padding-left: 1.3125rem;
+}
+
+.custom-radio.nly-custom-control-sm .custom-control-label::before,
+.input-group-sm .custom-radio .custom-control-label::before {
+  top: 0.21875rem;
+  left: -1.3125rem;
+  width: 0.875rem;
+  height: 0.875rem;
+  border-radius: 50%;
+}
+
+.custom-radio.nly-custom-control-sm .custom-control-label::after,
+.input-group-sm .custom-radio .custom-control-label::after {
+  top: 0.21875rem;
+  left: -1.3125rem;
+  width: 0.875rem;
+  height: 0.875rem;
+  background: no-repeat 50% / 50% 50%;
+}
+
+.btn .nly-icon.bi,
+.nav-link .nly-icon.bi,
+.dropdown-toggle .nly-icon.bi,
+.dropdown-item .nly-icon.bi,
+.input-group-text .nly-icon.bi {
+  font-size: 125%;
+  vertical-align: text-bottom;
+}

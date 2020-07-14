@@ -69,6 +69,10 @@ export const NlyFormInput = Vue.extend({
     },
     variant: {
       type: String
+    },
+    isNavbar: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -113,6 +117,8 @@ export const NlyFormInput = Vue.extend({
         }
       };
 
+      const isNavbarClass = this.isNavbar ? "form-control-navbar" : null;
+
       return [
         formControlClass(),
         rangeClass,
@@ -120,6 +126,7 @@ export const NlyFormInput = Vue.extend({
         this.sizeFormClass,
         this.validClass,
         variantClass,
+        isNavbarClass,
         this.customCol,
         this.customXl,
         this.customLg,

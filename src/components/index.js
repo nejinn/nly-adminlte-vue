@@ -15,6 +15,7 @@ import { FormGroupPlugin } from "./form-group";
 import { FormInputPlugin } from "./form-input";
 import { GridPlugin } from "./grid";
 import { InfoboxPlugin } from "./info-box";
+import { InputGroupoPlugin } from "./input-group";
 import { LinkPlugin } from "./link";
 import { ListGroupPlugin } from "./list-group";
 import { LogPlugin } from "./log";
@@ -51,6 +52,8 @@ export const componentsPlugin = nlyPluginFactory({
     FormGroupPlugin,
     FormInputPlugin,
     GridPlugin,
+    InputGroupoPlugin,
+    tablePlugin,
     WrapperPlugin,
     LinkPlugin,
     ListGroupPlugin,
@@ -65,7 +68,6 @@ export const componentsPlugin = nlyPluginFactory({
     PopoverPlugin,
     timelinePlugin,
     InfoboxPlugin,
-    tablePlugin,
     TooltipPlugin,
     RenderFunctionPlugin,
     PaginationPlugin,
