@@ -1,23 +1,29 @@
-import Vue from "../../utils/vue";
 import { Portal, Wormhole } from "portal-vue";
 import NlyToastTransition from "../../utils/nly-toast-transition";
+import Vue from "../../utils/vue";
 import { NlyEvent } from "../../utils/nly-event.class";
 import { getComponentConfig } from "../../utils/config";
-import { requestAF, eventOn, eventOff } from "../../utils/dom";
+import { requestAF } from "../../utils/dom";
+import { EVENT_OPTIONS_NO_CAPTURE, eventOnOff } from "../../utils/events";
+import { mathMax } from "../../utils/math";
 import { toInteger } from "../../utils/number";
+import { pick } from "../../utils/object";
+import { pluckProps } from "../../utils/props";
+import { isLink } from "../../utils/router";
+import attrsMixin from "../../mixins/attrs";
 import idMixin from "../../mixins/id";
 import listenOnRootMixin from "../../mixins/listen-on-root";
 import normalizeSlotMixin from "../../mixins/normalize-slot";
 import scopedStyleAttrsMixin from "../../mixins/scoped-style-attrs";
 import { NlyToaster } from "./toaster";
 import { NlyButtonClose } from "../button/button-close";
-import { NlyLink } from "../link/link";
+import { NlyLink, props as NlyLinkProps } from "../link/link";
 
 const NAME = "NlyToast";
 
 const MIN_DURATION = 1000;
 
-const EVENT_OPTIONS = { passive: true, capture: false };
+const linkProps = pick(NlyLinkProps, ["href", "to"]);
 
 export const props = {
   id: {
@@ -84,23 +90,17 @@ export const props = {
     type: [String, Object, Array],
     default: () => getComponentConfig(NAME, "bodyClass")
   },
-  href: {
-    type: String,
-    default: null
-  },
-  to: {
-    type: [String, Object],
-    default: null
-  },
   static: {
     type: Boolean,
     default: false
-  }
+  },
+  ...linkProps
 };
 
 export const NlyToast = Vue.extend({
   name: NAME,
   mixins: [
+    attrsMixin,
     idMixin,
     listenOnRootMixin,
     normalizeSlotMixin,
@@ -126,7 +126,7 @@ export const NlyToast = Vue.extend({
     };
   },
   computed: {
-    bToastClasses() {
+    customToastClasses() {
       return {
         "nly-toast-solid": this.solid,
         "nly-toast-append": this.appendToast,
@@ -151,6 +151,13 @@ export const NlyToast = Vue.extend({
         afterEnter: this.onAfterEnter,
         beforeLeave: this.onBeforeLeave,
         afterLeave: this.onAfterLeave
+      };
+    },
+    computedAttrs() {
+      return {
+        ...this.bvAttrs,
+        id: this.safeId(),
+        tabindex: "0"
       };
     }
   },
@@ -233,12 +240,12 @@ export const NlyToast = Vue.extend({
         });
       }
     },
-    buildEvent(type, opts = {}) {
+    buildEvent(type, options = {}) {
       return new NlyEvent(type, {
         cancelable: false,
         target: this.$el || null,
         relatedTarget: null,
-        ...opts,
+        ...options,
         vueTarget: this,
         componentId: this.safeId()
       });
@@ -280,13 +287,17 @@ export const NlyToast = Vue.extend({
       this.timer = null;
     },
     setHoverHandler(on) {
-      const method = on ? eventOn : eventOff;
       const el = this.$refs["nly-toast"];
-      method(el, "mouseenter", this.onPause, EVENT_OPTIONS);
-      method(el, "mouseleave", this.onUnPause, EVENT_OPTIONS);
+      eventOnOff(on, el, "mouseenter", this.onPause, EVENT_OPTIONS_NO_CAPTURE);
+      eventOnOff(
+        on,
+        el,
+        "mouseleave",
+        this.onUnPause,
+        EVENT_OPTIONS_NO_CAPTURE
+      );
     },
-    // eslint-disable-next-line no-unused-vars
-    onPause(evt) {
+    onPause() {
       if (
         this.noAutoHide ||
         this.noHoverPause ||
@@ -298,14 +309,14 @@ export const NlyToast = Vue.extend({
       const passed = Date.now() - this.dismissStarted;
       if (passed > 0) {
         this.clearDismissTimer();
-        this.resumeDismiss = Math.max(
+        this.resumeDismiss = mathMax(
           this.computedDuration - passed,
           MIN_DURATION
         );
       }
     },
-    // eslint-disable-next-line no-unused-vars
-    onUnPause(evt) {
+    onUnPause() {
+      // Restart timer with max of time remaining or 1 second
       if (this.noAutoHide || this.noHoverPause || !this.resumeDismiss) {
         this.resumeDismiss = this.dismissStarted = 0;
         return;
@@ -313,6 +324,8 @@ export const NlyToast = Vue.extend({
       this.startDismissTimer();
     },
     onLinkClick() {
+      // We delay the close to allow time for the
+      // browser to process the link click
       this.$nextTick(() => {
         requestAF(() => {
           this.hide();
@@ -353,8 +366,7 @@ export const NlyToast = Vue.extend({
           h(NlyButtonClose, {
             staticClass: "ml-auto mb-1",
             on: {
-              // eslint-disable-next-line no-unused-vars
-              click: evt => {
+              click: () => {
                 this.hide();
               }
             }
@@ -369,14 +381,14 @@ export const NlyToast = Vue.extend({
           $headerContent
         );
       }
-      const isLink = this.href || this.to;
+      const link = isLink(this);
       const $body = h(
-        isLink ? NlyLink : "div",
+        link ? NlyLink : "div",
         {
           staticClass: "toast-body",
           class: this.bodyClass,
-          props: isLink ? { to: this.to, href: this.href } : {},
-          on: isLink ? { click: this.onLinkClick } : {}
+          props: link ? pluckProps(linkProps, this) : {},
+          on: link ? { click: this.onLinkClick } : {}
         },
         [this.normalizeSlot("default", this.slotScope) || h()]
       );
@@ -387,11 +399,7 @@ export const NlyToast = Vue.extend({
           ref: "toast",
           staticClass: "toast",
           class: this.toastClass,
-          attrs: {
-            ...this.$attrs,
-            tabindex: "0",
-            id: this.safeId()
-          }
+          attrs: this.computedAttrs
         },
         [$header, $body]
       );
@@ -423,7 +431,7 @@ export const NlyToast = Vue.extend({
             key: name,
             ref: "nly-toast",
             staticClass: "nly-toast",
-            class: this.bToastClasses,
+            class: this.customToastClasses,
             attrs: {
               ...scopedStyleAttrs,
               id: this.safeId("_toast_outer"),
