@@ -10,6 +10,10 @@
         "component": "NlyFormInput",
         "props": [
           {
+            "prop": "isNavbar",
+            "description": "设置true为放在navbar中的input,带有css class form-control-navbar"
+          },
+          {
             "prop": "value",
             "description": "输入框的值,  `v-model` 会把值传给value"
           },

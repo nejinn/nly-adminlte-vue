@@ -1,0 +1,112 @@
+{
+  "name": "@nly-adminlte-vue/input-group",
+  "version": "1.0.0",
+  "meta": {
+    "title": "Input Group",
+    "subtitle": "输入组",
+    "description": "Input Group 可以在 input 输入框两侧添加图标，文字，按钮等其他元素，拓展表单控件",
+    "components": [
+      {
+        "component": "NlyInputGroup",
+        "props": [
+          {
+            "prop": "size",
+            "description": "大小,可选sm ,lg"
+          },
+          {
+            "prop": "prepend",
+            "description": "nly-input-group-prepend 文本内容"
+          },
+          {
+            "prop": "prependHtml",
+            "description": "渲染到 nly-input-group-prepend 的 html文本"
+          },
+          {
+            "prop": "append",
+            "description": "nly-input-group-append 文本内容"
+          },
+          {
+            "prop": "appendHtml",
+            "description": "渲染到 nly-input-group-append 的 html文本"
+          }
+        ]
+      },
+      {
+        "component": "NlyInputGroupText",
+        "props": [
+          {
+            "prop": "textClass",
+            "description": "自定义css"
+          }
+        ]
+      },
+      {
+        "component": "NlyInputGroupPrepend",
+        "props": [
+          {
+            "prop": "textClass",
+            "description": "isText设置true时nly-input-group-text的自定义css"
+          },
+          {
+            "prop": "isText",
+            "description": "设置true会渲染一个nly-input-group-text"
+          },
+          {
+            "prop": "prependClass",
+            "description": "自定义css"
+          },
+          {
+            "prop": "textTag",
+            "description": "isText设置true时nly-input-group-text的标签"
+          }
+        ]
+      },
+      {
+        "component": "NlyInputGroupAppend",
+        "props": [
+          {
+            "prop": "textClass",
+            "description": "isText设置true时nly-input-group-text的自定义css"
+          },
+          {
+            "prop": "isText",
+            "description": "设置true会渲染一个nly-input-group-text"
+          },
+          {
+            "prop": "appendClass",
+            "description": "自定义css"
+          },
+          {
+            "prop": "textTag",
+            "description": "isText设置true时nly-input-group-text的标签"
+          }
+        ]
+      },
+      {
+        "component": "NlyInputGroupAdd",
+        "props": [
+          {
+            "prop": "textClass",
+            "description": "isText设置true时nly-input-group-text的自定义css"
+          },
+          {
+            "prop": "isText",
+            "description": "设置true会渲染一个nly-input-group-text"
+          },
+          {
+            "prop": "addClass",
+            "description": "自定义css"
+          },
+          {
+            "prop": "textTag",
+            "description": "isText设置true时nly-input-group-text的标签"
+          },
+          {
+            "prop": "append",
+            "description": "设置true 渲染为 nlyinput-group-append ，默认渲染为nly-input-grouppreppend "
+          }
+        ]
+      }
+    ]
+  }
+}

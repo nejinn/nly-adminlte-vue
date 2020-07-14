@@ -94,6 +94,13 @@ export { NlyInfoboxBody } from "./components/info-box/infobox-body";
 export { NlyInfoboxText } from "./components/info-box/infobox-text";
 export { NlyInfoboxNumber } from "./components/info-box/infobox-number";
 
+export { InputGroupoPlugin } from "./components/input-group";
+export { NlyInputGroupText } from "./components/input-group/input-group-text";
+export { NlyInputGroup } from "./components/input-group/input-group";
+export { NlyInputGroupPrepend } from "./components/input-group/input-group-prepend";
+export { NlyInputGroupAppend } from "./components/input-group/input-group-append";
+export { NlyInputGroupAdd } from "./components/input-group/input-group-add";
+
 export { LinkPlugin } from "./components/link";
 export { NlyLink } from "./components/link/link";
 

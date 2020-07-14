@@ -506,6 +506,14 @@
               exact
               >popover</nly-sidebar-nav-item
             >
+            <nly-sidebar-nav-item
+              to="/inputgroup"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
+              exact
+              >inputgroup</nly-sidebar-nav-item
+            >
           </nly-sidebar-nav-tree>
         </nly-sidebar-nav>
       </nly-sidebar>

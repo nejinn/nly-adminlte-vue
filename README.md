@@ -125,6 +125,7 @@ We also can view docs localhost with `npm run docs-dev`. [docs-dev](#43-install)
 * tabs
 * form-group
 * popover
+* input-group
 
 ## 4.2. Directives
 

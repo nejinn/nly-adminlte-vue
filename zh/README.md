@@ -125,6 +125,7 @@
 - tab 标签 tabs
 - 表单组 form-group
 - 弹出框 popover
+- 输入框组 input-group
 
 ## 4.2. 指令
 

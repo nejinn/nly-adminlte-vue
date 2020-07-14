@@ -28,6 +28,11 @@ export const isPlainObject = obj =>
 
 export const clone = obj => ({ ...obj });
 
+export const pick = (obj, props) =>
+  keys(obj)
+    .filter(key => props.indexOf(key) !== -1)
+    .reduce((result, key) => ({ ...result, [key]: obj[key] }), {});
+
 export const omit = (obj, props) =>
   keys(obj)
     .filter(key => props.indexOf(key) === -1)
