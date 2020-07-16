@@ -4,7 +4,7 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 const index = () => import("../views/index");
-const indextest = () => import("../views/indextest.vue");
+const test = () => import("../views/example/test.vue");
 const container = () => import("../views/example/container.vue");
 const grid = () => import("../views/example/grid.vue");
 const nav = () => import("../views/example/nav.vue");
@@ -196,13 +196,13 @@ const routes = [
         path: "popover",
         name: "popover",
         component: popover
+      },
+      {
+        path: "/test",
+        name: "test",
+        component: test
       }
     ]
-  },
-  {
-    path: "/test",
-    name: "indextest",
-    component: indextest
   },
   {
     path: "/top-nav",

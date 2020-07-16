@@ -26,6 +26,7 @@ import { OverlayPlugin } from "./overlay";
 import { PaginationPlugin } from "./pagination";
 import { PopoverPlugin } from "./popover";
 import { ProgressPlugin } from "./progress";
+import { SearchSelectPlugin } from "./select-search";
 import { SidebarPlugin } from "./sidebar";
 import { SpinnerPlugin } from "./spinner";
 import { switchPlugin } from "./switch";
@@ -63,6 +64,7 @@ export const componentsPlugin = nlyPluginFactory({
     SidebarPlugin,
     switchPlugin,
     toastPlugin,
+    SearchSelectPlugin,
     SpinnerPlugin,
     ProgressPlugin,
     PopoverPlugin,
