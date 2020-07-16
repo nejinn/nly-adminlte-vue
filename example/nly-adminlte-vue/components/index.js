@@ -26,7 +26,7 @@ import { OverlayPlugin } from "./overlay";
 import { PaginationPlugin } from "./pagination";
 import { PopoverPlugin } from "./popover";
 import { ProgressPlugin } from "./progress";
-import { SearchSelectPlugin } from "./select-search";
+import { SearchSelectPlugin } from "./search-select";
 import { SidebarPlugin } from "./sidebar";
 import { SpinnerPlugin } from "./spinner";
 import { switchPlugin } from "./switch";
