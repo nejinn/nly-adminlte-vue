@@ -34,12 +34,15 @@
               <NlySearchSelectMultipleContainer
                 onwer="demo1"
                 ref="newConBox"
-                :value="['您']"
+                v-model="options1"
+                :inputFunction="inputFunction"
               />
             </div>
           </div>
         </nly-col>
       </nly-row>
+      {{ options1 }}
+      {{ inputValue }}
     </nly-content>
   </nly-wrapper-content>
 </template>
@@ -48,6 +51,7 @@
 export default {
   data() {
     return {
+      value: ["我是", "你爹", "我是", "你爷爷"],
       options: [
         { value: null, text: "Please select an option" },
         { value: "a", text: "This is First option" },
@@ -64,8 +68,17 @@ export default {
         }
       ],
       options1: ["我是", "你爹", "我是", "你爷爷"],
-      open: false
+      open: false,
+      inputValue: null
     };
+  },
+  watch: {
+    value: {
+      handler(newValue, oldValue) {
+        console.log(111, newValue, oldValue);
+      },
+      deep: true
+    }
   },
   methods: {
     openSingle() {
@@ -80,11 +93,14 @@ export default {
         return this.getElementToPageTop(el.parentElement) + el.offsetTop;
       }
       return el.offsetTop;
+    },
+    inputFunction(evt) {
+      this.inputValue = evt;
     }
   },
   mounted() {
-    const z = this.$refs.newConBox.getBoundingClientRect().top;
-    console.log(z);
+    // const z = this.$refs.newConBox.getBoundingClientRect().top;
+    // console.log(z);
     // const zzz = this.getElementToPageTop(z);
     // console.log(zzz);
   }

@@ -2,7 +2,6 @@ import get from "../../../utils/get";
 import { isNull, isPlainObject, isUndefined } from "../../../utils/inspect";
 import formOptionsMixin from "../../../mixins/form/form-options";
 
-// @vue/component
 export default {
   mixins: [formOptionsMixin],
   props: {

@@ -1,4 +1,5 @@
 import Vue from "../../../utils/vue";
+import { isFunction } from "../../../utils/inspect";
 
 const name = "NlySearchSelectMultipleItem";
 
@@ -10,20 +11,31 @@ export const props = {
   placeholder: {
     type: String,
     default: "Choice a field"
+  },
+  inputFunction: {
+    type: Function
   }
 };
 
 export const NlySearchSelectMultipleItem = Vue.extend({
   name: name,
+  model: {
+    prop: "value",
+    event: "change"
+  },
   props,
   computed: {
     inputValue() {
       return this.value;
+    },
+    isInputFunction() {
+      return isFunction(this.inputFunction);
     }
   },
   render(h) {
-    const $multipleOptions = this.inputValue
-      ? this.inputValue.map((item, index) => {
+    var that = this;
+    const $multipleOptions = that.inputValue
+      ? that.inputValue.map((item, index) => {
           return h(
             "li",
             {
@@ -40,9 +52,8 @@ export const NlySearchSelectMultipleItem = Vue.extend({
                   on: {
                     click: evt => {
                       evt.stopPropagation();
-                      this.value.splice(index, 1);
-                      this.$forceUpdate();
-                      console.log(this.value);
+                      that.value.splice(index, 1);
+                      that.$emit("change", that.value);
                     }
                   }
                 },
@@ -55,7 +66,7 @@ export const NlySearchSelectMultipleItem = Vue.extend({
       : null;
 
     const $multipleInput =
-      this.inputValue === undefined || this.inputValue.length == []
+      that.inputValue === undefined || that.inputValue.length == []
         ? h("li", { staticClass: "select2-search select2-search--inline" }, [
             h("input", {
               staticClass: "select2-search__field",
@@ -67,9 +78,19 @@ export const NlySearchSelectMultipleItem = Vue.extend({
                 spellcheck: false,
                 role: "searchbox",
                 "aria-autocomplete": "list",
-                placeholder: this.placeholder
+                placeholder: that.placeholder
               },
-              style: { width: "100%" }
+              style: { width: "100%" },
+              on: {
+                input(evt) {
+                  if (evt.target.composing) {
+                    return;
+                  }
+                  if (that.isInputFunction) {
+                    console.log(evt.target.value);
+                  }
+                }
+              }
             })
           ])
         : h("li", { staticClass: "select2-search select2-search--inline" }, [
@@ -85,7 +106,18 @@ export const NlySearchSelectMultipleItem = Vue.extend({
                 "aria-autocomplete": "list",
                 placeholder: ""
               },
-              style: { width: "100%" }
+              style: { width: "100%" },
+              on: {
+                input(evt) {
+                  if (evt.target.composing) {
+                    return;
+                  }
+                  if (that.isInputFunction) {
+                    console.log(evt.target.value);
+                    that.inputFunction(evt.target.value);
+                  }
+                }
+              }
             })
           ]);
 

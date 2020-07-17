@@ -1,9 +1,7 @@
 import Vue from "../../../utils/vue";
-import { mergeData } from "vue-functional-data-merge";
-import {
-  props as ItemProps,
-  NlySearchSelectMultipleItem
-} from "./search-select-multiple-item";
+// import { mergeData } from "vue-functional-data-merge";
+import { isFunction } from "../../../utils/inspect";
+import { NlySearchSelectMultipleItem } from "./search-select-multiple-item";
 
 const name = "NlySearchSelectMultipleContainer";
 
@@ -25,14 +23,45 @@ export const props = {
     default: null,
     required: true
   },
-  ...ItemProps
+  value: {
+    type: Array,
+    default: undefined
+  },
+  placeholder: {
+    type: String,
+    default: "Choice a field"
+  },
+  inputFunction: {
+    type: Function
+  }
 };
 
 export const NlySearchSelectMultipleContainer = Vue.extend({
   name: name,
+  model: {
+    prop: "value",
+    event: "change"
+  },
   props,
-  functional: true,
-  render(h, { props, data }) {
+  computed: {
+    customProps() {
+      return {
+        open: this.open,
+        focus: this.focus,
+        below: this.below,
+        onwer: this.onwer,
+        value: this.value,
+        placeholder: this.placeholder
+      };
+    },
+    isItemInputFunction() {
+      // console.log(111, isFunction(this.isInputFunction));
+      return isFunction(this.inputFunction);
+    }
+  },
+  render(h) {
+    console.log(this.value, this.isItemInputFunction);
+    var self = this;
     const $single = h(
       "span",
       {
@@ -40,19 +69,30 @@ export const NlySearchSelectMultipleContainer = Vue.extend({
         attrs: {
           role: "combobox",
           "aria-haspopup": true,
-          "aria-expanded": props.open ? true : false,
+          "aria-expanded": self.customProps.open ? true : false,
           tabindex: "0",
           "aria-disabled": "false",
-          "aria-labelledby": `${props.onwer}-container`,
-          "aria-owns": props.open ? `${props.onwer}-results` : null
+          "aria-labelledby": `${self.customProps.onwer}-container`,
+          "aria-owns": self.customProps.open
+            ? `${self.customProps.onwer}-results`
+            : null
         }
       },
       [
         h(NlySearchSelectMultipleItem, {
           props: {
-            value: props.value,
-            placeholder: props.placeholder
-          }
+            value: self.customProps.value,
+            placeholder: self.customProps.placeholder,
+            inputFunction: self.isItemInputFunction ? self.inputFunction : null
+          },
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: self.value,
+              expression: "value"
+            }
+          ]
         })
       ]
     );
@@ -68,16 +108,20 @@ export const NlySearchSelectMultipleContainer = Vue.extend({
 
     return h(
       "span",
-      mergeData(data, {
+      {
         staticClass: "select2 select2-container select2-container--default",
         class: [
-          props.below === true
+          self.customProps.below === true
             ? "select2-container--below"
-            : props.below === false
+            : self.customProps.below === false
             ? "select2-container--above"
             : null,
-          props.open ? "select2-container--open" : null,
-          props.open ? null : props.focus ? "select2-container--focus" : null
+          self.customProps.open ? "select2-container--open" : null,
+          self.customProps.open
+            ? null
+            : self.customProps.focus
+            ? "select2-container--focus"
+            : null
         ],
         attrs: {
           dir: "ltr"
@@ -85,7 +129,7 @@ export const NlySearchSelectMultipleContainer = Vue.extend({
         style: {
           width: "100%"
         }
-      }),
+      },
       [$selection, $dropdown]
     );
   }

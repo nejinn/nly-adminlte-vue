@@ -13,6 +13,7 @@ export const props = {
 
 export const NlySearchSelectSingleItem = Vue.extend({
   name: name,
+
   functional: true,
   props,
   render(h, { props, data }) {
