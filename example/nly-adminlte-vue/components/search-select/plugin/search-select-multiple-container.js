@@ -24,8 +24,8 @@ export const props = {
     required: true
   },
   value: {
-    type: Array,
-    default: undefined
+    type: [Array, Object],
+    default: () => []
   },
   placeholder: {
     type: String,
@@ -33,6 +33,14 @@ export const props = {
   },
   inputFunction: {
     type: Function
+  },
+  valueField: {
+    type: String,
+    default: "value"
+  },
+  textField: {
+    type: String,
+    default: "text"
   }
 };
 
@@ -60,7 +68,6 @@ export const NlySearchSelectMultipleContainer = Vue.extend({
     }
   },
   render(h) {
-    console.log(this.value, this.isItemInputFunction);
     var self = this;
     const $single = h(
       "span",
@@ -83,7 +90,9 @@ export const NlySearchSelectMultipleContainer = Vue.extend({
           props: {
             value: self.customProps.value,
             placeholder: self.customProps.placeholder,
-            inputFunction: self.isItemInputFunction ? self.inputFunction : null
+            inputFunction: self.isItemInputFunction ? self.inputFunction : null,
+            valueField: self.valueField,
+            textField: self.textField
           },
           directives: [
             {

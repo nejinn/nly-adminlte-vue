@@ -39,10 +39,32 @@
               />
             </div>
           </div>
+          <nly-col>
+            <div class="form-group">
+              <label>Multiple (.select2-purple)</label>
+              <div class="select2-purple" data-select2-id="29">
+                <nly-search-select-item :options="options" variant="info" />
+                <NlySearchSelectMultipleContainer
+                  onwer="demo1"
+                  ref="newConBox"
+                  v-model="options"
+                  :inputFunction="inputFunction"
+                />
+              </div>
+            </div>
+          </nly-col>
         </nly-col>
       </nly-row>
-      {{ options1 }}
-      {{ inputValue }}
+      {{ options1 }}-- {{ inputValue }}--
+      {{ addValue }}
+      <nly-row>
+        <nly-col>
+          <nly-form-input v-model="addValue" />
+        </nly-col>
+        <nly-col>
+          <nly-button variant="info" @click="addTag"> add </nly-button>
+        </nly-col>
+      </nly-row>
     </nly-content>
   </nly-wrapper-content>
 </template>
@@ -69,7 +91,8 @@ export default {
       ],
       options1: ["我是", "你爹", "我是", "你爷爷"],
       open: false,
-      inputValue: null
+      inputValue: null,
+      addValue: undefined
     };
   },
   watch: {
@@ -81,6 +104,9 @@ export default {
     }
   },
   methods: {
+    addTag() {
+      this.options1.push(this.addValue);
+    },
     openSingle() {
       console.log(111);
       this.open = this.open ? false : true;
