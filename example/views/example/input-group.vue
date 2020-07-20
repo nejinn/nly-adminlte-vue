@@ -47,6 +47,9 @@
           </nly-input-group>
         </nly-col>
       </nly-row>
+      <nly-row>
+        <nly-col> </nly-col>
+      </nly-row>
     </nly-content>
   </nly-content-wrapper>
 </template>
