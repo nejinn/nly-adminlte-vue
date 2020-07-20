@@ -12,10 +12,6 @@ const name = "NlySearchSelectItem";
 export const NlySearchSelectItem = Vue.extend({
   name: name,
   mixins: [idMixin, normalizeSlotMixin, optionsMixin],
-  model: {
-    prop: "value",
-    event: "input"
-  },
   props: {
     variant: {
       type: String,

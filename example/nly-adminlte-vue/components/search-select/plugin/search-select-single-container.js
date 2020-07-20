@@ -1,9 +1,6 @@
 import Vue from "../../../utils/vue";
 import { mergeData } from "vue-functional-data-merge";
-import {
-  props as ItemProps,
-  NlySearchSelectSingleItem
-} from "./search-select-single-item";
+import { NlySearchSelectSingleItem } from "./search-select-single-item";
 
 const name = "NlySearchSelectSingleContainer";
 
@@ -20,12 +17,27 @@ export const props = {
     type: Boolean,
     default: null
   },
-  onwer: {
+  ower: {
     type: String,
     default: null,
     required: true
   },
-  ...ItemProps
+  value: {
+    type: [Array, Object],
+    default: () => []
+  },
+  placeholder: {
+    type: String,
+    default: "Choice a field"
+  },
+  rtl: {
+    type: Boolean,
+    default: false
+  },
+  disabled: {
+    type: Boolean,
+    default: false
+  }
 };
 
 export const NlySearchSelectSingleContainer = Vue.extend({
@@ -42,9 +54,10 @@ export const NlySearchSelectSingleContainer = Vue.extend({
           "aria-haspopup": true,
           "aria-expanded": props.open ? true : false,
           tabindex: "0",
-          "aria-disabled": "false",
-          "aria-labelledby": `${props.onwer}-container`,
-          "aria-owns": props.open ? `${props.onwer}-results` : null
+          "aria-disabled": props.disabled,
+          "aria-labelledby":
+            props.ower && props.open ? `${props.ower}-container` : null,
+          "aria-owns": props.ower ? `${props.ower}-results` : null
         }
       },
       [
@@ -77,10 +90,11 @@ export const NlySearchSelectSingleContainer = Vue.extend({
             ? "select2-container--above"
             : null,
           props.open ? "select2-container--open" : null,
-          props.open ? null : props.focus ? "select2-container--focus" : null
+          props.open ? null : props.focus ? "select2-container--focus" : null,
+          props.disabled ? " select2-container--disabled" : null
         ],
         attrs: {
-          dir: "ltr"
+          dir: props.rtl ? "rtl" : "ltr"
         },
         style: {
           width: "100%"

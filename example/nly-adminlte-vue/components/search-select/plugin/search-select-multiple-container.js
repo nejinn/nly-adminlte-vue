@@ -18,7 +18,7 @@ export const props = {
     type: Boolean,
     default: null
   },
-  onwer: {
+  ower: {
     type: String,
     default: null,
     required: true
@@ -41,6 +41,14 @@ export const props = {
   textField: {
     type: String,
     default: "text"
+  },
+  rtl: {
+    type: Boolean,
+    default: false
+  },
+  disabled: {
+    type: Boolean,
+    default: false
   }
 };
 
@@ -57,9 +65,11 @@ export const NlySearchSelectMultipleContainer = Vue.extend({
         open: this.open,
         focus: this.focus,
         below: this.below,
-        onwer: this.onwer,
+        ower: this.ower,
         value: this.value,
-        placeholder: this.placeholder
+        placeholder: this.placeholder,
+        disabled: this.disabled,
+        rtl: this.rtl
       };
     },
     isItemInputFunction() {
@@ -78,11 +88,12 @@ export const NlySearchSelectMultipleContainer = Vue.extend({
           "aria-haspopup": true,
           "aria-expanded": self.customProps.open ? true : false,
           tabindex: "0",
-          "aria-disabled": "false",
-          "aria-labelledby": `${self.customProps.onwer}-container`,
-          "aria-owns": self.customProps.open
-            ? `${self.customProps.onwer}-results`
-            : null
+          "aria-disabled": self.customProps.disabled,
+          "aria-labelledby": `${self.customProps.ower}-container`,
+          "aria-owns":
+            self.customProps.open && self.customProps.ower
+              ? `${self.customProps.ower}-results`
+              : null
         }
       },
       [
@@ -133,7 +144,7 @@ export const NlySearchSelectMultipleContainer = Vue.extend({
             : null
         ],
         attrs: {
-          dir: "ltr"
+          dir: self.customProps.rtl ? "rtl" : "ltr"
         },
         style: {
           width: "100%"
