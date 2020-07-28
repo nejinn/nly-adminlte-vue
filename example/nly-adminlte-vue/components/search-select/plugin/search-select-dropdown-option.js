@@ -19,8 +19,31 @@ export const props = {
 
 export const NlySearchSelectDropdownOption = Vue.extend({
   name: NAME,
-  functional: true,
   props,
+  methods: {
+    optionHover(evt) {
+      if (!this.disabled) {
+        if (
+          evt.target.className.indexOf(
+            "select2-results__option--highlighted"
+          ) === -1
+        ) {
+          evt.target.classList.add("select2-results__option--highlighted");
+        }
+      }
+    },
+    optionUnHover(evt) {
+      if (!this.disabled) {
+        if (
+          evt.target.className.indexOf(
+            "select2-results__option--highlighted"
+          ) !== -1
+        ) {
+          evt.target.classList.remove("select2-results__option--highlighted");
+        }
+      }
+    }
+  },
   render(h) {
     return h(
       "li",
@@ -28,8 +51,14 @@ export const NlySearchSelectDropdownOption = Vue.extend({
         staticClass: "select2-results__option",
         attrs: {
           role: "option",
-          "aria-selected": this.selected,
-          "aria-disabled": this.disabled
+          "aria-selected": this.disabled ? null : `${this.selected}`,
+          "aria-disabled": `${this.disabled}`,
+          value: this.value
+        },
+        on: {
+          mouseenter: this.optionHover,
+          mouseleave: this.optionUnHover,
+          ...this.$listeners
         }
       },
       this.value

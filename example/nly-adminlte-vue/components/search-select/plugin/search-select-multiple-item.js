@@ -7,12 +7,6 @@ import { keys } from "../../../utils/object";
 
 const name = "NlySearchSelectMultipleItem";
 
-export const props = {
-  inputFunction: {
-    type: Function
-  }
-};
-
 export const NlySearchSelectMultipleItem = Vue.extend({
   name: name,
   mixins: [itemOption],
@@ -21,11 +15,22 @@ export const NlySearchSelectMultipleItem = Vue.extend({
       localValue: null
     };
   },
-  model: {
-    prop: "value",
-    event: "change"
+  // model: {
+  //   prop: "value",
+  //   event: "input"
+  // },
+  props: {
+    inputFunction: {
+      type: Function
+    },
+    removeCheckedValue: {
+      type: Function
+    }
+    // value: {
+    //   type: [Array, Object],
+    //   default: () => []
+    // }
   },
-  props,
   computed: {
     isInputFunction() {
       return isFunction(this.inputFunction);
@@ -37,7 +42,7 @@ export const NlySearchSelectMultipleItem = Vue.extend({
   methods: {
     updateValue(index, newValue) {
       newValue.splice(index, 1);
-      this.$emit("change", newValue);
+      this.removeCheckedValue(newValue);
     },
     stopRefresh(evt) {
       if (evt.preventDefault) {
@@ -65,12 +70,10 @@ export const NlySearchSelectMultipleItem = Vue.extend({
           this.updateValue(-1, this.value);
           this.$nextTick(() => {
             // if (isArray(deletedValue[0])) {
-            //   console.log(1111, deletedValue, deletedValue[0]);
             //   this.$refs["nly_serach_select_multiple_input"].value =
             //     deletedValue[0];
             //   this.localValue = deletedValue[0];
             // } else if (isPlainObject(deletedValue[0])) {
-            //   console.log(222, deletedValue, deletedValue[0][this.textField]);
             //   this.$refs["nly_serach_select_multiple_input"].value =
             //     deletedValue[0][this.textField];
             //   this.localValue = deletedValue[0][this.textField];
@@ -102,15 +105,30 @@ export const NlySearchSelectMultipleItem = Vue.extend({
     }
   },
   watch: {
-    // eslint-disable-next-line no-unused-vars
-    value(newValue) {
-      // 监控value的值， 清除localValue值, 传入的value，也就是渲染出的tag会发生变化时，清空输入框的值
-      // 给valueOptions赋值为value的新值，即动态渲染tag
-      // 传入 inputFunction 获取输入框最新值，此时输入框值清除了，inputFunction获取的也应该是空值
-      this.localValue = null;
-      this.updateLocalValue(this.localValue);
+    // value: {
+    //   // eslint-disable-next-line no-unused-vars
+    //   handler(newValue) {
+    //     this.localValue = null;
+    //     this.updateLocalValue(this.localValue);
+    //   }
+    // },
+    value: {
+      // eslint-disable-next-line no-unused-vars
+      handler(newValue) {
+        this.localValue = null;
+        this.updateLocalValue(this.localValue);
+      },
+      deep: true
     }
   },
+  // eslint-disable-next-line no-unused-vars
+  // value(newValue) {
+  //   // 监控value的值， 清除localValue值, 传入的value，也就是渲染出的tag会发生变化时，清空输入框的值
+  //   // 给valueOptions赋值为value的新值，即动态渲染tag
+  //   // 传入 inputFunction 获取输入框最新值，此时输入框值清除了，inputFunction获取的也应该是空值
+  //   this.localValue = null;
+  //   this.updateLocalValue(this.localValue);
+  // }
   render(h) {
     var that = this;
     const $multipleOptions = that.valueOptions
@@ -216,9 +234,13 @@ export const NlySearchSelectMultipleItem = Vue.extend({
             })
           ]);
 
-    return h("ul", { staticClass: "select2-selection__rendered" }, [
-      $multipleOptions,
-      $multipleInput
-    ]);
+    return h(
+      "ul",
+      {
+        staticClass: "select2-selection__rendered",
+        on: { ...self.$listeners }
+      },
+      [$multipleOptions, $multipleInput]
+    );
   }
 });

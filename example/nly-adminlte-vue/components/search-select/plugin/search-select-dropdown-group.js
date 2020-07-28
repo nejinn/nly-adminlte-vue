@@ -1,26 +1,39 @@
 import Vue from "../../../utils/vue";
 import { htmlOrText } from "../../../utils/html";
-import formOptionsMixin from "../../../mixins/form-options";
-import normalizeSlotMixin from "../../../mixins/normalize-slot";
-import { NlySelectOption } from "./select-option";
+import formOptionsMixin from "../../../mixins/form/search-select-options";
+import { NlySearchSelectDropdownOption } from "./search-select-dropdown-option";
 
 const NlySearchSelectDropdownGroup = Vue.extend({
   name: "NlySearchSelectDropdownGroup",
-  mixins: [normalizeSlotMixin, formOptionsMixin],
+  mixins: [formOptionsMixin],
   props: {
     label: {
       type: String,
       required: true
+    },
+    addCheckedValue: {
+      type: Function
     }
   },
   render(h) {
-    const $options = this.formOptions.map((option, index) => {
-      const { value, text, html, disabled } = option;
-
-      return h(NlySelectOption, {
-        attrs: { value, disabled },
+    var self = this;
+    const $options = self.formOptions.map((option, index) => {
+      const { value, text, html, disabled, selected } = option;
+      return h(NlySearchSelectDropdownOption, {
+        props: {
+          value: value,
+          disabled: disabled,
+          selected: selected
+        },
         domProps: htmlOrText(html, text),
-        key: `option_${index}`
+        key: `search_select_group_option_${index}`,
+        on: {
+          click() {
+            if (!disabled) {
+              self.addCheckedValue(option);
+            }
+          }
+        }
       });
     });
 

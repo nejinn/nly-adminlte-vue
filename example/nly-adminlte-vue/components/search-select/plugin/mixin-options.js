@@ -30,13 +30,15 @@ export default {
           value: isUndefined(value) ? key || text : value,
           text: String(isUndefined(text) ? key : text),
           html: get(option, this.htmlField),
-          disabled: Boolean(get(option, this.disabledField))
+          disabled: Boolean(get(option, this.disabledField)),
+          selected: false
         };
       }
       return {
         value: key || option,
         text: String(option),
-        disabled: false
+        disabled: false,
+        selected: false
       };
     }
   }
