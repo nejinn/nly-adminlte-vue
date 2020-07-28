@@ -194,7 +194,7 @@ export const NlySearchSelectDropdownContainer = Vue.extend({
         class: [self.open ? "select2-container--open" : null],
         style: {
           position: "absolute",
-.
+          // top: "472px",
           left: self.customLeft
         }
       },
