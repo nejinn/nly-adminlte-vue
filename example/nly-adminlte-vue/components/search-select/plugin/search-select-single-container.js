@@ -19,8 +19,7 @@ export const props = {
   },
   ower: {
     type: String,
-    default: null,
-    required: true
+    default: null
   },
   value: {
     type: [Array, Object],
@@ -75,7 +74,7 @@ export const NlySearchSelectSingleContainer = Vue.extend({
     const $dropdown = h("span", {
       staticClass: "dropdown-wrapper",
       attrs: {
-        "aria-hidden": true
+        "aria-hidden": props.open ? "true" : "false"
       }
     });
 

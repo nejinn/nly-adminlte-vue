@@ -1,24 +1,27 @@
 import Vue from "../../../utils/vue";
-import get from "../../../utils/get";
+//import get from "../../../utils/get";
 import {
-  isNull,
-  isArray,
-  isPlainObject,
-  isUndefined
+  //isNull,
+  isArray
+  // isPlainObject,
+  // isUndefined
 } from "../../../utils/inspect";
-import { keys } from "../../../utils/object";
-import { warn } from "../../../utils/warn";
+// import { keys } from "../../../utils/object";
+// import { warn } from "../../../utils/warn";
 import idMixin from "../../../mixins/id";
-import optionsMixin from "./mixin-options";
+// import optionsMixin from "./mixin-options";
+import { NlySearchSelectDropdownGroup } from "./search-select-dropdown-group";
+import { NlySearchSelectDropdownOption } from "./search-select-dropdown-option";
+import { htmlOrText } from "../../../utils/html";
 
-const name = "NlySearchSelectItemContainer";
+const name = "NlySearchSelectDropdownContainer";
 
-const OPTIONS_OBJECT_DEPRECATED_MSG =
-  'Setting prop "options" to an object is deprecated. Use the array format instead.';
+// const OPTIONS_OBJECT_DEPRECATED_MSG =
+//   'Setting prop "options" to an object is deprecated. Use the array format instead.';
 
-export const NlySearchSelectItemContainer = Vue.extend({
+export const NlySearchSelectDropdownContainer = Vue.extend({
   name: name,
-  mixins: [idMixin, optionsMixin],
+  mixins: [idMixin],
   model: {
     prop: "value",
     event: "input"
@@ -68,6 +71,20 @@ export const NlySearchSelectItemContainer = Vue.extend({
     disabledField: {
       type: String,
       default: "disabled"
+    },
+    open: {
+      type: Boolean,
+      default: null
+    },
+    below: {
+      type: Boolean,
+      default: null
+    },
+    addCheckedValue: {
+      type: Function
+    },
+    width: {
+      type: String
     }
   },
   data() {
@@ -75,35 +92,74 @@ export const NlySearchSelectItemContainer = Vue.extend({
       localValue: this.value
     };
   },
-  computed: {
-    formOptions() {
-      return this.normalizeOptions(this.options);
+  destroyed() {
+    if (this.$el && this.$el.parentNode) {
+      this.$el.parentNode.removeChild(this.$el);
     }
   },
-  methods: {},
+  computed: {
+    formOptions() {
+      return this.options;
+    },
+    customWidth() {
+      return this.width;
+    },
+    customLeft() {
+      return this.left;
+    }
+  },
   render(h) {
     var self = this;
 
-    const $options = self.formOptions.map((option, index) => {
-      const { value, label, options, disabled } = option;
+    const $dropDownGroup = self.options.map((option, index) => {
+      const { value, label, options, disabled, selected } = option;
       const key = `option_${index}`;
 
       return isArray(options)
-        ? h(BFormSelectOptionGroup, { props: { label, options }, key })
-        : h(BFormSelectOption, {
-            props: { value, disabled },
-            domProps: htmlOrText(option.html, option.text),
+        ? h(NlySearchSelectDropdownGroup, {
+            props: { addCheckedValue: self.addCheckedValue, label, options },
             key
+          })
+        : h(NlySearchSelectDropdownOption, {
+            props: {
+              value: value,
+              disabled: disabled,
+              selected: selected
+            },
+            domProps: htmlOrText(option.html, option.text),
+            key: `search_select_group_option_${index}`,
+            on: {
+              click() {
+                if (!disabled) {
+                  self.addCheckedValue(option);
+                }
+              }
+            }
           });
     });
 
-    $dropDownInput = h(
+    const $dropResult = h(
+      "span",
+      {
+        staticClass: "select2-results__options",
+        attrs: {
+          "aria-expanded": self.open ? "true" : "false",
+          "aria-hidden": !self.open ? "true" : "false",
+          id: self.id ? `${self.id}-result` : null,
+          role: "listbox"
+        }
+      },
+      [$dropDownGroup]
+    );
+
+    const $dropDownInput = h(
       "span",
       {
         staticClass: "select2-search select2-search--dropdown"
       },
       [
         h("input", {
+          staticClass: "select2-search__field",
           attrs: {
             type: "search",
             tabindex: "1",
@@ -127,192 +183,44 @@ export const NlySearchSelectItemContainer = Vue.extend({
         })
       ]
     );
+
+    const childrenVnodes =
+      self.multiple === true ? [$dropResult] : [$dropDownInput, $dropResult];
+
+    return h(
+      "span",
+      {
+        staticClass: "select2-container select2-container--default",
+        class: [self.open ? "select2-container--open" : null],
+        style: {
+          position: "absolute",
+          // top: "472px",
+          left: self.customLeft
+        }
+      },
+      [
+        h(
+          "span",
+          {
+            staticClass: "select2-dropdown",
+            class: [
+              self.variant ? `select-${self.variant}` : null,
+              self.below === true
+                ? "select2-danger select2-dropdown--below"
+                : self.below === false
+                ? "select2-danger select2-dropdown--above"
+                : null
+            ],
+            attrs: {
+              dir: "ltr"
+            },
+            style: {
+              width: self.customWidth
+            }
+          },
+          childrenVnodes
+        )
+      ]
+    );
   }
 });
-/**
-<span
-  class="select2-container select2-container--default select2-container--open"
-  style="position: absolute; top: 472px; left: 285.5px;"
->
-  <span
-    class="select2-dropdown select2-danger select2-dropdown--below"
-    dir="ltr"
-    style="width: 752.5px;"
-  >
-    <span class="select2-search select2-search--dropdown">
-      <input
-        class="select2-search__field"
-        type="search"
-        tabindex="0"
-        autocomplete="off"
-        autocorrect="off"
-        autocapitalize="none"
-        spellcheck="false"
-        role="searchbox"
-        aria-autocomplete="list"
-        aria-controls="select2-a5l9-results"
-        aria-activedescendant="select2-a5l9-result-v6dd-Alabama"
-      />
-    </span>
-    <span class="select2-results">
-      <ul
-        class="select2-results__options"
-        role="listbox"
-        id="select2-a5l9-results"
-        aria-expanded="true"
-        aria-hidden="false"
-      >
-        <li
-          class="select2-results__option select2-results__option--highlighted"
-          id="select2-a5l9-result-v6dd-Alabama"
-          role="option"
-          aria-selected="true"
-          data-select2-id="select2-a5l9-result-v6dd-Alabama"
-        >
-          Alabama
-        </li>
-        <li
-          class="select2-results__option"
-          id="select2-a5l9-result-l87u-Alaska"
-          role="option"
-          aria-selected="false"
-          data-select2-id="select2-a5l9-result-l87u-Alaska"
-        >
-          Alaska
-        </li>
-        <li
-          class="select2-results__option"
-          id="select2-a5l9-result-xt5o-California"
-          role="option"
-          aria-selected="false"
-          data-select2-id="select2-a5l9-result-xt5o-California"
-        >
-          California
-        </li>
-        <li
-          class="select2-results__option"
-          id="select2-a5l9-result-ejye-Delaware"
-          role="option"
-          aria-selected="false"
-          data-select2-id="select2-a5l9-result-ejye-Delaware"
-        >
-          Delaware
-        </li>
-        <li
-          class="select2-results__option"
-          id="select2-a5l9-result-torf-Tennessee"
-          role="option"
-          aria-selected="false"
-          data-select2-id="select2-a5l9-result-torf-Tennessee"
-        >
-          Tennessee
-        </li>
-        <li
-          class="select2-results__option"
-          id="select2-a5l9-result-o1ew-Texas"
-          role="option"
-          aria-selected="false"
-          data-select2-id="select2-a5l9-result-o1ew-Texas"
-        >
-          Texas
-        </li>
-        <li
-          class="select2-results__option"
-          id="select2-a5l9-result-5b53-Washington"
-          role="option"
-          aria-selected="false"
-          data-select2-id="select2-a5l9-result-5b53-Washington"
-        >
-          Washington
-        </li>
-      </ul>
-    </span>
-  </span>
-</span>;
-
-<span
-  class="select2-container select2-container--default select2-container--open"
-  style="position: absolute; top: 29px; left: 1053px;"
->
-  <span
-    class="select2-dropdown select2-dropdown--above"
-    dir="ltr"
-    style="width: 752.5px;"
-  >
-    <span class="select2-results">
-      <ul
-        class="select2-results__options"
-        role="listbox"
-        aria-multiselectable="true"
-        id="select2-lpj7-results"
-        aria-expanded="true"
-        aria-hidden="false"
-      >
-        <li
-          class="select2-results__option"
-          id="select2-lpj7-result-7fnt-Alabama"
-          role="option"
-          aria-selected="false"
-          data-select2-id="select2-lpj7-result-7fnt-Alabama"
-        >
-          Alabama
-        </li>
-        <li
-          class="select2-results__option"
-          id="select2-lpj7-result-on4j-Alaska"
-          role="option"
-          aria-selected="false"
-          data-select2-id="select2-lpj7-result-on4j-Alaska"
-        >
-          Alaska
-        </li>
-        <li
-          class="select2-results__option"
-          id="select2-lpj7-result-deve-California"
-          role="option"
-          aria-selected="false"
-          data-select2-id="select2-lpj7-result-deve-California"
-        >
-          California
-        </li>
-        <li
-          class="select2-results__option"
-          id="select2-lpj7-result-a9sa-Delaware"
-          role="option"
-          aria-selected="false"
-          data-select2-id="select2-lpj7-result-a9sa-Delaware"
-        >
-          Delaware
-        </li>
-        <li
-          class="select2-results__option"
-          id="select2-lpj7-result-0wpy-Tennessee"
-          role="option"
-          aria-selected="false"
-          data-select2-id="select2-lpj7-result-0wpy-Tennessee"
-        >
-          Tennessee
-        </li>
-        <li
-          class="select2-results__option select2-results__option--highlighted"
-          id="select2-lpj7-result-alfp-Texas"
-          role="option"
-          aria-selected="false"
-          data-select2-id="select2-lpj7-result-alfp-Texas"
-        >
-          Texas
-        </li>
-        <li
-          class="select2-results__option"
-          id="select2-lpj7-result-if0w-Washington"
-          role="option"
-          aria-selected="false"
-          data-select2-id="select2-lpj7-result-if0w-Washington"
-        >
-          Washington
-        </li>
-      </ul>
-    </span>
-  </span>
-</span>;
-*/

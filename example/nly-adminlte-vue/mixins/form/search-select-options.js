@@ -40,19 +40,19 @@ export default {
       if (isPlainObject(option)) {
         const value = get(option, this.valueField);
         const text = get(option, this.textField);
+
         return {
           value: isUndefined(value) ? key || text : value,
           text: stripTags(String(isUndefined(text) ? key : text)),
           html: get(option, this.htmlField),
           disabled: Boolean(get(option, this.disabledField)),
-          selected: false
+          selected: Boolean(get(option, "selected"))
         };
       }
       return {
         value: key || option,
         text: stripTags(String(option)),
-        disabled: false,
-        selected: false
+        disabled: false
       };
     },
     normalizeOptions(options) {

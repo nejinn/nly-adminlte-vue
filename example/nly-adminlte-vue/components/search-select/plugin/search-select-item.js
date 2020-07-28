@@ -50,7 +50,7 @@ export const NlySearchSelectItem = Vue.extend({
         staticClass: "select2 select2-hidden-accessible",
         class: [this.customMultiple, this.customVriant],
         attrs: {
-          id: this.safeId("_select2_"),
+          id: this.safeId("select2_select_item"),
           multiple: this.multiple || null,
           "aria-hidden": "true",
           tabindex: "-1"

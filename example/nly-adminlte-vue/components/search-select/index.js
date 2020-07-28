@@ -5,6 +5,8 @@ import { NlySearchSelectMultipleItem } from "./plugin/search-select-multiple-ite
 import { NlySearchSelectSingleContainer } from "./plugin/search-select-single-container";
 import { NlySearchSelectMultipleContainer } from "./plugin/search-select-multiple-container";
 import { NlySearchSelect } from "./search-select";
+import { NlySearchSelectDropdownOption } from "./plugin/search-select-dropdown-option";
+import { NlySearchSelectDropdownContainer } from "./plugin/search-select-dropdown-container";
 
 const SearchSelectPlugin = nlyPluginFactory({
   components: {
@@ -13,7 +15,9 @@ const SearchSelectPlugin = nlyPluginFactory({
     NlySearchSelectMultipleItem,
     NlySearchSelectSingleContainer,
     NlySearchSelectMultipleContainer,
-    NlySearchSelect
+    NlySearchSelect,
+    NlySearchSelectDropdownOption,
+    NlySearchSelectDropdownContainer
   }
 });
 
@@ -24,5 +28,7 @@ export {
   NlySearchSelectMultipleItem,
   NlySearchSelectSingleContainer,
   NlySearchSelectMultipleContainer,
-  NlySearchSelect
+  NlySearchSelect,
+  NlySearchSelectDropdownOption,
+  NlySearchSelectDropdownContainer
 };

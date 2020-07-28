@@ -5,60 +5,74 @@ import { NlySearchSelectMultipleItem } from "./search-select-multiple-item";
 
 const name = "NlySearchSelectMultipleContainer";
 
-export const props = {
-  open: {
-    type: Boolean,
-    default: false
-  },
-  focus: {
-    type: Boolean,
-    default: false
-  },
-  below: {
-    type: Boolean,
-    default: null
-  },
-  ower: {
-    type: String,
-    default: null,
-    required: true
-  },
-  value: {
-    type: [Array, Object],
-    default: () => []
-  },
-  placeholder: {
-    type: String,
-    default: "Choice a field"
-  },
-  inputFunction: {
-    type: Function
-  },
-  valueField: {
-    type: String,
-    default: "value"
-  },
-  textField: {
-    type: String,
-    default: "text"
-  },
-  rtl: {
-    type: Boolean,
-    default: false
-  },
-  disabled: {
-    type: Boolean,
-    default: false
-  }
-};
-
 export const NlySearchSelectMultipleContainer = Vue.extend({
   name: name,
-  model: {
-    prop: "value",
-    event: "change"
+  // model: {
+  //   prop: "value",
+  //   event: "input"
+  // },
+  props: {
+    open: {
+      type: Boolean,
+      default: false
+    },
+    focus: {
+      type: Boolean,
+      default: false
+    },
+    below: {
+      type: Boolean,
+      default: null
+    },
+    ower: {
+      type: String,
+      default: null
+    },
+    value: {
+      type: [Array, Object],
+      default: () => []
+    },
+    placeholder: {
+      type: String,
+      default: "Choice a field"
+    },
+    inputFunction: {
+      type: Function
+    },
+    valueField: {
+      type: String,
+      default: "value"
+    },
+    textField: {
+      type: String,
+      default: "text"
+    },
+    rtl: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    removeCheckedValue: {
+      type: Function
+    }
   },
-  props,
+  methods: {
+    // updateValue(newValue) {
+    //   this.$emit("input", newValue);
+    // }
+  },
+  // watch: {
+  //   value: {
+  //     // eslint-disable-next-line no-unused-vars
+  //     handler(newValue) {
+  //       this.updateValue(newValue);
+  //     },
+  //     deep: true
+  //   }
+  // },
   computed: {
     customProps() {
       return {
@@ -66,14 +80,12 @@ export const NlySearchSelectMultipleContainer = Vue.extend({
         focus: this.focus,
         below: this.below,
         ower: this.ower,
-        value: this.value,
         placeholder: this.placeholder,
         disabled: this.disabled,
         rtl: this.rtl
       };
     },
     isItemInputFunction() {
-      // console.log(111, isFunction(this.isInputFunction));
       return isFunction(this.inputFunction);
     }
   },
@@ -99,20 +111,21 @@ export const NlySearchSelectMultipleContainer = Vue.extend({
       [
         h(NlySearchSelectMultipleItem, {
           props: {
-            value: self.customProps.value,
             placeholder: self.customProps.placeholder,
             inputFunction: self.isItemInputFunction ? self.inputFunction : null,
             valueField: self.valueField,
-            textField: self.textField
-          },
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: self.value,
-              expression: "value"
-            }
-          ]
+            textField: self.textField,
+            value: self.value,
+            removeCheckedValue: self.removeCheckedValue
+          }
+          // directives: [
+          //   {
+          //     name: "model",
+          //     rawName: "v-model",
+          //     value: self.value,
+          //     expression: "value"
+          //   }
+          // ]
         })
       ]
     );
@@ -137,17 +150,16 @@ export const NlySearchSelectMultipleContainer = Vue.extend({
             ? "select2-container--above"
             : null,
           self.customProps.open ? "select2-container--open" : null,
-          self.customProps.open
-            ? null
-            : self.customProps.focus
-            ? "select2-container--focus"
-            : null
+          self.customProps.focus ? "select2-container--focus" : null
         ],
         attrs: {
           dir: self.customProps.rtl ? "rtl" : "ltr"
         },
         style: {
           width: "100%"
+        },
+        on: {
+          ...self.$listeners
         }
       },
       [$selection, $dropdown]
