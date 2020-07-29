@@ -13,6 +13,7 @@ import idMixin from "../../../mixins/id";
 import { NlySearchSelectDropdownGroup } from "./search-select-dropdown-group";
 import { NlySearchSelectDropdownOption } from "./search-select-dropdown-option";
 import { htmlOrText } from "../../../utils/html";
+import { isFunction } from "../../../utils/inspect";
 
 const name = "NlySearchSelectDropdownContainer";
 
@@ -85,6 +86,9 @@ export const NlySearchSelectDropdownContainer = Vue.extend({
     },
     width: {
       type: String
+    },
+    inputFunction: {
+      type: Function
     }
   },
   data() {
@@ -106,6 +110,12 @@ export const NlySearchSelectDropdownContainer = Vue.extend({
     },
     customLeft() {
       return this.left;
+    },
+    customTop() {
+      return this.top;
+    },
+    isInputFunction() {
+      return isFunction(this.inputFunction);
     }
   },
   render(h) {
@@ -141,15 +151,23 @@ export const NlySearchSelectDropdownContainer = Vue.extend({
     const $dropResult = h(
       "span",
       {
-        staticClass: "select2-results__options",
-        attrs: {
-          "aria-expanded": self.open ? "true" : "false",
-          "aria-hidden": !self.open ? "true" : "false",
-          id: self.id ? `${self.id}-result` : null,
-          role: "listbox"
-        }
+        staticClass: "select2-results"
       },
-      [$dropDownGroup]
+      [
+        h(
+          "ul",
+          {
+            staticClass: "select2-results__options",
+            attrs: {
+              "aria-expanded": self.open ? "true" : "false",
+              "aria-hidden": !self.open ? "true" : "false",
+              id: self.id ? `${self.id}-result` : null,
+              role: "listbox"
+            }
+          },
+          [$dropDownGroup]
+        )
+      ]
     );
 
     const $dropDownInput = h(
@@ -171,6 +189,20 @@ export const NlySearchSelectDropdownContainer = Vue.extend({
             "aria-autocomplete": "list",
             "aria-controls": "select2-a5l9-results",
             "aria-activedescendant": "select2-a5l9-result-v6dd-Alabama"
+          },
+          on: {
+            input(evt) {
+              // 阻止ime
+              if (evt.target.composing) {
+                return;
+              }
+              // 给 localValue 赋值为输入框输入的值
+              self.localValue = evt.target.value;
+              // 传入 inputFunction 获取输入框最新值
+              if (self.isInputFunction) {
+                self.inputFunction(evt.target.value);
+              }
+            }
           },
           directives: [
             {
@@ -194,7 +226,7 @@ export const NlySearchSelectDropdownContainer = Vue.extend({
         class: [self.open ? "select2-container--open" : null],
         style: {
           position: "absolute",
-          // top: "472px",
+          top: self.customTop,
           left: self.customLeft
         }
       },
@@ -204,7 +236,7 @@ export const NlySearchSelectDropdownContainer = Vue.extend({
           {
             staticClass: "select2-dropdown",
             class: [
-              self.variant ? `select-${self.variant}` : null,
+              self.variant ? `select2-${self.variant}` : null,
               self.below === true
                 ? "select2-danger select2-dropdown--below"
                 : self.below === false

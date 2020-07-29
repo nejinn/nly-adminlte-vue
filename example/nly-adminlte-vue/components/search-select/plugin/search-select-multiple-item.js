@@ -25,6 +25,10 @@ export const NlySearchSelectMultipleItem = Vue.extend({
     },
     removeCheckedValue: {
       type: Function
+    },
+    id: {
+      type: String,
+      default: null
     }
     // value: {
     //   type: [Array, Object],
@@ -37,7 +41,7 @@ export const NlySearchSelectMultipleItem = Vue.extend({
     }
   },
   // created() {
-  //   this.localTagValue = this.value;
+  //   console.log(this.id, 2222222);
   // },
   methods: {
     updateValue(index, newValue) {
@@ -86,19 +90,17 @@ export const NlySearchSelectMultipleItem = Vue.extend({
               keys(deletedValue[0]).indexOf("text") !== -1 &&
               keys(deletedValue[0]).indexOf("value") !== -1
             ) {
-              this.$refs["nly_serach_select_multiple_input"].value =
-                deletedValue[0].text;
+              this.$refs[`${this.id}-input`].value = deletedValue[0].text;
               this.localValue = deletedValue[0].text;
             } else if (isString(deletedValue[0])) {
-              this.$refs["nly_serach_select_multiple_input"].value =
-                deletedValue[0];
+              this.$refs[`${this.id}-input`].value = deletedValue[0];
               this.localValue = deletedValue[0];
             } else {
-              this.$refs["nly_serach_select_multiple_input"].value = null;
+              this.$refs[`${this.id}-input`].value = null;
               this.localValue = null;
             }
             this.updateLocalValue(this.localValue);
-            this.$refs["nly_serach_select_multiple_input"].focus();
+            this.$refs[`${this.id}-input`].focus();
           });
         }
       }
@@ -131,6 +133,7 @@ export const NlySearchSelectMultipleItem = Vue.extend({
   // }
   render(h) {
     var that = this;
+    // console.log(`${that.id}-input`);
     const $multipleOptions = that.valueOptions
       ? that.valueOptions.map((item, index) => {
           return h(
@@ -173,13 +176,14 @@ export const NlySearchSelectMultipleItem = Vue.extend({
                 spellcheck: false,
                 role: "searchbox",
                 "aria-autocomplete": "list",
-                placeholder: that.placeholder
+                placeholder: that.placeholder,
+                id: `${that.id}-input`
               },
               style: { width: "100%" },
               domProps: {
                 value: that.localValue
               },
-              ref: "nly_serach_select_multiple_input",
+              ref: `${that.id}-input`,
               on: {
                 input(evt) {
                   // 阻止ime
@@ -210,13 +214,14 @@ export const NlySearchSelectMultipleItem = Vue.extend({
                 spellcheck: false,
                 role: "searchbox",
                 "aria-autocomplete": "list",
-                placeholder: ""
+                placeholder: "",
+                id: `${that.id}-input`
               },
               style: { width: "100%" },
               domProps: {
                 value: that.localValue
               },
-              ref: "nly_serach_select_multiple_input",
+              ref: `${that.id}-input`,
               on: {
                 input(evt) {
                   if (evt.target.composing) {

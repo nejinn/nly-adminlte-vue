@@ -116,7 +116,8 @@ export const NlySearchSelectMultipleContainer = Vue.extend({
             valueField: self.valueField,
             textField: self.textField,
             value: self.value,
-            removeCheckedValue: self.removeCheckedValue
+            removeCheckedValue: self.removeCheckedValue,
+            id: self.customProps.ower
           }
           // directives: [
           //   {
