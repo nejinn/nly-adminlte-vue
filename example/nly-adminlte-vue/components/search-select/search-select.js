@@ -84,9 +84,6 @@ export const NlySearchSelect = Vue.extend({
     disabled: {
       type: Boolean,
       default: false
-    },
-    selectRef: {
-      type: String
     }
   },
   data() {
@@ -99,7 +96,8 @@ export const NlySearchSelect = Vue.extend({
       below: null,
       portalName: `nly-search-select-${this._uid}`,
       dropdownWidth: null,
-      dropdownLeft: null
+      dropdownLeft: null,
+      dropdownTop: null
     };
   },
   beforeDestroy() {
@@ -114,6 +112,13 @@ export const NlySearchSelect = Vue.extend({
       }
     },
     showDropDown() {
+      this.dropdownWidth = this.$refs[
+        this.customProps.ref
+      ].getBoundingClientRect().width;
+      this.dropdownLeft = this.$refs[
+        this.customProps.ref
+      ].getBoundingClientRect().left;
+      this.dropdownTop = this.getOffsetTop(this.$refs[this.customProps.ref]);
       if (!Wormhole.hasTarget(this.portalName)) {
         const div = document.createElement("div");
         document.body.appendChild(div);
@@ -125,12 +130,6 @@ export const NlySearchSelect = Vue.extend({
           }
         });
         searchSelectPortal.$mount(div);
-        this.dropdownWidth = this.$refs[
-          this.customProps.ref
-        ].getBoundingClientRect().width;
-        this.dropdownLeft = this.$refs[
-          this.customProps.ref
-        ].getBoundingClientRect().left;
       } else {
         warn(
           `A "<portal-target>" with name "${this.portalName}" already exists in the document.`,
@@ -143,10 +142,15 @@ export const NlySearchSelect = Vue.extend({
       this.inputValue = evt;
     },
     click_other(e) {
-      if (!this.$el.contains(e.target)) {
-        this.open = false;
-        this.focus = false;
-      }
+      // console.log(e.target);
+      // this.$nextTick(() => {
+      //   console.log(this.$refs[`${this.safeId()}-input`]);
+      // });
+      if (!this.multiple)
+        if (!this.$el.contains(e.target)) {
+          this.open = false;
+          this.focus = false;
+        }
     },
     addCheckedValue(evt) {
       if (this.multiple) {
@@ -176,16 +180,22 @@ export const NlySearchSelect = Vue.extend({
         );
         if (addCheckedValue.indexOf(evt[this.valueField]) === -1) {
           this.checkedValue = [evt];
+        } else if (evt[this.valueField] === null) {
+          this.checkedValue = [evt];
         } else {
           this.checkedValue = null;
         }
-        this.checkedValue.forEach(item => {
-          if (item[this.valueField] !== null) {
+        if (this.checkedValue) {
+          this.checkedValue.forEach(item => {
             newValue.push(item[this.valueField]);
-          }
-        });
+          });
+        }
         this.open = false;
-        this.$emit("input", newValue[0]);
+        if (this.checkedValue) {
+          this.$emit("input", newValue[0]);
+        } else {
+          this.$emit("input", null);
+        }
       }
     },
     removeCheckedValue(newValue) {
@@ -303,6 +313,15 @@ export const NlySearchSelect = Vue.extend({
           return [selectedValArray[0]];
         }
       }
+    },
+    getOffsetTop: function(obj) {
+      let top = obj.getBoundingClientRect().height;
+      while (obj.offsetParent) {
+        //如果obj的有最近的父级定位元素就继续
+        top += obj.offsetTop;
+        obj = obj.offsetParent; //更新obj,继续判断新的obj是否还有父级定位，然后继续累加
+      }
+      return top; //返回json格式
     }
   },
   created() {},
@@ -322,7 +341,8 @@ export const NlySearchSelect = Vue.extend({
         options: this.options,
         value: this.value,
         id: this.safeId(),
-        ref: this.selectRef ? this.selectRef : `${this.portalName}-ref`
+        ref: this.selectRef ? this.selectRef : `${this.portalName}-ref`,
+        variant: this.variant
       };
     }
   },
@@ -397,9 +417,12 @@ export const NlySearchSelect = Vue.extend({
       },
       on: {
         click: () => {
-          thatselect.open
-            ? (thatselect.open = false)
-            : (thatselect.open = true);
+          if (thatselect.open) {
+            thatselect.open = false;
+          } else {
+            thatselect.open = true;
+            thatselect.showDropDown();
+          }
           thatselect.focus = true;
         }
       }
@@ -410,7 +433,7 @@ export const NlySearchSelect = Vue.extend({
       {
         props: {
           to: thatselect.portalName,
-          slim: true,
+          // slim: true,
           name: thatselect.portalName
         }
       },
@@ -420,6 +443,7 @@ export const NlySearchSelect = Vue.extend({
             open: thatselect.open,
             below: thatselect.below,
             id: thatselect.safeId(),
+            variant: thatselect.customProps.variant,
             valueField: thatselect.valueField,
             textField: thatselect.textField,
             labelField: thatselect.labelField,
@@ -427,8 +451,10 @@ export const NlySearchSelect = Vue.extend({
             options: thatselect.formOptions,
             multiple: thatselect.multiple,
             addCheckedValue: thatselect.addCheckedValue,
-            width: `${this.dropdownWidth}px`,
-            left: `${this.dropdownLeft}px`
+            width: `${thatselect.dropdownWidth}px`,
+            left: `${thatselect.dropdownLeft}px`,
+            top: `${thatselect.dropdownTop}px`,
+            inputFunction: thatselect.inputFunction
           }
         })
       ]
@@ -438,7 +464,7 @@ export const NlySearchSelect = Vue.extend({
       return h(
         "div",
         {
-          staticClass: thatselect.variant
+          staticClass: thatselect.customProps.variant
             ? `select2-${thatselect.variant}`
             : null,
           attrs: {

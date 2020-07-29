@@ -17,10 +17,9 @@ export default {
   },
   methods: {
     normalizeOption(option, key = null) {
-      // console.log(this.checkedValue);
-      var optionCheckedValue = this.checkedValue.map(
-        item => item[this.valueField]
-      );
+      var optionCheckedValue = this.checkedValue
+        ? this.checkedValue.map(item => item[this.valueField])
+        : [];
       if (isPlainObject(option)) {
         const value = get(option, this.valueField);
         const text = get(option, this.textField);
