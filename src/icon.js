@@ -1,5 +1,5 @@
-import { IconsPlugin } from "./index";
-import { nlyInstallFactory } from "../../utils/plugins";
+import { IconsPlugin } from "./components/icons";
+import { nlyInstallFactory } from "./utils/plugins";
 
 const NAME = "NlyAdminlteVueIcons";
 
@@ -15,3 +15,4 @@ const NlyAdminlteVueIcons = {
 };
 
 export { install, NAME, NlyAdminlteVueIcons };
+export default NlyAdminlteVueIcons;

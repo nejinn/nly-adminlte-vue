@@ -222,6 +222,6 @@ export { TabsPlugin } from "./components/tabs";
 export { NlyTab } from "./components/tabs/tab";
 export { NlyTabs } from "./components/tabs/tabs";
 
-export { NlyAdminlteVueIcons } from "./components/icons/plugin";
+export { NlyAdminlteVueIcons } from "./icon";
 
 export default NlyAdminlteVue;
