@@ -1,6 +1,6 @@
 {
   "name": "nly-adminlte-vue",
-  "version": "0.4.8",
+  "version": "0.5.3",
   "private": false,
   "license": "MIT",
   "keywords": [
@@ -78,6 +78,7 @@
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "npm-lib": "vue-cli-service build --target lib --name nly-adminlte-vue --dest dist src/index.js",
+    "npm-lib-icon": "vue-cli-service build --target lib --name nly-adminlte-vue-icon --dest icon src/icon.js",
     "npm-default": "npm config set registry https://registry.npmjs.org",
     "npm-taobao": "npm config set registry http://registry.npm.taobao.org/",
     "npm-publish": "npm publish",

@@ -160,7 +160,7 @@ npm run docs-dev
 ### 4.3.2. npm
 
 * import all
-```html
+```js
 
 npm install nly-adminlte-vue
 
@@ -173,6 +173,32 @@ import { NlyAdminlteVue, NlyAdminlteVueIcons } from "nly-adminlte-vue";
 Vue.use(NlyAdminlteVue);
 Vue.use(NlyAdminlteVueIcons);
 ```
+
+- CDN
+
+```html
+<!-- vue -->
+<script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
+
+<!-- nly-adminlte-vue JS-->
+<script src="//unpkg.com/nly-adminlte-vue@latest/dist/nly-adminlte-vue.umd.js"></script>
+
+<!-- 引入nly-adminlte-vue CSS -->
+<link type="text/css" rel="stylesheet" href="//unpkg.com/nly-adminlte-vue@latest/dist/nly-adminlte-vue.css" />
+
+<!-- adminlte3 CSS -->
+<link type="text/css" rel="stylesheet" href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/css/adminlte.css" />
+
+<!-- nly-adminlte-vue-icon JS-->
+<script src="//unpkg.com/nly-adminlte-vue@latest/dist/nly-adminlte-vue-icon.umd.js"></script>
+
+<!-- nlyfont icon CSS -->
+<link type="text/css" rel="stylesheet" href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/icon/iconfont.css" />
+
+<!-- fontawesome icon CSS -->
+<link type="text/css" rel="stylesheet" href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/fontawesome-free/css/all.css" />
+```
+
 * import one
 
 > Just like nly-badge
