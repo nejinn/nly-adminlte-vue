@@ -144,31 +144,49 @@
 ### 4.3.1. 可以直接 clone 下载项目
 
 ```html
-git clone https://github.com/nejinn/nly-adminlte-vue.git 
-
-npm install 
-
-npm runserve 
-
-// 查看example，所有组件demo都在这里 
-http://localhost:8080
-
-// 查看本地文档
-npm run docs-dev
+git clone https://github.com/nejinn/nly-adminlte-vue.git npm install npm
+runserve // 查看example，所有组件demo都在这里 http://localhost:8080 //
+查看本地文档 npm run docs-dev
 ```
 
 ### 4.3.2. 从 npm 下载
 
 - 整包引入
 
-```html
-npm install nly-adminlte-vue main.js import
-"nly-adminlte-vue/dist/adminlte/css/adminlte.css"; import
-"nly-adminlte-vue/dist/adminlte/fontawesome-free/css/all.css"; import
-"nly-adminlte-vue/dist/adminlte/icon/iconfont.css"; import
-"nly-adminlte-vue/dist/nly-adminlte-vue.css"; import { NlyAdminlteVue,
-NlyAdminlteVueIcons } from "nly-adminlte-vue"; Vue.use(NlyAdminlteVue);
+```js
+npm install nly-adminlte-vue main.js
+import "nly-adminlte-vue/dist/adminlte/css/adminlte.css";
+import "nly-adminlte-vue/dist/adminlte/fontawesome-free/css/all.css";
+import "nly-adminlte-vue/dist/adminlte/icon/iconfont.css";
+import "nly-adminlte-vue/dist/nly-adminlte-vue.css";
+import { NlyAdminlteVue, NlyAdminlteVueIcons } from "nly-adminlte-vue";
+Vue.use(NlyAdminlteVue);
 Vue.use(NlyAdminlteVueIcons);
+```
+
+- CDN 引入
+
+```html
+<!-- 引入vue -->
+<script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
+
+<!-- 引入nly-adminlte-vue JS入口文件-->
+<script src="//unpkg.com/nly-adminlte-vue@latest/dist/nly-adminlte-vue.umd.js"></script>
+
+<!-- 引入nly-adminlte-vue CSS文件 -->
+<link type="text/css" rel="stylesheet" href="//unpkg.com/nly-adminlte-vue@latest/dist/nly-adminlte-vue.css" />
+
+<!-- 引入adminlte3 CSS文件 -->
+<link type="text/css" rel="stylesheet" href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/css/adminlte.css" />
+
+<!-- 引入nly-adminlte-vue-icon JS入口文件-->
+<script src="//unpkg.com/nly-adminlte-vue@latest/dist/nly-adminlte-vue-icon.umd.js"></script>
+
+<!-- 引入nlyfont icon CSS文件 -->
+<link type="text/css" rel="stylesheet" href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/icon/iconfont.css" />
+
+<!-- 引入免费fontawesome icon CSS文件 -->
+<link type="text/css" rel="stylesheet" href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/fontawesome-free/css/all.css" />
 ```
 
 - 单包引入
