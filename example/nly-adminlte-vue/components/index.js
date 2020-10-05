@@ -32,11 +32,12 @@ import { SpinnerPlugin } from "./spinner";
 import { switchPlugin } from "./switch";
 import { toastPlugin } from "./toast";
 import { timelinePlugin } from "./timeline";
-import { tablePlugin } from "./table";
+import { TablePlugin } from "./table";
 import { TooltipPlugin } from "./tooltip";
 import { RenderFunctionPlugin } from "./render-function";
 import { TabsPlugin } from "./tabs";
 import { WrapperPlugin } from "./wrapper";
+import { FormSelectPlugin } from "./form-select";
 
 export const componentsPlugin = nlyPluginFactory({
   plugins: {
@@ -52,9 +53,10 @@ export const componentsPlugin = nlyPluginFactory({
     DropdownPlugin,
     FormGroupPlugin,
     FormInputPlugin,
+    FormSelectPlugin,
     GridPlugin,
     InputGroupoPlugin,
-    tablePlugin,
+    TablePlugin,
     WrapperPlugin,
     LinkPlugin,
     ListGroupPlugin,

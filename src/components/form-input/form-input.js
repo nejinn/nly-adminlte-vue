@@ -8,7 +8,7 @@ import { isFunction } from "../../utils/inspect";
 import idMixin from "../../mixins/id";
 import formTextMixin from "../../mixins/form/form-text";
 import formMixin from "../../mixins/form/form";
-import formSizeMixin from "../../mixins/form/form-szie";
+import formSizeMixin from "../../mixins/form/form-size";
 import formValid from "../../mixins/form/form-valid";
 import { eventOn, eventOff, eventOnOff } from "../../utils/events";
 import formSelectionMixin from "../../mixins/form/form-selection";

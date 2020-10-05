@@ -514,6 +514,14 @@
               exact
               >inputgroup</nly-sidebar-nav-item
             >
+            <nly-sidebar-nav-item
+              to="/formselect"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
+              exact
+              >formselect</nly-sidebar-nav-item
+            >
           </nly-sidebar-nav-tree>
         </nly-sidebar-nav>
       </nly-sidebar>

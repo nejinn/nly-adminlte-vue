@@ -126,6 +126,7 @@
 - 表单组 form-group
 - 弹出框 popover
 - 输入框组 input-group
+- 下拉选择输入框 form-select
 
 ## 4.2. 指令
 

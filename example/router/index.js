@@ -46,6 +46,8 @@ const formGroup = () => import("../views/example/form-group.vue");
 const popover = () => import("../views/example/popover.vue");
 const inputgroup = () => import("../views/example/input-group.vue");
 
+const formselect = () => import("../views/example/form-select.vue");
+
 const routes = [
   {
     path: "/",
@@ -201,6 +203,11 @@ const routes = [
         path: "/test",
         name: "test",
         component: test
+      },
+      {
+        path: "/formselect",
+        name: "formselect",
+        component: formselect
       }
     ]
   },
