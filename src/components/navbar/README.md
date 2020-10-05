@@ -676,28 +676,6 @@
 <!-- nly-navbar.vue -->
 ```
 
-### `nly-form-input` 和 `nly-button` prop `is-navbar`
-
-```html
-<div>
-  <nly-navbar variant="info">
-    <nly-nav-form>
-      <nly-input-group size="sm">
-        <nly-form-input placeholder="Search" is-navbar></nly-form-input>
-        <nly-input-group-append>
-          <nly-button variant="outlineSuccess" type="submit" is-navbar>
-            <nly-icon icon="fas fa-search" />
-          </nly-button>
-        </nly-input-group-append>
-      </nly-input-group>
-    </nly-nav-form>
-  </nly-navbar>
-</div>
-
-<!-- nly-nav-dropdown.name -->
-<!-- nly-navbar.vue -->
-```
-
 ### `nly-navbar-toggle` 和 `nly-collapse is-nav`
 
 导航栏在默认情况下并不是响应的，我们可以使用 `nly-navbar-toggle` 和 `nly-collapse is-nav` 使得导航栏变成响应的
@@ -715,10 +693,7 @@
 
     <nly-navbar-toggle target="navbar-toggle-collapse">
       <template v-slot:default="{ expanded }">
-        <nly-icon
-          v-if="expanded"
-          icon="nlyfont nly-icon-arrow-bottom"
-        ></nly-icon>
+        <nly-icon v-if="expanded" icon="nlyfont nly-icon-arrow-bottom"></nly-icon>
         <nly-icon v-else icon="nlyfont nly-icon-arrow-top"></nly-icon>
       </template>
     </nly-navbar-toggle>

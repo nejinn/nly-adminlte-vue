@@ -83,6 +83,11 @@ export { NlyFormGroup } from "./components/form-group/form-group";
 export { FormInputPlugin } from "./components/form-input";
 export { NlyFormInput } from "./components/form-input/form-input";
 
+export { FormSelectPlugin } from "./components/form-select";
+export { NlyFormSelect } from "./components/form-select/form-select";
+export { NlyFormSelectOption } from "./components/form-select/form-select-option";
+export { NlyFormSelectOptionGroup } from "./components/form-select/form-select-option-group";
+
 export { GridPlugin } from "./components/grid";
 export { NlyRow } from "./components/grid/row";
 export { NlyCol } from "./components/grid/col";

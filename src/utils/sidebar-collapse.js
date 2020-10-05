@@ -157,19 +157,6 @@ export const setControlSidebarStyle = () => {
   const scrollHeight = getScrollHeight();
   const headerHeight = getSelector(selector.header).offsetHeight;
   const footerHeight = getSelector(selector.footer).offsetHeight;
-  // console.log(11, bodyHeight);
-  // console.log(22, scrollTop);
-  // console.log(33, scrollHeight);
-  // console.log(44, windowHeight);
-  // console.log(
-  //   55,
-  //   footerHeight -
-  //     scrollHeight +
-  //     windowHeight -
-  //     headerHeight +
-  //     scrollTop +
-  //     footerHeight
-  // );
   const controlSidebarSelector = getSelector(selector.controlSidebar);
   const controlSidebarContentSelector = getSelector(
     selector.controlSidebarContent
