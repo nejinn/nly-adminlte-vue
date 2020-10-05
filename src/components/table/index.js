@@ -9,13 +9,13 @@ import { NlyTr } from "./tr";
 import { NlyTd } from "./td";
 import { NlyTh } from "./th";
 
-const tableLitePlugin = nlyPluginFactory({
+const TableLitePlugin = nlyPluginFactory({
   components: {
     NlyTableLite
   }
 });
 
-const tableSimplePlugin = nlyPluginFactory({
+const TableSimplePlugin = nlyPluginFactory({
   components: {
     NlyTableSimple,
     NlyTbody,
@@ -27,21 +27,21 @@ const tableSimplePlugin = nlyPluginFactory({
   }
 });
 
-const tablePlugin = nlyPluginFactory({
+const TablePlugin = nlyPluginFactory({
   components: {
     NlyTable
   },
   plugins: {
-    tableLitePlugin,
-    tableSimplePlugin
+    TableLitePlugin,
+    TableSimplePlugin
   }
 });
 
 export {
   // Plugins
-  tablePlugin,
-  tableLitePlugin,
-  tableSimplePlugin,
+  TablePlugin,
+  TableLitePlugin,
+  TableSimplePlugin,
   // Table components
   NlyTable,
   NlyTableLite,
