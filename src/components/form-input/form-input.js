@@ -87,10 +87,7 @@ export const NlyFormInput = Vue.extend({
         max: nlyGetOptionInclusion(inputMaxMinStepOptions, this.type)
           ? this.max
           : null,
-        maxlength:
-          this.type === "text" || this.type === "password"
-            ? this.maxlength
-            : null,
+        maxlength: this.maxlength,
         step: nlyGetOptionInclusion(inputMaxMinStepOptions, this.type)
           ? this.step
           : null
