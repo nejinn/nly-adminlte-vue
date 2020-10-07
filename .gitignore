@@ -4,6 +4,7 @@ node_modules
 static/nly.ai
 static/nly.svg
 dist
+icon
 .nuxt
 adminlte
 
