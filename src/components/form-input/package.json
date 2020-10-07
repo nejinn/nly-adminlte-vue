@@ -135,7 +135,7 @@
           },
           {
             "prop": "maxlength",
-            "description": "输入值的最大长度,  设置 type='text'或者'password'时有用"
+            "description": "输入值的最大长度"
           },
           {
             "prop": "step",
