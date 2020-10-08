@@ -77,6 +77,7 @@ export const NlyInputGroup = Vue.extend({
       [
         $prepend,
         normalizeSlot("default", slotScope, $scopedSlots, $slots),
+        normalizeSlot("date", slotScope, $scopedSlots, $slots),
         $append
       ]
     );

@@ -1,287 +1,405 @@
 <template>
-    <nly-container>
-        <nly-row>
-            <nly-col xs="12"
-                     lg="4">
-                <nly-card>
-                    <nly-card-header>
-                        was-validated input
-                    </nly-card-header>
-                    <nly-card-body>
-                        <nly-card-text tag="h6">
-                            was-validated 需要配合input type required使用
-                        </nly-card-text>
-                        <div class="form-group was-validated">
-                            <label> was-validated input type </label>
-                            <input type="email"
-                                   class="form-control"
-                                   required />
-                        </div>
-
-                        <div class="form-group was-validated">
-                            <label>
-                                was-validated input type valid-feedback invalid-feedback</label>
-                            <input type="email"
-                                   class="form-control" />
-                            <span class="valid-feedback">我是通过验证提示信息</span>
-                            <span class="invalid-feedback">我是验证不通过的提示信息</span>
-                        </div>
-
-                        <nly-card-text>
-                            tooltip分为valid-tooltip和invalid-tooltip
-                        </nly-card-text>
-                        <div class="form-group was-validated">
-                            <label>
-                                was-validated input type valid-tooltip invalid-tooltip</label>
-                            <input type="email"
-                                   class="form-control" />
-                            <div class="valid-tooltip">我是通过验证提示信息</div>
-                            <div class="invalid-tooltip">我是验证不通过的提示信息</div>
-                        </div>
-                    </nly-card-body>
-                </nly-card>
-            </nly-col>
-            <nly-col xs="12"
-                     lg="4">
-                <nly-card>
-                    <nly-card-header>
-                        valid input
-                    </nly-card-header>
-                    <nly-card-body>
-                        <div class="form-group">
-                            <label> is-valid</label>
-                            <input class="form-control is-valid" />
-                        </div>
-
-                        <div class="form-group">
-                            <label> is-invalid</label>
-                            <input class="form-control is-invalid" />
-                        </div>
-
-                        <div class="form-group">
-                            <label> is-valid valid-feedback</label>
-                            <input class="form-control is-valid" />
-                            <span class="valid-feedback">我是通过验证提示信息</span>
-                        </div>
-
-                        <nly-card-text>
-                            tooltip分为valid-tooltip和invalid-tooltip
-                            <br />
-                            is-valid和valid-tooltip为兄弟元素
-                            <br />
-                            is-invalid和invalid-tooltip为兄弟元素
-                        </nly-card-text>
-                        <div class="form-group">
-                            <label> is-valid valid-tooltip</label>
-                            <input class="form-control is-valid" />
-                            <span class="valid-tooltip">我是通过验证提示信息</span>
-                        </div>
-
-                        <div class="form-group">
-                            <label> is-invalid invalid-feedback</label>
-                            <input class="form-control is-invalid" />
-                            <span class="invalid-feedback">我是没有验证提示信息</span>
-                        </div>
-                    </nly-card-body>
-                </nly-card>
-            </nly-col>
-            <nly-col xs="12"
-                     lg="4">
-                <nly-card>
-                    <nly-card-header>
-                        is-warning input
-                    </nly-card-header>
-                    <nly-card-body>
-                        <div class="form-group">
-                            <label> is-warning </label>
-                            <input class="form-control is-warning" />
-                        </div>
-                        <div class="form-group">
-                            <label> is-warning warning-feedback</label>
-                            <input class="form-control is-warning" />
-                            <span class="warning-feedback">我是通过验证提示信息</span>
-                        </div>
-
-                        <div class="form-group">
-                            <label> is-warning warning-feedback</label>
-                            <input class="form-control is-warning" />
-                            <span class="warning-tooltip">我是通过验证提示信息</span>
-                        </div>
-                    </nly-card-body>
-                </nly-card>
-            </nly-col>
-        </nly-row>
-        <nly-row>
-            <nly-col xs="12"
-                     lg="4">
-                <nly-card>
-                    <nly-card-header>
-                        was-validated
-                    </nly-card-header>
-                    <nly-card-body>
-                        <nly-card-text>
-                            was-validated支持input,select,textarea,
-                        </nly-card-text>
-                        <div class="form-group was-validated">
-                            <label> textarea maxlength </label>
-                            <textarea class="form-control"
-                                      ref="textarea"
-                                      maxlength="10" />
-                            <span class="valid-feedback">我是通过验证提示信息</span>
-              <span class="invalid-feedback">我是验证不通过的提示信息</span>
-            </div>
-
-            <div class="form-group was-validated">
-              <label> Select required</label>
-              <select class="custom-select" required>
-                <option></option>
-                <option>option 1</option>
-                <option>option 2</option>
-                <option>option 3</option>
-                <option>option 4</option>
-                <option>option 5</option>
-              </select>
-              <span class="valid-feedback">我是通过验证提示信息</span>
-              <span class="invalid-feedback">我是验证不通过的提示信息</span>
-            </div>
-
-            <nly-card-text>
-              只有红色边框，无右侧图标，被browse挡住了
-            </nly-card-text>
-            <div class="form-group was-validated">
-              <label>file required</label>
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" required />
-                <label class="custom-file-label" for="customFile"
-                  >Choose file</label
-                >
-                <span class="valid-feedback">我是通过验证提示信息</span>
-                <span class="invalid-feedback">我是验证不通过的提示信息</span>
-              </div>
-            </div>
-
-            <div class="form-group was-validated">
-              <label>check</label>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" required />
-                <label class="form-check-label">Checkbox</label>
-                <span class="valid-feedback">我是通过验证提示信息</span>
-                <span class="invalid-feedback">我是验证不通过的提示信息</span>
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  checked="null"
-                  required
-                />
-                <label class="form-check-label">Checkbox checked</label>
-                <span class="valid-feedback">我是通过验证提示信息</span>
-                <span class="invalid-feedback">我是验证不通过的提示信息</span>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" disabled="" />
-                <label class="form-check-label">Checkbox disabled</label>
-                <span class="valid-feedback">我是通过验证提示信息</span>
-                <span class="invalid-feedback">我是验证不通过的提示信息</span>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="radio1" />
-                <label class="form-check-label">Radio</label>
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="radio1"
-                  checked=""
-                />
-                <label class="form-check-label">Radio checked</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" disabled="" />
-                <label class="form-check-label">Radio disabled</label>
-              </div>
-            </div>
-          </nly-card-body>
-        </nly-card>
+  <nly-container>
+    <nly-row>
+      <nly-col>
+        <nly-form-group
+          label="Shipping Address"
+          label-size="lg"
+          label-class="font-weight-bold pt-0"
+          class="mb-0"
+        >
+          <nly-date-range-picker
+            ref="picker"
+            :opens="opens"
+            :locale-data="{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"
+            :minDate="minDate"
+            :maxDate="maxDate"
+            :singleDatePicker="singleDatePicker"
+            :timePicker="timePicker"
+            :timePicker24Hour="timePicker24Hour"
+            :showWeekNumbers="showWeekNumbers"
+            :showDropdowns="showDropdowns"
+            :autoApply="autoApply"
+            v-model="dateRange"
+            :ranges="show_ranges ? undefined : false"
+            @update="updateValues"
+            @toggle="checkOpen"
+            :linkedCalendars="linkedCalendars"
+            :dateFormat="dateFormat"
+            :always-show-calendars="false"
+            :alwaysShowCalendars="alwaysShowCalendars"
+            :append-to-body="appendToBody"
+            :closeOnEsc="closeOnEsc"
+          >
+            <template #input="picker" style="min-width: 350px;">
+              {{ picker.startDate | date }} - {{ picker.endDate | date }}
+            </template>
+          </nly-date-range-picker>
+        </nly-form-group>
       </nly-col>
     </nly-row>
-    <div class="card card-info">
-      <div class="card-header">
-        <h3 class="card-title">Color &amp; Time Picker</h3>
-      </div>
-      <div class="card-body">
-        <!-- Color Picker -->
-        <div class="form-group">
-          <label>Color picker:</label>
-          <input
-            type="text"
-            class="form-control my-colorpicker1 colorpicker-element"
-            data-colorpicker-id="1"
-            data-original-title=""
-            title=""
-          />
-        </div>
-        <!-- /.form group -->
-
-        <!-- Color Picker -->
-        <div class="form-group">
-          <label>Color picker with addon:</label>
-
-          <div
-            class="input-group my-colorpicker2 colorpicker-element"
-            data-colorpicker-id="2"
+    <div class="form-row pt-3 bg-light">
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label" for="startDate"
+            >StartDate</label
           >
+          <div class="col-sm-8">
             <input
               type="text"
               class="form-control"
-              data-original-title=""
-              title=""
+              id="startDate"
+              v-model="dateRange.startDate"
             />
-
-            <div class="input-group-append">
-              <span class="input-group-text"
-                ><i class="fas fa-square"></i
-              ></span>
-            </div>
           </div>
-          <!-- /.input group -->
         </div>
-        <!-- /.form group -->
-
-        <!-- time Picker -->
-        <div class="bootstrap-timepicker">
-          <div class="form-group">
-            <label>Time picker:</label>
-
-            <div
-              class="input-group date"
-              id="timepicker"
-              data-target-input="nearest"
-            >
-              <input
-                type="text"
-                class="form-control datetimepicker-input"
-                data-target="#timepicker"
-              />
-              <div
-                class="input-group-append"
-                data-target="#timepicker"
-                data-toggle="datetimepicker"
-              >
-                <div class="input-group-text"><i class="far fa-clock"></i></div>
-              </div>
-            </div>
-            <!-- /.input group -->
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label" for="endDate">EndDate</label>
+          <div class="col-sm-8">
+            <input
+              type="text"
+              class="form-control"
+              id="endDate"
+              v-model="dateRange.endDate"
+            />
           </div>
-          <!-- /.form group -->
         </div>
       </div>
-      <!-- /.card-body -->
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label" for="minDate">minDate</label>
+          <div class="col-sm-8">
+            <input
+              type="text"
+              class="form-control"
+              id="minDate"
+              v-model="minDate"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label" for="maxDate">maxDate</label>
+          <div class="col-sm-8">
+            <input
+              type="text"
+              class="form-control"
+              id="maxDate"
+              v-model="maxDate"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="options"
+          id="option1"
+          value="left"
+          v-model="opens"
+        />
+        <label class="form-check-label">left</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="options"
+          id="option2"
+          value="center"
+          v-model="opens"
+        />
+        <label class="form-check-label">center</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="options"
+          id="option3"
+          value="right"
+          v-model="opens"
+        />
+        <label class="form-check-label">right</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="options"
+          id="option4"
+          value="inline"
+          v-model="opens"
+        />
+        <label class="form-check-label">inline</label>
+      </div>
+      <small class="form-text text-muted"
+        >Whether the picker appears aligned to the left, to the right, or
+        centered relative to the HTML element it's attached to. Or inline to
+        display it inline.
+      </small>
+    </div>
+
+    <div>
+      <div class="form-check form-inline py-3">
+        <label class="form-check-label" for="singleDatePicker">
+          singleDatePicker
+        </label>
+        <select
+          v-model="singleDatePicker"
+          id="singleDatePicker"
+          class="form-control ml-3"
+        >
+          <option>single</option>
+          <option>range</option>
+          <option :value="false">default</option>
+        </select>
+        <small class="form-text text-muted"
+          >Select the calendar mode single selects only single date with 1
+          calendar. Range is single calendar with ranges. default are 2
+          calendars with range selection.</small
+        >
+      </div>
+
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="showWeekNumbers"
+          v-model="showWeekNumbers"
+        />
+        <label class="form-check-label" for="showWeekNumbers">
+          showWeekNumbers
+        </label>
+        <small class="form-text text-muted">
+          Show the ISO weeknumbers on the side of the calendar
+        </small>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="timePicker"
+          v-model="timePicker"
+        />
+        <label class="form-check-label" for="timePicker">
+          timePicker
+        </label>
+        <small class="form-text text-muted">
+          Allow the user to select time.
+        </small>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="timePicker24Hour"
+          v-model="timePicker24Hour"
+        />
+        <label class="form-check-label" for="timePicker24Hour">
+          timePicker24Hour
+        </label>
+        <small class="form-text text-muted">
+          The time selection uses the 24 hour format
+        </small>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="showDropdowns"
+          v-model="showDropdowns"
+        />
+        <label class="form-check-label" for="showDropdowns">
+          showDropdowns
+        </label>
+        <small class="form-text text-muted">
+          Show dropdown/input for faster selection of year and month.
+        </small>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="autoApply"
+          v-model="autoApply"
+        />
+        <label class="form-check-label" for="autoApply">
+          autoApply
+        </label>
+        <small class="form-text text-muted">
+          Automatically select the range once the second date is selected (
+          otherwise you need to click the apply button)
+        </small>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="show_ranges"
+          v-model="show_ranges"
+        />
+        <label class="form-check-label" for="show_ranges">
+          show ranges
+        </label>
+        <small class="form-text text-muted">
+          You can set this to false in order to hide the ranges selection.
+          Otherwise it is an object with key/value.
+        </small>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="linkedCalendars"
+          v-model="linkedCalendars"
+        />
+        <label class="form-check-label" for="linkedCalendars">
+          linkedCalendars
+        </label>
+        <small class="form-text text-muted">
+          Each calendar has separate navigation
+        </small>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="alwaysShowCalendars"
+          v-model="alwaysShowCalendars"
+        />
+        <label class="form-check-label" for="alwaysShowCalendars">
+          alwaysShowCalendars
+        </label>
+        <small class="form-text text-muted">
+          Defaults to true. If set to false only the ranges will be visible if
+          one of them is selected. If no range is selected or you have clicked
+          the "Custom ranges" then the calendar selectors are shown.
+        </small>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="appendToBody"
+          v-model="appendToBody"
+        />
+        <label class="form-check-label" for="appendToBody">
+          appendToBody
+        </label>
+        <small class="form-text text-muted">
+          Defaults to false. Append the dropdown element to the end of the body
+          * and size/position it dynamically.
+        </small>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="closeOnEsc"
+          v-model="closeOnEsc"
+        />
+        <label class="form-check-label" for="closeOnEsc">
+          closeOnEsc
+        </label>
+        <small class="form-text text-muted">
+          Defaults to true. Close the dropdown on escape key pressed.
+        </small>
+      </div>
+    </div>
+
+    <div class="pt-5">
+      <h5>Override date formatting :</h5>
+      <dt>
+        dateFormat: function(classes, date) -
+        <small>special prop type function which accepts 2 params:</small>
+      </dt>
+      <ul>
+        <li>"classes" - the classes that the component's logic has defined,</li>
+        <li>"date" - tha date currently processed.</li>
+      </ul>
+
+      <p>
+        <b>@return:</b> you should return Vue class object which should be
+        applied to the date rendered.
+      </p>
+      <p>in the demo this function is used to disable "yesterday" date</p>
     </div>
   </nly-container>
 </template>
+
+<script>
+import dateUtil from "../nly-adminlte-vue/components/form-data-range-picker/date_util/native";
+export default {
+  name: "",
+  filters: {
+    date(value) {
+      if (!value) return "";
+
+      let options = { year: "numeric", month: "long", day: "numeric" };
+      return Intl.DateTimeFormat("en-US", options).format(value);
+    }
+  },
+  data() {
+    //                    :locale-data="{ daysOfWeek: [ 'Нд', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб' ] }"
+    return {
+      sss: "",
+      opens: "center",
+      minDate: "2019-05-02 04:00:00",
+      maxDate: "2020-12-26 14:00:00",
+      // minDate: '',
+      // maxDate: '',
+      dateRange: {
+        startDate: "2019-12-10",
+        endDate: "2019-12-20"
+      },
+      single_range_picker: false,
+      show_ranges: true,
+      singleDatePicker: false,
+      timePicker: true,
+      timePicker24Hour: true,
+      showDropdowns: true,
+      autoApply: false,
+      showWeekNumbers: true,
+      linkedCalendars: true,
+      alwaysShowCalendars: true,
+      appendToBody: false,
+      closeOnEsc: true
+    };
+  },
+  mounted() {
+    // this.$refs.picker.open = true
+  },
+  methods: {
+    updateValues(values) {
+      console.log("event: update", { ...values });
+      this.dateRange.startDate = dateUtil.format(
+        values.startDate,
+        "yyyy-mm-dd HH:MM:ss"
+      );
+      this.dateRange.endDate = dateUtil.format(
+        values.endDate,
+        "yyyy-mm-dd HH:MM:ss"
+      );
+    },
+    checkOpen(open) {
+      console.log("event: open", open);
+    },
+    dateFormat(classes, date) {
+      let yesterday = new Date();
+      let d1 = dateUtil.format(date, "isoDate");
+      let d2 = dateUtil.format(
+        yesterday.setDate(yesterday.getDate() - 1),
+        "isoDate"
+      );
+      if (!classes.disabled) {
+        classes.disabled = d1 === d2;
+      }
+      return classes;
+    }
+  }
+};
+</script>

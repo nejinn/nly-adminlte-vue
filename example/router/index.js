@@ -4,7 +4,7 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 const index = () => import("../views/index");
-const test = () => import("../views/example/test.vue");
+const test = () => import("../views/formTest.vue");
 const container = () => import("../views/example/container.vue");
 const grid = () => import("../views/example/grid.vue");
 const nav = () => import("../views/example/nav.vue");
