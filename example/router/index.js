@@ -4,7 +4,7 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 const index = () => import("../views/index");
-const test = () => import("../views/example/test.vue");
+const test = () => import("../views/formTest.vue");
 const container = () => import("../views/example/container.vue");
 const grid = () => import("../views/example/grid.vue");
 const nav = () => import("../views/example/nav.vue");
@@ -47,6 +47,8 @@ const popover = () => import("../views/example/popover.vue");
 const inputgroup = () => import("../views/example/input-group.vue");
 
 const formselect = () => import("../views/example/form-select.vue");
+
+const daterangepicker = () => import("../views/example/daterangepicker.vue");
 
 const routes = [
   {
@@ -148,6 +150,11 @@ const routes = [
         path: "/breadcrumb",
         name: "breadcrumb",
         component: breadcrumb
+      },
+      {
+        path: "/daterangepicker",
+        name: "daterangepicker",
+        component: daterangepicker
       },
       {
         path: "/infobox",

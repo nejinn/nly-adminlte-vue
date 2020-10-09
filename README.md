@@ -127,6 +127,7 @@ We also can view docs localhost with `npm run docs-dev`. [docs-dev](#43-install)
 * popover
 * input-group
 * form-select
+* daterange-picker
 
 ## 4.2. Directives
 

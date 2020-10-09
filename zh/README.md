@@ -127,6 +127,7 @@
 - 弹出框 popover
 - 输入框组 input-group
 - 下拉选择输入框 form-select
+- 日期选择器 daterange-picker
 
 ## 4.2. 指令
 

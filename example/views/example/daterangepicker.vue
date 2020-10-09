@@ -283,12 +283,8 @@
 </template>
 
 <script>
-import dateUtil from "../nly-adminlte-vue/utils/daterange-picker/native";
-import { NlyDaterangePicker } from "../nly-adminlte-vue/components/form-daterange-picker/daterange-picker";
+import dateUtil from "../../nly-adminlte-vue/utils/daterange-picker/native";
 export default {
-  components: {
-    NlyDaterangePicker
-  },
   name: "",
   filters: {
     date(value) {
