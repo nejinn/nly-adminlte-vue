@@ -1,4 +1,4 @@
-import { dateFormat, getWeek } from "../dateformat";
+import { dateFormat, getWeek } from "./dateformat";
 
 const DateUtil = {
   isSame: (date1, date2, granularity) => {

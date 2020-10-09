@@ -1,210 +1,20 @@
-<template>
-  <div class="nly-daterange-picker" :class="{ inline: opens === 'inline' }">
-    <!-- <div :class="controlContainerClass" @click="onClickPicker" ref="toggle"> -->
-    <!-- <slot name="input" :startDate="start" :endDate="end" :ranges="ranges">
-        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
-        <span>{{ rangeText }}</span>
-        <b class="caret"></b>
-      </slot> -->
-    <nly-input-group ref="toggle" prepend="@" append=".00">
-      <nly-form-input :value="rangeText" @click="onClickPicker" />
-    </nly-input-group>
-    <!-- </div> -->
-    <nly-daterange-picker-transition>
-      <div
-        class="daterangepicker dropdown-menu ltr"
-        :class="pickerStyles"
-        v-if="open || opens === 'inline'"
-        VNlyAppendToBody
-        ref="dropdown"
-      >
-        <!--
-          Optional header slot (same props as footer) @see footer slot for documentation
-        -->
-        <slot
-          name="header"
-          :rangeText="rangeText"
-          :locale="locale"
-          :clickCancel="clickCancel"
-          :clickApply="clickedApply"
-          :in_selection="in_selection"
-          :autoApply="autoApply"
-        >
-        </slot>
+import Vue from "../../utils/vue";
+import dateUtilMixin from "../../mixins/date-util";
+import { NlyCalendar } from "./pulgin/calendar";
+import { NlyCalendarTime } from "./pulgin/calendar-time";
+import { NlyCalendarRangs } from "./pulgin/calendar-rangs";
+import { getDateUtil } from "../../utils/daterange-picker/util";
+import { VNlyAppendToBody } from "./pulgin/append-to-body";
+import { NlyInputGroup } from "../input-group/input-group";
+import { NlyFormInput } from "../form-input/form-input";
+import { hasNormalizedSlot } from "../../utils/normalize-slot";
 
-        <div class="calendars row no-gutters">
-          <!--
-            Allows you to change the range
+const name = "NlyDaterangePicker";
 
-            @param {Date} startDate - current startDate
-            @param {Date} endDate - current endDate
-            @param {object} ranges - object with ranges
-            @param {Fn} clickRange(dateRange) - call to select the dateRange - any two date objects or an object from tha ranges array
-          -->
-          <slot
-            name="ranges"
-            :startDate="start"
-            :endDate="end"
-            :ranges="ranges"
-            :clickRange="clickRange"
-            v-if="showRanges"
-          >
-            <calendar-ranges
-              class="col-12 col-md-auto"
-              @clickRange="clickRange"
-              @showCustomRange="showCustomRangeCalendars = true"
-              :always-show-calendars="alwaysShowCalendars"
-              :locale-data="locale"
-              :ranges="ranges"
-              :selected="{ startDate: start, endDate: end }"
-            ></calendar-ranges>
-          </slot>
-
-          <div class="calendars-container" v-if="showCalendars">
-            <div
-              class="drp-calendar col left"
-              :class="{ single: singleDatePicker }"
-            >
-              <div class="daterangepicker_input d-none d-sm-block" v-if="false">
-                <input
-                  class="input-mini form-control"
-                  type="text"
-                  name="daterangepicker_start"
-                  :value="startText"
-                />
-                <i class="fa fa-calendar glyphicon glyphicon-calendar"></i>
-              </div>
-              <div class="calendar-table">
-                <calendar
-                  :monthDate="monthDate"
-                  :locale-data="locale"
-                  :start="start"
-                  :end="end"
-                  :minDate="min"
-                  :maxDate="max"
-                  :show-dropdowns="showDropdowns"
-                  @change-month="changeLeftMonth"
-                  :date-format="dateFormatFn"
-                  @dateClick="dateClick"
-                  @hoverDate="hoverDate"
-                  :showWeekNumbers="showWeekNumbers"
-                ></calendar>
-              </div>
-              <calendar-time
-                v-if="timePicker && start"
-                @update="onUpdateStartTime"
-                :miniute-increment="timePickerIncrement"
-                :hour24="timePicker24Hour"
-                :second-picker="timePickerSeconds"
-                :current-time="start"
-                :readonly="readonly"
-              />
-            </div>
-
-            <div class="drp-calendar col right" v-if="!singleDatePicker">
-              <div class="daterangepicker_input" v-if="false">
-                <input
-                  class="input-mini form-control"
-                  type="text"
-                  name="daterangepicker_end"
-                  :value="endText"
-                />
-                <i class="fa fa-calendar glyphicon glyphicon-calendar"></i>
-              </div>
-              <div class="calendar-table">
-                <calendar
-                  :monthDate="nextMonthDate"
-                  :locale-data="locale"
-                  :start="start"
-                  :end="end"
-                  :minDate="min"
-                  :maxDate="max"
-                  :show-dropdowns="showDropdowns"
-                  @change-month="changeRightMonth"
-                  :date-format="dateFormatFn"
-                  @dateClick="dateClick"
-                  @hoverDate="hoverDate"
-                  :showWeekNumbers="showWeekNumbers"
-                ></calendar>
-              </div>
-              <calendar-time
-                v-if="timePicker && end"
-                @update="onUpdateEndTime"
-                :miniute-increment="timePickerIncrement"
-                :hour24="timePicker24Hour"
-                :second-picker="timePickerSeconds"
-                :current-time="end"
-                :readonly="readonly"
-              />
-            </div>
-          </div>
-        </div>
-        <!--
-          Allows you to change footer of the component (where the buttons are)
-
-          @param {string} rangeText - the formatted date range by the component
-          @param {object} locale - the locale object @see locale prop
-          @param {function} clickCancel - function which is called when you want to cancel the range picking and reset old values
-          @param {function} clickApply -function which to call when you want to apply the selection
-          @param {boolean} in_selection - is the picker in selection mode
-          @param {boolean} autoApply - value of the autoApply prop (whether to select immediately)
-        -->
-        <slot
-          name="footer"
-          :rangeText="rangeText"
-          :locale="locale"
-          :clickCancel="clickCancel"
-          :clickApply="clickedApply"
-          :in_selection="in_selection"
-          :autoApply="autoApply"
-        >
-          <div class="drp-buttons" v-if="!autoApply">
-            <span class="drp-selected" v-if="showCalendars">{{
-              rangeText
-            }}</span>
-            <button
-              class="cancelBtn btn btn-sm btn-secondary"
-              type="button"
-              @click="clickCancel"
-              v-if="!readonly"
-            >
-              {{ locale.cancelLabel }}
-            </button>
-            <button
-              class="applyBtn btn btn-sm btn-success"
-              :disabled="in_selection"
-              type="button"
-              @click="clickedApply"
-              v-if="!readonly"
-            >
-              {{ locale.applyLabel }}
-            </button>
-          </div>
-        </slot>
-      </div>
-    </nly-daterange-picker-transition>
-  </div>
-</template>
-
-<script>
-import dateUtilMixin from "./dateUtilMixin";
-import { NlyCalendar } from "../form-daterange-picker/pulgin/calendar";
-import { NlyCalendarTime } from "../form-daterange-picker/pulgin/calendar-time";
-import { NlyCalendarRangs } from "../form-daterange-picker/pulgin/calendar-rangs";
-import { getDateUtil } from "./util";
-import { VNlyAppendToBody } from "../form-daterange-picker/pulgin/append-to-body";
-import { NlyDaterangePickerTransition } from "../form-daterange-picker/pulgin/transition";
-
-export default {
+export const NlyDaterangePicker = Vue.extend({
+  name: name,
   inheritAttrs: false,
-  components: {
-    calendar: NlyCalendar,
-    "calendar-time": NlyCalendarTime,
-    "calendar-ranges": NlyCalendarRangs,
-    NlyDaterangePickerTransition
-  },
   mixins: [dateUtilMixin],
-  directives: { VNlyAppendToBody },
   model: {
     prop: "dateRange",
     event: "update"
@@ -873,6 +683,284 @@ export default {
       },
       immediate: true
     }
+  },
+  render(h) {
+    const drpCalendarLeftChildrenVnodes = [
+      h("div", { class: "calendar-table" }, [
+        h(NlyCalendar, {
+          props: {
+            monthDate: this.monthDate,
+            localeData: this.locale,
+            start: this.start,
+            end: this.end,
+            minDate: this.min,
+            maxDate: this.max,
+            showDropdowns: this.showDropdowns,
+            dateFormat: this.dateFormatFn,
+            showWeekNumbers: this.showWeekNumbers
+          },
+          on: {
+            "change-month": this.changeLeftMonth,
+            dateClick: this.dateClick,
+            hoverDate: this.hoverDate
+          }
+        })
+      ])
+    ];
+
+    if (this.timePicker && this.start) {
+      drpCalendarLeftChildrenVnodes.push(
+        h(NlyCalendarTime, {
+          props: {
+            update: this.onUpdateStartTime,
+            miniuteIncrement: this.timePickerIncrement,
+            hour24: this.timePicker24Hour,
+            secondPicker: this.timePickerSeconds,
+            currentTime: this.start,
+            readonly: this.readonly
+          }
+        })
+      );
+    }
+
+    const drpCalendarLeftVnodes = h(
+      "div",
+      {
+        staticClass: "drp-calendar col left",
+        class: { single: this.singleDatePicker }
+      },
+      drpCalendarLeftChildrenVnodes
+    );
+
+    const drpCalendarRightChildrenVnodes = [
+      h("div", { class: "calendar-table" }, [
+        h(NlyCalendar, {
+          props: {
+            monthDate: this.nextMonthDate,
+            localeData: this.locale,
+            start: this.start,
+            end: this.end,
+            minDate: this.min,
+            maxDate: this.max,
+            showDropdowns: this.showDropdowns,
+            dateFormat: this.dateFormatFn,
+            showWeekNumbers: this.showWeekNumbers
+          },
+          on: {
+            "change-month": this.changeRightMonth,
+            dateClick: this.dateClick,
+            hoverDate: this.hoverDate
+          }
+        })
+      ])
+    ];
+    if (this.timePicker && this.start) {
+      drpCalendarRightChildrenVnodes.push(
+        h(NlyCalendarTime, {
+          props: {
+            update: this.onUpdateEndTime,
+            miniuteIncrement: this.timePickerIncrement,
+            hour24: this.timePicker24Hour,
+            secondPicker: this.timePickerSeconds,
+            currentTime: this.end,
+            readonly: this.readonly
+          }
+        })
+      );
+    }
+
+    const drpCalendarRightVnodes = h(
+      "div",
+      {
+        class: "drp-calendar col right"
+      },
+      drpCalendarRightChildrenVnodes
+    );
+
+    const calendarsContainerChildrenVnodes = [drpCalendarLeftVnodes];
+
+    if (!this.singleDatePicker) {
+      calendarsContainerChildrenVnodes.push(drpCalendarRightVnodes);
+    }
+
+    const calendarsContainerVnodes = h(
+      "div",
+      {
+        class: "calendars-container"
+      },
+      calendarsContainerChildrenVnodes
+    );
+    console.log(this.ranges);
+    const calendarsRowVnodes = () => {
+      if (hasNormalizedSlot("header", this.$scopedSlots, this.$slots)) {
+        if (this.showRanges) {
+          return h("div", { class: "calendars row no-gutters" }, [
+            this.$scopedSlots.ranges({
+              startDate: this.start,
+              endDate: this.end,
+              ranges: this.ranges,
+              clickRange: this.clickRange
+            }),
+            calendarsContainerVnodes
+          ]);
+        }
+      } else {
+        if (this.showRanges) {
+          return h("div", { class: "calendars row no-gutters" }, [
+            h(NlyCalendarRangs, {
+              class: "col-12 col-md-auto",
+              props: {
+                alwaysShowCalendars: this.alwaysShowCalendars,
+                localeData: this.locale,
+                ranges: this.ranges,
+                selected: { startDate: this.start, endDate: this.end }
+              },
+              on: {
+                clickRange: this.clickRange,
+                showCustomRange: () => {
+                  this.showCustomRangeCalendars = true;
+                }
+              }
+            }),
+            calendarsContainerVnodes
+          ]);
+        }
+      }
+    };
+
+    const slotsFooterButtonsChildrenVnodes = [];
+
+    if (this.showCalendars) {
+      slotsFooterButtonsChildrenVnodes.push(
+        h("span", { class: "drp-selected" }, this.rangeText)
+      );
+    }
+
+    if (!this.readonly) {
+      slotsFooterButtonsChildrenVnodes.push(
+        h(
+          "button",
+          {
+            class: "cancelBtn btn btn-sm btn-secondary",
+            attrs: {
+              type: "button"
+            },
+            on: { click: this.clickCancel }
+          },
+          this.locale.cancelLabel
+        )
+      );
+    }
+    if (!this.readonly) {
+      slotsFooterButtonsChildrenVnodes.push(
+        h(
+          "button",
+          {
+            class: "applyBtn btn btn-sm btn-success",
+            attrs: {
+              disabled: this.in_selection,
+              type: "button"
+            },
+            on: { click: this.clickedApply }
+          },
+          this.locale.applyLabel
+        )
+      );
+    }
+
+    const scopedSlotsFooter = () => {
+      if (hasNormalizedSlot("footer", this.$scopedSlots, this.$slots)) {
+        return this.$scopedSlots.footer({
+          rangeText: this.rangeText,
+          locale: this.locale,
+          clickCancel: this.clickCancel,
+          clickApply: this.clickedApply,
+          in_selection: this.in_selection,
+          autoApply: this.autoApply
+        });
+      } else {
+        if (!this.autoApply) {
+          return h(
+            "div",
+            { class: "drp-buttons" },
+            slotsFooterButtonsChildrenVnodes
+          );
+        }
+      }
+    };
+
+    const daterangePickerTransitionVnodes = () => {
+      if (hasNormalizedSlot("header", this.$scopedSlots, this.$slots)) {
+        if (this.open || this.opens === "inline") {
+          return h(
+            "div",
+            {
+              staticClass: "daterangepicker dropdown-menu ltr",
+              class: this.pickerStyles,
+              directives: { name: VNlyAppendToBody },
+              ref: "dropdown"
+            },
+            [
+              this.$scopedSlots.header({
+                rangeText: this.rangeText,
+                locale: this.locale,
+                clickCancel: this.clickCancel,
+                clickApply: this.clickedApply,
+                in_selection: this.in_selection,
+                autoApply: this.autoApply
+              }),
+              calendarsRowVnodes(),
+              scopedSlotsFooter()
+            ]
+          );
+        }
+      } else {
+        if (this.open || this.opens === "inline") {
+          return h(
+            "div",
+            {
+              staticClass: "daterangepicker dropdown-menu ltr",
+              class: this.pickerStyles,
+              directives: { name: VNlyAppendToBody },
+              ref: "dropdown"
+            },
+            [calendarsRowVnodes(), scopedSlotsFooter()]
+          );
+        }
+      }
+    };
+
+    return h(
+      "div",
+      {
+        staticClass: "nly-daterange-picker",
+        class: {
+          inline: this.opens === "inline"
+        }
+      },
+      [
+        h(
+          NlyInputGroup,
+          {
+            ref: "toggle",
+            props: {
+              prepend: "@",
+              append: ".00"
+            }
+          },
+          [
+            h(NlyFormInput, {
+              props: {
+                value: this.rangeText
+              },
+              on: {
+                click: this.onClickPicker
+              }
+            })
+          ]
+        ),
+        daterangePickerTransitionVnodes()
+      ]
+    );
   }
-};
-</script>
+});

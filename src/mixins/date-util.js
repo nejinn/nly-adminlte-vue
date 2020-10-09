@@ -1,4 +1,4 @@
-import { getDateUtil } from "./util";
+import { getDateUtil } from "../utils/daterange-picker/util";
 
 export default {
   props: {

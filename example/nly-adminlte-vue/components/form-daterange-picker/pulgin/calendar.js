@@ -34,6 +34,9 @@ export const NlyCalendar = Vue.extend({
     };
   },
   methods: {
+    onChange(evt) {
+      this.month = evt.target.value;
+    },
     onInput(evt) {
       this.year = evt.target.value;
     },
@@ -241,14 +244,12 @@ export const NlyCalendar = Vue.extend({
       "select",
       {
         class: "monthselect col",
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: this.month,
-            expression: "value"
-          }
-        ]
+        domProps: {
+          value: this.month
+        },
+        on: {
+          change: this.onChange
+        }
       },
       monthselectOptinos
     );
@@ -274,7 +275,7 @@ export const NlyCalendar = Vue.extend({
               {
                 class: "month nly-datarange-calendar-th",
                 attrs: {
-                  colspan: this.showWeekNumbers ? 6 : 5
+                  colspan: self.showWeekNumbers ? 6 : 5
                 }
               },
               [
@@ -335,7 +336,7 @@ export const NlyCalendar = Vue.extend({
               {
                 class: "month nly-datarange-calendar-th",
                 attrs: {
-                  colspan: this.showWeekNumbers ? 6 : 5
+                  colspan: self.showWeekNumbers ? 6 : 5
                 }
               },
               [this.monthName, this.year]
@@ -358,7 +359,7 @@ export const NlyCalendar = Vue.extend({
     };
 
     const tbodyWeekDayTrVnodes = [];
-    if (this.showDropdowns) {
+    if (this.showWeekNumbers) {
       tbodyWeekDayTrVnodes.push(
         h(
           "th",
@@ -378,7 +379,7 @@ export const NlyCalendar = Vue.extend({
     const tobody = [tbodyWeekDayTr];
     this.calendar.forEach((item, index) => {
       const tobodyDateRowVnodes = [];
-      if (this.showDropdowns && (index % 7 || index === 0)) {
+      if (this.showWeekNumbers && (index % 7 || index === 0)) {
         tobodyDateRowVnodes.push(
           h(
             "td",

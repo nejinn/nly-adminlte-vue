@@ -48,6 +48,8 @@ const inputgroup = () => import("../views/example/input-group.vue");
 
 const formselect = () => import("../views/example/form-select.vue");
 
+const daterangepicker = () => import("../views/example/daterangepicker.vue");
+
 const routes = [
   {
     path: "/",
@@ -148,6 +150,11 @@ const routes = [
         path: "/breadcrumb",
         name: "breadcrumb",
         component: breadcrumb
+      },
+      {
+        path: "/daterangepicker",
+        name: "daterangepicker",
+        component: daterangepicker
       },
       {
         path: "/infobox",

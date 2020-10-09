@@ -1,4 +1,4 @@
-export default {
+export const VNlyAppendToBody = {
   inserted(el, bindings, { context }) {
     if (context.appendToBody) {
       const {

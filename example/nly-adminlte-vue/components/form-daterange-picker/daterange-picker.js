@@ -5,6 +5,9 @@ import { NlyCalendarTime } from "./pulgin/calendar-time";
 import { NlyCalendarRangs } from "./pulgin/calendar-rangs";
 import { getDateUtil } from "../../utils/daterange-picker/util";
 import { VNlyAppendToBody } from "./pulgin/append-to-body";
+import { NlyInputGroup } from "../input-group/input-group";
+import { NlyFormInput } from "../form-input/form-input";
+import { hasNormalizedSlot } from "../../utils/normalize-slot";
 
 const name = "NlyDaterangePicker";
 
@@ -681,5 +684,283 @@ export const NlyDaterangePicker = Vue.extend({
       immediate: true
     }
   },
-  render(h) {}
+  render(h) {
+    const drpCalendarLeftChildrenVnodes = [
+      h("div", { class: "calendar-table" }, [
+        h(NlyCalendar, {
+          props: {
+            monthDate: this.monthDate,
+            localeData: this.locale,
+            start: this.start,
+            end: this.end,
+            minDate: this.min,
+            maxDate: this.max,
+            showDropdowns: this.showDropdowns,
+            dateFormat: this.dateFormatFn,
+            showWeekNumbers: this.showWeekNumbers
+          },
+          on: {
+            "change-month": this.changeLeftMonth,
+            dateClick: this.dateClick,
+            hoverDate: this.hoverDate
+          }
+        })
+      ])
+    ];
+
+    if (this.timePicker && this.start) {
+      drpCalendarLeftChildrenVnodes.push(
+        h(NlyCalendarTime, {
+          props: {
+            update: this.onUpdateStartTime,
+            miniuteIncrement: this.timePickerIncrement,
+            hour24: this.timePicker24Hour,
+            secondPicker: this.timePickerSeconds,
+            currentTime: this.start,
+            readonly: this.readonly
+          }
+        })
+      );
+    }
+
+    const drpCalendarLeftVnodes = h(
+      "div",
+      {
+        staticClass: "drp-calendar col left",
+        class: { single: this.singleDatePicker }
+      },
+      drpCalendarLeftChildrenVnodes
+    );
+
+    const drpCalendarRightChildrenVnodes = [
+      h("div", { class: "calendar-table" }, [
+        h(NlyCalendar, {
+          props: {
+            monthDate: this.nextMonthDate,
+            localeData: this.locale,
+            start: this.start,
+            end: this.end,
+            minDate: this.min,
+            maxDate: this.max,
+            showDropdowns: this.showDropdowns,
+            dateFormat: this.dateFormatFn,
+            showWeekNumbers: this.showWeekNumbers
+          },
+          on: {
+            "change-month": this.changeRightMonth,
+            dateClick: this.dateClick,
+            hoverDate: this.hoverDate
+          }
+        })
+      ])
+    ];
+    if (this.timePicker && this.start) {
+      drpCalendarRightChildrenVnodes.push(
+        h(NlyCalendarTime, {
+          props: {
+            update: this.onUpdateEndTime,
+            miniuteIncrement: this.timePickerIncrement,
+            hour24: this.timePicker24Hour,
+            secondPicker: this.timePickerSeconds,
+            currentTime: this.end,
+            readonly: this.readonly
+          }
+        })
+      );
+    }
+
+    const drpCalendarRightVnodes = h(
+      "div",
+      {
+        class: "drp-calendar col right"
+      },
+      drpCalendarRightChildrenVnodes
+    );
+
+    const calendarsContainerChildrenVnodes = [drpCalendarLeftVnodes];
+
+    if (!this.singleDatePicker) {
+      calendarsContainerChildrenVnodes.push(drpCalendarRightVnodes);
+    }
+
+    const calendarsContainerVnodes = h(
+      "div",
+      {
+        class: "calendars-container"
+      },
+      calendarsContainerChildrenVnodes
+    );
+    console.log(this.ranges);
+    const calendarsRowVnodes = () => {
+      if (hasNormalizedSlot("header", this.$scopedSlots, this.$slots)) {
+        if (this.showRanges) {
+          return h("div", { class: "calendars row no-gutters" }, [
+            this.$scopedSlots.ranges({
+              startDate: this.start,
+              endDate: this.end,
+              ranges: this.ranges,
+              clickRange: this.clickRange
+            }),
+            calendarsContainerVnodes
+          ]);
+        }
+      } else {
+        if (this.showRanges) {
+          return h("div", { class: "calendars row no-gutters" }, [
+            h(NlyCalendarRangs, {
+              class: "col-12 col-md-auto",
+              props: {
+                alwaysShowCalendars: this.alwaysShowCalendars,
+                localeData: this.locale,
+                ranges: this.ranges,
+                selected: { startDate: this.start, endDate: this.end }
+              },
+              on: {
+                clickRange: this.clickRange,
+                showCustomRange: () => {
+                  this.showCustomRangeCalendars = true;
+                }
+              }
+            }),
+            calendarsContainerVnodes
+          ]);
+        }
+      }
+    };
+
+    const slotsFooterButtonsChildrenVnodes = [];
+
+    if (this.showCalendars) {
+      slotsFooterButtonsChildrenVnodes.push(
+        h("span", { class: "drp-selected" }, this.rangeText)
+      );
+    }
+
+    if (!this.readonly) {
+      slotsFooterButtonsChildrenVnodes.push(
+        h(
+          "button",
+          {
+            class: "cancelBtn btn btn-sm btn-secondary",
+            attrs: {
+              type: "button"
+            },
+            on: { click: this.clickCancel }
+          },
+          this.locale.cancelLabel
+        )
+      );
+    }
+    if (!this.readonly) {
+      slotsFooterButtonsChildrenVnodes.push(
+        h(
+          "button",
+          {
+            class: "applyBtn btn btn-sm btn-success",
+            attrs: {
+              disabled: this.in_selection,
+              type: "button"
+            },
+            on: { click: this.clickedApply }
+          },
+          this.locale.applyLabel
+        )
+      );
+    }
+
+    const scopedSlotsFooter = () => {
+      if (hasNormalizedSlot("footer", this.$scopedSlots, this.$slots)) {
+        return this.$scopedSlots.footer({
+          rangeText: this.rangeText,
+          locale: this.locale,
+          clickCancel: this.clickCancel,
+          clickApply: this.clickedApply,
+          in_selection: this.in_selection,
+          autoApply: this.autoApply
+        });
+      } else {
+        if (!this.autoApply) {
+          return h(
+            "div",
+            { class: "drp-buttons" },
+            slotsFooterButtonsChildrenVnodes
+          );
+        }
+      }
+    };
+
+    const daterangePickerTransitionVnodes = () => {
+      if (hasNormalizedSlot("header", this.$scopedSlots, this.$slots)) {
+        if (this.open || this.opens === "inline") {
+          return h(
+            "div",
+            {
+              staticClass: "daterangepicker dropdown-menu ltr",
+              class: this.pickerStyles,
+              directives: { name: VNlyAppendToBody },
+              ref: "dropdown"
+            },
+            [
+              this.$scopedSlots.header({
+                rangeText: this.rangeText,
+                locale: this.locale,
+                clickCancel: this.clickCancel,
+                clickApply: this.clickedApply,
+                in_selection: this.in_selection,
+                autoApply: this.autoApply
+              }),
+              calendarsRowVnodes(),
+              scopedSlotsFooter()
+            ]
+          );
+        }
+      } else {
+        if (this.open || this.opens === "inline") {
+          return h(
+            "div",
+            {
+              staticClass: "daterangepicker dropdown-menu ltr",
+              class: this.pickerStyles,
+              directives: { name: VNlyAppendToBody },
+              ref: "dropdown"
+            },
+            [calendarsRowVnodes(), scopedSlotsFooter()]
+          );
+        }
+      }
+    };
+
+    return h(
+      "div",
+      {
+        staticClass: "nly-daterange-picker",
+        class: {
+          inline: this.opens === "inline"
+        }
+      },
+      [
+        h(
+          NlyInputGroup,
+          {
+            ref: "toggle",
+            props: {
+              prepend: "@",
+              append: ".00"
+            }
+          },
+          [
+            h(NlyFormInput, {
+              props: {
+                value: this.rangeText
+              },
+              on: {
+                click: this.onClickPicker
+              }
+            })
+          ]
+        ),
+        daterangePickerTransitionVnodes()
+      ]
+    );
+  }
 });

@@ -1,70 +1,11 @@
-<template>
-  <table class="table-condensed">
-    <thead>
-      <tr>
-        <th class="prev available" @click="prevMonthClick" tabindex="0">
-          <span />
-        </th>
-        <th
-          v-if="showDropdowns"
-          :colspan="showWeekNumbers ? 6 : 5"
-          class="month"
-        >
-          <div class="row mx-1">
-            <select v-model="month" class="monthselect col">
-              <option v-for="m in months" :key="m.value" :value="m.value + 1">{{
-                m.label
-              }}</option>
-            </select>
-            <input
-              ref="yearSelect"
-              type="number"
-              v-model="year"
-              @blur="checkYear"
-              class="yearselect col"
-            />
-          </div>
-        </th>
-        <th v-else :colspan="showWeekNumbers ? 6 : 5" class="month">
-          {{ monthName }} {{ year }}
-        </th>
-        <th class="next available" @click="nextMonthClick" tabindex="0">
-          <span />
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th v-if="showWeekNumbers" class="week">{{ locale.weekLabel }}</th>
-        <th v-for="weekDay in locale.daysOfWeek" :key="weekDay">
-          {{ weekDay }}
-        </th>
-      </tr>
-      <tr v-for="(dateRow, index) in calendar" :key="index">
-        <td v-if="showWeekNumbers && (index % 7 || index === 0)" class="week">
-          {{ $dateUtil.weekNumber(dateRow[0]) }}
-        </td>
-        <template v-for="(date, idx) in dateRow">
-          <td
-            :class="dayClass(date)"
-            @click="$emit('dateClick', date)"
-            @mouseover="$emit('hoverDate', date)"
-            :key="idx"
-          >
-            {{ date.getDate() }}
-          </td>
-        </template>
-      </tr>
-    </tbody>
-  </table>
-</template>
+import Vue from "../../../utils/vue";
+import dateUtilMixin from "../../../mixins/date-util";
 
-<script>
-import dateUtilMixin from "./dateUtilMixin";
+const name = "NlyCalendar";
 
-export default {
+export const NlyCalendar = Vue.extend({
+  name: name,
   mixins: [dateUtilMixin],
-  name: "calendar",
   props: {
     monthDate: Date,
     localeData: Object,
@@ -93,6 +34,12 @@ export default {
     };
   },
   methods: {
+    onChange(evt) {
+      this.month = evt.target.value;
+    },
+    onInput(evt) {
+      this.year = evt.target.value;
+    },
     prevMonthClick() {
       this.changeMonthDate(this.$dateUtil.prevMonth(this.currentMonthDate));
     },
@@ -106,7 +53,6 @@ export default {
         this.minDate,
         this.maxDate
       );
-      // console.info(date, this.currentMonthDate)
       if (
         emit &&
         year_month !== this.$dateUtil.yearMonth(this.currentMonthDate)
@@ -275,97 +221,197 @@ export default {
         this.changeMonthDate(value, false);
       }
     }
-  }
-};
-</script>
-
-<style scoped lang="scss">
-.nly-datarange-calendar-th,
-.nly-datarange-calendar-td {
-  padding: 2px;
-  background-color: white;
-}
-
-td.today {
-  font-weight: bold;
-}
-
-td.disabled {
-  pointer-events: none;
-  background-color: #eee;
-  border-radius: 0;
-  opacity: 0.6;
-}
-
-@function str-replace($string, $search, $replace: "") {
-  $index: str-index($string, $search);
-
-  @if $index {
-    @return str-slice($string, 1, $index - 1) + $replace +
-      str-replace(
-        str-slice($string, $index + str-length($search)),
-        $search,
-        $replace
+  },
+  render(h) {
+    var self = this;
+    const monthselectOptinos = [];
+    this.months.forEach(element => {
+      monthselectOptinos.push(
+        h(
+          "option",
+          {
+            key: element.value,
+            domProps: {
+              value: element.value + 1
+            }
+          },
+          element.label
+        )
       );
+    });
+
+    const monthselect = h(
+      "select",
+      {
+        class: "monthselect col",
+        domProps: {
+          value: this.month
+        },
+        on: {
+          change: this.onChange
+        }
+      },
+      monthselectOptinos
+    );
+
+    const thead = () => {
+      if (this.showDropdowns) {
+        return h("thead", [
+          h("tr", [
+            h(
+              "th",
+              {
+                class:
+                  "nly-datarange-calendar-prev available nly-datarange-calendar-th",
+                on: { click: this.prevMonthClick },
+                attrs: {
+                  tabindex: 0
+                }
+              },
+              [h("span")]
+            ),
+            h(
+              "th",
+              {
+                class: "month nly-datarange-calendar-th",
+                attrs: {
+                  colspan: self.showWeekNumbers ? 6 : 5
+                }
+              },
+              [
+                h(
+                  "div",
+                  {
+                    class: "row mx-1"
+                  },
+                  [
+                    monthselect,
+                    h("input", {
+                      class: "yearselect col",
+                      ref: "yearSelect",
+                      attrs: {
+                        type: "number"
+                      },
+                      on: {
+                        // ...self.$listeners,
+                        blur: self.checkYear,
+                        input: self.onInput
+                      },
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: self.year,
+                          expression: "value"
+                        }
+                      ],
+                      domProps: {
+                        value: self.year
+                      }
+                    }),
+                    self.year
+                  ]
+                )
+              ]
+            ),
+            h(
+              "th",
+              {
+                class:
+                  "nly-datarange-calendar-next available nly-datarange-calendar-th",
+                on: { click: this.nextMonthClick },
+                attrs: {
+                  tabindex: 0
+                }
+              },
+              [h("span")]
+            )
+          ])
+        ]);
+      } else {
+        return h("thead", [
+          h("tr", [
+            h(
+              "th",
+              {
+                class: "month nly-datarange-calendar-th",
+                attrs: {
+                  colspan: self.showWeekNumbers ? 6 : 5
+                }
+              },
+              [this.monthName, this.year]
+            ),
+            h(
+              "th",
+              {
+                class:
+                  "nly-datarange-calendar-next available nly-datarange-calendar-th",
+                on: { click: this.nextMonthClick },
+                attrs: {
+                  tabindex: 0
+                }
+              },
+              [h("span")]
+            )
+          ])
+        ]);
+      }
+    };
+
+    const tbodyWeekDayTrVnodes = [];
+    if (this.showWeekNumbers) {
+      tbodyWeekDayTrVnodes.push(
+        h(
+          "th",
+          { class: "week nly-datarange-calendar-th" },
+          this.locale.weekLabel
+        )
+      );
+    }
+    this.locale.daysOfWeek.forEach(item => {
+      tbodyWeekDayTrVnodes.push(
+        h("th", { key: item, class: "nly-datarange-calendar-th" }, item)
+      );
+    });
+
+    const tbodyWeekDayTr = h("tr", tbodyWeekDayTrVnodes);
+
+    const tobody = [tbodyWeekDayTr];
+    this.calendar.forEach((item, index) => {
+      const tobodyDateRowVnodes = [];
+      if (this.showWeekNumbers && (index % 7 || index === 0)) {
+        tobodyDateRowVnodes.push(
+          h(
+            "td",
+            { class: "week nly-datarange-calendar-td" },
+            this.$dateUtil.weekNumber(item[0])
+          )
+        );
+      }
+      item.forEach((childItem, childIndex) => {
+        tobodyDateRowVnodes.push(
+          h(
+            "td",
+            {
+              class: this.dayClass(childItem),
+              staticClass: "nly-datarange-calendar-td",
+              on: {
+                click: () => {
+                  this.$emit("dateClick", childItem);
+                },
+                mouseover: () => {
+                  this.$emit("hoverDate", childItem);
+                }
+              },
+              key: childIndex
+            },
+            childItem.getDate()
+          )
+        );
+      });
+      tobody.push(h("tr", { key: index }, tobodyDateRowVnodes));
+    });
+
+    return h("table", { class: "table-condensed" }, [thead(), tobody]);
   }
-
-  @return $string;
-}
-
-$carousel-control-color: #ccc !default;
-$viewbox: "-2 -2 10 10";
-$carousel-control-prev-icon-bg: str-replace(
-  url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='#{$viewbox}'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E"),
-  "#",
-  "%23"
-) !default;
-$carousel-control-next-icon-bg: str-replace(
-  url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='#{$viewbox}'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E"),
-  "#",
-  "%23"
-) !default;
-
-.fa {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  background: transparent no-repeat center center;
-  background-size: 100% 100%;
-  fill: $carousel-control-color;
-}
-
-.nly-datarange-calendar-prev,
-.nly-datarange-calendar-next {
-  &:hover {
-    background-color: transparent !important;
-  }
-
-  .fa:hover {
-    opacity: 0.6;
-  }
-}
-
-.chevron-left {
-  width: 16px;
-  height: 16px;
-  display: block;
-  background-image: $carousel-control-prev-icon-bg;
-}
-
-.chevron-right {
-  width: 16px;
-  height: 16px;
-  display: block;
-  background-image: $carousel-control-next-icon-bg;
-}
-
-.yearselect {
-  padding-right: 1px;
-  border: none;
-  appearance: menulist;
-}
-
-.monthselect {
-  border: none;
-}
-</style>
+});

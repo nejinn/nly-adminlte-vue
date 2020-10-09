@@ -448,7 +448,53 @@
               exact
               >form-feedback</nly-sidebar-nav-item
             >
+            <nly-sidebar-nav-item
+              to="/daterangepicker"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
+              exact
+              >daterangepicker</nly-sidebar-nav-item
+            >
 
+            <nly-sidebar-nav-item
+              to="/formgroup"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
+              exact
+              >formgroup</nly-sidebar-nav-item
+            >
+            <nly-sidebar-nav-item
+              to="/inputgroup"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
+              exact
+              >inputgroup</nly-sidebar-nav-item
+            >
+            <nly-sidebar-nav-item
+              to="/formselect"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
+              exact
+              >formselect</nly-sidebar-nav-item
+            >
+          </nly-sidebar-nav-tree>
+          <nly-sidebar-nav-tree
+            target="components-six"
+            icon="nav-icon fas nlyfont nly-icon-logo-polymer"
+            text="components-form"
+          >
+            <nly-sidebar-nav-item
+              to="/dropdown"
+              link-class="xxx zzz"
+              class="sss"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
+              exact
+              >dropdown</nly-sidebar-nav-item
+            >
             <nly-sidebar-nav-item
               to="/listgroup"
               link-class="xxx zzz"
@@ -475,29 +521,6 @@
               exact
               >tabs</nly-sidebar-nav-item
             >
-          </nly-sidebar-nav-tree>
-          <nly-sidebar-nav-tree
-            target="components-six"
-            icon="nav-icon fas nlyfont nly-icon-logo-polymer"
-            text="components-form"
-          >
-            <nly-sidebar-nav-item
-              to="/dropdown"
-              link-class="xxx zzz"
-              class="sss"
-              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
-              exact
-              >dropdown</nly-sidebar-nav-item
-            >
-
-            <nly-sidebar-nav-item
-              to="/formgroup"
-              link-class="xxx zzz"
-              class="sss"
-              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
-              exact
-              >formgroup</nly-sidebar-nav-item
-            >
             <nly-sidebar-nav-item
               to="/popover"
               link-class="xxx zzz"
@@ -505,22 +528,6 @@
               icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
               exact
               >popover</nly-sidebar-nav-item
-            >
-            <nly-sidebar-nav-item
-              to="/inputgroup"
-              link-class="xxx zzz"
-              class="sss"
-              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
-              exact
-              >inputgroup</nly-sidebar-nav-item
-            >
-            <nly-sidebar-nav-item
-              to="/formselect"
-              link-class="xxx zzz"
-              class="sss"
-              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
-              exact
-              >formselect</nly-sidebar-nav-item
             >
           </nly-sidebar-nav-tree>
         </nly-sidebar-nav>
