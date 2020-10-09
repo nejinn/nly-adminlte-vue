@@ -718,6 +718,9 @@ export const NlyDaterangePicker = Vue.extend({
             secondPicker: this.timePickerSeconds,
             currentTime: this.start,
             readonly: this.readonly
+          },
+          on: {
+            update: this.onUpdateStartTime
           }
         })
       );
