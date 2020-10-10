@@ -129,16 +129,16 @@
   export default {
     methods: {
       showModal() {
-        this.$refs['my-modal'].show()
+        this.$refs["my-modal"].show();
       },
       hideModal() {
-        this.$refs['my-modal'].hide()
+        this.$refs["my-modal"].hide();
       },
       toggleModal() {
-        this.$refs['my-modal'].toggle('#toggle-btn')
-      },
-    },
-  }
+        this.$refs["my-modal"].toggle("#toggle-btn");
+      }
+    }
+  };
 </script>
 
 <!-- show,hide,toggle 显示隐藏.name -->
@@ -172,10 +172,10 @@
   export default {
     data() {
       return {
-        modalShow: false,
-      }
-    },
-  }
+        modalShow: false
+      };
+    }
+  };
 </script>
 
 <!-- v-model 显示隐藏.name -->
@@ -216,25 +216,25 @@
   export default {
     methods: {
       showModal() {
-        this.$root.$emit('nlya::show::modal', 'modal-root', '#btnShowRoot')
+        this.$root.$emit("nlya::show::modal", "modal-root", "#btnShowRoot");
       },
       hideModal() {
-        this.$root.$emit('nlya::hide::modal', 'modal-root', '#btnShowRoot')
+        this.$root.$emit("nlya::hide::modal", "modal-root", "#btnShowRoot");
       },
       toggleModal() {
-        this.$root.$emit('nlya::toggle::modal', 'modal-root', '#btnToggleRoot')
-      },
-    },
-  }
+        this.$root.$emit("nlya::toggle::modal", "modal-root", "#btnToggleRoot");
+      }
+    }
+  };
 </script>
 
 <!-- $root 显示隐藏.name -->
 <!-- nly-modal-modal-hide-show.vue -->
 ```
 
-## 阻止关闭
+### 阻止关闭
 
-可以绑定 `.preventDefault()` 方法到 `ok` (确定按钮), `cancel` (取消按钮),`close`(modal 头部的关闭按钮),`hide`事件上 来阻止`nly-modal` 关闭
+可以绑定 `.preventDefault()` 方法到 `ok` (确定按钮), `cancel` (取消按钮), `close` (modal 头部的关闭按钮), `hide` 事件上 来阻止 `nly-modal` 关闭
 
 `.preventDefault()` 使用的时候，必须是同步事件，不支持异步
 
@@ -282,36 +282,36 @@
   export default {
     data() {
       return {
-        name: '',
-        nameState: 'novalid',
-        submittedNames: [],
-      }
+        name: "",
+        nameState: "novalid",
+        submittedNames: []
+      };
     },
     methods: {
       checkFormValidity() {
-        const valid = this.$refs.form.checkValidity() ? 'valid' : 'invalid'
-        this.nameState = valid
-        return valid
+        const valid = this.$refs.form.checkValidity() ? "valid" : "invalid";
+        this.nameState = valid;
+        return valid;
       },
       resetModal() {
-        this.name = ''
-        this.nameState = 'novalid'
+        this.name = "";
+        this.nameState = "novalid";
       },
       handleOk(nlyaModalEvt) {
-        nlyaModalEvt.preventDefault()
-        this.handleSubmit()
+        nlyaModalEvt.preventDefault();
+        this.handleSubmit();
       },
       handleSubmit() {
-        if (this.checkFormValidity() === 'invalid') {
-          return
+        if (this.checkFormValidity() === "invalid") {
+          return;
         }
-        this.submittedNames.push(this.name)
+        this.submittedNames.push(this.name);
         this.$nextTick(() => {
-          this.$nlyaModal.hide('modal-prevent-closing')
-        })
-      },
-    },
-  }
+          this.$nlyaModal.hide("modal-prevent-closing");
+        });
+      }
+    }
+  };
 </script>
 
 <!-- 阻止关闭.name -->
@@ -320,17 +320,17 @@
 
 **注意**
 
-- `ok` (确定按钮), `cancel` (取消按钮), `colse` (modal 头部的关闭按钮) 都是内置的 `确定按钮`, `取消按钮`, `modal 头部的关闭按钮` 触发的. 如果您对这些适用卤具名按钮， 请使用 `hide` 事件来触发。
+- `ok` (确定按钮), `cancel` (取消按钮), `colse` (modal 头部的关闭按钮) 都是内置的 `确定按钮` , `取消按钮` , `modal 头部的关闭按钮` 触发的. 如果您对这些适用卤具名按钮， 请使用 `hide` 事件来触发。
 
-`ok` (确定按钮), `cancel` (取消按钮),`close`(modal 头部的关闭按钮),`hide`事件`(nlyaModalEvt)`包含以下方法和属性：
+`ok` (确定按钮), `cancel` (取消按钮), `close` (modal 头部的关闭按钮), `hide` 事件 `(nlyaModalEvt)` 包含以下方法和属性：
 
-| Property or Method | Type     | Description                                                                                                                                                                                                                                                                                                                                                            |
-| ------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `preventDefault()` | Method   | 阻止关闭                                                                                                                                                                                                                                                                                                                                                               |
-| `trigger`          | Property | 可以是以下选项: `ok` (默认的 **OK** 按钮点击调用 Clicked), `cancel` (默认的 **Cancel** 按钮点击调用), `esc` (按下 <kbd>Esc</kbd> 按键调用), `backdrop` (点击 modal 罩层调用), `headerclose` (modal 头部 x 关闭按钮调用), 这些应该作为只一个参数传给 `hide()` 方法, 如果不需要设置，请传入 `null` 或者不传入，`trigger` 的使用方法请看下面 [trigger 源码](#trigger源码) |
-| `target`           | Property | model 元素                                                                                                                                                                                                                                                                                                                                                             |
-| `vueTarget`        | property | vue 实例的 model 元素                                                                                                                                                                                                                                                                                                                                                  |
-| `componentId`      | property | modal 的 id                                                                                                                                                                                                                                                                                                                                                            |
+| Property or Method | Type     | Description                                                                                                                                                                                                                                                                                                                                                             |
+| ------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `preventDefault()` | Method   | 阻止关闭                                                                                                                                                                                                                                                                                                                                                                |
+| `trigger`          | Property | 可以是以下选项: `ok` (默认的 **OK** 按钮点击调用 Clicked), `cancel` (默认的 **Cancel** 按钮点击调用), `esc` (按下 <kbd>Esc</kbd> 按键调用), `backdrop` (点击 modal 罩层调用), `headerclose` (modal 头部 x 关闭按钮调用), 这些应该作为只一个参数传给 `hide()` 方法, 如果不需要设置，请传入 `null` 或者不传入， `trigger` 的使用方法请看下面 [trigger 源码](#trigger源码) |
+| `target`           | Property | model 元素                                                                                                                                                                                                                                                                                                                                                              |
+| `vueTarget`        | property | vue 实例的 model 元素                                                                                                                                                                                                                                                                                                                                                   |
+| `componentId`      | property | modal 的 id                                                                                                                                                                                                                                                                                                                                                             |
 
 **注意**
 
@@ -338,40 +338,40 @@
 
 ```js
 hide(trigger = "") {
-  if (!this.isVisible || this.isClosing) {
-    /* istanbul ignore next */
-    return;
-  }
-  this.isClosing = true;
-  const hideEvt = this.buildEvent("hide", {
-    cancelable: trigger !== "FORCE",
-    trigger: trigger || null
-  });
-  // We emit specific event for one of the three built-in buttons
-  if (trigger === "ok") {
-    this.$emit("ok", hideEvt);
-  } else if (trigger === "cancel") {
-    this.$emit("cancel", hideEvt);
-  } else if (trigger === "headerclose") {
-    this.$emit("close", hideEvt);
-  }
-  this.emitEvent(hideEvt);
-  // Hide if not canceled
-  if (hideEvt.defaultPrevented || !this.isVisible) {
-    this.isClosing = false;
-    // Ensure v-model reflects current state
-    this.updateModel(true);
-    return;
-  }
-  // Stop observing for content changes
-  if (this._observer) {
-    this._observer.disconnect();
-    this._observer = null;
-  }
-  // Trigger the hide transition
-  this.isVisible = false;
-  // Update the v-model
-  this.updateModel(false);
+    if (!this.isVisible || this.isClosing) {
+        /* istanbul ignore next */
+        return;
+    }
+    this.isClosing = true;
+    const hideEvt = this.buildEvent("hide", {
+        cancelable: trigger !== "FORCE",
+        trigger: trigger || null
+    });
+    // We emit specific event for one of the three built-in buttons
+    if (trigger === "ok") {
+        this.$emit("ok", hideEvt);
+    } else if (trigger === "cancel") {
+        this.$emit("cancel", hideEvt);
+    } else if (trigger === "headerclose") {
+        this.$emit("close", hideEvt);
+    }
+    this.emitEvent(hideEvt);
+    // Hide if not canceled
+    if (hideEvt.defaultPrevented || !this.isVisible) {
+        this.isClosing = false;
+        // Ensure v-model reflects current state
+        this.updateModel(true);
+        return;
+    }
+    // Stop observing for content changes
+    if (this._observer) {
+        this._observer.disconnect();
+        this._observer = null;
+    }
+    // Trigger the hide transition
+    this.isVisible = false;
+    // Update the v-model
+    this.updateModel(false);
 }
 ```
 
@@ -379,9 +379,37 @@ hide(trigger = "") {
 
 ### 使用 `grid` 布局和 `container` 布局和 `wrapper` 布局
 
-在 model 中可以任意嵌套 `nly-container`, `nly-row`, `nly-col`, `nly-wrapper` 系列 布局
+在 `nly-model` 中可以任意嵌套 `nly-container` , `nly-row` , `nly-col` , `nly-wrapper` 系列 布局
 
-### 
+### Tooltips and popovers
+
+Tooltips 和 popovers 放在 `nly-model` 中，当 `nly-model` 关闭的时候， Tooltips 和 popovers 会自动关闭。
+
+Tooltips 和 popovers 会自动添加到 model 元素中，当然您也可以把 Tooltips 和 popovers 添加到指定 id 的元素中， 可以参考 Tooltips 和 popovers 的文档
+
+```html
+<div>
+  <nly-button v-nly-modal.modalPopover>弹出model</nly-button>
+
+  <nly-modal id="modalPopover" title="带 popovers 的 model" ok-only>
+    <p>
+      这个
+      <nly-button v-nly-popover="'model 中的 popovers!'" title="Popover"
+        >按钮</nly-button
+      >
+      点击弹出 popovers
+    </p>
+    <p>
+      这个
+      <a href="#" v-nly-tooltip title="modal 中的tooltip">链接</a>
+      鼠标悬浮会弹出 toolptips
+    </p>
+  </nly-modal>
+</div>
+
+<!-- Tooltips 和 popovers.name -->
+<!-- Tooltips and popovers.vue -->
+```
 
 ## 模态消息框
 
