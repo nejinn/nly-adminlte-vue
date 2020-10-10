@@ -37,7 +37,7 @@ import { TooltipPlugin } from "./tooltip";
 import { RenderFunctionPlugin } from "./render-function";
 import { TabsPlugin } from "./tabs";
 import { WrapperPlugin } from "./wrapper";
-import { DaterangePickerPlugin } from "./form-daterange-picker";
+import { FormDatepickerPlugin } from "./form-datepicker";
 
 export const componentsPlugin = nlyPluginFactory({
   plugins: {
@@ -78,6 +78,6 @@ export const componentsPlugin = nlyPluginFactory({
     LogPlugin,
     ModalPlugin,
     TabsPlugin,
-    DaterangePickerPlugin
+    FormDatepickerPlugin
   }
 });

@@ -8,7 +8,7 @@
           label-class="font-weight-bold pt-0"
           class="mb-0"
         >
-          <nly-daterange-picker
+          <nly-form-datepicker
             ref="picker"
             :opens="opens"
             :locale-data="{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"

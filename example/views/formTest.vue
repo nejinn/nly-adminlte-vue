@@ -8,7 +8,7 @@
           label-class="font-weight-bold pt-0"
           class="mb-0"
         >
-          <nly-daterange-picker
+          <nly-form-datepicker
             ref="picker"
             :opens="opens"
             :locale-data="{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"
@@ -284,10 +284,10 @@
 
 <script>
 import dateUtil from "../nly-adminlte-vue/utils/daterange-picker/native";
-import { NlyDaterangePicker } from "../nly-adminlte-vue/components/form-daterange-picker/daterange-picker";
+import { NlyFormDatepicker } from "../nly-adminlte-vue/components/form-datepicker/form-datepicker";
 export default {
   components: {
-    NlyDaterangePicker
+    NlyFormDatepicker
   },
   name: "",
   filters: {

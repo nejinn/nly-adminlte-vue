@@ -38,28 +38,15 @@
 
 English README || [中文 README](https://github.com/nejinn/nly-adminlte-vue/tree/master/zh)
 
-
 # 1. nly-adminlte-vue
-<!-- TOC -->
 
-- [1. nly-adminlte-vue](#1-nly-adminlte-vue)
-- [2. Demo](#2-demo)
-- [3. Docs](#3-docs)
-- [4. Progress](#4-progress)
-  - [4.1. Component](#41-component)
-  - [4.2. Directives](#42-directives)
-  - [4.3. Install](#43-install)
-    - [4.3.1. clone from Github](#431-clone-from-github)
-    - [4.3.2. npm](#432-npm)
-- [5. Thanks](#5-thanks)
+<!-- TOC -->autoauto- [1. nly-adminlte-vue](#1-nly-adminlte-vue)auto- [2. Demo](#2-demo)auto- [3. Docs](#3-docs)auto- [4. Progress](#4-progress)auto    - [4.1. Component](#41-component)auto    - [4.2. Directives](#42-directives)auto    - [4.3. Install](#43-install)auto        - [4.3.1. clone from Github](#431-clone-from-github)auto        - [4.3.2. npm](#432-npm)auto- [5. Thanks](#5-thanks)autoauto<!-- /TOC -->
 
-<!-- /TOC -->
+> nly-adminlte-vue 是一个基于 adminlte3 封装的 vue 组件库。干掉 jq，让 vue 更好的使用 adminlte3。
 
-> nly-adminlte-vue是一个基于adminlte3封装的vue组件库。干掉jq，让vue更好的使用adminlte3。
+> 欢迎加群交流 QQ 群：927568606
 
-> 欢迎加群交流 QQ群：927568606
-
-> 目前版本为测试版本，欢迎体验更新代码。可能会 存在新版本不兼容旧版本prop的情况，请注意
+> 目前版本为测试版本，欢迎体验更新代码。可能会 存在新版本不兼容旧版本 prop 的情况，请注意
 
 # 2. Demo
 
@@ -89,79 +76,71 @@ We also can view docs localhost with `npm run docs-dev`. [docs-dev](#43-install)
 
 ## 4.1. Component
 
-* theme
-* collapse
-* navbar
-* nav
-* grid row col
-* container
-* content
-* wrapper
-* link
-* button
-* switch
-* card
-* badge
-* dropdown
-* icon
-* control-sidebar
-* overlay
-* toast
-* spinner
-* progress
-* timeline
-* breadcrumb
-* infobox
-* table 
-* tooltip
-* paginaton
-* renderfunction
-* form
-* input
-* feedback
-* log
-* list-group
-* modal
-* tabs
-* form-group
-* popover
-* input-group
-* form-select
-* daterange-picker
+- theme
+- collapse
+- navbar
+- nav
+- grid row col
+- container
+- content
+- wrapper
+- link
+- button
+- switch
+- card
+- badge
+- dropdown
+- icon
+- control-sidebar
+- overlay
+- toast
+- spinner
+- progress
+- timeline
+- breadcrumb
+- infobox
+- table
+- tooltip
+- paginaton
+- renderfunction
+- form
+- input
+- feedback
+- log
+- list-group
+- modal
+- tabs
+- form-group
+- popover
+- input-group
+- form-select
+- form-datepicker
 
 ## 4.2. Directives
 
-* v-nly-sidebar-collapse
-* v-nly-control-sidebar-collapse
-* v-nly-card-maximized
-* v-nly-toggle
-* v-nly-tooltip
-* v-nly-modal
-* v-nly-scrollspy
-* v-nly-popover
-* v-nly-toggle
+- v-nly-sidebar-collapse
+- v-nly-control-sidebar-collapse
+- v-nly-card-maximized
+- v-nly-toggle
+- v-nly-tooltip
+- v-nly-modal
+- v-nly-scrollspy
+- v-nly-popover
+- v-nly-toggle
 
 ## 4.3. Install
 
 ### 4.3.1. clone from Github
 
 ```html
-git clone https://github.com/nejinn/nly-adminlte-vue.git
-
-npm install 
-
-npm run serve
-
-// view example
-http://localhost:8080
-
-// view local docs
-npm run docs-dev
+git clone https://github.com/nejinn/nly-adminlte-vue.git npm install npm run
+serve // view example http://localhost:8080 // view local docs npm run docs-dev
 ```
 
 ### 4.3.2. npm
 
-* import all
+- import all
+
 ```js
 
 npm install nly-adminlte-vue
@@ -186,28 +165,44 @@ Vue.use(NlyAdminlteVueIcons);
 <script src="//unpkg.com/nly-adminlte-vue@latest/dist/nly-adminlte-vue.umd.js"></script>
 
 <!-- 引入nly-adminlte-vue CSS -->
-<link type="text/css" rel="stylesheet" href="//unpkg.com/nly-adminlte-vue@latest/dist/nly-adminlte-vue.css" />
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="//unpkg.com/nly-adminlte-vue@latest/dist/nly-adminlte-vue.css"
+/>
 
 <!-- adminlte3 CSS -->
-<link type="text/css" rel="stylesheet" href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/css/adminlte.css" />
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/css/adminlte.css"
+/>
 
 <!-- nly-adminlte-vue-icon JS-->
 <script src="//unpkg.com/nly-adminlte-vue@latest/dist/nly-adminlte-vue-icon.umd.js"></script>
 
 <!-- nlyfont icon CSS -->
-<link type="text/css" rel="stylesheet" href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/icon/iconfont.css" />
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/icon/iconfont.css"
+/>
 
 <!-- fontawesome icon CSS -->
-<link type="text/css" rel="stylesheet" href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/fontawesome-free/css/all.css" />
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/fontawesome-free/css/all.css"
+/>
 ```
 
-* import one
+- import one
 
 > Just like nly-badge
 
 ```js
 import { NlyBadge } from "nly-adminlte-vue";
-Vue.component('nly-badge', NlyBadge)
+Vue.component("nly-badge", NlyBadge);
 ```
 
 > import Plugin

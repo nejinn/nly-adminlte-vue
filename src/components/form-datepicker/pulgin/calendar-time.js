@@ -83,6 +83,7 @@ export const NlyCalendarTime = Vue.extend({
       this.hour = evt.target.value;
     },
     minuteOnChange(evt) {
+      console.log(222, evt);
       this.minute = evt.target.value;
     },
     secondOnChange(evt) {

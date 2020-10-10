@@ -9,9 +9,9 @@ import { NlyInputGroup } from "../input-group/input-group";
 import { NlyFormInput } from "../form-input/form-input";
 import { hasNormalizedSlot } from "../../utils/normalize-slot";
 
-const name = "NlyDaterangePicker";
+const name = "NlyFormDatepicker";
 
-export const NlyDaterangePicker = Vue.extend({
+export const NlyFormDatepicker = Vue.extend({
   name: name,
   inheritAttrs: false,
   mixins: [dateUtilMixin],
@@ -761,12 +761,14 @@ export const NlyDaterangePicker = Vue.extend({
       drpCalendarRightChildrenVnodes.push(
         h(NlyCalendarTime, {
           props: {
-            update: this.onUpdateEndTime,
             miniuteIncrement: this.timePickerIncrement,
             hour24: this.timePicker24Hour,
             secondPicker: this.timePickerSeconds,
             currentTime: this.end,
             readonly: this.readonly
+          },
+          on: {
+            update: this.onUpdateEndTime
           }
         })
       );

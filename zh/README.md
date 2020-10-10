@@ -40,20 +40,7 @@
 
 # 1. nly-adminlte-vue
 
-<!-- TOC -->
-
-- [1. nly-adminlte-vue](#1-nly-adminlte-vue)
-- [2. demo](#2-demo)
-- [3. 文档](#3-文档)
-- [4. 进度](#4-进度)
-  - [4.1. 组件](#41-组件)
-  - [4.2. 指令](#42-指令)
-  - [4.3. 使用](#43-使用)
-    - [4.3.1. 可以直接 clone 下载项目](#431-可以直接-clone-下载项目)
-    - [4.3.2. 从 npm 下载](#432-从-npm-下载)
-- [5. 感谢](#5-感谢)
-
-<!-- /TOC -->
+<!-- TOC -->autoauto- [1. nly-adminlte-vue](#1-nly-adminlte-vue)auto- [2. demo](#2-demo)auto- [3. 文档](#3-文档)auto- [4. 进度](#4-进度)auto    - [4.1. 组件](#41-组件)auto    - [4.2. 指令](#42-指令)auto    - [4.3. 使用](#43-使用)auto        - [4.3.1. 可以直接 clone 下载项目](#431-可以直接-clone-下载项目)auto        - [4.3.2. 从 npm 下载](#432-从-npm-下载)auto- [5. 感谢](#5-感谢)autoauto<!-- /TOC -->
 
 > nly-adminlte-vue 是一个基于 adminlte3 封装的 vue 组件库。干掉 jq，让 vue 更好的使用 adminlte3。
 
@@ -127,7 +114,7 @@
 - 弹出框 popover
 - 输入框组 input-group
 - 下拉选择输入框 form-select
-- 日期选择器 daterange-picker
+- 日期选择器 form-datepicker
 
 ## 4.2. 指令
 
@@ -176,19 +163,35 @@ Vue.use(NlyAdminlteVueIcons);
 <script src="//unpkg.com/nly-adminlte-vue@latest/dist/nly-adminlte-vue.umd.js"></script>
 
 <!-- 引入nly-adminlte-vue CSS文件 -->
-<link type="text/css" rel="stylesheet" href="//unpkg.com/nly-adminlte-vue@latest/dist/nly-adminlte-vue.css" />
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="//unpkg.com/nly-adminlte-vue@latest/dist/nly-adminlte-vue.css"
+/>
 
 <!-- 引入adminlte3 CSS文件 -->
-<link type="text/css" rel="stylesheet" href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/css/adminlte.css" />
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/css/adminlte.css"
+/>
 
 <!-- 引入nly-adminlte-vue-icon JS入口文件-->
 <script src="//unpkg.com/nly-adminlte-vue@latest/dist/nly-adminlte-vue-icon.umd.js"></script>
 
 <!-- 引入nlyfont icon CSS文件 -->
-<link type="text/css" rel="stylesheet" href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/icon/iconfont.css" />
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/icon/iconfont.css"
+/>
 
 <!-- 引入免费fontawesome icon CSS文件 -->
-<link type="text/css" rel="stylesheet" href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/fontawesome-free/css/all.css" />
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="//unpkg.com/nly-adminlte-vue@latest/dist/adminlte/fontawesome-free/css/all.css"
+/>
 ```
 
 - 单包引入
@@ -196,15 +199,15 @@ Vue.use(NlyAdminlteVueIcons);
 > 比如引入 nly-badge
 
 ```js
-import { NlyBadge } from 'nly-adminlte-vue'
-Vue.component('nly-badge', NlyBadge)
+import { NlyBadge } from "nly-adminlte-vue";
+Vue.component("nly-badge", NlyBadge);
 ```
 
 > 整个 badgePlugin 导出
 
 ```js
-import { badgePlugin } from 'nly-adminlte-vue'
-Vue.use(badgePlugin)
+import { badgePlugin } from "nly-adminlte-vue";
+Vue.use(badgePlugin);
 ```
 
 # 5. 感谢

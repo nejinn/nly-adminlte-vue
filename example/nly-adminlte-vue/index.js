@@ -62,13 +62,13 @@ export { NlyControlSidebarContainer } from "./components/control-sidebar/control
 export { NlyControlSidebar } from "./components/control-sidebar/control-sidebar";
 export { NlyControlSidebarButton } from "./components/control-sidebar/control-sidebar-button";
 
-export { DaterangePickerPlugin } from "./components/form-daterange-picker";
-export { NlyDaterangePicker } from "./components/form-daterange-picker/daterange-picker";
-export { VNlyAppendToBody } from "./components/form-daterange-picker/pulgin/append-to-body";
-export { NlyCalendar } from "./components/form-daterange-picker/pulgin/calendar";
-export { NlyCalendarRangs } from "./components/form-daterange-picker/pulgin/calendar-rangs";
-export { NlyCalendarTime } from "./components/form-daterange-picker/pulgin/calendar-time";
-export { NlyDaterangePickerTransition } from "./components/form-daterange-picker/pulgin/transition";
+export { FormDatepickerPlugin } from "./components/form-datepicker";
+export { NlyFormDatepicker } from "./components/form-datepicker/form-datepicker";
+export { VNlyAppendToBody } from "./components/form-datepicker/pulgin/append-to-body";
+export { NlyCalendar } from "./components/form-datepicker/pulgin/calendar";
+export { NlyCalendarRangs } from "./components/form-datepicker/pulgin/calendar-rangs";
+export { NlyCalendarTime } from "./components/form-datepicker/pulgin/calendar-time";
+export { NlyDaterangePickerTransition } from "./components/form-datepicker/pulgin/transition";
 
 export { DropdownPlugin } from "./components/dropdown";
 export { NlyDropdown } from "./components/dropdown/dropdown";

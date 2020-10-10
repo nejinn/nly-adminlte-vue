@@ -1,8 +1,8 @@
 {
-  "name": "@nly-adminlte-vue/form",
+  "name": "@nly-adminlte-vue/form-datepicker",
   "version": "1.0.0",
   "meta": {
-    "title": "Form",
+    "title": "Form Datepicker",
     "subtitle": "表单",
     "description": "表单",
     "components": [
