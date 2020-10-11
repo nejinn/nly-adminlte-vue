@@ -497,6 +497,119 @@ modal 的大小可以由 `size` prop 來控制。 可选 `sm`, `md`, `lg`。
 <!-- centered.vue -->
 ```
 
+### 颜色
+
+使用以下 prop 来控制 header， foorer， body的颜色： `header-bg-variant`, `header-text-variant`, `body-bg-variant`, `body-text-variant`, `footer-bg-variant`, `footer-text-variant` props. 使用 adminlte 的主体颜色， 比如: `danger`, `warning`, `info`, `success`, `dark`, `light`
+
+``` html
+<template>
+  <div>
+    <nly-button @click="show=true" variant="primary">Show Modal</nly-button>
+
+    <nly-modal
+      v-model="show"
+      title="Modal Variants"
+      :header-bg-variant="headerBgVariant"
+      :header-text-variant="headerTextVariant"
+      :body-bg-variant="bodyBgVariant"
+      :body-text-variant="bodyTextVariant"
+      :footer-bg-variant="footerBgVariant"
+      :footer-text-variant="footerTextVariant"
+    >
+      <nly-container fluid>
+        <nly-row class="mb-1 text-center">
+          <nly-col cols="3"></nly-col>
+          <nly-col>Background</nly-col>
+          <nly-col>Text</nly-col>
+        </nly-row>
+
+        <nly-row class="mb-1">
+          <nly-col cols="3">Header</nly-col>
+          <nly-col>
+            <nly-form-select
+              v-model="headerBgVariant"
+              :options="variants"
+            ></nly-form-select>
+          </nly-col>
+          <nly-col>
+            <nly-form-select
+              v-model="headerTextVariant"
+              :options="variants"
+            ></nly-form-select>
+          </nly-col>
+        </nly-row>
+
+        <nly-row class="mb-1">
+          <nly-col cols="3">Body</nly-col>
+          <nly-col>
+            <nly-form-select
+              v-model="bodyBgVariant"
+              :options="variants"
+            ></nly-form-select>
+          </nly-col>
+          <nly-col>
+            <nly-form-select
+              v-model="bodyTextVariant"
+              :options="variants"
+            ></nly-form-select>
+          </nly-col>
+        </nly-row>
+
+        <nly-row>
+          <nly-col cols="3">Footer</nly-col>
+          <nly-col>
+            <nly-form-select
+              v-model="footerBgVariant"
+              :options="variants"
+            ></nly-form-select>
+          </nly-col>
+          <nly-col>
+            <nly-form-select
+              v-model="footerTextVariant"
+              :options="variants"
+            ></nly-form-select>
+          </nly-col>
+        </nly-row>
+      </nly-container>
+
+      <template v-slot:modal-footer>
+        <div class="w-100">
+          <p class="float-left">Modal Footer Content</p>
+          <nly-button
+            variant="primary"
+            size="sm"
+            class="float-right"
+            @click="show=false"
+          >
+            Close
+          </nly-button>
+        </div>
+      </template>
+    </nly-modal>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        show: false,
+        variants: ['primary', 'secondary', 'success', 'warning', 'danger', 'info', 'light', 'dark'],
+        headerBgVariant: 'dark',
+        headerTextVariant: 'light',
+        bodyBgVariant: 'light',
+        bodyTextVariant: 'dark',
+        footerBgVariant: 'warning',
+        footerTextVariant: 'dark'
+      }
+    }
+  }
+</script>
+
+<!-- 颜色.name -->
+<!-- variant.vue -->
+```
+
 ### 隐藏罩层
 
 ```html

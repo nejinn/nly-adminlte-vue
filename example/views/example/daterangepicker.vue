@@ -326,7 +326,6 @@ export default {
   },
   methods: {
     updateValues(values) {
-      console.log("event: update", { ...values });
       this.dateRange.startDate = dateUtil.format(
         values.startDate,
         "yyyy-mm-dd HH:MM:ss"

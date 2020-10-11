@@ -146,7 +146,7 @@
                   >v-model</nly-badge
                 >
                 <nly-badge v-if="item.xss" variant="warning"
-                  >Use with caution</nly-badge
+                  >谨慎使用</nly-badge
                 >
                 <nly-badge v-if="item.deprecated" variant="danger"
                   >Deprecated</nly-badge

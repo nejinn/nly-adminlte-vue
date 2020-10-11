@@ -13,6 +13,7 @@ import { DropdownPlugin } from "./dropdown";
 import { FormPlugin } from "./form";
 import { FormGroupPlugin } from "./form-group";
 import { FormInputPlugin } from "./form-input";
+import { FormSelectPlugin } from "./form-select";
 import { GridPlugin } from "./grid";
 import { InfoboxPlugin } from "./info-box";
 import { InputGroupoPlugin } from "./input-group";
@@ -51,8 +52,10 @@ export const componentsPlugin = nlyPluginFactory({
     ContentPlugin,
     ControlSidebarPlugin,
     DropdownPlugin,
+    FormPlugin,
     FormGroupPlugin,
     FormInputPlugin,
+    FormSelectPlugin,
     GridPlugin,
     InputGroupoPlugin,
     TablePlugin,
@@ -74,7 +77,6 @@ export const componentsPlugin = nlyPluginFactory({
     TooltipPlugin,
     RenderFunctionPlugin,
     PaginationPlugin,
-    FormPlugin,
     LogPlugin,
     ModalPlugin,
     TabsPlugin,

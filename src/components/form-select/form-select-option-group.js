@@ -5,9 +5,8 @@ import normalizeSlotMixin from "../../mixins/normalize-slot";
 import { NlyFormSelectOption } from "./form-select-option";
 
 // @vue/component
-const name = NlyFormSelectOptionGroup;
 const NlyFormSelectOptionGroup = /*#__PURE__*/ Vue.extend({
-  name: name,
+  name: "NlyFormSelectOptionGroup",
   mixins: [normalizeSlotMixin, formOptionsMixin],
   props: {
     label: {

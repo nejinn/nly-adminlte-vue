@@ -795,7 +795,6 @@ export const NlyFormDatepicker = Vue.extend({
       },
       calendarsContainerChildrenVnodes
     );
-    console.log(this.ranges);
     const calendarsRowVnodes = () => {
       if (hasNormalizedSlot("header", this.$scopedSlots, this.$slots)) {
         if (this.showRanges) {
