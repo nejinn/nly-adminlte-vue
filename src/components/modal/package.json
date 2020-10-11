@@ -7,205 +7,41 @@
     "description": "模态框是一种悬浮悬浮于主窗口的用来现实额外内容的对话框",
     "components": [
       {
-        "component": "NlyLog",
+        "component": "NlyModal",
         "props": [
           {
-            "prop": "logClass",
-            "description": "log自定义css"
+            "prop": "centered",
+            "description": "modal 居中显示"
           },
           {
-            "prop": "containerTag",
-            "description": "容器tag"
+            "prop": "scrollable",
+            "description": "允许 modal body 出现滚动条， 负责滚动条是浏览器的滚动条"
           },
           {
-            "prop": "containerClass",
-            "description": "容器自定义css"
+            "prop": "buttonSize",
+            "description": "设置footer的按钮大小， 可选'sm', 'md', 'lg', 'md'为默认大小"
+          },
+          {
+            "prop": "noStacking",
+            "description": "设置 no-stacking，在其他 modal 将要打开的之前，设置no-stacking的modal会自动关闭"
+          },
+          {
+            "prop": "noCloseOnBackdrop",
+            "description": "设置 no-close-on-backdrop, 点击背景罩层不会关闭 modal"
+          },
+          {
+            "prop": "noCloseOnEsc",
+            "description": "设置 no-close-on-esc,按键盘ESC键不会关闭 modal"
+          },
+          {
+            "prop": "noEnforceFocus",
+            "description": "强制禁用聚焦功能"
+          },
+          {
+            "prop": "ignoreEnforceFocusSelector",
+            "description": "ignore-enforce-focus-selector 是一个css 选择器，如果需要在打开modal的时候聚焦到其他元素上， 可以把其他需要聚焦的元素的 css 类添加到  prop ignore-enforce-focus-selector中"
           }
-        ]
-      },
-      {
-        "component": "NlyLogHeader",
-        "props": [
-          {
-            "prop": "logHeaderClass",
-            "description": "header自定义css"
-          },
-          {
-            "prop": "titleTag",
-            "description": "title tag"
-          },
-          {
-            "prop": "titleClass",
-            "description": "title自定义css"
-          },
-          {
-            "prop": "title",
-            "description": "title内容"
-          }
-        ]
-      },
-      {
-        "component": "NlyLogBody",
-        "props": [
-          {
-            "prop": "scrollBottom",
-            "description": "开启滚动到底部按钮"
-          },
-          {
-            "prop": "bottomIcon",
-            "description": "滚动到底部按钮图标"
-          },
-          {
-            "prop": "bottomText",
-            "description": "滚动到底部按钮文字"
-          },
-          {
-            "prop": "scrollTop",
-            "description": "开启滚动到顶部按钮"
-          },
-          {
-            "prop": "topIcon",
-            "description": "滚动到顶部按钮图标"
-          },
-          {
-            "prop": "logBodyClass",
-            "description": "log body 自定义css"
-          },
-          {
-            "prop": "preClass",
-            "description": "pre标签自定义css式样"
-          },
-          {
-            "prop": "lockScrollBottom",
-            "description": "开启锁定到底部按钮"
-          },
-          {
-            "prop": "lockBottomIcon",
-            "description": "锁定底部按钮图标"
-          },
-          {
-            "prop": "lockBottomText",
-            "description": "锁定到底部按钮文字"
-          }
-        ]
-      },
-      {
-        "component": "NlyLogLine",
-        "props": [
-          {
-            "prop": "duration",
-            "description": "时间，传入会渲染time组件"
-          },
-          {
-            "prop": "durationClass",
-            "description": "time组件自定义css"
-          },
-          {
-            "prop": "line",
-            "description": "log行数"
-          },
-          {
-            "prop": "lineClass",
-            "description": "log行数自定义css"
-          },
-          {
-            "prop": "text",
-            "description": "log内容"
-          },
-          {
-            "prop": "textClass",
-            "description": "log内容自定义css"
-          },
-          {
-            "prop": "title",
-            "description": "log内容标题"
-          },
-          {
-            "prop": "titleClass",
-            "description": "log内容标题自定义css"
-          },
-          {
-            "prop": "icon",
-            "description": "log内容前面的icon图标"
-          },
-          {
-            "prop": "iconClass",
-            "description": "log内容icon自定义css"
-          },
-          {
-            "prop": "logLineClass",
-            "description": "log自定义css"
-          },
-          {
-            "prop": "highLight",
-            "description": "高亮"
-          }
-        ]
-      },
-      {
-        "component": "NlyLogLineTree",
-        "props": [
-          {
-            "prop": "duration",
-            "description": "时间，传入会渲染time组件"
-          },
-          {
-            "prop": "durationClass",
-            "description": "time组件自定义css"
-          },
-          {
-            "prop": "line",
-            "description": "log行数"
-          },
-          {
-            "prop": "lineClass",
-            "description": "log行数自定义css"
-          },
-          {
-            "prop": "text",
-            "description": "log内容"
-          },
-          {
-            "prop": "textClass",
-            "description": "log内容自定义css"
-          },
-          {
-            "prop": "title",
-            "description": "log内容标题"
-          },
-          {
-            "prop": "titleClass",
-            "description": "log内容标题自定义css"
-          },
-          {
-            "prop": "icon",
-            "description": "log内容前面的icon图标"
-          },
-          {
-            "prop": "iconClass",
-            "description": "log内容icon自定义css"
-          },
-          {
-            "prop": "logLineClass",
-            "description": "log自定义css"
-          },
-          {
-            "prop": "highLight",
-            "description": "高亮"
-          },
-          {
-            "prop": "visible",
-            "description": "默认收起折叠后log，设置true会打开"
-          }
-        ]
-      },
-      {
-        "component": "NlyLogTools",
-        "props": [
-          {
-            "prop": "logToolsClass",
-            "description": "自定义css"
-          }
+
         ]
       }
     ]
