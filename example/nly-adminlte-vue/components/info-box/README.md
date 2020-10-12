@@ -184,7 +184,7 @@
                 <nly-infobox-text>Events</nly-infobox-text>
                 <nly-infobox-number>33006689</nly-infobox-number>
                 <nly-progress value=70></nly-progress>
-                <nly-progress-descriptio>70% Increase in 30 Days</nly-progress-descriptio>
+                <nly-progress-description>70% Increase in 30 Days</nly-progress-description>
             </nly-infobox-body>
         </nly-infobox>
     </nly-col>

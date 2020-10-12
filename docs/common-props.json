@@ -21,43 +21,43 @@
     "description": "头部颜色， 可选 primary， secondary， success， info， warning， danger， light， dark， lightblue， navy， olive， lime， fuchsia， maroon， blue， indigo， purple， pink， red， orange， yellow， green， teal， cyan， white， gray， graydark"
   },
   "headerTextVariant": {
-    "description": "Applies one of the adminlte theme color variants to the header text"
+    "description": "header 文字 颜色"
   },
   "titleTextVariant": {
-    "description": "Applies one of the adminlte theme color variants to the title text"
+    "description": "标题文字颜色"
   },
   "subTitleTextVariant": {
-    "description": "Applies one of the adminlte theme color variants to the sub title text"
+    "description": "副标题文字颜色"
   },
   "headerBgVariant": {
-    "description": "Applies one of the adminlte theme color variants to the header background"
+    "description": "header 背景颜色"
   },
   "headerBorderVariant": {
-    "description": "Applies one of the adminlte theme color variants to the header border"
+    "description": "heder边框颜色"
   },
   "footerVariant": {
-    "description": "Applies one of the adminlte theme color variants to the footer"
+    "description": "footer 背景颜色"
   },
   "footerTextVariant": {
-    "description": "Applies one of the adminlte theme color variants to the footer text"
+    "description": "footer 文字颜色"
   },
   "footerBgVariant": {
-    "description": "Applies one of the adminlte theme color variants to the footer background"
+    "description": "footer 背景颜色"
   },
   "footerBorderVariant": {
-    "description": "Applies one of the adminlte theme color variants to the footer border"
+    "description": "footer边框颜色"
   },
   "bodyVariant": {
-    "description": "Applies one of the adminlte theme color variants to the body"
+    "description": "body 颜色"
   },
   "bodyTextVariant": {
-    "description": "Applies one of the adminlte theme color variants to the body text"
+    "description": "body 文字颜色"
   },
   "bodyBgVariant": {
-    "description": "Applies one of the adminlte theme color variants to the body background"
+    "description": "body 背景颜色"
   },
   "bodyBorderVariant": {
-    "description": "Applies one of the adminlte theme color variants to the body border"
+    "description": "body 边框颜色"
   },
   "tag": {
     "description": "标签"
@@ -66,52 +66,52 @@
     "description": "header标签"
   },
   "footerTag": {
-    "description": "Specify the HTML tag to render instead of the default tag for the footer"
+    "description": "footer的标签"
   },
   "bodyTag": {
-    "description": "Specify the HTML tag to render instead of the default tag for the body"
+    "description": "body的标签"
   },
   "titleTag": {
-    "description": "Specify the HTML tag to render instead of the default tag for the title"
+    "description": "标题的标签"
   },
   "subTitleTag": {
-    "description": "Specify the HTML tag to render instead of the default tag for the sub title"
+    "description": "副标题的标签"
   },
   "textTag": {
-    "description": "Specify the HTML tag to render instead of the default tag for the text content"
+    "description": "文本内容的标签"
   },
   "headerClass": {
-    "description": "CSS class (or classes) to apply to the header"
+    "description": "header的css类"
   },
   "footerClass": {
-    "description": "CSS class (or classes) to apply to the footer"
+    "description": "footer的css类"
   },
   "bodyClass": {
-    "description": "CSS class (or classes) to apply to the body"
+    "description": "body的css类"
   },
   "titleClass": {
-    "description": "CSS class (or classes) to apply to the title"
+    "description": "标题的css类"
   },
   "header": {
-    "description": "Text content to place in the header"
+    "description": "header主体内容"
   },
   "headerHtml": {
-    "description": "HTML string content to place in the header. Use with caution"
+    "description": "代替header的html字符串"
   },
   "footer": {
-    "description": "Text content to place in the footer"
+    "description": "footer的主体内容"
   },
   "footerHtml": {
-    "description": "HTML string content to place in the footer. Use with caution"
+    "description": "代替footer的html字符串"
   },
   "title": {
-    "description": "Text content to place in the title"
+    "description": "标题文字"
   },
   "titleHtml": {
-    "description": "HTML string content to place in the title. Use with caution"
+    "description": "用 html 字符串替换标题"
   },
   "subTitle": {
-    "description": "Text content to place in the sub title"
+    "description": "副标题文字"
   },
   "size": {
     "description": "大小，可选xs，sm，md，lg，xl"
@@ -147,25 +147,25 @@
     "description": "控制组件validation状态。可选 'valid'，'invalid'，'warning'，'novalid'。设置为'novalid'时，没有validation提示"
   },
   "options": {
-    "description": "Array of items to render in the component"
+    "description": "设置，类型为一个数组"
   },
   "valueField": {
-    "description": "Field name in the 'options' array that should be used for the value"
+    "description": "options中的字段，用于键值value"
   },
   "textField": {
-    "description": "Field name in the 'options' array that should be used for the text label"
+    "description": "options中的字段，用于键值label"
   },
   "htmlField": {
-    "description": "Field name in the 'options' array that should be used for the html label instead of text field. Use with caution."
+    "description": "options中的字段，用于键值text或者label"
   },
   "disabledField": {
-    "description": "Field name in the 'options' array that should be used for the disabled state"
+    "description": "options中的字段，用于禁用状态字段"
   },
   "plain": {
-    "description": "Render the form control in plain mode, rather than custom styled mode"
+    "description": "渲染成plain模式"
   },
   "static": {
-    "description": "Renders the content of the component in-place in the DOM, rather than portalling it to be appended to the body element"
+    "description": "渲染成静态模式，直接添加到对应的元素中或者下面，否则会被portal-vue渲染到html body的尾部"
   },
   "src": {
     "description": "src标签的url"
@@ -177,13 +177,13 @@
     "description": "role属性"
   },
   "ariaRole": {
-    "description": "Sets the ARIA attribute 'role' to a specific value"
+    "description": "attrs role 属性"
   },
   "ariaLabel": {
-    "description": "Sets the value of 'aria-label' attribute on the rendered element"
+    "description": "给元素设置 aria-label 属性"
   },
   "ariaLabelledby": {
-    "description": "The ID of the element that provides a label for this component. Used as the value for the 'aria-labelledby' attribute"
+    "description": "提供 arialabel 属性的元素 id."
   },
   "ariaDescribedby": {
     "description": "'aria-describedby' 属性"

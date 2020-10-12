@@ -12,8 +12,7 @@ import optionsMixin from "./helpers/mixin-options";
 import { NlyFormSelectOption } from "./form-select-option";
 import { NlyFormSelectOptionGroup } from "./form-select-option-group";
 
-// @vue/component
-export const NlyFormSelect = /*#__PURE__*/ Vue.extend({
+export const NlyFormSelect = Vue.extend({
   name: "NlyFormSelect",
   mixins: [
     idMixin,
@@ -121,7 +120,6 @@ export const NlyFormSelect = /*#__PURE__*/ Vue.extend({
             key
           });
     });
-
     return h(
       "select",
       {

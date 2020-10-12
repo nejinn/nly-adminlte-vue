@@ -29,9 +29,9 @@ export const NlyNavbarBrand = Vue.extend({
       mergeData(data, {
         staticClass: "navbar-brand",
         props: {
-          to: props.customTo,
-          href: props.customHref,
-          target: props.customTarget
+          to: props.to,
+          href: props.href,
+          target: props.target
         }
       }),
       children

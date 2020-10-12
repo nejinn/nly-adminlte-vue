@@ -13,6 +13,7 @@ import { DropdownPlugin } from "./dropdown";
 import { FormPlugin } from "./form";
 import { FormGroupPlugin } from "./form-group";
 import { FormInputPlugin } from "./form-input";
+import { FormSelectPlugin } from "./form-select";
 import { GridPlugin } from "./grid";
 import { InfoboxPlugin } from "./info-box";
 import { InputGroupoPlugin } from "./input-group";
@@ -37,7 +38,7 @@ import { TooltipPlugin } from "./tooltip";
 import { RenderFunctionPlugin } from "./render-function";
 import { TabsPlugin } from "./tabs";
 import { WrapperPlugin } from "./wrapper";
-import { DaterangePickerPlugin } from "./form-daterange-picker";
+import { FormDatepickerPlugin } from "./form-datepicker";
 
 export const componentsPlugin = nlyPluginFactory({
   plugins: {
@@ -51,8 +52,10 @@ export const componentsPlugin = nlyPluginFactory({
     ContentPlugin,
     ControlSidebarPlugin,
     DropdownPlugin,
+    FormPlugin,
     FormGroupPlugin,
     FormInputPlugin,
+    FormSelectPlugin,
     GridPlugin,
     InputGroupoPlugin,
     TablePlugin,
@@ -74,10 +77,9 @@ export const componentsPlugin = nlyPluginFactory({
     TooltipPlugin,
     RenderFunctionPlugin,
     PaginationPlugin,
-    FormPlugin,
     LogPlugin,
     ModalPlugin,
     TabsPlugin,
-    DaterangePickerPlugin
+    FormDatepickerPlugin
   }
 });

@@ -186,17 +186,19 @@ export const NlyFormGroup = Vue.extend({
 
       state.forEach(item => {
         if (Object.keys(feedback).indexOf(item) !== -1) {
-          result.push(
-            h(NlyFormFeedback, {
-              props: {
-                tooltip: this.customProps.tooltip,
-                ariaLive: this.customProps.feedbackAriaLive,
-                id: this.safeId(`__nly-form_group_feedback_${item}`),
-                state: item,
-                text: feedback[item]
-              }
-            })
-          );
+          if (feedback[item]) {
+            result.push(
+              h(NlyFormFeedback, {
+                props: {
+                  tooltip: this.customProps.tooltip,
+                  ariaLive: this.customProps.feedbackAriaLive,
+                  id: this.safeId(`__nly-form_group_feedback_${item}`),
+                  state: item,
+                  text: feedback[item]
+                }
+              })
+            );
+          }
         }
       });
 

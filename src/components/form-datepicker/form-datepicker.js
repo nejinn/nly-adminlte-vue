@@ -8,18 +8,58 @@ import { VNlyAppendToBody } from "./pulgin/append-to-body";
 import { NlyInputGroup } from "../input-group/input-group";
 import { NlyFormInput } from "../form-input/form-input";
 import { hasNormalizedSlot } from "../../utils/normalize-slot";
+import { NlyInputGroupPrepend } from "../input-group/input-group-prepend";
+import { NlyInputGroupAppend } from "../input-group/input-group-append";
+import { NlyInputGroupText } from "../input-group/input-group-text";
+import { htmlOrText } from "../../utils/html";
+import { formValidOptions } from "../../utils/nly-config";
+import { nlyGetOptionInclusion } from "../../utils/get-options";
+import { NlyFormFeedback } from "../form/form-feedback";
+import formValid from "../../mixins/form/form-valid";
 
-const name = "NlyDaterangePicker";
+const name = "NlyFormDatepicker";
 
-export const NlyDaterangePicker = Vue.extend({
+export const NlyFormDatepicker = Vue.extend({
   name: name,
   inheritAttrs: false,
-  mixins: [dateUtilMixin],
+  mixins: [dateUtilMixin, formValid],
   model: {
     prop: "dateRange",
     event: "update"
   },
   props: {
+    description: {
+      type: String
+    },
+    invalidFeedback: {
+      type: String
+    },
+    validFeedback: {
+      type: String
+    },
+    warningFeedback: {
+      type: String
+    },
+    valid: {
+      type: String,
+      validator: valid => nlyGetOptionInclusion(formValidOptions, valid)
+    },
+    size: {
+      type: String,
+      default: null
+    },
+    prepend: {
+      type: String
+    },
+    prependHtml: {
+      type: String
+    },
+    append: {
+      type: String
+    },
+    appendHtml: {
+      type: String
+    },
     /**
      * minimum date allowed to be selected
      * @default null
@@ -718,6 +758,9 @@ export const NlyDaterangePicker = Vue.extend({
             secondPicker: this.timePickerSeconds,
             currentTime: this.start,
             readonly: this.readonly
+          },
+          on: {
+            update: this.onUpdateStartTime
           }
         })
       );
@@ -758,12 +801,14 @@ export const NlyDaterangePicker = Vue.extend({
       drpCalendarRightChildrenVnodes.push(
         h(NlyCalendarTime, {
           props: {
-            update: this.onUpdateEndTime,
             miniuteIncrement: this.timePickerIncrement,
             hour24: this.timePicker24Hour,
             secondPicker: this.timePickerSeconds,
             currentTime: this.end,
             readonly: this.readonly
+          },
+          on: {
+            update: this.onUpdateEndTime
           }
         })
       );
@@ -790,7 +835,6 @@ export const NlyDaterangePicker = Vue.extend({
       },
       calendarsContainerChildrenVnodes
     );
-    console.log(this.ranges);
     const calendarsRowVnodes = () => {
       if (hasNormalizedSlot("header", this.$scopedSlots, this.$slots)) {
         if (this.showRanges) {
@@ -930,37 +974,119 @@ export const NlyDaterangePicker = Vue.extend({
       }
     };
 
-    return h(
-      "div",
-      {
-        staticClass: "nly-daterange-picker",
-        class: {
-          inline: this.opens === "inline"
-        }
-      },
-      [
-        h(
+    const prependVnodes = () => {
+      if (this.prepend || this.prependHtml) {
+        return h(NlyInputGroupPrepend, [
+          h(NlyInputGroupText, {
+            domProps: htmlOrText(this.prependHtml, this.prepend)
+          })
+        ]);
+      }
+    };
+
+    const appendVnodes = () => {
+      if (this.append || this.appendHtml) {
+        return h(NlyInputGroupAppend, [
+          h(NlyInputGroupText, {
+            domProps: htmlOrText(this.appendHtml, this.append)
+          })
+        ]);
+      }
+    };
+
+    // const InputGroupVnodes = [
+    //   prependVnodes,
+    //   h(NlyFormInput, {
+    //     props: {
+    //       value: this.rangeText,
+    //       valid: this.valid
+    //     },
+    //     on: {
+    //       click: this.onClickPicker
+    //     }
+    //   })
+    // ];
+
+    const scopedSlotsInput = () => {
+      if (hasNormalizedSlot("input", this.$scopedSlots, this.$slots)) {
+        return this.$scopedSlots.input({
+          startDate: this.start,
+          endDate: this.end,
+          ranges: this.ranges
+        });
+      } else {
+        return h(
           NlyInputGroup,
           {
-            ref: "toggle",
             props: {
-              prepend: "@",
-              append: ".00"
-            }
+              size: this.size
+            },
+            class: this.validClass
           },
           [
+            prependVnodes(),
             h(NlyFormInput, {
               props: {
-                value: this.rangeText
+                value: this.rangeText,
+                valid: this.valid
               },
               on: {
                 click: this.onClickPicker
               }
-            })
+            }),
+            appendVnodes()
           ]
-        ),
-        daterangePickerTransitionVnodes()
-      ]
+        );
+      }
+    };
+
+    const pickerVnodes = [scopedSlotsInput()];
+
+    const feedback = {
+      invalid: this.invalidFeedback,
+      valid: this.validFeedback,
+      warning: this.warningFeedback
+    };
+
+    const stateList = ["invalid", "valid", "warning"];
+
+    stateList.forEach(item => {
+      if (Object.keys(feedback).indexOf(item) !== -1) {
+        if (feedback[item]) {
+          pickerVnodes.push(
+            h(NlyFormFeedback, {
+              props: {
+                state: item,
+                text: feedback[item]
+              }
+            })
+          );
+        }
+      }
+    });
+
+    if (this.description) {
+      pickerVnodes.push(
+        h(
+          "small",
+          {
+            staticClass: "form-text text-muted"
+          },
+          this.description
+        )
+      );
+    }
+
+    pickerVnodes.push(daterangePickerTransitionVnodes());
+
+    return h(
+      "div",
+      {
+        staticClass: "nly-daterange-picker",
+        class: [this.opens === "inline" ? "inline" : null],
+        ref: "toggle"
+      },
+      pickerVnodes
     );
   }
 });

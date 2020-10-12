@@ -8,7 +8,7 @@
           label-class="font-weight-bold pt-0"
           class="mb-0"
         >
-          <nly-daterange-picker
+          <nly-form-datepicker
             ref="picker"
             :opens="opens"
             :locale-data="{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"
@@ -30,6 +30,13 @@
             :alwaysShowCalendars="alwaysShowCalendars"
             :append-to-body="appendToBody"
             :closeOnEsc="closeOnEsc"
+            prepend="@@"
+            append="!"
+            valid="invalid"
+            invalid-feedback="我是invalid"
+            valid-feedback="我是valid"
+            warning-feedback="我是warning"
+            size="sm"
           />
         </nly-form-group>
       </nly-col>
@@ -326,7 +333,6 @@ export default {
   },
   methods: {
     updateValues(values) {
-      console.log("event: update", { ...values });
       this.dateRange.startDate = dateUtil.format(
         values.startDate,
         "yyyy-mm-dd HH:MM:ss"
