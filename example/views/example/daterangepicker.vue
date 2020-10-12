@@ -30,6 +30,13 @@
             :alwaysShowCalendars="alwaysShowCalendars"
             :append-to-body="appendToBody"
             :closeOnEsc="closeOnEsc"
+            prepend="@@"
+            append="!"
+            valid="invalid"
+            invalid-feedback="我是invalid"
+            valid-feedback="我是valid"
+            warning-feedback="我是warning"
+            size="sm"
           />
         </nly-form-group>
       </nly-col>

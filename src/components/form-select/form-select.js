@@ -120,7 +120,6 @@ export const NlyFormSelect = Vue.extend({
             key
           });
     });
-
     return h(
       "select",
       {
