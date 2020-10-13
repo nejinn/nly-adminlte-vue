@@ -312,6 +312,7 @@ module.exports = {
     "highlight.js/styles/atom-one-light.css",
     "codemirror/lib/codemirror.css",
     "../example/assets/adminlte/css/adminlte.css",
+    "../example/assets/nly-adminlte-vue/nly-adminlte-vue.css",
     // "../scripts/index.scss", // BootstrapVue SCSS
     "./assets/css/docs.min.css"
     // "~/assets/scss/index.scss"

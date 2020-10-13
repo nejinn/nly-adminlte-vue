@@ -4294,3 +4294,8 @@ td.disabled {
 .monthselect {
   border: none;
 }
+
+.is-warning ~ .warning-feedback,
+.is-warning ~ .warning-tooltip {
+  display: block;
+}

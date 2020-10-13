@@ -7,7 +7,7 @@ import { getDateUtil } from "../../utils/daterange-picker/util";
 import { VNlyAppendToBody } from "./pulgin/append-to-body";
 import { NlyInputGroup } from "../input-group/input-group";
 import { NlyFormInput } from "../form-input/form-input";
-import { hasNormalizedSlot } from "../../utils/normalize-slot";
+import { hasNormalizedSlot, normalizeSlot } from "../../utils/normalize-slot";
 import { NlyInputGroupPrepend } from "../input-group/input-group-prepend";
 import { NlyInputGroupAppend } from "../input-group/input-group-append";
 import { NlyInputGroupText } from "../input-group/input-group-text";
@@ -16,6 +16,7 @@ import { formValidOptions } from "../../utils/nly-config";
 import { nlyGetOptionInclusion } from "../../utils/get-options";
 import { NlyFormFeedback } from "../form/form-feedback";
 import formValid from "../../mixins/form/form-valid";
+import { NlyDaterangePickerTransition } from "./pulgin/transition";
 
 const name = "NlyFormDatepicker";
 
@@ -23,6 +24,7 @@ export const NlyFormDatepicker = Vue.extend({
   name: name,
   inheritAttrs: false,
   mixins: [dateUtilMixin, formValid],
+  directives: { VNlyAppendToBody },
   model: {
     prop: "dateRange",
     event: "update"
@@ -255,43 +257,6 @@ export const NlyFormDatepicker = Vue.extend({
       default: false
     },
     /**
-     * When `appendToBody` is true, this function is responsible for
-     * positioning the drop down list.
-     *
-     * If a function is returned from `calculatePosition`, it will
-     * be called when the drop down list is removed from the DOM.
-     * This allows for any garbage collection you may need to do.
-     *
-     * @since v0.5.1
-     */
-    calculatePosition: {
-      type: Function,
-      /**
-       * @param dropdownList {HTMLUListElement}
-       * @param component {Vue} current instance of vue date range picker
-       * @param width {int} calculated width in pixels of the dropdown menu
-       * @param top {int} absolute position top value in pixels relative to the document
-       * @param left {int} absolute position left value in pixels relative to the document
-       * @param right {int} absolute position right value in pixels relative to the document
-       * @return {function|void}
-       */
-      default(dropdownList, component, { width, top, left, right }) {
-        // which way the picker opens - "center", "left" or "right"
-        if (component.opens === "center") {
-          // console.log('center open', left, width)
-          dropdownList.style.left = left + width / 2 + "px";
-        } else if (component.opens === "left") {
-          // console.log('left open', right, width)
-          dropdownList.style.right = window.innerWidth - right + "px";
-        } else if (component.opens === "right") {
-          // console.log('right open')
-          dropdownList.style.left = left + "px";
-        }
-        dropdownList.style.top = top + "px";
-        // dropdownList.style.width = width + 'px'
-      }
-    },
-    /**
      * Whether to close the dropdown on "esc"
      */
     closeOnEsc: {
@@ -342,6 +307,21 @@ export const NlyFormDatepicker = Vue.extend({
     return data;
   },
   methods: {
+    calculatePosition(dropdownList, component, { width, top, left, right }) {
+      // which way the picker opens - "center", "left" or "right"
+      if (component.opens === "center") {
+        // console.log('center open', left, width)
+        dropdownList.style.left = left + width / 2 + "px";
+      } else if (component.opens === "left") {
+        // console.log('left open', right, width)
+        dropdownList.style.right = window.innerWidth - right + "px";
+      } else if (component.opens === "right") {
+        // console.log('right open')
+        dropdownList.style.left = left + "px";
+      }
+      dropdownList.style.top = top + "px";
+      // dropdownList.style.width = width + 'px'
+    },
     dateFormatFn(classes, date) {
       let dt = new Date(date);
       dt.setHours(0, 0, 0, 0);
@@ -368,7 +348,7 @@ export const NlyFormDatepicker = Vue.extend({
           this.maxDate
         );
         if (
-          !this.singleDatePicker &&
+          (!this.singleDatePicker || this.singleDatePicker === "range") &&
           this.$dateUtil.yearMonth(this.monthDate) ===
             this.$dateUtil.yearMonth(this.nextMonthDate)
         ) {
@@ -488,7 +468,10 @@ export const NlyFormDatepicker = Vue.extend({
        */
       this.$emit("update", {
         startDate: this.start,
-        endDate: this.singleDatePicker ? this.start : this.end
+        endDate:
+          this.singleDatePicker && this.singleDatePicker !== "range"
+            ? this.start
+            : this.end
       });
     },
     clickCancel() {
@@ -566,7 +549,10 @@ export const NlyFormDatepicker = Vue.extend({
       if (this.autoApply) {
         this.$emit("update", {
           startDate: this.start,
-          endDate: this.singleDatePicker ? this.start : this.end
+          endDate:
+            this.singleDatePicker && this.singleDatePicker !== "range"
+              ? this.start
+              : this.end
         });
       }
     },
@@ -936,63 +922,89 @@ export const NlyFormDatepicker = Vue.extend({
     const daterangePickerTransitionVnodes = () => {
       if (hasNormalizedSlot("header", this.$scopedSlots, this.$slots)) {
         if (this.open || this.opens === "inline") {
-          return h(
-            "div",
-            {
-              staticClass: "daterangepicker dropdown-menu ltr",
-              class: this.pickerStyles,
-              directives: { name: VNlyAppendToBody },
-              ref: "dropdown"
-            },
-            [
-              this.$scopedSlots.header({
-                rangeText: this.rangeText,
-                locale: this.locale,
-                clickCancel: this.clickCancel,
-                clickApply: this.clickedApply,
-                in_selection: this.in_selection,
-                autoApply: this.autoApply
-              }),
-              calendarsRowVnodes(),
-              scopedSlotsFooter()
-            ]
-          );
+          return h(NlyDaterangePickerTransition, [
+            h(
+              "div",
+              {
+                staticClass: "daterangepicker dropdown-menu ltr",
+                class: this.pickerStyles,
+                directives: [{ name: "v-nly-append-to-body" }],
+                ref: "dropdown"
+              },
+              [
+                this.$scopedSlots.header({
+                  rangeText: this.rangeText,
+                  locale: this.locale,
+                  clickCancel: this.clickCancel,
+                  clickApply: this.clickedApply,
+                  in_selection: this.in_selection,
+                  autoApply: this.autoApply
+                }),
+                calendarsRowVnodes(),
+                scopedSlotsFooter()
+              ]
+            )
+          ]);
         }
       } else {
         if (this.open || this.opens === "inline") {
-          return h(
-            "div",
-            {
-              staticClass: "daterangepicker dropdown-menu ltr",
-              class: this.pickerStyles,
-              directives: { name: VNlyAppendToBody },
-              ref: "dropdown"
-            },
-            [calendarsRowVnodes(), scopedSlotsFooter()]
-          );
+          return h(NlyDaterangePickerTransition, [
+            h(
+              "div",
+              {
+                staticClass: "daterangepicker dropdown-menu ltr",
+                class: this.pickerStyles,
+                directives: [{ name: "v-nly-append-to-body" }],
+                ref: "dropdown"
+              },
+              [calendarsRowVnodes(), scopedSlotsFooter()]
+            )
+          ]);
         }
       }
     };
 
-    const prependVnodes = () => {
-      if (this.prepend || this.prependHtml) {
-        return h(NlyInputGroupPrepend, [
-          h(NlyInputGroupText, {
-            domProps: htmlOrText(this.prependHtml, this.prepend)
-          })
-        ]);
-      }
-    };
+    let $prepend = h();
+    const hasPrependSlot = hasNormalizedSlot(
+      "prepend",
+      this.$scopedSlots,
+      this.$slots
+    );
+    if (hasPrependSlot || this.prepend || this.prependHtml) {
+      $prepend = h(NlyInputGroupPrepend, [
+        hasPrependSlot
+          ? normalizeSlot(
+              "prepend",
+              this.slotScope,
+              this.$scopedSlots,
+              this.$slots
+            )
+          : h(NlyInputGroupText, {
+              domProps: htmlOrText(this.prependHtml, this.prepend)
+            })
+      ]);
+    }
 
-    const appendVnodes = () => {
-      if (this.append || this.appendHtml) {
-        return h(NlyInputGroupAppend, [
-          h(NlyInputGroupText, {
-            domProps: htmlOrText(this.appendHtml, this.append)
-          })
-        ]);
-      }
-    };
+    let $append = h();
+    const hasAppendSlot = hasNormalizedSlot(
+      "append",
+      this.$scopedSlots,
+      this.$slots
+    );
+    if (hasAppendSlot || this.append || this.appendHtml) {
+      $append = h(NlyInputGroupAppend, [
+        hasAppendSlot
+          ? normalizeSlot(
+              "append",
+              this.slotScope,
+              this.$scopedSlots,
+              this.$slots
+            )
+          : h(NlyInputGroupText, {
+              domProps: htmlOrText(this.appendHtml, this.append)
+            })
+      ]);
+    }
 
     // const InputGroupVnodes = [
     //   prependVnodes,
@@ -1024,7 +1036,7 @@ export const NlyFormDatepicker = Vue.extend({
             class: this.validClass
           },
           [
-            prependVnodes(),
+            $prepend,
             h(NlyFormInput, {
               props: {
                 value: this.rangeText,
@@ -1034,7 +1046,7 @@ export const NlyFormDatepicker = Vue.extend({
                 click: this.onClickPicker
               }
             }),
-            appendVnodes()
+            $append
           ]
         );
       }
