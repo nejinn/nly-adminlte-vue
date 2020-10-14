@@ -11,7 +11,7 @@ export default {
   props: {
     // v-model传值会传给value，也可以直接给value传值
     value: {
-      type: [String, Number],
+      type: [String, Object, Number, Boolean, Date],
       default: ""
     },
     // 只读

@@ -26,7 +26,7 @@ export const NlyFormDatepicker = Vue.extend({
   mixins: [dateUtilMixin, formValid],
   directives: { VNlyAppendToBody },
   model: {
-    prop: "dateRange",
+    prop: "value",
     event: "update"
   },
   props: {
@@ -168,7 +168,7 @@ export const NlyFormDatepicker = Vue.extend({
      * endDate: null
      * }
      */
-    dateRange: {
+    value: {
       // for v-model
       type: [Object],
       default: null,
@@ -275,8 +275,8 @@ export const NlyFormDatepicker = Vue.extend({
     const util = getDateUtil();
     let data = { locale: util.localeData({ ...this.localeData }) };
 
-    let startDate = this.dateRange.startDate || null;
-    let endDate = this.dateRange.endDate || null;
+    let startDate = this.value.startDate || null;
+    let endDate = this.value.endDate || null;
 
     data.monthDate = startDate ? new Date(startDate) : new Date();
     //get next month date
@@ -477,8 +477,8 @@ export const NlyFormDatepicker = Vue.extend({
     clickCancel() {
       if (this.open) {
         // reset start and end
-        let startDate = this.dateRange.startDate;
-        let endDate = this.dateRange.endDate;
+        let startDate = this.value.startDate;
+        let endDate = this.value.endDate;
         this.start = startDate ? new Date(startDate) : null;
         this.end = endDate ? new Date(endDate) : null;
         // this.open = false
@@ -619,11 +619,11 @@ export const NlyFormDatepicker = Vue.extend({
       };
     },
     isClear() {
-      return !this.dateRange.startDate || !this.dateRange.endDate;
+      return !this.value.startDate || !this.value.endDate;
     },
     isDirty() {
-      let origStart = new Date(this.dateRange.startDate);
-      let origEnd = new Date(this.dateRange.endDate);
+      let origStart = new Date(this.value.startDate);
+      let origEnd = new Date(this.value.endDate);
 
       return (
         !this.isClear &&
@@ -655,7 +655,7 @@ export const NlyFormDatepicker = Vue.extend({
         month: dt.getMonth() + 1
       });
     },
-    "dateRange.startDate"(value) {
+    "value.startDate"(value) {
       if (!this.$dateUtil.isValidDate(new Date(value))) return;
 
       this.start =
@@ -666,11 +666,11 @@ export const NlyFormDatepicker = Vue.extend({
         this.start = null;
         this.end = null;
       } else {
-        this.start = new Date(this.dateRange.startDate);
-        this.end = new Date(this.dateRange.endDate);
+        this.start = new Date(this.value.startDate);
+        this.end = new Date(this.value.endDate);
       }
     },
-    "dateRange.endDate"(value) {
+    "value.endDate"(value) {
       if (!this.$dateUtil.isValidDate(new Date(value))) return;
 
       this.end = !!value && !this.isClear ? new Date(value) : null;
@@ -678,8 +678,8 @@ export const NlyFormDatepicker = Vue.extend({
         this.start = null;
         this.end = null;
       } else {
-        this.start = new Date(this.dateRange.startDate);
-        this.end = new Date(this.dateRange.endDate);
+        this.start = new Date(this.value.startDate);
+        this.end = new Date(this.value.endDate);
       }
     },
     open: {
