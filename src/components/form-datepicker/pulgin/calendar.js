@@ -334,12 +334,24 @@ export const NlyCalendar = Vue.extend({
             h(
               "th",
               {
+                class:
+                  "nly-datarange-calendar-prev available nly-datarange-calendar-th",
+                on: { click: this.prevMonthClick },
+                attrs: {
+                  tabindex: 0
+                }
+              },
+              [h("span")]
+            ),
+            h(
+              "th",
+              {
                 class: "month nly-datarange-calendar-th",
                 attrs: {
                   colspan: self.showWeekNumbers ? 6 : 5
                 }
               },
-              [this.monthName, this.year]
+              [this.monthName, " ", this.year]
             ),
             h(
               "th",
