@@ -321,27 +321,27 @@
 
 <script>
   export default {
-    name: "",
+    name: '',
     filters: {
       date(value) {
-        if (!value) return "";
+        if (!value) return ''
 
-        let options = { year: "numeric", month: "long", day: "numeric" };
-        return Intl.DateTimeFormat("en-US", options).format(value);
-      }
+        let options = { year: 'numeric', month: 'long', day: 'numeric' }
+        return Intl.DateTimeFormat('en-US', options).format(value)
+      },
     },
     data() {
       //                    :locale-data="{ daysOfWeek: [ 'Нд', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб' ] }"
       return {
-        sss: "",
-        opens: "center",
-        minDate: "2019-05-02 04:00:00",
-        maxDate: "2020-12-26 14:00:00",
+        sss: '',
+        opens: 'center',
+        minDate: '2019-05-02 04:00:00',
+        maxDate: '2020-12-26 14:00:00',
         // minDate: '',
         // maxDate: '',
         dateRange: {
-          startDate: "2019-12-10",
-          endDate: "2019-12-20"
+          startDate: '2019-12-10',
+          endDate: '2019-12-20',
         },
         single_range_picker: false,
         show_ranges: true,
@@ -357,74 +357,74 @@
         closeOnEsc: true,
         dateUtil: undefined,
         dateFormat: undefined,
-        prepend: "@",
-        append: "!",
-        valid: "novalid",
+        prepend: '@',
+        append: '!',
+        valid: 'novalid',
         validOptinos: [
-          { value: null, text: "Please select an option", disabled: true },
-          { value: "novalid", text: "不显示 feedback" },
-          { value: "invalid", text: "显示invalid feedback" },
-          { value: "valid", text: "显示 valid feedback" },
-          { value: "warning", text: "显示 warning feedback" }
-        ]
-      };
+          { value: null, text: 'Please select an option', disabled: true },
+          { value: 'novalid', text: '不显示 feedback' },
+          { value: 'invalid', text: '显示invalid feedback' },
+          { value: 'valid', text: '显示 valid feedback' },
+          { value: 'warning', text: '显示 warning feedback' },
+        ],
+      }
     },
     mounted() {
       this.dateFormat = (function() {
-        var token = /d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZWN]|"[^"]*"|'[^']*'/g;
-        var timezone = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g;
-        var timezoneClip = /[^-+\dA-Z]/g;
+        var token = /d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZWN]|"[^"]*"|'[^']*'/g
+        var timezone = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g
+        var timezoneClip = /[^-+\dA-Z]/g
 
         // Regexes and supporting functions are cached through closure
         return function(date, mask, utc, gmt) {
           // You can't provide utc if you skip other args (use the 'UTC:' mask prefix)
           if (
             arguments.length === 1 &&
-            this.kindOf(date) === "string" &&
+            this.kindOf(date) === 'string' &&
             !/\d/.test(date)
           ) {
-            mask = date;
-            date = undefined;
+            mask = date
+            date = undefined
           }
 
-          date = date || new Date();
+          date = date || new Date()
 
           if (!(date instanceof Date)) {
-            date = new Date(date);
+            date = new Date(date)
           }
 
           if (isNaN(date)) {
-            throw TypeError("Invalid date");
+            throw TypeError('Invalid date')
           }
 
           mask = String(
             this.dateFormat.masks[mask] ||
               mask ||
-              this.dateFormat.masks["default"]
-          );
+              this.dateFormat.masks['default']
+          )
 
           // Allow setting the utc/gmt argument via the mask
-          var maskSlice = mask.slice(0, 4);
-          if (maskSlice === "UTC:" || maskSlice === "GMT:") {
-            mask = mask.slice(4);
-            utc = true;
-            if (maskSlice === "GMT:") {
-              gmt = true;
+          var maskSlice = mask.slice(0, 4)
+          if (maskSlice === 'UTC:' || maskSlice === 'GMT:') {
+            mask = mask.slice(4)
+            utc = true
+            if (maskSlice === 'GMT:') {
+              gmt = true
             }
           }
 
-          var _ = utc ? "getUTC" : "get";
-          var d = date[_ + "Date"]();
-          var D = date[_ + "Day"]();
-          var m = date[_ + "Month"]();
-          var y = date[_ + "FullYear"]();
-          var H = date[_ + "Hours"]();
-          var M = date[_ + "Minutes"]();
-          var s = date[_ + "Seconds"]();
-          var L = date[_ + "Milliseconds"]();
-          var o = utc ? 0 : date.getTimezoneOffset();
-          var W = this.getWeek(date);
-          var N = this.getDayOfWeek(date);
+          var _ = utc ? 'getUTC' : 'get'
+          var d = date[_ + 'Date']()
+          var D = date[_ + 'Day']()
+          var m = date[_ + 'Month']()
+          var y = date[_ + 'FullYear']()
+          var H = date[_ + 'Hours']()
+          var M = date[_ + 'Minutes']()
+          var s = date[_ + 'Seconds']()
+          var L = date[_ + 'Milliseconds']()
+          var o = utc ? 0 : date.getTimezoneOffset()
+          var W = this.getWeek(date)
+          var N = this.getDayOfWeek(date)
           var flags = {
             d: d,
             dd: this.pad(d),
@@ -463,259 +463,258 @@
                 ? this.dateFormat.i18n.timeNames[6]
                 : this.dateFormat.i18n.timeNames[7],
             Z: gmt
-              ? "GMT"
+              ? 'GMT'
               : utc
-              ? "UTC"
-              : (String(date).match(timezone) || [""])
+              ? 'UTC'
+              : (String(date).match(timezone) || [''])
                   .pop()
-                  .replace(timezoneClip, ""),
+                  .replace(timezoneClip, ''),
             o:
-              (o > 0 ? "-" : "+") +
+              (o > 0 ? '-' : '+') +
               this.pad(
                 Math.floor(Math.abs(o) / 60) * 100 + (Math.abs(o) % 60),
                 4
               ),
-            S: ["th", "st", "nd", "rd"][
+            S: ['th', 'st', 'nd', 'rd'][
               d % 10 > 3 ? 0 : (((d % 100) - (d % 10) != 10) * d) % 10
             ],
             W: W,
-            N: N
-          };
+            N: N,
+          }
 
           return mask.replace(token, function(match) {
             if (match in flags) {
-              return flags[match];
+              return flags[match]
             }
-            return match.slice(1, match.length - 1);
-          });
-        };
-      })();
+            return match.slice(1, match.length - 1)
+          })
+        }
+      })()
 
       this.dateFormat.masks = {
-        default: "ddd mmm dd yyyy HH:MM:ss",
-        shortDate: "m/d/yy",
-        mediumDate: "mmm d, yyyy",
-        longDate: "mmmm d, yyyy",
-        fullDate: "dddd, mmmm d, yyyy",
-        shortTime: "h:MM TT",
-        mediumTime: "h:MM:ss TT",
-        longTime: "h:MM:ss TT Z",
-        isoDate: "yyyy-mm-dd",
-        isoTime: "HH:MM:ss",
+        default: 'ddd mmm dd yyyy HH:MM:ss',
+        shortDate: 'm/d/yy',
+        mediumDate: 'mmm d, yyyy',
+        longDate: 'mmmm d, yyyy',
+        fullDate: 'dddd, mmmm d, yyyy',
+        shortTime: 'h:MM TT',
+        mediumTime: 'h:MM:ss TT',
+        longTime: 'h:MM:ss TT Z',
+        isoDate: 'yyyy-mm-dd',
+        isoTime: 'HH:MM:ss',
         isoDateTime: "yyyy-mm-dd'T'HH:MM:sso",
         isoUtcDateTime: "UTC:yyyy-mm-dd'T'HH:MM:ss'Z'",
-        expiresHeaderFormat: "ddd, dd mmm yyyy HH:MM:ss Z"
-      };
+        expiresHeaderFormat: 'ddd, dd mmm yyyy HH:MM:ss Z',
+      }
 
       // Internationalization strings
       this.dateFormat.i18n = {
         dayNames: [
-          "Sun",
-          "Mon",
-          "Tue",
-          "Wed",
-          "Thu",
-          "Fri",
-          "Sat",
-          "Sunday",
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
+          'Sun',
+          'Mon',
+          'Tue',
+          'Wed',
+          'Thu',
+          'Fri',
+          'Sat',
+          'Sunday',
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
         ],
         monthNames: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec",
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-          "August",
-          "September",
-          "October",
-          "November",
-          "December"
+          'Jan',
+          'Feb',
+          'Mar',
+          'Apr',
+          'May',
+          'Jun',
+          'Jul',
+          'Aug',
+          'Sep',
+          'Oct',
+          'Nov',
+          'Dec',
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+          'August',
+          'September',
+          'October',
+          'November',
+          'December',
         ],
-        timeNames: ["a", "p", "am", "pm", "A", "P", "AM", "PM"]
-      };
+        timeNames: ['a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'],
+      }
 
       this.dateUtil = {
         isSame: (date1, date2, granularity) => {
-          let dt1 = new Date(date1);
-          let dt2 = new Date(date2);
-          if (granularity === "date") {
-            dt1.setHours(0, 0, 0, 0);
-            dt2.setHours(0, 0, 0, 0);
+          let dt1 = new Date(date1)
+          let dt2 = new Date(date2)
+          if (granularity === 'date') {
+            dt1.setHours(0, 0, 0, 0)
+            dt2.setHours(0, 0, 0, 0)
           }
-          return dt1.getTime() === dt2.getTime();
+          return dt1.getTime() === dt2.getTime()
         },
         daysInMonth: (year, month) => {
-          return new Date(year, month, 0).getDate();
+          return new Date(year, month, 0).getDate()
         },
-        weekNumber: date => {
-          return this.getWeek(date);
+        weekNumber: (date) => {
+          return this.getWeek(date)
         },
         format: (date, mask) => {
-          return this.dateFormat(date, mask);
+          return this.dateFormat(date, mask)
         },
-        nextMonth: date => {
-          let nextMonthDate = new Date(date.getTime());
-          nextMonthDate.setDate(1);
-          nextMonthDate.setMonth(nextMonthDate.getMonth() + 1);
-          return nextMonthDate;
+        nextMonth: (date) => {
+          let nextMonthDate = new Date(date.getTime())
+          nextMonthDate.setDate(1)
+          nextMonthDate.setMonth(nextMonthDate.getMonth() + 1)
+          return nextMonthDate
         },
-        prevMonth: date => {
-          let prevMonthDate = new Date(date.getTime());
-          prevMonthDate.setDate(1);
-          prevMonthDate.setMonth(prevMonthDate.getMonth() - 1);
-          return prevMonthDate;
+        prevMonth: (date) => {
+          let prevMonthDate = new Date(date.getTime())
+          prevMonthDate.setDate(1)
+          prevMonthDate.setMonth(prevMonthDate.getMonth() - 1)
+          return prevMonthDate
         },
         validateDateRange: (newDate, min, max) => {
-          let max_date = new Date(max);
-          let min_date = new Date(min);
+          let max_date = new Date(max)
+          let min_date = new Date(min)
 
           if (max && newDate.getTime() > max_date.getTime()) {
-            return max_date;
+            return max_date
           }
 
           if (min && newDate.getTime() < min_date.getTime()) {
-            return min_date;
+            return min_date
           }
 
-          return newDate;
+          return newDate
         },
-        localeData: options => {
+        localeData: (options) => {
           let default_locale = {
-            direction: "ltr",
-            format: "mm/dd/yyyy",
-            separator: " - ",
-            applyLabel: "Apply",
-            cancelLabel: "Cancel",
-            weekLabel: "W",
-            customRangeLabel: "Custom Range",
+            direction: 'ltr',
+            format: 'mm/dd/yyyy',
+            separator: ' - ',
+            applyLabel: 'Apply',
+            cancelLabel: 'Cancel',
+            weekLabel: 'W',
+            customRangeLabel: 'Custom Range',
             daysOfWeek: this.dateFormat.i18n.dayNames
               .slice(0, 7)
-              .map(d => d.substring(0, 2)),
+              .map((d) => d.substring(0, 2)),
             monthNames: this.dateFormat.i18n.monthNames.slice(0, 12),
-            firstDay: 0
-          };
+            firstDay: 0,
+          }
 
-          return { ...default_locale, ...options };
+          return { ...default_locale, ...options }
         },
-        yearMonth: date => {
-          let month = date.getMonth() + 1;
-          return date.getFullYear() + (month < 10 ? "0" : "") + month;
+        yearMonth: (date) => {
+          let month = date.getMonth() + 1
+          return date.getFullYear() + (month < 10 ? '0' : '') + month
         },
-        isValidDate: d => {
-          return d instanceof Date && !isNaN(d);
-        }
-      };
+        isValidDate: (d) => {
+          return d instanceof Date && !isNaN(d)
+        },
+      }
     },
     methods: {
       pad(val, len) {
-        val = String(val);
-        len = len || 2;
+        val = String(val)
+        len = len || 2
         while (val.length < len) {
-          val = "0" + val;
+          val = '0' + val
         }
-        return val;
+        return val
       },
       getWeek(date) {
         var targetThursday = new Date(
           date.getFullYear(),
           date.getMonth(),
           date.getDate()
-        );
+        )
 
         targetThursday.setDate(
           targetThursday.getDate() - ((targetThursday.getDay() + 6) % 7) + 3
-        );
+        )
 
-        var firstThursday = new Date(targetThursday.getFullYear(), 0, 4);
+        var firstThursday = new Date(targetThursday.getFullYear(), 0, 4)
 
         firstThursday.setDate(
           firstThursday.getDate() - ((firstThursday.getDay() + 6) % 7) + 3
-        );
+        )
 
         var ds =
-          targetThursday.getTimezoneOffset() -
-          firstThursday.getTimezoneOffset();
-        targetThursday.setHours(targetThursday.getHours() - ds);
+          targetThursday.getTimezoneOffset() - firstThursday.getTimezoneOffset()
+        targetThursday.setHours(targetThursday.getHours() - ds)
 
-        var weekDiff = (targetThursday - firstThursday) / (86400000 * 7);
-        return 1 + Math.floor(weekDiff);
+        var weekDiff = (targetThursday - firstThursday) / (86400000 * 7)
+        return 1 + Math.floor(weekDiff)
       },
       updateValues(values) {
         this.dateRange.startDate = this.dateUtil.format(
           values.startDate,
-          "yyyy-mm-dd HH:MM:ss"
-        );
+          'yyyy-mm-dd HH:MM:ss'
+        )
         this.dateRange.endDate = this.dateUtil.format(
           values.endDate,
-          "yyyy-mm-dd HH:MM:ss"
-        );
+          'yyyy-mm-dd HH:MM:ss'
+        )
       },
       getDayOfWeek(date) {
-        var dow = date.getDay();
+        var dow = date.getDay()
         if (dow === 0) {
-          dow = 7;
+          dow = 7
         }
-        return dow;
+        return dow
       },
       kindOf(val) {
         if (val === null) {
-          return "null";
+          return 'null'
         }
 
         if (val === undefined) {
-          return "undefined";
+          return 'undefined'
         }
 
-        if (typeof val !== "object") {
-          return typeof val;
+        if (typeof val !== 'object') {
+          return typeof val
         }
 
         if (Array.isArray(val)) {
-          return "array";
+          return 'array'
         }
 
         return {}.toString
           .call(val)
           .slice(8, -1)
-          .toLowerCase();
+          .toLowerCase()
       },
       checkOpen(open) {
-        console.log("event: open", open);
+        console.log('event: open', open)
       },
       setDateFormat(classes, date) {
-        let yesterday = new Date();
-        let d1 = this.dateUtil.format(date, "isoDate");
+        let yesterday = new Date()
+        let d1 = this.dateUtil.format(date, 'isoDate')
         let d2 = this.dateUtil.format(
           yesterday.setDate(yesterday.getDate() - 1),
-          "isoDate"
-        );
+          'isoDate'
+        )
         if (!classes.disabled) {
-          classes.disabled = d1 === d2;
+          classes.disabled = d1 === d2
         }
-        return classes;
-      }
-    }
-  };
+        return classes
+      },
+    },
+  }
 </script>
 
 <!-- demo.name -->
@@ -724,7 +723,7 @@
 
 ## date
 
-### date-range
+### value
 
 `value` 是 日期选择器选择的时间，给 `date-range` 传值可以初始化日期选择器的初始值。
 
@@ -736,7 +735,7 @@
         }'
 />
 
-<!-- date-range.name -->
+<!-- value.name -->
 <!-- date-picker.vue -->
 ```
 
@@ -759,18 +758,61 @@
     data() {
       return {
         dateRange: {
-          startDate: "2019-12-10",
-          endDate: "2019-12-20"
-        }
-      };
-    }
-  };
+          startDate: '2019-12-10',
+          endDate: '2019-12-20',
+        },
+      }
+    },
+  }
 </script>
 
-<!-- date-range.name -->
+<!-- v-model value.name -->
 <!-- date-picker.vue -->
 ```
 
-** 注意 **
+**注意**
 
-- 默认渲染下， 不支持从 ``
+- 默认渲染下， 不支持从日期选择器中输入日期来调整日历上的时间
+
+### 最小和最大时间限制
+
+设置 `min-date` 和 `max-date` prop 可以限制日期选择器的 时间选择范围，超出这个范围的时间是无法选择的，且日历上也无法联动现实超出这个范围的时间
+
+```html
+<template>
+  <div>
+    <nly-form-datepicker
+      ref="picker"
+      :locale-data="{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"
+      :min-date="minDate"
+      :max-date="maxDate"
+      v-model="dateRange"
+      show-dropdowns
+    />
+    
+    <nly-form-group label="起始时间">
+      <nly-form-input v-model="dateRange.startDate" type="text" />
+    </nly-form-group>
+    <nly-form-group label="结束时间">
+      <nly-form-input v-model="dateRange.endDate" type="text" />
+    </nly-form-group>
+  </div>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        dateRange: {
+          startDate: '2019-12-10',
+          endDate: '2019-12-20',
+        },
+        minDate: '2019-5-1 04:00:00',
+        maxDate: '2021-1-1 04:00:00',
+      }
+    },
+  }
+</script>
+
+<!-- min & max date.name -->
+<!-- date-picker.vue -->
+```
