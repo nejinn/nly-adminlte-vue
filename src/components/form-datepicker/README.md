@@ -31,7 +31,6 @@
             @toggle="checkOpen"
             :dateFormat="setDateFormat"
             :linkedCalendars="linkedCalendars"
-            :always-show-calendars="false"
             :alwaysShowCalendars="alwaysShowCalendars"
             :append-to-body="appendToBody"
             :closeOnEsc="closeOnEsc"
@@ -721,11 +720,11 @@
 <!-- date-picker.vue -->
 ```
 
-## date
+## 日期值的获取和格式化
 
 ### value
 
-`value` 是 日期选择器选择的时间，给 `date-range` 传值可以初始化日期选择器的初始值。
+`value` 是日期选择器选择的时间，给 `date-range` 传值可以初始化日期选择器的初始值。
 
 ```html
 <nly-form-datepicker
@@ -774,6 +773,87 @@
 
 - 默认渲染下， 不支持从日期选择器中输入日期来调整日历上的时间
 
+### locale-data 格式化默认显示时间
+
+可以使用 `locale-data` 来设置输入框显示的数据格式，比如设置 `:locale-data = "{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"` 来使数据显示格式为 2020-01-01 08：30：22
+
+`value` 是日期选择器选择的时间，给 `value` 传值可以初始化日期选择器的初始值。
+
+```html
+<nly-form-datepicker
+  :value='{
+          startDate: "2019-12-10",
+          endDate: "2019-12-20"
+        }'
+  :locale-data="{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"
+/>
+
+<!-- locale-data.name -->
+<!-- date-picker.vue -->
+```
+
+### update 获取选择时间
+
+不使用 `v-model` 指令，也可以通过 update 函数来获取日期选择器选择的时间, 默认获取的时间是 GMT 时间， 格式需要自己定义函数来修改
+
+```html
+<template>
+  <div>
+    <nly-form-datepicker
+      :value='{
+          startDate: "2019-12-10",
+          endDate: "2019-12-20"
+        }'
+      :locale-data="{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"
+      @update="update"
+    />
+    <p>
+      <span>起始时间： {{startDate}}</span>
+    </p>
+    <p>
+      <span>结束时间： {{endDate}}</span>
+    </p>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        startDate: null,
+        endDate: null,
+      }
+    },
+    methods: {
+      update(value) {
+        console.log(111)
+        this.startDate = this.gmtFormat(value.startDate)
+        this.endDate = this.gmtFormat(value.endDate)
+      },
+      gmtFormat(time) {
+        let date = new Date(time)
+        let Str =
+          date.getFullYear() +
+          '-' +
+          (date.getMonth() + 1) +
+          '-' +
+          date.getDate() +
+          ' ' +
+          date.getHours() +
+          ':' +
+          date.getMinutes() +
+          ':' +
+          date.getSeconds()
+        return Str
+      },
+    },
+  }
+</script>
+
+<!-- locale-data.name -->
+<!-- date-picker.vue -->
+```
+
 ### 最小和最大时间限制
 
 设置 `min-date` 和 `max-date` prop 可以限制日期选择器的 时间选择范围，超出这个范围的时间是无法选择的，且日历上也无法联动现实超出这个范围的时间
@@ -782,14 +862,13 @@
 <template>
   <div>
     <nly-form-datepicker
-      ref="picker"
       :locale-data="{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"
       :min-date="minDate"
       :max-date="maxDate"
       v-model="dateRange"
       show-dropdowns
     />
-    
+
     <nly-form-group label="起始时间">
       <nly-form-input v-model="dateRange.startDate" type="text" />
     </nly-form-group>
@@ -814,5 +893,588 @@
 </script>
 
 <!-- min & max date.name -->
+<!-- date-picker.vue -->
+```
+
+## 渲染输入框的一些设置
+
+### prepend 和 append
+
+`prepend` 和 `append` prop 可以设置前后显示文字，渲染成类似 icon 的效果
+
+```html
+<template>
+  <div>
+    <nly-form-datepicker
+      :value='{
+          startDate: "2019-12-10",
+          endDate: "2019-12-20"
+        }'
+      :locale-data="{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"
+      :prepend="prepend"
+      :append="append"
+    />
+    <nly-form-group
+      label="prepend 输入框前面图标"
+      label-cols-xs="auto"
+      class="mt-2"
+    >
+      <nly-form-input v-model="prepend" size="sm" />
+    </nly-form-group>
+
+    <nly-form-group label="append 输入框前面图标" label-cols-xs="auto">
+      <nly-form-input v-model="append" size="sm" />
+    </nly-form-group>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        prepend: '',
+        append: '',
+      }
+    },
+  }
+</script>
+
+<!-- prepend and append .name -->
+<!-- date-picker.vue -->
+```
+
+也可以使用 `prepend-html` 和 `append-html` prop 来设置输入框前后显示的内容。由于是 html 字符串，请谨慎使用
+
+```html
+<template>
+  <nly-form-datepicker
+    :value='{
+          startDate: "2019-12-10",
+          endDate: "2019-12-20"
+        }'
+    :locale-data="{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"
+    :prepend-html="prepend"
+    :append-html="append"
+  />
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        prepend: '<b>w</b>',
+        append: '<b>Q</b>',
+      }
+    },
+  }
+</script>
+
+<!-- prepend-html and append-html .name -->
+<!-- date-picker.vue -->
+```
+
+还可以使用 `prepend` 和 `append` 插槽插入其他嵌套元素
+
+```html
+<template>
+  <nly-form-datepicker
+    :value='{
+          startDate: "2019-12-10",
+          endDate: "2019-12-20"
+        }'
+    :locale-data="{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"
+  >
+    <template v-slot:prepend>
+      <nly-input-group-text>
+        <nly-icon icon="nlyfont nly-icon-time" />
+      </nly-input-group-text>
+    </template>
+    <template v-slot:append>
+      <nly-dropdown text="Dropdown" variant="success">
+        <nly-dropdown-item>Action A</nly-dropdown-item>
+        <nly-dropdown-item>Action B</nly-dropdown-item>
+      </nly-dropdown>
+    </template>
+  </nly-form-datepicker>
+</template>
+
+<!-- prepend-html and append-html .name -->
+<!-- date-picker.vue -->
+```
+
+### 控制大小
+
+`nly-form-datepicker` 提供一个 `size` prop 来控制默认渲染的输入框大小， 可选 `sm`, `md`, `lg`。
+
+```html
+<template>
+  <div>
+    <nly-form-datepicker
+      :value='{
+          startDate: "2019-12-10",
+          endDate: "2019-12-20"
+        }'
+      :locale-data="{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"
+      size="sm"
+    >
+    </nly-form-datepicker>
+    <nly-form-datepicker
+      :value='{
+          startDate: "2019-12-10",
+          endDate: "2019-12-20"
+        }'
+      :locale-data="{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"
+      size="md"
+      class="mt-2"
+    >
+    </nly-form-datepicker>
+    <nly-form-datepicker
+      :value='{
+          startDate: "2019-12-10",
+          endDate: "2019-12-20"
+        }'
+      :locale-data="{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"
+      size="lg"
+      class="mt-2"
+    >
+    </nly-form-datepicker>
+  </div>
+</template>
+
+<!-- prepend-html and append-html .name -->
+<!-- date-picker.vue -->
+```
+
+### valid 验证提示
+
+`nly-form-datepicker` 提供一个 `valid` 和 `invalid-feedback` , `valid-feedback`, `waring-feedback` 来显示验证信息
+
+```html
+<template>
+  <div>
+    <nly-form-datepicker
+      :value='{
+          startDate: "2019-12-10",
+          endDate: "2019-12-20"
+        }'
+      :locale-data="{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"
+      prepend="@"
+      append="!"
+      invalid-feedback="invalid"
+      valid-feedback="valid"
+      warning-feedback="warning"
+      :valid="valid"
+    />
+    <nly-form-group label="valid 表单状态" label-cols-xs="auto" class="mt-2">
+      <nly-form-select v-model="valid" :options="validOptinos" />
+    </nly-form-group>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        valid: 'novalid',
+        validOptinos: [
+          { value: null, text: 'Please select an option', disabled: true },
+          { value: 'novalid', text: '不显示 feedback' },
+          { value: 'invalid', text: '显示invalid feedback' },
+          { value: 'valid', text: '显示 valid feedback' },
+          { value: 'warning', text: '显示 warning feedback' },
+        ],
+      }
+    },
+  }
+</script>
+
+<!-- valid .name -->
+<!-- date-picker.vue -->
+```
+
+## 日历的一些设置
+
+- 使用 `opens` prop 来设置日历的位置, 可选 `center`, `left`, `right`, `inline`
+
+- 使用 `single-date-picker` prop 来选择日期选择器的选择模式，分为单个日期选择和范围日期选择，设置 `single-date-picker` prop 为 `true` 为范围日期选择， `false` 为 单个日期选择
+
+- 设置 `show-week-numbers` prop 为 `true` 来显示日历上的周数，设置为 `false` 不显示
+
+- 设置 `time-picker` prop 为 `true` 来显示时间选择器
+
+- 设置 `time-picker24-hour` prop 为 `true` 来显示 24 小时制时间显示器，必须设置 `time-picker` prop 为 `true` 才有效
+
+- 设置 `show-dropdowns` prop 为 `true` 来显示月份选择下拉框和年份快速输入
+
+- 设置 `auto-apply` prop 为 `true` 来设置自动提交选择的时间
+
+- 设置 `ranges` prop 为 `true` 来显示左侧快速选择时间
+
+- 设置 `always-show-calendars` prop 为 `true` 来显示日历
+
+- 设置 `append-to-body` prop 为 `true` 来把日历渲染到 body 尾部，不然渲染在输入框下面, **注意 `append-to-body` 为 `false` 时可能会影响布局，如果影响布局， 请设置 `append-to-body` 为 `true`**
+
+- 设置 `close-on-esc` prop 为 `true` 来支持键盘按键 <kbd>ESC</kbd> 退出日历
+
+- 设置 `linked-calendars` prop 为 `true` 来使得两个日历联动
+
+```html
+<template>
+  <div>
+    <nly-form-datepicker
+      :opens="opens"
+      :locale-data="{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"
+      :single-date-picker="singleDatePicker"
+      :time-picker="timePicker"
+      :time-picker24-hour="timePicker24Hour"
+      :show-week-numbers="showWeekNumbers"
+      :show-dropdowns="showDropdowns"
+      :auto-apply="autoApply"
+      v-model="dateRange"
+      :ranges="show_ranges ? undefined : false"
+      :linked-calendars="linkedCalendars"
+      :always-show--calendars="alwaysShowCalendars"
+      :append-to-body="appendToBody"
+      :close-on-esc="closeOnEsc"
+    />
+    <div>
+      日历布局
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="options"
+          id="option1"
+          value="left"
+          v-model="opens"
+        />
+        <label class="form-check-label">left 左侧</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="options"
+          id="option2"
+          value="center"
+          v-model="opens"
+        />
+        <label class="form-check-label">center 居中</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="options"
+          id="option3"
+          value="right"
+          v-model="opens"
+        />
+        <label class="form-check-label">right 右侧</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="options"
+          id="option4"
+          value="inline"
+          v-model="opens"
+        />
+        <label class="form-check-label">inline 垂直</label>
+      </div>
+      <small class="form-text text-muted"
+        >日历布局，可选左侧，居中，右侧，垂直，当为垂直的时候，无法关闭
+      </small>
+    </div>
+    <div>
+      <div class="form-check form-inline py-3">
+        <label class="form-check-label" for="singleDatePicker">
+          single-date-picker 日历选择模式
+        </label>
+        <select
+          v-model="singleDatePicker"
+          id="singleDatePicker"
+          class="form-control ml-3"
+        >
+          <option :value="true">single 单个日期</option>
+          <option :value="false">range 范围日期</option>
+          <option :value="false">默认</option>
+        </select>
+        <small class="form-text text-muted"
+          >单个日期只能选择一个日期，范围日期必须选择两个日期</small
+        >
+      </div>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="showWeekNumbers"
+        v-model="showWeekNumbers"
+      />
+      <label class="form-check-label" for="showWeekNumbers">
+        show-week-numbers 显示周数
+      </label>
+      <small class="form-text text-muted">
+        日历左侧显示整个日期对应的周数
+      </small>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="timePicker"
+        v-model="timePicker"
+      />
+      <label class="form-check-label" for="timePicker">
+        time-picker 显示时间选择器
+      </label>
+      <small class="form-text text-muted">
+        允许选择时间
+      </small>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="timePicker24Hour"
+        v-model="timePicker24Hour"
+      />
+      <label class="form-check-label" for="timePicker24Hour">
+        time-picker24-hour 24小时制时间选择器
+      </label>
+      <small class="form-text text-muted">
+        时间显示器转为24小时制
+      </small>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="showDropdowns"
+        v-model="showDropdowns"
+      />
+      <label class="form-check-label" for="showDropdowns">
+        show-dropdowns 显示选择月份和输入年份
+      </label>
+      <small class="form-text text-muted">
+        允许 显示选择月份和输入年份
+      </small>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="autoApply"
+        v-model="autoApply"
+      />
+      <label class="form-check-label" for="autoApply">
+        auto-apply 自动提交
+      </label>
+      <small class="form-text text-muted">
+        选择完日期之后，会自动提交选择的时间，并隐藏停止，提交按钮
+      </small>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="show_ranges"
+        v-model="show_ranges"
+      />
+      <label class="form-check-label" for="show_ranges">
+        ranges 显示左侧最近时间
+      </label>
+      <small class="form-text text-muted">
+        可以显示左侧最近时间，比如上个月
+      </small>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="alwaysShowCalendars"
+        v-model="alwaysShowCalendars"
+      />
+      <label class="form-check-label" for="alwaysShowCalendars">
+        always-show-calendars 显示日历
+      </label>
+      <small class="form-text text-muted">
+        设置为false 不显示日历，如果设置了rangs显示左侧最近时间，这个选项无效
+      </small>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="appendToBody"
+        v-model="appendToBody"
+      />
+      <label class="form-check-label" for="appendToBody">
+        append-to-body 把日期选择器渲染到 body
+      </label>
+      <small class="form-text text-muted"> </small>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="closeOnEsc"
+        v-model="closeOnEsc"
+      />
+      <label class="form-check-label" for="closeOnEsc">
+        close-on-esc 按esc键退出
+      </label>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        dateRange: {
+          startDate: '2019-12-10',
+          endDate: '2019-12-20',
+        },
+        single_range_picker: false,
+        show_ranges: true,
+        singleDatePicker: false,
+        timePicker: true,
+        timePicker24Hour: true,
+        showDropdowns: true,
+        autoApply: false,
+        showWeekNumbers: true,
+        linkedCalendars: true,
+        alwaysShowCalendars: true,
+        appendToBody: false,
+        closeOnEsc: true,
+        opens: 'center',
+      }
+    },
+  }
+</script>
+
+<!-- calendars .name -->
+<!-- date-picker.vue -->
+```
+
+## 使用插槽
+
+### input 插槽
+
+我们可以使用 input 插槽来使默认渲染的 input 输入框变成其他想渲染的任何组件。
+
+**如果影响布局， 请设置 `append-to-body` 为 `true`**
+
+```html
+<template>
+  <div>
+    <nly-form-datepicker
+      :value='{
+          startDate: "2019-12-10",
+          endDate: "2019-12-20"
+        }'
+      :append-to-body="true"
+    >
+      <template v-slot:input="picker" style="min-width: 350px;">
+        <nly-form-input :value='picker.startDate + "-" +  picker.endDate' />
+      </template>
+    </nly-form-datepicker>
+
+    <nly-form-datepicker
+      class="mt-2"
+      :value='{
+          startDate: "2019-12-10",
+          endDate: "2019-12-20"
+        }'
+      :append-to-body="true"
+    >
+      <template v-slot:input>
+        <nly-icon icon="far fa-calendar-alt" />
+      </template>
+    </nly-form-datepicker>
+
+    <nly-input-group>
+      <nly-input :value="inputDate" />
+      <template v-slot:append>
+        <nly-input-group-text>
+          <nly-form-datepicker v-model="dateRange" :append-to-body="true">
+            <template v-slot:input>
+              <nly-icon icon="far fa-calendar-alt" />
+            </template>
+          </nly-form-datepicker>
+        </nly-input-group-text>
+      </template>
+    </nly-input-group>
+  </div>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        dateRange: {
+          startDate: '2019-12-10',
+          endDate: '2019-12-20',
+        },
+      }
+    },
+    computed: {
+      inputDate() {
+        const locale = this.dateRange.startDate + ' - ' + this.dateRange.endDate
+        return locale
+      },
+    },
+  }
+</script>
+<!-- input 插槽.name -->
+<!-- date-picker.vue -->
+```
+
+### header 插槽
+
+我们可以使用 header 插槽来给日期选择器添加 header
+
+```html
+<template>
+  <div>
+    <nly-form-datepicker
+      :value='{
+          startDate: "2019-12-10",
+          endDate: "2019-12-20"
+        }'
+      :append-to-body="true"
+    >
+      <div
+        slot="header"
+        slot-scope="header"
+        :style='{"background-color": "#aaa", padding: "0.5rem", color: "white",display: "flex", "align-items": "center","justify-content": "space-between"}'
+      >
+        <h3>Calendar header</h3>
+        <span v-if="header.in_selection"> - in selection</span>
+      </div>
+    </nly-form-datepicker>
+  </div>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        dateRange: {
+          startDate: '2019-12-10',
+          endDate: '2019-12-20',
+        },
+      }
+    },
+    computed: {
+      inputDate() {
+        const locale = this.dateRange.startDate + ' - ' + this.dateRange.endDate
+        return locale
+      },
+    },
+  }
+</script>
+<!-- header 插槽.name -->
 <!-- date-picker.vue -->
 ```

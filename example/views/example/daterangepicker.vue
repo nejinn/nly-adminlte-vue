@@ -655,6 +655,7 @@ export default {
       return 1 + Math.floor(weekDiff);
     },
     updateValues(values) {
+      console.log(11);
       this.dateRange.startDate = this.dateUtil.format(
         values.startDate,
         "yyyy-mm-dd HH:MM:ss"
