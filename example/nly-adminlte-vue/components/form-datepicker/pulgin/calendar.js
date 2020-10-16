@@ -351,7 +351,7 @@ export const NlyCalendar = Vue.extend({
                   colspan: self.showWeekNumbers ? 6 : 5
                 }
               },
-              [this.monthName, " ", this.year]
+              [this.monthName, "  ", this.year]
             ),
             h(
               "th",

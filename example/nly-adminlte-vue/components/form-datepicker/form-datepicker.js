@@ -822,7 +822,7 @@ export const NlyFormDatepicker = Vue.extend({
       calendarsContainerChildrenVnodes
     );
     const calendarsRowVnodes = () => {
-      if (hasNormalizedSlot("header", this.$scopedSlots, this.$slots)) {
+      if (hasNormalizedSlot("ranges", this.$scopedSlots, this.$slots)) {
         if (this.showRanges) {
           return h("div", { class: "calendars row no-gutters" }, [
             this.$scopedSlots.ranges({
@@ -1021,32 +1021,47 @@ export const NlyFormDatepicker = Vue.extend({
 
     const scopedSlotsInput = () => {
       if (hasNormalizedSlot("input", this.$scopedSlots, this.$slots)) {
-        return this.$scopedSlots.input({
-          startDate: this.start,
-          endDate: this.end,
-          ranges: this.ranges
-        });
-      } else {
         return h(
-          NlyInputGroup,
+          "span",
           {
-            props: {
-              size: this.size
-            },
-            class: this.validClass
+            on: { click: this.onClickPicker },
+            ref: "toggle"
           },
           [
-            $prepend,
-            h(NlyFormInput, {
-              props: {
-                value: this.rangeText,
-                valid: this.valid
+            this.$scopedSlots.input({
+              startDate: this.start,
+              endDate: this.end,
+              ranges: this.ranges
+            })
+          ]
+        );
+      } else {
+        return h(
+          "span",
+          {
+            on: { click: this.onClickPicker },
+            ref: "toggle"
+          },
+          [
+            h(
+              NlyInputGroup,
+              {
+                props: {
+                  size: this.size
+                },
+                class: this.validClass
               },
-              on: {
-                click: this.onClickPicker
-              }
-            }),
-            $append
+              [
+                $prepend,
+                h(NlyFormInput, {
+                  props: {
+                    value: this.rangeText,
+                    valid: this.valid
+                  }
+                }),
+                $append
+              ]
+            )
           ]
         );
       }
@@ -1095,8 +1110,7 @@ export const NlyFormDatepicker = Vue.extend({
       "div",
       {
         staticClass: "nly-daterange-picker",
-        class: [this.opens === "inline" ? "inline" : null],
-        ref: "toggle"
+        class: [this.opens === "inline" ? "inline" : null]
       },
       pickerVnodes
     );
