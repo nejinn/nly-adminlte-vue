@@ -4,7 +4,7 @@
   "meta": {
     "title": "Form Datepicker",
     "subtitle": "日期选择器",
-    "description": "日期选择器",
+    "description": "日期选择器可以选择范围日期，单个日期，选择时间",
     "components": [
       {
         "component": "NlyFormDatepicker",
@@ -94,7 +94,7 @@
             "description": "24小时制时间选择器"
           },
           {
-            "prop": "dateRange",
+            "prop": "value",
             "description": "日期选择器选择的数据， {startDate: null,endDate: null}"
           },
           {
