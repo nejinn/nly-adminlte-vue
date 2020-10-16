@@ -1,175 +1,187 @@
 <template>
-  <nly-container>
-    <nly-row>
-      <nly-col>
-        <nly-form-group
-          label="data picker"
-          label-size="lg"
-          label-class="font-weight-bold pt-0"
-          class="mb-0"
-        >
-          <nly-form-datepicker
-            ref="picker"
-            :opens="opens"
-            :locale-data="{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"
-            :minDate="minDate"
-            :maxDate="maxDate"
-            :singleDatePicker="singleDatePicker"
-            :timePicker="timePicker"
-            :timePicker24Hour="timePicker24Hour"
-            :showWeekNumbers="showWeekNumbers"
-            :showDropdowns="showDropdowns"
-            :autoApply="autoApply"
-            v-model="dateRange"
-            :ranges="show_ranges ? undefined : false"
-            @update="updateValues"
-            @toggle="checkOpen"
-            :dateFormat="setDateFormat"
-            :linkedCalendars="linkedCalendars"
-            :always-show-calendars="false"
-            :alwaysShowCalendars="alwaysShowCalendars"
-            :append-to-body="appendToBody"
-            :closeOnEsc="closeOnEsc"
-            :prepend="prepend"
-            :append="append"
-            :valid="valid"
-            invalid-feedback="我是invalid"
-            valid-feedback="我是valid"
-            warning-feedback="我是warning"
-            size="sm"
-          />
-        </nly-form-group>
-      </nly-col>
-    </nly-row>
-    <div class="form-row pt-3 bg-light">
-      <div class="col-md-6">
-        <div class="form-group row">
-          <label class="col-sm-4 col-form-label" for="startDate"
-            >startDate 开始日期</label
-          >
-          <div class="col-sm-8">
-            <input
-              type="text"
-              class="form-control"
-              id="startDate"
-              v-model="dateRange.startDate"
-            />
+  <nly-content-wrapper>
+    <nly-content-header>
+      <nly-container fluid>
+        <nly-row class="mb-2">
+          <nly-col sm="6">
+            <h1>nly-form-datepicker</h1>
+          </nly-col>
+        </nly-row>
+      </nly-container>
+    </nly-content-header>
+    <nly-content>
+      <nly-container>
+        <nly-row>
+          <nly-col>
+            <nly-form-group
+              label="data picker"
+              label-size="lg"
+              label-class="font-weight-bold pt-0"
+              class="mb-0"
+            >
+              <nly-form-datepicker
+                ref="picker"
+                :opens="opens"
+                :locale-data="{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"
+                :minDate="minDate"
+                :maxDate="maxDate"
+                :singleDatePicker="singleDatePicker"
+                :timePicker="timePicker"
+                :timePicker24Hour="timePicker24Hour"
+                :showWeekNumbers="showWeekNumbers"
+                :showDropdowns="showDropdowns"
+                :autoApply="autoApply"
+                v-model="dateRange"
+                :ranges="show_ranges ? undefined : false"
+                @update="updateValues"
+                @toggle="checkOpen"
+                :dateFormat="setDateFormat"
+                :linkedCalendars="linkedCalendars"
+                :always-show-calendars="false"
+                :alwaysShowCalendars="alwaysShowCalendars"
+                :append-to-body="appendToBody"
+                :closeOnEsc="closeOnEsc"
+                :prepend="prepend"
+                :append="append"
+                :valid="valid"
+                invalid-feedback="我是invalid"
+                valid-feedback="我是valid"
+                warning-feedback="我是warning"
+                size="sm"
+              />
+            </nly-form-group>
+          </nly-col>
+        </nly-row>
+        <nly-row>
+          <div class="form-row pt-3 bg-light">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label" for="startDate"
+                  >startDate 开始日期</label
+                >
+                <div class="col-sm-8">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="startDate"
+                    v-model="dateRange.startDate"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label" for="endDate"
+                  >endDate 结束日期</label
+                >
+                <div class="col-sm-8">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="endDate"
+                    v-model="dateRange.endDate"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label" for="minDate"
+                  >minDate 日历可选择最小日期</label
+                >
+                <div class="col-sm-8">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="minDate"
+                    v-model="minDate"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label" for="maxDate"
+                  >maxDate 日历可选择最大日期</label
+                >
+                <div class="col-sm-8">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="maxDate"
+                    v-model="maxDate"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-sm-4 col-form-label" for="endDate"
-            >endDate 结束日期</label
-          >
-          <div class="col-sm-8">
-            <input
-              type="text"
-              class="form-control"
-              id="endDate"
-              v-model="dateRange.endDate"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group row">
-          <label class="col-sm-4 col-form-label" for="minDate"
-            >minDate 日历可选择最小日期</label
-          >
-          <div class="col-sm-8">
-            <input
-              type="text"
-              class="form-control"
-              id="minDate"
-              v-model="minDate"
-            />
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-sm-4 col-form-label" for="maxDate"
-            >maxDate 日历可选择最大日期</label
-          >
-          <div class="col-sm-8">
-            <input
-              type="text"
-              class="form-control"
-              id="maxDate"
-              v-model="maxDate"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div>
-      日历布局
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="options"
-          id="option1"
-          value="left"
-          v-model="opens"
-        />
-        <label class="form-check-label">left 左侧</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="options"
-          id="option2"
-          value="center"
-          v-model="opens"
-        />
-        <label class="form-check-label">center 居中</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="options"
-          id="option3"
-          value="right"
-          v-model="opens"
-        />
-        <label class="form-check-label">right 右侧</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="options"
-          id="option4"
-          value="inline"
-          v-model="opens"
-        />
-        <label class="form-check-label">inline 垂直</label>
-      </div>
-      <small class="form-text text-muted"
-        >日历布局，可选左侧，居中，右侧，垂直，当为垂直的时候，无法关闭
-      </small>
-    </div>
-    <div>
-      <div class="form-check form-inline py-3">
-        <label class="form-check-label" for="singleDatePicker">
-          single-date-picker 日历选择模式
-        </label>
-        <select
-          v-model="singleDatePicker"
-          id="singleDatePicker"
-          class="form-control ml-3"
-        >
-          <option>single 单个日期</option>
-          <option>range 范围日期</option>
-          <option :value="false">默认</option>
-        </select>
-        <small class="form-text text-muted"
-          >单个日期只能选择一个日期，范围日期必须选择两个日期</small
-        >
-      </div>
+          <div>
+            日历布局
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="options"
+                id="option1"
+                value="left"
+                v-model="opens"
+              />
+              <label class="form-check-label">left 左侧</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="options"
+                id="option2"
+                value="center"
+                v-model="opens"
+              />
+              <label class="form-check-label">center 居中</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="options"
+                id="option3"
+                value="right"
+                v-model="opens"
+              />
+              <label class="form-check-label">right 右侧</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="options"
+                id="option4"
+                value="inline"
+                v-model="opens"
+              />
+              <label class="form-check-label">inline 垂直</label>
+            </div>
+            <small class="form-text text-muted"
+              >日历布局，可选左侧，居中，右侧，垂直，当为垂直的时候，无法关闭
+            </small>
+          </div>
+          <div>
+            <div class="form-check form-inline py-3">
+              <label class="form-check-label" for="singleDatePicker">
+                single-date-picker 日历选择模式
+              </label>
+              <select
+                v-model="singleDatePicker"
+                id="singleDatePicker"
+                class="form-control ml-3"
+              >
+                <option>single 单个日期</option>
+                <option>range 范围日期</option>
+                <option :value="false">默认</option>
+              </select>
+              <small class="form-text text-muted"
+                >单个日期只能选择一个日期，范围日期必须选择两个日期</small
+              >
+            </div>
 
-      <!-- prepend="@@"
+            <!-- prepend="@@"
             append="!"
             valid="invalid"
             invalid-feedback="我是invalid"
@@ -177,141 +189,158 @@
             warning-feedback="我是warning"
             size="sm" -->
 
-      <nly-form-group label="prepend 输入框前面图标" label-cols-xs="auto">
-        <nly-form-input v-model="prepend" size="sm" />
-      </nly-form-group>
+            <nly-form-group label="prepend 输入框前面图标" label-cols-xs="auto">
+              <nly-form-input v-model="prepend" size="sm" />
+            </nly-form-group>
 
-      <nly-form-group label="append 输入框前面图标" label-cols-xs="auto">
-        <nly-form-input v-model="append" size="sm" />
-      </nly-form-group>
+            <nly-form-group label="append 输入框前面图标" label-cols-xs="auto">
+              <nly-form-input v-model="append" size="sm" />
+            </nly-form-group>
 
-      <nly-form-group label="valid 表单状态" label-cols-xs="auto">
-        <nly-form-select v-model="valid" :options="validOptinos" />
-      </nly-form-group>
+            <nly-form-group label="valid 表单状态" label-cols-xs="auto">
+              <nly-form-select v-model="valid" :options="validOptinos" />
+            </nly-form-group>
 
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          id="showWeekNumbers"
-          v-model="showWeekNumbers"
-        />
-        <label class="form-check-label" for="showWeekNumbers">
-          show-week-numbers 显示周数
-        </label>
-        <small class="form-text text-muted">
-          日历左侧显示整个日期对应的周数
-        </small>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          id="timePicker"
-          v-model="timePicker"
-        />
-        <label class="form-check-label" for="timePicker">
-          time-picker 显示时间选择器
-        </label>
-        <small class="form-text text-muted">
-          允许选择时间
-        </small>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          id="timePicker24Hour"
-          v-model="timePicker24Hour"
-        />
-        <label class="form-check-label" for="timePicker24Hour">
-          time-picker24-hour 24小时制时间选择器
-        </label>
-        <small class="form-text text-muted">
-          时间显示器转为24小时制
-        </small>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          id="showDropdowns"
-          v-model="showDropdowns"
-        />
-        <label class="form-check-label" for="showDropdowns">
-          show-dropdowns 显示选择月份和输入年份
-        </label>
-        <small class="form-text text-muted">
-          允许 显示选择月份和输入年份
-        </small>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          id="autoApply"
-          v-model="autoApply"
-        />
-        <label class="form-check-label" for="autoApply">
-          auto-apply 自动提交
-        </label>
-        <small class="form-text text-muted">
-          选择完日期之后，会自动提交选择的时间，并隐藏停止，提交按钮
-        </small>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          id="show_ranges"
-          v-model="show_ranges"
-        />
-        <label class="form-check-label" for="show_ranges">
-          ranges 显示左侧最近时间
-        </label>
-        <small class="form-text text-muted">
-          可以显示左侧最近时间，比如上个月
-        </small>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          id="alwaysShowCalendars"
-          v-model="alwaysShowCalendars"
-        />
-        <label class="form-check-label" for="alwaysShowCalendars">
-          always-show-calendars 显示日历
-        </label>
-        <small class="form-text text-muted">
-          设置为false 不显示日历，如果设置了rangs显示左侧最近时间，这个选项无效
-        </small>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          id="appendToBody"
-          v-model="appendToBody"
-        />
-        <label class="form-check-label" for="appendToBody">
-          append-to-body 把日期选择器渲染到 body
-        </label>
-        <small class="form-text text-muted"> </small>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          id="closeOnEsc"
-          v-model="closeOnEsc"
-        />
-        <label class="form-check-label" for="closeOnEsc">
-          close-on-esc 按esc键退出
-        </label>
-      </div>
-    </div>
-  </nly-container>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="showWeekNumbers"
+                v-model="showWeekNumbers"
+              />
+              <label class="form-check-label" for="showWeekNumbers">
+                show-week-numbers 显示周数
+              </label>
+              <small class="form-text text-muted">
+                日历左侧显示整个日期对应的周数
+              </small>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="timePicker"
+                v-model="timePicker"
+              />
+              <label class="form-check-label" for="timePicker">
+                time-picker 显示时间选择器
+              </label>
+              <small class="form-text text-muted">
+                允许选择时间
+              </small>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="timePicker24Hour"
+                v-model="timePicker24Hour"
+              />
+              <label class="form-check-label" for="timePicker24Hour">
+                time-picker24-hour 24小时制时间选择器
+              </label>
+              <small class="form-text text-muted">
+                时间显示器转为24小时制
+              </small>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="showDropdowns"
+                v-model="showDropdowns"
+              />
+              <label class="form-check-label" for="showDropdowns">
+                show-dropdowns 显示选择月份和输入年份
+              </label>
+              <small class="form-text text-muted">
+                允许 显示选择月份和输入年份
+              </small>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="autoApply"
+                v-model="autoApply"
+              />
+              <label class="form-check-label" for="autoApply">
+                auto-apply 自动提交
+              </label>
+              <small class="form-text text-muted">
+                选择完日期之后，会自动提交选择的时间，并隐藏停止，提交按钮
+              </small>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="show_ranges"
+                v-model="show_ranges"
+              />
+              <label class="form-check-label" for="show_ranges">
+                ranges 显示左侧最近时间
+              </label>
+              <small class="form-text text-muted">
+                可以显示左侧最近时间，比如上个月
+              </small>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="alwaysShowCalendars"
+                v-model="alwaysShowCalendars"
+              />
+              <label class="form-check-label" for="alwaysShowCalendars">
+                always-show-calendars 显示日历
+              </label>
+              <small class="form-text text-muted">
+                设置为false
+                不显示日历，如果设置了rangs显示左侧最近时间，这个选项无效
+              </small>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="appendToBody"
+                v-model="appendToBody"
+              />
+              <label class="form-check-label" for="appendToBody">
+                append-to-body 把日期选择器渲染到 body
+              </label>
+              <small class="form-text text-muted"> </small>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="closeOnEsc"
+                v-model="closeOnEsc"
+              />
+              <label class="form-check-label" for="closeOnEsc">
+                close-on-esc 按esc键退出
+              </label>
+            </div>
+          </div>
+        </nly-row>
+
+        <nly-row>
+          <nly-form-datepicker
+            :value="{
+              startDate: '2019-12-10',
+              endDate: '2019-12-20'
+            }"
+            :locale-data="localeData"
+            show-week-numbers
+            show-dropdowns
+            :ranges="ranges"
+          />
+        </nly-row>
+      </nly-container>
+    </nly-content>
+  </nly-content-wrapper>
 </template>
 
 <script>
@@ -328,6 +357,32 @@ export default {
   data() {
     //                    :locale-data="{ daysOfWeek: [ 'Нд', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб' ] }"
     return {
+      localeData: {
+        direction: "ltr",
+        format: "mm/dd/yyyy",
+        separator: " - ",
+        applyLabel: "确定",
+        cancelLabel: "取消",
+        weekLabel: "周",
+        customRangeLabel: "Custom Range",
+        daysOfWeek: ["日", "一", "二", "三", "四", "五", "六"],
+        monthNames: [
+          "1月",
+          "2月",
+          "3月",
+          "4月",
+          "5月",
+          "6月",
+          "7月",
+          "8月",
+          "9月",
+          "10月",
+          "11月",
+          "12月"
+        ],
+        firstDay: 0
+      },
+      ranges: false,
       sss: "",
       opens: "center",
       minDate: "2019-05-02 04:00:00",
@@ -365,6 +420,27 @@ export default {
     };
   },
   mounted() {
+    let today = new Date();
+    today.setHours(0, 0, 0, 0);
+    let thisMonthStart = new Date(today.getFullYear(), today.getMonth(), 1);
+    let thisMonthEnd = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+
+    let yesterday = new Date();
+    yesterday.setDate(today.getDate() - 1);
+    yesterday.setHours(0, 0, 0, 0);
+    this.ranges = {
+      今天: [today, today],
+      昨天: [yesterday, yesterday],
+      本月: [thisMonthStart, thisMonthEnd],
+      今年: [
+        new Date(today.getFullYear(), 0, 1),
+        new Date(today.getFullYear(), 11, 31)
+      ],
+      上个月: [
+        new Date(today.getFullYear(), today.getMonth() - 1, 1),
+        new Date(today.getFullYear(), today.getMonth(), 0)
+      ]
+    };
     this.dateFormat = (function() {
       var token = /d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZWN]|"[^"]*"|'[^']*'/g;
       var timezone = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g;

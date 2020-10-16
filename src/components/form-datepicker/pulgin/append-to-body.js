@@ -18,7 +18,7 @@ export const VNlyAppendToBody = {
 
       document.body.appendChild(el);
     } else {
-      context.$el.appendChild(el);
+      context.$refs.toggle.appendChild(el);
     }
   },
 

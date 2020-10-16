@@ -1,111 +1,147 @@
-# 1. form
-<!-- TOC -->
+# form
 
-- [1. form](#1-form)
-  - [1.1. nly-form](#11-nly-form)
-    - [1.1.1. props](#111-props)
-  - [1.2. nly-form-input](#12-nly-form-input)
-    - [1.2.1. props](#121-props)
-  - [1.3. nly-form-feedback](#13-nly-form-feedback)
-    - [1.3.1. props](#131-props)
+> `nly-form` 是一个表单控件，会为置于其中的其他表单控件提供一些辅助型功能，比如布局，验证等等。
 
-<!-- /TOC -->
-## 1.1. nly-form
+## 简介
 
-### 1.1.1. props
+确保置于 `nly-form` 中的 `nly-form-input` 设置正确的 prop `type`，以便 `nly-form` 可以直接控制验证信息
 
-参数 | 类型 |  默认值 | 描述
--|-|-|-
-id | String |  | id
-inline | Boolean | false | 水平布局
-novalidate | Boolean | false | 禁用浏览器htm5验证
-validated | Boolean | false | 添加was-validated css类,会自动验证表单内容
+```html
+<template>
+  <div>
+    <nly-form @submit="onSubmit" @reset="onReset" v-if="show">
+      <nly-form-group
+        id="input-group-1"
+        label="邮件:"
+        label-for="input-1"
+        description="请输入您的邮件地址"
+      >
+        <nly-form-input
+          id="input-1"
+          v-model="form.email"
+          type="email"
+          required
+          placeholder="Enter email"
+        ></nly-form-input>
+      </nly-form-group>
 
-## 1.2. nly-form-input
+      <nly-form-group id="input-group-2" label="姓名:" label-for="input-2">
+        <nly-form-input
+          id="input-2"
+          v-model="form.name"
+          required
+          placeholder="Enter name"
+        ></nly-form-input>
+      </nly-form-group>
 
-> col一类的props请参考grid中的nly-col
+      <nly-form-group id="input-group-3" label="Food:" label-for="input-3">
+        <nly-form-select
+          id="input-3"
+          v-model="form.food"
+          :options="foods"
+          required
+        ></nly-form-select>
+      </nly-form-group>
 
-### 1.2.1. props
+      <nly-button type="submit" variant="primary">Submit</nly-button>
+      <nly-button type="reset" variant="danger">Reset</nly-button>
+    </nly-form>
+    <nly-card class="mt-3" header-variant="info" header-outline >
+      <nly-card-header>
+        输入结果
+      </nly-card-header>
+      <nly-card-body>
+        <pre class="m-0">{{ form }}</pre>
+      </nly-card-body>
+    </nly-card>
+  </div>
+</template>
 
-参数 | 类型 |  默认值 | 描述
--|-|-|-
-type | String | text | 类型，默认text,不传默认text。可选text,password,email,number,url,tel,search,range,color,date,time,datetime,datetime-local,month,week
-max | String, Number |  | 输入值的最大范围，type=number和range才有效
-min | String, Number |  | 输入值的最小范围，type=number和range才有效
-maxlength | String, Number |  | 输入值的最大长度，type='text'或者'password'时有用
-step | String, Number |  | 有效间隔，type=number和range才有效
-list | String| null | 输入时出现预先设定的option下拉列表，password无效
-value | String, Number| '' | 值，v-model传入的值会传给value
-readonly | Boolean | false | 只读
-plaintext | Boolean | false | 无外框
-autocomplete | String |  | 自动提示完成填写
-placeholder | String | null | 提示文本
-formatter  | Function | null | 文本格式转换
-lazy-formatter  | Boolean | false | 懒惰模式文本格式转换
-trim | Boolean | false | 去除首尾空格
-lazy | Boolean | false | 懒加载模式，事件和v-model有效
-name | String |  | 放置form中，可以根据name属性取值
-id | String |  | id
-disabled | Boolean | false | 禁用
-required | Boolean | false | html校验必填，放置form中，提交才会生效
-form | String |  | 指定归属表单，可以放置在表单外面
-autofocus | Boolean | false | 自动聚焦
-size | String |  | 大小，可以sm,lg
-valid | String |  | 验证提示，可选valid,invalid,warning,novalid
-col | Boolean | false | 在没有其他props的情况下，所有列等宽,放在class='row'的元素下有效
-xs | String |  | 宽度在xs及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据子节点自动宽度，放在class='row'的元素下有效
-md | String |  | 宽度在md及以上断点列宽,可选同上
-lg | String |  | 宽度在lg及以上断点列宽，可选同上
-xl | String |  | 宽度在xl及以上断点列宽，可选同上
-offset-xs | String |  | 宽度在xs及以上断点右移列数,可选0，2，3，4，5，6，7，8，9，10，11，放在class='row'的元素下有效
-offset-sm | String |  | 宽度在sm及以上断点右移列数,可选同上
-offset-md | String |  | 宽度在md及以上断点右移列数,可选同上
-offset-lg | String |  | 宽度在lg及以上断点右移列数,可选同上
-offset-xl | String |  | 宽度在xl及以上断点右移列数,可选同上
-order-xs | String |  | 宽度在xs及以上断点排列顺序,可选0，2，3，4，5，6，7，8，9，10，11，12，放在class='row'的元素下有效
-order-sm | String |  | 宽度在sm及以上断点排列顺序,可选同上
-order-md | String |  | 宽度在md及以上断点排列顺序,可选同上
-order-lg | String |  | 宽度在lg及以上断点排列顺序,可选同上
-order-xl | String |  | 宽度在xl及以上断点排列顺序,可选同上
-
-## 1.3. nly-form-feedback
-
-### 1.3.1. props
-
-参数 | 类型 |  默认值 | 描述
--|-|-|-
-id | String |  | id
-tag | String |  | id
-id | String |  | id
-
-
-
-  id: {
-    type: String
-  },
-  tag: {
-    type: String,
-    default: "span"
-  },
-  tooltip: {
-    type: Boolean,
-    default: false
-  },
-  forceShow: {
-    type: Boolean,
-    default: false
-  },
-  state: {
-    type: String,
-    default: "novalid",
-    validator: state => nlyGetOptionInclusion(formValidOptions, state)
-  },
-  ariaLive: {
-    type: String
-  },
-  role: {
-    type: String
-  },
-  text: {
-    type: String
+<script>
+  export default {
+    data() {
+      return {
+        form: {
+          email: '',
+          name: '',
+          food: null,
+        },
+        foods: [
+          { text: '请选择', value: null },
+          '作者帅',
+          '作者屌大',
+          '作者大佬',
+          '牛逼',
+        ],
+        show: true,
+      }
+    },
+    methods: {
+      onSubmit(evt) {
+        evt.preventDefault()
+        alert(JSON.stringify(this.form))
+      },
+      onReset(evt) {
+        evt.preventDefault()
+        this.form.email = ''
+        this.form.name = ''
+        this.form.food = null
+        this.show = false
+        this.$nextTick(() => {
+          this.show = true
+        })
+      },
+    },
   }
+</script>
+
+<!-- 简介 .name -->
+<!-- form.vue -->
+```
+
+## inline 水平表格
+
+使用 `inline` prop 来使得表单内的输入框，标签，按钮等处于水平，您可能需要设置 `mr-*, ml-*` 等自带的css类来控制表单组件的间距
+
+```html
+<div>
+  <nly-form inline>
+    <label class="sr-only" for="inline-form-input-name">名字</label>
+    <nly-input
+      id="inline-form-input-name"
+      class="mb-2 mr-sm-2 mb-sm-0"
+      placeholder="Jane Doe"
+    ></nly-input>
+
+    <label class="sr-only" for="inline-form-input-username">用户名</label>
+    <nly-input-group prepend="@" class="mb-2 mr-sm-2 mb-sm-0">
+      <nly-input id="inline-form-input-username" placeholder="Username"></nly-input>
+    </nly-input-group>
+
+    <nly-button variant="primary">保存</nly-button>
+  </nly-form>
+</div>
+
+<!-- inline.name -->
+<!-- inline.vue -->
+```
+
+下拉选择框同样支付
+
+```html
+<div>
+  <nly-form inline>
+    <label class="mr-sm-2" for="inline-form-custom-select-pref">Preference</label>
+    <nly-form-select
+      id="inline-form-custom-select-pref"
+      class="mb-2 mr-sm-2 mb-sm-0"
+      :options="[{ text: 'Choose...', value: null }, 'One', 'Two', 'Three']"
+      :value="null"
+    ></nly-form-select>
+    <nly-button variant="primary">保存</nly-button>
+  </b-form>
+</div>
+
+<!-- inline.name -->
+<!-- inline.vue -->
+```

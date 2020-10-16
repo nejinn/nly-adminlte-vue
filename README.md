@@ -40,13 +40,11 @@ English README || [中文 README](https://github.com/nejinn/nly-adminlte-vue/tre
 
 # 1. nly-adminlte-vue
 
-<!-- TOC -->autoauto- [1. nly-adminlte-vue](#1-nly-adminlte-vue)auto- [2. Demo](#2-demo)auto- [3. Docs](#3-docs)auto- [4. Progress](#4-progress)auto    - [4.1. Component](#41-component)auto    - [4.2. Directives](#42-directives)auto    - [4.3. Install](#43-install)auto        - [4.3.1. clone from Github](#431-clone-from-github)auto        - [4.3.2. npm](#432-npm)auto- [5. Thanks](#5-thanks)autoauto<!-- /TOC -->
+> nly-adminlte-vue is based on adminlte3 vue2.js， not need JQ
 
-> nly-adminlte-vue 是一个基于 adminlte3 封装的 vue 组件库。干掉 jq，让 vue 更好的使用 adminlte3。
+> Welcome to communicating with QQ：927568606
 
-> 欢迎加群交流 QQ 群：927568606
-
-> 目前版本为测试版本，欢迎体验更新代码。可能会 存在新版本不兼容旧版本 prop 的情况，请注意
+> This is a Alpha Version，Some prop perhaps deprecated in new Version， user caution!
 
 # 2. Demo
 
@@ -66,7 +64,7 @@ English README || [中文 README](https://github.com/nejinn/nly-adminlte-vue/tre
 
 > [nly-daminlte-vue-docs](http://nly-adminlte-vue.nejinn.com/)
 
-**注意** : The documentation has not been completely migrated to the website. If there is no document on the website, you can view it in the README.md under the corresponding component folder.
+**Note** : The documentation has not been completely migrated to the website. If there is no document on the website, you can view it in the README.md under the corresponding component folder.
 
 We also can view docs localhost with `npm run docs-dev`. [docs-dev](#43-install)
 
@@ -164,7 +162,7 @@ Vue.use(NlyAdminlteVueIcons);
 <!-- nly-adminlte-vue JS-->
 <script src="//unpkg.com/nly-adminlte-vue@latest/dist/nly-adminlte-vue.umd.js"></script>
 
-<!-- 引入nly-adminlte-vue CSS -->
+<!--  import nly-adminlte-vue CSS -->
 <link
   type="text/css"
   rel="stylesheet"
