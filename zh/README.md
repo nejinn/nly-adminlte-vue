@@ -40,8 +40,6 @@
 
 # 1. nly-adminlte-vue
 
-<!-- TOC -->autoauto- [1. nly-adminlte-vue](#1-nly-adminlte-vue)auto- [2. demo](#2-demo)auto- [3. 文档](#3-文档)auto- [4. 进度](#4-进度)auto    - [4.1. 组件](#41-组件)auto    - [4.2. 指令](#42-指令)auto    - [4.3. 使用](#43-使用)auto        - [4.3.1. 可以直接 clone 下载项目](#431-可以直接-clone-下载项目)auto        - [4.3.2. 从 npm 下载](#432-从-npm-下载)auto- [5. 感谢](#5-感谢)autoauto<!-- /TOC -->
-
 > nly-adminlte-vue 是一个基于 adminlte3 封装的 vue 组件库。干掉 jq，让 vue 更好的使用 adminlte3。
 
 > 欢迎加群交流 QQ 群：927568606
