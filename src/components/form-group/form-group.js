@@ -6,6 +6,8 @@ import idMixin from "../../mixins/id";
 import formGroupGrid from "../../mixins/form/form-group-grid";
 import fromGroupLabelTextAlign from "../../mixins/form/from-label-text-align";
 import { NlyFormFeedback } from "../form/form-feedback";
+import { NlyFormText } from "../form/form-text";
+import { getComponentConfig } from "../../utils/config";
 
 const name = "NlyFormGroup";
 
@@ -13,6 +15,18 @@ export const NlyFormGroup = Vue.extend({
   name: name,
   mixins: [formValid, idMixin, formGroupGrid, fromGroupLabelTextAlign],
   props: {
+    textTag: {
+      type: String,
+      default: "small"
+    },
+    textVariant: {
+      type: String,
+      default: () => getComponentConfig("NlyFormText", "textVariant")
+    },
+    textInline: {
+      type: Boolean,
+      default: false
+    },
     labelSize: {
       type: String,
       default: null,
@@ -210,12 +224,14 @@ export const NlyFormGroup = Vue.extend({
       if (this.customProps.description) {
         result.push(
           h(
-            "small",
+            NlyFormText,
             {
-              attrs: {
-                id: this.safeId(`__nly-form_group_description`)
-              },
-              staticClass: "form-text text-muted"
+              props: {
+                id: this.safeId(`__nly-form_group_description`),
+                tag: this.textTag,
+                inline: this.textInline,
+                textVariant: this.textVariant
+              }
             },
             this.customProps.description
           )

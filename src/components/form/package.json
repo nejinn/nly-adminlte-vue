@@ -4,7 +4,7 @@
   "meta": {
     "title": "Form",
     "subtitle": "表单",
-    "description": "表单控件，更容易设置表单状态和提交表单",
+    "description": "表单",
     "components": [
       {
         "component": "NlyForm",
@@ -50,6 +50,15 @@
           {
             "prop": "text",
             "description": "feedback validation文本内容"
+          }
+        ]
+      },
+      {
+        "component": "NlyFormText",
+        "props": [
+          {
+            "prop": "inline",
+            "description": "设置 true 为 inline 元素，设置 false 为 block 元素"
           }
         ]
       }

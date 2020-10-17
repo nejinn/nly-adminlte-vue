@@ -4,7 +4,7 @@
   "meta": {
     "title": "Form Datepicker",
     "subtitle": "日期选择器",
-    "description": "日期选择器可以选择范围日期，单个日期，选择时间",
+    "description": "日期选择器",
     "components": [
       {
         "component": "NlyFormDatepicker",
@@ -20,6 +20,10 @@
           {
             "prop": "description",
             "description": "默认下，日期选择器会渲染成一个 nly-inupt-group 组件内嵌一个 nly-form-input 组件。description 是对日期选择器的描述补充。插槽 input 可以替换默认渲染的组件，这时候默认渲染的日期选择器会失效"
+          },
+          {
+            "prop": "textInline",
+            "description": "description 的渲染形式，设置 true 为 inline 元素，设置 false 为 block 元素"
           },
           {
             "prop": "invalidFeedback",
