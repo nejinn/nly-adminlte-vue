@@ -1,7 +1,6 @@
 import { nlyInstallFactory } from "./utils/plugins";
 import { componentsPlugin } from "./components";
 import { directivesPlugin } from "./directives";
-import { from } from "./utils/array";
 
 const NAME = "NlyAdminlteVue";
 
