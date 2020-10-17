@@ -1,0 +1,194 @@
+{
+  "name": "@nly-adminlte-vue/sidebar",
+  "version": "1.0.0",
+  "meta": {
+    "title": "Sidebar",
+    "subtitle": "左侧导航",
+    "description": "一个普通的左侧导航",
+    "components": [
+      {
+        "component": "NlyRenderFunction",
+        "props": [
+          {
+            "prop": "pills",
+            "description": "tab切换nav元素(切换按钮)渲染为圆角按钮形状"
+          },
+          {
+            "prop": "small",
+            "description": "小号nav元素(切换按钮)"
+          },
+          {
+            "prop": "align",
+            "description": "nav元素(切换按钮)文字对齐方式， 可选 'start' ('left'), 'center', 'end' ('right')"
+          },
+          {
+            "prop": "fill",
+            "description": "nav元素(切换按钮)填充整个card宽度，但并不是每个nav元素(切换按钮)宽度都会相同"
+          },
+          {
+            "prop": "justified",
+            "description": "nav元素(切换按钮)填充整个card宽度，每个nav元素(切换按钮)宽度都会相同"
+          },
+          {
+            "prop": "vertical",
+            "description": "垂直tab"
+          },
+          {
+            "prop": "card",
+            "description": "设置true会渲染成nly-card"
+          },
+          {
+            "prop": "end",
+            "description": "设置为true，水平tab会把nav元素(切换按钮)放到底部，垂直tab会把nav元素(切换按钮)放到右侧"
+          },
+          {
+            "prop": "lazy",
+            "description": "懒加载"
+          },
+          {
+            "prop": "noNavStyle",
+            "description": "不渲染nav的css式样"
+          },
+          {
+            "prop": "noKeyNav",
+            "description": "禁用选项卡控件的键盘导航"
+          },
+          {
+            "prop": "contentClass",
+            "description": "tab-content元素自定义css"
+          },
+          {
+            "prop": "navClass",
+            "description": "nav自定义css"
+          },
+          {
+            "prop": "navWrapperClass",
+            "description": "wraaper元素自定义css"
+          },
+          {
+            "prop": "activeTabClass",
+            "description": "tab选项卡激活css"
+          },
+          {
+            "prop": "activeNavItemClass",
+            "description": "选项卡渲染成nav-item时激活css"
+          },
+          {
+            "prop": "value",
+            "description": "当前可见的选项卡值"
+          }
+        ],
+        "events": [
+          {
+            "event": "input",
+            "description": "更新v-model值时触发",
+            "args": [
+              {
+                "arg": "tabIndex",
+                "type": "Number",
+                "description": "当前可见tab的index"
+              }
+            ]
+          },
+          {
+            "event": "activate-tab",
+            "version": "0.4.4",
+            "description": "准备激活tab之前的index",
+            "args": [
+              {
+                "arg": "newTabIndex",
+                "type": "Number",
+                "description": "tab激活之后的index"
+              },
+              {
+                "arg": "prevTabIndex",
+                "type": "Number",
+                "description": "当前激活的tab的index，如果没有激活，那么默认为-1"
+              },
+              {
+                "arg": "nlyEvt",
+                "type": "NlyEvent",
+                "description": "NlyEvent对象. 防止冒泡"
+              }
+            ]
+          },
+          {
+            "event": "changed",
+            "description": "当一个tab被移除或者重新排序，或者新增一个tab时触发",
+            "args": [
+              {
+                "arg": "currentTabs",
+                "type": "Array",
+                "description": "当前tabs中tab集合"
+              },
+              {
+                "arg": "previousTabs",
+                "type": "Array",
+                "description": "未更新之前的tabs的tab集合"
+              }
+            ]
+          }
+        ],
+        "slots": [
+          {
+            "name": "tabs-start",
+            "description": "在有内容的选项卡前面添加没有内容的选项卡"
+          },
+          {
+            "name": "tabs-end",
+            "description": "在有内容的选项卡最后面添加没有内容的选项卡"
+          },
+          {
+            "name": "empty",
+            "description": "当没有tab时渲染"
+          }
+        ]
+      },
+      {
+        "component": "NlyTab",
+        "props": [
+          {
+            "prop": "buttonId",
+            "description": "如果传入， 则可设置一个按钮来操作对应id的nly-tab可见状态，如果没用传入，会自动生成一个"
+          },
+          {
+            "prop": "titleItemClass",
+            "description": "选项卡控制器 li标签的 自定义css"
+          },
+          {
+            "prop": "titleLinkClass",
+            "description": "选项卡控制器里包裹的a标签自定义css"
+          },
+          {
+            "prop": "titleLinkAttributes",
+            "version": "0.4.4",
+            "description": "选项卡控制器里包裹的a标签 attributes属性"
+          },
+          {
+            "prop": "lazy",
+            "description": "懒加载"
+          }
+        ],
+        "events": [
+          {
+            "event": "click",
+            "description": "点击tab时触发",
+            "args": [
+              {
+                "arg": "evt",
+                "type": "鼠标事件",
+                "description": "原生事件"
+              }
+            ]
+          }
+        ],
+        "slots": [
+          {
+            "name": "title",
+            "description": "tab标题插槽"
+          }
+        ]
+      }
+    ]
+  }
+}
