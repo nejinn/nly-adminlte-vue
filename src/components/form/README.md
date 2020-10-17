@@ -126,7 +126,7 @@
 <!-- inline.vue -->
 ```
 
-下拉选择框同样支付
+下拉选择框同样支持
 
 ```html
 <div>
@@ -139,9 +139,13 @@
       :value="null"
     ></nly-form-select>
     <nly-button variant="primary">保存</nly-button>
-  </b-form>
+  </nly-form>
 </div>
 
 <!-- inline.name -->
 <!-- inline.vue -->
 ```
+
+## 屏幕阅读器隐藏标签
+                        
+如果您可以屏幕阅读器上的效果，您可以使用 `.sr-only` 来在普通屏幕上隐藏标签。您还可以使用 `aria-label`, `aria-labelledby`  或者 `title` attrs来代替 `.sr-only`。如果这些属性都没有，屏幕阅读器会自动关联 `placeholder` 来代替 label 。

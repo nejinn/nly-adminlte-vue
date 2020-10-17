@@ -281,3 +281,57 @@
 <!-- size.name -->
 <!-- nly-input-group.vue -->
 ```
+
+## valid 和 description
+
+`nly-input-group` 同样可以使用 `feedback` 来提供表单验证信息，使用 `description` 来提供表单简介描述信息，不过最外层会渲染一层 `<div>`
+
+```html
+<template>
+  <div>
+    <nly-input-group
+      invalid-feedback="我是invalid"
+      valid-feedback="我是valid"
+      warning-feedback="我是warning"
+      :valid='valid'
+      description='请输入对应的信息'
+      text-variant='pink'
+      inline
+      text-tag='small'
+    >
+      <nly-input-group-prepend is-text>
+        <nly-icon icon="fas fa-envelope" />
+      </nly-input-group-prepend>
+      <nly-form-input :valid='valid'></nly-form-input>
+      <nly-input-group-append>
+        <nly-button size="sm" text="Button" variant="success"
+          >Button</nly-button
+        >
+      </nly-input-group-append>
+    </nly-input-group>
+    <nly-form-group label="valid 表单状态" label-cols-xs="auto" class="mt-2">
+      <nly-form-select v-model="valid" :options="validOptinos" />
+    </nly-form-group>
+  </div>
+</template>
+
+<script>
+export default {
+  data(){
+    return {
+      valid:'novalid',
+      validOptinos: [
+          { value: null, text: 'Please select an option', disabled: true },
+          { value: 'novalid', text: '不显示 feedback' },
+          { value: 'invalid', text: '显示invalid feedback' },
+          { value: 'valid', text: '显示 valid feedback' },
+          { value: 'warning', text: '显示 warning feedback' },
+        ],
+    }
+  }
+}
+
+</script>
+<!-- size.name -->
+<!-- nly-input-group.vue -->
+```

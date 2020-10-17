@@ -28,6 +28,30 @@
           {
             "prop": "appendHtml",
             "description": "渲染到 nly-input-group-append 的 html文本"
+          },
+          {
+            "prop": "valid",
+            "description": "验证状态，可选包valid, invalid, warning, novalid，设置不同的值可以出发表单验证 feedback"
+          },
+          {
+            "prop": "description",
+            "description": "描述提示文字"
+          },
+          {
+            "prop": "textInline",
+            "description": "description 的渲染形式，设置 true 为 inline 元素，设置 false 为 block 元素"
+          },
+          {
+            "prop": "invalidFeedback",
+            "description": "验证错误消息"
+          },
+          {
+            "prop": "validFeedback",
+            "description": "验证通过消息"
+          },
+          {
+            "prop": "warningFeedback",
+            "description": "验证警告消息"
           }
         ],
         "slots":[
@@ -113,7 +137,7 @@
           },
           {
             "prop": "append",
-            "description": "设置true 渲染为 nlyinput-group-append ，默认渲染为nly-input-grouppreppend "
+            "description": "设置true 渲染为 nlyinput-group-append ，默认渲染为nly-input-group-preppend "
           }
         ]
       }

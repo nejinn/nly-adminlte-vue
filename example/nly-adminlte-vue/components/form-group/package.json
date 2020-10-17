@@ -144,6 +144,10 @@
           {
             "prop": "disabled",
             "description": "禁用 form group的 fieldset 和label-for"
+          },
+          {
+            "prop": "textInline",
+            "description": "description 的渲染形式，设置 true 为 inline 元素，设置 false 为 block 元素"
           }
         ],
         "slots": [

@@ -17,19 +17,34 @@ import { nlyGetOptionInclusion } from "../../utils/get-options";
 import { NlyFormFeedback } from "../form/form-feedback";
 import formValid from "../../mixins/form/form-valid";
 import { NlyDaterangePickerTransition } from "./pulgin/transition";
+import { NlyFormText } from "../form/form-text";
+import idMixin from "../../mixins/id";
+import { getComponentConfig } from "../../utils/config";
 
 const name = "NlyFormDatepicker";
 
 export const NlyFormDatepicker = Vue.extend({
   name: name,
   inheritAttrs: false,
-  mixins: [dateUtilMixin, formValid],
+  mixins: [dateUtilMixin, formValid, idMixin],
   directives: { VNlyAppendToBody },
   model: {
     prop: "value",
     event: "update"
   },
   props: {
+    textTag: {
+      type: String,
+      default: "small"
+    },
+    textVariant: {
+      type: String,
+      default: () => getComponentConfig("NlyFormText", "textVariant")
+    },
+    textInline: {
+      type: Boolean,
+      default: false
+    },
     description: {
       type: String
     },
@@ -1081,9 +1096,14 @@ export const NlyFormDatepicker = Vue.extend({
     if (this.description) {
       pickerVnodes.push(
         h(
-          "small",
+          NlyFormText,
           {
-            staticClass: "form-text text-muted"
+            props: {
+              id: this.safeId(`__nly-form_group_description`),
+              tag: this.textTag,
+              inline: this.textInline,
+              textVariant: this.textVariant
+            }
           },
           this.description
         )

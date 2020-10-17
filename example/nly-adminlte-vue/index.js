@@ -1,6 +1,7 @@
 import { nlyInstallFactory } from "./utils/plugins";
 import { componentsPlugin } from "./components";
 import { directivesPlugin } from "./directives";
+import { from } from "./utils/array";
 
 const NAME = "NlyAdminlteVue";
 
@@ -76,6 +77,8 @@ export { NlyDropdownFooter } from "./components/dropdown/dropdown-footer";
 export { FormPlugin } from "./components/form";
 export { NlyForm } from "./components/form/form";
 export { NlyFormFeedback } from "./components/form/form-feedback";
+export { NlyFormDatalist } from "./components/form/form-datalist";
+export { NlyFormText } from "./components/form/form-text";
 
 export { FormGroupPlugin } from "./components/form-group";
 export { NlyFormGroup } from "./components/form-group/form-group";
