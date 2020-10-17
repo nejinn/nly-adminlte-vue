@@ -78,7 +78,7 @@ const validClass = props => {
 };
 
 const sizeClass = props => {
-  return `input-group-${props.size}`;
+  return props.size ? `input-group-${props.size}` : null;
 };
 
 export const NlyInputGroup = Vue.extend({

@@ -52,6 +52,15 @@
             "description": "feedback validation文本内容"
           }
         ]
+      },
+      {
+        "component": "NlyFormText",
+        "props": [
+          {
+            "prop": "inline",
+            "description": "设置 true 为 inline 元素，设置 false 为 block 元素"
+          }
+        ]
       }
     ]
   }
