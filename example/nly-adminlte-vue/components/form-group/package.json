@@ -10,10 +10,6 @@
         "component": "NlyFormGroup",
         "props": [
           {
-            "prop": "valid",
-            "description": "强制表单验证提示 form-feedback,可选valid, invalid, warning, novalid"
-          },
-          {
             "prop": "labelSize",
             "description": "大小,可选 sm, lg"
           },

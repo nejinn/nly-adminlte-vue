@@ -20,6 +20,8 @@ export default {
         ? "is-invalid"
         : valid === "warning"
         ? "is-warning"
+        : valid === "loading"
+        ? "is-loading"
         : null;
     }
   }

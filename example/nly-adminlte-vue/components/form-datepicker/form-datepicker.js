@@ -832,46 +832,53 @@ export const NlyFormDatepicker = Vue.extend({
     const calendarsContainerVnodes = h(
       "div",
       {
-        class: "calendars-container col-12 col-sm-12 col-md-12 col-lg-9"
+        class: "calendars-container "
       },
       calendarsContainerChildrenVnodes
     );
-    const calendarsRowVnodes = () => {
+
+    const calendarsRowChildVnodes = [];
+
+    if (this.showRanges) {
       if (hasNormalizedSlot("ranges", this.$scopedSlots, this.$slots)) {
-        if (this.showRanges) {
-          return h("div", { class: "calendars row no-gutters" }, [
-            this.$scopedSlots.ranges({
-              startDate: this.start,
-              endDate: this.end,
-              ranges: this.ranges,
-              clickRange: this.clickRange
-            }),
-            calendarsContainerVnodes
-          ]);
-        }
+        calendarsRowChildVnodes.push(
+          this.$scopedSlots.ranges({
+            startDate: this.start,
+            endDate: this.end,
+            ranges: this.ranges,
+            clickRange: this.clickRange
+          })
+        );
       } else {
-        if (this.showRanges) {
-          return h("div", { class: "calendars row no-gutters" }, [
-            h(NlyCalendarRangs, {
-              class: "col-12 col-md-auto",
-              props: {
-                alwaysShowCalendars: this.alwaysShowCalendars,
-                localeData: this.locale,
-                ranges: this.ranges,
-                selected: { startDate: this.start, endDate: this.end }
-              },
-              on: {
-                clickRange: this.clickRange,
-                showCustomRange: () => {
-                  this.showCustomRangeCalendars = true;
-                }
+        calendarsRowChildVnodes.push(
+          h(NlyCalendarRangs, {
+            class: "col-12 col-md-auto",
+            props: {
+              alwaysShowCalendars: this.alwaysShowCalendars,
+              localeData: this.locale,
+              ranges: this.ranges,
+              selected: { startDate: this.start, endDate: this.end }
+            },
+            on: {
+              clickRange: this.clickRange,
+              showCustomRange: () => {
+                this.showCustomRangeCalendars = true;
               }
-            }),
-            calendarsContainerVnodes
-          ]);
-        }
+            }
+          })
+        );
       }
-    };
+    }
+
+    if (this.showCalendars) {
+      calendarsRowChildVnodes.push(calendarsContainerVnodes);
+    }
+
+    const calendarsRowVnodes = h(
+      "div",
+      { class: "calendars row no-gutters" },
+      calendarsRowChildVnodes
+    );
 
     const slotsFooterButtonsChildrenVnodes = [];
 
@@ -955,7 +962,7 @@ export const NlyFormDatepicker = Vue.extend({
                   in_selection: this.in_selection,
                   autoApply: this.autoApply
                 }),
-                calendarsRowVnodes(),
+                calendarsRowVnodes,
                 scopedSlotsFooter()
               ]
             )
@@ -972,7 +979,7 @@ export const NlyFormDatepicker = Vue.extend({
                 directives: [{ name: "v-nly-append-to-body" }],
                 ref: "dropdown"
               },
-              [calendarsRowVnodes(), scopedSlotsFooter()]
+              [calendarsRowVnodes, scopedSlotsFooter()]
             )
           ]);
         }

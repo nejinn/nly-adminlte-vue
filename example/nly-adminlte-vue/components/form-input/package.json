@@ -106,10 +106,6 @@
             "description": "在XL及以上断点的排序, 可选0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,  12"
           },
           {
-            "prop": "valid",
-            "description": "验证提示,  可选valid, invalid, warning, novalid"
-          },
-          {
             "prop": "type",
             "description": "类型,  默认text, 不传默认text。可选text, password, email, number, url, tel, search, range, color, date, time, datetime, datetime-local, month, week"
           },
