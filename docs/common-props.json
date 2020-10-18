@@ -146,6 +146,9 @@
   "state": {
     "description": "控制组件validation状态。可选 'valid'，'invalid'，'warning'，'novalid'。设置为'novalid'时，没有validation提示"
   },
+  "valid":{
+    "description": "表单验证提示状态,可选valid, invalid, warning, loading, novalid"
+  },
   "options": {
     "description": "设置，类型为一个数组"
   },

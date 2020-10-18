@@ -435,7 +435,13 @@ export const inputMaxMinStepOptions = [
   "week"
 ];
 
-export const formValidOptions = ["valid", "invalid", "warning", "novalid"];
+export const formValidOptions = [
+  "valid",
+  "invalid",
+  "warning",
+  "loading",
+  "novalid"
+];
 
 export const formFeedBackValidOptions = {
   valid: "valid-feedback",

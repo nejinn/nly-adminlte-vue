@@ -379,13 +379,15 @@
 
 ## 输入框状态
 
-`Adminlte3` 的大部分表单组件都有状态 `invalid`, `valid`, `warning`, `novalid`
+`Adminlte3` 的大部分表单组件都有状态 `invalid`, `valid`, `warning`, `loading`, `novalid`
 
 - `invalid` : 无效状态
 
 - `valid` : 有效状态
 
 - `warning` : 警告状态
+
+- `loading` : 加载状态
 
 - `novalid` : 无状态
 
@@ -399,6 +401,9 @@
   </nly-form-group>
   <nly-form-group label-cols-xs="3" label="warning">
     <nly-form-input valid="warning" />
+  </nly-form-group>
+  <nly-form-group label-cols-xs="3" label="loading">
+    <nly-form-input valid="loading" />
   </nly-form-group>
 </div>
 
