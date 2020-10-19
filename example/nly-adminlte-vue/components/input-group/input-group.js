@@ -162,12 +162,12 @@ export const NlyInputGroup = Vue.extend({
       props.warningFeedback ||
       props.description
     ) {
-      return h("div", [
+      return h("div", { class: validClass(props) }, [
         h(
           props.tag,
           mergeData(data, {
             staticClass: "input-group",
-            class: [sizeClass(props), validClass(props)],
+            class: [sizeClass(props)],
             attrs: {
               id: props.id || null,
               role: "group"
@@ -189,7 +189,7 @@ export const NlyInputGroup = Vue.extend({
         props.tag,
         mergeData(data, {
           staticClass: "input-group",
-          class: [sizeClass(props), validClass(props)],
+          class: [sizeClass(props)],
           attrs: {
             id: props.id || null,
             role: "group"
