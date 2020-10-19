@@ -156,7 +156,12 @@ export const NlyInputGroup = Vue.extend({
       });
     }
 
-    if (props.invalidFeedback || props.validFeedback || props.warningFeedback) {
+    if (
+      props.invalidFeedback ||
+      props.validFeedback ||
+      props.warningFeedback ||
+      props.description
+    ) {
       return h("div", [
         h(
           props.tag,
@@ -179,27 +184,23 @@ export const NlyInputGroup = Vue.extend({
         $warningFeedback,
         $description
       ]);
+    } else {
+      return h(
+        props.tag,
+        mergeData(data, {
+          staticClass: "input-group",
+          class: [sizeClass(props), validClass(props)],
+          attrs: {
+            id: props.id || null,
+            role: "group"
+          }
+        }),
+        [
+          $prepend,
+          normalizeSlot("default", slotScope, $scopedSlots, $slots),
+          $append
+        ]
+      );
     }
-
-    return h(
-      props.tag,
-      mergeData(data, {
-        staticClass: "input-group",
-        class: [sizeClass(props), validClass(props)],
-        attrs: {
-          id: props.id || null,
-          role: "group"
-        }
-      }),
-      [
-        $prepend,
-        normalizeSlot("default", slotScope, $scopedSlots, $slots),
-        $append,
-        $invalidFeedback,
-        $validFeedback,
-        $warningFeedback,
-        $description
-      ]
-    );
   }
 });
