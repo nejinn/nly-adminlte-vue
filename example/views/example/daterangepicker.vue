@@ -4,7 +4,7 @@
       <nly-container fluid>
         <nly-row class="mb-2">
           <nly-col sm="6">
-            <h1>nly-form-datepicker</h1>
+            <h1>nly-form-daterangepicker</h1>
           </nly-col>
         </nly-row>
       </nly-container>
@@ -19,7 +19,7 @@
               label-class="font-weight-bold pt-0"
               class="mb-0"
             >
-              <nly-form-datepicker
+              <nly-form-daterangepicker
                 ref="picker"
                 :opens="opens"
                 :locale-data="{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"
@@ -327,7 +327,7 @@
         </nly-row>
 
         <nly-row>
-          <nly-form-datepicker
+          <nly-form-daterangepicker
             :value="{
               startDate: '2019-12-10',
               endDate: '2019-12-20'

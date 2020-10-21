@@ -21,9 +21,9 @@ import { NlyFormText } from "../form/form-text";
 import idMixin from "../../mixins/id";
 import { getComponentConfig } from "../../utils/config";
 
-const name = "NlyFormDatepicker";
+const name = "NlyFormDaterangepicker";
 
-export const NlyFormDatepicker = Vue.extend({
+export const NlyFormDaterangepicker = Vue.extend({
   name: name,
   inheritAttrs: false,
   mixins: [dateUtilMixin, formValid, idMixin],

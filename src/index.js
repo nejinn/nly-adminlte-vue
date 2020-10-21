@@ -85,13 +85,13 @@ export { NlyFormGroup } from "./components/form-group/form-group";
 export { FormInputPlugin } from "./components/form-input";
 export { NlyFormInput } from "./components/form-input/form-input";
 
-export { FormDatepickerPlugin } from "./components/form-datepicker";
-export { NlyFormDatepicker } from "./components/form-datepicker/form-datepicker";
-export { VNlyAppendToBody } from "./components/form-datepicker/pulgin/append-to-body";
-export { NlyCalendar } from "./components/form-datepicker/pulgin/calendar";
-export { NlyCalendarRangs } from "./components/form-datepicker/pulgin/calendar-rangs";
-export { NlyCalendarTime } from "./components/form-datepicker/pulgin/calendar-time";
-export { NlyDaterangePickerTransition } from "./components/form-datepicker/pulgin/transition";
+export { FormDaterangepickerPlugin } from "./components/form-daterangepicker";
+export { NlyFormDaterangepicker } from "./components/form-daterangepicker/form-daterangepicker";
+export { VNlyAppendToBody } from "./components/form-daterangepicker/pulgin/append-to-body";
+export { NlyCalendar } from "./components/form-daterangepicker/pulgin/calendar";
+export { NlyCalendarRangs } from "./components/form-daterangepicker/pulgin/calendar-rangs";
+export { NlyCalendarTime } from "./components/form-daterangepicker/pulgin/calendar-time";
+export { NlyDaterangePickerTransition } from "./components/form-daterangepicker/pulgin/transition";
 
 export { FormSelectPlugin } from "./components/form-select";
 export { NlyFormSelect } from "./components/form-select/form-select";
