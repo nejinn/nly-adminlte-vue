@@ -1,14 +1,14 @@
 import { nlyPluginFactory } from "../../utils/plugins";
-import { NlyFormDatepicker } from "./form-datepicker";
+import { NlyFormDaterangepicker } from "./form-daterangepicker";
 import { VNlyAppendToBody } from "./pulgin/append-to-body";
 import { NlyCalendar } from "./pulgin/calendar";
 import { NlyCalendarRangs } from "./pulgin/calendar-rangs";
 import { NlyCalendarTime } from "./pulgin/calendar-time";
 import { NlyDaterangePickerTransition } from "./pulgin/transition";
 
-const FormDatepickerPlugin = nlyPluginFactory({
+const FormDaterangepickerPlugin = nlyPluginFactory({
   components: {
-    NlyFormDatepicker,
+    NlyFormDaterangepicker,
     NlyCalendar,
     NlyCalendarRangs,
     NlyCalendarTime,
@@ -18,8 +18,8 @@ const FormDatepickerPlugin = nlyPluginFactory({
 });
 
 export {
-  FormDatepickerPlugin,
-  NlyFormDatepicker,
+  FormDaterangepickerPlugin,
+  NlyFormDaterangepicker,
   NlyCalendar,
   NlyCalendarRangs,
   NlyCalendarTime,

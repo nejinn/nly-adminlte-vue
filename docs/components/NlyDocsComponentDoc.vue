@@ -184,44 +184,44 @@
           </div>
           <div v-if="hasRouterProps" class="alert alert-info">
             <p class="mb-0 small">
-              <code class="notranslate" translate="no">{{ tag }}</code> supports
-              generating
+              <code class="notranslate" translate="no">{{ tag }}</code>
+              会生成支持
               <code class="notranslate" translate="no"
                 >&lt;router-link&gt;</code
               >
-              or
+              或者
               <code class="notranslate" translate="no">&lt;nuxt-link&gt;</code>
-              component (if using Nuxt.js). For more details on the router link
-              (or nuxt link) specific props, see the
+              的组件 (如果您使用了 Nuxt.js). 查看更多关于 router link (或者 nuxt
+              link) 支持的 props, 请跳转
               <nly-link to="/docs/reference/router-links" class="alert-link"
                 >Router support</nly-link
               >
-              reference section.
+              文档
             </p>
           </div>
           <div v-if="hasHtmlProps" class="alert alert-warning">
             <p class="mb-0 small">
-              <strong>Caution:</strong> Props that support HTML strings (<code
+              <strong>注意:</strong> 支持 (<code
                 class="notranslate"
                 translate="no"
                 >*-html</code
-              >) can be vulnerable to
+              >) html 字符串的 prop 可能会引起
               <nly-link
                 href="https://en.wikipedia.org/wiki/Cross-site_scripting"
                 class="alert-link"
                 target="_blank"
               >
-                Cross Site Scripting (XSS) attacks
+                脚本攻击 (XSS)，
               </nly-link>
-              when passed raw user supplied values. You must properly
+              当用户使用这类 prop 的时候，您应该谨慎
               <nly-link
                 href="https://en.wikipedia.org/wiki/HTML_sanitization"
                 class="alert-link"
                 target="_blank"
               >
-                sanitize
+                处理
               </nly-link>
-              the user input first!
+              这类值
             </p>
           </div>
         </nly-card-body>

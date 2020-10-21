@@ -9,7 +9,7 @@
 `value` 是日期选择器选择的时间，给 `date-range` 传值可以初始化日期选择器的初始值。
 
 ```html
-<nly-form-datepicker
+<nly-form-daterangepicker
   :value='{
           startDate: "2019-12-10",
           endDate: "2019-12-20"
@@ -25,7 +25,7 @@
 ```html
 <template>
   <div>
-    <nly-form-datepicker v-model="dateRange" />
+    <nly-form-daterangepicker v-model="dateRange" />
     <nly-form-group label="起始时间">
       <nly-form-input v-model="dateRange.startDate" type="text" />
     </nly-form-group>
@@ -62,7 +62,7 @@
 `value` 是日期选择器选择的时间，给 `value` 传值可以初始化日期选择器的初始值。
 
 ```html
-<nly-form-datepicker
+<nly-form-daterangepicker
   :value='{
           startDate: "2019-12-10",
           endDate: "2019-12-20"
@@ -84,7 +84,7 @@
 
 ```html
 <template>
-  <nly-form-datepicker
+  <nly-form-daterangepicker
     :value='{
           startDate: "2019-12-10",
           endDate: "2019-12-20"
@@ -164,7 +164,7 @@
 ```html
 <template>
   <div>
-    <nly-form-datepicker
+    <nly-form-daterangepicker
       :value='{
           startDate: "2019-12-10",
           endDate: "2019-12-20"
@@ -226,7 +226,7 @@
 ```html
 <template>
   <div>
-    <nly-form-datepicker
+    <nly-form-daterangepicker
       :locale-data="{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"
       :min-date="minDate"
       :max-date="maxDate"
@@ -270,7 +270,7 @@
 ```html
 <template>
   <div>
-    <nly-form-datepicker
+    <nly-form-daterangepicker
       :value='{
           startDate: "2019-12-10",
           endDate: "2019-12-20"
@@ -312,7 +312,7 @@
 
 ```html
 <template>
-  <nly-form-datepicker
+  <nly-form-daterangepicker
     :value='{
           startDate: "2019-12-10",
           endDate: "2019-12-20"
@@ -342,7 +342,7 @@
 
 ```html
 <template>
-  <nly-form-datepicker
+  <nly-form-daterangepicker
     :value='{
           startDate: "2019-12-10",
           endDate: "2019-12-20"
@@ -360,7 +360,7 @@
         <nly-dropdown-item>Action B</nly-dropdown-item>
       </nly-dropdown>
     </template>
-  </nly-form-datepicker>
+  </nly-form-daterangepicker>
 </template>
 
 <!-- prepend-html and append-html .name -->
@@ -369,12 +369,12 @@
 
 ### 控制大小
 
-`nly-form-datepicker` 提供一个 `size` prop 来控制默认渲染的输入框大小， 可选 `sm`, `md`, `lg`。
+`nly-form-daterangepicker` 提供一个 `size` prop 来控制默认渲染的输入框大小， 可选 `sm`, `md`, `lg`。
 
 ```html
 <template>
   <div>
-    <nly-form-datepicker
+    <nly-form-daterangepicker
       :value='{
           startDate: "2019-12-10",
           endDate: "2019-12-20"
@@ -382,8 +382,8 @@
       :locale-data="{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"
       size="sm"
     >
-    </nly-form-datepicker>
-    <nly-form-datepicker
+    </nly-form-daterangepicker>
+    <nly-form-daterangepicker
       :value='{
           startDate: "2019-12-10",
           endDate: "2019-12-20"
@@ -392,8 +392,8 @@
       size="md"
       class="mt-2"
     >
-    </nly-form-datepicker>
-    <nly-form-datepicker
+    </nly-form-daterangepicker>
+    <nly-form-daterangepicker
       :value='{
           startDate: "2019-12-10",
           endDate: "2019-12-20"
@@ -402,7 +402,7 @@
       size="lg"
       class="mt-2"
     >
-    </nly-form-datepicker>
+    </nly-form-daterangepicker>
   </div>
 </template>
 
@@ -412,12 +412,12 @@
 
 ### valid 验证提示
 
-`nly-form-datepicker` 提供一个 `valid` 和 `invalid-feedback` , `valid-feedback`, `waring-feedback` 来显示验证信息
+`nly-form-daterangepicker` 提供一个 `valid` 和 `invalid-feedback` , `valid-feedback`, `waring-feedback` 来显示验证信息
 
 ```html
 <template>
   <div>
-    <nly-form-datepicker
+    <nly-form-daterangepicker
       :value='{
           startDate: "2019-12-10",
           endDate: "2019-12-20"
@@ -486,7 +486,7 @@
 ```html
 <template>
   <div>
-    <nly-form-datepicker
+    <nly-form-daterangepicker
       :opens="opens"
       :locale-data="{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"
       :single-date-picker="singleDatePicker"
@@ -730,7 +730,7 @@
 使用 `disabled` prop 可以禁用日历选择时间，这时候点击并不会显示日期选择器
 
 ```html
-<nly-form-datepicker
+<nly-form-daterangepicker
   :value='{
           startDate: "2019-12-10",
           endDate: "2019-12-20"
@@ -747,7 +747,7 @@
 
 ```html
 <template>
-  <nly-form-datepicker
+  <nly-form-daterangepicker
     :value='{
           startDate: "2019-12-10",
           endDate: "2019-12-20"
@@ -789,7 +789,7 @@
 ```html
 <template>
   <div>
-    <nly-form-datepicker
+    <nly-form-daterangepicker
       :value='{
           startDate: "2019-12-10",
           endDate: "2019-12-20"
@@ -802,20 +802,20 @@
           @click="picker.clickPicker"
         />
       </template>
-    </nly-form-datepicker>
+    </nly-form-daterangepicker>
 
     <nly-input-group>
       <nly-input :value="inputDate" />
       <template v-slot:append>
         <nly-input-group-text>
-          <nly-form-datepicker v-model="dateRange" :append-to-body="true">
+          <nly-form-daterangepicker v-model="dateRange" :append-to-body="true">
             <template #input="picker">
               <nly-icon
                 icon="far fa-calendar-alt"
                 @click="picker.clickPicker"
               />
             </template>
-          </nly-form-datepicker>
+          </nly-form-daterangepicker>
         </nly-input-group-text>
       </template>
     </nly-input-group>
@@ -850,7 +850,7 @@
 ```html
 <template>
   <div>
-    <nly-form-datepicker
+    <nly-form-daterangepicker
       :value='{
           startDate: "2019-12-10",
           endDate: "2019-12-20"
@@ -865,7 +865,7 @@
         <h3>Calendar header</h3>
         <span v-if="header.in_selection"> - in selection</span>
       </div>
-    </nly-form-datepicker>
+    </nly-form-daterangepicker>
   </div>
 </template>
 <script>
@@ -897,7 +897,7 @@
 ```html
 <template>
   <div>
-    <nly-form-datepicker
+    <nly-form-daterangepicker
       :value='{
           startDate: "2019-12-10",
           endDate: "2019-12-20"
@@ -921,7 +921,7 @@
           </ul>
         </div>
       </template>
-    </nly-form-datepicker>
+    </nly-form-daterangepicker>
   </div>
 </template>
 <script>
@@ -953,7 +953,7 @@
 ```html
 <template>
   <div>
-    <nly-form-datepicker
+    <nly-form-daterangepicker
       :value='{
           startDate: "2019-12-10",
           endDate: "2019-12-20"
@@ -975,7 +975,7 @@
           >
         </div>
       </div>
-    </nly-form-datepicker>
+    </nly-form-daterangepicker>
   </div>
 </template>
 <script>
@@ -1019,7 +1019,7 @@
           label-class="font-weight-bold pt-0"
           class="mb-0"
         >
-          <nly-form-datepicker
+          <nly-form-daterangepicker
             ref="picker"
             :opens="opens"
             :locale-data="{ firstDay: 1, format: 'yyyy-mm-dd HH:MM:ss' }"
