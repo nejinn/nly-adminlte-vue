@@ -27,6 +27,10 @@ export const NlyProgress = Vue.extend({
       type: Boolean,
       default: false
     },
+    height: {
+      type: String
+      // default: null
+    },
     animated: {
       type: Boolean,
       default: false
@@ -72,7 +76,8 @@ export const NlyProgress = Vue.extend({
         max: this.max,
         value: this.value,
         progressClass: this.progressClass,
-        progressBarClass: this.progressBarClass
+        progressBarClass: this.progressBarClass,
+        height: this.height
       };
     }
   },
@@ -93,6 +98,7 @@ export const NlyProgress = Vue.extend({
         class: [this.customProps.progressBarClass]
       });
     }
+
     return h(
       "div",
       {
@@ -101,7 +107,10 @@ export const NlyProgress = Vue.extend({
           this.customProps.vertical,
           this.customProps.size,
           this.customProps.progressClass
-        ]
+        ],
+        style: {
+          height: this.customProps.vertical ? null : this.customProps.height
+        }
       },
       [progressBarArray]
     );

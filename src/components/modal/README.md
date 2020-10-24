@@ -129,16 +129,16 @@
   export default {
     methods: {
       showModal() {
-        this.$refs['my-modal'].show()
+        this.$refs["my-modal"].show();
       },
       hideModal() {
-        this.$refs['my-modal'].hide()
+        this.$refs["my-modal"].hide();
       },
       toggleModal() {
-        this.$refs['my-modal'].toggle('#toggle-btn')
+        this.$refs["my-modal"].toggle("#toggle-btn");
       },
     },
-  }
+  };
 </script>
 
 <!-- show,hide,toggle 显示隐藏.name -->
@@ -173,9 +173,9 @@
     data() {
       return {
         modalShow: false,
-      }
+      };
     },
-  }
+  };
 </script>
 
 <!-- v-model 显示隐藏.name -->
@@ -216,16 +216,16 @@
   export default {
     methods: {
       showModal() {
-        this.$root.$emit('nlya::show::modal', 'modal-root', '#btnShowRoot')
+        this.$root.$emit("nlya::show::modal", "modal-root", "#btnShowRoot");
       },
       hideModal() {
-        this.$root.$emit('nlya::hide::modal', 'modal-root', '#btnShowRoot')
+        this.$root.$emit("nlya::hide::modal", "modal-root", "#btnShowRoot");
       },
       toggleModal() {
-        this.$root.$emit('nlya::toggle::modal', 'modal-root', '#btnToggleRoot')
+        this.$root.$emit("nlya::toggle::modal", "modal-root", "#btnToggleRoot");
       },
     },
-  }
+  };
 </script>
 
 <!-- $root 显示隐藏.name -->
@@ -282,36 +282,36 @@
   export default {
     data() {
       return {
-        name: '',
-        nameState: 'novalid',
+        name: "",
+        nameState: "novalid",
         submittedNames: [],
-      }
+      };
     },
     methods: {
       checkFormValidity() {
-        const valid = this.$refs.form.checkValidity() ? 'valid' : 'invalid'
-        this.nameState = valid
-        return valid
+        const valid = this.$refs.form.checkValidity() ? "valid" : "invalid";
+        this.nameState = valid;
+        return valid;
       },
       resetModal() {
-        this.name = ''
-        this.nameState = 'novalid'
+        this.name = "";
+        this.nameState = "novalid";
       },
       handleOk(nlyaModalEvt) {
-        nlyaModalEvt.preventDefault()
-        this.handleSubmit()
+        nlyaModalEvt.preventDefault();
+        this.handleSubmit();
       },
       handleSubmit() {
-        if (this.checkFormValidity() === 'invalid') {
-          return
+        if (this.checkFormValidity() === "invalid") {
+          return;
         }
-        this.submittedNames.push(this.name)
+        this.submittedNames.push(this.name);
         this.$nextTick(() => {
-          this.$nlyaModal.hide('modal-prevent-closing')
-        })
+          this.$nlyaModal.hide("modal-prevent-closing");
+        });
       },
     },
-  }
+  };
 </script>
 
 <!-- 阻止关闭.name -->
@@ -499,9 +499,9 @@ modal 的大小可以由 `size` prop 來控制。 可选 `sm`, `md`, `lg`。
 
 ### 颜色
 
-使用以下 prop 来控制 header， foorer， body的颜色： `header-bg-variant`, `header-text-variant`, `body-bg-variant`, `body-text-variant`, `footer-bg-variant`, `footer-text-variant` props. 使用 adminlte 的主体颜色， 比如: `danger`, `warning`, `info`, `success`, `dark`, `light`
+使用以下 prop 来控制 header， foorer， body 的颜色： `header-bg-variant`, `header-text-variant`, `body-bg-variant`, `body-text-variant`, `footer-bg-variant`, `footer-text-variant` props. 使用 adminlte 的主体颜色， 比如: `danger`, `warning`, `info`, `success`, `dark`, `light`
 
-``` html
+```html
 <template>
   <div>
     <nly-button @click="show=true" variant="primary">Show Modal</nly-button>
@@ -594,16 +594,25 @@ modal 的大小可以由 `size` prop 來控制。 可选 `sm`, `md`, `lg`。
     data() {
       return {
         show: false,
-        variants: ['primary', 'secondary', 'success', 'warning', 'danger', 'info', 'light', 'dark'],
-        headerBgVariant: 'dark',
-        headerTextVariant: 'light',
-        bodyBgVariant: 'light',
-        bodyTextVariant: 'dark',
-        footerBgVariant: 'warning',
-        footerTextVariant: 'dark'
-      }
-    }
-  }
+        variants: [
+          "primary",
+          "secondary",
+          "success",
+          "warning",
+          "danger",
+          "info",
+          "light",
+          "dark",
+        ],
+        headerBgVariant: "dark",
+        headerTextVariant: "light",
+        bodyBgVariant: "light",
+        bodyTextVariant: "dark",
+        footerBgVariant: "warning",
+        footerTextVariant: "dark",
+      };
+    },
+  };
 </script>
 
 <!-- 颜色.name -->
@@ -794,43 +803,43 @@ modal 可以渲染成消失提示框
   export default {
     data() {
       return {
-        boxOne: '',
-        boxTwo: '',
-      }
+        boxOne: "",
+        boxTwo: "",
+      };
     },
     methods: {
       showMsgBoxOne() {
-        this.boxOne = ''
+        this.boxOne = "";
         this.$nlyaModal
-          .msgBoxOk('Action completed')
+          .msgBoxOk("Action completed")
           .then((value) => {
-            this.boxOne = value
+            this.boxOne = value;
           })
           .catch((err) => {
             // An error occurred
-          })
+          });
       },
       showMsgBoxTwo() {
-        this.boxTwo = ''
+        this.boxTwo = "";
         this.$nlyaModal
-          .msgBoxOk('Data was submitted successfully', {
-            title: 'Confirmation',
-            size: 'sm',
-            buttonSize: 'sm',
-            okVariant: 'success',
-            headerClass: 'p-2 border-bottom-0',
-            footerClass: 'p-2 border-top-0',
+          .msgBoxOk("Data was submitted successfully", {
+            title: "Confirmation",
+            size: "sm",
+            buttonSize: "sm",
+            okVariant: "success",
+            headerClass: "p-2 border-bottom-0",
+            footerClass: "p-2 border-top-0",
             centered: true,
           })
           .then((value) => {
-            this.boxTwo = value
+            this.boxTwo = value;
           })
           .catch((err) => {
             // An error occurred
-          })
+          });
       },
     },
-  }
+  };
 </script>
 
 <!-- MsgBox.name -->
@@ -857,45 +866,45 @@ modal 可以渲染成消失提示框
   export default {
     data() {
       return {
-        boxOne: '',
-        boxTwo: '',
-      }
+        boxOne: "",
+        boxTwo: "",
+      };
     },
     methods: {
       showMsgBoxOne() {
-        this.boxOne = ''
+        this.boxOne = "";
         this.$nlyaModal
-          .msgBoxConfirm('Are you sure?')
+          .msgBoxConfirm("Are you sure?")
           .then((value) => {
-            this.boxOne = value
+            this.boxOne = value;
           })
           .catch((err) => {
             // An error occurred
-          })
+          });
       },
       showMsgBoxTwo() {
-        this.boxTwo = ''
+        this.boxTwo = "";
         this.$nlyaModal
-          .msgBoxConfirm('Please confirm that you want to delete everything.', {
-            title: 'Please Confirm',
-            size: 'sm',
-            buttonSize: 'sm',
-            okVariant: 'danger',
-            okTitle: 'YES',
-            cancelTitle: 'NO',
-            footerClass: 'p-2',
+          .msgBoxConfirm("Please confirm that you want to delete everything.", {
+            title: "Please Confirm",
+            size: "sm",
+            buttonSize: "sm",
+            okVariant: "danger",
+            okTitle: "YES",
+            cancelTitle: "NO",
+            footerClass: "p-2",
             hideHeaderClose: false,
             centered: true,
           })
           .then((value) => {
-            this.boxTwo = value
+            this.boxTwo = value;
           })
           .catch((err) => {
             // An error occurred
-          })
+          });
       },
     },
-  }
+  };
 </script>
 <!-- MsgBox.name -->
 <!-- msgBoxConfirm,.vue -->
@@ -942,33 +951,33 @@ modal 可以渲染成消失提示框
   export default {
     methods: {
       showMsgOk() {
-        const h = this.$createElement
-        const titleVNode = h('div', {
-          domProps: { innerHTML: 'Title from <i>HTML<i> string' },
-        })
-        const messageVNode = h('div', { class: ['foobar'] }, [
-          h('p', { class: ['text-center'] }, [
-            ' Flashy ',
-            h('strong', 'msgBoxOk'),
-            ' message ',
+        const h = this.$createElement;
+        const titleVNode = h("div", {
+          domProps: { innerHTML: "Title from <i>HTML<i> string" },
+        });
+        const messageVNode = h("div", { class: ["foobar"] }, [
+          h("p", { class: ["text-center"] }, [
+            " Flashy ",
+            h("strong", "msgBoxOk"),
+            " message ",
           ]),
-          h('p', { class: ['text-center'] }, [h('nly-spinner')]),
-          h('img', {
-            class: 'img-thumbnail img-fluid rounded-circle mx-auto d-block',
+          h("p", { class: ["text-center"] }, [h("nly-spinner")]),
+          h("img", {
+            class: "img-thumbnail img-fluid rounded-circle mx-auto d-block",
             attrs: {
-              src: 'https://picsum.photos/id/20/250/250',
+              src: "https://picsum.photos/id/20/250/250",
             },
           }),
-        ])
+        ]);
         this.$nlyaModal.msgBoxOk([messageVNode], {
           title: [titleVNode],
-          buttonSize: 'sm',
+          buttonSize: "sm",
           centered: true,
-          size: 'sm',
-        })
+          size: "sm",
+        });
       },
     },
-  }
+  };
 </script>
 
 <!-- 高级用法.name -->
@@ -980,11 +989,11 @@ modal 可以渲染成消失提示框
 ```js
 export default {
   mounted() {
-    this.$root.$on('nlya::modal::show', (nlyaEvent, modalId) => {
-      console.log('Modal is about to be shown', nlyaEvent, modalId)
-    })
+    this.$root.$on("nlya::modal::show", (nlyaEvent, modalId) => {
+      console.log("Modal is about to be shown", nlyaEvent, modalId);
+    });
   },
-}
+};
 ```
 
 ## 辅助功能
@@ -1032,10 +1041,10 @@ export default {
 export default {
   methods: {
     focusMyElement() {
-      this.$refs.focusThis.focus()
+      this.$refs.focusThis.focus();
     },
   },
-}
+};
 ```
 
 如果你使用 `nly-form-*` 组件， modal 打开的时候会自动聚焦到 这些组件上。 如果使用了 `static` prop，但是没有设置 `lazy` prop， `autofocus` prop 会失效
@@ -1060,13 +1069,12 @@ export default {
 
 `nly-modal` 如果是使用指令 `v-nly- modal` 显示/隐藏的, 将会自动聚焦到绑定指令的元素上，但是如果设置了 `return-foucs` prop，则会聚焦到 `return-foucs` 指定的元素上
 
-
 ### 通过事件来聚焦到指定的元素上
 
 使用 `nly::show::modal` (必须是从 root 上发出的)事件，可以在第二个参数传入值，使得 modal 关闭时聚焦到对应的元素上。 第二个参数传入值类型应该跟 `return-focus` 是一样的。
 
 ```js
-this.$root.$emit('nly::show::modal', 'modal-1', '#focusThisOnClose')
+this.$root.$emit("nly::show::modal", "modal-1", "#focusThisOnClose");
 ```
 
-** 注意 ** 
+** 注意 ** 如果 `return-focus` prop 设置了值， 这个事件设置是无效的

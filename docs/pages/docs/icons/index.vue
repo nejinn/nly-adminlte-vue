@@ -164,8 +164,8 @@ import NlyDocsQuickLinks from "~/components/NlyDocsQuickLinks";
 import NlyDocsSection from "~/components/nly-docs-section";
 import docsMixin from "~/plugins/docs-mixin";
 import { defaultConfig } from "~/content";
-import meta from "../../../../src/icons/package.json";
-import readme from "../../../../src/icons/README.md";
+import meta from "../../../../example/nly-adminlte-vue/icons/package.json";
+import readme from "../../../../example/nly-adminlte-vue/icons/README.md";
 import {
   baseIconUnicode,
   baseIconFontClass,
