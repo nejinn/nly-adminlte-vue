@@ -5,17 +5,17 @@ import {
   devDependencies,
   description
 } from "~/../package.json";
-import DEFAULT_CONFIG from "~/../src/utils/config-defaults";
+import DEFAULT_CONFIG from "~/../example/nly-adminlte-vue/utils/config-defaults";
 
 const componentsContext = require.context(
-  "~/../src/components/",
+  "~/../example/nly-adminlte-vue/components/",
   true,
   /package.json/
 );
 export const components = importAll(componentsContext);
 
 const directivesContext = require.context(
-  "~/../src/directives/",
+  "~/../example/nly-adminlte-vue/directives/",
   true,
   /package.json/
 );

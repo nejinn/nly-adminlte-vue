@@ -4,6 +4,7 @@ import { isBoolean } from "../../utils/inspect";
 import { toFixed, toFloat, toInteger } from "../../utils/number";
 import { toString } from "../../utils/string";
 import normalizeSlotMixin from "../../mixins/normalize-slot";
+import { htmlOrText } from "../../utils/html";
 
 const NAME = "NlyProgressBar";
 
@@ -25,6 +26,9 @@ export const NlyProgressBar = Vue.extend({
     label: {
       type: String,
       default: null
+    },
+    labelHtml: {
+      type: String
     },
     max: {
       type: [Number, String],
@@ -129,9 +133,9 @@ export const NlyProgressBar = Vue.extend({
     let childNodes = h();
     if (this.hasNormalizedSlot("default")) {
       childNodes = this.normalizeSlot("default");
-    } else if (this.label) {
+    } else if (this.label || this.labelHtml) {
       childNodes = h("span", {
-        domProps: this.label
+        domProps: htmlOrText(this.labelHtml, this.label)
       });
     } else if (this.customLabelValuePercent) {
       childNodes = `${this.customProgress}%`;

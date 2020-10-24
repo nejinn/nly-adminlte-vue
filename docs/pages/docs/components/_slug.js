@@ -8,7 +8,7 @@ import { components as componentsMeta } from "~/content";
 
 const getReadMe = name =>
   import(
-    `../../../../src/components/${name}/README.md` /* webpackChunkName: "docs/components" */
+    `../../../../example/nly-adminlte-vue/components/${name}/README.md` /* webpackChunkName: "docs/components" */
   );
 
 const name = "NlyDocsComponents";

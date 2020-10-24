@@ -7,7 +7,7 @@ import { directives as directivesMeta } from "~/content";
 
 const getReadMe = name =>
   import(
-    `../../../../src/directives/${name}/README.md` /* webpackChunkName: "docs/directives" */
+    `../../../../example/nly-adminlte-vue/directives/${name}/README.md` /* webpackChunkName: "docs/directives" */
   );
 
 const name = "NlyDocsDirectives";
