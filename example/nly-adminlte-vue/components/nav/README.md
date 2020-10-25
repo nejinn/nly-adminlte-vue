@@ -1,4 +1,4 @@
-# nav
+# Nav
 
 > 导航元素，可以设置不同的状态进行路由跳转， 包括下拉导航菜单， 子菜单，导航元素等等
 
@@ -240,13 +240,13 @@
 
 ```html
 <div>
-<div>
-  <nly-nav >
-    <nly-nav-item href="#1">Link 1</nly-nav-item>
-    <nly-nav-item href="#2">Link 2</nly-nav-item>
-    <nly-nav-text>Plain text</nly-nav-text>
-  </nly-nav>
-</div>
+  <div>
+    <nly-nav>
+      <nly-nav-item href="#1">Link 1</nly-nav-item>
+      <nly-nav-item href="#2">Link 2</nly-nav-item>
+      <nly-nav-text>Plain text</nly-nav-text>
+    </nly-nav>
+  </div>
 </div>
 <!-- dropdown.name -->
 <!-- nly-nav.vue -->

@@ -1,4 +1,4 @@
-# 1. pagination
+# pagination
 
 > 分页
 

@@ -1,4 +1,4 @@
-# NlyFormDatepicker
+# FormDatepicker
 
 > 日期选择器可以选择范围日期，单个日期，选择时间，以及渲染成其他任何组件
 
@@ -39,12 +39,12 @@
     data() {
       return {
         dateRange: {
-          startDate: '2019-12-10',
-          endDate: '2019-12-20',
-        },
-      }
-    },
-  }
+          startDate: "2019-12-10",
+          endDate: "2019-12-20"
+        }
+      };
+    }
+  };
 </script>
 
 <!-- v-model value.name -->
@@ -101,57 +101,57 @@
     data() {
       return {
         localeData: {
-          direction: 'ltr',
-          format: 'mm/dd/yyyy',
-          separator: ' - ',
-          applyLabel: '确定',
-          cancelLabel: '取消',
-          weekLabel: '周',
-          customRangeLabel: 'Custom Range',
-          daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+          direction: "ltr",
+          format: "mm/dd/yyyy",
+          separator: " - ",
+          applyLabel: "确定",
+          cancelLabel: "取消",
+          weekLabel: "周",
+          customRangeLabel: "Custom Range",
+          daysOfWeek: ["日", "一", "二", "三", "四", "五", "六"],
           monthNames: [
-            '1月',
-            '2月',
-            '3月',
-            '4月',
-            '5月',
-            '6月',
-            '7月',
-            '8月',
-            '9月',
-            '10月',
-            '11月',
-            '12月',
+            "1月",
+            "2月",
+            "3月",
+            "4月",
+            "5月",
+            "6月",
+            "7月",
+            "8月",
+            "9月",
+            "10月",
+            "11月",
+            "12月"
           ],
-          firstDay: 0,
+          firstDay: 0
         },
-        ranges: false,
-      }
+        ranges: false
+      };
     },
     mounted() {
-      let today = new Date()
-      today.setHours(0, 0, 0, 0)
+      let today = new Date();
+      today.setHours(0, 0, 0, 0);
 
-      let yesterday = new Date()
-      yesterday.setDate(today.getDate() - 1)
-      yesterday.setHours(0, 0, 0, 0)
-      let thisMonthStart = new Date(today.getFullYear(), today.getMonth(), 1)
-      let thisMonthEnd = new Date(today.getFullYear(), today.getMonth() + 1, 0)
+      let yesterday = new Date();
+      yesterday.setDate(today.getDate() - 1);
+      yesterday.setHours(0, 0, 0, 0);
+      let thisMonthStart = new Date(today.getFullYear(), today.getMonth(), 1);
+      let thisMonthEnd = new Date(today.getFullYear(), today.getMonth() + 1, 0);
       this.ranges = {
         今天: [today, today],
         昨天: [yesterday, yesterday],
         本月: [thisMonthStart, thisMonthEnd],
         今年: [
           new Date(today.getFullYear(), 0, 1),
-          new Date(today.getFullYear(), 11, 31),
+          new Date(today.getFullYear(), 11, 31)
         ],
         上个月: [
           new Date(today.getFullYear(), today.getMonth() - 1, 1),
-          new Date(today.getFullYear(), today.getMonth(), 0),
-        ],
-      }
-    },
-  }
+          new Date(today.getFullYear(), today.getMonth(), 0)
+        ]
+      };
+    }
+  };
 </script>
 <!-- locale-data.name -->
 <!-- date-picker.vue -->
@@ -186,33 +186,33 @@
     data() {
       return {
         startDate: null,
-        endDate: null,
-      }
+        endDate: null
+      };
     },
     methods: {
       update(value) {
-        console.log(111)
-        this.startDate = this.gmtFormat(value.startDate)
-        this.endDate = this.gmtFormat(value.endDate)
+        console.log(111);
+        this.startDate = this.gmtFormat(value.startDate);
+        this.endDate = this.gmtFormat(value.endDate);
       },
       gmtFormat(time) {
-        let date = new Date(time)
+        let date = new Date(time);
         let Str =
           date.getFullYear() +
-          '-' +
+          "-" +
           (date.getMonth() + 1) +
-          '-' +
+          "-" +
           date.getDate() +
-          ' ' +
+          " " +
           date.getHours() +
-          ':' +
+          ":" +
           date.getMinutes() +
-          ':' +
-          date.getSeconds()
-        return Str
-      },
-    },
-  }
+          ":" +
+          date.getSeconds();
+        return Str;
+      }
+    }
+  };
 </script>
 
 <!-- locale-data.name -->
@@ -247,14 +247,14 @@
     data() {
       return {
         dateRange: {
-          startDate: '2019-12-10',
-          endDate: '2019-12-20',
+          startDate: "2019-12-10",
+          endDate: "2019-12-20"
         },
-        minDate: '2019-5-1 04:00:00',
-        maxDate: '2021-1-1 04:00:00',
-      }
-    },
-  }
+        minDate: "2019-5-1 04:00:00",
+        maxDate: "2021-1-1 04:00:00"
+      };
+    }
+  };
 </script>
 
 <!-- min & max date.name -->
@@ -297,11 +297,11 @@
   export default {
     data() {
       return {
-        prepend: '',
-        append: '',
-      }
-    },
-  }
+        prepend: "",
+        append: ""
+      };
+    }
+  };
 </script>
 
 <!-- prepend and append .name -->
@@ -327,11 +327,11 @@
   export default {
     data() {
       return {
-        prepend: '<b>w</b>',
-        append: '<b>Q</b>',
-      }
-    },
-  }
+        prepend: "<b>w</b>",
+        append: "<b>Q</b>"
+      };
+    }
+  };
 </script>
 
 <!-- prepend-html and append-html .name -->
@@ -440,17 +440,17 @@
   export default {
     data() {
       return {
-        valid: 'novalid',
+        valid: "novalid",
         validOptinos: [
-          { value: null, text: 'Please select an option', disabled: true },
-          { value: 'novalid', text: '不显示 feedback' },
-          { value: 'invalid', text: '显示invalid feedback' },
-          { value: 'valid', text: '显示 valid feedback' },
-          { value: 'warning', text: '显示 warning feedback' },
-        ],
-      }
-    },
-  }
+          { value: null, text: "Please select an option", disabled: true },
+          { value: "novalid", text: "不显示 feedback" },
+          { value: "invalid", text: "显示invalid feedback" },
+          { value: "valid", text: "显示 valid feedback" },
+          { value: "warning", text: "显示 warning feedback" }
+        ]
+      };
+    }
+  };
 </script>
 
 <!-- valid .name -->
@@ -700,8 +700,8 @@
     data() {
       return {
         dateRange: {
-          startDate: '2019-12-10',
-          endDate: '2019-12-20',
+          startDate: "2019-12-10",
+          endDate: "2019-12-20"
         },
         single_range_picker: false,
         show_ranges: true,
@@ -715,10 +715,10 @@
         alwaysShowCalendars: true,
         appendToBody: false,
         closeOnEsc: true,
-        opens: 'center',
-      }
-    },
-  }
+        opens: "center"
+      };
+    }
+  };
 </script>
 
 <!-- calendars .name -->
@@ -762,12 +762,12 @@
     methods: {
       dateFormat(classes, date) {
         if (!classes.disabled) {
-          classes.disabled = date.getTime() < new Date()
+          classes.disabled = date.getTime() < new Date();
         }
-        return classes
-      },
-    },
-  }
+        return classes;
+      }
+    }
+  };
 </script>
 
 <!-- dateFormat disabled.name -->
@@ -826,18 +826,19 @@
     data() {
       return {
         dateRange: {
-          startDate: '2019-12-10',
-          endDate: '2019-12-20',
-        },
-      }
+          startDate: "2019-12-10",
+          endDate: "2019-12-20"
+        }
+      };
     },
     computed: {
       inputDate() {
-        const locale = this.dateRange.startDate + ' - ' + this.dateRange.endDate
-        return locale
-      },
-    },
-  }
+        const locale =
+          this.dateRange.startDate + " - " + this.dateRange.endDate;
+        return locale;
+      }
+    }
+  };
 </script>
 <!-- input 插槽.name -->
 <!-- date-picker.vue -->
@@ -873,18 +874,19 @@
     data() {
       return {
         dateRange: {
-          startDate: '2019-12-10',
-          endDate: '2019-12-20',
-        },
-      }
+          startDate: "2019-12-10",
+          endDate: "2019-12-20"
+        }
+      };
     },
     computed: {
       inputDate() {
-        const locale = this.dateRange.startDate + ' - ' + this.dateRange.endDate
-        return locale
-      },
-    },
-  }
+        const locale =
+          this.dateRange.startDate + " - " + this.dateRange.endDate;
+        return locale;
+      }
+    }
+  };
 </script>
 <!-- header 插槽.name -->
 <!-- date-picker.vue -->
@@ -929,18 +931,19 @@
     data() {
       return {
         dateRange: {
-          startDate: '2019-12-10',
-          endDate: '2019-12-20',
-        },
-      }
+          startDate: "2019-12-10",
+          endDate: "2019-12-20"
+        }
+      };
     },
     computed: {
       inputDate() {
-        const locale = this.dateRange.startDate + ' - ' + this.dateRange.endDate
-        return locale
-      },
-    },
-  }
+        const locale =
+          this.dateRange.startDate + " - " + this.dateRange.endDate;
+        return locale;
+      }
+    }
+  };
 </script>
 <!-- ranges 插槽.name -->
 <!-- date-picker.vue -->
@@ -983,18 +986,19 @@
     data() {
       return {
         dateRange: {
-          startDate: '2019-12-10',
-          endDate: '2019-12-20',
-        },
-      }
+          startDate: "2019-12-10",
+          endDate: "2019-12-20"
+        }
+      };
     },
     computed: {
       inputDate() {
-        const locale = this.dateRange.startDate + ' - ' + this.dateRange.endDate
-        return locale
-      },
-    },
-  }
+        const locale =
+          this.dateRange.startDate + " - " + this.dateRange.endDate;
+        return locale;
+      }
+    }
+  };
 </script>
 <!-- footer 插槽.name -->
 <!-- date-picker.vue -->
@@ -1326,27 +1330,27 @@
 
 <script>
   export default {
-    name: '',
+    name: "",
     filters: {
       date(value) {
-        if (!value) return ''
+        if (!value) return "";
 
-        let options = { year: 'numeric', month: 'long', day: 'numeric' }
-        return Intl.DateTimeFormat('en-US', options).format(value)
-      },
+        let options = { year: "numeric", month: "long", day: "numeric" };
+        return Intl.DateTimeFormat("en-US", options).format(value);
+      }
     },
     data() {
       //                    :locale-data="{ daysOfWeek: [ 'Нд', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб' ] }"
       return {
-        sss: '',
-        opens: 'center',
-        minDate: '2019-05-02 04:00:00',
-        maxDate: '2020-12-26 14:00:00',
+        sss: "",
+        opens: "center",
+        minDate: "2019-05-02 04:00:00",
+        maxDate: "2020-12-26 14:00:00",
         // minDate: '',
         // maxDate: '',
         dateRange: {
-          startDate: '2019-12-10',
-          endDate: '2019-12-20',
+          startDate: "2019-12-10",
+          endDate: "2019-12-20"
         },
         single_range_picker: false,
         show_ranges: true,
@@ -1362,74 +1366,74 @@
         closeOnEsc: true,
         dateUtil: undefined,
         dateFormat: undefined,
-        prepend: '@',
-        append: '!',
-        valid: 'novalid',
+        prepend: "@",
+        append: "!",
+        valid: "novalid",
         validOptinos: [
-          { value: null, text: 'Please select an option', disabled: true },
-          { value: 'novalid', text: '不显示 feedback' },
-          { value: 'invalid', text: '显示invalid feedback' },
-          { value: 'valid', text: '显示 valid feedback' },
-          { value: 'warning', text: '显示 warning feedback' },
-        ],
-      }
+          { value: null, text: "Please select an option", disabled: true },
+          { value: "novalid", text: "不显示 feedback" },
+          { value: "invalid", text: "显示invalid feedback" },
+          { value: "valid", text: "显示 valid feedback" },
+          { value: "warning", text: "显示 warning feedback" }
+        ]
+      };
     },
     mounted() {
       this.dateFormat = (function() {
-        var token = /d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZWN]|"[^"]*"|'[^']*'/g
-        var timezone = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g
-        var timezoneClip = /[^-+\dA-Z]/g
+        var token = /d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZWN]|"[^"]*"|'[^']*'/g;
+        var timezone = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g;
+        var timezoneClip = /[^-+\dA-Z]/g;
 
         // Regexes and supporting functions are cached through closure
         return function(date, mask, utc, gmt) {
           // You can't provide utc if you skip other args (use the 'UTC:' mask prefix)
           if (
             arguments.length === 1 &&
-            this.kindOf(date) === 'string' &&
+            this.kindOf(date) === "string" &&
             !/\d/.test(date)
           ) {
-            mask = date
-            date = undefined
+            mask = date;
+            date = undefined;
           }
 
-          date = date || new Date()
+          date = date || new Date();
 
           if (!(date instanceof Date)) {
-            date = new Date(date)
+            date = new Date(date);
           }
 
           if (isNaN(date)) {
-            throw TypeError('Invalid date')
+            throw TypeError("Invalid date");
           }
 
           mask = String(
             this.dateFormat.masks[mask] ||
               mask ||
-              this.dateFormat.masks['default']
-          )
+              this.dateFormat.masks["default"]
+          );
 
           // Allow setting the utc/gmt argument via the mask
-          var maskSlice = mask.slice(0, 4)
-          if (maskSlice === 'UTC:' || maskSlice === 'GMT:') {
-            mask = mask.slice(4)
-            utc = true
-            if (maskSlice === 'GMT:') {
-              gmt = true
+          var maskSlice = mask.slice(0, 4);
+          if (maskSlice === "UTC:" || maskSlice === "GMT:") {
+            mask = mask.slice(4);
+            utc = true;
+            if (maskSlice === "GMT:") {
+              gmt = true;
             }
           }
 
-          var _ = utc ? 'getUTC' : 'get'
-          var d = date[_ + 'Date']()
-          var D = date[_ + 'Day']()
-          var m = date[_ + 'Month']()
-          var y = date[_ + 'FullYear']()
-          var H = date[_ + 'Hours']()
-          var M = date[_ + 'Minutes']()
-          var s = date[_ + 'Seconds']()
-          var L = date[_ + 'Milliseconds']()
-          var o = utc ? 0 : date.getTimezoneOffset()
-          var W = this.getWeek(date)
-          var N = this.getDayOfWeek(date)
+          var _ = utc ? "getUTC" : "get";
+          var d = date[_ + "Date"]();
+          var D = date[_ + "Day"]();
+          var m = date[_ + "Month"]();
+          var y = date[_ + "FullYear"]();
+          var H = date[_ + "Hours"]();
+          var M = date[_ + "Minutes"]();
+          var s = date[_ + "Seconds"]();
+          var L = date[_ + "Milliseconds"]();
+          var o = utc ? 0 : date.getTimezoneOffset();
+          var W = this.getWeek(date);
+          var N = this.getDayOfWeek(date);
           var flags = {
             d: d,
             dd: this.pad(d),
@@ -1468,258 +1472,259 @@
                 ? this.dateFormat.i18n.timeNames[6]
                 : this.dateFormat.i18n.timeNames[7],
             Z: gmt
-              ? 'GMT'
+              ? "GMT"
               : utc
-              ? 'UTC'
-              : (String(date).match(timezone) || [''])
+              ? "UTC"
+              : (String(date).match(timezone) || [""])
                   .pop()
-                  .replace(timezoneClip, ''),
+                  .replace(timezoneClip, ""),
             o:
-              (o > 0 ? '-' : '+') +
+              (o > 0 ? "-" : "+") +
               this.pad(
                 Math.floor(Math.abs(o) / 60) * 100 + (Math.abs(o) % 60),
                 4
               ),
-            S: ['th', 'st', 'nd', 'rd'][
+            S: ["th", "st", "nd", "rd"][
               d % 10 > 3 ? 0 : (((d % 100) - (d % 10) != 10) * d) % 10
             ],
             W: W,
-            N: N,
-          }
+            N: N
+          };
 
           return mask.replace(token, function(match) {
             if (match in flags) {
-              return flags[match]
+              return flags[match];
             }
-            return match.slice(1, match.length - 1)
-          })
-        }
-      })()
+            return match.slice(1, match.length - 1);
+          });
+        };
+      })();
 
       this.dateFormat.masks = {
-        default: 'ddd mmm dd yyyy HH:MM:ss',
-        shortDate: 'm/d/yy',
-        mediumDate: 'mmm d, yyyy',
-        longDate: 'mmmm d, yyyy',
-        fullDate: 'dddd, mmmm d, yyyy',
-        shortTime: 'h:MM TT',
-        mediumTime: 'h:MM:ss TT',
-        longTime: 'h:MM:ss TT Z',
-        isoDate: 'yyyy-mm-dd',
-        isoTime: 'HH:MM:ss',
+        default: "ddd mmm dd yyyy HH:MM:ss",
+        shortDate: "m/d/yy",
+        mediumDate: "mmm d, yyyy",
+        longDate: "mmmm d, yyyy",
+        fullDate: "dddd, mmmm d, yyyy",
+        shortTime: "h:MM TT",
+        mediumTime: "h:MM:ss TT",
+        longTime: "h:MM:ss TT Z",
+        isoDate: "yyyy-mm-dd",
+        isoTime: "HH:MM:ss",
         isoDateTime: "yyyy-mm-dd'T'HH:MM:sso",
         isoUtcDateTime: "UTC:yyyy-mm-dd'T'HH:MM:ss'Z'",
-        expiresHeaderFormat: 'ddd, dd mmm yyyy HH:MM:ss Z',
-      }
+        expiresHeaderFormat: "ddd, dd mmm yyyy HH:MM:ss Z"
+      };
 
       // Internationalization strings
       this.dateFormat.i18n = {
         dayNames: [
-          'Sun',
-          'Mon',
-          'Tue',
-          'Wed',
-          'Thu',
-          'Fri',
-          'Sat',
-          'Sunday',
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          'Friday',
-          'Saturday',
+          "Sun",
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri",
+          "Sat",
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
         ],
         monthNames: [
-          'Jan',
-          'Feb',
-          'Mar',
-          'Apr',
-          'May',
-          'Jun',
-          'Jul',
-          'Aug',
-          'Sep',
-          'Oct',
-          'Nov',
-          'Dec',
-          'January',
-          'February',
-          'March',
-          'April',
-          'May',
-          'June',
-          'July',
-          'August',
-          'September',
-          'October',
-          'November',
-          'December',
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December"
         ],
-        timeNames: ['a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'],
-      }
+        timeNames: ["a", "p", "am", "pm", "A", "P", "AM", "PM"]
+      };
 
       this.dateUtil = {
         isSame: (date1, date2, granularity) => {
-          let dt1 = new Date(date1)
-          let dt2 = new Date(date2)
-          if (granularity === 'date') {
-            dt1.setHours(0, 0, 0, 0)
-            dt2.setHours(0, 0, 0, 0)
+          let dt1 = new Date(date1);
+          let dt2 = new Date(date2);
+          if (granularity === "date") {
+            dt1.setHours(0, 0, 0, 0);
+            dt2.setHours(0, 0, 0, 0);
           }
-          return dt1.getTime() === dt2.getTime()
+          return dt1.getTime() === dt2.getTime();
         },
         daysInMonth: (year, month) => {
-          return new Date(year, month, 0).getDate()
+          return new Date(year, month, 0).getDate();
         },
-        weekNumber: (date) => {
-          return this.getWeek(date)
+        weekNumber: date => {
+          return this.getWeek(date);
         },
         format: (date, mask) => {
-          return this.dateFormat(date, mask)
+          return this.dateFormat(date, mask);
         },
-        nextMonth: (date) => {
-          let nextMonthDate = new Date(date.getTime())
-          nextMonthDate.setDate(1)
-          nextMonthDate.setMonth(nextMonthDate.getMonth() + 1)
-          return nextMonthDate
+        nextMonth: date => {
+          let nextMonthDate = new Date(date.getTime());
+          nextMonthDate.setDate(1);
+          nextMonthDate.setMonth(nextMonthDate.getMonth() + 1);
+          return nextMonthDate;
         },
-        prevMonth: (date) => {
-          let prevMonthDate = new Date(date.getTime())
-          prevMonthDate.setDate(1)
-          prevMonthDate.setMonth(prevMonthDate.getMonth() - 1)
-          return prevMonthDate
+        prevMonth: date => {
+          let prevMonthDate = new Date(date.getTime());
+          prevMonthDate.setDate(1);
+          prevMonthDate.setMonth(prevMonthDate.getMonth() - 1);
+          return prevMonthDate;
         },
         validateDateRange: (newDate, min, max) => {
-          let max_date = new Date(max)
-          let min_date = new Date(min)
+          let max_date = new Date(max);
+          let min_date = new Date(min);
 
           if (max && newDate.getTime() > max_date.getTime()) {
-            return max_date
+            return max_date;
           }
 
           if (min && newDate.getTime() < min_date.getTime()) {
-            return min_date
+            return min_date;
           }
 
-          return newDate
+          return newDate;
         },
-        localeData: (options) => {
+        localeData: options => {
           let default_locale = {
-            direction: 'ltr',
-            format: 'mm/dd/yyyy',
-            separator: ' - ',
-            applyLabel: 'Apply',
-            cancelLabel: 'Cancel',
-            weekLabel: 'W',
-            customRangeLabel: 'Custom Range',
+            direction: "ltr",
+            format: "mm/dd/yyyy",
+            separator: " - ",
+            applyLabel: "Apply",
+            cancelLabel: "Cancel",
+            weekLabel: "W",
+            customRangeLabel: "Custom Range",
             daysOfWeek: this.dateFormat.i18n.dayNames
               .slice(0, 7)
-              .map((d) => d.substring(0, 2)),
+              .map(d => d.substring(0, 2)),
             monthNames: this.dateFormat.i18n.monthNames.slice(0, 12),
-            firstDay: 0,
-          }
+            firstDay: 0
+          };
 
-          return { ...default_locale, ...options }
+          return { ...default_locale, ...options };
         },
-        yearMonth: (date) => {
-          let month = date.getMonth() + 1
-          return date.getFullYear() + (month < 10 ? '0' : '') + month
+        yearMonth: date => {
+          let month = date.getMonth() + 1;
+          return date.getFullYear() + (month < 10 ? "0" : "") + month;
         },
-        isValidDate: (d) => {
-          return d instanceof Date && !isNaN(d)
-        },
-      }
+        isValidDate: d => {
+          return d instanceof Date && !isNaN(d);
+        }
+      };
     },
     methods: {
       pad(val, len) {
-        val = String(val)
-        len = len || 2
+        val = String(val);
+        len = len || 2;
         while (val.length < len) {
-          val = '0' + val
+          val = "0" + val;
         }
-        return val
+        return val;
       },
       getWeek(date) {
         var targetThursday = new Date(
           date.getFullYear(),
           date.getMonth(),
           date.getDate()
-        )
+        );
 
         targetThursday.setDate(
           targetThursday.getDate() - ((targetThursday.getDay() + 6) % 7) + 3
-        )
+        );
 
-        var firstThursday = new Date(targetThursday.getFullYear(), 0, 4)
+        var firstThursday = new Date(targetThursday.getFullYear(), 0, 4);
 
         firstThursday.setDate(
           firstThursday.getDate() - ((firstThursday.getDay() + 6) % 7) + 3
-        )
+        );
 
         var ds =
-          targetThursday.getTimezoneOffset() - firstThursday.getTimezoneOffset()
-        targetThursday.setHours(targetThursday.getHours() - ds)
+          targetThursday.getTimezoneOffset() -
+          firstThursday.getTimezoneOffset();
+        targetThursday.setHours(targetThursday.getHours() - ds);
 
-        var weekDiff = (targetThursday - firstThursday) / (86400000 * 7)
-        return 1 + Math.floor(weekDiff)
+        var weekDiff = (targetThursday - firstThursday) / (86400000 * 7);
+        return 1 + Math.floor(weekDiff);
       },
       updateValues(values) {
         this.dateRange.startDate = this.dateUtil.format(
           values.startDate,
-          'yyyy-mm-dd HH:MM:ss'
-        )
+          "yyyy-mm-dd HH:MM:ss"
+        );
         this.dateRange.endDate = this.dateUtil.format(
           values.endDate,
-          'yyyy-mm-dd HH:MM:ss'
-        )
+          "yyyy-mm-dd HH:MM:ss"
+        );
       },
       getDayOfWeek(date) {
-        var dow = date.getDay()
+        var dow = date.getDay();
         if (dow === 0) {
-          dow = 7
+          dow = 7;
         }
-        return dow
+        return dow;
       },
       kindOf(val) {
         if (val === null) {
-          return 'null'
+          return "null";
         }
 
         if (val === undefined) {
-          return 'undefined'
+          return "undefined";
         }
 
-        if (typeof val !== 'object') {
-          return typeof val
+        if (typeof val !== "object") {
+          return typeof val;
         }
 
         if (Array.isArray(val)) {
-          return 'array'
+          return "array";
         }
 
         return {}.toString
           .call(val)
           .slice(8, -1)
-          .toLowerCase()
+          .toLowerCase();
       },
       checkOpen(open) {
-        console.log('event: open', open)
+        console.log("event: open", open);
       },
       setDateFormat(classes, date) {
-        let yesterday = new Date()
-        let d1 = this.dateUtil.format(date, 'isoDate')
+        let yesterday = new Date();
+        let d1 = this.dateUtil.format(date, "isoDate");
         let d2 = this.dateUtil.format(
           yesterday.setDate(yesterday.getDate() - 1),
-          'isoDate'
-        )
+          "isoDate"
+        );
         if (!classes.disabled) {
-          classes.disabled = d1 === d2
+          classes.disabled = d1 === d2;
         }
-        return classes
-      },
-    },
-  }
+        return classes;
+      }
+    }
+  };
 </script>
 
 <!-- demo.name -->
