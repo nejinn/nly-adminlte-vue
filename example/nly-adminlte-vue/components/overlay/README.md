@@ -1,51 +1,60 @@
-# 1. overlay 
-<!-- TOC -->
+# Overlay
 
-- [1. overlay](#1-overlay)
-    - [1.1. nly-overlay](#11-nly-overlay)
-        - [1.1.1. props](#111-props)
-    - [1.2. 单包导出](#12-单包导出)
-        - [1.2.1. 包含组件](#121-包含组件)
-        - [1.2.2. 导出方法](#122-导出方法)
+> NlyAdminlteVue 自定义的罩层组件 `nly-overlay` 用来在视觉上挡住和遮住组件或元素，用来展示组件或者
+> 元素的一种状态，比如创建，更新，加载，警告等等。
 
-<!-- /TOC -->
+## Overview
 
+`<nly-overlay>` can be used to obscure almost anything. [Example use cases](#use-case-examples) would
+be forms, tables, delete confirmation dialogs, or anywhere you need to signal that the application
+is busy performing a background task, to signal that a certain component is unavailable, or to
+provide additional context to the end user.
 
-> 罩层
+`<nly-overlay>` can be used to overlay (wrap) an element or component (the default behaviour), or can
+be placed as a descendant of a `position: relative` element
+([non-wrapping mode](#non-wrapping-mode)).
 
-## 1.1. nly-overlay
+The overlay visibility is controlled via the `show` prop. By default the overlay is _not_ shown.
 
-### 1.1.1. props
+<div class="alert alert-info">
+  <p class="mb-0">
+    Note that this component only <em>visually obscures</em> its content (or the page). Refer to the
+    <a href="#accessibility" class="alert-link">Accessibility section</a> below for additional
+    accessibility details and concerns.
+  </p>
+</div>
 
-参数 | 类型 |  默认值 | 描述
--|-|-|-
-sibebar | Boolean | false | 是否作为左侧导航栏的罩层。默认不是。
-dark | Boolean | false | 罩层颜色和字体颜色。默认白色黑字，true为黑色白字
+**Default wrapping mode example:**
 
-## 1.2. 单包导出
+```html
+<template>
+  <div>
+    <nly-overlay :show="show" rounded="sm">
+      <nly-card title="Card with overlay" :aria-hidden="show ? 'true' : null">
+        <nly-card-body>
+          <nly-card-text
+            >Laborum consequat non elit enim exercitation cillum.</nly-card-text
+          >
+          <nly-card-text>Click the button to toggle the overlay:</nly-card-text>
+          <nly-button :disabled="show" variant="primary" @click="show = true">
+            Show overlay
+          </nly-button>
+        </nly-card-body>
+      </nly-card>
+    </nly-overlay>
+    <nly-button class="mt-3" @click="show = !show">Toggle overlay</nly-button>
+  </div>
+</template>
 
-> 如果只需要使用overlayPlugin中的组件，请使用单个组件导出
+<script>
+  export default {
+    data() {
+      return {
+        show: false
+      };
+    }
+  };
+</script>
 
-### 1.2.1. 包含组件
-
-> overlayPlugin包括以下组件
-
-名称 | 导出路径
--|-
-NlyOverlay | nly-adminlte-vue
-
-### 1.2.2. 导出方法
-
-> 单组件导出
-
-```js
-import { NlyOverlay } from "nly-adminlte-vue";
-Vue.component('nly-overlay', NlyOverlay)
-```
-
-> 整个overlayPlugin出
-
-```js
-import { overlayPlugin } from "nly-adminlte-vue";
-Vue.use(overlayPlugin);
+<!-- nly-overlay.vue -->
 ```

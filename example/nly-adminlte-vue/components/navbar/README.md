@@ -1,4 +1,4 @@
-# navbar
+# Navbar
 
 > 导航栏, 是导航的响应式基础组件, 可以根据屏幕尺寸可收缩堆叠展开, `nly-navbar` 可以嵌套 `nly-nav` 和其他元素的容器.
 
@@ -466,32 +466,32 @@
   export default {
     data() {
       return {
-        variant: 'lightlight',
+        variant: "lightlight",
         dark: false,
         variantOpitons: {
-          orange: 'navbar-light navbar-orange',
-          warning: 'navbar-light navbar-warning',
-          lightlight: 'navbar-light',
-          graygray: 'navbar-dark navbar-gray',
-          graydark: 'navbar-dark navbar-gray-dark',
-          darkdark: 'navbar-dark',
-          cyan: 'navbar-dark navbar-cyan',
-          teal: 'navbar-dark navbar-teal',
-          lightblue: 'navbar-dark navbar-lightblue',
-          navy: 'navbar-dark navbar-navy',
-          pink: 'navbar-dark navbar-pink',
-          purple: 'navbar-dark navbar-purple',
-          indigo: 'navbar-dark navbar-indigo',
-          danger: 'navbar-dark navbar-danger',
-          success: 'navbar-dark navbar-success',
-          info: 'navbar-dark navbar-info',
-          secondary: 'navbar-dark navbar-secondary',
-          primary: 'navbar-dark navbar-primary',
-          white: 'navbar-light navbar-white',
-        },
-      }
-    },
-  }
+          orange: "navbar-light navbar-orange",
+          warning: "navbar-light navbar-warning",
+          lightlight: "navbar-light",
+          graygray: "navbar-dark navbar-gray",
+          graydark: "navbar-dark navbar-gray-dark",
+          darkdark: "navbar-dark",
+          cyan: "navbar-dark navbar-cyan",
+          teal: "navbar-dark navbar-teal",
+          lightblue: "navbar-dark navbar-lightblue",
+          navy: "navbar-dark navbar-navy",
+          pink: "navbar-dark navbar-pink",
+          purple: "navbar-dark navbar-purple",
+          indigo: "navbar-dark navbar-indigo",
+          danger: "navbar-dark navbar-danger",
+          success: "navbar-dark navbar-success",
+          info: "navbar-dark navbar-info",
+          secondary: "navbar-dark navbar-secondary",
+          primary: "navbar-dark navbar-primary",
+          white: "navbar-light navbar-white"
+        }
+      };
+    }
+  };
 </script>
 
 <!-- 主题颜色.name -->
@@ -693,7 +693,10 @@
 
     <nly-navbar-toggle target="navbar-toggle-collapse">
       <template v-slot:default="{ expanded }">
-        <nly-icon v-if="expanded" icon="nlyfont nly-icon-arrow-bottom"></nly-icon>
+        <nly-icon
+          v-if="expanded"
+          icon="nlyfont nly-icon-arrow-bottom"
+        ></nly-icon>
         <nly-icon v-else icon="nlyfont nly-icon-arrow-top"></nly-icon>
       </template>
     </nly-navbar-toggle>
