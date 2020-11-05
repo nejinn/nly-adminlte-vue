@@ -189,7 +189,7 @@ export const NlyOverlay = Vue.extend({
       return h(
         this.wrapTag,
         {
-          staticClass: "nly-overlay-wrap",
+          staticClass: "nly-overlay",
           attrs: {
             id: "sidebar-overlay"
           }
