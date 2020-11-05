@@ -86,7 +86,7 @@ const createVM = (name, node, vnode, name_title) => {
       <nly-card-header>
       <nly-spinner type='grow' sm variant='success' /> <span class='text-lg font-weight-bolder text-primary'>${name_title}</span> <nly-spinner variant='success' type='grow' sm />
       <nly-card-tool>
-      <nly-button tool @click='collaspe'>{{btnName}}代码</nly-button>
+      <nly-button tool @click='collaspe'><div class='text-danger'>{{btnName}}代码</div></nly-button>
       </nly-card-tool>
       </nly-card-header>
       <nly-card-body>

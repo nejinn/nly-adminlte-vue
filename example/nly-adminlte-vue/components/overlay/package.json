@@ -6,75 +6,87 @@
     "version": "0.5.6",
     "subtitle": "罩层",
     "new": true,
-    "description": "The b-overlay component is used to visually obscure a particular element or component and its content. It signals to the user of a state change within the element or component and can be used for creating loaders, warnings/alerts and more.",
+    "description": "nly-overlay 用来在视觉上挡住和遮住组件或元素，用来展示组件或者元素的一种状态，比如创建，更新，加载，警告等等",
     "components": [
       {
         "component": "NlyOverlay",
         "version": "0.6.5",
         "props": [
           {
+            "prop": "sidebar",
+            "description": "设置为true,作为左侧菜单的罩层，会自动添加一个 id=sidebar-overlay 属性，当绑定指令 v-nly-sidebar-collapse之后，点击罩层会关闭左侧导航"
+          },
+          {
+            "prop": "custom",
+            "description": "作为其他组件的自带背景罩层"
+          },
+          {
+            "prop": "dark",
+            "description": "作为其他组件的自带背景罩层时罩层颜色"
+          },
+          {
             "prop": "show",
-            "description": "When set, shows the overlay"
+            "description": "设置 true 显示罩层"
           },
           {
             "prop": "variant",
-            "description": "Background theme color variant to use for the overlay backdrop"
+            "description": "罩层背景颜色, 可以是 `bg-*` 类和 `bg-gradient-*` 类，比如 variant='pink', varaint='gradient-pink' 。可选primary， secondary， success， info， warning， danger， light， dark， lightblue， navy， olive， lime， fuchsia， maroon， blue， indigo， purple， pink， red， orange， yellow， green， teal， cyan， white， gray， graydark"
           },
           {
             "prop": "bgColor",
-            "description": "CSS color to use as the opaque overlay backdrop color. If set, overrides the `variant` prop"
+            "description": "罩层背景色， css 属性，会覆盖 `variant` prop"
           },
           {
             "prop": "opacity",
-            "description": "Opacity of the overlay backdrop. Valid range is `0` to `1`"
+            "description": "透明度，可以设置 `0` 到 `1`"
           },
           {
             "prop": "blur",
-            "description": "Value for the CSS blur backdrop-filter. Be sure to include the CSS units. Not supported in IE 11. Set to null or an empty string to disable blurring"
+            "description": "背景模糊度值"
           },
           {
             "prop": "noFade",
-            "description": "Disables the fade transition of the overlay"
+            "description": "禁用罩层动画"
           },
           {
             "prop": "rounded",
-            "description": "Apply rounding to the overlay to match your content routing. Valid values are `true`, `'sm'`, `lg`, `circle`, `pill`, `top`, `right`, `bottom`, or `left`"
+            "description": "是的罩层自适应包裹元素的形状，大小.可选 `true`, `'sm'`, `lg`, `circle`, `pill`, `top`, `right`, `bottom`, `left`"
           },
           {
             "prop": "noCenter",
-            "description": "When set, disables the vertical and horizontal centering of the overlay content"
+            "description": "设置true, 使罩层中 spinner 等元素不居中显示"
           },
           {
             "prop": "overlayTag",
-            "description": "Element tag to use as for the overlay element"
+            "description": "罩层标签"
           },
           {
             "prop": "noWrap",
-            "description": "Disabled generating the wrapper element, and ignored the default slot. Requires that `<b-overlay>` be placed in an element with position relative set"
+            "description": "不渲染成 wrapper 容器元素，即罩层不会包裹其他元素和组件，也就是不会渲染默认插槽中的元素和组件 , `<nly-overlay>` 会渲染成 position relative 元素"
           },
           {
             "prop": "fixed",
-            "description": "When prop `no-wrap` is set, will use fixed positioning instead of absolute positioning. Handy if you want to obscure the entire application page"
+            "description": "如果设置了 `no-wrap` prop 为 true, 设置  `fixed` 为 true, 会渲染成 fixed positioning 元素"
           },
           {
             "prop": "wrapTag",
-            "description": "Element tag to use for the overall wrapper element. Has no effect if prop `no-wrap` is set"
+            "description": "渲染成 wrapper 容器元素，即罩层会包裹其他元素和组件，也就是会渲染默认插槽中的元素和组件， 如果设置了 `no-wrap` prop 为 true 会失效"
           },
           {
             "prop": "zIndex",
-            "description": "Z-index value to apply to the overlay. You may need to increase this value to suit your content or placement"
+            "description": "Z-index 属性"
           },
           {
             "prop": "spinnerType",
-            "description": "Type of the default spinner to show. Current supported types are 'border' and 'grow'"
+            "description": "spinner 类型， 可选 'border' and 'grow'"
           },
           {
             "prop": "spinnerVariant",
-            "description": "Applies one of the Bootstrap theme color variants to the default spinner. Default is to use the current font color"
+            "description": "spinner 主题颜色. 详情请查看 `nly-spinner` 组件"
           },
           {
             "prop": "spinnerSmall",
-            "description": "When set, renders the default spinner in a smaller size"
+            "description": "设置 true, spinner 会渲染成小型 spinner"
           }
         ],
         "events": [

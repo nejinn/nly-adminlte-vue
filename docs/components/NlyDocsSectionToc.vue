@@ -22,7 +22,7 @@
           active-class=""
         >
           <strong class="text-primary">{{ page.title }}</strong> &mdash;
-          <nly-badge v-if="page.new" variant="success">NEW</nly-badge>
+          <nly-badge v-if="page.new" variant="success">新增</nly-badge>
           <span class="text-muted">{{ page.description }}</span>
           <nly-badge v-if="page.version" variant="secondary"
             >v{{ page.version }}</nly-badge

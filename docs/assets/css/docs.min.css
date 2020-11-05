@@ -136,12 +136,12 @@ svg {
 .b-form-btn-label-control {
   background-image: none;
 }
-[dir='rtl'] .b-form-btn-label-control,
-.b-form-btn-label-control[dir='rtl'] {
+[dir="rtl"] .b-form-btn-label-control,
+.b-form-btn-label-control[dir="rtl"] {
   flex-direction: row-reverse;
 }
-[dir='rtl'] .b-form-btn-label-control > label,
-.b-form-btn-label-control[dir='rtl'] > label {
+[dir="rtl"] .b-form-btn-label-control > label,
+.b-form-btn-label-control[dir="rtl"] > label {
   text-align: right;
 }
 .b-form-btn-label-control > .btn {
@@ -169,15 +169,15 @@ svg {
 .b-form-btn-label-control > label.form-control-lg {
   min-height: calc(calc(1.5em + 1rem + 2px) - 2px);
 }
-.b-form-btn-label-control[aria-disabled='true'],
-.b-form-btn-label-control[aria-readonly='true'] {
+.b-form-btn-label-control[aria-disabled="true"],
+.b-form-btn-label-control[aria-readonly="true"] {
   background-color: #e9ecef;
   opacity: 1;
 }
-.b-form-btn-label-control[aria-disabled='true'] {
+.b-form-btn-label-control[aria-disabled="true"] {
   pointer-events: none;
 }
-.b-form-btn-label-control[aria-disabled='true'] > label {
+.b-form-btn-label-control[aria-disabled="true"] > label {
   cursor: default;
 }
 
@@ -337,7 +337,7 @@ svg {
   display: block;
   height: 6rem;
   margin-top: -6rem;
-  content: '';
+  content: "";
 }
 .bd-content > table {
   width: 100%;
@@ -633,7 +633,7 @@ svg {
   margin-left: 1rem;
 }
 .bd-example-row .row > .col,
-.bd-example-row .row > [class^='col-'] {
+.bd-example-row .row > [class^="col-"] {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   background-color: rgba(86, 61, 124, 0.15);
@@ -744,7 +744,7 @@ svg {
 .bd-example::after {
   display: block;
   clear: both;
-  content: '';
+  content: "";
 }
 @media (min-width: 576px) {
   .bd-example {
@@ -771,7 +771,7 @@ svg {
   }
 }
 .bd-example .custom-file-input:lang(es) ~ .custom-file-label::after {
-  content: 'Elegir';
+  content: "Elegir";
 }
 .bd-example > .form-control + .form-control {
   margin-top: 0.5rem;
@@ -824,7 +824,7 @@ svg {
 .bd-example > .btn-toolbar + .btn-toolbar {
   margin-top: 0.5rem;
 }
-.bd-example-control-sizing input[type='text'] + input[type='text'],
+.bd-example-control-sizing input[type="text"] + input[type="text"],
 .bd-example-control-sizing select {
   margin-top: 0.5rem;
 }
@@ -837,7 +837,7 @@ svg {
 .bd-example > .list-group {
   max-width: 400px;
 }
-.bd-example > [class*='list-group-horizontal'] {
+.bd-example > [class*="list-group-horizontal"] {
   max-width: 100%;
 }
 .bd-example .fixed-top,
@@ -923,14 +923,14 @@ svg {
   height: 350px;
   overflow: auto;
 }
-.bd-example-border-utils [class^='border'] {
+.bd-example-border-utils [class^="border"] {
   display: inline-block;
   width: 5rem;
   height: 5rem;
   margin: 0.25rem;
   background-color: #f5f5f5;
 }
-.bd-example-border-utils-0 [class^='border'] {
+.bd-example-border-utils-0 [class^="border"] {
   border: 1px solid #dee2e6;
 }
 .highlight {
@@ -1466,7 +1466,7 @@ svg {
 .language-bash::before,
 .language-sh::before {
   color: #009;
-  content: '$ ';
+  content: "$ ";
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -1474,7 +1474,7 @@ svg {
 }
 .language-powershell::before {
   color: #009;
-  content: 'PM> ';
+  content: "PM> ";
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -1516,7 +1516,7 @@ svg {
 .algolia-autocomplete .ds-dropdown-menu::before {
   display: none !important;
 }
-.algolia-autocomplete .ds-dropdown-menu [class^='ds-dataset-'] {
+.algolia-autocomplete .ds-dropdown-menu [class^="ds-dataset-"] {
   padding: 0 !important;
   overflow: visible !important;
   background-color: transparent !important;
@@ -1554,7 +1554,7 @@ svg {
 }
 .algolia-autocomplete .algolia-docsearch-suggestion--subcategory-inline::after {
   padding: 0 0.25rem;
-  content: '/';
+  content: "/";
 }
 .algolia-autocomplete .algolia-docsearch-suggestion--content {
   display: flex;
@@ -1656,7 +1656,7 @@ svg {
   -moz-osx-font-smoothing: grayscale;
 }
 .anchorjs-link:after {
-  content: '#';
+  content: "#";
 }
 *:hover > .anchorjs-link,
 .anchorjs-link:focus {
@@ -1742,9 +1742,10 @@ svg {
   font-weight: 600;
 }
 .bd-code pre.editable::after {
-  content: '(双击编辑)';
+  content: "双击编辑代码";
   top: 5px;
   right: 10px;
+  color: rgb(59, 11, 235);
 }
 .bd-code pre.editable:hover::after {
   font-size: 0.85em;
@@ -1752,14 +1753,14 @@ svg {
   cursor: pointer;
 }
 .bd-code pre.editable.live::after {
-  content: '运行中';
+  content: "正在编辑代码";
 }
 .bd-code pre.editable.error {
   border: 1px solid #dc3545;
   box-shadow: 0 1px 1px rgba(220, 53, 69, 0.5);
 }
 .bd-code pre.editable.error::after {
-  content: 'JavaScript compile error!';
+  content: "JavaScript compile error!";
   color: #dc3545;
 }
 .bv-carbon-ad {
@@ -1787,7 +1788,7 @@ svg {
   margin-top: 1rem;
 }
 .nly-example-row .row > .col:not(.header),
-.nly-example-row .row > [class^='col-'] {
+.nly-example-row .row > [class^="col-"] {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   background-color: rgba(86, 61, 124, 0.15);
@@ -1869,7 +1870,8 @@ table#table-transition-example .flip-list-move {
 
 .docs-border-bottom {
   border-bottom: 1px solid;
-  border-image: -webkit-linear-gradient(to right,#f8f8f8,#7952b3,#f8f8f8) 1 10 1;
-  border-image: -moz-linear-gradient(to right,#f8f8f8,#7952b3,#f8f8f8) 1 10 1;
-  border-image: linear-gradient(to right,#f8f8f8,#7952b3,#f8f8f8) 1 10 1;
+  border-image: -webkit-linear-gradient(to right, #f8f8f8, #7952b3, #f8f8f8) 1
+    10 1;
+  border-image: -moz-linear-gradient(to right, #f8f8f8, #7952b3, #f8f8f8) 1 10 1;
+  border-image: linear-gradient(to right, #f8f8f8, #7952b3, #f8f8f8) 1 10 1;
 }
