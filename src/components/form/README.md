@@ -1,4 +1,4 @@
-# form
+# Form
 
 > `nly-form` 是一个表单控件，会为置于其中的其他表单控件提供一些辅助型功能，比如布局，验证等等。
 
@@ -62,37 +62,37 @@
     data() {
       return {
         form: {
-          email: '',
-          name: '',
-          food: null,
+          email: "",
+          name: "",
+          food: null
         },
         foods: [
-          { text: '请选择', value: null },
-          '作者帅',
-          '作者屌大',
-          '作者大佬',
-          '牛逼',
+          { text: "请选择", value: null },
+          "作者帅",
+          "作者屌大",
+          "作者大佬",
+          "牛逼"
         ],
-        show: true,
-      }
+        show: true
+      };
     },
     methods: {
       onSubmit(evt) {
-        evt.preventDefault()
-        alert(JSON.stringify(this.form))
+        evt.preventDefault();
+        alert(JSON.stringify(this.form));
       },
       onReset(evt) {
-        evt.preventDefault()
-        this.form.email = ''
-        this.form.name = ''
-        this.form.food = null
-        this.show = false
+        evt.preventDefault();
+        this.form.email = "";
+        this.form.name = "";
+        this.form.food = null;
+        this.show = false;
         this.$nextTick(() => {
-          this.show = true
-        })
-      },
-    },
-  }
+          this.show = true;
+        });
+      }
+    }
+  };
 </script>
 
 <!-- 简介 .name -->
@@ -209,24 +209,24 @@
   export default {
     data() {
       return {
-        userId: '',
-      }
+        userId: ""
+      };
     },
     computed: {
       validation() {
         return this.userId.length > 4 && this.userId.length < 13
-          ? 'valid'
-          : 'invalid'
-      },
-    },
-  }
+          ? "valid"
+          : "invalid";
+      }
+    }
+  };
 </script>
 
 <!-- valid.name -->
 <!-- valid.vue -->
 ```
 
-如果使用 `nly-form-feedback`，需要同级元素设置 `.is-valid`, `.is-invalid`, `.is-warning` css类, prop `state` 的取值请**注意**：
+如果使用 `nly-form-feedback`，需要同级元素设置 `.is-valid`, `.is-invalid`, `.is-warning` css 类, prop `state` 的取值请**注意**：
 
 - `valid` 代表正确验证提示
 
@@ -251,10 +251,10 @@
   export default {
     data() {
       return {
-        options: ['Apple', 'Banana', 'Grape', 'Kiwi', 'Orange'],
-      }
-    },
-  }
+        options: ["Apple", "Banana", "Grape", "Kiwi", "Orange"]
+      };
+    }
+  };
 </script>
 
 <!-- datalist.name -->

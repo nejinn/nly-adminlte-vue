@@ -1,191 +1,141 @@
 {
   "name": "@nly-adminlte-vue/overlay",
-  "version": "1.0.0",
+  "version": "0.6.5",
   "meta": {
     "title": "Overlay",
+    "version": "0.5.6",
     "subtitle": "罩层",
-    "description": "一个具有透明度颜色的背景层",
+    "new": true,
+    "description": "nly-overlay 用来在视觉上挡住和遮住组件或元素，用来展示组件或者元素的一种状态，比如创建，更新，加载，警告等等",
     "components": [
       {
         "component": "NlyOverlay",
+        "version": "0.6.5",
         "props": [
           {
-            "prop": "pills",
-            "description": "tab切换nav元素(切换按钮)渲染为圆角按钮形状"
+            "prop": "sidebar",
+            "description": "设置为true,作为左侧菜单的罩层，会自动添加一个 id=sidebar-overlay 属性，当绑定指令 v-nly-sidebar-collapse之后，点击罩层会关闭左侧导航"
           },
           {
-            "prop": "small",
-            "description": "小号nav元素(切换按钮)"
+            "prop": "custom",
+            "description": "作为其他组件的自带背景罩层"
           },
           {
-            "prop": "align",
-            "description": "nav元素(切换按钮)文字对齐方式， 可选 'start' ('left'), 'center', 'end' ('right')"
+            "prop": "dark",
+            "description": "作为其他组件的自带背景罩层时罩层颜色"
           },
           {
-            "prop": "fill",
-            "description": "nav元素(切换按钮)填充整个card宽度，但并不是每个nav元素(切换按钮)宽度都会相同"
+            "prop": "show",
+            "description": "设置 true 显示罩层"
           },
           {
-            "prop": "justified",
-            "description": "nav元素(切换按钮)填充整个card宽度，每个nav元素(切换按钮)宽度都会相同"
+            "prop": "variant",
+            "description": "罩层背景颜色, 可以是 `bg-*` 类和 `bg-gradient-*` 类，比如 variant='pink', varaint='gradient-pink' 。可选primary， secondary， success， info， warning， danger， light， dark， lightblue， navy， olive， lime， fuchsia， maroon， blue， indigo， purple， pink， red， orange， yellow， green， teal， cyan， white， gray， graydark"
           },
           {
-            "prop": "vertical",
-            "description": "垂直tab"
+            "prop": "bgColor",
+            "description": "罩层背景色， css 属性，会覆盖 `variant` prop"
           },
           {
-            "prop": "card",
-            "description": "设置true会渲染成nly-card"
+            "prop": "opacity",
+            "description": "透明度，可以设置 `0` 到 `1`"
           },
           {
-            "prop": "end",
-            "description": "设置为true，水平tab会把nav元素(切换按钮)放到底部，垂直tab会把nav元素(切换按钮)放到右侧"
+            "prop": "blur",
+            "description": "背景模糊度值"
           },
           {
-            "prop": "lazy",
-            "description": "懒加载"
+            "prop": "noFade",
+            "description": "禁用罩层动画"
           },
           {
-            "prop": "noNavStyle",
-            "description": "不渲染nav的css式样"
+            "prop": "rounded",
+            "description": "是的罩层自适应包裹元素的形状，大小.可选 `true`, `'sm'`, `lg`, `circle`, `pill`, `top`, `right`, `bottom`, `left`"
           },
           {
-            "prop": "noKeyNav",
-            "description": "禁用选项卡控件的键盘导航"
+            "prop": "noCenter",
+            "description": "设置true, 使罩层中 spinner 等元素不居中显示"
           },
           {
-            "prop": "contentClass",
-            "description": "tab-content元素自定义css"
+            "prop": "overlayTag",
+            "description": "罩层标签"
           },
           {
-            "prop": "navClass",
-            "description": "nav自定义css"
+            "prop": "noWrap",
+            "description": "不渲染成 wrapper 容器元素，即罩层不会包裹其他元素和组件，也就是不会渲染默认插槽中的元素和组件 , `<nly-overlay>` 会渲染成 position relative 元素"
           },
           {
-            "prop": "navWrapperClass",
-            "description": "wraaper元素自定义css"
+            "prop": "fixed",
+            "description": "如果设置了 `no-wrap` prop 为 true, 设置  `fixed` 为 true, 会渲染成 fixed positioning 元素"
           },
           {
-            "prop": "activeTabClass",
-            "description": "tab选项卡激活css"
+            "prop": "wrapTag",
+            "description": "渲染成 wrapper 容器元素，即罩层会包裹其他元素和组件，也就是会渲染默认插槽中的元素和组件， 如果设置了 `no-wrap` prop 为 true 会失效"
           },
           {
-            "prop": "activeNavItemClass",
-            "description": "选项卡渲染成nav-item时激活css"
+            "prop": "zIndex",
+            "description": "Z-index 属性"
           },
           {
-            "prop": "value",
-            "description": "当前可见的选项卡值"
-          }
-        ],
-        "events": [
-          {
-            "event": "input",
-            "description": "更新v-model值时触发",
-            "args": [
-              {
-                "arg": "tabIndex",
-                "type": "Number",
-                "description": "当前可见tab的index"
-              }
-            ]
+            "prop": "spinnerType",
+            "description": "spinner 类型， 可选 'border' and 'grow'"
           },
           {
-            "event": "activate-tab",
-            "version": "0.4.4",
-            "description": "准备激活tab之前的index",
-            "args": [
-              {
-                "arg": "newTabIndex",
-                "type": "Number",
-                "description": "tab激活之后的index"
-              },
-              {
-                "arg": "prevTabIndex",
-                "type": "Number",
-                "description": "当前激活的tab的index，如果没有激活，那么默认为-1"
-              },
-              {
-                "arg": "nlyEvt",
-                "type": "NlyEvent",
-                "description": "NlyEvent对象. 防止冒泡"
-              }
-            ]
+            "prop": "spinnerVariant",
+            "description": "spinner 主题颜色. 详情请查看 `nly-spinner` 组件"
           },
           {
-            "event": "changed",
-            "description": "当一个tab被移除或者重新排序，或者新增一个tab时触发",
-            "args": [
-              {
-                "arg": "currentTabs",
-                "type": "Array",
-                "description": "当前tabs中tab集合"
-              },
-              {
-                "arg": "previousTabs",
-                "type": "Array",
-                "description": "未更新之前的tabs的tab集合"
-              }
-            ]
-          }
-        ],
-        "slots": [
-          {
-            "name": "tabs-start",
-            "description": "在有内容的选项卡前面添加没有内容的选项卡"
-          },
-          {
-            "name": "tabs-end",
-            "description": "在有内容的选项卡最后面添加没有内容的选项卡"
-          },
-          {
-            "name": "empty",
-            "description": "当没有tab时渲染"
-          }
-        ]
-      },
-      {
-        "component": "NlyTab",
-        "props": [
-          {
-            "prop": "buttonId",
-            "description": "如果传入， 则可设置一个按钮来操作对应id的nly-tab可见状态，如果没用传入，会自动生成一个"
-          },
-          {
-            "prop": "titleItemClass",
-            "description": "选项卡控制器 li标签的 自定义css"
-          },
-          {
-            "prop": "titleLinkClass",
-            "description": "选项卡控制器里包裹的a标签自定义css"
-          },
-          {
-            "prop": "titleLinkAttributes",
-            "version": "0.4.4",
-            "description": "选项卡控制器里包裹的a标签 attributes属性"
-          },
-          {
-            "prop": "lazy",
-            "description": "懒加载"
+            "prop": "spinnerSmall",
+            "description": "设置 true, spinner 会渲染成小型 spinner"
           }
         ],
         "events": [
           {
             "event": "click",
-            "description": "点击tab时触发",
+            "version": "2.13.0",
+            "description": "Emitted when overlay is clicked",
             "args": [
               {
-                "arg": "evt",
-                "type": "鼠标事件",
-                "description": "原生事件"
+                "arg": "event",
+                "type": "MouseEvent",
+                "description": "Native click event object"
               }
             ]
+          },
+          {
+            "event": "shown",
+            "description": "Emitted when the overlay has been shown"
+          },
+          {
+            "event": "hidden",
+            "description": "Emitted when the overlay has been hidden"
           }
         ],
         "slots": [
           {
-            "name": "title",
-            "description": "tab标题插槽"
+            "name": "overlay",
+            "description": "Custom content to replace the default overlay spinner",
+            "scope": [
+              {
+                "prop": "spinnerType",
+                "type": "String",
+                "description": ""
+              },
+              {
+                "prop": "spinnerVariant",
+                "type": "String",
+                "description": ""
+              },
+              {
+                "prop": "spinnerSmall",
+                "type": "Boolean",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "name": "default",
+            "description": "The content to be overlayed. The default slot is ignored if the prop `no-wrap` is set"
           }
         ]
       }

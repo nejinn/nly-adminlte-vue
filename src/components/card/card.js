@@ -207,6 +207,7 @@ export const NlyCard = Vue.extend({
           NlyOverlay,
           {
             props: {
+              custom: true,
               dark: props.dark
             }
           },
@@ -217,6 +218,7 @@ export const NlyCard = Vue.extend({
           NlyOverlay,
           {
             props: {
+              custom: true,
               dark: props.dark
             }
           },
