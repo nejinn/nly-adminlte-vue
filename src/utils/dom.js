@@ -156,6 +156,9 @@ export const getById = id =>
 
 // Add a class to an element
 export const addClass = (el, className) => {
+  // We are checking for `el.classList` existence here since IE 11
+  // returns `undefined` for some elements (e.g. SVG elements)
+  // See https://github.com/bootstrap-vue/bootstrap-vue/issues/2713
   if (className && isElement(el) && el.classList) {
     el.classList.add(className);
   }
@@ -163,6 +166,9 @@ export const addClass = (el, className) => {
 
 // Remove a class from an element
 export const removeClass = (el, className) => {
+  // We are checking for `el.classList` existence here since IE 11
+  // returns `undefined` for some elements (e.g. SVG elements)
+  // See https://github.com/bootstrap-vue/bootstrap-vue/issues/2713
   if (className && isElement(el) && el.classList) {
     el.classList.remove(className);
   }
@@ -170,6 +176,9 @@ export const removeClass = (el, className) => {
 
 // Test if an element has a class
 export const hasClass = (el, className) => {
+  // We are checking for `el.classList` existence here since IE 11
+  // returns `undefined` for some elements (e.g. SVG elements)
+  // See https://github.com/bootstrap-vue/bootstrap-vue/issues/2713
   if (className && isElement(el) && el.classList) {
     return el.classList.contains(className);
   }

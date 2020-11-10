@@ -347,6 +347,8 @@ export const NlyModal = /*#__PURE__*/ Vue.extend({
           !this.isBodyOverflowing && this.isModalOverflowing ? sbWidth : "",
         paddingRight:
           this.isBodyOverflowing && !this.isModalOverflowing ? sbWidth : "",
+        // Needed to fix issue https://github.com/bootstrap-vue/bootstrap-vue/issues/3457
+        // Even though we are using v-show, we must ensure 'none' is restored in the styles
         display: this.isBlock ? "block" : "none"
       };
     },
@@ -557,14 +559,24 @@ export const NlyModal = /*#__PURE__*/ Vue.extend({
         this.show();
       }
     },
+    // Private method to get the current document active element
     getActiveElement() {
       if (isBrowser) {
         const activeElement = document.activeElement;
+        // Note: On IE 11, `document.activeElement` may be null.
+        // So we test it for truthiness first.
+        // https://github.com/bootstrap-vue/bootstrap-vue/issues/3206
+        // Returning focus to document.body may cause unwanted scrolls, so we
+        // exclude setting focus on body
         if (
           activeElement &&
           activeElement !== document.body &&
           activeElement.focus
         ) {
+          // Preset the fallback return focus value if it is not set
+          // `document.activeElement` should be the trigger element that was clicked or
+          // in the case of using the v-model, which ever element has current focus
+          // Will be overridden by some commands such as toggle, etc.
           return activeElement;
         }
       }

@@ -65,6 +65,7 @@ export const NlyInfobox = Vue.extend({
           NlyOverlay,
           {
             props: {
+              custom: true,
               dark: props.dark
             }
           },
@@ -75,6 +76,7 @@ export const NlyInfobox = Vue.extend({
           NlyOverlay,
           {
             props: {
+              custom: true,
               dark: props.dark
             }
           },
