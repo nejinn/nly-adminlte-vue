@@ -15,220 +15,220 @@
         "props": [
           {
             "prop": "striped",
-            "description": "Applies striping to the tbody rows"
+            "description": "设置 true， table 会显示条纹式样"
           },
           {
             "prop": "bordered",
-            "description": "Adds borders to all the cells and headers"
+            "description": "设置 true 会给所有单元格和头部添加圆角边框式样"
           },
           {
             "prop": "borderless",
-            "description": "Removes all borders from cells"
+            "description": "移除所有单元格的边框"
           },
           {
             "prop": "outlined",
-            "description": "Adds an outline border to the table element"
+            "description": "给表格所有元素添加外边框"
           },
           {
             "prop": "dark",
-            "description": "Places the table in dark mode"
+            "description": "表格黑色模式"
           },
           {
             "prop": "hover",
-            "description": "Enables hover styling on rows"
+            "description": "添加鼠标悬浮式样"
           },
           {
             "prop": "small",
-            "description": "Renders the table with smaller cell padding"
+            "description": "小型表格"
           },
           {
             "prop": "fixed",
-            "description": "Makes all columns equal width (fixed layout table). Will speed up rendering for large tables. Column widths can be set via CSS or colgroup"
+            "description": "设置每列等宽，会加快渲染速度"
           },
           {
             "prop": "responsive",
-            "description": "Makes the table responsive in width, adding a horizontal scrollbar. Set to true for always responsive or set to one of the breakpoints to switch from responsive to normal: 'sm', 'md', 'lg', 'xl'"
+            "description": "使得表格自适应宽度并添加水平滚动条，可选 'sm', 'md', 'lg', 'xl' 或者 'true', 由于adminlte3的bug，（其实是bootstrap的bug）, 通常水平滚动条并不会出现。可以在 table 外面套一层'<div class='table-responsive'>'"
           },
           {
             "prop": "stickyHeader",
-            "description": "Makes the table header sticky. Set to true for a maximum height 300px tall table, or set to any valid CSS hight (including units)"
+            "description": "设置 true 会使得头部悬浮. 并且表格的最大高度为 300px, 使用其他 css 或者 style 可以设置表格的高度"
           },
           {
             "prop": "noBorderCollapse",
-            "version": "2.0.0",
-            "description": "Disable's the collapsing of table borders. Useful when table has sticky headers or columns"
+            "version": "0.4.4",
+            "description": "禁用表格边框折叠. 当使用 stickyHeader 时很有效"
           },
           {
             "prop": "captionTop",
-            "description": "Visually place the table caption above the table. Default is below."
+            "description": "将表格标题放在表格上方"
           },
           {
             "prop": "tableVariant",
-            "description": "Apply a Bootstrap theme color variant to the entire table"
+            "description": "表格颜色"
           },
           {
             "prop": "tableClass",
-            "description": "CSS class (or classes) to apply to the table element"
+            "description": "自定义表格元素的 css 类"
           },
           {
             "prop": "stacked",
-            "description": "Place the table in stacked mode. Set to true for always stacked, or set to one of the breakpoints to switch from stacked to normal: 'sm', 'md', 'lg', 'xl'"
+            "description": "表格堆叠模式. 设置 true 使得表格一直处于堆叠模式, 或者可以设置为对应的 'sm', 'md', 'lg', 'xl' 断点来使得表格在对应的断点变成堆叠模式"
           },
           {
             "prop": "headVariant",
-            "description": "Header variant: 'light' or 'dark', or unset. May take precedence over head-row-variant"
+            "description": "头部颜色， 可选 'light' or 'dark', or unset. 会覆盖 head-row-variant"
           },
           {
             "prop": "headRowVariant",
-            "version": "2.1.0",
-            "description": "Apply a Bootstrap theme color variant to the tr element in the thead"
+            "version": "0.4.4",
+            "description": "给 thead 元素中的 tr 元素设置颜色"
           },
           {
             "prop": "footVariant",
-            "description": "Footer variant: 'light' or 'dark', or unset. May take precedence over foot-row-variant"
+            "description": "底部颜色，可选 'light' or 'dark', or unset. 会覆盖 foot-row-variant"
           },
           {
             "prop": "footRowVariant",
-            "version": "2.1.0",
-            "description": "Apply a Bootstrap theme color variant to the tr element in the tfoot. Falls back to head-row-variant"
+            "version": "0.4.4",
+            "description": "给 tfoot 中的 tr 元素设置颜色"
           },
           {
             "prop": "tbodyTransitionProps",
-            "description": "Vue 'transition-group' properties. When provided will make the tbody a Vue 'transition-group' component"
+            "description": "Vue 'transition-group' 过渡动画. 设置的时候会给 tbody 添加'transition-group' 组件"
           },
           {
             "prop": "tbodyTransitionHandlers",
-            "description": "Vue 'transition-group' event handlers. When provided will make the tbody a Vue 'transition-group' component"
+            "description": "给 tbody 添加 Vue 'transition-group' 过渡动画的事件"
           },
           {
             "prop": "caption",
-            "description": "Text string to place in the caption element"
+            "description": "标题元素中的文本字符串"
           },
           {
             "prop": "captionHtml",
-            "description": "HTML string to place in the caption element. Use with caution"
+            "description": "标题元素中的 html 文本字符串"
           },
           {
             "prop": "theadClass",
-            "description": "CSS class (or classes) to apply to the thead element"
+            "description": "自定义 thead css 类"
           },
           {
             "prop": "theadTrClass",
-            "description": "CSS class (or classes) to apply to the tr element in the thead"
+            "description": "自定义 thead 中 tr 元素的 css 类"
           },
           {
             "prop": "footClone",
-            "description": "Enable to the footer of the table, and clone the header content by default"
+            "description": "启用表格页脚，并默认复制头部内容"
           },
           {
             "prop": "tfootClass",
-            "description": "CSS class (or classes) to apply to the tfoot element"
+            "description": "自定义 tfoot 的 css 类"
           },
           {
             "prop": "tfootTrClass",
-            "description": "CSS class (or classes) to apply to the tr element in the tfoot"
+            "description": "自定义 tfoot 中 tr 的 css 类"
           },
           {
             "prop": "tbodyClass",
-            "description": "CSS class (or classes) to apply to the tbody element"
+            "description": "自定义 tbody 的 css 类"
           },
           {
             "prop": "tbodyTrClass",
-            "description": "CSS class (or classes) to apply to the tr element in the tbody. Can be a function that returns a class (see docs for details)"
+            "description": "自定义 tbody 中 tr 的 css 类. 可以是一个返回 css 类的函数"
           },
           {
             "prop": "tbodyTrAttr",
-            "version": "2.2.0",
-            "description": "Attributes to be added to each tr in the tbody, or a function returning such attributes (see docs for details)"
+            "version": "0.4.4",
+            "description": "添加到 tbody 中 tr 的 attr 属性 , 可以是一个返回 attr 属性的函数"
           },
           {
             "prop": "detailsTdClass",
-            "version": "2.1.0",
-            "description": "CSS class (or classes) to apply to the row details' `td` element for the row-details slot"
+            "version": "0.4.4",
+            "description": "自定义 row-details slot 中 td 元素的 css 类"
           },
           {
             "prop": "value",
-            "description": "Currently displayed row data. Read-only. Do not set a value on this prop"
+            "description": "当前行的数据. 只读. 请不要给这个 prop 传值"
           },
           {
             "prop": "fields",
-            "description": "Array of field names or array of field definition objects"
+            "description": "表头名称或者自定义名称，是一个数组类型"
           },
           {
             "prop": "items",
-            "description": "Array of items to display, or an items provider function reference. Refer to the docs for details"
+            "description": "表格显示数据内容， 是一个数组类型"
           },
           {
             "prop": "primaryKey",
-            "description": "Name of a table field that contains a guaranteed unique value per row. Needed for tbody transition support, and also speeds up table rendering"
+            "description": "给表格每一行添加一个唯一值， 如果给表格添加过渡动画，需要给表格每一添加一个唯一值。会加快表格渲染速度。但是过渡动画可能存在bug"
           },
           {
             "prop": "busy",
-            "description": "When set, forces the table into the busy state.Automatically set when an items provider function is being called"
+            "description": "设置表格 busy 状态 "
           },
           {
             "prop": "noProviderPaging",
-            "description": "When set, uses internal paging to pagination the data. Otherwise the items provider is expected to perform the paging"
+            "description": "设置 true， 会使用内部分页， 配合 nly-bootstrap-pagination. 否则需要用户自己编写分页逻辑代码"
           },
           {
             "prop": "noProviderSorting",
-            "description": "When set, uses internal sorting to sort the data. Otherwise the items provider is expected to perform the sorting"
+            "description": "设置 true， 会使用表格自带 排序逻辑"
           },
           {
             "prop": "noProviderFiltering",
-            "description": "When set, uses internal filtering to pagination the data. Otherwise the provider is expected to perform the filtering"
+            "description": "设置 true， 会使用表格自带 过滤逻辑"
           },
           {
             "prop": "apiUrl",
-            "description": "Pass through prop. Passed as part of the context object sent to the items provider function"
+            "description": ""
           },
           {
             "prop": "perPage",
-            "description": "Number of rows to show per page. Set to 0 to disable pagination"
+            "description": "每页显示的数据条数，设置为0禁用分页"
           },
           {
             "prop": "currentPage",
-            "description": "The current page number to display when the table is paginated. Starting from 1 and up"
+            "description": "使用分页时当前数据要显示的页码，请设置为大于等于 1 的数字"
           },
           {
             "prop": "noLocalSorting",
-            "description": "Disabled the internal sorting routine, and expects the user to provde the items sorted. Sorting controls will still be available"
+            "description": "禁用自带 排序逻辑，如果用户没有提供自定义排序逻辑， 自带排序逻辑还是可以用"
           },
           {
             "prop": "noFooterSorting",
-            "description": "When the build in formatter is used, setting this prop will disable the sorting ability in the footer"
+            "description": "使用自带格式化功能时， 禁用底部排序功能"
           },
           {
             "prop": "sortIconLeft",
-            "description": "Positions the sort control to the left of the header text. Default is on the right of the header text"
+            "description": "将排序的图标放在文本的左边"
           },
           {
             "prop": "noSortReset",
-            "description": "When a table is sortable, clicking on any non-sortable column heading will clear the current sort values. Set this prop to disable this feature"
+            "description": "如果是一个可排序的表格， 点击任意不可排序的列头时，会清清除所有排序，设置 true 来禁用此功能"
           },
           {
             "prop": "sortNullLast",
-            "description": "When sorting, null and undefined values will be sorted first (or last, depending on 'sort-desc'). Set this prop to sort null values last. Only applicable to internal sorting"
+            "description": "排序时，会先对 null 或者 undefined 进行排序， 设置 true 会把 null 或者 undefined 放到最后排序， 仅支持自带排序"
           },
           {
             "prop": "sortBy",
-            "description": "Field name that is currently being sorted. Set to null to clear sorting. Syncable with the .sync prop modifier"
+            "description": "设置排序猎命， 设置 null 清除排序"
           },
           {
             "prop": "sortDesc",
-            "description": "Set to true to sort the column in descending order. Syncable with the .sync prop modifier"
+            "description": "对排序的列进行降序排序"
           },
           {
             "prop": "sortDirection",
-            "description": "The initial sorting direction to sort an unsorted column by: 'asc', 'desc', or 'last' (to use the previous sort direction)"
+            "description": "对未进行排序，切不可排序的列进行初始化排序，即将这些列按照内定的 降序，升序规则排序之后再渲染表格"
           },
           {
             "prop": "sortCompare",
-            "description": "A reference to a function for sort-comparing two rows of data. Defaults to the internal sort compare routine. See docs for details"
+            "description": "两队排序比较函数"
           },
           {
             "prop": "sortCompareOptions",
-            "description": "An object containing sort configuration for the 'String.prototype.sortLocale' method. See docs for details"
+            "description": "一 包含 'String.prototype.sortLocale' 排序配置的 '方法"
           },
           {
             "prop": "sortCompareLocale",
@@ -260,7 +260,7 @@
           },
           {
             "prop": "noSelectOnClick",
-            "version": "2.1.0",
+            "version": "0.4.4",
             "description": "Disables row selection via click events. Row selection will be only available programmatically"
           },
           {
@@ -301,7 +301,7 @@
           },
           {
             "prop": "filterDebounce",
-            "version": "2.0.0",
+            "version": "0.4.4",
             "description": "Time in milliseconds to debounce changes to the filter criteria before filtering the records"
           }
         ],
@@ -1125,7 +1125,7 @@
           },
           {
             "prop": "tbodyTrAttr",
-            "version": "2.2.0",
+            "version": "0.4.4",
             "description": "Attributes to be added to each tr in the tbody, or a function returning such attributes (see docs for details)"
           },
           {

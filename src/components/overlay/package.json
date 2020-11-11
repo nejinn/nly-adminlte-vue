@@ -92,7 +92,7 @@
         "events": [
           {
             "event": "click",
-            "version": "2.13.0",
+            "version": "0.6.7",
             "description": "Emitted when overlay is clicked",
             "args": [
               {

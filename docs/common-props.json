@@ -117,7 +117,7 @@
     "description": "大小，可选xs，sm，md，lg，xl"
   },
   "required": {
-    "description": "必填"
+    "description": "将`required`属性添加到表单控件"
   },
   "form": {
     "description": "指定归属表单，可以放置在表单外面。form 应设置为对应表单的id"
@@ -146,23 +146,23 @@
   "state": {
     "description": "控制组件validation状态。可选 'valid'，'invalid'，'warning'，'novalid'。设置为'novalid'时，没有validation提示"
   },
-  "valid":{
+  "valid": {
     "description": "表单验证提示状态,可选valid, invalid, warning, loading, novalid"
   },
   "options": {
-    "description": "设置，类型为一个数组"
+    "description": "设置，类型为一个数组或者对象"
   },
   "valueField": {
-    "description": "options中的字段，用于键值value"
+    "description": "options 中的属性， 用于自定义 value"
   },
   "textField": {
-    "description": "options中的字段，用于键值label"
+    "description": "options 中的属性， 用于自定义 text "
   },
   "htmlField": {
-    "description": "options中的字段，用于键值text或者label"
+    "description": "options 中的属性， 用于自定义 html"
   },
   "disabledField": {
-    "description": "options中的字段，用于禁用状态字段"
+    "description": "options 中的属性， 用于自定义 disabled"
   },
   "plain": {
     "description": "渲染成plain模式"

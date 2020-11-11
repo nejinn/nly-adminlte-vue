@@ -14,7 +14,8 @@ export default {
     },
     // 禁用
     disabled: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     // html校验必填
     required: {

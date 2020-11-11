@@ -106,7 +106,7 @@
           },
           {
             "prop": "splitClass",
-            "version": "2.2.0",
+            "version": "0.4.4",
             "description": "使用split模式时，按钮自定义css"
           },
           {

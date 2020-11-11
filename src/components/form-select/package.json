@@ -1,0 +1,187 @@
+{
+  "name": "@nly-adminlte-vue/form-select",
+  "version": "1.0.0",
+  "meta": {
+    "title": "Form Select",
+    "subtitle": "下拉选择框",
+    "description": "一个支持传入数组和对象，支持多选的下拉框选择组件",
+    "components": [
+      {
+        "component": "NlyFormSelect",
+        "aliases": [
+          "NlySelect"
+        ],
+        "props": [
+          {
+            "prop": "disabled",
+            "description": "设置true为禁用状态"
+          },
+          {
+            "prop": "value",
+            "description": "选项的值,  `v-model` 会把值传给value"
+          },
+          {
+            "prop": "labelField",
+            "description": "options 中的属性， 用于自定义 label"
+          },
+          {
+            "prop": "optionsField",
+            "description": "options 中的属性， 用于自定义 options"
+          },
+          {
+            "prop": "multiple",
+            "description": "多选模式"
+          },
+          {
+            "prop": "selectSize",
+            "description": "设置大于 1时， 可见下拉列表行数"
+          },
+          {
+            "prop": "ariaInvalid",
+            "description": "aria-invalid 属性"
+          },
+          {
+            "prop": "size",
+            "description": "大小, 可选 sm,  lg"
+          },
+          {
+            "prop": "col",
+            "description": "在没有其他props的情况下,  所有列等宽, 放在class='row'的元素下有效"
+          },
+          {
+            "prop": "xs",
+            "description": "在XS及以上断点的宽度, 可选1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, auto"
+          },
+          {
+            "prop": "sm",
+            "description": "在SM及以上断点的宽度, 可选1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, auto"
+          },
+          {
+            "prop": "md",
+            "description": "在MD及以上断点的宽度, 可选1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, auto"
+          },
+          {
+            "prop": "lg",
+            "description": "在LG及以上断点的宽度, 可选1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, auto"
+          },
+          {
+            "prop": "xl",
+            "description": "在XL及以上断点的宽度, 可选1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, auto"
+          },
+          {
+            "prop": "offsetXs",
+            "description": "在XS及以上断点的偏移量, 可选0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11"
+          },
+          {
+            "prop": "offsetSm",
+            "description": "在SM及以上断点的偏移量, 可选0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11"
+          },
+          {
+            "prop": "offsetMd",
+            "description": "在MD及以上断点的偏移量, 可选0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11"
+          },
+          {
+            "prop": "offsetLg",
+            "description": "在LG及以上断点的偏移量, 可选0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11"
+          },
+          {
+            "prop": "offsetXl",
+            "description": "在XL及以上断点的偏移量, 可选0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11"
+          },
+          {
+            "prop": "orderXs",
+            "description": "在XS及以上断点的排序, 可选0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12"
+          },
+          {
+            "prop": "orderSm",
+            "description": "在SM及以上断点的排序, 可选0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,  12"
+          },
+          {
+            "prop": "orderMd",
+            "description": "在MD及以上断点的排序, 可选0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,  12"
+          },
+          {
+            "prop": "orderLg",
+            "description": "在LG及以上断点的排序, 可选0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,  12"
+          },
+          {
+            "prop": "orderXl",
+            "description": "在XL及以上断点的排序, 可选0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,  12"
+          }
+        ],
+        "slots": [
+          {
+            "name": "first",
+            "description": "使 nly-form-select-option 渲染在 'options' prop 上面的插槽"
+          }
+        ],
+        "events": [
+          {
+            "event": "input",
+            "description": "组件选择值发生改变的时候触发的事件",
+            "args": [
+              {
+                "arg": "value",
+                "type": [
+                  "String",
+                  "Number",
+                  "Object",
+                  "Array"
+                ],
+                "description": "当前组件选中的值"
+              }
+            ]
+          },
+          {
+            "event": "change",
+            "description": "用户通过点击选项使得选择值发生变化时触发的事件",
+            "args": [
+              {
+                "arg": "value",
+                "type": [
+                  "String",
+                  "Number",
+                  "Object",
+                  "Array"
+                ],
+                "description": "当前组件选择的值"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "NlyFormSelectOption",
+        "version": "0.6.6",
+        "aliases": [
+          "NlySelectOption"
+        ],
+        "props": [
+          {
+            "prop": "value",
+            "description": "option 的值"
+          }
+        ]
+      },
+      {
+        "component": "NlyFormSelectOptionGroup",
+        "version": "0.6.6",
+        "aliases": [
+          "NlySelectOptionGroup"
+        ],
+        "props": [
+          {
+            "prop": "label",
+            "description": "label 文本"
+          }
+        ],
+        "slots": [
+          {
+            "name": "first",
+            "description": "使 nly-form-select-option 渲染在 'options' prop 上面的插槽"
+          }
+        ]
+      }
+    ]
+  }
+}
