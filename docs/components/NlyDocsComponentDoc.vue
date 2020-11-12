@@ -129,15 +129,13 @@
                   value
                 }}</code
                 ><br />
-                <nly-badge v-if="item.required" variant="info"
-                  >Required</nly-badge
-                >
+                <nly-badge v-if="item.required" variant="info">必传</nly-badge>
                 <nly-badge
                   v-if="item.settings"
                   variant="dark"
                   href="/docs/misc/settings"
                   title="Configurable in settings"
-                  >Settings</nly-badge
+                  >设置</nly-badge
                 >
                 <nly-badge v-if="item.version" variant="secondary"
                   >v{{ item.version }}+</nly-badge
@@ -149,10 +147,10 @@
                   >谨慎使用</nly-badge
                 >
                 <nly-badge v-if="item.deprecated" variant="danger"
-                  >Deprecated</nly-badge
+                  >不推荐使用</nly-badge
                 >
                 <nly-badge v-else-if="item.deprecation" variant="warning"
-                  >Deprecation</nly-badge
+                  >不推荐使用</nly-badge
                 >
               </template>
               <template v-slot:cell(type)="{ value }">

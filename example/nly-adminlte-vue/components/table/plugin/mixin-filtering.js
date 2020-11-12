@@ -8,7 +8,7 @@ import { warn } from "../../../utils/warn";
 import stringifyRecordValues from "./stringify-record-values";
 
 const DEBOUNCE_DEPRECATED_MSG =
-  'Prop "filter-debounce" is deprecated. Use the debounce feature of "<nly-form-input>" instead.';
+  'Prop "filter-debounce" 不推荐使用. 请用 "<nly-form-input>" debounce prop 代替.';
 
 const RX_SPACES = /[\s\uFEFF\xA0]+/g;
 

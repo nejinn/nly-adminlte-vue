@@ -89,5 +89,8 @@ export default deepFreeze({
     customClass: undefined,
     delay: 50,
     variant: undefined
+  },
+  NlyBootstrapPagination: {
+    size: undefined
   }
 });

@@ -37,8 +37,6 @@ export const NlyFormSelect = Vue.extend({
       default: false
     },
     selectSize: {
-      // Browsers default size to 0, which shows 4 rows in most browsers in multiple mode
-      // Size of 1 can bork out Firefox
       type: Number,
       default: 0
     },

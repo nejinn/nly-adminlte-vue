@@ -25,6 +25,9 @@ export { BreadcrumbPlugin } from "./components/breadcrumb";
 export { NlyBreadcrumbItem } from "./components/breadcrumb/breadcrumb-item";
 export { NlyBreadcrumb } from "./components/breadcrumb/breadcrumb";
 
+export { BootstrapPaginationPlugin } from "./components/bootstrap-pagination";
+export { NlyBootstrapPagination } from "./components/bootstrap-pagination";
+
 export { ButtonPlugin } from "./components/button";
 export { NlyButton } from "./components/button/button";
 export { NlyButtonClose } from "./components/button/button-close";
@@ -185,6 +188,19 @@ export { NlySpinner } from "./components/spinner/spinner";
 export { switchPlugin } from "./components/switch";
 export { NlySwitch } from "./components/switch/switch";
 export { NlyBootstrapSwitch } from "./components/switch/bootstrap-switch";
+
+export { TablePlugin } from "./components/table";
+export { TableSimplePlugin } from "./components/table";
+export { TableLitePlugin } from "./components/table";
+export { NlyTable } from "./components/table/table";
+export { NlyTableLite } from "./components/table/table-lite";
+export { NlyTableSimple } from "./components/table/table-simple";
+export { NlyTbody } from "./components/table/tbody";
+export { NlyTd } from "./components/table/td";
+export { NlyTfoot } from "./components/table/tfoot";
+export { NlyTh } from "./components/table/th";
+export { NlyThead } from "./components/table/thead";
+export { NlyTr } from "./components/table/tr";
 
 export { toastPlugin } from "./components/toast";
 export { NlyToast } from "./components/toast/toast";

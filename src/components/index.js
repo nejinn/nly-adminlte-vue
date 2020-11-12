@@ -1,6 +1,7 @@
 import { nlyPluginFactory } from "../utils/plugins";
 
 import { BadgePlugin } from "./badge";
+import { BootstrapPaginationPlugin } from "./bootstrap-pagination";
 import { BreadcrumbPlugin } from "./breadcrumb";
 import { ButtonPlugin } from "./button";
 import { ButtonGroupPlugin } from "./button-group";
@@ -43,6 +44,7 @@ import { WrapperPlugin } from "./wrapper";
 export const componentsPlugin = nlyPluginFactory({
   plugins: {
     BadgePlugin,
+    BootstrapPaginationPlugin,
     BreadcrumbPlugin,
     ButtonPlugin,
     ButtonGroupPlugin,
