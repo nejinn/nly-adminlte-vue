@@ -238,5 +238,62 @@
   },
   "noPrefetch": {
     "description": "nuxt-link "
+  },
+  "col": {
+    "description": "在没有其他props的情况下,  所有列等宽, 放在class='row'的元素下有效"
+  },
+  "xs": {
+    "description": "在XS及以上断点的宽度, 可选1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, auto"
+  },
+  "sm": {
+    "description": "在SM及以上断点的宽度, 可选1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, auto"
+  },
+  "md": {
+    "description": "在MD及以上断点的宽度, 可选1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, auto"
+  },
+  "lg": {
+    "description": "在LG及以上断点的宽度, 可选1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, auto"
+  },
+  "xl": {
+    "description": "在XL及以上断点的宽度, 可选1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, auto"
+  },
+  "offsetXs": {
+    "description": "在XS及以上断点的偏移量, 可选0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11"
+  },
+  "offsetSm": {
+    "description": "在SM及以上断点的偏移量, 可选0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11"
+  },
+  "offsetMd": {
+    "description": "在MD及以上断点的偏移量, 可选0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11"
+  },
+  "offsetLg": {
+    "description": "在LG及以上断点的偏移量, 可选0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11"
+  },
+  "offsetXl": {
+    "description": "在XL及以上断点的偏移量, 可选0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11"
+  },
+  "orderXs": {
+    "description": "在XS及以上断点的排序, 可选0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12"
+  },
+  "orderSm": {
+    "description": "在SM及以上断点的排序, 可选0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,  12"
+  },
+  "orderMd": {
+    "description": "在MD及以上断点的排序, 可选0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,  12"
+  },
+  "orderLg": {
+    "description": "在LG及以上断点的排序, 可选0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,  12"
+  },
+  "orderXl": {
+    "description": "在XL及以上断点的排序, 可选0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,  12"
+  },
+  "checked": {
+    "description": "v-model绑定值， 当前选中的选择框的值，如果是多选，值必须是数组类型"
+  },
+  "validated": {
+    "description": "校验， 设置 true， 会渲染 class='was-validated' 到 warpper 元素上"
+  },
+  "ariaInvalid": {
+    "description": "设置 'aria-invalid' 数据. 如果没有传入值， 会默认选择 'state' prop 的值"
   }
 }

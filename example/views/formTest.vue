@@ -1,29 +1,39 @@
 <template>
-  <div>
-    <nly-form-select v-model="selected" :options="options"></nly-form-select>
-    <div class="mt-3">
-      Selected: <strong>{{ selected }}</strong>
-    </div>
-  </div>
+  <nly-content-wrapper>
+    <nly-content-header>
+      <nly-container fluid>
+        <nly-row class="mb-2">
+          <nly-col sm="6">
+            <h1>nly-badge</h1>
+          </nly-col>
+        </nly-row>
+      </nly-container>
+    </nly-content-header>
+    <nly-content>
+      <div>
+        <nly-form-checkbox
+          id="checkbox-1"
+          v-model="status"
+          name="checkbox-1"
+          value="accepted"
+          unchecked-value="not_accepted"
+        >
+          I accept the terms and use
+        </nly-form-checkbox>
+
+        <div>
+          State: <strong>{{ status }}</strong>
+        </div>
+      </div>
+    </nly-content>
+  </nly-content-wrapper>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      selected: null,
-      options: [
-        { value: null, text: "Please select an option" },
-        { value: "a", text: "This is First option" },
-        { value: "b", text: "Selected Option", disabled: true },
-        {
-          label: "Grouped options",
-          options: [
-            { value: { C: "3PO" }, text: "Option with object value" },
-            { value: { R: "2D2" }, text: "Another option with object value" }
-          ]
-        }
-      ]
+      status: "not_accepted"
     };
   }
 };

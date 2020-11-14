@@ -203,7 +203,6 @@ export default {
         return;
       }
 
-      // Only instantiate Popper.js when dropdown is not in `<b-navbar>`
       if (!this.inNavbar) {
         if (typeof Popper === "undefined") {
           /* istanbul ignore next */
