@@ -6,7 +6,7 @@
     "new": true,
     "subtitle": "单选框",
     "version": "0.6.8",
-    "description": "Cross browser consistent radio inputs and radio groups, using Bootstrap's custom radio input to replace the browser default radio input.",
+    "description": "一个代替默认单选框的组件",
     "components": [
       {
         "component": "NlyFormRadioGroup",
