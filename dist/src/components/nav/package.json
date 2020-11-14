@@ -1,0 +1,172 @@
+{
+  "name": "@nly-adminlte-vue/nav",
+  "version": "1.0.0",
+  "meta": {
+    "title": "Nav",
+    "subtitle": "导航",
+    "description": "导航元素，可以设置不同的状态进行路由跳转",
+    "components": [
+      {
+        "component": "NlyNav",
+        "props": [
+          {
+            "prop": "fill",
+            "description": "按比列填充整个nav，但不是等宽"
+          },
+          {
+            "prop": "justified",
+            "description": "等宽填充整个nav"
+          },
+          {
+            "prop": "align",
+            "description": "nly-nav-item位置，可选 start，left，center，end，right"
+          },
+          {
+            "prop": "tabs",
+            "description": "nav tab形状，会添加class='nav-tabs'"
+          },
+          {
+            "prop": "tabsRight",
+            "description": " 选项卡形状，vertical, tabs 为true的情况下生效,nav右侧形状"
+          },
+          {
+            "prop": "pills",
+            "description": "nav圆角按钮形状"
+          },
+          {
+            "prop": "vertical",
+            "description": "垂直布局"
+          },
+          {
+            "prop": "small",
+            "description": "小字体"
+          },
+          {
+            "prop": "cardHeader",
+            "description": "放在卡片中时，可以设置为true,就会变成卡片头部"
+          }
+        ]
+      },
+      {
+        "component": "NlyNavItem",
+        "props": [
+          {
+            "prop": "navItem",
+            "description": "默认true，会有class='nav-item'，设置为false则没有class='nav-item'"
+          },
+          {
+            "prop": "linkAttrs",
+            "description": "自定义封装在nly-nav-item中的nly-link的attrs"
+          },
+          {
+            "prop": "linkClasses",
+            "description": "自定义自定义封装在nly-nav-item中的nly-link的css式样"
+          },
+          {
+            "prop": "dropdownItem",
+            "description": "默认false，中间封装的nly-link会有class='nav-link，设置为true，则会变成class='dropdown-item', 设置true可以作为下拉菜单中嵌套元素"
+          }
+        ]
+      },
+      {
+        "component": "NlyNavDropdown",
+        "props": [
+          {
+            "prop": "text",
+            "description": "文本内容"
+          },
+          {
+            "prop": "itemTag",
+            "description": "下拉菜单标签"
+          },
+          {
+            "prop": "navItem",
+            "description": "默认li标签有一个class='nav-item',设置为false则没有，默认以nav-item式样呈现下拉菜单。nav-item作用于li标签。 默认是作为 nav-item元素"
+          },
+          {
+            "prop": "navLink",
+            "description": "是否为a标签添加 class='nav-link' 式样"
+          },
+          {
+            "prop": "dropdownToggle",
+            "description": "是否带下拉菜单图标"
+          },
+          {
+            "prop": "hover",
+            "description": "鼠标悬浮显示下拉菜单内容，hover作用于li标签，会覆盖所有子菜单hover，这时候会使得所有子菜单包括nav-dropdown本身都会成为鼠标悬浮显示菜单"
+          },
+          {
+            "prop": "direction",
+            "description": "下拉菜单位置，可选down，left，right，up，none，选择none时li标签没有class='drop*'这个式样，当作为子菜单的时候，即submenu为true的时候，可以选择none（非必须，也可以选择down，left，right，up），子菜单会居右下显示。选择其他li标签会有class='drop*'，direction作用于li标签"
+          },
+          {
+            "prop": "submenu",
+            "description": " 默认不是子菜单，设置为true就是子菜单。可以作为下拉菜单的二级三级四级等菜单。submenu作用于li标签"
+          },
+          {
+            "prop": "itemClass",
+            "description": "自定义li标签css式样，item-class作用于li标签"
+          },
+          {
+            "prop": "disabled",
+            "description": "禁用菜单，disabled作用于a标签"
+          },
+          {
+            "prop": "popup",
+            "description": "aria-haspopup，popup作用于a标签"
+          },
+          {
+            "prop": "linkClass",
+            "description": "自定义a标签css式样，link-class作用于a标签"
+          },
+          {
+            "prop": "linkTag",
+            "description": "自定义下拉菜单按钮标签，默认a"
+          },
+          {
+            "prop": "dropdownItem",
+            "description": "默认a标签没有class='dropdown-item'，设置为true则有class='dropdown-item'，设置true，可以用作带有子菜单的二级菜单内的元素。dropdown-item作用于a标签"
+          },
+          {
+            "prop": "menuTag",
+            "description": "下拉菜单内容标签，默认ul"
+          },
+          {
+            "prop": "menuClass",
+            "description": "自定义css式样，作用于ul标签，可以设置border-0去掉边框"
+          },
+          {
+            "prop": "size",
+            "description": "菜单大小，可选md，lg，xl，作用于ul标签"
+          },
+          {
+            "prop": "menuDirection",
+            "description": "下拉菜单位置，只有direction为up或者down的时候有效，可选right。left，作用于ul标签"
+          },
+          {
+            "prop": "shadow",
+            "description": "菜单阴影，可选shadow，sm，lg，none，作用于ul标签"
+          }
+        ],
+        "slots":[
+          {
+            "name": "menucontent",
+            "description": "下拉菜单嵌套元素插槽"
+          },
+          {
+            "name": "linkcontent",
+            "description": "下拉菜单按钮插槽"
+          }
+        ]
+      },
+      {
+        "component": "NlyNavText",
+        "props": []
+      },
+      {
+        "component": "NlyNavForm",
+        "props": []
+      }
+    ]
+  }
+}

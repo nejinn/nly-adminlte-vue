@@ -1,0 +1,153 @@
+{
+  "name": "@bootstrap-vue/form-checkbox",
+  "version": "1.0.0",
+  "meta": {
+    "title": "Form Checkbox",
+    "subtitle": "选择框",
+    "new": true,
+    "version": "0.6.8",
+    "description": "一个用来代替默认选择框的组件",
+    "components": [
+      {
+        "component": "NlyFormCheckboxGroup",
+        "aliases": [
+          "NlyCheckboxGroup",
+          "NlyCheckGroup"
+        ],
+        "props": [
+          {
+            "prop": "size",
+            "description": "设置大小， 可选 'sm', 'md' (默认), or 'lg'"
+          },
+          {
+            "prop": "stacked",
+            "description": "堆叠模式， 设置 true 会渲染成垂直堆叠式样"
+          },
+          {
+            "prop": "switches",
+            "description": "开关模式， 设置 true 会渲染成开关式样"
+          },
+          {
+            "prop": "buttons",
+            "description": "按钮模式， 设置 true 会渲染成按钮式样"
+          },
+          {
+            "prop": "buttonVariant",
+            "description": "设置按钮模式的时候，按钮颜色"
+          },
+          {
+            "prop": "checked",
+            "description": "v-model绑定值， 当前选中的选择框的值，如果是多选，值必须是数组类型"
+          },
+          {
+            "prop": "validated",
+            "description": "校验， 设置 true， 会渲染 class='was-validated' 到 warpper 元素上"
+          },
+          {
+            "prop": "ariaInvalid",
+            "description": "设置 'aria-invalid' 数据. 如果没有传入值， 会默认选择 'state' prop 的值"
+          }
+        ],
+        "slots": [
+          {
+            "name": "first",
+            "description": "如果需要让 <nly-form-checks> 渲染在 'options' prop 的前面，请使用这个插槽"
+          }
+        ],
+        "events": [
+          {
+            "event": "input",
+            "description": "在 checked 值发送变化的时候触发的 emit 事件",
+            "args": [
+              {
+                "arg": "checked",
+                "type": "Array",
+                "description": "checkbox 选择值， 返回的是一个数组"
+              }
+            ]
+          },
+          {
+            "event": "change",
+            "description": "用户与组件交互的时候， checked 的值发生变化的时候触发的 emit 事件",
+            "args": [
+              {
+                "arg": "checked",
+                "type": "Array",
+                "description": "checkbox 选择值， 返回的是一个数组"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "NlyFormCheckbox",
+        "aliases": [
+          "NlyCheckbox",
+          "NlyCheck"
+        ],
+        "props": [
+          {
+            "prop": "checked",
+            "description": "v-model绑定值， 当前选中的选择框的值，如果是多选，值必须是数组类型"
+          },
+          {
+            "prop": "value",
+            "description": "选择框有选中项的时候的值"
+          },
+          {
+            "prop": "uncheckedValue",
+            "description": "选择框中未选中的值，如果是多选，值是数组类型"
+          },
+          {
+            "prop": "size",
+            "description": "设置大小， 可选 'sm', 'md' (默认), or 'lg'"
+          },
+          {
+            "prop": "inline",
+            "description": "水平模式， 设置 true， 会渲染成水平模式，并且宽度填充整个父元素"
+          },
+          {
+            "prop": "switche",
+            "description": "开关模式， 设置 true 会渲染成开关式样"
+          },
+          {
+            "prop": "button",
+            "description": "按钮模式， 设置 true 会渲染成按钮式样"
+          },
+          {
+            "prop": "buttonVariant",
+            "description": "设置按钮模式的时候，按钮颜色， 可选 adminlte3 主题颜色"
+          },
+          {
+            "prop": "indeterminate",
+            "description": "不确定状态模式， 使复选框处于不确定状态。可通过.sync修饰符进行修改"
+          }
+        ],
+        "events": [
+          {
+            "event": "input",
+            "description": "在 checked 值发送变化的时候触发的 emit 事件",
+            "args": [
+              {
+                "arg": "checked",
+                "type": "Array",
+                "description": "checkbox 选择值， 返回的是一个数组"
+              }
+            ]
+          },
+          {
+            "event": "change",
+            "description": "用户与组件交互的时候， checked 的值发生变化的时候触发的 emit 事件",
+            "args": [
+              {
+                "arg": "checked",
+                "type": "Array",
+                "description": "checkbox 选择值， 返回的是一个数组"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

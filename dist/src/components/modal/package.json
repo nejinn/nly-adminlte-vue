@@ -1,0 +1,530 @@
+{
+  "name": "@nly-adminlte-vue/modal",
+  "version": "1.0.0",
+  "meta": {
+    "title": "Modal",
+    "subtitle": "模态框",
+    "description": "模态框是一种悬浮悬浮于主窗口的用来现实额外内容的对话框",
+    "plugins": [
+      "VNlyModalPlugin"
+    ],
+    "directives": [
+      {
+        "directive": "VNlyModal",
+        "description": "打开对应id的modal",
+        "expression": "String",
+        "arg": {
+          "pattern": "[a-zA-Z][a-zA-Z0-9_\\-]*",
+          "description": "需要打开的modal的id",
+          "required": false
+        },
+        "modifiers": [
+          {
+            "name": "{modalId}",
+            "pattern": "[a-zA-Z][a-zA-Z0-9_\\-]*",
+            "description": "需要打开的modal的id. 使用id 代替 `{modalId}`"
+          }
+        ]
+      }
+    ],
+    "components": [
+      {
+        "component": "NlyModal",
+        "props": [
+          {
+            "prop": "centered",
+            "description": "modal 居中显示"
+          },
+          {
+            "prop": "scrollable",
+            "description": "允许 modal body 出现滚动条， 负责滚动条是浏览器的滚动条"
+          },
+          {
+            "prop": "buttonSize",
+            "description": "设置footer的按钮大小， 可选'sm', 'md', 'lg', 'md'为默认大小"
+          },
+          {
+            "prop": "noStacking",
+            "description": "设置 no-stacking，在其他 modal 将要打开的之前，设置no-stacking的modal会自动关闭"
+          },
+          {
+            "prop": "noCloseOnBackdrop",
+            "description": "设置 no-close-on-backdrop, 点击背景罩层不会关闭 modal"
+          },
+          {
+            "prop": "noCloseOnEsc",
+            "description": "设置 no-close-on-esc,按键盘ESC键不会关闭 modal"
+          },
+          {
+            "prop": "noEnforceFocus",
+            "description": "强制禁用聚焦功能"
+          },
+          {
+            "prop": "ignoreEnforceFocusSelector",
+            "description": "ignore-enforce-focus-selector 是一个css 选择器，如果需要在打开modal的时候聚焦到其他元素上， 可以把其他需要聚焦的元素的 css 类添加到  prop ignore-enforce-focus-selector中"
+          },
+          {
+            "prop": "titleTag",
+            "description": "标题的标签"
+          },
+          {
+            "prop": "titleClass",
+            "description": "标题的 css 类"
+          },
+          {
+            "prop": "titleSrOnly",
+            "description": "设置 true ，视觉上不显示标题，屏幕阅读器上显示"
+          },
+          {
+            "prop": "headerCloseVariant",
+            "description": "header 关闭按钮颜色"
+          },
+          {
+            "prop": "modalClass",
+            "description": "添加到 '.modal' 元素的 css 类"
+          },
+          {
+            "prop": "dialogClass",
+            "description": "添加到 '.dialog-class' 元素的 css 类"
+          },
+          {
+            "prop": "contentClass",
+            "description": "添加到 '.content-class' 元素的 css 类"
+          },
+          {
+            "prop": "hideHeader",
+            "description": "隐藏头部"
+          },
+          {
+            "prop": "hideFooter",
+            "description": "隐藏底部"
+          },
+          {
+            "prop": "hideHeaderClose",
+            "description": "隐藏头部关闭按钮"
+          },
+          {
+            "prop": "hideBackdrop",
+            "description": "隐藏罩层"
+          },
+          {
+            "prop": "okOnly",
+            "description": "不渲染底部默认的 cancel 按钮"
+          },
+          {
+            "prop": "okDisabled",
+            "description": "设置底部默认的 ok 按钮为禁用"
+          },
+          {
+            "prop": "cancelDisabled",
+            "description": "设置底部默认的 cancel 按钮为禁用"
+          },
+          {
+            "prop": "visible",
+            "description": "modal的可见状态"
+          },
+          {
+            "prop": "returnFocus",
+            "description": "关闭 modal 聚焦元素， 传入用为css选择器或者dom选择器等"
+          },
+          {
+            "prop": "headerCloseContent",
+            "description": "头部关闭按钮的主体内容"
+          },
+          {
+            "prop": "headerCloseLabel",
+            "description": "头部关闭按钮的 aria-label 值"
+          },
+          {
+            "prop": "cancelTitle",
+            "description": "footer cancel 按钮的文本内容"
+          },
+          {
+            "prop": "cancelTitleHtml",
+            "description": "替换 footer cancel 标题的 html 字符串"
+          },
+          {
+            "prop": "headerCloseLabel",
+            "description": "头部关闭按钮的 aria-label 值"
+          },
+          {
+            "prop": "okTitle",
+            "description": "footer ok 按钮的文本内容"
+          },
+          {
+            "prop": "okTitleHtml",
+            "description": "替换 footer ok 标题的 html 字符串"
+          },
+          {
+            "prop": "okVariant",
+            "description": "footer ok 按钮的 颜色"
+          },
+          {
+            "prop": "cancelVariant",
+            "description": "footer cancel 按钮的 颜色"
+          },
+          {
+            "prop": "lazy",
+            "description": "懒加载模式"
+          },
+          {
+            "prop": "busy",
+            "description": "modal 加载中"
+          },
+          {
+            "prop": "autoFocusButton",
+            "description": "自动聚焦到 modal 自带的按钮上，可选 ok, cancel, close"
+          }
+         
+        ],
+        "events": [
+          {
+            "event": "change",
+            "description": "修改modal的状态， 会更新 v-model",
+            "args": [
+              {
+                "arg": "isVisible",
+                "type": "Boolean",
+                "description": "modal的可见状态， `true` 是现实状态， `false`是隐藏状态"
+              }
+            ]
+          },
+          {
+            "event": "show",
+            "description": "在 modal 展示之前发出事件",
+            "args": [
+              {
+                "arg": "nlyaModalEvt",
+                "type": "NlyaModalEvent",
+                "description": "NlyaModalEvent 对象. 回调 `nlyaModalEvt.preventDefault()` 可以阻止 modal 显示"
+              }
+            ]
+          },
+          {
+            "event": "shown",
+            "description": "在 modal 显示之后发出事件",
+            "args": [
+              {
+                "arg": "nlyaModalEvt",
+                "type": "NlyaModalEvent",
+                "description": "NlyaModalEvent 对象"
+              }
+            ]
+          },
+          {
+            "event": "hide",
+            "description": "在 modal 隐藏之前发出的事件",
+            "args": [
+              {
+                "arg": "nlyaModalEvt",
+                "type": "NlyaModalEvent",
+                "description": "NlyaModalEvent 对象， 注入 `nlyaModalEvt.trigger` 可以查找触发隐藏的事件. 使用 `nlyaModalEvt.preventDefault()` 可以阻止 modal 隐藏"
+              }
+            ]
+          },
+          {
+            "event": "hidden",
+            "description": "隐藏 modal 之后触发的事件",
+            "args": [
+              {
+                "arg": "nlyaModalEvt",
+                "type": "NlyaModalEvent",
+                "description": "NlyaModalEvent 对象，"
+              }
+            ]
+          },
+          {
+            "event": "ok",
+            "description": "点击默认的 ok 按钮触发 modal 关闭， 可以自定义按钮其他逻辑， 关闭逻辑不会被覆盖",
+            "args": [
+              {
+                "arg": "nlyaModalEvt",
+                "type": "NlyaModalEvent",
+                "description": "NlyaModalEvent 对象， 使用 `nlyaModalEvt.preventDefault()` 可以阻止 modal 隐藏"
+              }
+            ]
+          },
+          {
+            "event": "cancel",
+            "description": "点击默认的 cancel 按钮触发 modal 取消， 可以自定义按钮其他逻辑， 取消逻辑不会被覆盖",
+            "args": [
+              {
+                "arg": "nlyaModalEvt",
+                "type": "NlyaModalEvent",
+                "description": "NlyaModalEvent 对象， 使用 `nlyaModalEvt.preventDefault()` 可以阻止 modal 取消"
+              }
+            ]
+          },
+          {
+            "event": "close",
+            "description": "点击默认的 close 按钮触发 modal 关闭， 可以自定义按钮其他逻辑， 逻辑不会被覆盖",
+            "args": [
+              {
+                "arg": "nlyaModalEvt",
+                "type": "NlyaModalEvent",
+                "description": "NlyaModalEvent 对象， 使用 `nlyaModalEvt.preventDefault()` 可以阻止 modal 关闭"
+              }
+            ]
+          },
+          {
+            "event": "nlya::modal::show",
+            "description": "在 modal 显示之前触发在 `$root` 上的 emit 事件",
+            "args": [
+              {
+                "arg": "nlyaModalEvt",
+                "type": "NlyaModalEvent",
+                "description": "NlyaModalEvent 对象， 使用 `nlyaModalEvt.preventDefault()` 阻止 modal 显示"
+              },
+              {
+                "arg": "modalId",
+                "type": "String",
+                "description": "Modal ID"
+              }
+            ]
+          },
+          {
+            "event": "nlya::modal::shown",
+            "description": "在 modal 显示之后触发在 `$root` 上的 emit 事件",
+            "args": [
+              {
+                "arg": "nlyaModalEvt",
+                "type": "NlyaModalEvent",
+                "description": "NlyaModalEvent 对象"
+              },
+              {
+                "arg": "modalId",
+                "type": "String",
+                "description": "Modal ID"
+              }
+            ]
+          },
+          {
+            "event": "nlya::modal::hide",
+            "description": "在 modal 隐藏之前触发在 `$root` 上的 emit 事件",
+            "args": [
+              {
+                "arg": "nlyaModalEvt",
+                "type": "NlyaModalEvent",
+                "description": "NlyaModalEvent 对象，使用 `nlyaModalEvt.preventDefault()` 阻止隐藏"
+              },
+              {
+                "arg": "modalId",
+                "type": "String",
+                "description": "Modal ID"
+              }
+            ]
+          },
+          {
+            "event": "nlya::modal::hidden",
+            "description": "在 modal 隐藏之后触发在 `$root` 上的 emit 事件",
+            "args": [
+              {
+                "arg": "nlyaModalEvt",
+                "type": "NlyaModalEvent",
+                "description": "NlyaModalEvent 对象，"
+              },
+              {
+                "arg": "modalId",
+                "type": "String",
+                "description": "modal ID"
+              }
+            ]
+          }
+        ],
+        "rootEventListeners": [
+          {
+            "event": "nlya::show::modal",
+            "description": "从 `$root` 上 emit 事件来显示对应 id 的 modal",
+            "args": [
+              {
+                "arg": "modalId",
+                "type": "String",
+                "description": "需要显示的 Modal ID"
+              },
+              {
+                "arg": "elIDtoFocusOnClose",
+                "type": [
+                  "String",
+                  "HTMLElement"
+                ],
+                "description": "dom 元素或者 css 选择器, 当 modal 关闭之后，会自动聚焦到对应的元素上"
+              }
+            ]
+          },
+          {
+            "event": "nlya::hide::modal",
+            "description": "从 `$root` 上 emit 事件来隐藏对应 id 的 modal",
+            "args": [
+              {
+                "arg": "modalId",
+                "type": "String",
+                "description": "需要隐藏的 modal 的id"
+              }
+            ]
+          },
+          {
+            "event": "nlya::toggle::modal",
+            "description": "切换对应 id 的 modal 的可见状态",
+            "args": [
+              {
+                "arg": "modalId",
+                "type": "String",
+                "description": "需要切换状态的 modal 的id"
+              },
+              {
+                "arg": "elIDtoFocusOnClose",
+                "type": [
+                  "String",
+                  "HTMLElement"
+                ],
+                "description": "dom 元素或者 css 选择器, 当 modal 切换状态之后，会自动聚焦到对应的元素上"
+              }
+            ]
+          }
+        ],
+        "slots": [
+          {
+            "name": "modal-header",
+            "description": "modal 的 头部插槽，使用插槽会移除对应的 cloase 按钮",
+            "scope": [
+              {
+                "prop": "visible",
+                "type": "Boolean",
+                "description": "modal的可见状态， `true` 是现实状态， `false`是隐藏状态"
+              },
+              {
+                "prop": "ok",
+                "type": "Function",
+                "description": "使用 `nlyaModalEvent.trigger = 'ok'` 来关闭 modal 并触发 `ok` 和 `hide` 事件"
+              },
+              {
+                "prop": "cancel",
+                "type": "Function",
+                "description": "使用 `nlyaModalEvent.trigger = 'cancel'` 来取消 modal 并触发 `cancel` 和 `hide` 事件"
+              },
+              {
+                "prop": "close",
+                "type": "Function",
+                "description": "使用 nlyaModalEvent.trigger = 'headerclose'` 来 关闭 modal 并触发 `close` 和 `hide` 事件"
+              },
+              {
+                "prop": "hide",
+                "type": "Function",
+                "description": "接受一个 `trigger` 参数， 具体见上文 trigger源码分析 . 使用 `nlyaModalEvent.trigger = trigger` (`trigger` 是个对象) 来 关闭modal 并触发接受参数类型的事件"
+              }
+            ]
+          },
+          {
+            "name": "modal-title",
+            "description": "modal 的 title 插槽，如果使用了 `modal-header`， `modal-title` 插槽不会生效",
+            "scope": [
+              {
+                "prop": "visible",
+                "type": "Boolean",
+                "description": "modal的可见状态， `true` 是现实状态， `false`是隐藏状态"
+              },
+              {
+                "prop": "ok",
+                "type": "Function",
+                "description": "使用 `nlyaModalEvent.trigger = 'ok'` 来关闭 modal 并触发 `ok` 和 `hide` 事件"
+              },
+              {
+                "prop": "cancel",
+                "type": "Function",
+                "description": "使用 `nlyaModalEvent.trigger = 'cancel'` 来取消 modal 并触发 `cancel` 和 `hide` 事件"
+              },
+              {
+                "prop": "close",
+                "type": "Function",
+                "description": "使用 nlyaModalEvent.trigger = 'headerclose'` 来 关闭 modal 并触发 `close` 和 `hide` 事件"
+              },
+              {
+                "prop": "hide",
+                "type": "Function",
+                "description": "接受一个 `trigger` 参数， 具体见上文 trigger源码分析 . 使用 `nlyaModalEvent.trigger = trigger` (`trigger` 是个对象) 来 关闭modal 并触发接受参数类型的事件"
+              }
+            ]
+          },
+          {
+            "name": "modal-footer",
+            "description": " modal footer 插槽. 会移除默认的 `ok` 按钮和 `cancal` 按钮",
+            "scope": [
+              {
+                "prop": "visible",
+                "type": "Boolean",
+                "description": "modal的可见状态， `true` 是现实状态， `false`是隐藏状态"
+              },
+              {
+                "prop": "ok",
+                "type": "Function",
+                "description": "使用 `nlyaModalEvent.trigger = 'ok'` 来关闭 modal 并触发 `ok` 和 `hide` 事件"
+              },
+              {
+                "prop": "cancel",
+                "type": "Function",
+                "description": "使用 `nlyaModalEvent.trigger = 'cancel'` 来取消 modal 并触发 `cancel` 和 `hide` 事件"
+              },
+              {
+                "prop": "close",
+                "type": "Function",
+                "description": "使用 nlyaModalEvent.trigger = 'headerclose'` 来 关闭 modal 并触发 `close` 和 `hide` 事件"
+              },
+              {
+                "prop": "hide",
+                "type": "Function",
+                "description": "接受一个 `trigger` 参数， 具体见上文 trigger源码分析 . 使用 `nlyaModalEvent.trigger = trigger` (`trigger` 是个对象) 来 关闭modal 并触发接受参数类型的事件"
+              }
+            ]
+          },
+          {
+            "name": "modal-header-close",
+            "description": "modal 的头部关闭按钮插槽. 如果使用了 `modal-header` 插槽， `modal-header-close` 会失效"
+          },
+          {
+            "name": "modal-ok",
+            "description": "ok 按钮插槽"
+          },
+          {
+            "name": "modal-cancel",
+            "description": "cancel 按钮插槽"
+          },
+          {
+            "name": "modal-backdrop",
+            "description": "modal 罩层插槽"
+          },
+          {
+            "name": "default",
+            "description": "默认插槽",
+            "scope": [
+              {
+                "prop": "visible",
+                "type": "Boolean",
+                "description": "modal的可见状态， `true` 是现实状态， `false`是隐藏状态"
+              },
+              {
+                "prop": "ok",
+                "type": "Function",
+                "description": "使用 `nlyaModalEvent.trigger = 'ok'` 来关闭 modal 并触发 `ok` 和 `hide` 事件"
+              },
+              {
+                "prop": "cancel",
+                "type": "Function",
+                "description": "使用 `nlyaModalEvent.trigger = 'cancel'` 来取消 modal 并触发 `cancel` 和 `hide` 事件"
+              },
+              {
+                "prop": "close",
+                "type": "Function",
+                "description": "使用 nlyaModalEvent.trigger = 'headerclose'` 来 关闭 modal 并触发 `close` 和 `hide` 事件"
+              },
+              {
+                "prop": "hide",
+                "type": "Function",
+                "description": "接受一个 `trigger` 参数， 具体见上文 trigger源码分析 . 使用 `nlyaModalEvent.trigger = trigger` (`trigger` 是个对象) 来 关闭modal 并触发接受参数类型的事件"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

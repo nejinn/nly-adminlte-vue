@@ -1,0 +1,196 @@
+{
+    "name": "@nly-adminlte-vue/card",
+    "version": "1.0.0",
+    "meta": {
+        "title": "Card",
+        "subtitle":"卡片",
+        "description": "卡片，包括卡片组，卡片header，body，footer，img，title，tool等组件",
+        "components": [
+            {
+                "component": "NlyCardGroup",
+                "description": "卡片组",
+                "props": [
+                    {
+                        "prop": "groupType",
+                        "description": "卡片组类型 默认card-group，可选，default，deck，columns，accordion。deck水平，colunms当水平排列放不下，就垂直，先垂直一列，载垂直第二列"
+                    },
+                    {
+                        "prop": "groupClass",
+                        "description": "自定义css类"
+                    }
+                ]
+            },
+            {
+                "component": "NlyCard",
+                "description": "卡片组件",
+                "props": [
+                    {
+                        "prop": "headerOutline",
+                        "description": "卡片头部顶部边框加粗"
+                    },
+                    {
+                        "prop": "cardOutlineTabs",
+                        "description": "卡片渲染成外边框tab，鼠标移上去才会出现边框"
+                    },
+                    {
+                        "prop": "cardTabs",
+                        "description": "卡片渲染成tab"
+                    },
+                    {
+                        "prop": "heightControl",
+                        "description": "卡片高度，300px"
+                    },
+                    {
+                        "prop": "cardClass",
+                        "description": "自定义css类"
+                    },
+                    {
+                        "prop": "loading",
+                        "description": "开启icon，文本， 图片loading"
+                    },
+                    {
+                        "prop": "loadingContent",
+                        "description": "自定义loading文字内容，设置loading为true的时候，生效，传入内容会覆盖icon-loading"
+                    },
+                    {
+                        "prop": "loadingContentTag",
+                        "description": "自定义loading文字内容标签，设置loading为true的时候，生效"
+                    },
+                    {
+                        "prop": "loadingContentClass",
+                        "description": "自定义loading文字内容css式样，设置loading为true的时候，生效"
+                    },
+                    {
+                        "prop": "loadingIcon",
+                        "description": "开启loading情况下默认loading内容。如果传入loading-content，会覆盖loading-icon"
+                    },
+                    {
+                        "prop": "loadingImgSrc",
+                        "description": "loading图片url，在设置loading为true的时候，传入loading-img-src参数会显示loadingimg"
+                    },
+                    {
+                        "prop": "loadingImgClass",
+                        "description": "loading图片自定义css式样，在传入loading-img-src的时候，loading-img-class生效"
+                    },
+                    {
+                        "prop": "loading",
+                        "description": "卡片渲染成tab"
+                    },
+                    {
+                        "prop": "dark",
+                        "description": "loading式样，默认light，设置dark=true为黑色"
+                    }
+                ]
+            },
+            {
+                "component": "NlyCardHeader",
+                "description": "卡片header",
+                "props": [
+                    {
+                        "prop": "imgOverlay",
+                        "description": "放置到图片card-img上"
+                    },
+                    {
+                        "prop": "cardHeaderClass",
+                        "description": "自定义css类"
+                    }
+                ]
+            },
+            {
+                "component": "NlyCardBody",
+                "description": "卡片body",
+                "props": [
+                    {
+                        "prop": "imgOverlay",
+                        "description": "放置到图片card-img上"
+                    },
+                    {
+                        "prop": "cardBodyClass",
+                        "description": "自定义css类"
+                    }
+                ]
+            },
+            {
+                "component": "NlyCardFooter",
+                "description": "卡片footer",
+                "props": [
+                    {
+                        "prop": "imgOverlay",
+                        "description": "放置到图片card-img上"
+                    },
+                    {
+                        "prop": "cardFooterClass",
+                        "description": "自定义css类"
+                    }
+                ]
+            },
+            {
+                "component": "NlyCardTitle",
+                "description": "卡片标题",
+                "props": [
+                    {
+                        "prop": "cardTitleClass",
+                        "description": "自定义css类"
+                    },
+                    {
+                        "prop": "left",
+                        "description": "与副标题位置关系"
+                    }
+                ]
+            },
+            {
+                "component": "NlyCardSubtitle",
+                "description": "卡片副标题",
+                "props": [
+                    {
+                        "prop": "cardSubtitleClass",
+                        "description": "自定义css类"
+                    },
+                    {
+                        "prop": "left",
+                        "description": "与副标题位置关系"
+                    }
+                ]
+            },
+            {
+                "component": "NlyCardImg",
+                "description": "卡片图片",
+                "props": [
+                    {
+                        "prop": "cardImgClass",
+                        "description": "自定义css类"
+                    },
+                    {
+                        "prop": "top",
+                        "description": "top圆角"
+                    },
+                    {
+                        "prop": "bottom",
+                        "description": "bottom圆角"
+                    }
+                ]
+            },
+            {
+                "component": "NlyCardTool",
+                "description": "卡片工具，放在header下式样生效",
+                "props": [
+                    {
+                        "prop": "cardToolClass",
+                        "description": "自定义css类"
+                    }
+                ]
+            },
+            {
+                "component": "NlyCardText",
+                "description": "卡片文本",
+                "props": [
+                    {
+                        "prop": "cardTextClass",
+                        "description": "自定义css类"
+                    }
+                ]
+            }
+        ]
+    }
+}
+  

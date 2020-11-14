@@ -1,0 +1,28 @@
+{
+	"name": "@nly-adminlte-vue/link",
+	"version": "1.0.0",
+	"meta": {
+        "title": "Link",
+        "subtitle":"a标签",
+		"description": "用来代替<a>标签。支持router-link，click等",
+		"components": [
+			{
+				"component": "NlyLink",
+                "props": [],
+                "events": [
+                    {
+                        "event": "click",
+                        "description": "点击link触发",
+                        "args": [
+                            {
+                                "name": "event",
+                                "type": "鼠标事件",
+                                "description": "原生点击事件"
+                            }
+                        ]
+                    }
+                ]
+			}
+		]
+	}
+}

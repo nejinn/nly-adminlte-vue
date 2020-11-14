@@ -1,0 +1,40 @@
+{
+  "name": "@nly-adminlte-vue/spinner",
+  "version": "1.0.0",
+  "meta": {
+    "title": "Spinner",
+    "subtitle": "微调",
+    "description": "spinner 微调是一个可以显示元素或者组件某些特殊状态的者组件, 比如显示加载状态",
+    "components": [
+      {
+        "component": "NlySpinner",
+        "props": [
+          {
+            "prop": "variant",
+            "description": " 颜色 primary，secondary，info，success，danger，indigo，purple，pink，navy，light，warning，lightblue，olive，lime，fuchsia，maroon，blue，orange，teal，white，gray，dark"
+          },
+          {
+            "prop": "type",
+            "description": "类型，可选border，grow"
+          },
+          {
+            "prop": "sm",
+            "description": "是否开启小号spinner，默认不开启"
+          },
+          {
+            "prop": "label",
+            "description": "sr-only标签文字"
+          },
+          {
+            "prop": "spinnerClass",
+            "description": "自定义css式样"
+          },
+          {
+            "prop": "labelClass",
+            "description": "sr-only自定义css式样"
+          }
+        ]
+      }
+    ]
+  }
+}

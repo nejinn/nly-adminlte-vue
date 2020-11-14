@@ -1,0 +1,146 @@
+{
+  "name": "@nly-adminlte-vue/input-group",
+  "version": "1.0.0",
+  "meta": {
+    "title": "Input Group",
+    "subtitle": "输入组",
+    "description": "Input Group 可以在 input 输入框两侧添加图标，文字，按钮等其他元素，拓展表单控件",
+    "components": [
+      {
+        "component": "NlyInputGroup",
+        "props": [
+          {
+            "prop": "size",
+            "description": "大小,可选sm ,lg"
+          },
+          {
+            "prop": "prepend",
+            "description": "nly-input-group-prepend 文本内容"
+          },
+          {
+            "prop": "prependHtml",
+            "description": "渲染到 nly-input-group-prepend 的 html文本"
+          },
+          {
+            "prop": "append",
+            "description": "nly-input-group-append 文本内容"
+          },
+          {
+            "prop": "appendHtml",
+            "description": "渲染到 nly-input-group-append 的 html文本"
+          },
+          {
+            "prop": "valid",
+            "description": "验证状态，可选包valid, invalid, warning, novalid，设置不同的值可以出发表单验证 feedback"
+          },
+          {
+            "prop": "description",
+            "description": "描述提示文字"
+          },
+          {
+            "prop": "textInline",
+            "description": "description 的渲染形式，设置 true 为 inline 元素，设置 false 为 block 元素"
+          },
+          {
+            "prop": "invalidFeedback",
+            "description": "验证错误消息"
+          },
+          {
+            "prop": "validFeedback",
+            "description": "验证通过消息"
+          },
+          {
+            "prop": "warningFeedback",
+            "description": "验证警告消息"
+          }
+        ],
+        "slots":[
+          {
+            "name": "prepend",
+            "description": "此插槽是用来代替 nly-input-group-prepend 的"
+          },
+          {
+            "name": "append",
+            "description": "此插槽是用来代替 nly-input-group-append 的"
+          }
+        ]
+      },
+      {
+        "component": "NlyInputGroupText",
+        "props": [
+          {
+            "prop": "textClass",
+            "description": "自定义css"
+          }
+        ]
+      },
+      {
+        "component": "NlyInputGroupPrepend",
+        "props": [
+          {
+            "prop": "textClass",
+            "description": "isText设置true时nly-input-group-text的自定义css"
+          },
+          {
+            "prop": "isText",
+            "description": "设置true会渲染一个nly-input-group-text"
+          },
+          {
+            "prop": "prependClass",
+            "description": "自定义css"
+          },
+          {
+            "prop": "textTag",
+            "description": "isText设置true时nly-input-group-text的标签"
+          }
+        ]
+      },
+      {
+        "component": "NlyInputGroupAppend",
+        "props": [
+          {
+            "prop": "textClass",
+            "description": "isText设置true时nly-input-group-text的自定义css"
+          },
+          {
+            "prop": "isText",
+            "description": "设置true会渲染一个nly-input-group-text"
+          },
+          {
+            "prop": "appendClass",
+            "description": "自定义css"
+          },
+          {
+            "prop": "textTag",
+            "description": "isText设置true时nly-input-group-text的标签"
+          }
+        ]
+      },
+      {
+        "component": "NlyInputGroupAdd",
+        "props": [
+          {
+            "prop": "textClass",
+            "description": "isText设置true时nly-input-group-text的自定义css"
+          },
+          {
+            "prop": "isText",
+            "description": "设置true会渲染一个nly-input-group-text"
+          },
+          {
+            "prop": "addClass",
+            "description": "自定义css"
+          },
+          {
+            "prop": "textTag",
+            "description": "isText设置true时nly-input-group-text的标签"
+          },
+          {
+            "prop": "append",
+            "description": "设置true 渲染为 nlyinput-group-append ，默认渲染为nly-input-group-preppend "
+          }
+        ]
+      }
+    ]
+  }
+}

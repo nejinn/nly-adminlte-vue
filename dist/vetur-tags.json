@@ -1,0 +1,1206 @@
+{
+  "nly-badge": {
+    "description": "小标签消息",
+    "attributes": [
+      "size",
+      "variant",
+      "bg-variant",
+      "bg-gradient-variant",
+      "badge-class",
+      "tag",
+      "pill"
+    ]
+  },
+  "nly-breadcrumb": {
+    "description": "面包屑导航",
+    "attributes": [
+      "item",
+      "breadcrumb-class"
+    ]
+  },
+  "nly-breadcrumb-item": {
+    "description": "面包屑导航元素",
+    "attributes": [
+      "icon",
+      "text",
+      "href",
+      "to",
+      "append",
+      "replace",
+      "active",
+      "target",
+      "item-class",
+      "link-class"
+    ]
+  },
+  "nly-button":{
+    "description": "按钮",
+    "attributes": [
+      "block",
+      "variant",
+      "bg-variant",
+      "size",
+      "type",
+      "shape",
+      "disabled",
+      "gradient",
+      "pressed",
+      "button-class",
+      "tool",
+      "app"
+    ]
+  },
+  "nly-button-group":{
+    "description": "按钮组",
+    "attributes": [
+      "button-group-class",
+      "vertical",
+      "size",
+      "tag"
+    ]
+  },
+  "nly-button-close":{
+    "description": "关闭按钮",
+    "attributes": [
+      "content",
+      "disabled",
+      "aria-label",
+      "text-variant"
+    ]
+  },
+  "nly-card":{
+    "description": "卡片",
+    "attributes": [
+      "header-variant",
+      "header-outline",
+      "card-outline-tabs",
+      "card-tabs",
+      "text-variant",
+      "bg-variant",
+      "bg-gradient-variant",
+      "height-control",
+      "card-class",
+      "loading",
+      "loading-content",
+      "loading-contentTag",
+      "loading-content-class",
+      "loading-icon",
+      "loading-img-src",
+      "loading-img-class",
+      "tag",
+      "dark",
+      "id"
+    ]
+  },
+  "nly-card-header":{
+    "description": "卡片头部",
+    "attributes": [
+      "bg-variant",
+      "bg-gradient-variant",
+      "img-overlay",
+      "text-variant",
+      "card-header-class",
+      "tag"
+    ]
+  },
+  "nly-card-tool":{
+    "description": "卡片工具",
+    "attributes": [
+      "tool-class",
+      "tag"
+    ]
+  },
+  "nly-card-body":{
+    "description": "卡片body",
+    "attributes": [
+      "bg-variant",
+      "bg-gradient-variant",
+      "img-overlay",
+      "text-variant",
+      "card-body-class",
+      "tag"
+    ]
+  },
+  "nly-card-footer":{
+    "description": "卡片footer",
+    "attributes": [
+      "bg-variant",
+      "bg-gradient-variant",
+      "img-overlay",
+      "text-variant",
+      "card-footer-class",
+      "tag"
+    ]
+  },
+  "nly-card-group":{
+    "description": "卡片footer",
+    "attributes": [
+      "group-type",
+      "group-class",
+      "tag"
+    ]
+  },
+  "nly-card-img":{
+    "description": "卡片图片",
+    "attributes": [
+      "top",
+      "buttom",
+      "src",
+      "img-class"
+    ]
+  },
+  "nly-card-subtitle":{
+    "description": "卡片副标题",
+    "attributes": [
+      "text-variant",
+      "subtitle-class",
+      "tag"
+    ]
+  },
+  "nly-card-text":{
+    "description": "卡片标题",
+    "attributes": [
+      "text-class",
+      "tag",
+      "text-variant"
+    ]
+  },
+  "nly-card-title":{
+    "description": "卡片文本",
+    "attributes": [
+      "text-variant",
+      "title-class",
+      "tag",
+      "left"
+    ]
+  },
+  "nly-collapse":{
+    "description": "折叠板",
+    "attributes": [
+      "is-nav",
+      "accordion",
+      "visible",
+      "tag",
+      "appear",
+      "collapse-class"
+    ]
+  },
+  "nly-collapse-noclass":{
+    "description": "折叠板，不用依赖class的折叠板",
+    "attributes": [
+      "is-nav",
+      "accordion",
+      "visible",
+      "tag",
+      "appear",
+      "collapse-class"
+    ]
+  },
+  "nly-collapse-transition":{
+    "description": "折叠动画",
+    "attributes": [
+      "appear"
+    ]
+  },
+  "nly-collapse-noclass-transition":{
+    "description": "折叠动画,无许依赖class的动画",
+    "attributes": []
+  },
+  "nly-control-sidebar-container":{
+    "description": "右侧收缩菜单容器",
+    "attributes": [
+      "variant",
+      "size"
+    ]
+  },
+  "nly-control-sidebar":{
+    "description": "右侧收缩菜单",
+    "attributes": [
+      "scrollbar"
+    ]
+  },
+  "nly-control-button":{
+    "description": "div按钮",
+    "attributes": [
+      "bg-variant"
+    ]
+  },
+  "nly-dropdown":{
+    "description": "下拉按钮",
+    "attributes": [
+      "vertical",
+      "dropdown-size",
+      "dropdown-tag",
+      "dropdown-toggle",
+      "dropdown-icon",
+      "text",
+      "toggle-text",
+      "dropdown-class",
+      "data-show",
+      "placement",
+      "block",
+      "variant",
+      "bg-variant",
+      "size",
+      "type",
+      "shape",
+      "disabled",
+      "gradient",
+      "pressed",
+      "button-class",
+      "tool",
+      "app"
+    ]
+  },
+  "nly-dropdown-menu":{
+    "description": "下拉菜单",
+    "attributes": [
+      "tag",
+      "dropdown-menu-class",
+      "role",
+      "id"
+    ]
+  },
+  "nly-icon":{
+    "description": "图标",
+    "attributes": [
+      "size",
+      "tag",
+      "icon"
+    ]
+  },
+  "nly-infobox-body":{
+    "description": "信息箱",
+    "attributes": [
+      "bg-variant",
+      "bg-gradient-variant",
+      "infobox-body-class",
+      "text",
+      "text-class",
+      "number",
+      "number-class",
+      "progress-value",
+      "progress-description"
+    ]
+  },
+  "nly-infobox-icon":{
+    "description": "信息箱图标",
+    "attributes": [
+      "icon",
+      "bg-variant",
+      "bg-gradient-variant",
+      "infobox-icon-class"
+    ]
+  },
+  "nly-infobox-number":{
+    "description": "信息箱数字",
+    "attributes": [
+      "number",
+      "number-class"
+    ]
+  },
+  "nly-infobox-text":{
+    "description": "信息箱文本",
+    "attributes": [
+      "text-class",
+      "text"
+    ]
+  },
+  "nly-container":{
+    "description": "container容器",
+    "attributes": [
+      "fluid",
+      "container-class",
+      "tag"
+    ]
+  },
+  "nly-content":{
+    "description": "content容器",
+    "attributes": [
+      "tag"
+    ]
+  },
+  "nly-content-wrapper":{
+    "description": "content-wrapper容器",
+    "attributes": [
+      "tag"
+    ]
+  },
+  "nly-content-header":{
+    "description": "content-header",
+    "attributes": [
+      "tag"
+    ]
+  },
+  "nly-col":{
+    "description": "col,栅格布局列",
+    "attributes": [
+      "tag",
+      "col",
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+      "offset-xs",
+      "offset-sm",
+      "offset-md",
+      "offset-lg",
+      "offset-xl",
+      "order-xs",
+      "order-sm",
+      "order-md",
+      "order-lg",
+      "order-xl",
+      "col-class"
+    ]
+  },
+  "nly-row":{
+    "description": "row,栅格布局行",
+    "attributes": [
+      "tag",
+      "no-gutters",
+      "cols-xs",
+      "cols-sm",
+      "cols-md",
+      "cols-lg",
+      "cols-xl",
+      "row-class"
+    ]
+  },
+  "nly-link":{
+    "description": "link",
+    "attributes": [
+      "href",
+      "rel",
+      "target",
+      "active",
+      "disabled",
+      "to",
+      "append",
+      "replace",
+      "event",
+      "active-class",
+      "exact",
+      "exact-active-class",
+      "router-tag",
+      "no-prefetch"
+    ]
+  },
+  "nly-nav-dropdown":{
+    "description": "下拉菜单",
+    "attributes": [
+      "item-tag",
+      "nav-item",
+      "hover",
+      "submenu",
+      "direction",
+      "item-class",
+      "disabled",
+      "popup",
+      "nav-link",
+      "dropdown-toggle",
+      "id",
+      "link-class",
+      "link-tag",
+      "dropdown-item",
+      "menu-tag",
+      "menu-class",
+      "size",
+      "menu-direction",
+      "shadow"
+    ]
+  },  
+  "nly-nav-item":{
+    "description": "菜单元素",
+    "attributes": [
+      "nav-item",
+      "dropdown-item",
+      "link-attrs",
+      "link-classes",
+      "href",
+      "rel",
+      "target",
+      "active",
+      "disabled",
+      "to",
+      "append",
+      "replace",
+      "event",
+      "active-class",
+      "exact",
+      "exact-active-class",
+      "router-tag",
+      "no-prefetch"
+    ]
+  },
+  "nly-nav":{
+    "description": "菜单",
+    "attributes": [
+      "tag",
+      "fill",
+      "justified",
+      "align",
+      "tabs",
+      "tabs-right",
+      "pills",
+      "vertical",
+      "small",
+      "card-header"
+    ]
+  },
+  "nly-navbar-brand":{
+    "description": "导航菜单brand",
+    "attributes": []
+  },
+  "nly-navbar-brandimg":{
+    "description": "导航菜单brandimg",
+    "attributes": [
+      "src",
+      "navbar-brandimg-class",
+      "alt",
+      "circle",
+      "elevation"
+    ]
+  },
+  "nly-navbar-brandtext":{
+    "description": "导航菜单brandtext",
+    "attributes": [
+      "navbar-brandtext-class"
+    ]
+  },
+  "nly-navbar-nav":{
+    "description": "导航菜单nav",
+    "attributes": []
+  },
+  "nly-navbar":{
+    "description": "导航菜单",
+    "attributes": [
+      "header",
+      "expand",
+      "variant",
+      "dark",
+      "size",
+      "border",
+      "navbar-class"
+    ]
+  },
+  "nly-overlay":{
+    "description": "罩层",
+    "attributes": [
+      "sidebar",
+      "dark"
+    ]
+  },
+  "nly-pagination":{
+    "description": "分页",
+    "attributes": [
+      "total",
+      "size",
+      "current-page",
+      "limit",
+      "align",
+      "first-function",
+      "prev-function",
+      "current-function",
+      "next-function",
+      "last-function",
+      "size-function",
+      "show-pg",
+      "sm",
+      "lg"
+    ]
+  },
+  "nly-progress":{
+    "description": "进度条",
+    "attributes": [
+      "variant",
+      "vertical",
+      "size",
+      "striped",
+      "animated",
+      "precision",
+      "label-value-percent",
+      "label-value",
+      "max",
+      "value",
+      "progress-class",
+      "progress-bar-class"
+    ]
+  },
+  "nly-progress-bar":{
+    "description": "进度条元素",
+    "attributes": [
+      "variant",
+      "striped",
+      "animated",
+      "precision",
+      "label-value-percent",
+      "label-value",
+      "max",
+      "value",
+      "progress-bar-class",
+      "label"
+    ]
+  },
+  "nly-progress-description":{
+    "description": "进度描述文本",
+    "attributes": [
+      "text"
+    ]
+  },
+  "nly-render-function":{
+    "description": "渲染函数",
+    "attributes": [
+      "content-to-render",
+      "flat"
+    ]
+  },
+  "nly-sidebar-brand":{
+    "description": "左侧导航栏brand",
+    "attributes": [
+      "size",
+      "variant",
+      "elevation",
+      "href",
+      "rel",
+      "target",
+      "active",
+      "disabled",
+      "to",
+      "append",
+      "replace",
+      "event",
+      "active-class",
+      "exact",
+      "exact-active-class",
+      "router-tag",
+      "no-prefetch"
+
+    ]
+  },
+  "nly-sidebar-brandimg":{
+    "description": "左侧导航栏brandimg",
+    "attributes": [
+      "src",
+      "sidebar-brandimg-class",
+      "alt",
+      "circle",
+      "elevation"
+    ]
+  },
+  "nly-sidebar-brandtext":{
+    "description": "brand文本",
+    "attributes": []
+  },
+  "nly-sidebar-container":{
+    "description": "左侧导航栏容器",
+    "attributes": [
+      "variant",
+      "hover",
+      "elevation"
+    ]
+  },
+  "nly-sidebar-nav-header":{
+    "description": "左侧导航栏header",
+    "attributes": [
+      "tag"
+    ]
+  },
+  "nly-sidebar-nav-item":{
+    "description": "左侧导航栏item",
+    "attributes": [
+      "link-class",
+      "icon",
+      "href",
+      "rel",
+      "target",
+      "active",
+      "disabled",
+      "to",
+      "append",
+      "replace",
+      "event",
+      "active-class",
+      "exact",
+      "exact-active-class",
+      "router-tag",
+      "no-prefetch"
+
+    ]
+  },
+  "nly-sidebar-nav-tree":{
+    "description": "左侧导航栏header",
+    "attributes": [
+      "label",
+      "target",
+      "link-class",
+      "href",
+      "link-target",
+      "active",
+      "disabled",
+      "to",
+      "append",
+      "exact",
+      "exact-active-class",
+      "icon",
+      "accordion",
+      "visible",
+      "tag",
+      "appear",
+      "menu-cslass"
+    ]
+  },
+  "nly-sidebar-nav":{
+    "description": "左侧导航栏",
+    "attributes": [
+      "pill",
+      "flat",
+      "legacy",
+      "compact",
+      "child-indent",
+      "size",
+      "sidebar-nav-class",
+      "role"
+    ]
+  },
+  "nly-sidebar-userpanel-img":{
+    "description": "用户头像",
+    "attributes": [
+      "src",
+      "circle",
+      "elevation",
+      "alt",
+      "img-class"
+    ]
+  },
+  "nly-sidebar-userpanel-info":{
+    "description": "用户信息",
+    "attributes": [
+      "info-class",
+      "href",
+      "rel",
+      "target",
+      "active",
+      "disabled",
+      "to",
+      "append",
+      "replace",
+      "event",
+      "active-class",
+      "exact",
+      "exact-active-class",
+      "router-tag",
+      "no-prefetch"
+    ]
+  },
+  "nly-sidebar-userpanel":{
+    "description": "用户资料",
+    "attributes": []
+  },
+  "nly-sidebar":{
+    "description": "左侧导航栏",
+    "attributes": [
+      "scrollbar"
+    ]
+  },
+  "nly-spinner":{
+    "description": "标签动画loading",
+    "attributes": [
+      "variant",
+      "type",
+      "sm",
+      "tag",
+      "label",
+      "role",
+      "spinner-class",
+      "label-class"
+    ]
+  },
+  "nly-switch":{
+    "description": "开关",
+    "attributes": [
+      "size",
+      "flat",
+      "off-variant",
+      "on-variant",
+      "switch-class",
+      "input-class",
+      "label-class",
+      "id",
+      "tag",
+      "disabled",
+      "checked"
+    ]
+  },
+  "nly-bootstrap-switch":{
+    "description": "开关",
+    "attributes": [
+      "xs",
+      "sm",
+      "lg"
+    ]
+  },
+  "nly-table": {
+    "description": "表格",
+    "attributes": [
+      "id",
+      "items",
+      "fields",
+      "primary-key",
+      "value",
+      "striped",
+      "bordered",
+      "borderless",
+      "outlined",
+      "dark",
+      "hover",
+      "small",
+      "fixed",
+      "responsive",
+      "sticky-header",
+      "no-border-collapse",
+      "caption-top",
+      "table-variant",
+      "table-class",
+      "stacked",
+      "head-variant",
+      "head-row-variant",
+      "thead-class",
+      "thead-tr-class",
+      "foot-clone",
+      "foot-variant",
+      "foot-row-variant",
+      "tfoot-class",
+      "tfoot-tr-class",
+      "tbody-tr-class",
+      "tbody-tr-attr",
+      "details-td-class",
+      "tbody-transition-props",
+      "tbody-transition-handlers",
+      "tbody-class",
+      "filter",
+      "filter-function",
+      "filter-ignored-fields",
+      "filter-included-fields",
+      "filter-debounce",
+      "sort-by",
+      "sort-desc",
+      "sort-direction",
+      "sort-compare",
+      "sort-compare-options",
+      "sort-compare-locale",
+      "sort-null-last",
+      "no-sort-reset",
+      "label-sort-asc",
+      "label-sort-desc",
+      "label-sort-clear",
+      "no-local-sorting",
+      "no-footer-sorting",
+      "sort-icon-left",
+      "per-page",
+      "current-page",
+      "caption",
+      "caption-html",
+      "selectable",
+      "select-mode",
+      "selected-variant",
+      "no-select-on-click",
+      "show-empty",
+      "empty-text",
+      "empty-html",
+      "empty-filtered-text",
+      "empty-filtered-html",
+      "busy",
+      "no-provider-paging",
+      "no-provider-sorting",
+      "no-provider-filtering",
+      "api-url"
+    ]
+  },
+  "nly-table-lite": {
+    "description": "简单表格",
+    "attributes": [
+      "id",
+      "items",
+      "fields",
+      "primary-key",
+      "value",
+      "striped",
+      "bordered",
+      "borderless",
+      "outlined",
+      "dark",
+      "hover",
+      "small",
+      "fixed",
+      "responsive",
+      "sticky-header",
+      "no-border-collapse",
+      "caption-top",
+      "table-variant",
+      "table-class",
+      "stacked",
+      "head-variant",
+      "head-row-variant",
+      "thead-class",
+      "thead-tr-class",
+      "foot-clone",
+      "foot-variant",
+      "foot-row-variant",
+      "tfoot-class",
+      "tfoot-tr-class",
+      "tbody-tr-class",
+      "tbody-tr-attr",
+      "details-td-class",
+      "tbody-transition-props",
+      "tbody-transition-handlers",
+      "tbody-class",
+      "caption",
+      "caption-html"
+    ]
+  },
+  "nly-table-simple": {
+    "description": "简单表格",
+    "attributes": [
+      "id",
+      "striped",
+      "bordered",
+      "borderless",
+      "outlined",
+      "dark",
+      "hover",
+      "small",
+      "fixed",
+      "responsive",
+      "sticky-header",
+      "no-border-collapse",
+      "caption-top",
+      "table-variant",
+      "table-class",
+      "stacked"
+    ]
+  },
+  "nly-tbody": {
+    "description": "表格body",
+    "attributes": [
+      "tbody-transition-props",
+      "tbody-transition-handlers"
+    ]
+  },
+  "nly-thead": {
+    "description": "表格头部",
+    "attributes": [
+      "head-variant"
+    ]
+  },
+  "nly-tfoot": {
+    "description": "表格底部",
+    "attributes": [
+      "foot-variant"
+    ]
+  },
+  "nly-tr": {
+    "description": "表格tr",
+    "attributes": [
+      "variant"
+    ]
+  },
+  "nly-td": {
+    "description": "表格td",
+    "attributes": [
+      "variant",
+      "colspan",
+      "rowspan",
+      "stacked-heading",
+      "sticky-column"
+    ]
+  },
+  "nly-th": {
+    "description": "表格th",
+    "attributes": [
+      "variant",
+      "colspan",
+      "rowspan",
+      "stacked-heading",
+      "sticky-column"
+    ]
+  },
+  "nly-timeline": {
+    "description": "时间轴",
+    "attributes": [
+      "inverse",
+      "tag"
+    ]
+  },
+  "nly-timeline-body": {
+    "description": "时间轴body",
+    "attributes": [
+      "tag",
+      "timeline-body-class"
+    ]
+  },
+  "nly-timeline-content": {
+    "description": "时间轴content",
+    "attributes": [
+      "icon",
+      "bg-variant",
+      "bg-gradient-variant",
+      "icon-class",
+      "timeline-content-class"
+    ]
+  },
+  "nly-timeline-footer": {
+    "description": "时间轴footer",
+    "attributes": [
+      "tag",
+      "timeline-footer-class"
+    ]
+  },
+  "nly-timeline-header": {
+    "description": "时间轴header",
+    "attributes": [
+      "tag",
+      "timeline-header-class"
+    ]
+  },
+  "nly-timeline-item": {
+    "description": "时间轴item",
+    "attributes": [
+      "time",
+      "time-icon",
+      "time-tag",
+      "item-tag",
+      "item-class",
+      "time-class"
+    ]
+  },
+  "nly-timeline-label": {
+    "description": "时间轴item",
+    "attributes": [
+      "bg-variant",
+      "bg-gradient-variant",
+      "tag",
+      "label-class",
+      "span-class"
+    ]
+  },
+  "nly-toast": {
+    "description": "信息提示框",
+    "attributes": [
+      "id",
+      "title",
+      "toaster",
+      "visible",
+      "variant",
+      "is-status",
+      "append-toast",
+      "no-auto-hide",
+      "auto-hide-delay",
+      "no-close-button",
+      "no-fade",
+      "no-hover-pause",
+      "solid",
+      "toast-class",
+      "header-class",
+      "body-class",
+      "href",
+      "to",
+      "static"
+    ]
+  },
+  "nly-toaster": {
+    "description": "简单信息提示框",
+    "attributes": [
+      "name",
+      "aria-live",
+      "aria-atomic",
+      "role"
+    ]
+  },
+  "nly-tooltip": {
+    "description": "tooltip组件或者指令",
+    "attributes": [
+      "title",
+      "target",
+      "triggers",
+      "placement",
+      "fallback-placement",
+      "variant",
+      "custom-class",
+      "delay",
+      "boundary",
+      "boundary-padding",
+      "offset",
+      "no-fade",
+      "container",
+      "show",
+      "noninteractive",
+      "disabled",
+      "id"
+    ]
+  },
+  "nly-form": {
+    "description": "表单",
+    "attributes": [
+      "id",
+      "inline",
+      "novalidate",
+      "validated",
+      "role"
+    ]
+  },
+  "nly-form-input": {
+    "description": "表单input",
+    "attributes": [
+      "type",
+      "max",
+      "min",
+      "maxlength",
+      "step",
+      "list",
+      "value",
+      "readonly",
+      "plaintext",
+      "autocomplete",
+      "placeholder",
+      "formatter",
+      "lazy-formatter",
+      "trim",
+      "lazy",
+      "name",
+      "id",
+      "disabled",
+      "required",
+      "form",
+      "autofocus",
+      "size",
+      "valid",
+      "col",
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+      "offset-xs",
+      "offset-sm",
+      "offset-md",
+      "offset-lg",
+      "offset-xl",
+      "order-xs",
+      "order-sm",
+      "order-md",
+      "order-lg",
+      "order-xl",
+      "variant"
+    ]
+  },
+  "nly-form-feedback": {
+    "description": "表单验证结果",
+    "attributes": [
+      "state",
+      "text"
+    ]
+  },
+  "nly-log":{
+    "description": "log/日志容器",
+    "attributes": []
+  },
+  "nly-log-header":{
+    "description": "log/日志头部",
+    "attributes": [
+      "title",
+      "title-calss",
+      "log-header-class" 
+    ]
+  },
+  "nly-log-tools":{
+    "description": "log/日志工具,放在nly-log-header生效",
+    "attributes": []
+  },
+  "nly-log-body":{
+    "description": "log/日志主体",
+    "attributes": [
+      "scroll-bottom",
+      "bottom-icon",
+      "bottom-text",
+      "scroll-top",
+      "top-icon",
+      "log-body-class",
+      "pre-class",
+      "lock-scroll-bottom",
+      "lock-bottom-icon",
+      "lock-bottom-text"
+    ]
+  },
+  "nly-log-line":{
+    "description": "log/日志文本内容",
+    "attributes": [
+      "duration",
+      "duration-class",
+      "line",
+      "line-class",
+      "text",
+      "text-class",
+      "title",
+      "title-class",
+      "icon",
+      "icon-class",
+      "log-line-class",
+      "high-light"
+    ]
+  },
+  "nly-log-line-tree":{
+    "description": "log/日志可折叠line",
+    "attributes": [
+      "duration",
+      "duration-class",
+      "line",
+      "line-class",
+      "text",
+      "text-class",
+      "title",
+      "title-class",
+      "icon",
+      "icon-class",
+      "log-line-class",
+      "visible",
+      "high-light"
+    ]
+  },
+  "nly-wrapper":{
+    "description": "wrapper布局容器，用来控制body class属性",
+    "attributes": [
+      "side-mini",
+      "layout",
+      "navbar-fixed",
+      "footer-fixed",
+      "top-nav",
+      "wrapper-class",
+      "container-class"
+    ]
+  },
+  "nly-wrapper-sidebar":{
+    "description": "wrapper布局左侧导航栏",
+    "attributes": [
+      "variant",
+      "hover",
+      "elevation",
+      "tag",
+      "wrapper-sidebar-class"
+    ]
+  },
+  "nly-wrapper-header":{
+    "description": "wrapper布局header",
+    "attributes": [
+      "expand",
+      "variant",
+      "dark",
+      "size",
+      "border",
+      "wrapper-header-class",
+      "tag",
+      "nav"
+    ]
+  }
+}

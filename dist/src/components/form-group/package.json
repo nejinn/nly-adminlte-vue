@@ -1,0 +1,174 @@
+{
+  "name": "@nly-adminlte-vue/form-group",
+  "version": "1.0.0",
+  "meta": {
+    "title": "Form Group",
+    "subtitle": "表单组",
+    "description": "表单组是一种使得标签和表单快速配对的组件",
+    "components": [
+      {
+        "component": "NlyFormGroup",
+        "props": [
+          {
+            "prop": "labelSize",
+            "description": "大小,可选 sm, lg"
+          },
+          {
+            "prop": "label",
+            "description": "标签"
+          },
+          {
+            "prop": "labelFor",
+            "description": "指定为 对应id的 标签"
+          },
+          {
+            "prop": "labelSrOnly",
+            "description": "使得标签只有在屏幕阅读器上才可见"
+          },
+          {
+            "prop": "labelColsXs",
+            "description": "在XS及以上断点的宽度,可选1,2,3,4,5,6,7,8,9,10,11,12, true, false, auto"
+          },
+          {
+            "prop": "labelColsSm",
+            "description": "在SM及以上断点的宽度,可选1,2,3,4,5,6,7,8,9,10,11,12, true, false, auto"
+          },
+          {
+            "prop": "labelColsMd",
+            "description": "在MD及以上断点的宽度,可选1,2,3,4,5,6,7,8,9,10,11,12, true, false, auto"
+          },
+          {
+            "prop": "labelColsLg",
+            "description": "在LG及以上断点的宽度,可选1,2,3,4,5,6,7,8,9,10,11,12, true, false, auto"
+          },
+          {
+            "prop": "labelColsXl",
+            "description": "在XL及以上断点的宽度,可选1,2,3,4,5,6,7,8,9,10,11,12, true, false, auto"
+          },
+          {
+            "prop": "labelColsOffsetXs",
+            "description": "在XS及以上断点的偏移量,可选0,1,2,3,4,5,6,7,8,9,10,11"
+          },
+          {
+            "prop": "labelColsOffsetSm",
+            "description": "在SM及以上断点的偏移量,可选0,1,2,3,4,5,6,7,8,9,10,11"
+          },
+          {
+            "prop": "labelColsOffsetMd",
+            "description": "在MD及以上断点的偏移量,可选0,1,2,3,4,5,6,7,8,9,10,11"
+          },
+          {
+            "prop": "labelColsOffsetLg",
+            "description": "在LG及以上断点的偏移量,可选0,1,2,3,4,5,6,7,8,9,10,11"
+          },
+          {
+            "prop": "labelColsOffsetXl",
+            "description": "在XL及以上断点的偏移量,可选0,1,2,3,4,5,6,7,8,9,10,11"
+          },
+          {
+            "prop": "labelColsOrderXs",
+            "description": "在XS及以上断点的排序,可选0,1,2,3,4,5,6,7,8,9,10,11,12"
+          },
+          {
+            "prop": "labelColsOrderSm",
+            "description": "在SM及以上断点的排序,可选0,1,2,3,4,5,6,7,8,9,10,11, 12"
+          },
+          {
+            "prop": "labelColsOrderMd",
+            "description": "在MD及以上断点的排序,可选0,2,3,4,5,6,7,8,9,10,11, 12"
+          },
+          {
+            "prop": "labelColsOrderLg",
+            "description": "在LG及以上断点的排序,可选0,2,3,4,5,6,7,8,9,10,11, 12"
+          },
+          {
+            "prop": "labelColsOrderXl",
+            "description": "在XL及以上断点的排序,可选0,2,3,4,5,6,7,8,9,10,11, 12"
+          },
+          {
+            "prop": "labelAlignXs",
+            "description": "在XS及以上断点label位置"
+          },
+          {
+            "prop": "labelAlignSm",
+            "description": "在SM及以上断点label位置"
+          },
+          {
+            "prop": "labelAlignMd",
+            "description": "在MD及以上断点label位置"
+          },
+          {
+            "prop": "labelAlignLg",
+            "description": "在LG及以上断点label位置"
+          },
+          {
+            "prop": "labelAlignXl",
+            "description": "在XL及以上断点label位置"
+          },
+          {
+            "prop": "labelClass",
+            "description": "label 自定义css"
+          },
+          {
+            "prop": "description",
+            "description": "label 描述"
+          },
+          {
+            "prop": "invalidFeedback",
+            "description": "错误提示，渲染一个 nly-form-feedback"
+          },
+          {
+            "prop": "validFeedback",
+            "description": "正确提示，渲染一个 nly-form-feedback"
+          },
+          {
+            "prop": "warningFeedback",
+            "description": "警告提示，渲染一个 nly-form-feedback"
+          },
+          {
+            "prop": "tooltip",
+            "description": "把nly-form-feedback组件渲染成tooltip"
+          },
+          {
+            "prop": "feedbackAriaLive",
+            "description": "给nly-form-feedback组件渲染aria-live"
+          },
+          {
+            "prop": "validated",
+            "description": "给form group 添加 was-validated class"
+          },
+          {
+            "prop": "disabled",
+            "description": "禁用 form group的 fieldset 和label-for"
+          },
+          {
+            "prop": "textInline",
+            "description": "description 的渲染形式，设置 true 为 inline 元素，设置 false 为 block 元素"
+          }
+        ],
+        "slots": [
+          {
+            "name": "label",
+            "description": "label 元素插槽"
+          },
+          {
+            "name": "description",
+            "description": "description 元素插槽"
+          },
+          {
+            "name": "invalid-feedback",
+            "description": "invalid-feedback 元素插槽"
+          },
+          {
+            "name": "valid-feedback",
+            "description": "valid-feedback 元素插槽"
+          },
+          {
+            "name": "warning-feedback",
+            "description": "warning-feedback 元素插槽"
+          }
+        ]
+      }
+    ]
+  }
+}
