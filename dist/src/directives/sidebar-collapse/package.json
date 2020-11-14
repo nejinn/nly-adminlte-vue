@@ -1,0 +1,35 @@
+{
+    "name": "@nly-adminlte-vue/sidebar-collapse",
+    "version": "1.0.0",
+    "meta": {
+        "title": "Sidebar Collapse",
+        "subtitle": "边侧菜单指令",
+        "description": "边侧菜单指令是控制左侧菜单和右侧滑板收起展开的指令",
+        "directives": [
+            {
+                "directive": "VNlyControlSidebarCollapse",
+                "description": "右侧滑板收起展开指令",
+                "expression": "String",
+                "modifiers": [
+                    {
+                        "name": "",
+                        "pattern": "[a-zA-Z][a-zA-Z0-9_\\-]*",
+                        "description": "不需要传入参数，直接绑定便可控制右侧滑板收起展开"
+                    }
+                ]
+            },
+            {
+                "directive": "VNlySidebarCollapse",
+                "description": "左侧导航栏收起展开指令，此指令只能绑定在nly-nav-item组件和nly-overlay组件上",
+                "expression": "String",
+                "modifiers": [
+                    {
+                        "name": "{collapseItem}",
+                        "pattern": "[a-zA-Z][a-zA-Z0-9_\\-]*",
+                        "description": "传入对应绑定的元素来控制左侧导航栏收起展开，可选navitem，overlay，绑定在nly-nav-item上请传入navitem，绑定在nly-overlay上请传入overlay"
+                    }
+                ]
+            }
+        ]
+    }
+}

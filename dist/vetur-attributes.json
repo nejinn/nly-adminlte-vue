@@ -1,0 +1,1715 @@
+{
+  "nly-link/href": {
+    "description": "Denotes the target URL of the link for standard a links",
+    "type": "string"
+  },
+  "nly-link/rel": {
+    "description": "Sets the 'rel' attribute on the rendered link",
+    "type": "string"
+  },
+  "nly-link/target": {
+    "description": "Sets the 'target' attribute on the rendered link",
+    "type": "string"
+  },
+  "nly-link/active": {
+    "description": "When set to 'true', places the component in the active state with active styling",
+    "type": "boolean"
+  },
+  "nly-link/disabled": {
+    "description": "When set to 'true', disables the component's functionality and places it in a disabled state",
+    "type": "boolean"
+  },
+  "nly-link/to": {
+    "description": "router-link prop: Denotes the target route of the link. When clicked, the value of the to prop will be passed to router.push() internally, so the value can be either a string or a Location descriptor object",
+    "type": "string|object"
+  },
+  "nly-link/append": {
+    "description": "router-link prop: Setting append prop always appends the relative path to the current path",
+    "type": "boolean"
+  },
+  "nly-link/replace": {
+    "description": "router-link prop: Setting the replace prop will call 'router.replace()' instead of 'router.push()' when clicked, so the navigation will not leave a history record",
+    "type": "boolean"
+  },
+  "nly-link/event": {
+    "description": "router-link prop: Specify the event that triggers the link. In most cases you should leave this as the default",
+    "type": "string|any[]"
+  },
+  "nly-link/active-class": {
+    "description": "router-link prop: Configure the active CSS class applied when the link is active. Typically you will want to set this to class name 'active'",
+    "type": "string"
+  },
+  "nly-link/exact": {
+    "description": "router-link prop: The default active class matching behavior is inclusive match. Setting this prop forces the mode to exactly match the route",
+    "type": "boolean"
+  },
+  "nly-link/exact-active-class": {
+    "description": "router-link prop: Configure the active CSS class applied when the link is active with exact match. Typically you will want to set this to class name 'active'",
+    "type": "string"
+  },
+  "nly-link/router-tag": {
+    "description": "router-link prop: Specify which tag to render, and it will still listen to click events for navigation. 'router-tag' translates to the tag prop on the final rendered router-link. Typically you should use the default value",
+    "type": "string"
+  },
+  "nly-link/no-prefetch": {
+    "description": "nuxt-link prop: To improve the responsiveness of your Nuxt.js applications, when the link will be displayed within the viewport, Nuxt.js will automatically prefetch the code splitted page. Setting 'no-prefetch' will disabled this feature for the specific link",
+    "type": "boolean"
+  },
+  "nly-table/id": {
+    "description": "Used to set the 'id' attribute on the rendered content, and used as the base to generate any additional element IDs as needed",
+    "type": "string"
+  },
+  "nly-table/items": {
+    "description": "Array of items to display, or an items provider function reference. Refer to the docs for details",
+    "type": "any[]|function"
+  },
+  "nly-table/fields": {
+    "description": "Array of field names or array of field definition objects",
+    "type": "any[]"
+  },
+  "nly-table/primary-key": {
+    "description": "Name of a table field that contains a guaranteed unique value per row. Needed for tbody transition support, and also speeds up table rendering",
+    "type": "string"
+  },
+  "nly-table/value": {
+    "description": "Currently displayed row data. Read-only. Do not set a value on this prop",
+    "type": "any[]"
+  },
+  "nly-table/striped": {
+    "description": "Applies striping to the tbody rows",
+    "type": "boolean"
+  },
+  "nly-table/bordered": {
+    "description": "Adds borders to all the cells and headers",
+    "type": "boolean"
+  },
+  "nly-table/borderless": {
+    "description": "Removes all borders from cells",
+    "type": "boolean"
+  },
+  "nly-table/outlined": {
+    "description": "Adds an outline border to the table element",
+    "type": "boolean"
+  },
+  "nly-table/dark": {
+    "description": "Places the table in dark mode",
+    "type": "boolean"
+  },
+  "nly-table/hover": {
+    "description": "Enables hover styling on rows",
+    "type": "boolean"
+  },
+  "nly-table/small": {
+    "description": "Renders the table with smaller cell padding",
+    "type": "boolean"
+  },
+  "nly-table/fixed": {
+    "description": "Makes all columns equal width (fixed layout table). Will speed up rendering for large tables. Column widths can be set via CSS or colgroup",
+    "type": "boolean"
+  },
+  "nly-table/responsive": {
+    "description": "Makes the table responsive in width, adding a horizontal scrollbar. Set to true for always responsive or set to one of the breakpoints to switch from responsive to normal: 'sm', 'md', 'lg', 'xl'",
+    "type": "boolean|string"
+  },
+  "nly-table/sticky-header": {
+    "description": "Makes the table header sticky. Set to true for a maximum height 300px tall table, or set to any valid CSS hight (including units)",
+    "type": "boolean|string"
+  },
+  "nly-table/no-border-collapse": {
+    "description": "Disable's the collapsing of table borders. Useful when table has sticky headers or columns",
+    "type": "boolean"
+  },
+  "nly-table/caption-top": {
+    "description": "Visually place the table caption above the table. Default is below.",
+    "type": "boolean"
+  },
+  "nly-table/table-variant": {
+    "description": "Apply a Bootstrap theme color variant to the entire table",
+    "type": "string"
+  },
+  "nly-table/table-class": {
+    "description": "CSS class (or classes) to apply to the table element",
+    "type": "string|any[]|object"
+  },
+  "nly-table/stacked": {
+    "description": "Place the table in stacked mode. Set to true for always stacked, or set to one of the breakpoints to switch from stacked to normal: 'sm', 'md', 'lg', 'xl'",
+    "type": "boolean|string"
+  },
+  "nly-table/head-variant": {
+    "description": "Header variant: 'light' or 'dark', or unset. May take precedence over head-row-variant",
+    "type": "string"
+  },
+  "nly-table/head-row-variant": {
+    "description": "Apply a Bootstrap theme color variant to the tr element in the thead",
+    "type": "string"
+  },
+  "nly-table/thead-class": {
+    "description": "CSS class (or classes) to apply to the thead element",
+    "type": "string|any[]|object"
+  },
+  "nly-table/thead-tr-class": {
+    "description": "CSS class (or classes) to apply to the tr element in the thead",
+    "type": "string|any[]|object"
+  },
+  "nly-table/foot-clone": {
+    "description": "Enable to the footer of the table, and clone the header content by default",
+    "type": "boolean"
+  },
+  "nly-table/foot-variant": {
+    "description": "Footer variant: 'light' or 'dark', or unset. May take precedence over foot-row-variant",
+    "type": "string"
+  },
+  "nly-table/foot-row-variant": {
+    "description": "Apply a Bootstrap theme color variant to the tr element in the tfoot. Falls back to head-row-variant",
+    "type": "string"
+  },
+  "nly-table/tfoot-class": {
+    "description": "CSS class (or classes) to apply to the tfoot element",
+    "type": "string|any[]|object"
+  },
+  "nly-table/tfoot-tr-class": {
+    "description": "CSS class (or classes) to apply to the tr element in the tfoot",
+    "type": "string|any[]|object"
+  },
+  "nly-table/tbody-tr-class": {
+    "description": "CSS class (or classes) to apply to the tr element in the tbody. Can be a function that returns a class (see docs for details)",
+    "type": "string|any[]|object|function"
+  },
+  "nly-table/tbody-tr-attr": {
+    "description": "Attributes to be added to each tr in the tbody, or a function returning such attributes (see docs for details)",
+    "type": "object|function"
+  },
+  "nly-table/details-td-class": {
+    "description": "CSS class (or classes) to apply to the td element in the details row",
+    "type": "string|any[]|object"
+  },
+  "nly-table/tbody-transition-props": {
+    "description": "Vue 'transition-group' properties. When provided will make the tbody a Vue 'transition-group' component",
+    "type": "object"
+  },
+  "nly-table/tbody-transition-handlers": {
+    "description": "Vue 'transition-group' event handlers. When provided will make the tbody a Vue 'transition-group' component",
+    "type": "object"
+  },
+  "nly-table/tbody-class": {
+    "description": "CSS class (or classes) to apply to the tbody element",
+    "type": "string|any[]|object"
+  },
+  "nly-table/filter": {
+    "description": "Criteria for filtering. Internal filtering supports only string or RegExpr criteria.",
+    "type": "string|RegExp|object|any[]"
+  },
+  "nly-table/filter-function": {
+    "description": "Reference to a function to use instead of the internal filtering function. Refer to the docs for details",
+    "type": "function"
+  },
+  "nly-table/filter-ignored-fields": {
+    "description": "Array of top level fields to ignore when filtering the item data",
+    "type": "any[]"
+  },
+  "nly-table/filter-included-fields": {
+    "description": "Array of fields to include when filtering. Overrides filter-ignore-fields",
+    "type": "any[]"
+  },
+  "nly-table/filter-debounce": {
+    "description": "Time in milliseconds to debounce changes to the filter criteria before filtering the records",
+    "type": "number|string"
+  },
+  "nly-table/sort-by": {
+    "description": "Field name that is currently being sorted. Set to null to clear sorting. Syncable with the .sync prop modifier",
+    "type": "string"
+  },
+  "nly-table/sort-desc": {
+    "description": "Set to true to sort the column in descending order. Syncable with the .sync prop modifier",
+    "type": "boolean"
+  },
+  "nly-table/sort-direction": {
+    "description": "The initial sorting direction to sort an unsorted column by: 'asc', 'desc', or 'last' (to use the previous sort direction)",
+    "type": "string"
+  },
+  "nly-table/sort-compare": {
+    "description": "A reference to a function for sort-comparing two rows of data. Defaults to the internal sort compare routine. See docs for details",
+    "type": "function"
+  },
+  "nly-table/sort-compare-options": {
+    "description": "An object containing sort configuration for the 'String.prototype.sortLocale' method. See docs for details",
+    "type": "object"
+  },
+  "nly-table/sort-compare-locale": {
+    "description": "The locale string (or array of locale string) that specified the language when sorting. See docs for details",
+    "type": "string|any[]"
+  },
+  "nly-table/sort-null-last": {
+    "description": "When sorting, null and undefined values will be sorted first (or last, depending on 'sort-desc'). Set this prop to sort null values last. Only applicable to internal sorting",
+    "type": "boolean"
+  },
+  "nly-table/no-sort-reset": {
+    "description": "When a table is sortable, clicking on any non-sortable column heading will clear the current sort values. Set this prop to disable this feature",
+    "type": "boolean"
+  },
+  "nly-table/label-sort-asc": {
+    "description": "Hidden string to place in the header cell when clicking the cell will change the sort direction to ascending",
+    "type": "string"
+  },
+  "nly-table/label-sort-desc": {
+    "description": "Hidden string to place in the header cell when clicking the cell will change the sort direction to descending",
+    "type": "string"
+  },
+  "nly-table/label-sort-clear": {
+    "description": "Hidden string to place in the header cell when clicking the cell will clear the current sorting direction",
+    "type": "string"
+  },
+  "nly-table/no-local-sorting": {
+    "description": "Disabled the internal sorting routine, and expects the user to provde the items sorted. Sorting controls will still be available",
+    "type": "boolean"
+  },
+  "nly-table/no-footer-sorting": {
+    "description": "When the build in formatter is used, setting this prop will disable the sorting ability in the footer",
+    "type": "boolean"
+  },
+  "nly-table/sort-icon-left": {
+    "description": "Positions the sort control to the left of the header text. Default is on the right of the header text",
+    "type": "boolean"
+  },
+  "nly-table/per-page": {
+    "description": "Number of rows to show per page. Set to 0 to disable pagination",
+    "type": "number|string"
+  },
+  "nly-table/current-page": {
+    "description": "The current page number to display when the table is paginated. Starting from 1 and up",
+    "type": "number|string"
+  },
+  "nly-table/caption": {
+    "description": "Text string to place in the caption element",
+    "type": "string"
+  },
+  "nly-table/caption-html": {
+    "description": "HTML string to place in the caption element. Use with caution",
+    "type": "string"
+  },
+  "nly-table/selectable": {
+    "description": "When set, places the table body rows in selectable mode",
+    "type": "boolean"
+  },
+  "nly-table/select-mode": {
+    "description": "The selectable mode for the table when 'selectable' is set. Possible values: 'single', 'multi' or 'range'",
+    "type": "string"
+  },
+  "nly-table/selected-variant": {
+    "description": "Bootstrap color theme variant to set selected rows to. Use any of the standard Bootstrap theme color variants, or the special table row variant 'active' (default). Set to an empty string to not use a variant",
+    "type": "string"
+  },
+  "nly-table/no-select-on-click": {
+    "description": "Disables row selection via click events. Row selection will be only available programmatically",
+    "type": "boolean"
+  },
+  "nly-table/show-empty": {
+    "description": "When enabled, and there are no item records to show, shows a message that there are no rows to show",
+    "type": "boolean"
+  },
+  "nly-table/empty-text": {
+    "description": "Text string to show when the table has no items to show",
+    "type": "string"
+  },
+  "nly-table/empty-html": {
+    "description": "HTML string to show when the table has no items to show. Use with caution",
+    "type": "string"
+  },
+  "nly-table/empty-filtered-text": {
+    "description": "Text string to show when the table has no items to show due to filtering",
+    "type": "string"
+  },
+  "nly-table/empty-filtered-html": {
+    "description": "HTML string to show when the table has no items to show due to filtering. Use with caution",
+    "type": "string"
+  },
+  "nly-table/busy": {
+    "description": "When set, forces the table into the busy state.Automatically set when an items provider function is being called",
+    "type": "boolean"
+  },
+  "nly-table/no-provider-paging": {
+    "description": "When set, uses internal paging to pagination the data. Otherwise the items provider is expected to perform the paging",
+    "type": "boolean"
+  },
+  "nly-table/no-provider-sorting": {
+    "description": "When set, uses internal sorting to sort the data. Otherwise the items provider is expected to perform the sorting",
+    "type": "boolean"
+  },
+  "nly-table/no-provider-filtering": {
+    "description": "When set, uses internal filtering to pagination the data. Otherwise the provider is expected to perform the filtering",
+    "type": "boolean"
+  },
+  "nly-table/api-url": {
+    "description": "Pass through prop. Passed as part of the context object sent to the items provider function",
+    "type": "string"
+  },
+  "nly-table-lite/id": {
+    "description": "Used to set the 'id' attribute on the rendered content, and used as the base to generate any additional element IDs as needed",
+    "type": "string"
+  },
+  "nly-table-lite/items": {
+    "description": "Array of items to display",
+    "type": "any[]"
+  },
+  "nly-table-lite/fields": {
+    "description": "Array of field names or array of field definition objects",
+    "type": "any[]"
+  },
+  "nly-table-lite/primary-key": {
+    "description": "Name of a table field that contains a guaranteed unique value per row. Needed for tbody transition support, and also speeds up table rendering",
+    "type": "string"
+  },
+  "nly-table-lite/value": {
+    "description": "Currently displayed row data. Read-only. Do not set a value on this prop",
+    "type": "any[]"
+  },
+  "nly-table-lite/striped": {
+    "description": "Applies striping to the tbody rows",
+    "type": "boolean"
+  },
+  "nly-table-lite/bordered": {
+    "description": "Adds borders to all the cells and headers",
+    "type": "boolean"
+  },
+  "nly-table-lite/borderless": {
+    "description": "Removes all borders from cells",
+    "type": "boolean"
+  },
+  "nly-table-lite/outlined": {
+    "description": "Adds an outline border to the table element",
+    "type": "boolean"
+  },
+  "nly-table-lite/dark": {
+    "description": "Places the table in dark mode",
+    "type": "boolean"
+  },
+  "nly-table-lite/hover": {
+    "description": "Enables hover styling on rows",
+    "type": "boolean"
+  },
+  "nly-table-lite/small": {
+    "description": "Renders the table with smaller cell padding",
+    "type": "boolean"
+  },
+  "nly-table-lite/fixed": {
+    "description": "Makes all columns equal width (fixed layout table). Will speed up rendering for large tables. Column widths can be set via CSS or colgroup",
+    "type": "boolean"
+  },
+  "nly-table-lite/responsive": {
+    "description": "Makes the table responsive in width, adding a horizontal scrollbar. Set to true for always responsive or set to one of the breakpoints to switch from responsive to normal: 'sm', 'md', 'lg', 'xl'",
+    "type": "boolean|string"
+  },
+  "nly-table-lite/sticky-header": {
+    "description": "Makes the table header sticky. Set to true for a maximum height 300px tall table, or set to any valid CSS hight (including units)",
+    "type": "boolean|string"
+  },
+  "nly-table-lite/no-border-collapse": {
+    "description": "Disable's the collapsing of table borders. Useful when table has sticky headers or columns",
+    "type": "boolean"
+  },
+  "nly-table-lite/caption-top": {
+    "description": "Visually place the table caption above the table. Default is below.",
+    "type": "boolean"
+  },
+  "nly-table-lite/table-variant": {
+    "description": "Apply a Bootstrap theme color variant to the entire table",
+    "type": "string"
+  },
+  "nly-table-lite/table-class": {
+    "description": "CSS class (or classes) to apply to the table element",
+    "type": "string|any[]|object"
+  },
+  "nly-table-lite/stacked": {
+    "description": "Place the table in stacked mode. Set to true for always stacked, or set to one of the breakpoints to switch from stacked to normal: 'sm', 'md', 'lg', 'xl'",
+    "type": "boolean|string"
+  },
+  "nly-table-lite/head-variant": {
+    "description": "Header variant: 'light' or 'dark', or unset. May take precedence over head-row-variant",
+    "type": "string"
+  },
+  "nly-table-lite/head-row-variant": {
+    "description": "Apply a Bootstrap theme color variant to the tr element in the thead",
+    "type": "string"
+  },
+  "nly-table-lite/thead-class": {
+    "description": "CSS class (or classes) to apply to the thead element",
+    "type": "string|any[]|object"
+  },
+  "nly-table-lite/thead-tr-class": {
+    "description": "CSS class (or classes) to apply to the tr element in the thead",
+    "type": "string|any[]|object"
+  },
+  "nly-table-lite/foot-clone": {
+    "description": "Enable to the footer of the table, and clone the header content by default",
+    "type": "boolean"
+  },
+  "nly-table-lite/foot-variant": {
+    "description": "Footer variant: 'light' or 'dark', or unset. May take precedence over foot-row-variant",
+    "type": "string"
+  },
+  "nly-table-lite/foot-row-variant": {
+    "description": "Apply a Bootstrap theme color variant to the tr element in the tfoot. Falls back to head-row-variant",
+    "type": "string"
+  },
+  "nly-table-lite/tfoot-class": {
+    "description": "CSS class (or classes) to apply to the tfoot element",
+    "type": "string|any[]|object"
+  },
+  "nly-table-lite/tfoot-tr-class": {
+    "description": "CSS class (or classes) to apply to the tr element in the tfoot",
+    "type": "string|any[]|object"
+  },
+  "nly-table-lite/tbody-tr-class": {
+    "description": "CSS class (or classes) to apply to the tr element in the tbody. Can be a function that returns a class (see docs for details)",
+    "type": "string|any[]|object|function"
+  },
+  "nly-table-lite/tbody-tr-attr": {
+    "description": "Attributes to be added to each tr in the tbody, or a function returning such attributes (see docs for details)",
+    "type": "object|function"
+  },
+  "nly-table-lite/details-td-class": {
+    "description": "CSS class (or classes) to apply to the td element in the details row",
+    "type": "string|any[]|object"
+  },
+  "nly-table-lite/tbody-transition-props": {
+    "description": "Vue 'transition-group' properties. When provided will make the tbody a Vue 'transition-group' component",
+    "type": "object"
+  },
+  "nly-table-lite/tbody-transition-handlers": {
+    "description": "Vue 'transition-group' event handlers. When provided will make the tbody a Vue 'transition-group' component",
+    "type": "object"
+  },
+  "nly-table-lite/tbody-class": {
+    "description": "CSS class (or classes) to apply to the tbody element",
+    "type": "string|any[]|object"
+  },
+  "nly-table-lite/caption": {
+    "description": "Text string to place in the caption element",
+    "type": "string"
+  },
+  "nly-table-lite/caption-html": {
+    "description": "HTML string to place in the caption element. Use with caution",
+    "type": "string"
+  },
+  "nly-table-simple/id": {
+    "description": "Used to set the 'id' attribute on the rendered content, and used as the base to generate any additional element IDs as needed",
+    "type": "string"
+  },
+  "nly-table-simple/striped": {
+    "description": "Applies striping to the tbody rows",
+    "type": "boolean"
+  },
+  "nly-table-simple/bordered": {
+    "description": "Adds borders to all the cells and headers",
+    "type": "boolean"
+  },
+  "nly-table-simple/borderless": {
+    "description": "Removes all borders from cells",
+    "type": "boolean"
+  },
+  "nly-table-simple/outlined": {
+    "description": "Adds an outline border to the table element",
+    "type": "boolean"
+  },
+  "nly-table-simple/dark": {
+    "description": "Places the table in dark mode",
+    "type": "boolean"
+  },
+  "nly-table-simple/hover": {
+    "description": "Enables hover styling on rows",
+    "type": "boolean"
+  },
+  "nly-table-simple/small": {
+    "description": "Renders the table with smaller cell padding",
+    "type": "boolean"
+  },
+  "nly-table-simple/fixed": {
+    "description": "Makes all columns equal width (fixed layout table). Will speed up rendering for large tables. Column widths can be set via CSS or colgroup",
+    "type": "boolean"
+  },
+  "nly-table-simple/responsive": {
+    "description": "Makes the table responsive in width, adding a horizontal scrollbar. Set to true for always responsive or set to one of the breakpoints to switch from responsive to normal: 'sm', 'md', 'lg', 'xl'",
+    "type": "boolean|string"
+  },
+  "nly-table-simple/sticky-header": {
+    "description": "Makes the table header sticky. Set to true for a maximum height 300px tall table, or set to any valid CSS hight (including units)",
+    "type": "boolean|string"
+  },
+  "nly-table-simple/no-border-collapse": {
+    "description": "Disable's the collapsing of table borders. Useful when table has sticky headers or columns",
+    "type": "boolean"
+  },
+  "nly-table-simple/caption-top": {
+    "description": "Visually place the table caption above the table. Default is below.",
+    "type": "boolean"
+  },
+  "nly-table-simple/table-variant": {
+    "description": "Apply a Bootstrap theme color variant to the entire table",
+    "type": "string"
+  },
+  "nly-table-simple/table-class": {
+    "description": "CSS class (or classes) to apply to the table element",
+    "type": "string|any[]|object"
+  },
+  "nly-table-simple/stacked": {
+    "description": "Place the table in stacked mode. Set to true for always stacked, or set to one of the breakpoints to switch from stacked to normal: 'sm', 'md', 'lg', 'xl'",
+    "type": "boolean|string"
+  },
+  "nly-tbody/tbody-transition-props": {
+    "description": "Vue 'transition-group' properties. When provided will make the tbody a Vue 'transition-group' component",
+    "type": "object"
+  },
+  "nly-tbody/tbody-transition-handlers": {
+    "description": "Vue 'transition-group' event handlers. When provided will make the tbody a Vue 'transition-group' component",
+    "type": "object"
+  },
+  "nly-thead/head-variant": {
+    "description": "Header variant: 'light' or 'dark', or unset",
+    "type": "string"
+  },
+  "nly-tfoot/foot-variant": {
+    "description": "Footer variant: 'light' or 'dark', or unset",
+    "type": "string"
+  },
+  "nly-tr/variant": {
+    "description": "Applies one of the Bootstrap theme color variants to the component",
+    "type": "string"
+  },
+  "nly-td/variant": {
+    "description": "Applies one of the Bootstrap theme color variants to the component",
+    "type": "string"
+  },
+  "nly-td/colspan": {
+    "description": "Number of columns this cell spans",
+    "type": "number|string"
+  },
+  "nly-td/rowspan": {
+    "description": "Number of rows this cell spans",
+    "type": "number|string"
+  },
+  "nly-td/stacked-heading": {
+    "description": "Heading for the cell when in stacked mode. Only applicable to cells in the 'tbody' element",
+    "type": "string"
+  },
+  "nly-td/sticky-column": {
+    "description": "If this will be a sticky colum. Must be set on all cells in this column. table must be in sticky-header or responsive mode to work",
+    "type": "boolean"
+  },
+  "nly-th/variant": {
+    "description": "Applies one of the Bootstrap theme color variants to the component",
+    "type": "string"
+  },
+  "nly-th/colspan": {
+    "description": "Number of columns this cell spans",
+    "type": "number|string"
+  },
+  "nly-th/rowspan": {
+    "description": "Number of rows this cell spans",
+    "type": "number|string"
+  },
+  "nly-th/stacked-heading": {
+    "description": "Heading for the cell when in stacked mode. Only applicable to cells in the 'tbody' element",
+    "type": "string"
+  },
+  "nly-th/sticky-column": {
+    "description": "If this will be a sticky colum. Must be set on all cells in this column. table must be in sticky-header or responsive mode to work",
+    "type": "boolean"
+  },
+  "nly-toast/id": {
+    "description": "Used to set the 'id' attribute on the rendered content, and used as the base to generate any additional element IDs as needed",
+    "type": "string"
+  },
+  "nly-toast/title": {
+    "description": "The toast's title text",
+    "type": "string"
+  },
+  "nly-toast/toaster": {
+    "description": "The name of the toaster target to render the toast in",
+    "type": "string"
+  },
+  "nly-toast/visible": {
+    "description": "When true, shows the toast",
+    "type": "boolean"
+  },
+  "nly-toast/variant": {
+    "description": "Applies one of the Bootstrap theme color variants to the component",
+    "type": "string"
+  },
+  "nly-toast/is-status": {
+    "description": "When set to 'true', makes the toast have attributes aria-live=polite and role=status. When 'false' aria-live will be 'assertive' and role will be 'alert'",
+    "type": "boolean"
+  },
+  "nly-toast/append-toast": {
+    "description": "When true, the toast will be appended to the bottom on the visible toasts, otherwise it will be prepended",
+    "type": "boolean"
+  },
+  "nly-toast/no-auto-hide": {
+    "description": "When set, disabled the toast from automatically dismissing itself",
+    "type": "boolean"
+  },
+  "nly-toast/auto-hide-delay": {
+    "description": "The number of milliseconds before the toast auto dismisses itself",
+    "type": "number|string"
+  },
+  "nly-toast/no-close-button": {
+    "description": "When set, hides the close button in the toast header",
+    "type": "boolean"
+  },
+  "nly-toast/no-fade": {
+    "description": "When set to 'true', disables the fade animation/transition on the component",
+    "type": "boolean"
+  },
+  "nly-toast/no-hover-pause": {
+    "description": "When set, disables the pausing of the auto hide delay when the mouse hovers the toast",
+    "type": "boolean"
+  },
+  "nly-toast/solid": {
+    "description": "When set, renderes the toast with a solid background rather than translucent",
+    "type": "boolean"
+  },
+  "nly-toast/toast-class": {
+    "description": "CSS class (or classes) to add to the toast wrapper element",
+    "type": "string|object|any[]"
+  },
+  "nly-toast/header-class": {
+    "description": "CSS class (or classes) to add to the toast header element",
+    "type": "string|object|any[]"
+  },
+  "nly-toast/body-class": {
+    "description": "CSS class (or classes) to add to the toast body element",
+    "type": "string|object|any[]"
+  },
+  "nly-toast/href": {
+    "description": "Denotes the target URL of the link for standard a links",
+    "type": "string"
+  },
+  "nly-toast/to": {
+    "description": "router-link prop: Denotes the target route of the link. When clicked, the value of the to prop will be passed to router.push() internally, so the value can be either a string or a Location descriptor object",
+    "type": "string|object"
+  },
+  "nly-toast/static": {
+    "description": "Renders the content of the component in-place in the DOM, rather than portalling it to be appended to the body element",
+    "type": "boolean"
+  },
+  "nly-toaster/name": {
+    "description": "The toaster's target name",
+    "type": "string"
+  },
+  "nly-toaster/aria-live": {
+    "description": "When the rendered element is an aria-live region (for screen reader users), set to either 'polite' or 'assertive'",
+    "type": "string"
+  },
+  "nly-toaster/aria-atomic": {
+    "description": "When screen reader's should read out the entire contents (set to string 'true') or just the changes (set to string 'false'). Leave blank for most cases",
+    "type": "string"
+  },
+  "nly-toaster/role": {
+    "description": "Sets the ARIA attribute 'role' to a specific value",
+    "type": "string"
+  },
+  "nly-tooltip/title": {
+    "description": "Text to place in the tooltip",
+    "type": "string"
+  },
+  "nly-tooltip/target": {
+    "description": "Element string ID, or a reference to an element or component, that you want to trigger the tooltip.",
+    "type": "string|HTMLElement|SVGElement|function|object"
+  },
+  "nly-tooltip/triggers": {
+    "description": "Specify which triggers will show the tooltip. Supported values are 'click', 'hover', 'focus'. Refer to the docs for special triggers 'blur' and 'manual'",
+    "type": "string|any[]"
+  },
+  "nly-tooltip/placement": {
+    "description": "Placement of the tooltip: One of 'top', 'bottom', 'right', 'left', 'top-left', 'top-right', 'bottom-left', 'bottom-right', 'left-top', 'left-bottom', 'right-top', 'right-bottom'",
+    "type": "string"
+  },
+  "nly-tooltip/fallback-placement": {
+    "description": "placement to use when the tooltip would be out of boundaries. Refer to the docs for more details",
+    "type": "string|any[]"
+  },
+  "nly-tooltip/variant": {
+    "description": "Applies one of the Bootstrap theme color variants to the component",
+    "type": "string"
+  },
+  "nly-tooltip/custom-class": {
+    "description": "CSS class (or classes) to apply to the tooltip's root element",
+    "type": "string"
+  },
+  "nly-tooltip/delay": {
+    "description": "Value for the show and hide delay. Applies to both show and hide when specified as a number or string. Use object form to set show and hide delays individually",
+    "type": "number|object|string"
+  },
+  "nly-tooltip/boundary": {
+    "description": "The boundary constraint of the tooltip: 'scrollParent', 'window', 'viewport', or a reference to an HTMLElement or component",
+    "type": "string|HTMLElement|object"
+  },
+  "nly-tooltip/boundary-padding": {
+    "description": "The tooltip will try and stay away from the edge of the boundary element by the number of pixels specificed",
+    "type": "number|string"
+  },
+  "nly-tooltip/offset": {
+    "description": "Offset (in pixels) for the arrow center compared to the trigger target element",
+    "type": "number|string"
+  },
+  "nly-tooltip/no-fade": {
+    "description": "When set to 'true', disables the fade animation/transition on the component",
+    "type": "boolean"
+  },
+  "nly-tooltip/container": {
+    "description": "The container element to append the rendered tooltip when visible. Default's to the body element",
+    "type": "string|HTMLElement|object"
+  },
+  "nly-tooltip/show": {
+    "description": "When set will show the tooltip",
+    "type": "boolean"
+  },
+  "nly-tooltip/noninteractive": {
+    "description": "Wether the tooltip should not be user-interactive",
+    "type": "boolean"
+  },
+  "nly-tooltip/disabled": {
+    "description": "When set to 'true', disables the component's functionality and places it in a disabled state",
+    "type": "boolean"
+  },
+  "nly-tooltip/id": {
+    "description": "Used to set the 'id' attribute on the rendered content, and used as the base to generate any additional element IDs as needed",
+    "type": "string"
+  },
+  "nly-badge/size": {
+    "description": "大小",
+    "type": "string"
+  },
+  "nly-badge/variant": {
+    "description": "badge-*类颜色",
+    "type": "string"
+  },
+  "nly-badge/bg-variant": {
+    "description": "bg-*类颜色",
+    "type": "string"
+  },
+  "nly-badge/bg-gradient-variant": {
+    "description": "bg-gradient-*类颜色，渐变色",
+    "type": "string"
+  },
+  "nly-badge/badge-class": {
+    "description": "自定义css",
+    "type": "string"
+  },
+  "nly-badge/tag": {
+    "description": "自定义tag",
+    "type": "string"
+  },
+  "nly-badge/pill": {
+    "description": "形状，圆角型",
+    "type": "Boolean"
+  },
+  "nly-breadcrumb/item": {
+    "description": "item元素数组",
+    "type": "Array"
+  },
+  "nly-breadcrumb/breadcrumb-class": {
+    "description": "自定义css",
+    "type": "string"
+  },
+  "nly-breadcrumb-item/icon": {
+    "description": "图标icon",
+    "type": "string"
+  },
+  "nly-breadcrumb-item/text": {
+    "description": "面包屑导航文本",
+    "type": "string"
+  },
+  "nly-breadcrumb-item/href": {
+    "description": "面包屑导航路由",
+    "type": "string"
+  },
+  "nly-breadcrumb-item/to": {
+    "description": "面包屑导航路由",
+    "type": "String, Object"
+  },
+  "nly-breadcrumb-item/append": {
+    "description": "面包屑导航路由模式",
+    "type": "Boolean"
+  },
+  "nly-breadcrumb-item/replace": {
+    "description": "面包屑导航路由模式",
+    "type": "Boolean"
+  },
+  "nly-breadcrumb-item/active": {
+    "description": "激活面包屑导航路由",
+    "type": "Boolean"
+  },
+  "nly-breadcrumb-item/target": {
+    "description": "target属性",
+    "type": "String"
+  },
+  "nly-breadcrumb-item/item-class": {
+    "description": "面包屑导航item自定义css",
+    "type": "String"
+  },
+  "nly-breadcrumb-item/link-class": {
+    "description": "面包屑导航link自定义css",
+    "type": "String"
+  },
+  "nly-button/block": {
+    "description": "按钮block属性，填充整个父div",
+    "type": "Boolean"
+  },
+  "nly-button/variant": {
+    "description": "按钮颜色 可选  default，primary，secondary，success，info，danger，warning，outlineDefaul，outlinePrimary，outlineSecondary，outlineSuccess，outlineInfo，outlineDanger，outlineWarning。要设置透明，传入null",
+    "type": "String"
+  },
+  "nly-button/gradient": {
+    "description": "按钮渐变色颜色，和variant只能选择一个。可选primary，secondary，success，info，danger，warning",
+    "type": "String"
+  },
+  "nly-button/bg-variant": {
+    "description": "背景色，primary，secondary，success，info:，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-button/size": {
+    "description": "按钮大小，可选lg，sm，sx",
+    "type": "String"
+  },
+  "nly-button/type": {
+    "description": "按钮类型，可选button，submit",
+    "type": "String"
+  },
+  "nly-button/shape": {
+    "description": "按钮形状，可选roundedFlat，roundedPill，roundedCircle，roundedLg，roundedSm",
+    "type": "String"
+  },
+  "nly-button/disabled": {
+    "description": "禁用按钮",
+    "type": "Boolean"
+  },
+  "nly-button/pressed": {
+    "description": "按钮激活按下效果",
+    "type": "Boolean"
+  },
+  "nly-button/tool": {
+    "description": "工具类按钮，默认非工具类。此时variant参数在不点击的情况下，只会改变边框颜色。可以使用bg-variant和gradient props改变背景色",
+    "type": "Boolean"
+  },
+  "nly-button/app": {
+    "description": "app类按钮.一般情况下是对图标使用的按钮。可以将图标变小，居中",
+    "type": "Boolean"
+  },
+  "nly-button/button-class": {
+    "description": "自定义式样",
+    "type": "String"
+  },
+  "nly-button-group/vertical": {
+    "description": "是否垂直",
+    "type": "Boolean"
+  },
+  "nly-button-group/group-size": {
+    "description": "大小，可选'lg'，'sm'",
+    "type": "String"
+  },
+  "nly-button-group/group-tag": {
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-button-group/button-group-class": {
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-button-close/content":{
+    "description": "文本内容",
+    "type": "String"
+  },
+  "nly-button-close/disabled":{
+    "description": "禁用",
+    "type": "Boolean"
+  },
+  "nly-button-close/aria-label":{
+    "description": "aria-label",
+    "type": "String"
+  },
+  "nly-button-close/text-variant":{
+    "description": "文字颜色",
+    "type": "String"
+  },
+  "nly-card-group/group-type":{
+    "description": "卡片组类型 默认card-group，可选，default，deck，columns，accordion。deck水平，colunms当水平排列放不下，就垂直，先垂直一列，载垂直第二列",
+    "type": "String"
+  },
+  "nly-card-group/group-class":{
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-card-group/tag":{
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-card/header-variant":{
+    "description": "header背景色，card-*。可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card/header-outline":{
+    "description": "header边框",
+    "type": "Boolean"
+  },
+  "nly-card/card-outline-tabs":{
+    "description": "作为tab时，header的式样",
+    "type": "Boolean"
+  },
+  "nly-card/card-tabs":{
+    "description": "是否作为一个tab",
+    "type": "Boolean"
+  },
+  "nly-card/text-variant":{
+    "description": "字体颜色，可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card/bg-variant":{
+    "description": "整个卡片背景色，可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card/bg-gradient-variant":{
+    "description": "整个卡片背景色，渐变色可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card/height-control":{
+    "description": "控制卡片高度，最高300px",
+    "type": "Boolean"
+  },
+  "nly-card/loading":{
+    "description": "开启图标，图片和文字loading",
+    "type": "Boolean"
+  },
+  "nly-card/dark":{
+    "description": "loading式样，默认light，设置dark=true为黑色",
+    "type": "Boolean"
+  },
+  "nly-card/loading-content":{
+    "description": "自定义loading文字内容，设置loading为true的时候，生效，传入内容会覆盖icon-loading",
+    "type": "String"
+  },
+  "nly-card/loading-content-tag":{
+    "description": "自定义loading文字内容标签，设置loading为true的时候，生效",
+    "type": "String"
+  },
+  "nly-card/loading-content-class":{
+    "description": "自定义loading文字内容css式样，设置loading为true的时候，生效，",
+    "type": "String"
+  },
+  "nly-card/loading-icon":{
+    "description": "开启loading情况下默认loading内容。如果传入loading-content，会覆盖loading-icon",
+    "type": "String"
+  },
+  "nly-card/loading-img-src":{
+    "description": "loading图片url，在设置loading为true的时候，传入loading-img-src参数会显示loadingimg",
+    "type": "String"
+  },
+  "nly-card/loading-img-class":{
+    "description": "loading图片自定义css式样，在传入loading-img-src的时候，loading-img-class生效",
+    "type": "String"
+  },
+  "nly-card/tag":{
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-card/card-class":{
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-card/id":{
+    "description": "id",
+    "type": "String"
+  },
+  "nly-card-header/bg-variant":{
+    "description": "背景色，可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card-header/bg-gradient-variant":{
+    "description": "背景色,渐变色，可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card-header/text-variant":{
+    "description": "字体颜色，选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card-header/tag":{
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-card-header/card-header-class":{
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-card-header/img-overlay":{
+    "description": "放置到图片card-img上",
+    "type": "Boolean"
+  },
+  "nly-card-body/bg-variant":{
+    "description": "背景色，可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card-body/bg-gradient-variant":{
+    "description": "背景色,渐变色，可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card-body/text-variant":{
+    "description": "字体颜色，选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card-body/tag":{
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-card-body/card-body-class":{
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-card-body/img-overlay":{
+    "description": "放置到图片card-img上",
+    "type": "Boolean"
+  },
+  "nly-card-footer/bg-variant":{
+    "description": "背景色，可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card-footer/bg-gradient-variant":{
+    "description": "背景色,渐变色，可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card-footer/text-variant":{
+    "description": "字体颜色，选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card-footer/tag":{
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-card-footer/card-footer-class":{
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-card-footer/img-overlay":{
+    "description": "放置到图片card-img上",
+    "type": "Boolean"
+  },
+  "nly-card-title/text-variant":{
+    "description": "字体颜色，选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-card-title/tag":{
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-card-title/title-class":{
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-card-img/top":{
+    "description": "top圆角",
+    "type": "Boolean"
+  },
+  "nly-card-img/buttom":{
+    "description": "buttom圆角",
+    "type": "Boolean"
+  },
+  "nly-card-img/src":{
+    "description": "图片url",
+    "type": "String"
+  },
+  "nly-card-img/img-class":{
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-card-tool/tag":{
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-card-tool/tool-class":{
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-card-text/tag":{
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-card-text/text-class":{
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-card-text/text-variant":{
+    "description": "字体颜色，选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-collapse/id":{
+    "description": "折叠组id",
+    "type": "String"
+  },
+  "nly-collapse/is-nav":{
+    "description": "菜单模式，会添加class='navbar-collapse'",
+    "type": "Boolean"
+  },
+  "nly-collapse/accordion":{
+    "description": "手风琴模式，手风琴分组字段",
+    "type": "String"
+  },
+  "nly-collapse/visible":{
+    "description": "设置true，会展开折叠版",
+    "type": "Boolean"
+  },
+  "nly-collapse/appear":{
+    "description": "初始化展开动画",
+    "type": "Boolean"
+  },
+  "nly-collapse-noclass/appear":{
+    "description": "初始化展开动画",
+    "type": "Boolean"
+  },
+  "nly-collapse-noclass/id":{
+    "description": "折叠组id",
+    "type": "String"
+  },
+  "nly-collapse-noclass/is-nav":{
+    "description": "菜单模式，会添加class='navbar-collapse'",
+    "type": "Boolean"
+  },
+  "nly-collapse-noclass/accordion":{
+    "description": "手风琴模式，手风琴分组字段",
+    "type": "String"
+  },
+  "nly-collapse-noclass/visible":{
+    "description": "设置true，会展开折叠版",
+    "type": "Boolean"
+  },
+  "nly-control-sidebar/scrollbar":{
+    "description": "开启滚动条组件",
+    "type": "Boolean"
+  },
+  "nly-dropdown/vertical":{
+    "description": "是否垂直，默认水平",
+    "type": "Boolean"
+  },
+  "nly-dropdown/dropdown-size":{
+    "description": "大小，会覆盖nly-botton组件size，可选sm，lg",
+    "type": "String"
+  },
+  "nly-dropdown/dropdown-tag":{
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-dropdown/dropdown-toggle":{
+    "description": "开启下拉icon，默认不开启",
+    "type": "Boolean"
+  },
+  "nly-dropdown/dropdown-icon":{
+    "description": "下拉icon与文字对齐，默认不开启",
+    "type": "Boolean"
+  },
+  "nly-dropdown/text":{
+    "description": "文字内容",
+    "type": "String"
+  },
+  "nly-dropdown/toggle-text":{
+    "description": "toggle文字内容",
+    "type": "String"
+  },
+  "nly-dropdown/dropdown-class":{
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-dropdown/data-show":{
+    "description": "触发的显示的下拉内容，对应为nly-dropdown-menu的id prop，必传",
+    "type": "String"
+  },
+  "nly-dropdown/placement":{
+    "description": "下拉内容出现的位置，默认auto，会选择最节省空间的地方显示。可选auto，auto-start，auto-end,top，top-start，top-end，bottom，bottom-start，bottom-end，right,right-start，right-end，left，left-start，left-end",
+    "type": "String"
+  },
+  "nly-dropdown-menu/tag":{
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-dropdown-menu/dropdown-menu-class":{
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-dropdown-menu/role":{
+    "description": "role属性",
+    "type": "String"
+  },
+  "nly-dropdown-menu/id":{
+    "description": "组件id，必传",
+    "type": "String"
+  },
+  "nly-icon/icon":{
+    "description": "icon class",
+    "type": "String"
+  },
+  "nly-icon/tag":{
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-icon/size":{
+    "description": "字体大小，可选sm，lg",
+    "type": "String"
+  },
+
+  "nly-infobox/bg-variant":{
+    "description": "整个卡片背景色，可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-infobox/bg-gradient-variant":{
+    "description": "整个卡片背景色，渐变色可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，graydark",
+    "type": "String"
+  },
+  "nly-infobox/loading":{
+    "description": "开启图标，图片和文字loading",
+    "type": "Boolean"
+  },
+  "nly-infobox/dark":{
+    "description": "loading式样，默认light，设置dark=true为黑色",
+    "type": "Boolean"
+  },
+  "nly-infobox/loading-content":{
+    "description": "自定义loading文字内容，设置loading为true的时候，生效，传入内容会覆盖icon-loading",
+    "type": "String"
+  },
+  "nly-infobox/loading-content-tag":{
+    "description": "自定义loading文字内容标签，设置loading为true的时候，生效",
+    "type": "String"
+  },
+  "nly-infobox/loading-content-class":{
+    "description": "自定义loading文字内容css式样，设置loading为true的时候，生效，",
+    "type": "String"
+  },
+  "nly-infobox/loading-icon":{
+    "description": "开启loading情况下默认loading内容。如果传入loading-content，会覆盖loading-icon",
+    "type": "String"
+  },
+  "nly-infobox/loading-img-src":{
+    "description": "loading图片url，在设置loading为true的时候，传入loading-img-src参数会显示loadingimg",
+    "type": "String"
+  },
+  "nly-infobox/loading-img-class":{
+    "description": "loading图片自定义css式样，在传入loading-img-src的时候，loading-img-class生效",
+    "type": "String"
+  },
+  "nly-form/id": {
+    "description": "单表id",
+    "type": "String"
+  },
+  "nly-form/role": {
+    "description": "单表role属性,默认form",
+    "type": "String"
+  },
+  "nly-form/validated": {
+    "description": "添加was-validated css类,会自动验证表单内容,默认false",
+    "type": "Boolean"
+  },
+  "nly-form/inline": {
+    "description": "水平布局,默认false",
+    "type": "Boolean"
+  },
+  "nly-form/novalidate": {
+    "description": "禁用浏览器htm5验证,默认false",
+    "type": "Boolean"
+  },
+  "nly-form-input/type": {
+    "description": "类型，默认text,不传默认text。可选text,password,email,number,url,tel,search,range,color,date,time,datetime,datetime-local,month,week",
+    "type": "String"
+  },
+  "nly-form-input/max": {
+    "description": "输入值的最大范围，type=number和range才有效",
+    "type": "String, Number"
+  },
+  "nly-form-input/min": {
+    "description": "输入值的最小范围，type=number和range才有效",
+    "type": "String, Number"
+  },
+  "nly-form-input/maxlength": {
+    "description": "输入值的最大长度，type='text'或者'password'时有用",
+    "type": "String, Number"
+  },
+  "nly-form-input/step": {
+    "description": "有效间隔，type=number和range才有效",
+    "type": "String, Number"
+  },
+  "nly-form-input/list": {
+    "description": "输入时出现预先设定的option下拉列表，password无效",
+    "type": "String"
+  },
+  "nly-form-input/value": {
+    "description": "值，v-model传入的值会传给value",
+    "type": "String, Number"
+  },
+  "nly-form-input/readonly": {
+    "description": "只读",
+    "type": "Boolean"
+  },
+  "nly-form-input/plaintext": {
+    "description": "无外框",
+    "type": "Boolean"
+  },
+  "nly-form-input/autocomplete": {
+    "description": "自动提示完成填写",
+    "type": "String"
+  },
+  "nly-form-input/placeholder": {
+    "description": "提示文本",
+    "type": "String"
+  },
+  "nly-form-input/formatter": {
+    "description": "文本格式转换",
+    "type": "Function"
+  },
+  "nly-form-input/lazy-formatter": {
+    "description": "懒惰模式文本格式转换",
+    "type": "Boolean"
+  },
+  "nly-form-input/trim": {
+    "description": "去除首尾空格",
+    "type": "Boolean"
+  },
+  "nly-form-input/lazy": {
+    "description": "懒加载模式，事件和v-model有效",
+    "type": "Boolean"
+  },
+  "nly-form-input/name": {
+    "description": "放置form中，可以根据name属性取值",
+    "type": "String"
+  },
+  "nly-form-input/id": {
+    "description": "id",
+    "type": "String"
+  },
+  "nly-form-input/disabled": {
+    "description": "禁用",
+    "type": "Boolean"
+  },
+  "nly-form-input/required": {
+    "description": "html校验必填，放置form中，提交才会生效",
+    "type": "Boolean"
+  },
+  "nly-form-input/form": {
+    "description": "指定归属表单，可以放置在表单外面",
+    "type": "String"
+  },
+  "nly-form-input/autofocus": {
+    "description": "自动聚焦",
+    "type": "Boolean"
+  },
+  "nly-form-input/size": {
+    "description": "大小，可以sm,lg",
+    "type": "String"
+  },
+  "nly-form-input/valid": {
+    "description": "验证提示，可选valid,invalid,warning,novalid",
+    "type": "String"
+  },
+  "nly-form-input/col": {
+    "description": "在没有其他props的情况下，所有列等宽,放在class='row'的元素下有效",
+    "type": "Boolean"
+  },
+  "nly-form-input/xs": {
+    "description": "宽度在xs及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据子节点自动宽度，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/sm": {
+    "description": "宽度在sm及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据子节点自动宽度，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/md": {
+    "description": "宽度在md及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据子节点自动宽度，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/lg": {
+    "description": "宽度在lg及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据子节点自动宽度，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/xl": {
+    "description": "宽度在xl及以上断点列宽,可选1，2，3，4，5，6，7，8，9，10，11，12，auto，auto为根据子节点自动宽度，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/offset-xs": {
+    "description": "宽度在xs及以上断点右移列数,可选0，2，3，4，5，6，7，8，9，10，11，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/offset-sm": {
+    "description": "宽度在sm及以上断点右移列数,可选0，2，3，4，5，6，7，8，9，10，11，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/offset-md": {
+    "description": "宽度在md及以上断点右移列数,可选0，2，3，4，5，6，7，8，9，10，11，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/offset-lg": {
+    "description": "宽度在lg及以上断点右移列数,可选0，2，3，4，5，6，7，8，9，10，11，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/offset-xl": {
+    "description": "宽度在xl及以上断点右移列数,可选0，2，3，4，5，6，7，8，9，10，11，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/order-xs": {
+    "description": "宽度在xs及以上断点排列顺序,可选0，2，3，4，5，6，7，8，9，10，11，12，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/order-sm": {
+    "description": "宽度在sm及以上断点排列顺序,可选0，2，3，4，5，6，7，8，9，10，11，12，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/order-md": {
+    "description": "宽度在md及以上断点排列顺序,可选0，2，3，4，5，6，7，8，9，10，11，12，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/order-lg": {
+    "description": "宽度在lg及以上断点排列顺序,可选0，2，3，4，5，6，7，8，9，10，11，12，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/order-xl": {
+    "description": "宽度在xl及以上断点排列顺序,可选0，2，3，4，5，6，7，8，9，10，11，12，放在class='row'的元素下有效",
+    "type": "String"
+  },
+  "nly-form-input/variant": {
+    "description": "颜色，只有type=='range'的时候生效,可选primary，secondary，success，info，warning，danger，light，dark，lightblue，navy，olive，lime，fuchsia，maroon，blue，indigo，purple，pink，red，orange，yellow，green，teal，cyan，white，gray，gray-dark",
+    "type": "String"
+  },
+  "nly-form-feedback/state": {
+    "description": "类型验证提示，可选valid,invalid,warning",
+    "type": "String"
+  },
+  "nly-form-feedback/text": {
+    "description": "类型验证提示文本内容",
+    "type": "String"
+  },
+  "nly-log-header/title": {
+    "description": "头部标题",
+    "type": "String"
+  },
+  "nly-log-header/title-calss": {
+    "description": "头部标题css式样",
+    "type": "String"
+  },
+  "nly-log-header/log-header-class": {
+    "description": "头部自定义css式样",
+    "type": "String"
+  },
+  "nly-log-body/scroll-bottom": {
+    "description": "显示滚动到底部按钮",
+    "type": "Boolean"
+  },
+  "nly-log-body/bottom-icon": {
+    "description": "滚动到底部按钮图标",
+    "type": "String"
+  },
+  "nly-log-body/bottom-text": {
+    "description": "滚动到底部按钮文字",
+    "type": "String"
+  },
+  "nly-log-body/lock-scroll-bottom": {
+    "description": "显示锁定到底部按钮",
+    "type": "Boolean"
+  },
+  "nly-log-body/lock-bottom-icon": {
+    "description": "锁定到底部按钮图标",
+    "type": "String"
+  },
+  "nly-log-body/lock-bottom-text": {
+    "description": "锁定到底部按钮文字",
+    "type": "String"
+  },
+  "nly-log-body/scroll-top": {
+    "description": "显示滚动到顶部按钮",
+    "type": "Boolean"
+  },
+  "nly-log-body/top-icon": {
+    "description": "滚动到顶部图标",
+    "type": "String"
+  },
+  "nly-log-body/log-body-class": {
+    "description": "自定义css式样",
+    "type": "String"
+  },
+  "nly-log-body/pre-class": {
+    "description": "pre标签自定义css式样",
+    "type": "String"
+  },
+  "nly-log-line/duration": {
+    "description": "时间，传入会渲染time组件",
+    "type": "String"
+  },
+  "nly-log-line/duration-class": {
+    "description": "time组件自定义css",
+    "type": "String"
+  },
+  "nly-log-line/line": {
+    "description": "log行数",
+    "type": "String, Number"
+  },
+  "nly-log-line/line-class": {
+    "description": "log行数自定义css",
+    "type": "String"
+  },  
+  "nly-log-line/text": {
+    "description": "log内容",
+    "type": "String"
+  },
+  "nly-log-line/text-class": {
+    "description": "log内容自定义css",
+    "type": "String"
+  },
+  "nly-log-line/title": {
+    "description": "log标题",
+    "type": "String"
+  },
+  "nly-log-line/title-class": {
+    "description": "log标题自定义css",
+    "type": "String"
+  },
+  "nly-log-line/icon": {
+    "description": "log内容icon",
+    "type": "String"
+  },
+  "nly-log-line/icon-class": {
+    "description": "log内容icon自定义css",
+    "type": "String"
+  },
+  "nly-log-line/log-line-class": {
+    "description": "log自定义css",
+    "type": "String"
+  },
+  "nly-log-line/high-light": {
+    "description": "高亮",
+    "type": "Boolean"
+  },
+  "nly-log-line-tree/duration": {
+    "description": "时间，传入会渲染time组件",
+    "type": "String"
+  },
+  "nly-log-line-tree/duration-class": {
+    "description": "time组件自定义css",
+    "type": "String"
+  },
+  "nly-log-line-tree/line": {
+    "description": "log行数",
+    "type": "String, Number"
+  },
+  "nly-log-line-tree/line-class": {
+    "description": "log行数自定义css",
+    "type": "String"
+  },  
+  "nly-log-line-tree/text": {
+    "description": "log内容",
+    "type": "String"
+  },
+  "nly-log-line-tree/text-class": {
+    "description": "log内容自定义css",
+    "type": "String"
+  },
+  "nly-log-line-tree/title": {
+    "description": "log标题",
+    "type": "String"
+  },
+  "nly-log-line-tree/title-class": {
+    "description": "log标题自定义css",
+    "type": "String"
+  },
+  "nly-log-line-tree/icon": {
+    "description": "log内容icon",
+    "type": "String"
+  },
+  "nly-log-line-tree/icon-class": {
+    "description": "log内容icon自定义css",
+    "type": "String"
+  },
+  "nly-log-line-tree/log-line-class": {
+    "description": "log自定义css",
+    "type": "String"
+  },
+  "nly-log-line-tree/high-light": {
+    "description": "高亮",
+    "type": "Boolean"
+  },
+  "nly-log-line-tree/visible": {
+    "description": "默认收起折叠后log，设置true会打开",
+    "type": "Boolean"
+  },
+  "nly-wrapper/side-mini": {
+    "description": "给body添加sidebar-mini class属性，允许左侧导航栏收起为只有图标式样",
+    "type": "Boolean"
+  },
+  "nly-wrapper/layout": {
+    "description": "页面布局，可选fixed和boxed",
+    "type": "String"
+  },
+  "nly-wrapper/navbar-fixed": {
+    "description": "头部菜单fixed布局，头部菜单固定在顶部，跟随滚动条一起滚动",
+    "type": "Boolean"
+  },
+  "nly-wrapper/footer-fixed": {
+    "description": "footer fixed布局，footer固定在底部，跟随滚动条一起滚动",
+    "type": "Boolean"
+  },
+  "nly-wrapper/top-nav": {
+    "description": "顶部菜单布局，会覆盖所有与sidebar有关的props，设置为true时，sidebar会消失，不会出现在窗口",
+    "type": "Boolean"
+  },
+  "nly-wrapper/wrapper-class": {
+    "description": "wrapper自定义css",
+    "type": "String"
+  },
+  "nly-wrapper/container-class": {
+    "description": "body自定义css",
+    "type": "String"
+  },
+  "nly-wrapper-sidebar/variant": {
+    "description": "主题颜色，可选 primary， secondary， success， info， warning， danger， light， dark",
+    "type": "String"
+  },
+  "nly-wrapper-sidebar/hover": {
+    "description": "设置为true，左侧导航栏收起时，有鼠标悬停效果",
+    "type": "Boolean"
+  },
+  "nly-wrapper-sidebar/elevation": {
+    "description": "阴影大小，可选 sm，md，lg，xl",
+    "type": "String"
+  },
+  "nly-wrapper-sidebar/tag": {
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-wrapper-sidebar/wrapper-sidebar-class": {
+    "description": "自定义css",
+    "type": "String"
+  },
+  "nly-wrapper-header/expand": {
+    "description": "nav props 设置为true时有效。折叠导航栏的断点，可选sm，md，lg，xl，no，expand。设置no的时候，navbar垂直布局，设置expand时候，不会出现折叠",
+    "type": "String"
+  },
+  "nly-wrapper-header/variant": {
+    "description": "nav props 设置为true时有效。主题颜色，可选 primary， secondary， success， info， warning， danger， light， dark",
+    "type": "String"
+  },  
+  "nly-wrapper-header/dark": {
+    "description": "nav props 设置为true时有效。导航栏字体颜色",
+    "type": "Boolean"
+  },  
+  "nly-wrapper-header/size": {
+    "description": "nav props 设置为true时有效。导航栏字体大小",
+    "type": "String"
+  },
+  "nly-wrapper-header/border": {
+    "description": "nav props 设置为true时有效。navbar底边框",
+    "type": "Boolean"
+  },
+  "nly-wrapper-header/wrapper-header-class": {
+    "description": "自定义css",
+    "type": "String"
+  },
+  "nly-wrapper-header/tag": {
+    "description": "标签",
+    "type": "String"
+  },
+  "nly-wrapper-header/nav": {
+    "description": "设置为true时，变成navbar容器",
+    "type": "Boolean"
+  }
+}
