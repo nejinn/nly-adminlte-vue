@@ -3,9 +3,7 @@ node_modules
 .history
 static/nly.ai
 static/nly.svg
-icon
 .nuxt
-adminlte
 
 # local env files
 .env.local
