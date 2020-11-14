@@ -20,7 +20,6 @@ export const makePropCacheMixin = (propName, proxyPropName) => ({
     };
   },
   watch: {
-    // Work around unwanted re-renders: https://github.com/vuejs/vue/issues/10115
     [propName]: makePropWatcher(proxyPropName)
   },
   created() {

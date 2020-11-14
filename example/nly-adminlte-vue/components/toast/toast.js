@@ -155,7 +155,7 @@ export const NlyToast = Vue.extend({
     },
     computedAttrs() {
       return {
-        ...this.bvAttrs,
+        ...this.nlyaAttrs,
         id: this.safeId(),
         tabindex: "0"
       };

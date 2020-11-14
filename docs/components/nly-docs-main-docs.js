@@ -37,8 +37,8 @@ export default {
     if (version) {
       $availableSinceSection = h(NlyDocsSection, { props: { play: false } }, [
         h("p", { staticClass: "font-italic" }, [
-          "Available in nly-adminlte-vue since ",
-          h("code", { staticClass: "text-nowrap" }, `v${version}`)
+          h("code", { staticClass: "text-nowrap" }, `v${version}`),
+          " 版本以上 nly-adminlte-vue 才有此组件 "
         ])
       ]);
     }
