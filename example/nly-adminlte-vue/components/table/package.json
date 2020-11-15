@@ -23,19 +23,19 @@
           },
           {
             "prop": "borderless",
-            "description": "移除所有单元格的边框"
+            "description": "移除所有单元格的内置边框"
           },
           {
             "prop": "outlined",
-            "description": "给表格所有元素添加外边框"
+            "description": "给表格添加外边框， 如果 `bordered` prop 设置为 true， `outlined`会失效"
           },
           {
             "prop": "dark",
-            "description": "表格黑色模式"
+            "description": "反转颜色-在深色背景上使用浅色文本"
           },
           {
             "prop": "hover",
-            "description": "添加鼠标悬浮式样"
+            "description": "给`<tbody>` 中的每行添加添加鼠标悬浮效果"
           },
           {
             "prop": "small",
@@ -47,7 +47,7 @@
           },
           {
             "prop": "responsive",
-            "description": "使得表格自适应宽度并添加水平滚动条，可选 'sm', 'md', 'lg', 'xl' 或者 'true', 由于adminlte3的bug，（其实是bootstrap的bug）, 通常水平滚动条并不会出现。可以在 table 外面套一层'<div class='table-responsive'>'"
+            "description": "使得表格自适应宽度并添加水平滚动条，可选 'sm', 'md', 'lg', 'xl' 或者 'true', 由于adminlte3的bug，（其实是bootstrap的bug）, 可能水平滚动条并不会出现。可以在 table 外面套一层'<div class='table-responsive'>'"
           },
           {
             "prop": "stickyHeader",
@@ -56,15 +56,15 @@
           {
             "prop": "noBorderCollapse",
             "version": "0.4.4",
-            "description": "禁用表格边框折叠. 当使用 stickyHeader 时很有效"
+            "description": "禁用表格边框的可重叠性。主要用于 头部浮动模式 和 列浮动模式。在某些情况下会导致出现双重边界"
           },
           {
             "prop": "captionTop",
-            "description": "将表格标题放在表格上方"
+            "description": "如果表格有标题， 设置 `caption-top` 为 `true`, 标题会放置在表格上方， 如果设置为 `false` (默认值), 标题会放在表格底部"
           },
           {
             "prop": "tableVariant",
-            "description": "表格颜色"
+            "description": "表格颜色， 可选 'primary','secondary','info','danger','warning','success','light', 'dark'"
           },
           {
             "prop": "tableClass",
@@ -76,7 +76,7 @@
           },
           {
             "prop": "headVariant",
-            "description": "头部颜色， 可选 'light' or 'dark', or unset. 会覆盖 head-row-variant"
+            "description": "头部颜色，可选 `'light'` or `'dark'`, 会覆盖 head-row-variant"
           },
           {
             "prop": "headRowVariant",
@@ -85,7 +85,11 @@
           },
           {
             "prop": "footVariant",
-            "description": "底部颜色，可选 'light' or 'dark', or unset. 会覆盖 foot-row-variant"
+            "description": "底部颜色，可选 `'light'` or `'dark'`， 如果没有传入值， 默认会使用 `head-variant` prop 的值，如果没有设置 `foot-clone` 则无效。 会覆盖 foot-row-variant"
+          },
+          {
+            "prop": "footClone",
+            "description": "复制头部的内容到底部，并集成头部的功能"
           },
           {
             "prop": "footRowVariant",
@@ -196,7 +200,7 @@
           },
           {
             "prop": "noFooterSorting",
-            "description": "使用自带格式化功能时， 禁用底部排序功能"
+            "description": "设置为 true 的时候， 如果 `foot-clone` 为 true 且每列设置 `sortable` , 会禁用排序功能 "
           },
           {
             "prop": "sortIconLeft",
