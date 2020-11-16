@@ -775,6 +775,173 @@ prop `stacked` 可以让表格出现水平滚动条， 设置 `true` 可以使�
 <!-- caption-top.vue -->
 ```
 
+### 作用域插槽 `table-colgroup`
+
+使用作用域插槽 `table-colgroup` 设置每列的 `<colgroup>` 和 `<col>` 元素的式样
+
+插槽 `table-colgroup` 可以接受以下参数：
+
+| 属性      | 类型   | 描述                                                              |
+| --------- | ------ | ----------------------------------------------------------------- |
+| `columns` | Number | 表格中的列数                                                      |
+| `fields`  | Array  | `fields` 数组中定义的元素， 更多详情请查看 [对象数组](#对象数组)) |
+
+如果设置了 `table-colgroup`, 会把插槽内容嵌入到 `<colgroup>` 元素中， 您不需要额外设置 `<colgroup>` 元素， 如果辅助技术需要对表列进行分组， 请设置 `<col span="#">` （请使用一分组的列数来代替`#`）。
+
+在某些情况下， 使用 `style` 或者 `css class` 来给 `<col>` 元素设置列宽的时候， 可能会使表格渲染成列的等宽模式， 可以结合使用 `responsive` 模式， 给每一列 `<col>` 元素设置显性的列宽和最小列宽
+
+```html
+<nly-table fixed responsive :items="items" :fields="fields" ...>
+  <template #table-colgroup="scope">
+    <col
+      v-for="field in scope.fields"
+      :key="field.key"
+      :style="{ width: field.key === 'foo' ? '120px' : '180px' }"
+    />
+  </template>
+</nly-table>
+```
+
+### 表格加载状态
+
+`nly-table` 提供了一个 `busy` prop 来在视觉上显示表格加载状态， 在加载数据之前设置 `busy` 为 `true` 来展示加载状态， 加载完数据之后设置 `busy` 为 `false` 关闭加载提示。 加载状态会自动添加 attr 属性 `aria-busy="true"`
+
+可以通过设置 `css` 来调整加载状态透明度
+
+```css
+table.nly-table[aria-busy="true"] {
+  opacity: 0.6;
+}
+```
+
+如果设置 `busy` prop 为 `true` 时， 也可以使用 `table-busy` 插槽来自定义加载状态消息。
+
+```html
+<template>
+  <div>
+    <nly-button @click="toggleBusy">切换加载状态</nly-button>
+
+    <nly-table :items="items" :busy="isBusy" class="mt-3" outlined>
+      <template #table-busy>
+        <div class="text-center text-danger my-2">
+          <nly-spinner class="align-middle"></nly-spinner>
+          <strong>加载中...</strong>
+        </div>
+      </template>
+    </nly-table>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        isBusy: false,
+        items: [
+          { age: 40, first_name: "nly", last_name: "adminlte" },
+          { age: 21, first_name: "张飞", last_name: "翼德" },
+          { age: 89, first_name: "赵云", last_name: "子龙" }
+        ]
+      };
+    },
+    methods: {
+      toggleBusy() {
+        this.isBusy = !this.isBusy;
+      }
+    }
+  };
+</script>
+
+<!-- 加载状态.name -->
+<!-- busy.vue -->
+```
+
+## 自定义渲染数据
+
+可以使用 `scoped slots` 或者 `formatter` 函数来自定义每一列数据渲染形式
+
+### Scoped fields slots
+
+`scoped fields slots` 可以帮助更好的展示每一列的数据， 您可以使用 `scoped slots` 自定义渲染 `fields` 中指定列数据。如果您需要额外渲染一个不在 `items` 中的列， 在 `fields` 中添加列名， 在 scoped slots 中指定列名就可以了。 使用方式为 `cell(' + field key + ')`
+
+```html
+<template>
+  <div>
+    <nly-table small :fields="fields" :items="items" responsive="sm">
+      <template #cell(index)="data">
+        {{ data.index + 1 }}
+      </template>
+      <template #cell(name)="data">
+        <b class="text-info">{{ data.value.last.toUpperCase() }}</b>,
+        <b>{{ data.value.first }}</b>
+      </template>
+      <template #cell(nameage)="data">
+        {{ data.item.name.first }} is {{ data.item.age }} years old
+      </template>
+      <template #cell()="data">
+        <i>{{ data.value }}</i>
+      </template>
+    </nly-table>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        fields: [
+          "index",
+          { key: "name", label: "Full Name" },
+          "age",
+          "sex",
+          { key: "nameage", label: "First name and age" }
+        ],
+        items: [
+          { name: { first: "John", last: "Doe" }, sex: "Male", age: 42 },
+          { name: { first: "Jane", last: "Doe" }, sex: "Female", age: 36 },
+          { name: { first: "Rubin", last: "Kincade" }, sex: "Male", age: 73 },
+          {
+            name: { first: "Shirley", last: "Partridge" },
+            sex: "Female",
+            age: 62
+          }
+        ]
+      };
+    }
+  };
+</script>
+
+<!-- scoped slots.name -->
+<!-- scoped-slots.vue -->
+```
+
+`scoped slots` 中的变量具有以下属性：
+
+| 属性             | 类型     | 描述                                                                                                                                                                    |
+| ---------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `index`          | Number   | 每一个的行数，当前行的索引 （默认从 0 开始）                                                                                                                            |
+| `item`           | Object   | 每当前行的数据， 即 `items` 中代表当前行数据（未进进行内部格式化的数据）                                                                                                |
+| `value`          | Any      | `fileds` 中当前列的 `key` 值， 如果是一个额外的虚拟列，值会是 `null` 或者 `undefined`。 如果在 `fields` 中设置了 [`formatter`](#格式化函数)， 值是 `formatter` 返回的值 |
+| `unformatted`    | Any      | `fileds` 中当前列的 `key` 值， 是[`formatter`](#格式化函数) 格式化之前的数据， 如果是一个额外的虚拟列，值会是 `null` 或者 `undefined`。                                 |
+| `field`          | Object   | `fields` 中的元素                                                                                                                                                       |
+| `detailsShowing` | Boolean  | 设置为 `true` 会显示 `row-details` 插槽内容， 查看更多详情 [每行详情数据](#每行详情数据)                                                                                |
+| `toggleDetails`  | Function | 可以切换 `row-details` 插槽可见状态， 查看更多详情 [每行详情数据](#每行详情数据)                                                                                        |
+| `rowSelected`    | Boolean  | 如果选中当前行 `rowSelected` 为 `true`, 更多详情请查看 [可选中模式](#可选中模式)                                                                                        |
+| `selectRow`      | Function | 一个调用可以选中指定行的函数， 查看更多详情 [可选中模式](#可选中模式)                                                                                                   |
+| `unselectRow`    | Function | 一个调用可以取消选中指定行的函数， 查看更多详情 [可选中模式](#可选中模式)                                                                                               |
+
+**注意：**
+
+- `index` 并不是每一行真正的所有，他只是在经过过滤， 排序， 分页之后根据当前页需要渲染的数据算出来的， 默认的 `index` 是显示每一行的行号， 将与可选的 v-model 绑定变量中的索引对齐
+
+- 使用新版本的 V ue 2.6 `v-slot` 语法时，请注意插槽名称不能包含空格，而在浏览器中使用 DOM 模板时，插槽名称应该是小写。要解决这个问题，可以使用 Vue 的[动态插槽名称](#https://cn.vuejs.org/v2/guide/components-slots.html#%E5%8A%A8%E6%80%81%E6%8F%92%E6%A7%BD%E5%90%8D)传递插槽名称
+
+### 渲染 html 字符串
+
+### 格式化函数
+
+## 可选中模式
+
 ## 函数类型（items）
 
 Using items provider functions （）
@@ -786,8 +953,6 @@ Using items provider functions （）
 ## 排序
 
 Sorting
-
-## 自定义渲染数据
 
 Custom data rendering
 
