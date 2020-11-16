@@ -897,12 +897,12 @@ table.nly-table[aria-busy="true"] {
           { key: "nameage", label: "First name and age" }
         ],
         items: [
-          { name: { first: "John", last: "Doe" }, sex: "Male", age: 42 },
-          { name: { first: "Jane", last: "Doe" }, sex: "Female", age: 36 },
-          { name: { first: "Rubin", last: "Kincade" }, sex: "Male", age: 73 },
+          { name: { first: "张", last: "翼德" }, sex: "男", age: 42 },
+          { name: { first: "诸葛", last: "孔明" }, sex: "女", age: 36 },
+          { name: { first: "关", last: "云长" }, sex: "男", age: 73 },
           {
-            name: { first: "Shirley", last: "Partridge" },
-            sex: "Female",
+            name: { first: "赵", last: "子龙" },
+            sex: "女",
             age: 62
           }
         ]
@@ -934,11 +934,138 @@ table.nly-table[aria-busy="true"] {
 
 - `index` 并不是每一行真正的所有，他只是在经过过滤， 排序， 分页之后根据当前页需要渲染的数据算出来的， 默认的 `index` 是显示每一行的行号， 将与可选的 v-model 绑定变量中的索引对齐
 
-- 使用新版本的 V ue 2.6 `v-slot` 语法时，请注意插槽名称不能包含空格，而在浏览器中使用 DOM 模板时，插槽名称应该是小写。要解决这个问题，可以使用 Vue 的[动态插槽名称](#https://cn.vuejs.org/v2/guide/components-slots.html#%E5%8A%A8%E6%80%81%E6%8F%92%E6%A7%BD%E5%90%8D)传递插槽名称
+- 使用新版本的 V ue 2.6 `v-slot` 语法时，请注意插槽名称不能包含空格，而在浏览器中使用 DOM 模板时，插槽名称应该是小写。要解决这个问题，可以使用 Vue 的[动态插槽名称](https://cn.vuejs.org/v2/guide/components-slots.html#%E5%8A%A8%E6%80%81%E6%8F%92%E6%A7%BD%E5%90%8D)传递插槽名称
 
 ### 渲染 html 字符串
 
+默认情况下， `nly-table` 会自动转义 `items` 中的 `html` 字符串，如果需要在 `nly-table` 中显示渲染 `html` 字符串， 请在 `scoped slots` 中使用 `v-html` 指令
+
+```html
+<template>
+  <div>
+    <nly-table :items="items">
+      <template #cell(html)="data">
+        <span v-html="data.value"></span>
+      </template>
+    </nly-table>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        items: [
+          {
+            text: "This is <i>escaped</i> content",
+            html:
+              'This is <i>raw <strong>HTML</strong></i> <span style="color:red">content</span>'
+          }
+        ]
+      };
+    }
+  };
+</script>
+
+<!-- html字符串.name -->
+<!-- html.vue -->
+```
+
+<div class="alert alert-warning">
+  <p class="mb-0 small">
+    <strong>注意:</strong> 使用 (<code class="notranslate" translate="no"
+      >html</code
+    >) 字符串的属性可能会引起
+    <nly-link
+      href="https://en.wikipedia.org/wiki/Cross-site_scripting"
+      class="alert-link"
+      target="_blank"
+    >
+      脚本攻击 (XSS)，
+    </nly-link>
+    当用户使用这类属性的时候，您应该谨慎
+    <nly-link
+      href="https://en.wikipedia.org/wiki/HTML_sanitization"
+      class="alert-link"
+      target="_blank"
+    >
+      处理
+    </nly-link>
+    这类值
+  </p>
+</div>
+
 ### 格式化函数
+
+可以使用 `formatter` 函数格式化对应 `field`(列) 的渲染， `formatter` 必须接受一个字符串或者函数。
+
+如果接受的是字符串， 字符串对应的函数名函数应该在父组件中定义好。
+
+如果接受的是函数， 函数应该在全局范围内申明，或者绑定到 `this`。
+
+`formatter` 函数可以接受三个参数，分别是 `value`, `key`, `item`， 返回值必须是一个字符串。
+
+```html
+<template>
+  <div>
+    <nly-table :fields="fields" :items="items">
+      <template #cell(name)="data">
+        <a :href="`#${data.value.replace(/[^a-z]+/i,'-').toLowerCase()}`"
+          >{{ data.value }}</a
+        >
+      </template>
+    </nly-table>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        fields: [
+          {
+            key: "name",
+            label: "Full Name",
+            formatter: "fullName"
+          },
+          "age",
+          {
+            key: "sex",
+            formatter: value => {
+              return value.charAt(0).toUpperCase();
+            }
+          },
+          {
+            key: "birthYear",
+            label: "Calculated Birth Year",
+            formatter: (value, key, item) => {
+              return new Date().getFullYear() - item.age;
+            }
+          }
+        ],
+        items: [
+          { name: { first: "张", last: "翼德" }, sex: "男", age: 42 },
+          { name: { first: "诸葛", last: "孔明" }, sex: "女", age: 36 },
+          { name: { first: "关", last: "云长" }, sex: "男", age: 73 },
+          {
+            name: { first: "赵", last: "子龙" },
+            sex: "女",
+            age: 62
+          }
+        ]
+      };
+    },
+    methods: {
+      fullName(value) {
+        return `${value.first} ${value.last}`;
+      }
+    }
+  };
+</script>
+
+<!-- formatter.name -->
+<!-- formatter.vue -->
+```
 
 ## 可选中模式
 
