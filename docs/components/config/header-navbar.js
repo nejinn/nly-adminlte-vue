@@ -21,8 +21,8 @@ export const navbarList = [
               "nly-adminlte-vue-docs-header-navbar-brandimg-class"
           },
           {
-            _type: "nly-navbar-brandtext",
-            _class: "font-weight-normal",
+            _type: "span",
+            _class: "font-weight-light font-weight-normal",
             _name: "NlyAdminlteVue"
           }
         ]

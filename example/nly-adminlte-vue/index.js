@@ -189,6 +189,8 @@ export { NlySidebarNav } from "./components/sidebar/sidebar-nav";
 export { NlySidebarNavItem } from "./components/sidebar/sidebar-nav-item";
 export { NlySidebarNavTree } from "./components/sidebar/sidebar-nav-tree";
 export { NlySidebarNavHeader } from "./components/sidebar/sidebar-nav-header";
+export { NlySidebarWrapper } from "./components/sidebar/sidebar-wrapper";
+export { NlySidebarMenu } from "./components/sidebar/sidebar-menu";
 
 export { SpinnerPlugin } from "./components/spinner";
 export { NlySpinner } from "./components/spinner/spinner";

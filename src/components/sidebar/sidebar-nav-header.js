@@ -1,27 +1,25 @@
 import Vue from "../../utils/vue";
+import { mergeData } from "vue-functional-data-merge";
 
+export const props = {
+  tag: {
+    type: String,
+    default: "li"
+  }
+};
 const name = "NlySidebarNavHeader";
 
 export const NlySidebarNavHeader = Vue.extend({
   name: name,
-  props: {
-    tag: {
-      type: String,
-      default: "li"
-    }
-  },
-  computed: {
-    customTag: function() {
-      return this.tag;
-    }
-  },
-  render(h) {
+  functional: true,
+  props,
+  render(h, { props, data, children }) {
     return h(
-      this.customTag,
-      {
+      props.tag,
+      mergeData(data, {
         staticClass: "nav-header"
-      },
-      this.$slots.default
+      }),
+      children
     );
   }
 });

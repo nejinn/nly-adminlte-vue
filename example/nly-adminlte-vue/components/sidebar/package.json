@@ -4,188 +4,245 @@
   "meta": {
     "title": "Sidebar",
     "subtitle": "左侧导航",
-    "description": "一个普通的左侧导航",
+    "description": "一个可以收缩，展开，悬浮，支持多级子菜单的左侧导航栏",
     "components": [
       {
-        "component": "NlyRenderFunction",
+        "component": "NlySidebarWrapper",
+        "description": "sidebar wrapper布局容器，用来控制body class属性",
         "props": [
           {
-            "prop": "pills",
-            "description": "tab切换nav元素(切换按钮)渲染为圆角按钮形状"
+            "prop": "sideMini",
+            "description": "给body添加sidebar-mini class属性，允许左侧导航栏收起为只有图标式样"
           },
           {
-            "prop": "small",
-            "description": "小号nav元素(切换按钮)"
+            "prop": "layout",
+            "description": "页面布局，可选fixed和boxed"
           },
           {
-            "prop": "align",
-            "description": "nav元素(切换按钮)文字对齐方式， 可选 'start' ('left'), 'center', 'end' ('right')"
+            "prop": "navbarFixed",
+            "description": "头部菜单fixed布局，头部菜单固定在顶部，跟随滚动条一起滚动"
           },
           {
-            "prop": "fill",
-            "description": "nav元素(切换按钮)填充整个card宽度，但并不是每个nav元素(切换按钮)宽度都会相同"
+            "prop": "footerFixed",
+            "description": "footer fixed布局，footer固定在底部，跟随滚动条一起滚动"
           },
           {
-            "prop": "justified",
-            "description": "nav元素(切换按钮)填充整个card宽度，每个nav元素(切换按钮)宽度都会相同"
+            "prop": "topNav",
+            "description": "顶部菜单布局，会覆盖所有与sidebar有关的props，设置为true时，sidebar会消失，不会出现在窗口"
           },
           {
-            "prop": "vertical",
-            "description": "垂直tab"
+            "prop": "wrapperClass",
+            "description": "wrapper自定义css"
           },
           {
-            "prop": "card",
-            "description": "设置true会渲染成nly-card"
-          },
-          {
-            "prop": "end",
-            "description": "设置为true，水平tab会把nav元素(切换按钮)放到底部，垂直tab会把nav元素(切换按钮)放到右侧"
-          },
-          {
-            "prop": "lazy",
-            "description": "懒加载"
-          },
-          {
-            "prop": "noNavStyle",
-            "description": "不渲染nav的css式样"
-          },
-          {
-            "prop": "noKeyNav",
-            "description": "禁用选项卡控件的键盘导航"
-          },
-          {
-            "prop": "contentClass",
-            "description": "tab-content元素自定义css"
-          },
-          {
-            "prop": "navClass",
-            "description": "nav自定义css"
-          },
-          {
-            "prop": "navWrapperClass",
-            "description": "wraaper元素自定义css"
-          },
-          {
-            "prop": "activeTabClass",
-            "description": "tab选项卡激活css"
-          },
-          {
-            "prop": "activeNavItemClass",
-            "description": "选项卡渲染成nav-item时激活css"
-          },
-          {
-            "prop": "value",
-            "description": "当前可见的选项卡值"
-          }
-        ],
-        "events": [
-          {
-            "event": "input",
-            "description": "更新v-model值时触发",
-            "args": [
-              {
-                "arg": "tabIndex",
-                "type": "Number",
-                "description": "当前可见tab的index"
-              }
-            ]
-          },
-          {
-            "event": "activate-tab",
-            "version": "0.4.4",
-            "description": "准备激活tab之前的index",
-            "args": [
-              {
-                "arg": "newTabIndex",
-                "type": "Number",
-                "description": "tab激活之后的index"
-              },
-              {
-                "arg": "prevTabIndex",
-                "type": "Number",
-                "description": "当前激活的tab的index，如果没有激活，那么默认为-1"
-              },
-              {
-                "arg": "nlyEvt",
-                "type": "NlyEvent",
-                "description": "NlyEvent对象. 防止冒泡"
-              }
-            ]
-          },
-          {
-            "event": "changed",
-            "description": "当一个tab被移除或者重新排序，或者新增一个tab时触发",
-            "args": [
-              {
-                "arg": "currentTabs",
-                "type": "Array",
-                "description": "当前tabs中tab集合"
-              },
-              {
-                "arg": "previousTabs",
-                "type": "Array",
-                "description": "未更新之前的tabs的tab集合"
-              }
-            ]
-          }
-        ],
-        "slots": [
-          {
-            "name": "tabs-start",
-            "description": "在有内容的选项卡前面添加没有内容的选项卡"
-          },
-          {
-            "name": "tabs-end",
-            "description": "在有内容的选项卡最后面添加没有内容的选项卡"
-          },
-          {
-            "name": "empty",
-            "description": "当没有tab时渲染"
+            "prop": "containerClass",
+            "description": "body自定义css"
           }
         ]
       },
       {
-        "component": "NlyTab",
+        "component": "NlySidebarContainer",
         "props": [
           {
-            "prop": "buttonId",
-            "description": "如果传入， 则可设置一个按钮来操作对应id的nly-tab可见状态，如果没用传入，会自动生成一个"
+            "prop": "variant",
+            "description": "导航栏主题色， 可选 darkPrimary, darkWarning, darkInfo, darkDanger, darkSuccess, darkIndigo, darkLightblue, darkNavy, darkPurple, darkFuchsia, darkPink, darkMaroon, darkOrange, darkLime, darkTeal, darkOlive, lightPrimary,lightWarning, lightInfo,lightDanger,lightSuccess,lightIndigo,lightLightblue,lightNavy,lightPurple,lightFuchsia,lightPink,lightMaroon,lightOrange,lightLime,lightTeal,lightOlive"
           },
           {
-            "prop": "titleItemClass",
-            "description": "选项卡控制器 li标签的 自定义css"
+            "prop": "hover",
+            "description": "导航栏收起时，鼠标悬浮展开，设置为false则无悬浮效果"
           },
           {
-            "prop": "titleLinkClass",
-            "description": "选项卡控制器里包裹的a标签自定义css"
-          },
-          {
-            "prop": "titleLinkAttributes",
-            "version": "0.4.4",
-            "description": "选项卡控制器里包裹的a标签 attributes属性"
-          },
-          {
-            "prop": "lazy",
-            "description": "懒加载"
+            "prop": "elevation",
+            "description": "导航栏阴影，可选，sm，md，lg，xl。依次增大"
           }
-        ],
-        "events": [
+        ]
+      },
+      {
+        "component": "NlySidebarBrand",
+        "props": [
           {
-            "event": "click",
-            "description": "点击tab时触发",
-            "args": [
-              {
-                "arg": "evt",
-                "type": "鼠标事件",
-                "description": "原生事件"
-              }
-            ]
+            "prop": "variant",
+            "description": "主题色，可选  primary，secondary，info，success，danger，indigo，purple，pink，navy，light，warning，lightblue，olive，lime，fuchsia，maroon，blue，orange，teal，white，gray，dark"
+          },
+          {
+            "prop": "size",
+            "description": "字体大小，可选sm，lg"
+          },
+          {
+            "prop": "elevation",
+            "description": "导航栏阴影，可选，sm，md，lg，xl。依次增大"
           }
-        ],
-        "slots": [
+        ]
+      },
+      {
+        "component": "NlySidebarBrandimg",
+        "props": [
           {
-            "name": "title",
-            "description": "tab标题插槽"
+            "prop": "src",
+            "description": "必填，img url"
+          },
+          {
+            "prop": "sidebarBrandimgClass",
+            "description": "自定义css式样"
+          },
+          {
+            "prop": "alt",
+            "description": "alt attr 属性"
+          },
+          {
+            "prop": "circle",
+            "description": "默认方形，设置true圆形"
+          },
+          {
+            "prop": "elevation",
+            "description": "阴影，默认无阴影，可选，sm，md，lg，xl。依次增大"
+          }
+        ]
+      },
+      {
+        "component": "NlySidebarBrandtext",
+        "props": [
+          {
+            "prop": "textClass",
+            "description": "自定义 css 式样"
+          },
+          {
+            "prop": "weight",
+            "description": "字体加宽"
+          }
+        ]
+      },
+      {
+        "component": "NlySidebarNavHeader",
+        "props": []
+      },
+      {
+        "component": "NlySidebarNavItem",
+        "props": [
+          {
+            "prop": "linkClass",
+            "description": "自定义 a 标签 css 式样"
+          },
+          {
+            "prop": "icon",
+            "description": "图标"
+          }
+        ]
+      },
+      {
+        "component": "NlySidebarNavTree",
+        "props": [
+          {
+            "prop": "label",
+            "description": "aria-label 属性"
+          },
+          {
+            "prop": "target",
+            "description": "需要控制收起的组件的 id， 请保证 target 唯一性，如果有相同的，会导致一起展开收起 "
+          },
+          {
+            "prop": "linkTarget",
+            "description": "a 标签的 target 属性，可选 _blank，_self，_parent，_top，framename"
+          },
+          {
+            "prop": "linkClass",
+            "description": "a 标签的自定义 css 式样"
+          },
+          {
+            "prop": "icon",
+            "description": "图标"
+          },
+          {
+            "prop": "accordion",
+            "description": "手风琴分组， 如果需要分组手风琴，请给同一组的菜单设置相同的 accordion 值"
+          },
+          {
+            "prop": "visible",
+            "description": "展开状态， 设置 true 会展开菜单"
+          },
+          {
+            "prop": "appear",
+            "description": "初始化动画，默认无, 设置 true 会渲染初始展开动画"
+          },
+          {
+            "prop": "menuClass",
+            "description": "下拉部分菜单自定义css式样，即ul标签自定义css class"
+          },
+          {
+            "prop": "text",
+            "description": "下拉菜单文本内容"
+          }
+        ]
+      },
+      {
+        "component": "NlySidebarNav",
+        "props": [
+          {
+            "prop": "pill",
+            "description": "导航形状，圆角"
+          },
+          {
+            "prop": "flat",
+            "description": "导航形状，直角"
+          },
+          {
+            "prop": "legacy",
+            "description": "导航形状，左侧竖线"
+          },
+          {
+            "prop": "compact",
+            "description": "导航形状，压缩形状"
+          },
+          {
+            "prop": "childIndent",
+            "description": "子菜单缩进，默认与一级菜单齐平"
+          },
+          {
+            "prop": "size",
+            "description": "文字大小，可选sm，lg"
+          },
+          {
+            "prop": "sidebarNavClass",
+            "description": "自定义ul标签css式样"
+          },
+          {
+            "prop": "role",
+            "description": "role 属性"
+          }
+        ]
+      },
+      {
+        "component": "NlySidebarUserpanelImg",
+        "props": [
+          {
+            "prop": "circle",
+            "description": "默认方形，设置true圆形"
+          },
+          {
+            "prop": "elevation",
+            "description": "阴影，可选，sm，md，lg，xl。其余依次增大"
+          },
+          {
+            "prop": "imgClass",
+            "description": "自定义 css"
+          }
+        ]
+      },
+      {
+        "component": "NlySidebarUserpanelInfo",
+        "props": [
+          {
+            "prop": "infoClass",
+            "description": "自定义 css"
+          }
+        ]
+      },
+      {
+        "component": "NlySidebar",
+        "props": [
+          {
+            "prop": "scrollbar",
+            "description": "设置 true 开启滚动条"
           }
         ]
       }
