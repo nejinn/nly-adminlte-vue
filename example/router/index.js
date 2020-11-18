@@ -50,6 +50,8 @@ const formselect = () => import("../views/example/form-select.vue");
 
 const daterangepicker = () => import("../views/example/daterangepicker.vue");
 
+const Sidebar = () => import("../views/indextest.vue");
+
 const routes = [
   {
     path: "/",
@@ -237,6 +239,11 @@ const routes = [
     path: "/fixed-navbar",
     name: "fixedNavbar",
     component: fixedNavbar
+  },
+  {
+    path: "/sidebar",
+    name: "sidebar",
+    component: Sidebar
   }
 ];
 

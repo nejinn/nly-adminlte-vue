@@ -1,64 +1,47 @@
+import { mergeData } from "vue-functional-data-merge";
 import Vue from "../../utils/vue";
 
 import { NlyLink, propsFactory as linkPropsFactory } from "../link/link";
 
-export const props = linkPropsFactory();
+const linkProps = linkPropsFactory();
+
+export const props = {
+  linkClass: {
+    type: String
+  },
+  icon: {
+    type: String
+  },
+  ...linkProps
+};
 
 const name = "NlySidebarNavItem";
 
 export const NlySidebarNavItem = Vue.extend({
   name: name,
-  props: {
-    ...props,
-    linkClass: {
-      type: String
-    },
-    icon: {
-      type: String
-    }
-  },
-  computed: {
-    customLinkProps: function() {
-      return {
-        href: this.href,
-        linkTarget: this.linkTarget,
-        active: this.active,
-        disabled: this.disabled,
-        to: this.to,
-        append: this.append,
-        exact: this.exact,
-        exactActiveClass: "active"
-      };
-    },
-    customLinkClass: function() {
-      return this.linkClass;
-    },
-    customIcon: function() {
-      return this.icon;
-    }
-  },
-  render(h) {
-    return h(
-      "li",
+  props,
+  functional: true,
+  render(h, { props, data, children }) {
+    const $linkVnodes = h(
+      NlyLink,
       {
-        staticClass: "nav-item"
+        staticClass: "nav-link",
+        props: props,
+        class: props.linkClass
       },
       [
-        h(
-          NlyLink,
-          {
-            staticClass: "nav-link",
-            props: this.customLinkProps,
-            class: this.customLinkClass
-          },
-          [
-            h("i", {
-              class: this.icon
-            }),
-            h("p", this.$slots.default)
-          ]
-        )
+        h("i", {
+          class: props.icon
+        }),
+        h("p", children)
       ]
+    );
+    return h(
+      "li",
+      mergeData(data, {
+        staticClass: "nav-item"
+      }),
+      [$linkVnodes]
     );
   }
 });

@@ -54,7 +54,8 @@ export const propsFactory = () => ({
     default: false
   },
   exactActiveClass: {
-    type: String
+    type: String,
+    default: "active"
   },
   routerTag: {
     type: String,

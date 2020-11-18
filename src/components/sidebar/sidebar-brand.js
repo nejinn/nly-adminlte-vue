@@ -6,49 +6,53 @@ import {
   sidebarBrandVariantOptions,
   sidebarElevationOptions
 } from "../../utils/nly-config";
+import { mergeData } from "vue-functional-data-merge";
 
-export const props = linkPropsFactory();
+export const linkProps = linkPropsFactory();
+
+export const props = {
+  size: {
+    type: String
+  },
+  variant: {
+    type: String
+  },
+  elevation: {
+    type: String
+  },
+  ...linkProps
+};
+
+const customSize = props => {
+  const fontSize = nlyGetOptionsByKeyEqual(textSizeOptions, props.size);
+  return fontSize;
+};
+const customVariant = props => {
+  return nlyGetOptionsByKeyEqual(sidebarBrandVariantOptions, props.variant);
+};
+const customElevation = props => {
+  return nlyGetOptionsByKeyEqual(sidebarElevationOptions, props.elevation);
+};
 
 const name = "NlySidebarBrand";
 
 export const NlySidebarBrand = Vue.extend({
   name: name,
-  props: {
-    size: {
-      type: String
-    },
-    variant: {
-      type: String
-    },
-    elevation: {
-      type: String
-    },
-    ...props
-  },
-  computed: {
-    customSize: function() {
-      const fontSize = nlyGetOptionsByKeyEqual(textSizeOptions, this.size);
-      return fontSize;
-    },
-    customVariant: function() {
-      return nlyGetOptionsByKeyEqual(sidebarBrandVariantOptions, this.variant);
-    },
-    customElevation: function() {
-      return nlyGetOptionsByKeyEqual(sidebarElevationOptions, this.elevation);
-    },
-    computedProps() {
-      return { ...this.$props };
-    }
-  },
-  render(h) {
+  functional: true,
+  props,
+  render(h, { props, data, children }) {
     return h(
       NlyLink,
-      {
+      mergeData(data, {
         staticClass: "brand-link",
-        class: [this.customSize, this.customVariant, this.customElevation],
-        props: this.computedProps
-      },
-      this.$slots.default
+        class: [
+          customSize(props),
+          customVariant(props),
+          customElevation(props)
+        ],
+        props: props
+      }),
+      children
     );
   }
 });
