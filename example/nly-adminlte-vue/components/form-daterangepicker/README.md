@@ -191,7 +191,6 @@
     },
     methods: {
       update(value) {
-        console.log(111);
         this.startDate = this.gmtFormat(value.startDate);
         this.endDate = this.gmtFormat(value.endDate);
       },

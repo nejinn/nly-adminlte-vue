@@ -11,7 +11,6 @@ import { NlySidebarNav } from "./sidebar-nav";
 import { NlySidebarNavItem } from "./sidebar-nav-item";
 import { NlySidebarNavTree } from "./sidebar-nav-tree";
 import { NlySidebarNavHeader } from "./sidebar-nav-header";
-import { NlySidebarWrapper } from "./sidebar-wrapper";
 import { NlySidebarMenu } from "./sidebar-menu";
 
 const SidebarPlugin = nlyPluginFactory({
@@ -28,7 +27,6 @@ const SidebarPlugin = nlyPluginFactory({
     NlySidebarNavItem,
     NlySidebarNavTree,
     NlySidebarNavHeader,
-    NlySidebarWrapper,
     NlySidebarMenu
   }
 });
@@ -47,6 +45,5 @@ export {
   NlySidebarNavItem,
   NlySidebarNavTree,
   NlySidebarNavHeader,
-  NlySidebarWrapper,
   NlySidebarMenu
 };

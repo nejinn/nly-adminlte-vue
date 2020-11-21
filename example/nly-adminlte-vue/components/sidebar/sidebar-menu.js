@@ -9,16 +9,13 @@ import { NlySidebarNavTree } from "./sidebar-nav-tree";
 import { NlySidebarUserpanel } from "./sidebar-userpanel";
 import { NlySidebarUserpanelImg } from "./sidebar-userpanel-img";
 import { NlySidebarUserpanelInfo } from "./sidebar-userpanel-info";
-import { NlySidebarWrapper } from "./sidebar-wrapper";
 import { NlySidebarBrandtext } from "./siderbar-brandtext";
 import { NlyRenderFunction } from "../render-function";
 import Vue from "../../utils/vue";
+import clonedeep from "lodash.clonedeep";
+import { activeParentTree } from "../../utils/recursion";
 
 const name = "NlySidebarMenu";
-
-export const customType = {
-  wrapper: NlySidebarWrapper
-};
 
 export const NlySidebarMenu = Vue.extend({
   name: name,
@@ -32,6 +29,37 @@ export const NlySidebarMenu = Vue.extend({
     sidebarList: {
       type: Array,
       default: () => []
+    },
+    exact: {
+      type: Boolean,
+      default: false
+    },
+    //边侧栏最小化
+    sideMini: {
+      type: Boolean,
+      default: false
+    },
+    //layout fixed or boxed
+    layout: {
+      type: String
+    },
+    // navbar fixed
+    navbarFixed: {
+      type: Boolean,
+      default: false
+    },
+    //footer fixed
+    footerFixed: {
+      type: Boolean,
+      default: false
+    },
+    //top nav
+    topNav: {
+      type: Boolean,
+      default: false
+    },
+    containerClass: {
+      type: String
     },
     containerVariant: {
       type: String,
@@ -223,8 +251,74 @@ export const NlySidebarMenu = Vue.extend({
       default: true
     }
   },
+  methods: {
+    checkVisible(val) {
+      let avtiveKey = undefined;
+      // 获取当前激活的 item 的 key
+      const transActiveArrayFunc = dataArray =>
+        dataArray.map(item => {
+          const { dataGroup, _key, exact, _children, to } = item;
+          if (dataGroup === undefined) {
+            throw new Error("dataGroup is required");
+          }
+          if (_key === undefined) {
+            throw new Error("_key is required");
+          }
+          if (exact === undefined) {
+            throw new Error("exact is required");
+          }
+          if (this.$route !== undefined && to !== undefined) {
+            const { name } = to;
+            if (name === this.$route.name || to === this.$route.path) {
+              avtiveKey = _key;
+            }
+          }
+          if (_children) {
+            transActiveArrayFunc(_children);
+          }
+          return item;
+        });
+
+      // 获取转化之后的 sidebarlist
+      let transActiveArray = transActiveArrayFunc(val);
+      // 获取当前激活子节点的所有 type 为 tree 的父节点
+      let activeParentArray = activeParentTree(transActiveArray, avtiveKey);
+      const sidebrArray = visibleList =>
+        visibleList.map(item => {
+          const { _type } = item;
+          if (_type === "nly-sidebar-nav-tree") {
+            const { _children, _key } = item;
+            if (_children) {
+              const visibleTree = [];
+              activeParentArray.forEach(childrenItem => {
+                visibleTree.push(childrenItem._key);
+              });
+              item["active"] = false;
+              item["visible"] = false;
+              if (visibleTree.indexOf(_key) !== -1) {
+                item["active"] = true;
+                item["visible"] = true;
+              }
+              sidebrArray(_children);
+              delete item.dataGroup;
+              return item;
+            }
+          } else if (_type === "nly-sidebar-nav") {
+            const { _children } = item;
+            if (_children) {
+              sidebrArray(_children);
+              delete item.dataGroup;
+              return item;
+            }
+          } else if (_type === "nly-sidebar-nav-item") {
+            delete item.dataGroup;
+            return item;
+          }
+        });
+      return sidebrArray(transActiveArray);
+    }
+  },
   render(h) {
-    console.log(this.sidebarList);
     let $brand = h();
     if (this.brandImgSrc) {
       $brand = h(
@@ -325,12 +419,23 @@ export const NlySidebarMenu = Vue.extend({
     let $sidebar = h();
 
     if (this.sidebarList) {
-      $sidebar = h(NlyRenderFunction, {
-        props: {
-          flat: true,
-          contentToRender: this.sidebarList
-        }
-      });
+      if (this.exact) {
+        let convertSidebarList = clonedeep(this.sidebarList);
+        let checkVisible = this.checkVisible(convertSidebarList);
+        $sidebar = h(NlyRenderFunction, {
+          props: {
+            flat: true,
+            contentToRender: checkVisible
+          }
+        });
+      } else {
+        $sidebar = h(NlyRenderFunction, {
+          props: {
+            flat: true,
+            contentToRender: this.sidebarList
+          }
+        });
+      }
     }
     let $wrapper = h(
       NlySidebarContainer,
@@ -338,7 +443,18 @@ export const NlySidebarMenu = Vue.extend({
         props: {
           containerVariant: this.containerVariant,
           containerHover: this.containerHover,
-          containerElevation: this.containerElevation
+          containerElevation: this.containerElevation,
+          //边侧栏最小化
+          sideMini: this.sideMini,
+          //layout fixed or boxed
+          layout: this.layout,
+          // navbar fixed
+          navbarFixed: this.navbarFixed,
+          //footer fixed
+          footerFixed: this.footerFixed,
+          //top nav
+          topNav: this.topNav,
+          containerClass: this.containerClass
         }
       },
       [
@@ -355,8 +471,6 @@ export const NlySidebarMenu = Vue.extend({
         )
       ]
     );
-
-    console.log($sidebar, $wrapper);
 
     return $wrapper;
   }

@@ -93,6 +93,17 @@ export const NlyLink = Vue.extend({
     },
     computedProps() {
       return this.isRouterLink ? { ...this.$props, tag: this.routerTag } : {};
+    },
+    computedActiveClass() {
+      if (this.active) {
+        if (this.activeClass) {
+          return this.activeClass;
+        } else {
+          return "active";
+        }
+      } else {
+        return null;
+      }
     }
   },
   methods: {
@@ -149,7 +160,7 @@ export const NlyLink = Vue.extend({
     const isRouterLink = this.isRouterLink;
 
     const componentData = {
-      class: { active: this.active, disabled: this.disabled },
+      class: [this.computedActiveClass, this.disabled ? "disabled" : null],
       attrs: {
         ...this.$attrs,
         rel,

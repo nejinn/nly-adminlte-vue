@@ -19834,6 +19834,7 @@ __webpack_require__.d(__webpack_exports__, "NlySidebarNav", function() { return 
 __webpack_require__.d(__webpack_exports__, "NlySidebarNavItem", function() { return /* reexport */ NlySidebarNavItem; });
 __webpack_require__.d(__webpack_exports__, "NlySidebarNavTree", function() { return /* reexport */ NlySidebarNavTree; });
 __webpack_require__.d(__webpack_exports__, "NlySidebarNavHeader", function() { return /* reexport */ NlySidebarNavHeader; });
+__webpack_require__.d(__webpack_exports__, "NlySidebarMenu", function() { return /* reexport */ NlySidebarMenu; });
 __webpack_require__.d(__webpack_exports__, "SpinnerPlugin", function() { return /* reexport */ SpinnerPlugin; });
 __webpack_require__.d(__webpack_exports__, "NlySpinner", function() { return /* reexport */ NlySpinner; });
 __webpack_require__.d(__webpack_exports__, "switchPlugin", function() { return /* reexport */ switchPlugin; });
@@ -22426,7 +22427,8 @@ var propsFactory = function propsFactory() {
       default: false
     },
     exactActiveClass: {
-      type: String
+      type: String,
+      default: "active"
     },
     routerTag: {
       type: String,
@@ -22474,6 +22476,17 @@ var NlyLink = utils_vue.extend({
       return this.isRouterLink ? Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, this.$props), {}, {
         tag: this.routerTag
       }) : {};
+    },
+    computedActiveClass: function computedActiveClass() {
+      if (this.active) {
+        if (this.activeClass) {
+          return this.activeClass;
+        } else {
+          return "active";
+        }
+      } else {
+        return null;
+      }
     }
   },
   methods: {
@@ -22530,10 +22543,7 @@ var NlyLink = utils_vue.extend({
     var href = this.computedHref;
     var isRouterLink = this.isRouterLink;
     var componentData = {
-      class: {
-        active: this.active,
-        disabled: this.disabled
-      },
+      class: [this.computedActiveClass, this.disabled ? "disabled" : null],
       attrs: Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, this.$attrs), {}, {
         rel: rel,
         target: this.target,
@@ -42235,6 +42245,10 @@ var SearchSelectPlugin = plugins_nlyPluginFactory({
 
 
 
+
+
+
+
 var sidebar_container_name = "NlySidebarContainer";
 var NlySidebarContainer = utils_vue.extend({
   name: sidebar_container_name,
@@ -42250,9 +42264,57 @@ var NlySidebarContainer = utils_vue.extend({
     elevation: {
       type: String,
       default: "xl"
+    },
+    //边侧栏最小化
+    sideMini: {
+      type: Boolean,
+      default: false
+    },
+    //layout fixed or boxed
+    layout: {
+      type: String
+    },
+    // navbar fixed
+    navbarFixed: {
+      type: Boolean,
+      default: false
+    },
+    //footer fixed
+    footerFixed: {
+      type: Boolean,
+      default: false
+    },
+    //top nav
+    topNav: {
+      type: Boolean,
+      default: false
+    },
+    containerClass: {
+      type: String
     }
   },
   computed: {
+    breakPointNumber: function breakPointNumber() {
+      return nlyGetOptionsByKeyEqual(breakPointOptions, this.breakPoint);
+    },
+    sideMiniClass: function sideMiniClass() {
+      return this.sideMini ? "sidebar-mini" : "";
+    },
+    layoutClass: function layoutClass() {
+      return this.layout == "fixed" ? "layout-fixed" : this.layout ? "layout-boxed" : "";
+    },
+    navbarFixedClass: function navbarFixedClass() {
+      return this.navbarFixed ? "layout-navbar-fixed" : "";
+    },
+    footerFixedClass: function footerFixedClass() {
+      return this.footerFixed ? "layout-footer-fixed" : "";
+    },
+    topNavClass: function topNavClass() {
+      return this.topNav ? "layout-top-nav" : "";
+    },
+    containerBodyClass: function containerBodyClass() {
+      return this.containerClass;
+    },
     customVariant: function customVariant() {
       return nlyGetOptionsByKeyEqual(sidebarContainerVariantOpitons, this.variant);
     },
@@ -42261,6 +42323,75 @@ var NlySidebarContainer = utils_vue.extend({
     },
     customElevation: function customElevation() {
       return nlyGetOptionsByKeyEqual(sidebarElevationOptions, this.elevation);
+    }
+  },
+  methods: {
+    setBodyCollapseClassName: function setBodyCollapseClassName() {
+      if (this.sideMini) {
+        var bodyWidth = document.body.clientWidth;
+        var bodyClassName = document.body.className;
+
+        if (bodyWidth < 992) {
+          if (bodyClassName.indexOf("sidebar-collapse") == -1) {
+            document.body.classList.add("sidebar-collapse");
+          }
+        } else {
+          if (bodyClassName.indexOf("sidebar-open") !== -1) {
+            document.body.classList.remove("sidebar-open");
+          }
+        }
+      }
+    },
+    setBodyClassName: function setBodyClassName(newval, oldval) {
+      if (newval != oldval) {
+        if (newval && oldval) {
+          document.body.classList.add(newval);
+          document.body.classList.remove(oldval);
+        } else if (newval && oldval == "") {
+          document.body.classList.add(newval);
+        } else if (newval == "" && oldval) {
+          document.body.classList.remove(oldval);
+        }
+      }
+    }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    window.addEventListener("resize", function () {
+      return _this.setBodyCollapseClassName();
+    }, false);
+  },
+  created: function created() {
+    var createdBodyClassList = [this.sideMiniClass, this.layoutClass, this.navbarFixedClass, this.footerFixed, this.topNavClass, this.containerBodyClass];
+    createdBodyClassList.forEach(function (item) {
+      if (item) {
+        document.body.classList.add(item);
+      }
+    });
+    this.setBodyCollapseClassName();
+  },
+  beforeDestroy: function beforeDestroy() {
+    window.removeEventListener("resize", this.setBodyCollapseClassName(), false);
+  },
+  watch: {
+    sideMiniClass: function sideMiniClass(newval, oldval) {
+      this.setBodyClassName(newval, oldval);
+    },
+    layoutClass: function layoutClass(newval, oldval) {
+      this.setBodyClassName(newval, oldval);
+    },
+    navbarFixedClass: function navbarFixedClass(newval, oldval) {
+      this.setBodyClassName(newval, oldval);
+    },
+    footerFixedClass: function footerFixedClass(newval, oldval) {
+      this.setBodyClassName(newval, oldval);
+    },
+    topNavClass: function topNavClass(newval, oldval) {
+      this.setBodyClassName(newval, oldval);
+    },
+    containerBodyClass: function containerBodyClass(newval, oldval) {
+      this.setBodyClassName(newval, oldval);
     }
   },
   render: function render(h) {
@@ -42276,108 +42407,111 @@ var NlySidebarContainer = utils_vue.extend({
 
 
 
-var sidebar_brand_props = propsFactory();
+
+var sidebar_brand_linkProps = propsFactory();
+var sidebar_brand_props = Object(objectSpread2["a" /* default */])({
+  size: {
+    type: String
+  },
+  variant: {
+    type: String
+  },
+  elevation: {
+    type: String
+  }
+}, sidebar_brand_linkProps);
+
+var sidebar_brand_customSize = function customSize(props) {
+  var fontSize = nlyGetOptionsByKeyEqual(textSizeOptions, props.size);
+  return fontSize;
+};
+
+var sidebar_brand_customVariant = function customVariant(props) {
+  return nlyGetOptionsByKeyEqual(sidebarBrandVariantOptions, props.variant);
+};
+
+var sidebar_brand_customElevation = function customElevation(props) {
+  return nlyGetOptionsByKeyEqual(sidebarElevationOptions, props.elevation);
+};
+
 var sidebar_brand_name = "NlySidebarBrand";
 var NlySidebarBrand = utils_vue.extend({
   name: sidebar_brand_name,
-  props: Object(objectSpread2["a" /* default */])({
-    size: {
-      type: String
-    },
-    variant: {
-      type: String
-    },
-    elevation: {
-      type: String
-    }
-  }, sidebar_brand_props),
-  computed: {
-    customSize: function customSize() {
-      var fontSize = nlyGetOptionsByKeyEqual(textSizeOptions, this.size);
-      return fontSize;
-    },
-    customVariant: function customVariant() {
-      return nlyGetOptionsByKeyEqual(sidebarBrandVariantOptions, this.variant);
-    },
-    customElevation: function customElevation() {
-      return nlyGetOptionsByKeyEqual(sidebarElevationOptions, this.elevation);
-    },
-    computedProps: function computedProps() {
-      return Object(objectSpread2["a" /* default */])({}, this.$props);
-    }
-  },
-  render: function render(h) {
-    return h(NlyLink, {
+  functional: true,
+  props: sidebar_brand_props,
+  render: function render(h, _ref) {
+    var props = _ref.props,
+        data = _ref.data,
+        children = _ref.children;
+    return h(NlyLink, lib_esm_a(data, {
       staticClass: "brand-link",
-      class: [this.customSize, this.customVariant, this.customElevation],
-      props: this.computedProps
-    }, this.$slots.default);
+      class: [sidebar_brand_customSize(props), sidebar_brand_customVariant(props), sidebar_brand_customElevation(props)],
+      props: props
+    }), children);
   }
 });
 // CONCATENATED MODULE: ./src/components/sidebar/sidebar-brandimg.js
 
+
+var sidebar_brandimg_props = {
+  src: {
+    type: String,
+    required: true
+  },
+  sidebarBrandimgClass: {
+    type: String
+  },
+  alt: {
+    type: String
+  },
+  circle: {
+    type: Boolean,
+    default: false
+  },
+  elevation: {
+    type: Boolean,
+    default: false
+  }
+};
 var sidebar_brandimg_name = "NlySidebarBrandimg";
 var NlySidebarBrandimg = utils_vue.extend({
   name: sidebar_brandimg_name,
-  props: {
-    src: {
-      type: String,
-      required: true
-    },
-    sidebarBrandimgClass: {
-      type: String
-    },
-    alt: {
-      type: String
-    },
-    circle: {
-      type: Boolean,
-      default: false
-    },
-    elevation: {
-      type: Boolean,
-      default: false
-    }
-  },
-  computed: {
-    customSrc: function customSrc() {
-      return this.src;
-    },
-    customSidebarBrandimgClass: function customSidebarBrandimgClass() {
-      return this.sidebarBrandimgClass;
-    },
-    customCircle: function customCircle() {
-      return this.circle ? "img-circle" : "";
-    },
-    customAlt: function customAlt() {
-      return this.alt;
-    },
-    customElevation: function customElevation() {
-      return this.elevation ? "elevation-3" : "";
-    }
-  },
-  render: function render(h) {
-    return h("img", {
+  props: sidebar_brandimg_props,
+  functional: true,
+  render: function render(h, _ref) {
+    var props = _ref.props,
+        data = _ref.data,
+        children = _ref.children;
+    return h("img", lib_esm_a(data, {
       attrs: {
-        alt: this.customAlt,
-        src: this.customSrc
+        alt: props.alt,
+        src: props.src
       },
       style: {
         opacity: 0.8
       },
       staticClass: "brand-image",
-      class: [this.customCircle, this.customElevation, this.customSidebarBrandimgClass]
-    }, this.$slots.default);
+      class: [props.circle ? "img-circle" : "", props.elevation ? "elevation-3" : "", props.customSidebarBrandimgClass]
+    }), children);
   }
 });
 // CONCATENATED MODULE: ./src/components/sidebar/siderbar-brandtext.js
 
 
+
+
 var siderbar_brandtext_name = "NlySidebarBrandtext";
 var NlySidebarBrandtext = utils_vue.extend({
   name: siderbar_brandtext_name,
-  render: function render(h) {
-    return h(NlyNavbarBrandtext, this.$slots.default);
+  functional: true,
+  props: Object(objectSpread2["a" /* default */])({}, navbar_brandtext_props),
+  render: function render(h, _ref) {
+    var props = _ref.props,
+        data = _ref.data,
+        children = _ref.children;
+    return h(NlyNavbarBrandtext, lib_esm_a(data, {
+      props: props
+    }), children);
   }
 });
 // CONCATENATED MODULE: ./src/components/sidebar/sidebar.js
@@ -42418,102 +42552,94 @@ var NlySidebar = utils_vue.extend({
 });
 // CONCATENATED MODULE: ./src/components/sidebar/sidebar-userpanel.js
 
+
 var sidebar_userpanel_name = "NlySidebarUserpanel";
 var NlySidebarUserpanel = utils_vue.extend({
   name: sidebar_userpanel_name,
-  render: function render(h) {
-    return h("div", {
+  functional: true,
+  render: function render(h, _ref) {
+    var data = _ref.data,
+        children = _ref.children;
+    return h("div", lib_esm_a(data, {
       staticClass: "user-panel"
-    }, this.$slots.default);
+    }), children);
   }
 });
 // CONCATENATED MODULE: ./src/components/sidebar/sidebar-userpanel-img.js
 
 
 
+
+var sidebar_userpanel_img_props = {
+  src: {
+    type: String,
+    required: true
+  },
+  circle: {
+    type: Boolean,
+    default: true
+  },
+  elevation: {
+    type: String,
+    default: "md"
+  },
+  alt: {
+    type: String
+  },
+  imgClass: {
+    type: String
+  }
+};
+var sidebar_userpanel_img_customElevation = function customElevation(props) {
+  return nlyGetOptionsByKeyEqual(sidebarElevationOptions, props.elevation);
+};
 var sidebar_userpanel_img_name = "NlySidebarUserpanelImg";
 var NlySidebarUserpanelImg = utils_vue.extend({
   name: sidebar_userpanel_img_name,
-  props: {
-    src: {
-      type: String,
-      required: true
-    },
-    circle: {
-      type: Boolean,
-      default: true
-    },
-    elevation: {
-      type: String,
-      default: "md"
-    },
-    alt: {
-      type: String
-    },
-    imgClass: {
-      type: String
-    }
-  },
-  computed: {
-    customSrc: function customSrc() {
-      return this.src;
-    },
-    customCircle: function customCircle() {
-      return this.circle ? "img-circle" : "";
-    },
-    customElevation: function customElevation() {
-      return nlyGetOptionsByKeyEqual(sidebarElevationOptions, this.elevation);
-    },
-    customAlt: function customAlt() {
-      return this.alt;
-    },
-    customImgClass: function customImgClass() {
-      return this.imgClass;
-    }
-  },
-  render: function render(h) {
-    var inner = h("img", {
+  props: sidebar_userpanel_img_props,
+  functional: true,
+  render: function render(h, _ref) {
+    var props = _ref.props,
+        data = _ref.data;
+    var $inner = h("img", {
       attrs: {
-        src: this.customSrc,
-        alt: this.customAlt
+        src: props.src,
+        alt: props.alt
       },
-      class: [this.customCircle, this.customElevation, this.customImgClass]
+      class: [props.circle ? "img-circle" : "", sidebar_userpanel_img_customElevation(props), props.imgClass]
     });
-    return h("div", {
+    return h("div", lib_esm_a(data, {
       staticClass: "image"
-    }, [inner]);
+    }), [$inner]);
   }
 });
 // CONCATENATED MODULE: ./src/components/sidebar/sidebar-userpanel-info.js
 
 
- // import { mergeData } from "vue-functional-data-merge";
 
-var sidebar_userpanel_info_props = propsFactory();
+
+var sidebar_userpanel_info_linkProps = propsFactory();
+var sidebar_userpanel_info_props = Object(objectSpread2["a" /* default */])({
+  infoClass: {
+    type: String
+  }
+}, sidebar_userpanel_info_linkProps);
 var sidebar_userpanel_info_name = "NlySidebarUserpanelInfo";
 var NlySidebarUserpanelInfo = utils_vue.extend({
   name: sidebar_userpanel_info_name,
-  props: Object(objectSpread2["a" /* default */])({
-    infoClass: {
-      type: String
-    }
-  }, sidebar_userpanel_info_props),
-  computed: {
-    customInfoClass: function customInfoClass() {
-      return this.infoClass;
-    },
-    computedProps: function computedProps() {
-      return Object(objectSpread2["a" /* default */])({}, this.$props);
-    }
-  },
-  render: function render(h) {
-    return h("div", {
+  functional: true,
+  props: sidebar_userpanel_info_props,
+  render: function render(h, _ref) {
+    var props = _ref.props,
+        data = _ref.data,
+        children = _ref.children;
+    return h("div", lib_esm_a(data, {
       staticClass: "info"
-    }, [h(NlyLink, {
+    }), [h(NlyLink, {
       staticClass: "d-block",
-      class: this.customInfoClass,
-      props: this.computedProps
-    }, this.$slots.default)]);
+      class: props.infoClass,
+      props: props
+    }, children)]);
   }
 });
 // CONCATENATED MODULE: ./src/components/sidebar/sidebar-nav.js
@@ -42522,119 +42648,105 @@ var NlySidebarUserpanelInfo = utils_vue.extend({
 
 
 
+
+var sidebar_nav_props = {
+  pill: {
+    type: Boolean,
+    default: false
+  },
+  flat: {
+    type: Boolean,
+    default: false
+  },
+  legacy: {
+    type: Boolean,
+    default: false
+  },
+  compact: {
+    type: Boolean,
+    default: false
+  },
+  childIndent: {
+    type: Boolean,
+    default: false
+  },
+  size: {
+    String: String
+  },
+  sidebarNavClass: {
+    type: String
+  },
+  role: {
+    type: String,
+    default: "menu"
+  }
+};
+var customShape = function customShape(props) {
+  return {
+    flat: props.flat ? "nav-flat" : "",
+    pill: props.pill ? "nav-pills" : "",
+    legacy: props.legacy ? "nav-legacy" : "",
+    compact: props.compact ? "nav-compact" : ""
+  };
+};
+var customChildIndent = function customChildIndent(props) {
+  return props.childIndent ? "nav-child-indent" : "";
+};
+var sidebar_nav_customSize = function customSize(props) {
+  return nlyGetOptionsByKeyEqual(textSizeOptions, props.size);
+};
 var sidebar_nav_name = "NlySidebarNav";
 var NlySidebarNav = utils_vue.extend({
   name: sidebar_nav_name,
-  props: {
-    pill: {
-      type: Boolean,
-      default: false
-    },
-    flat: {
-      type: Boolean,
-      default: false
-    },
-    legacy: {
-      type: Boolean,
-      default: false
-    },
-    compact: {
-      type: Boolean,
-      default: false
-    },
-    childIndent: {
-      type: Boolean,
-      default: false
-    },
-    size: {
-      String: String
-    },
-    sidebarNavClass: {
-      type: String
-    },
-    role: {
-      type: String,
-      default: "menu"
-    }
-  },
-  computed: {
-    customShape: function customShape() {
-      return {
-        flat: this.flat ? "nav-flat" : "",
-        pill: this.pill ? "nav-pills" : "",
-        legacy: this.legacy ? "nav-legacy" : "",
-        compact: this.compact ? "nav-compact" : ""
-      };
-    },
-    customChildIndent: function customChildIndent() {
-      return this.childIndent ? "nav-child-indent" : "";
-    },
-    customSize: function customSize() {
-      return nlyGetOptionsByKeyEqual(textSizeOptions, this.size);
-    },
-    customSidebarNavClass: function customSidebarNavClass() {
-      return this.sidebarNavClass;
-    },
-    customRole: function customRole() {
-      return this.role;
-    }
-  },
-  render: function render(h) {
-    return h("nav", [h("ul", {
+  props: sidebar_nav_props,
+  functional: true,
+  render: function render(h, _ref) {
+    var props = _ref.props,
+        data = _ref.data,
+        children = _ref.children;
+    var $childrenVnodes = h("ul", {
       staticClass: "nav nav-sidebar flex-column",
-      class: [this.customShape.flat, this.customShape.pill, this.customShape.legacy, this.customShape.compact, this.customSize, this.customChildIndent, this.customSidebarNavClass],
+      class: [customShape(props).flat, customShape(props).pill, customShape(props).legacy, customShape(props).compact, sidebar_nav_customSize(props), customChildIndent(props), props.sidebarNavClass],
       attrs: {
-        role: this.customRole
+        role: props.role
       }
-    }, this.$slots.default)]);
+    }, children);
+    return h("nav", lib_esm_a(data, {}), [$childrenVnodes]);
   }
 });
 // CONCATENATED MODULE: ./src/components/sidebar/sidebar-nav-item.js
 
 
 
-var sidebar_nav_item_props = propsFactory();
+
+var sidebar_nav_item_linkProps = propsFactory();
+var sidebar_nav_item_props = Object(objectSpread2["a" /* default */])({
+  linkClass: {
+    type: String
+  },
+  icon: {
+    type: String
+  }
+}, sidebar_nav_item_linkProps);
 var sidebar_nav_item_name = "NlySidebarNavItem";
 var NlySidebarNavItem = utils_vue.extend({
   name: sidebar_nav_item_name,
-  props: Object(objectSpread2["a" /* default */])(Object(objectSpread2["a" /* default */])({}, sidebar_nav_item_props), {}, {
-    linkClass: {
-      type: String
-    },
-    icon: {
-      type: String
-    }
-  }),
-  computed: {
-    customLinkProps: function customLinkProps() {
-      return {
-        href: this.href,
-        linkTarget: this.linkTarget,
-        active: this.active,
-        disabled: this.disabled,
-        to: this.to,
-        append: this.append,
-        exact: this.exact,
-        exactActiveClass: "active"
-      };
-    },
-    customLinkClass: function customLinkClass() {
-      return this.linkClass;
-    },
-    customIcon: function customIcon() {
-      return this.icon;
-    }
-  },
-  render: function render(h) {
-    return h("li", {
-      staticClass: "nav-item"
-    }, [h(NlyLink, {
+  props: sidebar_nav_item_props,
+  functional: true,
+  render: function render(h, _ref) {
+    var props = _ref.props,
+        data = _ref.data,
+        children = _ref.children;
+    var $linkVnodes = h(NlyLink, {
       staticClass: "nav-link",
-      props: this.customLinkProps,
-      class: this.customLinkClass
+      props: props,
+      class: props.linkClass
     }, [h("i", {
-      class: this.icon
-    }), h("p", this.$slots.default)])]);
+      class: props.icon
+    }), h("p", children)]);
+    return h("li", lib_esm_a(data, {
+      staticClass: "nav-item"
+    }), [$linkVnodes]);
   }
 });
 // CONCATENATED MODULE: ./src/components/sidebar/sidebar-nav-tree.js
@@ -42818,27 +42930,536 @@ var NlySidebarNavTree = utils_vue.extend({
 });
 // CONCATENATED MODULE: ./src/components/sidebar/sidebar-nav-header.js
 
+
+var sidebar_nav_header_props = {
+  tag: {
+    type: String,
+    default: "li"
+  }
+};
 var sidebar_nav_header_name = "NlySidebarNavHeader";
 var NlySidebarNavHeader = utils_vue.extend({
   name: sidebar_nav_header_name,
+  functional: true,
+  props: sidebar_nav_header_props,
+  render: function render(h, _ref) {
+    var props = _ref.props,
+        data = _ref.data,
+        children = _ref.children;
+    return h(props.tag, lib_esm_a(data, {
+      staticClass: "nav-header"
+    }), children);
+  }
+});
+// CONCATENATED MODULE: ./src/components/render-function/index.js
+
+
+var RenderFunctionPlugin = plugins_nlyPluginFactory({
+  components: {
+    NlyRenderFunction: NlyRenderFunction
+  }
+});
+
+// CONCATENATED MODULE: ./src/utils/recursion.js
+// 获取当前激活子节点的所有 type 为 tree 的父节点
+var activeParentTree = function activeParentTree(arr1, id) {
+  var temp = [];
+
+  var forFn = function forFn(arr, id) {
+    for (var i = 0; i < arr.length; i++) {
+      var item = arr[i];
+
+      if (item._key === id) {
+        if (item._type === "nly-sidebar-nav-tree") {
+          temp.push(item);
+        }
+
+        forFn(arr1, item.dataGroup);
+        break;
+      }
+
+      if (item._children) {
+        forFn(item._children, id);
+      }
+    }
+  };
+
+  forFn(arr1, id);
+  return temp;
+};
+// CONCATENATED MODULE: ./src/components/sidebar/sidebar-menu.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var sidebar_menu_name = "NlySidebarMenu";
+var NlySidebarMenu = utils_vue.extend({
+  name: sidebar_menu_name,
+  components: {
+    "nly-sidebar-nav": NlySidebarNav,
+    "nly-sidebar-nav-header": NlySidebarNavHeader,
+    "nly-sidebar-nav-item": NlySidebarNavItem,
+    "nly-sidebar-nav-tree": NlySidebarNavTree
+  },
   props: {
-    tag: {
+    sidebarList: {
+      type: Array,
+      default: function _default() {
+        return [];
+      }
+    },
+    exact: {
+      type: Boolean,
+      default: false
+    },
+    //边侧栏最小化
+    sideMini: {
+      type: Boolean,
+      default: false
+    },
+    //layout fixed or boxed
+    layout: {
+      type: String
+    },
+    // navbar fixed
+    navbarFixed: {
+      type: Boolean,
+      default: false
+    },
+    //footer fixed
+    footerFixed: {
+      type: Boolean,
+      default: false
+    },
+    //top nav
+    topNav: {
+      type: Boolean,
+      default: false
+    },
+    containerClass: {
+      type: String
+    },
+    containerVariant: {
       type: String,
-      default: "li"
+      default: "darkPrimary"
+    },
+    containerHover: {
+      type: Boolean,
+      default: true
+    },
+    containerElevation: {
+      type: String,
+      default: "xl"
+    },
+    brandSize: {
+      type: String
+    },
+    brandVariant: {
+      type: String
+    },
+    brandElevation: {
+      type: String
+    },
+    brandHref: {
+      type: String,
+      default: null
+    },
+    brandRel: {
+      type: String,
+      default: null
+    },
+    brandTarget: {
+      type: String,
+      default: "_self"
+    },
+    brandActive: {
+      type: Boolean,
+      default: false
+    },
+    branDisabled: {
+      type: Boolean,
+      default: false
+    },
+    brandTo: {
+      type: [String, Object],
+      default: null
+    },
+    brandAppend: {
+      type: Boolean,
+      default: false
+    },
+    brandReplace: {
+      type: Boolean,
+      default: false
+    },
+    brandEvent: {
+      type: [String, Array],
+      default: "click"
+    },
+    brandActiveClass: {
+      type: String
+    },
+    brandExact: {
+      type: Boolean,
+      default: false
+    },
+    brandExactActiveClass: {
+      type: String
+    },
+    brandRouterTag: {
+      type: String,
+      default: "a"
+    },
+    brandNoPrefetch: {
+      type: Boolean,
+      default: false
+    },
+    brandImgSrc: {
+      type: String
+    },
+    brandImgSidebarBrandimgClass: {
+      type: String
+    },
+    brandImgAlt: {
+      type: String
+    },
+    brandImgCircle: {
+      type: Boolean,
+      default: false
+    },
+    brandImgElevation: {
+      type: Boolean,
+      default: false
+    },
+    textClass: {
+      type: String,
+      default: null
+    },
+    textTag: {
+      type: String,
+      default: "span"
+    },
+    textWeight: {
+      type: Boolean,
+      default: true
+    },
+    brandText: {
+      type: String,
+      default: null
+    },
+    userSrc: {
+      type: String
+    },
+    userCircle: {
+      type: Boolean,
+      default: true
+    },
+    userElevation: {
+      type: String,
+      default: "md"
+    },
+    userAlt: {
+      type: String
+    },
+    userImgClass: {
+      type: String
+    },
+    infoClass: {
+      type: String
+    },
+    infoHref: {
+      type: String,
+      default: null
+    },
+    infoRel: {
+      type: String,
+      default: null
+    },
+    infoTarget: {
+      type: String,
+      default: "_self"
+    },
+    infoActive: {
+      type: Boolean,
+      default: false
+    },
+    infoDisabled: {
+      type: Boolean,
+      default: false
+    },
+    infoTo: {
+      type: [String, Object],
+      default: null
+    },
+    infoAppend: {
+      type: Boolean,
+      default: false
+    },
+    infoReplace: {
+      type: Boolean,
+      default: false
+    },
+    infoEvent: {
+      type: [String, Array],
+      default: "click"
+    },
+    infoActiveClass: {
+      type: String
+    },
+    infoExact: {
+      type: Boolean,
+      default: false
+    },
+    infoExactActiveClass: {
+      type: String
+    },
+    infoRouterTag: {
+      type: String,
+      default: "a"
+    },
+    infoNoPrefetch: {
+      type: Boolean,
+      default: false
+    },
+    infoText: {
+      type: String
+    },
+    scrollbar: {
+      type: Boolean,
+      default: true
     }
   },
-  computed: {
-    customTag: function customTag() {
-      return this.tag;
+  methods: {
+    checkVisible: function checkVisible(val) {
+      var _this = this;
+
+      var avtiveKey = undefined; // 获取当前激活的 item 的 key
+
+      var transActiveArrayFunc = function transActiveArrayFunc(dataArray) {
+        return dataArray.map(function (item) {
+          var dataGroup = item.dataGroup,
+              _key = item._key,
+              exact = item.exact,
+              _children = item._children,
+              to = item.to;
+
+          if (dataGroup === undefined) {
+            throw new Error("dataGroup is required");
+          }
+
+          if (_key === undefined) {
+            throw new Error("_key is required");
+          }
+
+          if (exact === undefined) {
+            throw new Error("exact is required");
+          }
+
+          if (_this.$route !== undefined && to !== undefined) {
+            var _name = to.name;
+
+            if (_name === _this.$route.name || to === _this.$route.path) {
+              avtiveKey = _key;
+            }
+          }
+
+          if (_children) {
+            transActiveArrayFunc(_children);
+          }
+
+          return item;
+        });
+      }; // 获取转化之后的 sidebarlist
+
+
+      var transActiveArray = transActiveArrayFunc(val); // 获取当前激活子节点的所有 type 为 tree 的父节点
+
+      var activeParentArray = activeParentTree(transActiveArray, avtiveKey);
+
+      var sidebrArray = function sidebrArray(visibleList) {
+        return visibleList.map(function (item) {
+          var _type = item._type;
+
+          if (_type === "nly-sidebar-nav-tree") {
+            var _children = item._children,
+                _key = item._key;
+
+            if (_children) {
+              var visibleTree = [];
+              activeParentArray.forEach(function (childrenItem) {
+                visibleTree.push(childrenItem._key);
+              });
+              item["active"] = false;
+              item["visible"] = false;
+
+              if (visibleTree.indexOf(_key) !== -1) {
+                item["active"] = true;
+                item["visible"] = true;
+              }
+
+              sidebrArray(_children);
+              delete item.dataGroup;
+              return item;
+            }
+          } else if (_type === "nly-sidebar-nav") {
+            var _children2 = item._children;
+
+            if (_children2) {
+              sidebrArray(_children2);
+              delete item.dataGroup;
+              return item;
+            }
+          } else if (_type === "nly-sidebar-nav-item") {
+            delete item.dataGroup;
+            return item;
+          }
+        });
+      };
+
+      return sidebrArray(transActiveArray);
     }
   },
   render: function render(h) {
-    return h(this.customTag, {
-      staticClass: "nav-header"
-    }, this.$slots.default);
+    var $brand = h();
+
+    if (this.brandImgSrc) {
+      $brand = h(NlySidebarBrand, {
+        props: {
+          size: this.brandSize,
+          variant: this.brandVariant,
+          elevation: this.brandElevation,
+          href: this.brandHref,
+          rel: this.brandHref,
+          target: this.brandTarget,
+          active: this.brandActive,
+          disabled: this.branDisabled,
+          to: this.brandTo,
+          append: this.brandAppend,
+          replace: this.brandReplace,
+          event: this.brandEvent,
+          activeClass: this.brandActiveClass,
+          exact: this.brandExact,
+          exactActiveClass: this.brandExactActiveClass,
+          routerTag: this.brandRouterTag,
+          noPrefetch: this.brandNoPrefetch
+        }
+      }, [h(NlySidebarBrandimg, {
+        props: {
+          src: this.brandImgSrc,
+          sidebarBrandimgClass: this.brandImgSidebarBrandimgClass,
+          alt: this.brandImgAlt,
+          circle: this.brandImgCircle,
+          elevation: this.brandImgElevation
+        }
+      }, h(NlySidebarBrandtext, {
+        props: {
+          textClass: this.textClass,
+          tag: this.textTag,
+          weight: this.textWeight
+        }
+      }, this.brandText))]);
+    }
+
+    var $userInfo = h();
+
+    if (this.userSrc) {
+      $userInfo = h(NlySidebarUserpanel, {
+        class: ["mt-3", "pb-3", "mb-3", "d-flex"]
+      }[(h(NlySidebarUserpanelImg, {
+        props: {
+          src: this.userSrc,
+          circle: this.userCircle,
+          elevation: this.userElevation,
+          alt: this.userAlt,
+          imgClass: this.userImgClass
+        }
+      }), h(NlySidebarUserpanelInfo, {
+        props: {
+          infoClass: this.infoClass,
+          href: this.infoHref,
+          rel: this.infoRel,
+          target: this.infoTarget,
+          active: this.infoActive,
+          disabled: this.infoDisabled,
+          to: this.infoTo,
+          append: this.infoAppend,
+          replace: this.infoReplace,
+          event: this.infoEvent,
+          activeClass: this.infoActiveClass,
+          exact: this.infoExact,
+          exactActiveClass: this.infoExactActiveClass,
+          routerTag: this.infoRouterTag,
+          noPrefetch: this.infoNoPrefetch
+        }
+      }, this.infoText))]);
+    }
+
+    var $sidebar = h();
+
+    if (this.sidebarList) {
+      if (this.exact) {
+        var convertSidebarList = lodash_clonedeep_default()(this.sidebarList);
+        var checkVisible = this.checkVisible(convertSidebarList);
+        $sidebar = h(NlyRenderFunction, {
+          props: {
+            flat: true,
+            contentToRender: checkVisible
+          }
+        });
+      } else {
+        $sidebar = h(NlyRenderFunction, {
+          props: {
+            flat: true,
+            contentToRender: this.sidebarList
+          }
+        });
+      }
+    }
+
+    var $wrapper = h(NlySidebarContainer, {
+      props: {
+        containerVariant: this.containerVariant,
+        containerHover: this.containerHover,
+        containerElevation: this.containerElevation,
+        //边侧栏最小化
+        sideMini: this.sideMini,
+        //layout fixed or boxed
+        layout: this.layout,
+        // navbar fixed
+        navbarFixed: this.navbarFixed,
+        //footer fixed
+        footerFixed: this.footerFixed,
+        //top nav
+        topNav: this.topNav,
+        containerClass: this.containerClass
+      }
+    }, [$brand, $userInfo, h(NlySidebar, {
+      props: {
+        scrollbar: this.scrollbar
+      }
+    }, [$sidebar])]);
+    return $wrapper;
   }
 });
 // CONCATENATED MODULE: ./src/components/sidebar/index.js
+
 
 
 
@@ -42865,7 +43486,8 @@ var SidebarPlugin = plugins_nlyPluginFactory({
     NlySidebarNav: NlySidebarNav,
     NlySidebarNavItem: NlySidebarNavItem,
     NlySidebarNavTree: NlySidebarNavTree,
-    NlySidebarNavHeader: NlySidebarNavHeader
+    NlySidebarNavHeader: NlySidebarNavHeader,
+    NlySidebarMenu: NlySidebarMenu
   }
 });
 
@@ -48118,15 +48740,6 @@ var TooltipPlugin = plugins_nlyPluginFactory({
   }
 });
 
-// CONCATENATED MODULE: ./src/components/render-function/index.js
-
-
-var RenderFunctionPlugin = plugins_nlyPluginFactory({
-  components: {
-    NlyRenderFunction: NlyRenderFunction
-  }
-});
-
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.link.js
 var es_string_link = __webpack_require__("9911");
 
@@ -49108,148 +49721,16 @@ var TabsPlugin = plugins_nlyPluginFactory({
 // CONCATENATED MODULE: ./src/components/wrapper/wrapper.js
 
 
-
-
-
-
 var wrapper_name = "NlyWrapper";
 var NlyWrapper = utils_vue.extend({
   name: wrapper_name,
-  props: {
-    //边侧栏最小化
-    sideMini: {
-      type: Boolean,
-      default: false
-    },
-    //layout fixed or boxed
-    layout: {
-      type: String
-    },
-    // navbar fixed
-    navbarFixed: {
-      type: Boolean,
-      default: false
-    },
-    //footer fixed
-    footerFixed: {
-      type: Boolean,
-      default: false
-    },
-    //top nav
-    topNav: {
-      type: Boolean,
-      default: false
-    },
-    wrapperClass: {
-      type: String
-    },
-    containerClass: {
-      type: String
-    }
-  },
-  computed: {
-    breakPointNumber: function breakPointNumber() {
-      return nlyGetOptionsByKeyEqual(breakPointOptions, this.breakPoint);
-    },
-    sideMiniClass: function sideMiniClass() {
-      return this.sideMini ? "sidebar-mini" : "";
-    },
-    layoutClass: function layoutClass() {
-      return this.layout == "fixed" ? "layout-fixed" : this.layout ? "layout-boxed" : "";
-    },
-    navbarFixedClass: function navbarFixedClass() {
-      return this.navbarFixed ? "layout-navbar-fixed" : "";
-    },
-    footerFixedClass: function footerFixedClass() {
-      return this.footerFixed ? "layout-footer-fixed" : "";
-    },
-    topNavClass: function topNavClass() {
-      return this.topNav ? "layout-top-nav" : "";
-    },
-    containerWrapperClass: function containerWrapperClass() {
-      return this.wrapperClass;
-    },
-    containerBodyClass: function containerBodyClass() {
-      return this.containerClass;
-    }
-  },
-  methods: {
-    setBodyCollapseClassName: function setBodyCollapseClassName() {
-      if (this.sideMini) {
-        var bodyWidth = document.body.clientWidth;
-        var bodyClassName = document.body.className;
-
-        if (bodyWidth < 992) {
-          if (bodyClassName.indexOf("sidebar-collapse") == -1) {
-            document.body.classList.add("sidebar-collapse");
-          }
-        } else {
-          if (bodyClassName.indexOf("sidebar-open") !== -1) {
-            document.body.classList.remove("sidebar-open");
-          }
-        }
-      }
-    },
-    setBodyClassName: function setBodyClassName(newval, oldval) {
-      if (newval != oldval) {
-        if (newval && oldval) {
-          document.body.classList.add(newval);
-          document.body.classList.remove(oldval);
-        } else if (newval && oldval == "") {
-          document.body.classList.add(newval);
-        } else if (newval == "" && oldval) {
-          document.body.classList.remove(oldval);
-        }
-      }
-    }
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    window.addEventListener("resize", function () {
-      return _this.setBodyCollapseClassName();
-    }, false);
-  },
-  created: function created() {
-    var createdBodyClassList = [this.sideMiniClass, this.layoutClass, this.navbarFixedClass, this.footerFixed, this.topNavClass, this.containerBodyClass];
-    createdBodyClassList.forEach(function (item) {
-      if (item) {
-        document.body.classList.add(item);
-      }
-    });
-    this.setBodyCollapseClassName();
-  },
-  beforeDestroy: function beforeDestroy() {
-    window.removeEventListener("resize", this.setBodyCollapseClassName(), false);
-  },
-  watch: {
-    sideMiniClass: function sideMiniClass(newval, oldval) {
-      this.setBodyClassName(newval, oldval);
-    },
-    layoutClass: function layoutClass(newval, oldval) {
-      this.setBodyClassName(newval, oldval);
-    },
-    navbarFixedClass: function navbarFixedClass(newval, oldval) {
-      this.setBodyClassName(newval, oldval);
-    },
-    footerFixedClass: function footerFixedClass(newval, oldval) {
-      this.setBodyClassName(newval, oldval);
-    },
-    topNavClass: function topNavClass(newval, oldval) {
-      this.setBodyClassName(newval, oldval);
-    },
-    containerBodyClass: function containerBodyClass(newval, oldval) {
-      this.setBodyClassName(newval, oldval);
-    },
-    containerWrapperClass: function containerWrapperClass(newval, oldval) {
-      this.setBodyClassName(newval, oldval);
-    }
-  },
-  render: function render(h) {
-    return h("div", {
-      staticClass: "wrapper",
-      class: [this.containerWrapperClass]
-    }, this.$slots.default);
+  functional: true,
+  render: function render(h, _ref) {
+    var data = _ref.data,
+        children = _ref.children;
+    return h("div", lib_esm_a(data, {
+      staticClass: "wrapper"
+    }), children);
   }
 });
 // CONCATENATED MODULE: ./src/components/wrapper/wrapper-footer.js
@@ -49412,55 +49893,159 @@ var NlyWrapperHeader = utils_vue.extend({
 
 
 
-var wrapper_sidebar_props = {
-  variant: {
-    type: String,
-    default: "darkPrimary"
-  },
-  hover: {
-    type: Boolean,
-    default: true
-  },
-  elevation: {
-    type: String,
-    default: "xl"
-  },
-  tag: {
-    type: String,
-    default: "aside"
-  },
-  wrapperSidebarClass: {
-    type: String
-  }
-};
 
-var wrapper_sidebar_customClass = function customClass(props) {
-  var customVariant = function customVariant() {
-    return nlyGetOptionsByKeyEqual(sidebarContainerVariantOpitons, props.variant);
-  };
 
-  var customHover = props.hover ? "" : "sidebar-no-expand";
-
-  var customElevation = function customElevation() {
-    return nlyGetOptionsByKeyEqual(sidebarElevationOptions, props.elevation);
-  };
-
-  return [customVariant(), customHover, customElevation(), props.wrapperSidebarClass];
-};
 
 var wrapper_sidebar_name = "NlyWrapperSidebar";
 var NlyWrapperSidebar = utils_vue.extend({
   name: wrapper_sidebar_name,
-  props: wrapper_sidebar_props,
-  functional: true,
-  render: function render(h, _ref) {
-    var props = _ref.props,
-        data = _ref.data,
-        children = _ref.children;
-    return h(props.tag, lib_esm_a(data, {
+  props: {
+    variant: {
+      type: String,
+      default: "darkPrimary"
+    },
+    hover: {
+      type: Boolean,
+      default: true
+    },
+    elevation: {
+      type: String,
+      default: "xl"
+    },
+    //边侧栏最小化
+    sideMini: {
+      type: Boolean,
+      default: false
+    },
+    //layout fixed or boxed
+    layout: {
+      type: String
+    },
+    // navbar fixed
+    navbarFixed: {
+      type: Boolean,
+      default: false
+    },
+    //footer fixed
+    footerFixed: {
+      type: Boolean,
+      default: false
+    },
+    //top nav
+    topNav: {
+      type: Boolean,
+      default: false
+    },
+    containerClass: {
+      type: String
+    }
+  },
+  computed: {
+    breakPointNumber: function breakPointNumber() {
+      return nlyGetOptionsByKeyEqual(breakPointOptions, this.breakPoint);
+    },
+    sideMiniClass: function sideMiniClass() {
+      return this.sideMini ? "sidebar-mini" : "";
+    },
+    layoutClass: function layoutClass() {
+      return this.layout == "fixed" ? "layout-fixed" : this.layout ? "layout-boxed" : "";
+    },
+    navbarFixedClass: function navbarFixedClass() {
+      return this.navbarFixed ? "layout-navbar-fixed" : "";
+    },
+    footerFixedClass: function footerFixedClass() {
+      return this.footerFixed ? "layout-footer-fixed" : "";
+    },
+    topNavClass: function topNavClass() {
+      return this.topNav ? "layout-top-nav" : "";
+    },
+    containerBodyClass: function containerBodyClass() {
+      return this.containerClass;
+    },
+    customVariant: function customVariant() {
+      return nlyGetOptionsByKeyEqual(sidebarContainerVariantOpitons, this.variant);
+    },
+    customHover: function customHover() {
+      return this.hover ? "" : "sidebar-no-expand";
+    },
+    customElevation: function customElevation() {
+      return nlyGetOptionsByKeyEqual(sidebarElevationOptions, this.elevation);
+    }
+  },
+  methods: {
+    setBodyCollapseClassName: function setBodyCollapseClassName() {
+      if (this.sideMini) {
+        var bodyWidth = document.body.clientWidth;
+        var bodyClassName = document.body.className;
+
+        if (bodyWidth < 992) {
+          if (bodyClassName.indexOf("sidebar-collapse") == -1) {
+            document.body.classList.add("sidebar-collapse");
+          }
+        } else {
+          if (bodyClassName.indexOf("sidebar-open") !== -1) {
+            document.body.classList.remove("sidebar-open");
+          }
+        }
+      }
+    },
+    setBodyClassName: function setBodyClassName(newval, oldval) {
+      if (newval != oldval) {
+        if (newval && oldval) {
+          document.body.classList.add(newval);
+          document.body.classList.remove(oldval);
+        } else if (newval && oldval == "") {
+          document.body.classList.add(newval);
+        } else if (newval == "" && oldval) {
+          document.body.classList.remove(oldval);
+        }
+      }
+    }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    window.addEventListener("resize", function () {
+      return _this.setBodyCollapseClassName();
+    }, false);
+  },
+  created: function created() {
+    var createdBodyClassList = [this.sideMiniClass, this.layoutClass, this.navbarFixedClass, this.footerFixed, this.topNavClass, this.containerBodyClass];
+    createdBodyClassList.forEach(function (item) {
+      if (item) {
+        document.body.classList.add(item);
+      }
+    });
+    this.setBodyCollapseClassName();
+  },
+  beforeDestroy: function beforeDestroy() {
+    window.removeEventListener("resize", this.setBodyCollapseClassName(), false);
+  },
+  watch: {
+    sideMiniClass: function sideMiniClass(newval, oldval) {
+      this.setBodyClassName(newval, oldval);
+    },
+    layoutClass: function layoutClass(newval, oldval) {
+      this.setBodyClassName(newval, oldval);
+    },
+    navbarFixedClass: function navbarFixedClass(newval, oldval) {
+      this.setBodyClassName(newval, oldval);
+    },
+    footerFixedClass: function footerFixedClass(newval, oldval) {
+      this.setBodyClassName(newval, oldval);
+    },
+    topNavClass: function topNavClass(newval, oldval) {
+      this.setBodyClassName(newval, oldval);
+    },
+    containerBodyClass: function containerBodyClass(newval, oldval) {
+      this.setBodyClassName(newval, oldval);
+    }
+  },
+  render: function render(h) {
+    return h("aside", {
       staticClass: "main-sidebar",
-      class: wrapper_sidebar_customClass(props)
-    }), children);
+      class: [this.customVariant, this.customElevation, this.customHover]
+    }, this.$slots.default);
   }
 });
 // CONCATENATED MODULE: ./src/components/wrapper/wrapper-control-sidebar.js
@@ -50709,6 +51294,7 @@ var NlyAdminlteVue = {
   install: src_install,
   NAME: src_NAME
 };
+
 
 
 
