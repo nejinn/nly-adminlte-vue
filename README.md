@@ -114,6 +114,8 @@ We also can view docs localhost with `npm run docs-dev`. [docs-dev](#43-install)
 - form-select
 - form-daterangepicker
 - bootstrap-pagination
+- form-check
+- form-radio
 
 ## 4.2. Directives
 
