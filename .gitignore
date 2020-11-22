@@ -4,7 +4,8 @@ node_modules
 static/nly.ai
 static/nly.svg
 .nuxt
-
+dist
+icon
 # local env files
 .env.local
 .env.*.local

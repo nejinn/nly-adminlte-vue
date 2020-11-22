@@ -5933,6 +5933,9 @@ var es_symbol_iterator = __webpack_require__("d28b");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.from.js
 var es_array_from = __webpack_require__("a630");
 
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.iterator.js
+var es_array_iterator = __webpack_require__("e260");
+
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
 var es_object_to_string = __webpack_require__("d3b7");
 
@@ -5943,6 +5946,7 @@ var es_string_iterator = __webpack_require__("3ca3");
 var web_dom_collections_iterator = __webpack_require__("ddb0");
 
 // CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/iterableToArray.js
+
 
 
 
@@ -5991,6 +5995,7 @@ function _toConsumableArray(arr) {
   return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
 }
 // CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/typeof.js
+
 
 
 
@@ -6282,6 +6287,7 @@ function construct_construct(Parent, args, Class) {
   return construct_construct.apply(null, arguments);
 }
 // CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/wrapNativeSuper.js
+
 
 
 
@@ -6676,6 +6682,9 @@ var warn_warnNoMutationObserverSupport = function warnNoMutationObserverSupport(
     customClass: undefined,
     delay: 50,
     variant: undefined
+  },
+  NlyBootstrapPagination: {
+    size: undefined
   }
 }));
 // CONCATENATED MODULE: ./src/utils/config-set.js

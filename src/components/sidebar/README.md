@@ -14,6 +14,8 @@
 
 - 如果有三级子菜单，请给同一级别的子菜单 tree 设置手风琴分组
 
+- menu 如果需要自动开启路由匹配模式， 给 每一个 item 元素 设置 exact: true, 请不要给设置元素设置 visible 属性， 也不要给元素设置 active 属性
+
 ```html
 <template>
   <div>
@@ -30,108 +32,112 @@
         >点击收起左侧菜单栏</nly-button
       >
     </div>
-    <nly-sidebar-wrapper side-mini layout="fixed" v-if="show">
-      <nly-sidebar-container hover style="margin-top:66px">
-        <nly-sidebar-brand to="#-">
-          <nly-sidebar-brandimg
-            src="http://nly-adminlte-vue-demo.nejinn.com/img/NLYLOGO.b43761e2.png"
-            elevation
-            circle
-          />
-          <nly-sidebar-brandtext>NLY Adminlte Vue</nly-sidebar-brandtext>
-        </nly-sidebar-brand>
+    <nly-sidebar-container
+      hover
+      style="margin-top:66px"
+      side-mini
+      layout="fixed"
+      v-if="show"
+    >
+      <nly-sidebar-brand to="#-">
+        <nly-sidebar-brandimg
+          src="http://nly-adminlte-vue-demo.nejinn.com/img/NLYLOGO.b43761e2.png"
+          elevation
+          circle
+        />
+        <nly-sidebar-brandtext>NLY Adminlte Vue</nly-sidebar-brandtext>
+      </nly-sidebar-brand>
 
-        <nly-sidebar>
-          <nly-sidebar-userpanel class="mt-3 pb-3 mb-3 d-flex">
-            <nly-sidebar-userpanel-img
-              src="http://nly-adminlte-vue-demo.nejinn.com/img/NLYLOGO.b43761e2.png"
-              class="SSS"
-            />
-            <nly-sidebar-userpanel-info to="#-"
-              >Nejinn lerity</nly-sidebar-userpanel-info
+      <nly-sidebar>
+        <nly-sidebar-userpanel class="mt-3 pb-3 mb-3 d-flex">
+          <nly-sidebar-userpanel-img
+            src="http://nly-adminlte-vue-demo.nejinn.com/img/NLYLOGO.b43761e2.png"
+            class="SSS"
+          />
+          <nly-sidebar-userpanel-info to="#-"
+            >Nejinn lerity</nly-sidebar-userpanel-info
+          >
+        </nly-sidebar-userpanel>
+        <nly-sidebar-nav class="mt-2">
+          <nly-sidebar-nav-header>仪表盘</nly-sidebar-nav-header>
+          <nly-sidebar-nav-item
+            to="/"
+            icon="nav-icon fas nlyfont nly-icon-dashboard"
+            exact
+          >
+            首页
+            <nly-badge bg-variant="teal" badge-class="right">NEW</nly-badge>
+          </nly-sidebar-nav-item>
+
+          <nly-sidebar-nav-header>
+            组件
+            <nly-badge bg-variant="maroon" badge-class="float-sm-right"
+              >15</nly-badge
             >
-          </nly-sidebar-userpanel>
-          <nly-sidebar-nav class="mt-2">
-            <nly-sidebar-nav-header>仪表盘</nly-sidebar-nav-header>
+          </nly-sidebar-nav-header>
+
+          <nly-sidebar-nav-tree
+            target="components-one"
+            visible
+            icon="nav-icon fas nlyfont nly-icon-logo-polymer"
+            text="菜单树"
+          >
             <nly-sidebar-nav-item
               to="/"
-              icon="nav-icon fas nlyfont nly-icon-dashboard"
+              icon="nav-icon far nlyfont nly-icon-logo-chrome"
               exact
+              >菜单1</nly-sidebar-nav-item
             >
-              首页
-              <nly-badge bg-variant="teal" badge-class="right">NEW</nly-badge>
-            </nly-sidebar-nav-item>
 
-            <nly-sidebar-nav-header>
-              组件
-              <nly-badge bg-variant="maroon" badge-class="float-sm-right"
-                >15</nly-badge
-              >
-            </nly-sidebar-nav-header>
-
-            <nly-sidebar-nav-tree
-              target="components-one"
-              visible
-              icon="nav-icon fas nlyfont nly-icon-logo-polymer"
-              text="菜单树"
+            <nly-sidebar-nav-item
+              to="/"
+              icon="nav-icon far nlyfont nly-icon-nav-tool"
+              exact
+              >菜单2</nly-sidebar-nav-item
             >
-              <nly-sidebar-nav-item
-                to="/"
-                icon="nav-icon far nlyfont nly-icon-logo-chrome"
-                exact
-                >菜单1</nly-sidebar-nav-item
-              >
+          </nly-sidebar-nav-tree>
 
-              <nly-sidebar-nav-item
-                to="/"
-                icon="nav-icon far nlyfont nly-icon-nav-tool"
-                exact
-                >菜单2</nly-sidebar-nav-item
-              >
-            </nly-sidebar-nav-tree>
-
+          <nly-sidebar-nav-tree
+            target="components-two"
+            icon="nav-icon fas nlyfont nly-icon-logo-polymer"
+            text="菜单树2"
+          >
+            <nly-sidebar-nav-item
+              to="/"
+              icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
+              exact
+              >菜单3</nly-sidebar-nav-item
+            >
             <nly-sidebar-nav-tree
-              target="components-two"
+              target="components-three"
+              accordion="components-three"
               icon="nav-icon fas nlyfont nly-icon-logo-polymer"
-              text="菜单树2"
+              text="菜单树3"
             >
               <nly-sidebar-nav-item
                 to="/"
                 icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
                 exact
-                >菜单3</nly-sidebar-nav-item
+                >菜单4</nly-sidebar-nav-item
               >
-              <nly-sidebar-nav-tree
-                target="components-three"
-                accordion="components-three"
-                icon="nav-icon fas nlyfont nly-icon-logo-polymer"
-                text="菜单树3"
-              >
-                <nly-sidebar-nav-item
-                  to="/"
-                  icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
-                  exact
-                  >菜单4</nly-sidebar-nav-item
-                >
-              </nly-sidebar-nav-tree>
-              <nly-sidebar-nav-tree
-                target="components-for"
-                accordion="components-three"
-                icon="nav-icon fas nlyfont nly-icon-logo-polymer"
-                text="菜单树4"
-              >
-                <nly-sidebar-nav-item
-                  to="/"
-                  icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
-                  exact
-                  >菜单5</nly-sidebar-nav-item
-                >
-              </nly-sidebar-nav-tree>
             </nly-sidebar-nav-tree>
-          </nly-sidebar-nav>
-        </nly-sidebar>
-      </nly-sidebar-container>
-    </nly-sidebar-wrapper>
+            <nly-sidebar-nav-tree
+              target="components-for"
+              accordion="components-three"
+              icon="nav-icon fas nlyfont nly-icon-logo-polymer"
+              text="菜单树4"
+            >
+              <nly-sidebar-nav-item
+                to="/"
+                icon="nav-icon far nlyfont nly-icon-sr-chanxueyanhezuo-fill"
+                exact
+                >菜单5</nly-sidebar-nav-item
+              >
+            </nly-sidebar-nav-tree>
+          </nly-sidebar-nav-tree>
+        </nly-sidebar-nav>
+      </nly-sidebar>
+    </nly-sidebar-container>
     <nly-overlay v-nly-sidebar-collapse.overlay sidebar />
   </div>
 </template>

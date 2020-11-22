@@ -114,6 +114,8 @@
 - 下拉选择输入框 form-select
 - 日期选择器 form-daterangepicker
 - bootstrap 分页 bootstrap-pagination
+- 复选框 form-check
+- 单选框 form-radio
 
 ## 4.2. 指令
 

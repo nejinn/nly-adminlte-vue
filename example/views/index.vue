@@ -1,10 +1,5 @@
 <template>
-  <nly-wrapper
-    side-mini
-    layout="fixed"
-    wrapper-class="XXXX"
-    container-class="zzz"
-  >
+  <nly-wrapper>
     <nly-navbar
       :variant="navbar.variant"
       navbar-class="xxx"
@@ -174,7 +169,12 @@
       </nly-navbar-nav>
     </nly-navbar>
 
-    <nly-wrapper-sidebar :hover="sidebar.hover" :variant="sidebar.variant">
+    <nly-sidebar-container
+      :hover="sidebar.hover"
+      :variant="sidebar.variant"
+      side-mini
+      layout="fixed"
+    >
       <nly-sidebar-brand to="collapse" :variant="sidebar.brand.variant">
         <nly-sidebar-brandimg :src="logo" elevation circle />
         <nly-sidebar-brandtext>NLY Adminlte Vue</nly-sidebar-brandtext>
@@ -532,7 +532,7 @@
           </nly-sidebar-nav-tree>
         </nly-sidebar-nav>
       </nly-sidebar>
-    </nly-wrapper-sidebar>
+    </nly-sidebar-container>
     <router-view />
     <nly-wrapper-footer :size="footerSizeSm" bg-variant="info">
       <strong>

@@ -243,7 +243,73 @@ const routes = [
   {
     path: "/sidebar",
     name: "sidebar",
-    component: Sidebar
+    component: Sidebar,
+    // redirect: "/sidebar",
+    children: [
+      {
+        path: "/tes1",
+        name: "test1",
+        component: test,
+        meta: {
+          title: "首页",
+          login: true
+        }
+      },
+      {
+        path: "/tes2",
+        name: "test2",
+        component: test,
+        meta: {
+          title: "首页2",
+          login: true
+        }
+      },
+      {
+        path: "/tes3",
+        name: "test3",
+        component: test,
+        meta: {
+          title: "首页3",
+          login: true
+        }
+      },
+      {
+        path: "/tes4",
+        name: "test4",
+        component: test,
+        meta: {
+          title: "首页4",
+          login: true
+        }
+      },
+      {
+        path: "/tes5",
+        name: "test5",
+        component: test,
+        meta: {
+          title: "首页5",
+          login: true
+        }
+      },
+      {
+        path: "/tes6",
+        name: "test6",
+        component: test,
+        meta: {
+          title: "首页6",
+          login: true
+        }
+      },
+      {
+        path: "/tes7",
+        name: "test7",
+        component: test,
+        meta: {
+          title: "首页7",
+          login: true
+        }
+      }
+    ]
   }
 ];
 
