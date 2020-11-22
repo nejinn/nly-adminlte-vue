@@ -13,6 +13,14 @@
         "version": "0.7.1",
         "props": [
           {
+            "prop": "sidebarList",
+            "description": "导航栏数据数组， 可将数组直接渲染成导航栏， 具体请查看文档"
+          },
+          {
+            "prop": "exact",
+            "description": "开启左侧导航栏 自动匹配模式，如果当前路由导航栏元素跳转的路由匹配，会自动激活导航栏， 需要传入 prop sidebarList, 此模式为手风琴模式，请注意"
+          },
+          {
             "prop": "sideMini",
             "description": "给body添加sidebar-mini class属性，允许左侧导航栏收起为只有图标式样"
           },
@@ -33,12 +41,200 @@
             "description": "顶部菜单布局，会覆盖所有与sidebar有关的props，设置为true时，sidebar会消失，不会出现在窗口"
           },
           {
-            "prop": "wrapperClass",
-            "description": "wrapper自定义css"
+            "prop": "containerClass",
+            "description": "container 自定义 css"
+          },
+          {
+            "prop": "containerHover",
+            "description": "航栏收起时，鼠标悬浮展开，设置为false则无悬浮效果"
+          },
+          {
+            "prop": "containerVariant",
+            "description": "container 颜色， 即左侧导航栏主题颜色"
+          },
+          {
+            "prop": "containerElevation",
+            "description": "阴影，可选，sm，md，lg，xl。依次增大"
           },
           {
             "prop": "containerClass",
             "description": "body自定义css"
+          },
+          {
+            "prop": "brandSize",
+            "description": "导航栏 brand 字体大小，可选sm，lg"
+          },
+          {
+            "prop": "brandVariant",
+            "description": "导航栏 brand 主题色，可选  primary，secondary，info，success，danger，indigo，purple，pink，navy，light，warning，lightblue，olive，lime，fuchsia，maroon，blue，orange，teal，white，gray，dark"
+          },
+          {
+            "prop": "brandElevation",
+            "description": "导航栏 brand 阴影，可选，sm，md，lg，xl。依次增大"
+          },
+          {
+            "prop": "brandHref",
+            "description": "点击 brand 跳转的普通 url 地址"
+          },
+          {
+            "prop": "brandRel",
+            "description": "设置导航栏 brand rel 属性"
+          },
+          {
+            "prop": "brandTarget",
+            "description": "导航栏 brand 中 link 的 target 属性，可选_blank，_self，_parent，_top，framename"
+          },
+          {
+            "prop": "brandActive",
+            "description": "设置为 true， 导航栏 brand 处于激活状态"
+          },
+          {
+            "prop": "branDisabled",
+            "description": "设置 true 导航栏 brand 处于禁用状态， 事件跳转都不会触发"
+          },
+          {
+            "prop": "brandTo",
+            "description": "点击 brand 跳转的页面， 可以是路由对象或者字符串。以router-link router.push()跳转"
+          },
+          {
+            "prop": "brandAppend",
+            "description": "点击 brand 跳转的路由，router-link，需要使用 to 或者 href 这个 props，将需要跳转的url字符串添加到当前url的后面再跳转。设置 brand-append=true，比如当前http://localhost:8080/link，to='collapse'，则会跳转到http://localhost:8080/link/collapse"
+          },
+          {
+            "prop": "brandReplace",
+            "description": "router-link router.replace()跳转, 需要设置 to 或者 href"
+          },
+          {
+            "prop": "brandEvent",
+            "description": "传递给 brand 的事件， 点击会触发事件"
+          },
+          {
+            "prop": "brandActiveClass",
+            "description": "brand 激活状态的 css 类"
+          },
+          {
+            "prop": "brandRouterTag",
+            "description": "brand 的标签"
+          },
+          {
+            "prop": "brandNoPrefetch",
+            "description": "nuxt"
+          },
+          {
+            "prop": "brandImgSrc",
+            "description": "brand 图片地址， 如果没有传值， 不会渲染 brand"
+          },
+          {
+            "prop": "brandImgClass",
+            "description": "brand 图片自定义 css 类"
+          },
+          {
+            "prop": "brandImgAlt",
+            "description": "brand 图片 alt属性"
+          },
+          {
+            "prop": "brandImgCircle",
+            "description": "设置 true， brand 图片为圆形"
+          },
+          {
+            "prop": "brandImgElevation",
+            "description": "brand 图片 阴影，可选，sm，md，lg，xl。依次增大"
+          },
+          {
+            "prop": "brandTextClass",
+            "description": "brand 文本自定义css"
+          },
+          {
+            "prop": "brandTextTag",
+            "description": "brand 文本标签"
+          },
+          {
+            "prop": "brandTextWeight",
+            "description": "brand 文本字体加宽"
+          },
+          {
+            "prop": "brandText",
+            "description": "brand 文本"
+          },
+          {
+            "prop": "userSrc",
+            "description": "user 的图片, 如果不传入值，不会渲染 user-info 组件"
+          },
+          {
+            "prop": "userCircle",
+            "description": "设置 true， user 的图片为圆形"
+          },
+          {
+            "prop": "userElevation",
+            "description": "user 的阴影"
+          },
+          {
+            "prop": "userAlt",
+            "description": "user 的图片的 alt 属性"
+          },
+          {
+            "prop": "userImgClass",
+            "description": "用户图片的 自定义 css"
+          },
+          {
+            "prop": "infoClass",
+            "description": "user 文本自定义css"
+          },
+          {
+            "prop": "infoHref",
+            "description": "点击 user-info 跳转的普通 url 地址"
+          },
+          {
+            "prop": "infoRel",
+            "description": "设置 user-info 的 ref 属性"
+          },
+          {
+            "prop": "infoTarget",
+            "description": "user-info 中 link 的 target 属性，可选_blank，_self，_parent，_top，framename"
+          },
+          {
+            "prop": "infoActive",
+            "description": "设置为 true， 导航栏 user-info 处于激活状态"
+          },
+          {
+            "prop": "infoDisabled",
+            "description": "设置 true 导航栏 user-info 处于禁用状态， 事件跳转都不会触发"
+          },
+          {
+            "prop": "infoTo",
+            "description": "点击 user-info 跳转的页面， 可以是路由对象或者字符串。以router-link router.push()跳转"
+          },
+          {
+            "prop": "infoAppend",
+            "description": "点击 user-info 跳转的路由，router-link，需要使用 to 或者 href 这个 props，将需要跳转的url字符串添加到当前url的后面再跳转。设置 brand-append=true，比如当前http://localhost:8080/link，to='collapse'，则会跳转到http://localhost:8080/link/collapse"
+          },
+          {
+            "prop": "infoReplace",
+            "description": "router-link router.replace()跳转, 需要设置 to 或者 href"
+          },
+          {
+            "prop": "infoEvent",
+            "description": "传递给 user-info 的事件， 点击会触发事件"
+          },
+          {
+            "prop": "infoActiveClass",
+            "description": "user-info 激活状态的 css 类"
+          },
+          {
+            "prop": "infoRouterTag",
+            "description": "user-info 的标签"
+          },
+          {
+            "prop": "infoNoPrefetch",
+            "description": "nuxt"
+          },
+          {
+            "prop": "infoText",
+            "description": "user-info 的文本"
+          },
+          {
+            "prop": "scrollbar",
+            "description": "导航栏是否开启内置滚动条"
           }
         ]
       },
@@ -60,30 +256,6 @@
           {
             "prop": "sideMini",
             "description": "给body添加sidebar-mini class属性，允许左侧导航栏收起为只有图标式样"
-          },
-          {
-            "prop": "layout",
-            "description": "页面布局，可选fixed和boxed"
-          },
-          {
-            "prop": "navbarFixed",
-            "description": "头部菜单fixed布局，头部菜单固定在顶部，跟随滚动条一起滚动"
-          },
-          {
-            "prop": "footerFixed",
-            "description": "footer fixed布局，footer固定在底部，跟随滚动条一起滚动"
-          },
-          {
-            "prop": "topNav",
-            "description": "顶部菜单布局，会覆盖所有与sidebar有关的props，设置为true时，sidebar会消失，不会出现在窗口"
-          },
-          {
-            "prop": "wrapperClass",
-            "description": "wrapper自定义css"
-          },
-          {
-            "prop": "containerClass",
-            "description": "body自定义css"
           }
         ]
       },

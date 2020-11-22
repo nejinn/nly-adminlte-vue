@@ -70,7 +70,7 @@ export const NlySidebarNavTree = Vue.extend({
     // menu props
     accordion: {
       type: String,
-      default: "nly-accordion"
+      default: "nly-sidebar-accordion"
     },
     visible: {
       type: Boolean,

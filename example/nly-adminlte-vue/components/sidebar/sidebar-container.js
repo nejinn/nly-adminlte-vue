@@ -27,28 +27,6 @@ export const NlySidebarContainer = Vue.extend({
     sideMini: {
       type: Boolean,
       default: false
-    },
-    //layout fixed or boxed
-    layout: {
-      type: String
-    },
-    // navbar fixed
-    navbarFixed: {
-      type: Boolean,
-      default: false
-    },
-    //footer fixed
-    footerFixed: {
-      type: Boolean,
-      default: false
-    },
-    //top nav
-    topNav: {
-      type: Boolean,
-      default: false
-    },
-    containerClass: {
-      type: String
     }
   },
   computed: {
@@ -57,25 +35,6 @@ export const NlySidebarContainer = Vue.extend({
     },
     sideMiniClass: function() {
       return this.sideMini ? "sidebar-mini" : "";
-    },
-    layoutClass: function() {
-      return this.layout == "fixed"
-        ? "layout-fixed"
-        : this.layout
-        ? "layout-boxed"
-        : "";
-    },
-    navbarFixedClass: function() {
-      return this.navbarFixed ? "layout-navbar-fixed" : "";
-    },
-    footerFixedClass: function() {
-      return this.footerFixed ? "layout-footer-fixed" : "";
-    },
-    topNavClass: function() {
-      return this.topNav ? "layout-top-nav" : "";
-    },
-    containerBodyClass: function() {
-      return this.containerClass;
     },
     customVariant() {
       return nlyGetOptionsByKeyEqual(
@@ -128,14 +87,7 @@ export const NlySidebarContainer = Vue.extend({
     );
   },
   created() {
-    const createdBodyClassList = [
-      this.sideMiniClass,
-      this.layoutClass,
-      this.navbarFixedClass,
-      this.footerFixed,
-      this.topNavClass,
-      this.containerBodyClass
-    ];
+    const createdBodyClassList = [this.sideMiniClass];
     createdBodyClassList.forEach(item => {
       if (item) {
         document.body.classList.add(item);
@@ -152,21 +104,6 @@ export const NlySidebarContainer = Vue.extend({
   },
   watch: {
     sideMiniClass: function(newval, oldval) {
-      this.setBodyClassName(newval, oldval);
-    },
-    layoutClass: function(newval, oldval) {
-      this.setBodyClassName(newval, oldval);
-    },
-    navbarFixedClass: function(newval, oldval) {
-      this.setBodyClassName(newval, oldval);
-    },
-    footerFixedClass: function(newval, oldval) {
-      this.setBodyClassName(newval, oldval);
-    },
-    topNavClass: function(newval, oldval) {
-      this.setBodyClassName(newval, oldval);
-    },
-    containerBodyClass: function(newval, oldval) {
       this.setBodyClassName(newval, oldval);
     }
   },

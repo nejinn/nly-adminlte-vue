@@ -232,7 +232,6 @@ export { WrapperPlugin } from "./components/wrapper";
 export { NlyWrapper } from "./components/wrapper/wrapper";
 export { NlyWrapperFooter } from "./components/wrapper/wrapper-footer";
 export { NlyWrapperHeader } from "./components/wrapper/wrapper-header";
-export { NlyWrapperSidebar } from "./components/wrapper/wrapper-sidebar";
 export { NlyWrapperControlSidebar } from "./components/wrapper/wrapper-control-sidebar";
 export { NlyWrapperContent } from "./components/wrapper/wrapper-content";
 

@@ -50,7 +50,11 @@ const formselect = () => import("../views/example/form-select.vue");
 
 const daterangepicker = () => import("../views/example/daterangepicker.vue");
 
-const Sidebar = () => import("../views/indextest.vue");
+const SidebarMenuExact = () =>
+  import("../views/example/sidebar-menu-exact.vue");
+
+const SidebarMenuExact1 = () =>
+  import("../views/example/SidebarMenuExact1.vue");
 
 const routes = [
   {
@@ -241,73 +245,45 @@ const routes = [
     component: fixedNavbar
   },
   {
-    path: "/sidebar",
-    name: "sidebar",
-    component: Sidebar,
+    path: "/sidebar-menu-exact",
+    name: "SidebarMenuExact",
+    component: SidebarMenuExact,
     // redirect: "/sidebar",
     children: [
       {
-        path: "/tes1",
-        name: "test1",
-        component: test,
-        meta: {
-          title: "首页",
-          login: true
-        }
+        path: "/sidebar-menu-exact/tes1",
+        name: "SidebarMenuExact1",
+        component: SidebarMenuExact1
       },
       {
-        path: "/tes2",
-        name: "test2",
-        component: test,
-        meta: {
-          title: "首页2",
-          login: true
-        }
+        path: "/sidebar-menu-exact/tes2",
+        name: "SidebarMenuExact2",
+        component: SidebarMenuExact1
       },
       {
         path: "/tes3",
-        name: "test3",
-        component: test,
-        meta: {
-          title: "首页3",
-          login: true
-        }
+        name: "SidebarMenuExact3",
+        component: SidebarMenuExact1
       },
       {
-        path: "/tes4",
-        name: "test4",
-        component: test,
-        meta: {
-          title: "首页4",
-          login: true
-        }
+        path: "/sidebar-menu-exact/tes4",
+        name: "SidebarMenuExact4",
+        component: SidebarMenuExact1
       },
       {
-        path: "/tes5",
-        name: "test5",
-        component: test,
-        meta: {
-          title: "首页5",
-          login: true
-        }
+        path: "/sidebar-menu-exact/tes5",
+        name: "SidebarMenuExact5",
+        component: SidebarMenuExact1
       },
       {
-        path: "/tes6",
-        name: "test6",
-        component: test,
-        meta: {
-          title: "首页6",
-          login: true
-        }
+        path: "/sidebar-menu-exact/tes6",
+        name: "SidebarMenuExact6",
+        component: SidebarMenuExact1
       },
       {
-        path: "/tes7",
-        name: "test7",
-        component: test,
-        meta: {
-          title: "首页7",
-          login: true
-        }
+        path: "/sidebar-menu-exact/tes7",
+        name: "SidebarMenuExact7",
+        component: SidebarMenuExact1
       }
     ]
   }

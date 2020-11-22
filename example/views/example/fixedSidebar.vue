@@ -15,7 +15,7 @@
       :dark="navbar.dark"
     >
       <nly-navbar-nav class="xxxxx">
-        <nly-nav-item v-nly-sidebar-collapse.navitem>
+        <nly-nav-item v-nly-sidebar-collapse.sidebar-collapse>
           <nly-icon icon="nlyfont nly-icon-logo-windows" />
         </nly-nav-item>
         <nly-nav-item

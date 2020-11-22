@@ -192,34 +192,34 @@
     "description": "'aria-describedby' 属性"
   },
   "ariaLive": {
-    "description": "对屏幕阅读客户端设置aria-live区域。可选 'polite'，'assertive'"
+    "description": "对屏幕阅读客户端设置 aria-live 区域。可选 'polite'，'assertive'"
   },
   "fade": {
-    "description": "动画，设置true开启动画"
+    "description": "动画，设置 true 开启动画"
   },
   "noFade": {
     "description": "无动画，设置true关闭动画"
   },
   "active": {
-    "description": "设置true处于激活状态"
+    "description": "设置 true 处于激活状态"
   },
   "rel": {
-    "description": "设置rel属性"
+    "description": "设置 rel 属性"
   },
   "target": {
-    "description": "link的target属性，可选_blank，_self，_parent，_top，framename"
+    "description": "link 的 target 属性，可选_blank，_self，_parent，_top，framename"
   },
   "href": {
-    "description": "普通url"
+    "description": "普通 url 地址"
   },
   "to": {
-    "description": "router-link router.push()跳转"
+    "description": "点击跳转的页面， 可以是路由对象或者字符串，以router-link router.push()跳转"
   },
   "replace": {
     "description": "router-link router.replace()跳转"
   },
   "append": {
-    "description": "router-link，需要使用to或者replace或者href这个props，将需要跳转的url字符串添加到当前url的后面再跳转。设置append=true，比如当前http://localhost:8080/link，to='collapse'，则会跳转到http://localhost:8080/link/collapse"
+    "description": "router-link，需要使用 to 或者 href 这个 props，将需要跳转的 url 字符串添加到当前 url 的后面再跳转。设置 append=true，比如当前 http://localhost:8080/link，to='collapse'，则会跳转到 http://localhost:8080/link/collapse"
   },
   "exact": {
     "description": "router-link，设置true开启路由匹配模式"
