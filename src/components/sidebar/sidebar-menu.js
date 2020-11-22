@@ -39,28 +39,6 @@ export const NlySidebarMenu = Vue.extend({
       type: Boolean,
       default: false
     },
-    //layout fixed or boxed
-    layout: {
-      type: String
-    },
-    // navbar fixed
-    navbarFixed: {
-      type: Boolean,
-      default: false
-    },
-    //footer fixed
-    footerFixed: {
-      type: Boolean,
-      default: false
-    },
-    //top nav
-    topNav: {
-      type: Boolean,
-      default: false
-    },
-    containerClass: {
-      type: String
-    },
     containerVariant: {
       type: String,
       default: "darkPrimary"
@@ -121,13 +99,6 @@ export const NlySidebarMenu = Vue.extend({
     brandActiveClass: {
       type: String
     },
-    brandExact: {
-      type: Boolean,
-      default: false
-    },
-    brandExactActiveClass: {
-      type: String
-    },
     brandRouterTag: {
       type: String,
       default: "a"
@@ -139,7 +110,7 @@ export const NlySidebarMenu = Vue.extend({
     brandImgSrc: {
       type: String
     },
-    brandImgSidebarBrandimgClass: {
+    brandImgClass: {
       type: String
     },
     brandImgAlt: {
@@ -153,15 +124,15 @@ export const NlySidebarMenu = Vue.extend({
       type: Boolean,
       default: false
     },
-    textClass: {
+    brandTextClass: {
       type: String,
       default: null
     },
-    textTag: {
+    brandTextTag: {
       type: String,
       default: "span"
     },
-    textWeight: {
+    brandTextWeight: {
       type: Boolean,
       default: true
     },
@@ -226,13 +197,6 @@ export const NlySidebarMenu = Vue.extend({
       default: "click"
     },
     infoActiveClass: {
-      type: String
-    },
-    infoExact: {
-      type: Boolean,
-      default: false
-    },
-    infoExactActiveClass: {
       type: String
     },
     infoRouterTag: {
@@ -313,6 +277,13 @@ export const NlySidebarMenu = Vue.extend({
           } else if (_type === "nly-sidebar-nav-item") {
             delete item.dataGroup;
             return item;
+          } else {
+            const { _children } = item;
+            if (_children) {
+              sidebrArray(_children);
+              return item;
+            }
+            return item;
           }
         });
       return sidebrArray(transActiveArray);
@@ -338,8 +309,6 @@ export const NlySidebarMenu = Vue.extend({
             replace: this.brandReplace,
             event: this.brandEvent,
             activeClass: this.brandActiveClass,
-            exact: this.brandExact,
-            exactActiveClass: this.brandExactActiveClass,
             routerTag: this.brandRouterTag,
             noPrefetch: this.brandNoPrefetch
           }
@@ -350,7 +319,7 @@ export const NlySidebarMenu = Vue.extend({
             {
               props: {
                 src: this.brandImgSrc,
-                sidebarBrandimgClass: this.brandImgSidebarBrandimgClass,
+                sidebarBrandimgClass: this.brandImgClass,
                 alt: this.brandImgAlt,
                 circle: this.brandImgCircle,
                 elevation: this.brandImgElevation
@@ -360,9 +329,9 @@ export const NlySidebarMenu = Vue.extend({
               NlySidebarBrandtext,
               {
                 props: {
-                  textClass: this.textClass,
-                  tag: this.textTag,
-                  weight: this.textWeight
+                  textClass: this.brandTextClass,
+                  tag: this.brandTextTag,
+                  weight: this.brandTextWeight
                 }
               },
               this.brandText
@@ -404,8 +373,6 @@ export const NlySidebarMenu = Vue.extend({
                 replace: this.infoReplace,
                 event: this.infoEvent,
                 activeClass: this.infoActiveClass,
-                exact: this.infoExact,
-                exactActiveClass: this.infoExactActiveClass,
                 routerTag: this.infoRouterTag,
                 noPrefetch: this.infoNoPrefetch
               }
@@ -445,16 +412,7 @@ export const NlySidebarMenu = Vue.extend({
           containerHover: this.containerHover,
           containerElevation: this.containerElevation,
           //边侧栏最小化
-          sideMini: this.sideMini,
-          //layout fixed or boxed
-          layout: this.layout,
-          // navbar fixed
-          navbarFixed: this.navbarFixed,
-          //footer fixed
-          footerFixed: this.footerFixed,
-          //top nav
-          topNav: this.topNav,
-          containerClass: this.containerClass
+          sideMini: this.sideMini
         }
       },
       [

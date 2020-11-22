@@ -1,5 +1,5 @@
 <template>
-  <nly-wrapper>
+  <nly-wrapper layout="fixed">
     <nly-navbar
       :variant="navbar.variant"
       navbar-class="xxx"
@@ -9,7 +9,7 @@
       :dark="navbar.dark"
     >
       <nly-navbar-nav class="xxxxx">
-        <nly-nav-item v-nly-sidebar-collapse.navitem>
+        <nly-nav-item v-nly-sidebar-collapse.sidebar-collapse>
           <nly-icon icon="nlyfont nly-icon-logo-windows" />
         </nly-nav-item>
         <nly-nav-item
@@ -173,7 +173,6 @@
       :hover="sidebar.hover"
       :variant="sidebar.variant"
       side-mini
-      layout="fixed"
     >
       <nly-sidebar-brand to="collapse" :variant="sidebar.brand.variant">
         <nly-sidebar-brandimg :src="logo" elevation circle />
