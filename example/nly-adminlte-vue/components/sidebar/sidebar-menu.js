@@ -221,72 +221,91 @@ export const NlySidebarMenu = Vue.extend({
       // 获取当前激活的 item 的 key
       const transActiveArrayFunc = dataArray =>
         dataArray.map(item => {
-          const { dataGroup, _key, exact, _children, to } = item;
-          if (dataGroup === undefined) {
-            throw new Error("dataGroup is required");
-          }
-          if (_key === undefined) {
-            throw new Error("_key is required");
-          }
-          if (exact === undefined) {
-            throw new Error("exact is required");
-          }
-          if (this.$route !== undefined && to !== undefined) {
-            const { name } = to;
-            if (name === this.$route.name || to === this.$route.path) {
-              avtiveKey = _key;
+          const { dataGroup, _key, exact, _children, to, _type } = item;
+          if (
+            [
+              "nly-sidebar-nav-tree",
+              "nly-sidebar-nav",
+              "nly-sidebar-nav-item"
+            ].indexOf(_type) !== -1
+          ) {
+            if (dataGroup === undefined) {
+              throw new Error("dataGroup is required");
             }
+            if (_key === undefined) {
+              throw new Error("_key is required");
+            }
+            if (exact === undefined) {
+              throw new Error("exact is required");
+            }
+            if (this.$route !== undefined && to !== undefined) {
+              const { name } = to;
+              if (name === this.$route.name || to === this.$route.path) {
+                avtiveKey = _key;
+              }
+            }
+            if (_children) {
+              transActiveArrayFunc(_children);
+              return item;
+            }
+            return item;
+          } else {
+            if (_children) {
+              transActiveArrayFunc(_children);
+              return item;
+            }
+            return item;
           }
-          if (_children) {
-            transActiveArrayFunc(_children);
-          }
-          return item;
         });
 
       // 获取转化之后的 sidebarlist
       let transActiveArray = transActiveArrayFunc(val);
       // 获取当前激活子节点的所有 type 为 tree 的父节点
-      let activeParentArray = activeParentTree(transActiveArray, avtiveKey);
-      const sidebrArray = visibleList =>
-        visibleList.map(item => {
-          const { _type } = item;
-          if (_type === "nly-sidebar-nav-tree") {
-            const { _children, _key } = item;
-            if (_children) {
-              const visibleTree = [];
-              activeParentArray.forEach(childrenItem => {
-                visibleTree.push(childrenItem._key);
-              });
-              item["active"] = false;
-              item["visible"] = false;
-              if (visibleTree.indexOf(_key) !== -1) {
-                item["active"] = true;
-                item["visible"] = true;
+      if (avtiveKey) {
+        let activeParentArray = activeParentTree(transActiveArray, avtiveKey);
+        const sidebrArray = visibleList =>
+          visibleList.map(item => {
+            const { _type } = item;
+            if (_type === "nly-sidebar-nav-tree") {
+              const { _children, _key } = item;
+              if (_children) {
+                const visibleTree = [];
+                activeParentArray.forEach(childrenItem => {
+                  visibleTree.push(childrenItem._key);
+                });
+                item["active"] = false;
+                item["visible"] = false;
+                if (visibleTree.indexOf(_key) !== -1) {
+                  item["active"] = true;
+                  item["visible"] = true;
+                }
+                sidebrArray(_children);
+                delete item.dataGroup;
+                return item;
               }
-              sidebrArray(_children);
+            } else if (_type === "nly-sidebar-nav") {
+              const { _children } = item;
+              if (_children) {
+                sidebrArray(_children);
+                delete item.dataGroup;
+                return item;
+              }
+            } else if (_type === "nly-sidebar-nav-item") {
               delete item.dataGroup;
               return item;
-            }
-          } else if (_type === "nly-sidebar-nav") {
-            const { _children } = item;
-            if (_children) {
-              sidebrArray(_children);
-              delete item.dataGroup;
+            } else {
+              const { _children } = item;
+              if (_children) {
+                sidebrArray(_children);
+                return item;
+              }
               return item;
             }
-          } else if (_type === "nly-sidebar-nav-item") {
-            delete item.dataGroup;
-            return item;
-          } else {
-            const { _children } = item;
-            if (_children) {
-              sidebrArray(_children);
-              return item;
-            }
-            return item;
-          }
-        });
-      return sidebrArray(transActiveArray);
+          });
+        return sidebrArray(transActiveArray);
+      } else {
+        return val;
+      }
     }
   },
   render(h) {

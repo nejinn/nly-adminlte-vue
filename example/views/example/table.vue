@@ -392,6 +392,112 @@
             </nly-card-body>
           </nly-card>
         </nly-col>
+        <nly-col xs="6">
+          <nly-table-simple hover small caption-top responsive>
+            <caption>
+              复杂布局
+            </caption>
+            <colgroup>
+              <col />
+              <col />
+            </colgroup>
+            <colgroup>
+              <col />
+              <col />
+              <col />
+            </colgroup>
+            <colgroup>
+              <col />
+              <col />
+            </colgroup>
+            <nly-thead>
+              <nly-tr>
+                <nly-th colspan="2" rowspan="2"> header 1</nly-th>
+                <nly-th colspan="3">header 2</nly-th>
+                <nly-th colspan="2">header 3</nly-th>
+              </nly-tr>
+              <nly-tr>
+                <nly-th>colum 1</nly-th>
+                <nly-th>columm 2</nly-th>
+                <nly-th>column 3</nly-th>
+                <nly-th>column 4</nly-th>
+                <nly-th>column 5</nly-th>
+              </nly-tr>
+            </nly-thead>
+            <nly-tbody>
+              <nly-tr>
+                <nly-th rowspan="3">蜀国</nly-th>
+                <nly-th class="text-right">张飞</nly-th>
+                <nly-td>56</nly-td>
+                <nly-td>22</nly-td>
+                <nly-td>43</nly-td>
+                <nly-td variant="success">72</nly-td>
+                <nly-td>23</nly-td>
+              </nly-tr>
+              <nly-tr>
+                <nly-th class="text-right">诸葛</nly-th>
+                <nly-td>46</nly-td>
+                <nly-td variant="warning">18</nly-td>
+                <nly-td>50</nly-td>
+                <nly-td>61</nly-td>
+                <nly-td variant="danger">15</nly-td>
+              </nly-tr>
+              <nly-tr>
+                <nly-th class="text-right">关羽</nly-th>
+                <nly-td>51</nly-td>
+                <nly-td>27</nly-td>
+                <nly-td>38</nly-td>
+                <nly-td>69</nly-td>
+                <nly-td>28</nly-td>
+              </nly-tr>
+              <nly-tr>
+                <nly-th rowspan="2">魏国</nly-th>
+                <nly-th class="text-right">曹操</nly-th>
+                <nly-td variant="success">89</nly-td>
+                <nly-td>34</nly-td>
+                <nly-td>69</nly-td>
+                <nly-td>85</nly-td>
+                <nly-td>38</nly-td>
+              </nly-tr>
+              <nly-tr>
+                <nly-th class="text-right">司马懿</nly-th>
+                <nly-td>80</nly-td>
+                <nly-td variant="danger">12</nly-td>
+                <nly-td>43</nly-td>
+                <nly-td>36</nly-td>
+                <nly-td variant="warning">19</nly-td>
+              </nly-tr>
+            </nly-tbody>
+            <nly-tfoot>
+              <nly-tr>
+                <nly-td colspan="7" variant="secondary" class="text-right">
+                  Total Rows: <b>5</b>
+                </nly-td>
+              </nly-tr>
+            </nly-tfoot>
+          </nly-table-simple>
+        </nly-col>
+        <nly-col xs="6">
+          <nly-card header-variant="graydark">
+            <nly-card-header>
+              基础表，
+            </nly-card-header>
+            <nly-card-body>
+              <nly-table striped hover :items="basicItems">
+                <template v-slot:thead-top>
+                  <nly-tr>
+                    <nly-th variant="secondary" rowspan="2">header 1</nly-th>
+                    <nly-th variant="primary" colspan="2">header 2</nly-th>
+                  </nly-tr>
+                  <nly-tr>
+                    <nly-th variant="primary" colspan="1">header 3</nly-th>
+                    <nly-th variant="danger">header 4</nly-th>
+                  </nly-tr>
+                </template>
+              </nly-table>
+            </nly-card-body>
+          </nly-card>
+        </nly-col>
       </nly-row>
     </nly-content>
   </nly-content-wrapper>
