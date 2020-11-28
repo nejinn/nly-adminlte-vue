@@ -159,7 +159,7 @@
         "events": [
           {
             "event": "input",
-            "description": "Input event triggered by user interaction. Emitted after any formatting (not including 'trim' or 'number' props) and after the v-model is updated",
+            "description": "用户交互触发事件，当 input 中的值格式化之后发生变化，且更新了 v-model 的值之后触发的事件，但是格式化时不应该包括 `trim` 和 `number` prop",
             "args": [
               {
                 "arg": "value",
@@ -167,13 +167,13 @@
                   "String",
                   "Number"
                 ],
-                "description": "Current value of input"
+                "description": "触发并返回当前 input 框中的值"
               }
             ]
           },
           {
             "event": "change",
-            "description": "Change event triggered by user interaction. Emitted after any formatting (not including 'trim' or 'number' props) and after the v-model is updated.",
+            "description": "用户交互触发事件，当 input 中的值格式化之后发生变化，且更新了 v-model 的值之后触发的事件，但是格式化时不应该包括 `trim` 和 `number` prop",
             "args": [
               {
                 "arg": "value",
@@ -181,13 +181,13 @@
                   "String",
                   "Number"
                 ],
-                "description": "Current value of input"
+                "description": "返回当前输入框的值"
               }
             ]
           },
           {
             "event": "update",
-            "description": "Emitted to update the v-model",
+            "description": "v-model 值更新之后触发的事件",
             "args": [
               {
                 "arg": "value",
@@ -195,18 +195,18 @@
                   "String",
                   "Number"
                 ],
-                "description": "Value of input, after any formatting. Not emitted if the value does not change"
+                "description": "返回当前输入框的值， 如果值没有变化，事件不会被触发"
               }
             ]
           },
           {
             "event": "blur",
-            "description": "Emitted after the input looses focus",
+            "description": "输入框失去焦距的时候触发的事件",
             "args": [
               {
                 "arg": "event",
                 "type": "FocusEvent",
-                "description": "Native blur event (before any formatting)"
+                "description": "原生 blur 事件"
               }
             ]
           }
