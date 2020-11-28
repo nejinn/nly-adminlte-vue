@@ -889,6 +889,18 @@ sidebarList: [
                 exact: true,
                 _children: [
                   {
+                    _type: "template",
+                    _slot: "linktool",
+                    _children: [
+                      {
+                        _name: `1`,
+                        _type: "nly-badge",
+                        variant: "info",
+                        badgeClass: "right"
+                      }
+                    ]
+                  },
+                  {
                     _type: "nly-sidebar-nav-item",
                     _name: "二级菜单 item 1",
                     icon: "nav-icon fas nlyfont nly-icon-logo-polymer",
@@ -969,7 +981,7 @@ sidebarList: [
                         exactActiveClass: "active",
                         to: { name: "SidebarMenuExact6" },
                         dataGroup: "ten",
-                        _key: "11"
+                        _key: "oneone"
                       },
                       {
                         _type: "nly-sidebar-nav-tree",
@@ -978,7 +990,7 @@ sidebarList: [
                         icon: "nav-icon fas nlyfont nly-icon-logo-aperture",
                         text: "三级菜单 tree 1",
                         dataGroup: "ten",
-                        _key: "12",
+                        _key: "onetwo",
                         exact: true,
                         _children: [
                           {
@@ -989,8 +1001,8 @@ sidebarList: [
                             exact: true,
                             exactActiveClass: "active",
                             to: { name: "SidebarMenuExact7" },
-                            dataGroup: "12",
-                            _key: "13"
+                            dataGroup: "onetwo",
+                            _key: "onethree"
                           }
                         ]
                       }

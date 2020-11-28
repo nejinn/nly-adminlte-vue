@@ -1,25 +1,299 @@
 {
-  "name": "@nly-adminlte-vue/bootstrap-pagination",
+  "name": "@nly-adminlte-vue/pagination",
   "version": "1.0.0",
   "meta": {
     "title": "Bootstrap Pagination",
     "subtitle": "分页",
-    "description": "一个具有 bootstrap 特征的分页组件，可以用来对其他组件进行分页",
+    "version": "0.6.7",
     "new": true,
+    "description": "一个具有 bootstrap 特征的可以快速跳转第一页，最后一页，下一页，上一页，且可以被其他组件（`nly-table`）直接控制的分页",
     "components": [
       {
         "component": "NlyBootstrapPagination",
+        "new": true,
         "version": "0.6.7",
-        "props": [],
+        "props": [
+          {
+            "prop": "ariaControls",
+            "description": "被分页器控制的元素的 ID，传入值会渲染在 'aria-controls' attr 属性上"
+          },
+          {
+            "prop": "perPage",
+            "description": "每一页的数据条数"
+          },
+          {
+            "prop": "totalRows",
+            "description": "整个数据总数量，比如传入一个 data 有 40 条数据，那么可以设置 totalRows = 40, 这个 prop 可以直接控制假分页组件"
+          },
+          {
+            "prop": "value",
+            "description": "当前页码， 数值从 1 开始"
+          },
+          {
+            "prop": "limit",
+            "description": "分页显示的最大按钮数量，包括生略号"
+          },
+          {
+            "prop": "align",
+            "description": "分页显示位置， 'start' ('left') 左侧显示, 'center' 居中显示, 'end' (or 'right') 右侧显示,  'fill' 填充整个父元素"
+          },
+          {
+            "prop": "pills",
+            "version": "0.6.7",
+            "description": "圆形按钮"
+          },
+          {
+            "prop": "hideGotoEndButtons",
+            "description": "设置 true 隐藏跳转到第一页和最后一页的按钮"
+          },
+          {
+            "prop": "hideEllipsis",
+            "description": "设置 true 隐藏省略号"
+          },
+          {
+            "prop": "ellipsisText",
+            "description": "传入值会代替省略号"
+          },
+          {
+            "prop": "size",
+            "description": "分页器大小， 可选: 'sm', 'md' (默认), 或者 'lg'"
+          },
+          {
+            "prop": "ariaLabel",
+            "description": "'aria-label' attr 属性"
+          },
+          {
+            "prop": "labelFirstPage",
+            "description": "跳转到一个页按钮的 'aria-label' attr 属性"
+          },
+          {
+            "prop": "firstText",
+            "description": "第一页按钮的文本内容"
+          },
+          {
+            "prop": "labelPrevPage",
+            "description": "上一页按钮的 'aria-label' attr 属性"
+          },
+          {
+            "prop": "labelPage",
+            "description": "跳转到指定页面的按钮的 'aria-label' attr 属性. 页码会自动添加到传入值的前面"
+          },
+          {
+            "prop": "prevText",
+            "description": "上一页按钮的文本内容"
+          },
+          {
+            "prop": "labelNextPage",
+            "description": "下一页按钮的 'aria-label' attr 属性"
+          },
+          {
+            "prop": "nextText",
+            "description": "下一页按钮的文本内容"
+          },
+          {
+            "prop": "labelLastPage",
+            "description": "最后一页按钮的 'aria-label' attr 属性"
+          },
+          {
+            "prop": "lastText",
+            "description": "最后一页的文本内容"
+          },
+          {
+            "prop": "firstClass",
+            "version": "0.6.7",
+            "description": "第一页按钮的自定义 css"
+          },
+          {
+            "prop": "prevClass",
+            "version": "0.6.7",
+            "description": "上一页按钮的自定义 css "
+          },
+          {
+            "prop": "pageClass",
+            "version": "0.6.7",
+            "description": "跳转到指定页按钮的自定义 css"
+          },
+          {
+            "prop": "nextClass",
+            "version": "0.6.7",
+            "description": "下一页按钮的自定义 css"
+          },
+          {
+            "prop": "lastClass",
+            "version": "0.6.7",
+            "description": "最后一页按钮的自定义 css"
+          },
+          {
+            "prop": "ellipsisClass",
+            "version": "0.6.7",
+            "description": "省略号的自定义 csss"
+          },
+          {
+            "prop": "firstNumber",
+            "version": "0.6.7",
+            "description": "设置 true 显示第一页页码，隐藏跳转到第一页按钮"
+          },
+          {
+            "prop": "lastNumber",
+            "version": "0.6.7",
+            "description": "设置 true 显示最后一页页码，隐藏跳转到最后一页按钮"
+          }
+        ],
         "events": [
           {
-            "event": "click",
-            "description": "点击link触发",
+            "event": "input",
+            "description": "页面发生变化时触发的 emit 事件",
             "args": [
               {
-                "name": "event",
-                "type": "鼠标事件",
-                "description": "原生点击事件"
+                "arg": "page",
+                "description": "返回选择的页码数，从1开始，如果没有找到页码，则为 null"
+              }
+            ]
+          },
+          {
+            "event": "change",
+            "description": "用户交互修改页面的时候触发的 emit 事件",
+            "args": [
+              {
+                "arg": "page",
+                "description": "返回选择的页码"
+              }
+            ]
+          },
+          {
+            "event": "page-click",
+            "description": "页码跳转按钮点击时触发的事件",
+            "version": "0.6.7",
+            "args": [
+              {
+                "arg": "nlyaEvt",
+                "type": " NlyaEvent",
+                "description": "`NlyaEvent` 对象. 使用 `nlyaEvt.preventDefault()` 取消页码点击"
+              },
+              {
+                "arg": "page",
+                "description": "选择的页码"
+              }
+            ]
+          }
+        ],
+        "slots": [
+          {
+            "name": "first-text",
+            "description": "\"go to first page\" 第一页按钮文本插槽, 作用域插槽",
+            "scope": [
+              {
+                "prop": "disabled",
+                "type": "Boolean",
+                "description": "如果设置为 true， 会禁用点击功能"
+              },
+              {
+                "prop": "page",
+                "type": "Number",
+                "description": "页码, 从 1 开始到总页数"
+              },
+              {
+                "prop": "index",
+                "type": "Number",
+                "description": "页码索引，从 0 开始到总页数-1"
+              }
+            ]
+          },
+          {
+            "name": "prev-text",
+            "description": "\"go to previous page\" 按钮文本插槽， 作用域插槽",
+            "scope": [
+              {
+                "prop": "disabled",
+                "type": "Boolean",
+                "description": "设置 true 会禁用点击事件"
+              },
+              {
+                "prop": "page",
+                "type": "Number",
+                "description": "页码, 从 1 开始到总页数"
+              },
+              {
+                "prop": "index",
+                "type": "Number",
+                "description": "页码索引，从 0 开始到总页数-1"
+              }
+            ]
+          },
+          {
+            "name": "next-text",
+            "description": "\"go to next page\" 下一页按钮文本插槽， 作用域插槽",
+            "scope": [
+              {
+                "prop": "disabled",
+                "type": "Boolean",
+                "description": "如果设置为 true， 会禁用点击功能"
+              },
+              {
+                "prop": "page",
+                "type": "Number",
+                "description": "页码, 从 1 开始到总页数"
+              },
+              {
+                "prop": "index",
+                "type": "Number",
+                "description": "页码索引，从 0 开始到总页数-1"
+              }
+            ]
+          },
+          {
+            "name": "last-text",
+            "description": "\"go to last page\" 按钮文本插槽，作用域插槽",
+            "scope": [
+              {
+                "prop": "disabled",
+                "type": "Boolean",
+                "description": "如果设置为 true， 会禁用点击功能"
+              },
+              {
+                "prop": "page",
+                "type": "Number",
+                "description": "页码, 从 1 开始到总页数"
+              },
+              {
+                "prop": "index",
+                "type": "Number",
+                "description": "页码索引，从 0 开始到总页数-1"
+              }
+            ]
+          },
+          {
+            "name": "ellipsis-text",
+            "description": "省略号文本插槽"
+          },
+          {
+            "name": "page",
+            "description": "页码按钮插槽，作用域插槽",
+            "scope": [
+              {
+                "prop": "active",
+                "type": "Boolean",
+                "description": "当前页码时激活状态"
+              },
+              {
+                "prop": "disabled",
+                "type": "Boolean",
+                "description": "设置 true 会禁用点击事件"
+              },
+              {
+                "prop": "page",
+                "type": "Number",
+                "description": "页码, 从 1 开始到总页数"
+              },
+              {
+                "prop": "index",
+                "type": "Number",
+                "description": "页码索引，从 0 开始到总页数-1"
+              },
+              {
+                "prop": "content",
+                "type": "String",
+                "description": "默认的文本内容"
               }
             ]
           }

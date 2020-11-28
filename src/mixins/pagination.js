@@ -281,7 +281,7 @@ export default {
       const pages = makePageArray(startNumber, numberOfLinks);
       if (pages.length > 3) {
         const idx = currentPage - startNumber;
-        const classes = "bv-d-xs-down-none";
+        const classes = "nly-d-xs-down-none";
         if (idx === 0) {
           for (let i = 3; i < pages.length; i++) {
             pages[i].classes = classes;
@@ -485,7 +485,7 @@ export default {
           staticClass: "page-item",
           class: [
             "disabled",
-            "bv-d-xs-down-none",
+            "nly-d-xs-down-none",
             fill ? "flex-fill" : "",
             this.ellipsisClass
           ],
