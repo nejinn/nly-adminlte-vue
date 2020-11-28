@@ -2,13 +2,40 @@
  * NlyadminlteVue Custom CSS
  * https://github.com/nejinn/nly-adminlte-vue
  *
- * Version: 0.7.1
+ * Version: 0.7.2
  *
  * Copyright Nejinn Lerity
  * https://github.com/nejinn
  *
  * Released under the MIT license.
  */
+.nly-no-focus-ring:focus {
+  outline: none;
+}
+
+@media (max-width: 575.98px) {
+  .nly-d-xs-down-none {
+    display: none !important;
+  }
+}
+@media (max-width: 767.98px) {
+  .nly-d-sm-down-none {
+    display: none !important;
+  }
+}
+@media (max-width: 991.98px) {
+  .nly-d-md-down-none {
+    display: none !important;
+  }
+}
+@media (max-width: 1199.98px) {
+  .nly-d-lg-down-none {
+    display: none !important;
+  }
+}
+.nly-d-xl-down-none {
+  display: none !important;
+}
 
 html.os-html,
 html.os-html > .os-host {
@@ -3427,8 +3454,8 @@ html.os-html > .os-host > .os-scrollbar {
 }
 
 /* .nly-log .nly-log-tail .tail-status:after {
-     content:""
-  } */
+    content:""
+ } */
 
 .nly-log .nly-log-tail {
   z-index: 20;
@@ -3493,28 +3520,28 @@ html.os-html > .os-host > .os-scrollbar {
 }
 
 /* .nly-log .nly-log-tail .tail-status {
-     position:relative;
-     display:inline-block;
-     height:20px;
-     width:20px;
-     vertical-align:middle;
-     background-color:#9d9d9d;
-     border-radius:50%
-  } */
+    position:relative;
+    display:inline-block;
+    height:20px;
+    width:20px;
+    vertical-align:middle;
+    background-color:#9d9d9d;
+    border-radius:50%
+ } */
 
 /* .nly-log .nly-log-tail .tail-status:after {
-     position:absolute;
-     top:0;
-     right:0;
-     left:0;
-     bottom:0;
-     margin:auto;
-     display:block;
-     height:10px;
-     width:10px;
-     background:#f1f1f1;
-     border-radius:50%
-  } */
+    position:absolute;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    margin:auto;
+    display:block;
+    height:10px;
+    width:10px;
+    background:#f1f1f1;
+    border-radius:50%
+ } */
 
 .nly-log .nly-log-tail.active .tail-status {
   background-color: #6b0;
