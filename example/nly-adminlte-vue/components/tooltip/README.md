@@ -4,7 +4,7 @@
 
 ```HTML
 <div class="text-center my-3">
-  <nly-button v-b-tooltip.hover title="`v-nly-tooltip` 指令提示框">
+  <nly-button v-nly-tooltip.hover title="`v-nly-tooltip` 指令提示框">
     移入鼠标查看效果
   </nly-button>
 

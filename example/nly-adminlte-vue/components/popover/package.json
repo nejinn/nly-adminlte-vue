@@ -3,181 +3,248 @@
   "version": "1.0.0",
   "meta": {
     "title": "Popover",
-    "subtitle": "弹出框",
-    "description": "一个普通的弹出框",
+    "subtitle": "提示框",
+    "description": "Popover 类似于 '<nly-tooltip>', 使用 '<nly-popover>' 组件和 'v-nly-popover' 指令可以给任何元素和组件提供消息提示",
+    "plugins": [
+      "VNlyPopoverPlugin"
+    ],
     "components": [
       {
         "component": "NlyPopover",
         "props": [
           {
-            "prop": "pills",
-            "description": "tab切换nav元素(切换按钮)渲染为圆角按钮形状"
+            "prop": "target",
+            "description": "Element string ID, or a reference to an element or component, that you want to trigger the popover."
           },
           {
-            "prop": "small",
-            "description": "小号nav元素(切换按钮)"
+            "prop": "title",
+            "description": "Text to place in the popovers title"
           },
           {
-            "prop": "align",
-            "description": "nav元素(切换按钮)文字对齐方式， 可选 'start' ('left'), 'center', 'end' ('right')"
+            "prop": "content",
+            "description": "Text to place in the body of the popover"
           },
           {
-            "prop": "fill",
-            "description": "nav元素(切换按钮)填充整个card宽度，但并不是每个nav元素(切换按钮)宽度都会相同"
+            "prop": "triggers",
+            "description": "Specify which triggers will show the popover. Supported values are 'click', 'hover', 'focus'. Refer to the docs for special triggers 'blur' and 'manual'"
           },
           {
-            "prop": "justified",
-            "description": "nav元素(切换按钮)填充整个card宽度，每个nav元素(切换按钮)宽度都会相同"
+            "prop": "placement",
+            "description": "Placement of the popover: One of 'top', 'bottom', 'right', 'left', 'topleft', 'topright', 'bottomleft', 'bottomright', 'lefttop', 'leftbottom', 'righttop', 'rightbottom'"
           },
           {
-            "prop": "vertical",
-            "description": "垂直tab"
+            "prop": "fallbackPlacement",
+            "description": "placement to use when the popover would be out of boundaries. Refer to the docs for more details"
           },
           {
-            "prop": "card",
-            "description": "设置true会渲染成nly-card"
+            "prop": "variant",
+            "description": "Applies one of the Bootstrap theme color variants to the component"
           },
           {
-            "prop": "end",
-            "description": "设置为true，水平tab会把nav元素(切换按钮)放到底部，垂直tab会把nav元素(切换按钮)放到右侧"
+            "prop": "customClass",
+            "description": "CSS class (or classes) to apply to the popover's root element"
           },
           {
-            "prop": "lazy",
-            "description": "懒加载"
+            "prop": "delay",
+            "description": "Value for the show and hide delay. Applies to both show and hide when specified as a number or string. Use object form to set show and hide delays individually"
           },
           {
-            "prop": "noNavStyle",
-            "description": "不渲染nav的css式样"
+            "prop": "boundary",
+            "description": "The boundary constraint of the popover: 'scrollParent', 'window', 'viewport', or a reference to an HTMLElement or component"
           },
           {
-            "prop": "noKeyNav",
-            "description": "禁用选项卡控件的键盘导航"
+            "prop": "boundaryPadding",
+            "description": "The popover will try and stay away from the edge of the boundary element by the number of pixels specified"
           },
           {
-            "prop": "contentClass",
-            "description": "tab-content元素自定义css"
+            "prop": "offset",
+            "description": "Offset (in pixels) for the arrow center compared to the trigger target element"
           },
           {
-            "prop": "navClass",
-            "description": "nav自定义css"
+            "prop": "container",
+            "description": "The container element to append the rendered popover when visible. Default's to the body element"
           },
           {
-            "prop": "navWrapperClass",
-            "description": "wraaper元素自定义css"
-          },
-          {
-            "prop": "activeTabClass",
-            "description": "tab选项卡激活css"
-          },
-          {
-            "prop": "activeNavItemClass",
-            "description": "选项卡渲染成nav-item时激活css"
-          },
-          {
-            "prop": "value",
-            "description": "当前可见的选项卡值"
+            "prop": "show",
+            "description": "When set will show the popover"
           }
         ],
         "events": [
           {
-            "event": "input",
-            "description": "更新v-model值时触发",
+            "event": "show",
+            "description": "Emitted when popover is about to be shown. Cancelable. Call bvEvent.preventDefault() to cancel show.",
             "args": [
               {
-                "arg": "tabIndex",
-                "type": "Number",
-                "description": "当前可见tab的index"
+                "arg": "bvEvent",
+                "type": "BvEvent",
+                "description": "bvEvent object"
               }
             ]
           },
           {
-            "event": "activate-tab",
-            "version": "0.4.4",
-            "description": "准备激活tab之前的index",
+            "event": "shown",
+            "description": "Emitted when popover is shown",
             "args": [
               {
-                "arg": "newTabIndex",
-                "type": "Number",
-                "description": "tab激活之后的index"
-              },
-              {
-                "arg": "prevTabIndex",
-                "type": "Number",
-                "description": "当前激活的tab的index，如果没有激活，那么默认为-1"
-              },
-              {
-                "arg": "nlyEvt",
-                "type": "NlyEvent",
-                "description": "NlyEvent对象. 防止冒泡"
+                "arg": "bvEvent",
+                "type": "BvEvent",
+                "description": "bvEvent object"
               }
             ]
           },
           {
-            "event": "changed",
-            "description": "当一个tab被移除或者重新排序，或者新增一个tab时触发",
+            "event": "hide",
+            "description": "Emitted when popover is about to be hidden. Cancelable. Call bvEvent.preventDefault() to cancel hide.",
             "args": [
               {
-                "arg": "currentTabs",
-                "type": "Array",
-                "description": "当前tabs中tab集合"
-              },
+                "arg": "bvEvent",
+                "type": "BvEvent",
+                "description": "bvEvent object"
+              }
+            ]
+          },
+          {
+            "event": "hidden",
+            "description": "Emitted when popover is hidden",
+            "args": [
               {
-                "arg": "previousTabs",
-                "type": "Array",
-                "description": "未更新之前的tabs的tab集合"
+                "arg": "bvEvent",
+                "type": "BvEvent",
+                "description": "bvEvent object"
+              }
+            ]
+          },
+          {
+            "event": "enabled",
+            "description": "Emitted when popover becomes enabled",
+            "args": [
+              {
+                "arg": "bvEvent",
+                "type": "BvEvent",
+                "description": "bvEvent object"
+              }
+            ]
+          },
+          {
+            "event": "disabled",
+            "description": "Emitted when popover becomes disabled",
+            "args": [
+              {
+                "arg": "bvEvent",
+                "type": "BvEvent",
+                "description": "bvEvent object"
+              }
+            ]
+          },
+          {
+            "event": "bv::popover::show",
+            "description": "Emitted on $root when popover is about to be shown. Cancelable. Call bvEvent.preventDefault() to cancel show.",
+            "args": [
+              {
+                "arg": "bvEvent",
+                "type": "BvEvent",
+                "description": "bvEvent object"
+              }
+            ]
+          },
+          {
+            "event": "bv::popover::shown",
+            "description": "Emitted on $root when popover is shown",
+            "args": [
+              {
+                "arg": "bvEvent",
+                "type": "BvEvent",
+                "description": "bvEvent object"
+              }
+            ]
+          },
+          {
+            "event": "bv::popover::hide",
+            "description": "Emitted on $root when popover is about to be hidden. Cancelable. Call bvEvent.preventDefault() to cancel hide.",
+            "args": [
+              {
+                "arg": "bvEvent",
+                "type": "BvEvent",
+                "description": "bvEvent object"
+              }
+            ]
+          },
+          {
+            "event": "bv::popover::hidden",
+            "description": "Emitted on $root when popover is hidden",
+            "args": [
+              {
+                "arg": "bvEvent",
+                "type": "BvEvent",
+                "description": "bvEvent object"
+              }
+            ]
+          },
+          {
+            "event": "bv::popover::enabled",
+            "description": "Emitted on $root when popover becomes enabled",
+            "args": [
+              {
+                "arg": "bvEvent",
+                "type": "BvEvent",
+                "description": "bvEvent object"
+              }
+            ]
+          },
+          {
+            "event": "bv::popover::disabled",
+            "description": "Emitted on $root when popover becomes disabled",
+            "args": [
+              {
+                "arg": "bvEvent",
+                "type": "BvEvent",
+                "description": "bvEvent object"
               }
             ]
           }
         ],
-        "slots": [
+        "rootEventListeners": [
           {
-            "name": "tabs-start",
-            "description": "在有内容的选项卡前面添加没有内容的选项卡"
-          },
-          {
-            "name": "tabs-end",
-            "description": "在有内容的选项卡最后面添加没有内容的选项卡"
-          },
-          {
-            "name": "empty",
-            "description": "当没有tab时渲染"
-          }
-        ]
-      },
-      {
-        "component": "NlyTab",
-        "props": [
-          {
-            "prop": "buttonId",
-            "description": "如果传入， 则可设置一个按钮来操作对应id的nly-tab可见状态，如果没用传入，会自动生成一个"
-          },
-          {
-            "prop": "titleItemClass",
-            "description": "选项卡控制器 li标签的 自定义css"
-          },
-          {
-            "prop": "titleLinkClass",
-            "description": "选项卡控制器里包裹的a标签自定义css"
-          },
-          {
-            "prop": "titleLinkAttributes",
-            "version": "0.4.4",
-            "description": "选项卡控制器里包裹的a标签 attributes属性"
-          },
-          {
-            "prop": "lazy",
-            "description": "懒加载"
-          }
-        ],
-        "events": [
-          {
-            "event": "click",
-            "description": "点击tab时触发",
+            "event": "bv::hide::popover",
+            "description": "Close (hide) all or a specific open popover when this event is emitted on $root",
             "args": [
               {
-                "arg": "evt",
-                "type": "鼠标事件",
-                "description": "原生事件"
+                "arg": "id",
+                "type": "String",
+                "description": "(optional), popover id to hide"
+              }
+            ]
+          },
+          {
+            "event": "bv::show::popover",
+            "description": "Open (show) all or a specific popover when this event is emitted on $root",
+            "args": [
+              {
+                "arg": "id",
+                "type": "String",
+                "description": "(optional), popover id to show"
+              }
+            ]
+          },
+          {
+            "event": "bv::disable::popover",
+            "description": "Disable all or a specific popover when this event is emitted on $root",
+            "args": [
+              {
+                "arg": "id",
+                "type": "String",
+                "description": "(optional), popover id to disable"
+              }
+            ]
+          },
+          {
+            "event": "bv::enable::popover",
+            "description": "Enable all or a specific popover when this event is emitted on $root",
+            "args": [
+              {
+                "arg": "id",
+                "type": "String",
+                "description": "(optional), popover id to enable"
               }
             ]
           }
@@ -185,7 +252,11 @@
         "slots": [
           {
             "name": "title",
-            "description": "tab标题插槽"
+            "description": "Optional slot for title (HTML/components supported)"
+          },
+          {
+            "name": "default",
+            "description": "Slot for content (HTML/components supported)"
           }
         ]
       }
