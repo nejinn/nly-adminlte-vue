@@ -7,8 +7,10 @@ import {
 } from "../../../utils/inspect";
 import { clone } from "../../../utils/object";
 import normalizeFields from "./normalize-fields";
+// import idMixin from "../../../mixins/id";
 
 export default {
+  // mixin: [idMixin],
   props: {
     items: {
       // Provider mixin adds in `Function` type
@@ -46,7 +48,11 @@ export default {
     computedFields() {
       // We normalize fields into an array of objects
       // `[ { key:..., label:..., ...}, {...}, ..., {..}]`
-      return normalizeFields(this.fields, this.localItems);
+      return normalizeFields(this.fields, this.localItems, this._uid)
+        .memoFilter;
+    },
+    computedFieldsRef() {
+      return normalizeFields(this.fields, this.localItems, this._uid).fieldsRef;
     },
     computedFieldsObj() {
       // Fields as a simple lookup hash object
