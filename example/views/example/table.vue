@@ -499,6 +499,26 @@
           </nly-card>
         </nly-col>
       </nly-row>
+
+      <nly-row>
+        <nly-col>
+          <nly-table
+            :sticky-header="stickyHeader"
+            :no-border-collapse="noCollapse"
+            responsive
+            :items="fixItems"
+            :fields="fixFields"
+          >
+            <!-- We are using utility class `text-nowrap` to help illustrate horizontal scrolling -->
+            <template #head(id)>
+              <div class="text-nowrap">Row ID</div>
+            </template>
+            <template #head()="scope">
+              <div class="text-nowrap">Heading {{ scope.label }}</div>
+            </template>
+          </nly-table>
+        </nly-col>
+      </nly-row>
     </nly-content>
   </nly-content-wrapper>
 </template>
@@ -507,6 +527,180 @@
 export default {
   data() {
     return {
+      stickyHeader: true,
+      noCollapse: false,
+      fixFields: [
+        {
+          key: "id",
+          stickyColumn: true,
+          isRowHeader: true,
+          variant: "primary"
+        },
+        "aaaaaaaaaaaaaaaaaaaaaa",
+        { key: "b", stickyColumn: true, variant: "danger" },
+        "d",
+        { key: "c", stickyColumn: true, variant: "info" },
+        "e",
+        "f",
+        "g",
+        "h",
+        "i",
+        "j",
+        "k",
+        "l"
+      ],
+      fixItems: [
+        {
+          id: 1,
+          aaaaaaaaaaaaaaaaaaaaaa: "00000000000000000000",
+          b: "1111111111111111111111111",
+          c: "2111111111111111111",
+          d: "3333333333333333333333",
+          e: "45555555555555555",
+          f: "555555555555555555555",
+          g: "666666666666666666666666",
+          h: "777777777777777777777777777",
+          i: "888888888888888888888888",
+          j: "99999999999999999999999999",
+          k: "1000000000000000000000000000",
+          l: "111111111111111111111111111111111"
+        },
+        {
+          id: 2,
+          a: 0,
+          b: 1,
+          c: 2,
+          d: 3,
+          e: 4,
+          f: 5,
+          g: 6,
+          h: 7,
+          i: 8,
+          j: 9,
+          k: 10,
+          l: 11
+        },
+        {
+          id: 3,
+          a: 0,
+          b: 1,
+          c: 2,
+          d: 3,
+          e: 4,
+          f: 5,
+          g: 6,
+          h: 7,
+          i: 8,
+          j: 9,
+          k: 10,
+          l: 11
+        },
+        {
+          id: 4,
+          a: 0,
+          b: 1,
+          c: 2,
+          d: 3,
+          e: 4,
+          f: 5,
+          g: 6,
+          h: 7,
+          i: 8,
+          j: 9,
+          k: 10,
+          l: 11
+        },
+        {
+          id: 5,
+          a: 0,
+          b: 1,
+          c: 2,
+          d: 3,
+          e: 4,
+          f: 5,
+          g: 6,
+          h: 7,
+          i: 8,
+          j: 9,
+          k: 10,
+          l: 11
+        },
+        {
+          id: 6,
+          a: 0,
+          b: 1,
+          c: 2,
+          d: 3,
+          e: 4,
+          f: 5,
+          g: 6,
+          h: 7,
+          i: 8,
+          j: 9,
+          k: 10,
+          l: 11
+        },
+        {
+          id: 7,
+          a: 0,
+          b: 1,
+          c: 2,
+          d: 3,
+          e: 4,
+          f: 5,
+          g: 6,
+          h: 7,
+          i: 8,
+          j: 9,
+          k: 10,
+          l: 11
+        },
+        {
+          id: 8,
+          a: 0,
+          b: 1,
+          c: 2,
+          d: 3,
+          e: 4,
+          f: 5,
+          g: 6,
+          h: 7,
+          i: 8,
+          j: 9,
+          k: 10,
+          l: 11
+        },
+        {
+          id: 9,
+          a: 0,
+          b: 1,
+          c: 2,
+          d: 3,
+          e: 4,
+          f: 5,
+          g: 6,
+          h: 7,
+          i: 8,
+          j: 9,
+          k: 10,
+          l: 11
+        },
+        {
+          id: 10,
+          a: 0,
+          b: 1,
+          c: 2,
+          d: 3,
+          e: 4,
+          f: 5,
+          g: 6,
+          h: 7,
+          i: 8,
+          j: 9,
+          k: 10,
+          l: 11
+        }
+      ],
       basicItems: [
         { age: 40, first_name: "玄德", last_name: "刘" },
         { age: 21, first_name: "云长", last_name: "关" },
