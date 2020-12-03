@@ -62,7 +62,7 @@
               </nly-badge>
             </nly-card-body>
             <nly-card-body>
-              <nly-badge variant="secondary">
+              <nly-badge>
                 secondary
               </nly-badge>
             </nly-card-body>
@@ -83,6 +83,46 @@
             </nly-card-body>
             <nly-card-body>
               <nly-badge variant="danger">
+                danger
+              </nly-badge>
+            </nly-card-body>
+          </nly-card>
+        </nly-col>
+
+        <nly-col xs="12" md="4">
+          <nly-card header-variant="info" header-outline>
+            <nly-card-header>
+              <nly-card-title class="text-sm">
+                badge with variant=*
+              </nly-card-title>
+            </nly-card-header>
+            <nly-card-body>
+              <nly-badge variant="primary" outline dashed>
+                primary
+              </nly-badge>
+            </nly-card-body>
+            <nly-card-body>
+              <nly-badge variant="secondary" outline>
+                secondary
+              </nly-badge>
+            </nly-card-body>
+            <nly-card-body>
+              <nly-badge variant="success" outline dashed>
+                success
+              </nly-badge>
+            </nly-card-body>
+            <nly-card-body>
+              <nly-badge variant="info" out-line>
+                info
+              </nly-badge>
+            </nly-card-body>
+            <nly-card-body>
+              <nly-badge variant="warning" outline>
+                warning
+              </nly-badge>
+            </nly-card-body>
+            <nly-card-body>
+              <nly-badge variant="danger" outline dashed>
                 danger
               </nly-badge>
             </nly-card-body>

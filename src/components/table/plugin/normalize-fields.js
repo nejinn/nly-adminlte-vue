@@ -31,8 +31,9 @@ const processField = (key, value) => {
 
 // We normalize fields into an array of objects
 // [ { key:..., label:..., ...}, {...}, ..., {..}]
-const normalizeFields = (origFields, items) => {
+const normalizeFields = (origFields, items, safe_id) => {
   const fields = [];
+  const fieldsRef = [];
 
   if (isArray(origFields)) {
     // Normalize array Form
@@ -41,6 +42,10 @@ const normalizeFields = (origFields, items) => {
         fields.push({ key: f, label: startCase(f) });
       } else if (isObject(f) && f.key && isString(f.key)) {
         // Full object definition. We use assign so that we don't mutate the original
+        if (f.stickyColumn && f.fixed) {
+          f.ref = `table_ref_${safe_id}_${f.key}`;
+          fieldsRef.push(`table_ref_${safe_id}_${f.key}`);
+        }
         fields.push(clone(f));
       } else if (isObject(f) && keys(f).length === 1) {
         // Shortcut object (i.e. { 'foo_bar': 'This is Foo Bar' }
@@ -65,7 +70,7 @@ const normalizeFields = (origFields, items) => {
 
   // Ensure we have a unique array of fields and that they have String labels
   const memo = {};
-  return fields.filter(f => {
+  const memoFilter = fields.filter(f => {
     if (!memo[f.key]) {
       memo[f.key] = true;
       f.label = isString(f.label) ? f.label : startCase(f.key);
@@ -73,6 +78,7 @@ const normalizeFields = (origFields, items) => {
     }
     return false;
   });
+  return { memoFilter: memoFilter, fieldsRef: fieldsRef };
 };
 
 export default normalizeFields;

@@ -10,21 +10,26 @@
       </nly-container>
     </nly-content-header>
     <nly-content>
-      <div>
-        <nly-form-checkbox
-          id="checkbox-1"
-          v-model="status"
-          name="checkbox-1"
-          value="accepted"
-          unchecked-value="not_accepted"
-        >
-          I accept the terms and use
-        </nly-form-checkbox>
-
-        <div>
-          State: <strong>{{ status }}</strong>
-        </div>
-      </div>
+      <nly-row>
+        <nly-col>
+          <ul class="list-unstyled mb-0 d-flex flex-wrap align-items-center">
+            <nly-badge tag="li">
+              ssss
+              <nly-button-close class="nly-tag-remove" />
+            </nly-badge>
+            <nly-badge tag="li">
+              ssss
+              <nly-button-close class="nly-tag-remove" />
+            </nly-badge>
+            <li class="flex-grow-1">
+              <input
+                class="w-100 flex-grow-1 p-0 m-0 bg-transparent border-0"
+                style="outline: 0px; min-width: 5rem;"
+              />
+            </li>
+          </ul>
+        </nly-col>
+      </nly-row>
     </nly-content>
   </nly-content-wrapper>
 </template>

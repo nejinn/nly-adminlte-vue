@@ -280,7 +280,7 @@ const items = [
 
 | 属性                | 类型                        | 描述                                                                                                                                                                                                                                                   |
 | ------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `key`               | String                      | 需要渲染的列名， `items` 数组中的键， `fields` 为数组对象的时候， `key` 必须设置。 `key` 也可以 用于[自定义渲染数据](#自定义渲染数据) and [自定义头部和底部插槽](#自定义头部和底部插槽) names.                                                         |
+| `key`               | String                      | 需要渲染的列名， `items` 数组中的键， `fields` 为数组对象的时候， `key` 必须设置。 `key` 也可以 用于[自定义渲染数据](#自定义渲染数据) and [插槽自定义头部和底部](#插槽自定义头部和底部) names.                                                         |
 | `label`             | String                      | 每一列的别名，如果没有提供，则会用 `key`（对 key 进行内部格式转化[表格数据主体（items）](#表格数据主体（items）)） 来代替， 如果设置了 `foot-clone` true， 底部列名也会用 `label代替`， 可以设置空字符（`label=""`）显示空白列名                       |
 | `headerTitle`       | String                      | 设置表头中 `<th>` 的 `title` 属性.， 默认是没有这个属性的                                                                                                                                                                                              |
 | `headerAbbr`        | String                      | 设置表头中 `<th>` 的 `abbr` 属性， 如果标签（或标题）是缩写，则将其设置为标签（或标题）的未缩写版本。默认为无 abbr 属性                                                                                                                                |
@@ -298,7 +298,8 @@ const items = [
 | `tdAttr`            | Object or Function          | JavaScript object， 自定义 `<tbody>` 中 `<td>` 单元格的 attr 属性。 如果每个单元格都需要自定义 attr 属性， 请传入一个 `tdAttr(value, key, item)` 来设置，函数返回值必须是一个 `Object`(对象)                                                           |
 | `thAttr`            | Object or Function          | JavaScript object， 自定义 `<thead>`/`<tfoot>` 中 `<th>` 单元格的 attr 属性。 如果每个单元格都需要自定义 attr 属性， 请传入一个 `thAttr(value, key, item)` 来设置，函数返回值必须是一个 `Object`(对象)                                                 |
 | `isRowHeader`       | Boolean                     | 设置 `true`, 单元格标签会渲染成 `<th>`， 默认渲染成`<td>`                                                                                                                                                                                              |
-| `stickyColumn`      | Boolean                     | 设置 true, 表格会处于 [响应模式](#响应模式) 或 [头部浮动模式](#头部浮动模式), 如果滚动条出现且滚动， 每一列会悬浮固定在左侧. 查看更多详情 [列浮动模式](#列浮动模式)                                                                                    |
+| `stickyColumn`      | Boolean                     | 设置 true, 表格会处于 [列浮动模式](#列浮动模式), 如果滚动条出现且滚动， 每一列会悬浮固定在左侧, 且会重叠， 查看更多详情 [列浮动模式](#列浮动模式)                                                                                                      |
+| `fixed`             | Boolean                     | 当 `stickyColumn` 设置为 `true` 的时候， 设置 `fixed` 为 true, 表格会处于 [冻结列模式](#冻结列模式), 如果滚动条出现且滚动， `fixed` 的列依次会悬浮在左侧， 查看更多详情 [冻结列模式](#冻结列模式)                                                      |
 
 **注意**
 
@@ -1067,7 +1068,817 @@ table.nly-table[aria-busy="true"] {
 <!-- formatter.vue -->
 ```
 
+## 插槽自定义头部和底部
+
+`nly-table` 支持自定义设置页眉和页脚(头部和底部)，在默认情况下，可以设置 `foot_clone` 为 true 来 copy 一个页眉作为页脚
+
+页眉页脚每一个单元格的**作用域插槽**使用方式为 `#head(<fieldkey>)='data'`, `#foot(<fieldkey>)='data'`。 如果没有设置页
+脚插槽 `#foot(<fieldkey>)='data'`，而设置了 `foot-clone` 的话, 页眉会默认使用页眉插槽 `#head(<fieldkey>)='data'`
+
+也可以使用 `#head()` 或者 `#foot()` 来代替作用域插槽，这种写法没有可调用的显性参数
+
+**注意**
+
+- `<fieldkey>` 为列名的 key
+
+- `#head()` 和 `#foot()` 会作用于那些没有作用于插槽 `#head(<fieldkey>)='data'`, `#foot(<fieldkey>)='data'` 的列上
+
+```html
+<template>
+  <div>
+    <nly-table :fields="fields" :items="items" foot-clone>
+      <template #cell(name)="data">
+        {{ data.value.first }} {{ data.value.last }}
+      </template>
+
+      <template #head(name)="data">
+        <span class="text-info">{{ data.label.toUpperCase() }}</span>
+      </template>
+      <template #foot(name)="data">
+        <span class="text-danger">{{ data.label }}</span>
+      </template>
+      <template #foot()="data">
+        <i>{{ data.label }}</i>
+      </template>
+    </nly-table>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        fields: [{ key: "name", label: "全名" }, "age", "sex"],
+        items: [
+          { name: { first: "飞", last: "张" }, sex: "男", age: 42 },
+          { name: { first: "云", last: "赵" }, sex: "男", age: 36 },
+          { name: { first: "羽", last: "关" }, sex: "女", age: 73 },
+          {
+            name: { first: "孔明", last: "诸葛" },
+            sex: "女",
+            age: 62
+          }
+        ]
+      };
+    }
+  };
+</script>
+<!-- head-foot.name -->
+<!-- head-foot.vue -->
+```
+
+页眉页脚的作用域可调用参数
+
+| 参数            | 类型   | 描述                                                               |
+| --------------- | ------ | ------------------------------------------------------------------ |
+| `column`        | String | fields prop 的 `key` 值                                            |
+| `field`         | Object | 列对象 (`fields` prop 中当前列对应的对象元素)                      |
+| `label`         | String | `fields` prop 中的 `label` 值 (也可以用 `data.field.label` 来代替) |
+| `selectAllRows` | Method | 选中所有所有行 (只有处于 [`可选中模式`](#可选中模式) 模式才有效    |
+| `clearSelected` | Method | 取消选中行 (只有处于 [`可选中模式`](#可选中模式) 模式才有效        |
+
+如果往插槽 `head(...)` 和 `foot(...)` 插入 `inputs`, `buttons`, `selects` 或者 `links` 组件时和元素时，请注意：
+
+- 点击 `input`, `select`, `textarea` 的时候， `head-clicked` 不会被触发
+
+- 点击 `links`, `buttons` 时， `head-clicked` 不会触发
+
+- 使用 `vue 2.6` 的 `v-slot` 写法时， 插槽明不能包含空格。 使用浏览器 dom 元素的时候，插槽名应该小写。如果需要以上情况以外的写法，请查看 [Vue's dynamic slot names](https://cn.vuejs.org/v2/guide/components-slots.html#%E5%8A%A8%E6%80%81%E6%8F%92%E6%A7%BD%E5%90%8D)
+
+### 添加自定义表头
+
+使用作用域插槽 `thead-top` 向表头添加额外的行内容， 这些行内容会插入 `fields` 表头之前，且不会被 `<tr>..</tr>` 标签包裹
+
+不建议插入原生 dom 元素，您可以查看 [表格组件](#表格组件) 来选择需要插入的组件
+
+`rowspan` 可以设置占用列高， `colspan`可以设置占用列宽
+
+```html
+<template>
+  <div>
+    <nly-table :items="items" :fields="fields" responsive="sm">
+      <template #thead-top="data">
+        <nly-tr>
+          <nly-th rowspan="2" colspan="2"
+            ><span class="sr-only">空列名</span></nly-th
+          >
+          <nly-th variant="secondary">列1</nly-th>
+          <nly-th variant="primary" colspan="3">列2</nly-th>
+          <nly-th variant="danger">列3</nly-th>
+        </nly-tr>
+        <nly-tr>
+          <nly-th variant="secondary">列1</nly-th>
+          <nly-th variant="primary" colspan="3">列2</nly-th>
+          <nly-th variant="danger">列3</nly-th>
+        </nly-tr>
+      </template>
+    </nly-table>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        items: [
+          {
+            name: "Stephen Hawking",
+            id: 1,
+            type1: false,
+            type2a: true,
+            type2b: false,
+            type2c: false,
+            type3: false
+          },
+          {
+            name: "Johnny Appleseed",
+            id: 2,
+            type1: false,
+            type2a: true,
+            type2b: true,
+            type2c: false,
+            type3: false
+          },
+          {
+            name: "George Washington",
+            id: 3,
+            type1: false,
+            type2a: false,
+            type2b: false,
+            type2c: false,
+            type3: true
+          },
+          {
+            name: "Albert Einstein",
+            id: 4,
+            type1: true,
+            type2a: false,
+            type2b: false,
+            type2c: true,
+            type3: false
+          },
+          {
+            name: "Isaac Newton",
+            id: 5,
+            type1: true,
+            type2a: true,
+            type2b: false,
+            type2c: true,
+            type3: false
+          }
+        ],
+        fields: [
+          "name",
+          { key: "id", label: "ID" },
+          { key: "type1", label: "Type 1" },
+          { key: "type2a", label: "Type 2A" },
+          { key: "type2b", label: "Type 2B" },
+          { key: "type2c", label: "Type 2C" },
+          { key: "type3", label: "Type 3" }
+        ]
+      };
+    }
+  };
+</script>
+
+<!-- 自定义表头.name -->
+<!-- custom-header.vue -->
+```
+
+插槽 `thead-top` 作为作用域插槽使用的时候，可以调用以下属性:
+
+| 参数            | 类型   | 描述                                                            |
+| --------------- | ------ | --------------------------------------------------------------- |
+| `columns`       | Number | 表格的列数                                                      |
+| `field`         | Object | 列对象 (`fields` prop 中当前列对应的对象元素)                   |
+| `selectAllRows` | Method | 选中所有所有行 (只有处于 [`可选中模式`](#可选中模式) 模式才有效 |
+| `clearSelected` | Method | 取消选中行 (只有处于 [`可选中模式`](#可选中模式) 模式才有效     |
+
+### Creating a custom footer
+
+如果需要自定义 `<tfoot>`的布局和式样， 可以使用 `custom-foot` 插槽来自定义每一个单元格，
+不建议插入原生 dom 元素，您可以查看 [表格组件](#表格组件) 来选择需要插入的组件， 比如 `<nly-tr>`, `<nly-th>`, `<nly-td>`
+
+插槽 `custom-foot` 作为作用域插槽使用的时候，可以调用以下属性:
+
+| 参数      | 类型   | 描述                                          |
+| --------- | ------ | --------------------------------------------- |
+| `columns` | Number | 表格的列数                                    |
+| `field`   | Object | 列对象 (`fields` prop 中当前列对应的对象元素) |
+| `items`   | Array  | 数据在分页，排序，筛选之后的数据对象          |
+
+**注意:**
+
+- 如果设置了 prop `foot-clone`， 插槽 `custom-foot` 不会生效
+- 点击 `custom-foot` 插槽中的单元格时不会触发 `head-clicked` 事件
+- 排序和开启排序显示的图标在插槽 `custom-foot` 不会生效
+- 堆叠模式表格不会显示页脚
+
+## 使用插槽自定义空表格状态
+
+使用 `empty-text`, `empty-filtered-text`, `empty-html`, `empty-filtered-html` 可以自定义空表格显示内容
+
+必选设置 `show-empty` 和空的 `items` 才会渲染以上 prop 传入的值
+
+```html
+<template>
+  <div>
+    <nly-table :fields="fields" :items="items" show-empty>
+      <template #empty="scope">
+        <h4>{{ scope.emptyText }}</h4>
+      </template>
+      <template #emptyfiltered="scope">
+        <h4>{{ scope.emptyFilteredText }}</h4>
+      </template>
+    </nly-table>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        fields: [],
+        items: []
+      };
+    }
+  };
+</script>
+<!-- empty.name -->
+<!-- empty.vue -->
+```
+
+| prop                | 类型   | 描述                                  |
+| ------------------- | ------ | ------------------------------------- |
+| `emptyHtml`         | String | `empty-html` prop                     |
+| `emptyText`         | String | `empty-text` prop                     |
+| `emptyFilteredHtml` | String | `empty-filtered-html` prop            |
+| `emptyFilteredText` | String | `empty-filtered-text` prop            |
+| `fields`            | Array  | `fields` prop                         |
+| `items`             | Array  | `items` prop. 应该设置为 null 或者 [] |
+
+## 其他功能
+
+### 头部浮动模式
+
+使用 `sticky-header` prop 可以使表格出现垂直滚动条，并且是表头固定在顶部（表头浮动在顶部），可以随着滚动条一起向下或者向上滚动
+
+设置 `sticky-header` 为 `true`， 默认会给表头添加一个最大高度 `300px`。 如果需要设置其他高度， 可以设置 `sticky-header='100px'`。
+
+如果表格内容高度比表格可见高度大， 滚动滚动条的时候，表头会始终悬浮在顶部
+
+```html
+<template>
+  <div>
+    <nly-table sticky-header :items="items" head-variant="light"></nly-table>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        items: [
+          {
+            heading1: "table cell",
+            heading2: "table cell",
+            heading3: "table cell"
+          },
+          {
+            heading1: "table cell",
+            heading2: "table cell",
+            heading3: "table cell"
+          },
+          {
+            heading1: "table cell",
+            heading2: "table cell",
+            heading3: "table cell"
+          },
+          {
+            heading1: "table cell",
+            heading2: "table cell",
+            heading3: "table cell"
+          },
+          {
+            heading1: "table cell",
+            heading2: "table cell",
+            heading3: "table cell"
+          },
+          {
+            heading1: "table cell",
+            heading2: "table cell",
+            heading3: "table cell"
+          },
+          {
+            heading1: "table cell",
+            heading2: "table cell",
+            heading3: "table cell"
+          },
+          {
+            heading1: "table cell",
+            heading2: "table cell",
+            heading3: "table cell"
+          },
+          {
+            heading1: "table cell",
+            heading2: "table cell",
+            heading3: "table cell"
+          },
+          {
+            heading1: "table cell",
+            heading2: "table cell",
+            heading3: "table cell"
+          },
+          {
+            heading1: "table cell",
+            heading2: "table cell",
+            heading3: "table cell"
+          },
+          {
+            heading1: "table cell",
+            heading2: "table cell",
+            heading3: "table cell"
+          }
+        ]
+      };
+    }
+  };
+</script>
+<!-- 浮动表头.name -->
+<!-- sticky-header.vue -->
+```
+
+**注意：**
+
+- 堆叠模式下， `sticky-header` 无效
+
+- 表头浮动模式需要设置表格最大高度
+
+- 表头浮动模式需要引入 `nly-adminlte-vue.css`
+
+- 表头浮动模式用的是 `sticky` 定义， ie 浏览器会有兼容性问题
+
+## 列浮动模式
+
+设置 `stickyColumn` 可以使列浮动在左侧，随着滚动条一起滚动， `stickyColumn` 只有在 `sticky-header` 或者 [`responsive` (水平滚动条)](#水平滚动条) 设置为 `true` 或者有值的时候才有效
+
+```html
+<template>
+  <div>
+    <div class="mb-2">
+      <nly-form-checkbox v-model="stickyHeader" inline
+        >Sticky header</nly-form-checkbox
+      >
+      <nly-form-checkbox v-model="noCollapse" inline
+        >No border collapse</nly-form-checkbox
+      >
+    </div>
+    <nly-table
+      :sticky-header="stickyHeader"
+      :no-border-collapse="noCollapse"
+      responsive
+      :items="items"
+      :fields="fields"
+    >
+      <template #head(id)="scope">
+        <div class="text-nowrap">Row ID</div>
+      </template>
+      <template #head()="scope">
+        <div class="text-nowrap">
+          Heading {{ scope.label }}
+        </div>
+      </template>
+    </nly-table>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        stickyHeader: true,
+        noCollapse: false,
+        fields: [
+          {
+            key: "id",
+            stickyColumn: true,
+            isRowHeader: true,
+            variant: "primary"
+          },
+          "a",
+          "b",
+          { key: "c", stickyColumn: true, variant: "info" },
+          "d",
+          "e",
+          "f",
+          "g",
+          "h",
+          "i",
+          "j",
+          "k",
+          "l"
+        ],
+        items: [
+          {
+            id: 1,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 2,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 3,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 4,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 5,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 6,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 7,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 8,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 9,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 10,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          }
+        ]
+      };
+    }
+  };
+</script>
+
+<!-- stickyColumn.name -->
+<!-- stickyColumn.vue -->
+```
+
+**注意：**
+
+- 堆叠模式下， `stickyColumn` 无效
+
+- 表头浮动模式需要处于表头浮动模式挥着有水平滚动条
+
+- 表头浮动模式需要引入 `nly-adminlte-vue.css`
+
+- 表头浮动模式用的是 `sticky` 定义， ie 浏览器会有兼容性问题
+
+- 表头浮动模式浮动列在最左侧会重叠在一起，如果不想重叠，请设置宽度或者使用[列冻结模式](#冻结列模式)
+
+## 冻结列模式
+
+列冻结模式需要在列浮动模式下才会生效，即必须设置 `stickyColumn` 为 `true`。
+
+```html
+<template>
+  <div>
+    <div class="mb-2">
+      <nly-form-checkbox v-model="stickyHeader" inline
+        >Sticky header</nly-form-checkbox
+      >
+      <nly-form-checkbox v-model="noCollapse" inline
+        >No border collapse</nly-form-checkbox
+      >
+    </div>
+    <nly-table
+      :sticky-header="stickyHeader"
+      :no-border-collapse="noCollapse"
+      responsive
+      :items="items"
+      :fields="fields"
+    >
+      <template #head(id)="scope">
+        <div class="text-nowrap">Row ID</div>
+      </template>
+      <template #head()="scope">
+        <div class="text-nowrap">
+          Heading {{ scope.label }}
+        </div>
+      </template>
+    </nly-table>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        stickyHeader: true,
+        noCollapse: false,
+        fields: [
+          {
+            key: "id",
+            stickyColumn: true,
+            isRowHeader: true,
+            variant: "primary",
+            fixed: true
+          },
+          "a",
+          "b",
+          { key: "c", stickyColumn: true, variant: "info", fixed: true },
+          "d",
+          "e",
+          "f",
+          "g",
+          "h",
+          "i",
+          "j",
+          "k",
+          "l"
+        ],
+        items: [
+          {
+            id: 1,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 2,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 3,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 4,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 5,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 6,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 7,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 8,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 9,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 10,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          }
+        ]
+      };
+    }
+  };
+</script>
+
+<!-- 冻结列.name -->
+<!-- stickyColumn.vue -->
+```
+
+<!--
 ## 可选中模式
+
+## 表格组件
+
+table helper components,
 
 ## 函数类型（items）
 
@@ -1082,10 +1893,6 @@ Using items provider functions （）
 Sorting
 
 Custom data rendering
-
-## 自定义头部和底部插槽
-
-Header and Footer custom rendering via scoped slots
 
 ## 修改排序方向
 
@@ -1107,4 +1914,4 @@ Sticky columns
 
 ## 表格主体动画
 
-Table body transition support
+Table body transition support -->
