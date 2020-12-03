@@ -140,6 +140,8 @@ export default {
           stickyColumn: true,
           variant: cellVariant
         };
+        data.ref = field.ref;
+        data.refInFor = true;
       } else {
         // Using native TD or TH element, so we need to
         // add in the attributes and variant class

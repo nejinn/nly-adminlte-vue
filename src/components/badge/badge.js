@@ -33,6 +33,14 @@ export const props = {
   pill: {
     type: Boolean,
     default: false
+  },
+  dashed: {
+    type: Boolean,
+    default: false
+  },
+  outline: {
+    type: Boolean,
+    default: false
   }
 };
 
@@ -48,14 +56,19 @@ const customClass = props => {
 
   const badgeClass = props.badgeClass;
 
-  return [
-    bgVariant(),
-    size(),
-    badgeClass,
-    pill,
-    variant(),
-    bgGradientVariant()
-  ];
+  const badgeVariant = bgGradientVariant()
+    ? bgGradientVariant()
+    : bgVariant()
+    ? bgVariant()
+    : props.outline && variant() && props.dashed
+    ? `${variant()} badge-outline-${props.variant} dashed`
+    : props.outline && variant()
+    ? `${variant()} badge-outline-${props.variant}`
+    : variant()
+    ? variant()
+    : "badge-secondary";
+
+  return [size(), badgeVariant, badgeClass, pill];
 };
 
 export const NlyBadge = Vue.extend({

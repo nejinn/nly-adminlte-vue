@@ -42,7 +42,7 @@ const normalizeFields = (origFields, items, safe_id) => {
         fields.push({ key: f, label: startCase(f) });
       } else if (isObject(f) && f.key && isString(f.key)) {
         // Full object definition. We use assign so that we don't mutate the original
-        if (f.stickyColumn) {
+        if (f.stickyColumn && f.fixed) {
           f.ref = `table_ref_${safe_id}_${f.key}`;
           fieldsRef.push(`table_ref_${safe_id}_${f.key}`);
         }

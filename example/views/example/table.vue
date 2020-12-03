@@ -537,9 +537,9 @@ export default {
           variant: "primary"
         },
         "aaaaaaaaaaaaaaaaaaaaaa",
-        { key: "b", stickyColumn: true, variant: "danger" },
+        { key: "b", stickyColumn: true, variant: "danger", fixed: true },
         "d",
-        { key: "c", stickyColumn: true, variant: "info" },
+        { key: "c", stickyColumn: true, variant: "info", fixed: true },
         "e",
         "f",
         "g",

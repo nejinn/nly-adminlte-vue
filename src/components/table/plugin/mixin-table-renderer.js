@@ -68,6 +68,30 @@ export default {
       default: null
     }
   },
+  data() {
+    return {
+      customLeft: 0
+    };
+  },
+  mounted() {
+    this.$nextTick(() => {
+      if (this.computedFieldsRef) {
+        this.computedFieldsRef.forEach((e, ei) => {
+          const e_a = this.$refs[e];
+          if (ei === 0) {
+            this.customLeft += e_a[0].$el.clientWidth;
+          }
+          if (ei !== 0) {
+            e_a.forEach(f => {
+              f.$el.style.left = `${this.customLeft}px`;
+            });
+            this.customLeft += e_a[0].$el.clientWidth;
+          }
+          // customLeft += e_array[0].$el.clientWidth;
+        });
+      }
+    });
+  },
   computed: {
     // Layout related computed props
     isResponsive() {

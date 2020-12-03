@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "meta": {
     "title": "Tooltip",
-    "subtitle": "提示框",
+    "subtitle": "工具提示框",
     "description": "一个可以通过 `<nly-tooltip>` 组件或者 `v-nly-tooltip` 指令把提示框插组件的插件",
     "components": [
       {

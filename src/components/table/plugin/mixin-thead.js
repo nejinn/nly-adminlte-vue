@@ -101,6 +101,8 @@ export default {
           ? this.sortTheadThLabel(field.key, field, isFoot)
           : null;
         const data = {
+          ref: field.ref,
+          refInFor: true,
           key: field.key,
           class: [this.fieldClasses(field), sortClass],
           props: {
