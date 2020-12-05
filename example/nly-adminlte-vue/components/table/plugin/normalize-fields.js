@@ -33,7 +33,11 @@ const processField = (key, value) => {
 // [ { key:..., label:..., ...}, {...}, ..., {..}]
 const normalizeFields = (origFields, items, safe_id) => {
   const fields = [];
+  const fieldsRight = [];
+  const fieldsLeft = [];
   const fieldsRef = [];
+  const fieldsRightRef = [];
+  const fieldsLeftRef = [];
 
   if (isArray(origFields)) {
     // Normalize array Form
@@ -42,10 +46,25 @@ const normalizeFields = (origFields, items, safe_id) => {
         fields.push({ key: f, label: startCase(f) });
       } else if (isObject(f) && f.key && isString(f.key)) {
         // Full object definition. We use assign so that we don't mutate the original
-        if (f.stickyColumn && f.fixed) {
+        if (f.stickyColumn && f.fixed === true) {
           f.ref = `table_ref_${safe_id}_${f.key}`;
           fieldsRef.push(`table_ref_${safe_id}_${f.key}`);
         }
+
+        if (f.stickyColumn && f.fixed !== true && f.fixed === "right") {
+          f.ref = `table_ref_${safe_id}_${f.key}_right`;
+          fieldsRightRef.unshift(`table_ref_${safe_id}_${f.key}_right`);
+          fieldsRight.push(clone(f));
+          return;
+        }
+
+        if (f.stickyColumn && f.fixed !== true && f.fixed === "left") {
+          f.ref = `table_ref_${safe_id}_${f.key}_left`;
+          fieldsRef.unshift(`table_ref_${safe_id}_${f.key}_left`);
+          fieldsLeft.push(clone(f));
+          return;
+        }
+
         fields.push(clone(f));
       } else if (isObject(f) && keys(f).length === 1) {
         // Shortcut object (i.e. { 'foo_bar': 'This is Foo Bar' }
@@ -57,6 +76,14 @@ const normalizeFields = (origFields, items, safe_id) => {
       }
     });
   }
+
+  fieldsRight.forEach(g => {
+    fields.push(g);
+  });
+
+  fieldsLeft.forEach(h => {
+    fields.unshift(h);
+  });
 
   // If no field provided, take a sample from first record (if exits)
   if (fields.length === 0 && isArray(items) && items.length > 0) {
@@ -78,7 +105,12 @@ const normalizeFields = (origFields, items, safe_id) => {
     }
     return false;
   });
-  return { memoFilter: memoFilter, fieldsRef: fieldsRef };
+  return {
+    memoFilter: memoFilter,
+    fieldsRef: fieldsRef,
+    fieldsRightRef: fieldsRightRef,
+    fieldsLeftRef: fieldsLeftRef
+  };
 };
 
 export default normalizeFields;

@@ -278,28 +278,29 @@ const items = [
 
 ### fields 自定义属性
 
-| 属性                | 类型                        | 描述                                                                                                                                                                                                                                                   |
-| ------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `key`               | String                      | 需要渲染的列名， `items` 数组中的键， `fields` 为数组对象的时候， `key` 必须设置。 `key` 也可以 用于[自定义渲染数据](#自定义渲染数据) and [插槽自定义头部和底部](#插槽自定义头部和底部) names.                                                         |
-| `label`             | String                      | 每一列的别名，如果没有提供，则会用 `key`（对 key 进行内部格式转化[表格数据主体（items）](#表格数据主体（items）)） 来代替， 如果设置了 `foot-clone` true， 底部列名也会用 `label代替`， 可以设置空字符（`label=""`）显示空白列名                       |
-| `headerTitle`       | String                      | 设置表头中 `<th>` 的 `title` 属性.， 默认是没有这个属性的                                                                                                                                                                                              |
-| `headerAbbr`        | String                      | 设置表头中 `<th>` 的 `abbr` 属性， 如果标签（或标题）是缩写，则将其设置为标签（或标题）的未缩写版本。默认为无 abbr 属性                                                                                                                                |
-| `class`             | String or Array             | 自定义 css 类型， 会添加到每一列的 `<th>` **和** `<td>` 元素中                                                                                                                                                                                         |
-| `formatter`         | String or Function          | 列数据格式化函数, 调用方式为 `formatter(value, key, item)`. 更多详情请查看 [自定义渲染数据](#自定义渲染数据)                                                                                                                                           |
-| `sortable`          | Boolean                     | 设置 `true` 允许排序， 更多详情请查看 [排序](#排序)                                                                                                                                                                                                    |
-| `sortKey`           | String                      | <span class="badge badge-secondary">v0.7.0+</span> 当 `no-local-sorting` 是 `true` 的时候请设置 `sortBy`                                                                                                                                               |
-| `sortDirection`     | String                      | 设置排序方向，正序，倒序等， 更多详情请查看[修改排序方向](#修改排序方向)                                                                                                                                                                               |
-| `sortByFormatted`   | Boolean or Function         | 设置 true 的时候会按照上面的 `formatter` 属性格式化的值排序， 默认是 `false`。如果没有 `formatter` 属性， `sortByFormatted` 不起作用。 可以接受一个格式化的函数来格式化排序的数据，但是不会渲染到表格中，仅仅用来排序， 更多详情请查看 [排序](#排序)   |
-| `filterByFormatted` | Boolean or Function         | 设置 true 的时候会按照上面的 `formatter` 属性格式化的值过滤， 默认是 `false`。如果没有 `formatter` 属性， `filterByFormatted` 不起作用。 可以接受一个格式化的函数来格式化过滤的数据，但是不会渲染到表格中，仅仅用来过滤， 更多详情请查看 [过滤](#过滤) |
-| `tdClass`           | String or Array or Function | `<tbody>` 中的 `<td>` 单元格自定义 css 类， 如果每个单元格都需要自定义 css 类， 请传入一个 `tdClass(value, key, item)` 函数,来设置， 返回值必须是 `Array`(数组) 或者 `String` 字符串                                                                   |
-| `thClass`           | String or Array             | 自定义 `<thead>`/`<tfoot>` 中的 `<th>` 单元格 css 类                                                                                                                                                                                                   |
-| `thStyle`           | Object                      | 自定义 `<thead>`/`<tfoot>` 中 `<th>` 元素的 style 属性                                                                                                                                                                                                 |
-| `variant`           | String                      | 每列中 `<th>` **和** `<td>` 元素的颜色。 值 `active`, `success`, `info`, `warning`, `danger` 会在表格 header 渲染`thead-${variant}` css 类, 表格 body 渲染 `table-${variant}` css 类， 如果设置 `dark` 会渲染 `bg-${variant}` css 类                   |
-| `tdAttr`            | Object or Function          | JavaScript object， 自定义 `<tbody>` 中 `<td>` 单元格的 attr 属性。 如果每个单元格都需要自定义 attr 属性， 请传入一个 `tdAttr(value, key, item)` 来设置，函数返回值必须是一个 `Object`(对象)                                                           |
-| `thAttr`            | Object or Function          | JavaScript object， 自定义 `<thead>`/`<tfoot>` 中 `<th>` 单元格的 attr 属性。 如果每个单元格都需要自定义 attr 属性， 请传入一个 `thAttr(value, key, item)` 来设置，函数返回值必须是一个 `Object`(对象)                                                 |
-| `isRowHeader`       | Boolean                     | 设置 `true`, 单元格标签会渲染成 `<th>`， 默认渲染成`<td>`                                                                                                                                                                                              |
-| `stickyColumn`      | Boolean                     | 设置 true, 表格会处于 [列浮动模式](#列浮动模式), 如果滚动条出现且滚动， 每一列会悬浮固定在左侧, 且会重叠， 查看更多详情 [列浮动模式](#列浮动模式)                                                                                                      |
-| `fixed`             | Boolean                     | 当 `stickyColumn` 设置为 `true` 的时候， 设置 `fixed` 为 true, 表格会处于 [冻结列模式](#冻结列模式), 如果滚动条出现且滚动， `fixed` 的列依次会悬浮在左侧， 查看更多详情 [冻结列模式](#冻结列模式)                                                      |
+| 属性                                   | 类型                        | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| -------------------------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `key`                                  | String                      | 需要渲染的列名， `items` 数组中的键， `fields` 为数组对象的时候， `key` 必须设置。 `key` 也可以 用于[自定义渲染数据](#自定义渲染数据) and [插槽自定义头部和底部](#插槽自定义头部和底部) names.                                                                                                                                                                                                                                                                                       |
+| `label`                                | String                      | 每一列的别名，如果没有提供，则会用 `key`（对 key 进行内部格式转化[表格数据主体（items）](#表格数据主体（items）)） 来代替， 如果设置了 `foot-clone` true， 底部列名也会用 `label代替`， 可以设置空字符（`label=""`）显示空白列名                                                                                                                                                                                                                                                     |
+| `headerTitle`                          | String                      | 设置表头中 `<th>` 的 `title` 属性.， 默认是没有这个属性的                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `headerAbbr`                           | String                      | 设置表头中 `<th>` 的 `abbr` 属性， 如果标签（或标题）是缩写，则将其设置为标签（或标题）的未缩写版本。默认为无 abbr 属性                                                                                                                                                                                                                                                                                                                                                              |
+| `class`                                | String or Array             | 自定义 css 类型， 会添加到每一列的 `<th>` **和** `<td>` 元素中                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `formatter`                            | String or Function          | 列数据格式化函数, 调用方式为 `formatter(value, key, item)`. 更多详情请查看 [自定义渲染数据](#自定义渲染数据)                                                                                                                                                                                                                                                                                                                                                                         |
+| `sortable`                             | Boolean                     | 设置 `true` 允许排序， 更多详情请查看 [排序](#排序)                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `sortKey`                              | String                      | <span class="badge badge-secondary">v0.7.0+</span> 当 `no-local-sorting` 是 `true` 的时候请设置 `sortBy`                                                                                                                                                                                                                                                                                                                                                                             |
+| `sortDirection`                        | String                      | 设置排序方向，正序，倒序等， 更多详情请查看[修改排序方向](#修改排序方向)                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `sortByFormatted`                      | Boolean or Function         | 设置 true 的时候会按照上面的 `formatter` 属性格式化的值排序， 默认是 `false`。如果没有 `formatter` 属性， `sortByFormatted` 不起作用。 可以接受一个格式化的函数来格式化排序的数据，但是不会渲染到表格中，仅仅用来排序， 更多详情请查看 [排序](#排序)                                                                                                                                                                                                                                 |
+| `filterByFormatted`                    | Boolean or Function         | 设置 true 的时候会按照上面的 `formatter` 属性格式化的值过滤， 默认是 `false`。如果没有 `formatter` 属性， `filterByFormatted` 不起作用。 可以接受一个格式化的函数来格式化过滤的数据，但是不会渲染到表格中，仅仅用来过滤， 更多详情请查看 [过滤](#过滤)                                                                                                                                                                                                                               |
+| `tdClass`                              | String or Array or Function | `<tbody>` 中的 `<td>` 单元格自定义 css 类， 如果每个单元格都需要自定义 css 类， 请传入一个 `tdClass(value, key, item)` 函数,来设置， 返回值必须是 `Array`(数组) 或者 `String` 字符串                                                                                                                                                                                                                                                                                                 |
+| `thClass`                              | String or Array             | 自定义 `<thead>`/`<tfoot>` 中的 `<th>` 单元格 css 类                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `thStyle`                              | Object                      | 自定义 `<thead>`/`<tfoot>` 中 `<th>` 元素的 style 属性                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `variant`                              | String                      | 每列中 `<th>` **和** `<td>` 元素的颜色。 值 `active`, `success`, `info`, `warning`, `danger` 会在表格 header 渲染`thead-${variant}` css 类, 表格 body 渲染 `table-${variant}` css 类， 如果设置 `dark` 会渲染 `bg-${variant}` css 类                                                                                                                                                                                                                                                 |
+| `tdAttr`                               | Object or Function          | JavaScript object， 自定义 `<tbody>` 中 `<td>` 单元格的 attr 属性。 如果每个单元格都需要自定义 attr 属性， 请传入一个 `tdAttr(value, key, item)` 来设置，函数返回值必须是一个 `Object`(对象)                                                                                                                                                                                                                                                                                         |
+| `thAttr`                               | Object or Function          | JavaScript object， 自定义 `<thead>`/`<tfoot>` 中 `<th>` 单元格的 attr 属性。 如果每个单元格都需要自定义 attr 属性， 请传入一个 `thAttr(value, key, item)` 来设置，函数返回值必须是一个 `Object`(对象)                                                                                                                                                                                                                                                                               |
+| `isRowHeader`                          | Boolean                     | 设置 `true`, 单元格标签会渲染成 `<th>`， 默认渲染成`<td>`                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `stickyColumn`                         | Boolean                     | 设置 true, 表格会处于 [列浮动模式](#列浮动模式), 如果滚动条出现且滚动， 每一列会悬浮固定在左侧, 且会重叠， 查看更多详情 [列浮动模式](#列浮动模式)                                                                                                                                                                                                                                                                                                                                    |
+| `fixed`                                | Boolean, String             | `fixed` 可选 `true`, `left`, `right`。 当 `stickyColumn` 设置为 `true` 的时候， 设置 `fixed` 值, 表格会处于 [冻结列模式](#冻结列模式)。 如果 `fixed= true`, 且表格出现滚动条，随着滚动条滚动， `fixed=true` 的列依次会悬浮在左侧(不会重叠)并随着滚动条滚动。 如果 `fixed='left'`, 这些列会提取到最左侧渲染，依次排列(不会重叠), 悬浮固定在左侧，且随着滚动条滚动而滚动。如果 `fixed='right'`, 这些列会提取到最又侧渲染，依次排列(不会重叠), 悬浮固定在右侧，且随着滚动条滚动而滚动。 |
+| 查看更多详情 [冻结列模式](#冻结列模式) |
 
 **注意**
 
@@ -1254,7 +1255,7 @@ table.nly-table[aria-busy="true"] {
 | `selectAllRows` | Method | 选中所有所有行 (只有处于 [`可选中模式`](#可选中模式) 模式才有效 |
 | `clearSelected` | Method | 取消选中行 (只有处于 [`可选中模式`](#可选中模式) 模式才有效     |
 
-### Creating a custom footer
+### 自定义底部
 
 如果需要自定义 `<tfoot>`的布局和式样， 可以使用 `custom-foot` 插槽来自定义每一个单元格，
 不建议插入原生 dom 元素，您可以查看 [表格组件](#表格组件) 来选择需要插入的组件， 比如 `<nly-tr>`, `<nly-th>`, `<nly-td>`
@@ -1418,7 +1419,7 @@ table.nly-table[aria-busy="true"] {
 
 - 表头浮动模式用的是 `sticky` 定义， ie 浏览器会有兼容性问题
 
-## 列浮动模式
+### 列浮动模式
 
 设置 `stickyColumn` 可以使列浮动在左侧，随着滚动条一起滚动， `stickyColumn` 只有在 `sticky-header` 或者 [`responsive` (水平滚动条)](#水平滚动条) 设置为 `true` 或者有值的时候才有效
 
@@ -1651,9 +1652,21 @@ table.nly-table[aria-busy="true"] {
 
 - 表头浮动模式浮动列在最左侧会重叠在一起，如果不想重叠，请设置宽度或者使用[列冻结模式](#冻结列模式)
 
-## 冻结列模式
+#### 冻结列模式
 
-列冻结模式需要在列浮动模式下才会生效，即必须设置 `stickyColumn` 为 `true`。
+列冻结模式需要在 `fields` 中设置属性 `fixed`， 冻结列分为左侧冻结，右侧冻结，自由冻结
+
+- 左侧冻结会把设置 `fixed='left'`的列提取到最左侧渲染，且不会重叠
+
+- 右侧侧冻结会把设置 `fixed='right'`的列提取到最右侧渲染，且不会重叠
+
+- 左右冻结会把设置 `fixed=true` 悬浮起来，会随着滚动条的滚动而固定到左侧，位置排列的左侧冻结列的后面，且不会重叠
+
+- 列冻结模式需要在列浮动模式下才会生效
+
+#### 自由冻结
+
+自由列冻结模式需要在列浮动模式下才会生效，即必须设置 `stickyColumn` 为 `true`， 且 `fixed=true`
 
 ```html
 <template>
@@ -1873,8 +1886,559 @@ table.nly-table[aria-busy="true"] {
 <!-- stickyColumn.vue -->
 ```
 
-<!--
+#### 左侧冻结
+
+左侧列冻结模式需要在列浮动模式下才会生效，即必须设置 `stickyColumn` 为 `true`， 且 `fixed='left'`
+
+```html
+<template>
+  <div>
+    <div class="mb-2">
+      <nly-form-checkbox v-model="stickyHeader" inline
+        >Sticky header</nly-form-checkbox
+      >
+      <nly-form-checkbox v-model="noCollapse" inline
+        >No border collapse</nly-form-checkbox
+      >
+    </div>
+    <nly-table
+      :sticky-header="stickyHeader"
+      :no-border-collapse="noCollapse"
+      responsive
+      :items="items"
+      :fields="fields"
+    >
+      <template #head(id)="scope">
+        <div class="text-nowrap">Row ID</div>
+      </template>
+      <template #head()="scope">
+        <div class="text-nowrap">
+          Heading {{ scope.label }}
+        </div>
+      </template>
+    </nly-table>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        stickyHeader: true,
+        noCollapse: false,
+        fields: [
+          {
+            key: "id",
+            isRowHeader: true,
+            variant: "primary"
+          },
+          "a",
+          "b",
+          { key: "c", stickyColumn: true, variant: "info", fixed: "left" },
+          { key: "d", stickyColumn: true, variant: "info", fixed: "left" },
+          "e",
+          { key: "f", stickyColumn: true, variant: "primary", fixed: true },
+          "g",
+          "h",
+          "i",
+          "j",
+          "k",
+          "l"
+        ],
+        items: [
+          {
+            id: 1,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 2,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 3,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 4,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 5,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 6,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 7,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 8,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 9,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 10,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          }
+        ]
+      };
+    }
+  };
+</script>
+
+<!-- 冻结列.name -->
+<!-- stickyColumn.vue -->
+```
+
+#### 右侧冻结
+
+左侧列冻结模式需要在列浮动模式下才会生效，即必须设置 `stickyColumn` 为 `true`， 且 `fixed='right'`
+
+```html
+<template>
+  <div>
+    <div class="mb-2">
+      <nly-form-checkbox v-model="stickyHeader" inline
+        >Sticky header</nly-form-checkbox
+      >
+      <nly-form-checkbox v-model="noCollapse" inline
+        >No border collapse</nly-form-checkbox
+      >
+    </div>
+    <nly-table
+      :sticky-header="stickyHeader"
+      :no-border-collapse="noCollapse"
+      responsive
+      :items="items"
+      :fields="fields"
+    >
+      <template #head(id)="scope">
+        <div class="text-nowrap">Row ID</div>
+      </template>
+      <template #head()="scope">
+        <div class="text-nowrap">
+          Heading {{ scope.label }}
+        </div>
+      </template>
+    </nly-table>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        stickyHeader: true,
+        noCollapse: false,
+        fields: [
+          {
+            key: "id",
+            isRowHeader: true,
+            variant: "primary"
+          },
+          "a",
+          "b",
+          { key: "c", stickyColumn: true, variant: "info", fixed: "left" },
+          { key: "d", stickyColumn: true, variant: "info", fixed: "left" },
+          "e",
+          { key: "f", stickyColumn: true, variant: "primary", fixed: "right" },
+          "g",
+          "h",
+          "i",
+          "j",
+          "k",
+          { key: "l", stickyColumn: true, variant: "primary", fixed: "right" }
+        ],
+        items: [
+          {
+            id: 1,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 2,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 3,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 4,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 5,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 6,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 7,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 8,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 9,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          },
+          {
+            id: 10,
+            a: 0,
+            b: 1,
+            c: 2,
+            d: 3,
+            e: 4,
+            f: 5,
+            g: 6,
+            h: 7,
+            i: 8,
+            j: 9,
+            k: 10,
+            l: 11
+          }
+        ]
+      };
+    }
+  };
+</script>
+
+<!-- 冻结列.name -->
+<!-- stickyColumn.vue -->
+```
+
+### 每行详情数据
+
+如果需要拓展显示每一条数据的其他详细信息，可以使用作用域插槽 `row-details` 配合 prop `_showDetails`
+来显示。
+
+在需要显示其他详细信息的行中，设置 `_showDetails` 为 `true`, 并插作用域插槽 `row-details`，此行会多渲染一个作用域插槽的内容
+
+在作用域插槽中，你可以调用作用域插槽的 `toggleDetails` 函数来切换详细内容插槽的可见度
+
+也可以设置 prop `detailsShowing` 的值切换详细内榕的可见状态
+
+| 属性            | 类型     | 描述                                                                                        |
+| --------------- | -------- | ------------------------------------------------------------------------------------------- |
+| `item`          | Object   | 整行数据                                                                                    |
+| `index`         | Number   | 当前显示详情行的行数                                                                        |
+| `fields`        | Array    | fiedls 数组传入的经数据                                                                     |
+| `toggleDetails` | Function | 切换当前详情数据可见状态的函数                                                              |
+| `rowSelected`   | Boolean  | 如果当前行被选中，则 `rowSelected` 的值的为 `true`，点击 [可选中模式](#可选中模式) 查看更多 |
+| `selectRow`     | Function | 调用该函数，则当前行会被选中， 击 [可选中模式](#可选中模式) 查看更多                        |
+| `unselectRow`   | Function | 调用该函数，则当前行会取消选中， 击 [可选中模式](#可选中模式) 查看更多                      |
+
+**注意：**
+
+- 详情模式只在 `<nly-table>` 中可以用
+
+```html
+<template>
+  <div>
+    <nly-table :items="items" :fields="fields" striped responsive="sm">
+      <template #cell(show_details)="row">
+        <nly-button size="sm" @click="row.toggleDetails" class="mr-2">
+          {{ row.detailsShowing ? '隐藏' : '显示'}} 详情
+        </nly-button>
+        <nly-form-checkbox
+          v-model="row.detailsShowing"
+          @change="row.toggleDetails"
+        >
+          选中展示详情
+        </nly-form-checkbox>
+      </template>
+
+      <template #row-details="row">
+        <nly-card>
+          <nly-card-header>
+            <nly-card-tool>
+              <nly-button tool size="sm" @click="row.toggleDetails"
+                >隐藏详情</nly-button
+              >
+            </nly-card-tool>
+          </nly-card-header>
+          <nly-card-body>
+            <nly-row class="mb-2">
+              <nly-col sm="3" class="text-sm-right"><b>Age:</b></nly-col>
+              <nly-col>{{ row.item.age }}</nly-col>
+            </nly-row>
+
+            <nly-row class="mb-2">
+              <nly-col sm="3" class="text-sm-right"><b>Is Active:</b></nly-col>
+              <nly-col>{{ row.item.isActive }}</nly-col>
+            </nly-row>
+          </nly-card-body>
+        </nly-card>
+      </template>
+    </nly-table>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        fields: ["first_name", "last_name", "show_details"],
+        items: [
+          {
+            isActive: true,
+            age: 40,
+            first_name: "张飞",
+            last_name: "蜀国"
+          },
+          { isActive: false, age: 21, first_name: "诸葛亮", last_name: "蜀国" },
+          {
+            isActive: false,
+            age: 89,
+            first_name: "司马懿",
+            last_name: "魏国",
+            _showDetails: true
+          },
+          { isActive: true, age: 38, first_name: "孙权", last_name: "吴国" }
+        ]
+      };
+    }
+  };
+</script>
+
+<!-- detail.name -->
+<!-- detail.vue -->
+```
+
 ## 可选中模式
+
+设置 prop `selectable` 会使表格渲染成可选中模式
+
+设置 prop `select-mode` 可以设置可选中模式的类型：
+
+- `'multi'`, 多选模式，可以随意选中每一列，默认为 `'multi'` 模式
+
+- `'single'`, 单选模式，一次只能选中一列
+
+- `'range'`, 点击可以选择任意列，其他未点击的会取消选中
+
+可选中模式下，用户点击一行数据的时候会触发 `row-selected` 事件，会传递一个参数，这个参数是整个选中行的所有数据。
+
+`<nly-table>` 可以
 
 ## 表格组件
 

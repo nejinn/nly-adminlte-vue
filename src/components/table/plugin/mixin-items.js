@@ -54,6 +54,14 @@ export default {
     computedFieldsRef() {
       return normalizeFields(this.fields, this.localItems, this._uid).fieldsRef;
     },
+    computedFieldsRightRef() {
+      return normalizeFields(this.fields, this.localItems, this._uid)
+        .fieldsRightRef;
+    },
+    computedFieldsLeftRef() {
+      return normalizeFields(this.fields, this.localItems, this._uid)
+        .fieldsLeftRef;
+    },
     computedFieldsObj() {
       // Fields as a simple lookup hash object
       // Mainly for formatter lookup and use in `scopedSlots` for convenience
