@@ -70,7 +70,8 @@ export default {
   },
   data() {
     return {
-      customLeft: 0
+      customLeft: 0,
+      customRight: 0
     };
   },
   mounted() {
@@ -87,6 +88,46 @@ export default {
             });
             this.customLeft += e_a[0].$el.clientWidth;
           }
+          // customLeft += e_array[0].$el.clientWidth;
+        });
+      }
+      if (this.computedFieldsRightRef) {
+        this.computedFieldsRightRef.forEach((e, ei) => {
+          const e_a = this.$refs[e];
+          if (ei === 0) {
+            e_a.forEach(f => {
+              if (
+                f.$el.className.indexOf("nly-table-sticky-column-right") === -1
+              ) {
+                f.$el.classList.add("nly-table-sticky-column-right");
+              }
+              if (f.$el.className.indexOf("nly-table-sticky-column") !== -1) {
+                f.$el.classList.remove("nly-table-sticky-column");
+              }
+            });
+            this.customRight += e_a[0].$el.clientWidth;
+          }
+          if (ei !== 0) {
+            e_a.forEach(f => {
+              if (
+                f.$el.className.indexOf("nly-table-sticky-column-right") === -1
+              ) {
+                f.$el.classList.add("nly-table-sticky-column-right");
+              }
+              if (f.$el.className.indexOf("nly-table-sticky-column") !== -1) {
+                f.$el.classList.remove("nly-table-sticky-column");
+              }
+              f.$el.style.right = `${this.customRight}px`;
+            });
+            this.customRight += e_a[0].$el.clientWidth;
+          }
+          // if (ei === this.computedFieldsRightRef.length - 1) {
+          //   e_a.forEach(f => {
+          //     if (f.$el.className.indexOf("elevation-left") === -1) {
+          //       f.$el.classList.add("elevation-left");
+          //     }
+          //   });
+          // }
           // customLeft += e_array[0].$el.clientWidth;
         });
       }

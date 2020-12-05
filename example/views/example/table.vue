@@ -534,10 +534,11 @@ export default {
           key: "id",
           stickyColumn: true,
           isRowHeader: true,
-          variant: "primary"
+          variant: "primary",
+          fixed: true
         },
         "aaaaaaaaaaaaaaaaaaaaaa",
-        { key: "b", stickyColumn: true, variant: "danger", fixed: true },
+        { key: "b", stickyColumn: true, variant: "danger", fixed: "left" },
         "d",
         { key: "c", stickyColumn: true, variant: "info", fixed: true },
         "e",
@@ -546,8 +547,8 @@ export default {
         "h",
         "i",
         "j",
-        "k",
-        "l"
+        { key: "k", stickyColumn: true, variant: "warning", fixed: "right" },
+        { key: "l", stickyColumn: true, variant: "info", fixed: "right" }
       ],
       fixItems: [
         {

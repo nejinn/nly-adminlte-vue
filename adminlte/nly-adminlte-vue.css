@@ -2,7 +2,7 @@
  * NlyadminlteVue Custom CSS
  * https://github.com/nejinn/nly-adminlte-vue
  *
- * Version: 0.7.2
+ * Version: 0.7.3
  *
  * Copyright Nejinn Lerity
  * https://github.com/nejinn
@@ -2644,6 +2644,106 @@ html.os-html > .os-host > .os-scrollbar {
     > tfoot
     > tr
     > .nly-table-sticky-column {
+    z-index: 2;
+  }
+
+  .nly-table-sticky-header
+    > .table.nly-table
+    > thead
+    > tr
+    > .nly-table-sticky-column-right,
+  .nly-table-sticky-header
+    > .table.nly-table
+    > tbody
+    > tr
+    > .nly-table-sticky-column-right,
+  .nly-table-sticky-header
+    > .table.nly-table
+    > tfoot
+    > tr
+    > .nly-table-sticky-column-right,
+  .table-responsive
+    > .table.nly-table
+    > thead
+    > tr
+    > .nly-table-sticky-column-right,
+  .table-responsive
+    > .table.nly-table
+    > tbody
+    > tr
+    > .nly-table-sticky-column-right,
+  .table-responsive
+    > .table.nly-table
+    > tfoot
+    > tr
+    > .nly-table-sticky-column-right,
+  [class*="table-responsive-"]
+    > .table.nly-table
+    > thead
+    > tr
+    > .nly-table-sticky-column-right,
+  [class*="table-responsive-"]
+    > .table.nly-table
+    > tbody
+    > tr
+    > .nly-table-sticky-column-right,
+  [class*="table-responsive-"]
+    > .table.nly-table
+    > tfoot
+    > tr
+    > .nly-table-sticky-column-right {
+    position: -webkit-sticky;
+    position: sticky;
+    right: 0;
+  }
+
+  .nly-table-sticky-header
+    > .table.nly-table
+    > thead
+    > tr
+    > .nly-table-sticky-column-right,
+  .table-responsive
+    > .table.nly-table
+    > thead
+    > tr
+    > .nly-table-sticky-column-right,
+  [class*="table-responsive-"]
+    > .table.nly-table
+    > thead
+    > tr
+    > .nly-table-sticky-column-right {
+    z-index: 5;
+  }
+  .nly-table-sticky-header
+    > .table.nly-table
+    > tbody
+    > tr
+    > .nly-table-sticky-column-right,
+  .nly-table-sticky-header
+    > .table.nly-table
+    > tfoot
+    > tr
+    > .nly-table-sticky-column-right,
+  .table-responsive
+    > .table.nly-table
+    > tbody
+    > tr
+    > .nly-table-sticky-column-right,
+  .table-responsive
+    > .table.nly-table
+    > tfoot
+    > tr
+    > .nly-table-sticky-column-right,
+  [class*="table-responsive-"]
+    > .table.nly-table
+    > tbody
+    > tr
+    > .nly-table-sticky-column-right,
+  [class*="table-responsive-"]
+    > .table.nly-table
+    > tfoot
+    > tr
+    > .nly-table-sticky-column-right {
     z-index: 2;
   }
   .table.nly-table > thead > tr > .table-nly-table-default,
@@ -5530,4 +5630,103 @@ td.disabled {
   width: 0.875rem;
   height: 0.875rem;
   background: no-repeat 50%/50% 50%;
+}
+
+.badge-outline-info {
+  color: #17a2b8 !important;
+  border: 1px solid transparent;
+  border-color: #17a2b8;
+  background-color: #ffffff !important;
+}
+.badge-outline-primary {
+  color: #007bff !important;
+  border: 1px solid transparent;
+  border-color: #007bff;
+  background-color: #ffffff !important;
+}
+.badge-outline-danger {
+  color: #dc3545 !important;
+  border: 1px solid transparent;
+  border-color: #dc3545;
+  background-color: #ffffff !important;
+}
+.badge-outline-warning {
+  color: #ffc107 !important;
+  border: 1px solid transparent;
+  border-color: #ffc107;
+  background-color: #ffffff !important;
+}
+.badge-outline-light {
+  color: #f8f9fa !important;
+  border: 1px solid transparent;
+  border-color: #f8f9fa;
+  background-color: #ffffff !important;
+}
+.badge-outline-dark {
+  color: #343a40 !important;
+  border: 1px solid transparent;
+  border-color: #343a40;
+  background-color: #ffffff !important;
+}
+.badge-outline-secondary {
+  color: #6c757d !important;
+  border: 1px solid transparent;
+  border-color: #6c757d;
+  background-color: #ffffff !important;
+}
+.badge-outline-success {
+  color: #28a745 !important;
+  border: 1px solid transparent;
+  border-color: #28a745;
+  background-color: #ffffff !important;
+}
+
+.badge-outline-info.dashed {
+  border: 1px dashed #17a2b8;
+}
+.badge-outline-primary.dashed {
+  border: 1px dashed #007bff;
+}
+.badge-outline-danger.dashed {
+  border: 1px dashed #dc3545;
+}
+.badge-outline-warning.dashed {
+  border: 1px dashed #ffc107;
+}
+.badge-outline-light.dashed {
+  border: 1px dashed #f8f9fa;
+}
+.badge-outline-dark.dashed {
+  border: 1px dashed #343a40;
+}
+.badge-outline-secondary.dashed {
+  border: 1px dashed #6c757d;
+}
+.badge-outline-success.dashed {
+  border: 1px dashed #28a745;
+}
+
+.btn-outline-info.dashed {
+  border: 1px dashed #17a2b8;
+}
+.btn-outline-primary.dashed {
+  border: 1px dashed #007bff;
+}
+.btn-outline-danger.dashed {
+  border: 1px dashed #dc3545;
+}
+.btn-outline-warning.dashed {
+  border: 1px dashed #ffc107;
+}
+.btn-outline-light.dashed {
+  border: 1px dashed #f8f9fa;
+}
+.btn-outline-dark.dashed {
+  border: 1px dashed #343a40;
+}
+.btn-outline-secondary.dashed {
+  border: 1px dashed #6c757d;
+}
+.btn-outline-success.dashed {
+  border: 1px dashed #28a745;
 }

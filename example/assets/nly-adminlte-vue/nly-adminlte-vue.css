@@ -2,7 +2,7 @@
  * NlyadminlteVue Custom CSS
  * https://github.com/nejinn/nly-adminlte-vue
  *
- * Version: 0.7.1
+ * Version: 0.7.3
  *
  * Copyright Nejinn Lerity
  * https://github.com/nejinn
@@ -2644,6 +2644,106 @@ html.os-html > .os-host > .os-scrollbar {
     > tfoot
     > tr
     > .nly-table-sticky-column {
+    z-index: 2;
+  }
+
+  .nly-table-sticky-header
+    > .table.nly-table
+    > thead
+    > tr
+    > .nly-table-sticky-column-right,
+  .nly-table-sticky-header
+    > .table.nly-table
+    > tbody
+    > tr
+    > .nly-table-sticky-column-right,
+  .nly-table-sticky-header
+    > .table.nly-table
+    > tfoot
+    > tr
+    > .nly-table-sticky-column-right,
+  .table-responsive
+    > .table.nly-table
+    > thead
+    > tr
+    > .nly-table-sticky-column-right,
+  .table-responsive
+    > .table.nly-table
+    > tbody
+    > tr
+    > .nly-table-sticky-column-right,
+  .table-responsive
+    > .table.nly-table
+    > tfoot
+    > tr
+    > .nly-table-sticky-column-right,
+  [class*="table-responsive-"]
+    > .table.nly-table
+    > thead
+    > tr
+    > .nly-table-sticky-column-right,
+  [class*="table-responsive-"]
+    > .table.nly-table
+    > tbody
+    > tr
+    > .nly-table-sticky-column-right,
+  [class*="table-responsive-"]
+    > .table.nly-table
+    > tfoot
+    > tr
+    > .nly-table-sticky-column-right {
+    position: -webkit-sticky;
+    position: sticky;
+    right: 0;
+  }
+
+  .nly-table-sticky-header
+    > .table.nly-table
+    > thead
+    > tr
+    > .nly-table-sticky-column-right,
+  .table-responsive
+    > .table.nly-table
+    > thead
+    > tr
+    > .nly-table-sticky-column-right,
+  [class*="table-responsive-"]
+    > .table.nly-table
+    > thead
+    > tr
+    > .nly-table-sticky-column-right {
+    z-index: 5;
+  }
+  .nly-table-sticky-header
+    > .table.nly-table
+    > tbody
+    > tr
+    > .nly-table-sticky-column-right,
+  .nly-table-sticky-header
+    > .table.nly-table
+    > tfoot
+    > tr
+    > .nly-table-sticky-column-right,
+  .table-responsive
+    > .table.nly-table
+    > tbody
+    > tr
+    > .nly-table-sticky-column-right,
+  .table-responsive
+    > .table.nly-table
+    > tfoot
+    > tr
+    > .nly-table-sticky-column-right,
+  [class*="table-responsive-"]
+    > .table.nly-table
+    > tbody
+    > tr
+    > .nly-table-sticky-column-right,
+  [class*="table-responsive-"]
+    > .table.nly-table
+    > tfoot
+    > tr
+    > .nly-table-sticky-column-right {
     z-index: 2;
   }
   .table.nly-table > thead > tr > .table-nly-table-default,
@@ -5630,4 +5730,3 @@ td.disabled {
 .btn-outline-success.dashed {
   border: 1px dashed #28a745;
 }
-
