@@ -2438,7 +2438,131 @@ table.nly-table[aria-busy="true"] {
 
 可选中模式下，用户点击一行数据的时候会触发 `row-selected` 事件，会传递一个参数，这个参数是整个选中行的所有数据。
 
-`<nly-table>` 可以
+`<nly-table>` 可以调用以下方法来选中或者取消选中：
+
+| 方法                   | 描述                                                                      |
+| ---------------------- | ------------------------------------------------------------------------- |
+| `selectRow(index)`     | 选中索引为 `index` 的行 number.                                           |
+| `unselectRow(index)`   | 取消索引为 `index` 的行                                                   |
+| `selectAllRows()`      | 选中表格当前页面所有行, 如果是 `single` 模式，则只会选择第一行            |
+| `clearSelected()`      | 清除所有选中行                                                            |
+| `isRowSelected(index)` | 如果索引为 `index` 行被选中了，则返回 `true`, 如果没有选中，则返回`false` |
+
+**以上方法需要注意：**
+
+- 索引 `index` 是从 `0` 开始的，且表格可见区域第一行是索引是 `0`, 索引值是经过排序，过滤，之后的的索引
+
+- 在 `single` 模式中， `selectRow(index)` 会取消其他所有行的选中状态
+
+- 没有出现的列上面的 `selectRow(index)`, `unselectRow(index)` 会被失效
+
+- 以上方法必须在 prop `selectable` 设置为 `true` 才会生效
+
+- 您可以设置 prop `no-select-on-click` 来禁用行点击事件， 这样就可以只通过调用以上方法以代码控制的方式来选中可取消表格行状态
+
+**可选中模式需要注意：**
+
+- [过滤](#过滤)， [分页](#分页), [排序](#排序) 会清除表格的选中状态， `row-selected` 事件会触发并返回一个空的数组。
+
+- 如果表格 prop `selectable` 设置为 `true`， 即表格处于可选中模式，为了辅助技术实现，所有 `data` 中的 `tr` 元素都会被添加 `tabindex="0"` 属性， 且会设置 `aria-selected` 属性，如果列被选中，则 `aria-selected='true'`， 如果列没有被选中， 则 `aria-selected='false'`
+
+- 如果是可选中模式，且 `select-mode` 为 `single`， 表格会有 `aria-multiselect='false'`属性；如果`select-mode` 为 `multi` 或者 `range`， 表格会有 `aria-multiselect='true'`属性
+
+```html
+<template>
+  <div>
+    <nly-form-group label="可选中类型:" label-cols-md="4">
+      <nly-form-select
+        v-model="selectMode"
+        :options="modes"
+        class="mb-3"
+      ></nly-form-select>
+    </nly-form-group>
+
+    <nly-table
+      ref="selectableTable"
+      selectable
+      :select-mode="selectMode"
+      :items="items"
+      :fields="fields"
+      @row-selected="onRowSelected"
+      responsive="sm"
+    >
+      <template #cell(selected)="{ rowSelected }">
+        <template v-if="rowSelected">
+          <nly-icon icon="nlyfont nly-icon-success" />
+          <span class="sr-only">选中</span>
+        </template>
+        <template v-else>
+          <nly-icon icon="nlyfont nly-icon-check" />
+          <span class="sr-only">未选中</span>
+        </template>
+      </template>
+    </nly-table>
+    <p>
+      <nly-button size="sm" @click="selectAllRows">选中所有的</nly-button>
+      <nly-button size="sm" @click="clearSelected">清除选中</nly-button>
+      <nly-button size="sm" @click="selectThirdRow">选中第三行</nly-button>
+      <nly-button size="sm" @click="unselectThirdRow"
+        >取消第三行选中状态</nly-button
+      >
+    </p>
+    <p>
+      选中行:<br />
+      {{ selected }}
+    </p>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        modes: ["multi", "single", "range"],
+        fields: ["selected", "isActive", "age", "first_name", "last_name"],
+        items: [
+          {
+            isActive: true,
+            age: 40,
+            first_name: "张飞",
+            last_name: "蜀国"
+          },
+          { isActive: false, age: 21, first_name: "单于", last_name: "匈奴" },
+          {
+            isActive: false,
+            age: 89,
+            first_name: "孙权",
+            last_name: "吴国"
+          },
+          { isActive: true, age: 38, first_name: "司马懿", last_name: "魏国" }
+        ],
+        selectMode: "multi",
+        selected: []
+      };
+    },
+    methods: {
+      onRowSelected(items) {
+        this.selected = items;
+      },
+      selectAllRows() {
+        this.$refs.selectableTable.selectAllRows();
+      },
+      clearSelected() {
+        this.$refs.selectableTable.clearSelected();
+      },
+      selectThirdRow() {
+        this.$refs.selectableTable.selectRow(2);
+      },
+      unselectThirdRow() {
+        this.$refs.selectableTable.unselectRow(2);
+      }
+    }
+  };
+</script>
+
+<!-- 可选中模式.name -->
+<!-- selected-mode.vue -->
+```
 
 ## 表格组件
 
@@ -2453,6 +2577,8 @@ Using items provider functions （）
 （Row details support）
 
 ## 排序
+
+## 分页
 
 Sorting
 

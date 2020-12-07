@@ -395,6 +395,17 @@ export const cardVariantOptions = {
   graydark: "card-gray-dark"
 };
 
+export const variantOptions = {
+  primary: "primary",
+  secondary: "secondary",
+  success: "success",
+  info: "info",
+  warning: "warning",
+  danger: "danger",
+  light: "light",
+  dark: "dark"
+};
+
 export const badgeVariantOptions = {
   primary: "badge-primary",
   secondary: "badge-secondary",
