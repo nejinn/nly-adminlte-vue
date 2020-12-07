@@ -109,6 +109,10 @@ export { NlyFormSelect } from "./components/form-select/form-select";
 export { NlyFormSelectOption } from "./components/form-select/form-select-option";
 export { NlyFormSelectOptionGroup } from "./components/form-select/form-select-option-group";
 
+export { FormTagsPlugin } from "./components/form-tags";
+export { NlyFormTag } from "./components/form-tags/form-tag";
+export { NlyFormTags } from "./components/form-tags/form-tags";
+
 export { GridPlugin } from "./components/grid";
 export { NlyRow } from "./components/grid/row";
 export { NlyCol } from "./components/grid/col";

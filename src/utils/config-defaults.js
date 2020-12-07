@@ -92,5 +92,16 @@ export default deepFreeze({
   },
   NlyBootstrapPagination: {
     size: undefined
+  },
+  NlyFormTags: {
+    addButtonIcon: "nlyfont nly-icon-new",
+    addButtonVariant: "outlineSecondary",
+    duplicateTagText: "Duplicate tag(s)",
+    invalidTagText: "Invalid tag(s)",
+    limitTagsText: "Tag limit reached",
+    placeholder: "Add tag...",
+    tagRemoveLabel: "Remove tag",
+    tagRemovedLabel: "Tag removed",
+    tagVariant: "secondary"
   }
 });

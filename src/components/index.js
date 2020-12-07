@@ -18,6 +18,7 @@ import { FormGroupPlugin } from "./form-group";
 import { FormInputPlugin } from "./form-input";
 import { FormRadioPlugin } from "./form-radio/";
 import { FormSelectPlugin } from "./form-select";
+import { FormTagsPlugin } from "./form-tags";
 import { GridPlugin } from "./grid";
 import { InfoboxPlugin } from "./info-box";
 import { InputGroupoPlugin } from "./input-group";
@@ -63,6 +64,7 @@ export const componentsPlugin = nlyPluginFactory({
     FormInputPlugin,
     FormRadioPlugin,
     FormSelectPlugin,
+    FormTagsPlugin,
     GridPlugin,
     InputGroupoPlugin,
     TablePlugin,
