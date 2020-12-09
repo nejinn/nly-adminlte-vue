@@ -1,3 +1,4 @@
 *.js linguist-language=Js
+*.css linguist-language=Js
 *.html linguist-language=Html
 *.vue linguist-language=Vue
