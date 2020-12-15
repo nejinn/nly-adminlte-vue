@@ -720,9 +720,33 @@
           </ul>
         </nly-col>
       </nly-row>
-
       <hr />
 
+      <nly-row>
+        <nly-col xs="12">
+          <b>友情连接</b>
+        </nly-col>
+        <nly-col xs="12" sm="5" md="4" lg="3">
+          <ul class="list-unstyled">
+            <li>
+              <nly-link href="http://shi.lycecho.com/" class="text-indigo"
+                >古诗词网-百万唐诗宋词鉴赏</nly-link
+              >
+            </li>
+          </ul>
+        </nly-col>
+
+        <nly-col xs="12" sm="5" md="4" lg="3">
+          <ul class="list-unstyled">
+            <li>
+              <nly-link href="http://www.lycecho.com/" class="text-indigo"
+                >程序员笔记-专业教程笔记</nly-link
+              >
+            </li>
+          </ul>
+        </nly-col>
+      </nly-row>
+      <hr />
       <p>
         Currently v{{ version }}. Code licensed
         <a
