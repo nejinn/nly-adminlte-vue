@@ -344,17 +344,19 @@ export const NlySidebarMenu = Vue.extend({
                 elevation: this.brandImgElevation
               }
             },
-            h(
-              NlySidebarBrandtext,
-              {
-                props: {
-                  textClass: this.brandTextClass,
-                  tag: this.brandTextTag,
-                  weight: this.brandTextWeight
-                }
-              },
-              this.brandText
-            )
+            [
+              h(
+                NlySidebarBrandtext,
+                {
+                  props: {
+                    textClass: this.brandTextClass,
+                    tag: this.brandTextTag,
+                    weight: this.brandTextWeight
+                  }
+                },
+                this.brandText
+              )
+            ]
           )
         ]
       );
@@ -377,27 +379,29 @@ export const NlySidebarMenu = Vue.extend({
               imgClass: this.userImgClass
             }
           }),
-          h(
-            NlySidebarUserpanelInfo,
-            {
-              props: {
-                infoClass: this.infoClass,
-                href: this.infoHref,
-                rel: this.infoRel,
-                target: this.infoTarget,
-                active: this.infoActive,
-                disabled: this.infoDisabled,
-                to: this.infoTo,
-                append: this.infoAppend,
-                replace: this.infoReplace,
-                event: this.infoEvent,
-                activeClass: this.infoActiveClass,
-                routerTag: this.infoRouterTag,
-                noPrefetch: this.infoNoPrefetch
-              }
-            },
-            this.infoText
-          ))
+          [
+            h(
+              NlySidebarUserpanelInfo,
+              {
+                props: {
+                  infoClass: this.infoClass,
+                  href: this.infoHref,
+                  rel: this.infoRel,
+                  target: this.infoTarget,
+                  active: this.infoActive,
+                  disabled: this.infoDisabled,
+                  to: this.infoTo,
+                  append: this.infoAppend,
+                  replace: this.infoReplace,
+                  event: this.infoEvent,
+                  activeClass: this.infoActiveClass,
+                  routerTag: this.infoRouterTag,
+                  noPrefetch: this.infoNoPrefetch
+                }
+              },
+              this.infoText
+            )
+          ])
         ]
       );
     }
