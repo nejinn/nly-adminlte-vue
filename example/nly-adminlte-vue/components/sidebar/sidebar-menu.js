@@ -333,30 +333,25 @@ export const NlySidebarMenu = Vue.extend({
           }
         },
         [
+          h(NlySidebarBrandimg, {
+            props: {
+              src: this.brandImgSrc,
+              sidebarBrandimgClass: this.brandImgClass,
+              alt: this.brandImgAlt,
+              circle: this.brandImgCircle,
+              elevation: this.brandImgElevation
+            }
+          }),
           h(
-            NlySidebarBrandimg,
+            NlySidebarBrandtext,
             {
               props: {
-                src: this.brandImgSrc,
-                sidebarBrandimgClass: this.brandImgClass,
-                alt: this.brandImgAlt,
-                circle: this.brandImgCircle,
-                elevation: this.brandImgElevation
+                textClass: this.brandTextClass,
+                tag: this.brandTextTag,
+                weight: this.brandTextWeight
               }
             },
-            [
-              h(
-                NlySidebarBrandtext,
-                {
-                  props: {
-                    textClass: this.brandTextClass,
-                    tag: this.brandTextTag,
-                    weight: this.brandTextWeight
-                  }
-                },
-                this.brandText
-              )
-            ]
+            this.brandText
           )
         ]
       );
@@ -439,7 +434,6 @@ export const NlySidebarMenu = Vue.extend({
       },
       [
         $brand,
-        $userInfo,
         h(
           NlySidebar,
           {
@@ -447,7 +441,7 @@ export const NlySidebarMenu = Vue.extend({
               scrollbar: this.scrollbar
             }
           },
-          [$sidebar]
+          [$userInfo, $sidebar]
         )
       ]
     );

@@ -333,30 +333,25 @@ export const NlySidebarMenu = Vue.extend({
           }
         },
         [
+          h(NlySidebarBrandimg, {
+            props: {
+              src: this.brandImgSrc,
+              sidebarBrandimgClass: this.brandImgClass,
+              alt: this.brandImgAlt,
+              circle: this.brandImgCircle,
+              elevation: this.brandImgElevation
+            }
+          }),
           h(
-            NlySidebarBrandimg,
+            NlySidebarBrandtext,
             {
               props: {
-                src: this.brandImgSrc,
-                sidebarBrandimgClass: this.brandImgClass,
-                alt: this.brandImgAlt,
-                circle: this.brandImgCircle,
-                elevation: this.brandImgElevation
+                textClass: this.brandTextClass,
+                tag: this.brandTextTag,
+                weight: this.brandTextWeight
               }
             },
-            [
-              h(
-                NlySidebarBrandtext,
-                {
-                  props: {
-                    textClass: this.brandTextClass,
-                    tag: this.brandTextTag,
-                    weight: this.brandTextWeight
-                  }
-                },
-                this.brandText
-              )
-            ]
+            this.brandText
           )
         ]
       );
@@ -369,8 +364,9 @@ export const NlySidebarMenu = Vue.extend({
         NlySidebarUserpanel,
         {
           class: ["mt-3", "pb-3", "mb-3", "d-flex"]
-        }[
-          (h(NlySidebarUserpanelImg, {
+        },
+        [
+          h(NlySidebarUserpanelImg, {
             props: {
               src: this.userSrc,
               circle: this.userCircle,
@@ -379,29 +375,27 @@ export const NlySidebarMenu = Vue.extend({
               imgClass: this.userImgClass
             }
           }),
-          [
-            h(
-              NlySidebarUserpanelInfo,
-              {
-                props: {
-                  infoClass: this.infoClass,
-                  href: this.infoHref,
-                  rel: this.infoRel,
-                  target: this.infoTarget,
-                  active: this.infoActive,
-                  disabled: this.infoDisabled,
-                  to: this.infoTo,
-                  append: this.infoAppend,
-                  replace: this.infoReplace,
-                  event: this.infoEvent,
-                  activeClass: this.infoActiveClass,
-                  routerTag: this.infoRouterTag,
-                  noPrefetch: this.infoNoPrefetch
-                }
-              },
-              this.infoText
-            )
-          ])
+          h(
+            NlySidebarUserpanelInfo,
+            {
+              props: {
+                infoClass: this.infoClass,
+                href: this.infoHref,
+                rel: this.infoRel,
+                target: this.infoTarget,
+                active: this.infoActive,
+                disabled: this.infoDisabled,
+                to: this.infoTo,
+                append: this.infoAppend,
+                replace: this.infoReplace,
+                event: this.infoEvent,
+                activeClass: this.infoActiveClass,
+                routerTag: this.infoRouterTag,
+                noPrefetch: this.infoNoPrefetch
+              }
+            },
+            this.infoText
+          )
         ]
       );
     }
@@ -440,7 +434,6 @@ export const NlySidebarMenu = Vue.extend({
       },
       [
         $brand,
-        $userInfo,
         h(
           NlySidebar,
           {
@@ -448,7 +441,7 @@ export const NlySidebarMenu = Vue.extend({
               scrollbar: this.scrollbar
             }
           },
-          [$sidebar]
+          [$userInfo, $sidebar]
         )
       ]
     );
