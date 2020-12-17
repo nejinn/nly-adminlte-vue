@@ -2424,7 +2424,7 @@ table.nly-table[aria-busy="true"] {
 <!-- detail.vue -->
 ```
 
-## 可选中模式
+### 可选中模式
 
 设置 prop `selectable` 会使表格渲染成可选中模式
 
@@ -2563,6 +2563,76 @@ table.nly-table[aria-busy="true"] {
 <!-- 可选中模式.name -->
 <!-- selected-mode.vue -->
 ```
+
+### 表格主体动画
+
+表格的 <tbody> 元素支持 Vue `<transition-group>` 动画， 可以使用以下三个元素来设置：
+
+| Prop                        | Type   | Description                  |
+| --------------------------- | ------ | ---------------------------- |
+| `tbody-transition-props`    | Object | `transition-group` 对象 prop |
+| `tbody-transition-handlers` | Object | `transition-group` 事件对象  |
+| `primary-key`               | String | 表头中生的唯一索引值         |
+
+如果需要开启动画，您需要设置 `tbody-transition-props` 或者 `tbody-transition-handlers`，并且给每一行指定一个唯一的 `primary-key`, `primary-key` 可以不渲染在表格中，但是必须存在每一个行数据的 `item`中， `primary-key` 可以是数字也可以是字符串。同时您必须提供对应的动画 CSS 式样。
+
+以下 Demo 使用 CSS 动画式样：
+
+```css
+table#table-transition-example .flip-list-move {
+  transition: transform 1s;
+}
+```
+
+```html
+<template>
+  <div>
+    <nly-table
+      id="table-transition-example"
+      :items="items"
+      :fields="fields"
+      striped
+      small
+      primary-key="a"
+      :tbody-transition-props="transProps"
+    ></nly-table>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        transProps: {
+          name: "flip-list"
+        },
+        items: [
+          { a: 2, b: "Two", c: "Moose" },
+          { a: 1, b: "Three", c: "Dog" },
+          { a: 3, b: "Four", c: "Cat" },
+          { a: 4, b: "One", c: "Mouse" }
+        ],
+        fields: [
+          { key: "a", sortable: true },
+          { key: "b", sortable: true },
+          { key: "c", sortable: true }
+        ]
+      };
+    }
+  };
+</script>
+
+<!-- 动画.naame -->
+<!-- transition.vue -->
+```
+
+### v-model
+
+如果绑定一个变量到 `v-model`， 变量值通常是当前渲染的数据的 `item`, 索引是从 `0` 到 `page-size-1`。此变量尽量不要修改，建议当作一个只读变量
+
+`v-model` 绑定的变量通常是通过自带过滤，排序，分页之后 `item` 的浅拷贝数据， 删除 `v-model` 绑定值时，并不会删除 `item` 的是数据，也不会删除当前渲染的是数据
+
+
 
 ## 表格组件
 
