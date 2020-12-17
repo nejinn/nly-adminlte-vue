@@ -5,7 +5,7 @@ export const activeParentTree = (arr1, key) => {
     for (var i = 0; i < arr.length; i++) {
       var item = arr[i];
       const { _type, dataGroup, _children, _key } = item;
-      if (_key && dataGroup) {
+      if (_key != undefined && dataGroup != undefined) {
         if (id === _key && _type === "nly-sidebar-nav-item") {
           forFn(arr1, dataGroup);
         } else if (id === _key && _type === "nly-sidebar-nav-tree") {
