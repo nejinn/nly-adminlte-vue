@@ -3,7 +3,19 @@
     <nly-wrapper-header style="height:57px">
       <nly-button v-nly-sidebar-collapse.sidebar-collapse>点击收起</nly-button>
     </nly-wrapper-header>
-    <nly-sidebar-menu :sidebarList="sidebarList" side-mini exact />
+    <nly-sidebar-menu
+      :sidebarList="sidebarList"
+      side-mini
+      exact
+      container-hover
+      brand-to="/"
+      :brand-img-src="logo"
+      brand-img-circle
+      brand-img-elevation
+      brand-text="NLY Adminlte Vue"
+      :user-src="logo"
+      info-text="dddd"
+    />
     <router-view />
     <nly-wrapper-footer style="height:57px">footer</nly-wrapper-footer>
     <nly-overlay v-nly-sidebar-collapse.overlay sidebar />
@@ -14,6 +26,7 @@
 export default {
   data() {
     return {
+      logo: undefined,
       sidebarList: [
         {
           _type: "nly-sidebar-nav",
@@ -167,6 +180,9 @@ export default {
         }
       ]
     };
+  },
+  created() {
+    this.logo = require("../../assets/nly-adminlte-vue/img/NLYLOGO.png");
   }
 };
 </script>
