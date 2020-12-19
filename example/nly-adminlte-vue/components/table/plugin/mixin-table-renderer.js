@@ -77,6 +77,8 @@ export default {
   methods: {
     fixedDate() {
       this.$nextTick(() => {
+        this.customLeft = 0;
+        this.customRight = 0;
         if (this.computedFieldsRef) {
           this.computedFieldsRef.forEach((e, ei) => {
             const e_a = this.$refs[e];
