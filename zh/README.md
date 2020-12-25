@@ -38,7 +38,7 @@
 
 [English README](https://github.com/nejinn/nly-adminlte-vue) || 中文 README
 
-# 1. nly-adminlte-vue
+# nly-adminlte-vue
 
 > nly-adminlte-vue 是一个基于 adminlte3 封装的 vue 组件库。干掉 jq，让 vue 更好的使用 adminlte3。
 
@@ -46,21 +46,25 @@
 
 > 目前版本为测试版本，欢迎体验更新代码。可能会 存在新版本不兼容旧版本 prop 的情况，请注意
 
-# 2. demo
+# demo
 
 > demo 可以看到跟 master 同步的组件。点击下面
 
-> [demo-国内](http://nly-adminlte-vue-demo.nejinn.com/#/)
+[admin-demo](http://gin-admin.nejinn.com)
 
-> [demo-github](https://nejinn.github.io/nly-adminlte-vue-demo/)
+帐号: admin
+密码:123456
 
-![demoPic](https://github.com/nejinn/nly-adminlte-vue/blob/master/static/demoPic.png)
+admin demo 后端是 go 语言写的，[项目地址](https://github.com/nejinn/gin-gorm)
+https://github.com/nejinn/gin-gorm
 
-![demo](https://github.com/nejinn/nly-adminlte-vue/blob/master/static/demo.gif)
+[components-demo](http://nly-adminlte-vue-demo.nejinn.com/#/)
+http://nly-adminlte-vue-demo.nejinn.com/#/
 
-![demoPic](https://github.com/nejinn/nly-adminlte-vue/blob/master/static/demo1.gif)
+[components-demo](https://nejinn.github.io/nly-adminlte-vue-demo/)
+https://nejinn.github.io/nly-adminlte-vue-demo/
 
-# 3. 文档
+# 文档
 
 > [nly-daminlte-vue-docs](http://nly-adminlte-vue.nejinn.com/)
 
@@ -68,78 +72,18 @@
 
 在本地 运行 docs-dev 命令也可以查看文档。 [docs-dev](#43-install)
 
-# 4. 进度
+## 使用
 
-> 目前已经封装完成
+### 可以直接 clone 下载项目
 
-## 4.1. 组件
-
-- 皮肤 theme
-- 折叠板 collapse
-- 导航栏 navbar
-- 导航 nav
-- 栅格布局 grid row col
-- 容器 container
-- 正文容器 content
-- 布局容器 wrapper
-- 文字路由 link
-- 按钮 button
-- 开关 switch
-- 卡片 card
-- 小标签 badge
-- 下拉菜单 dropdown
-- 图标 icon
-- 右侧收缩板 control-sidebar
-- 罩层 overlay
-- 弹框消息 toast
-- 旋转 loading spinner
-- 进度条 progress
-- 时间轴 timeline
-- 面包屑导航 breadcrumb
-- 信息箱 infobox
-- 表格 table 表格是 bootstrapVue 的组件。传送门[bootstrapVue](https://bootstrap-vue.js.org)
-- 提示工具 tooltip
-- 分页 paginaton
-- 渲染函数 renderfunction 根据数组渲染整个页面的组件
-- 表单 form
-- input 框 input
-- 表单验证 feedback
-- 日志组件 log
-- 列表 list-group
-- 弹框 modal
-- tab 标签 tabs
-- 表单组 form-group
-- 弹出框 popover
-- 输入框组 input-group
-- 下拉选择输入框 form-select
-- 日期选择器 form-daterangepicker
-- bootstrap 分页 bootstrap-pagination
-- 复选框 form-check
-- 单选框 form-radio
-
-## 4.2. 指令
-
-- 左侧导航栏收起指令 v-nly-sidebar-collapse
-- 右侧收缩版收起指令 v-nly-control-sidebar-collapse
-- 卡片最大化指令 v-nly-card-maximized
-- 折叠版收起展开指令 v-nly-toggle
-- 提示工具指令 v-nly-tooltip
-- 弹框工具指令 v-nly-modal
-- 滚动条工具指令 v-nly-scrollspy
-- 弹出框指令 v-nly-popover
-- 收起展开指令 v-nly-toggle
-
-## 4.3. 使用
-
-### 4.3.1. 可以直接 clone 下载项目
-
-```html
-git clone https://github.com/nejinn/nly-adminlte-vue.git npm install npm
-runserve // 查看example，所有组件demo都在这里 http://localhost:8080 //
+```js
+git clone https://github.com/nejinn/nly-adminlte-vue.git
+npm install
+npm runserve // 查看example，所有组件demo都在这里 http://localhost:8080 //
 查看本地文档 npm run docs-dev
 ```
 
-### 4.3.2. 从 npm 下载
+### 从 npm 下载
 
 - 整包引入
 
@@ -211,6 +155,6 @@ import { badgePlugin } from "nly-adminlte-vue";
 Vue.use(badgePlugin);
 ```
 
-# 5. 感谢
+# 感谢
 
 [bootstrapVue](https://bootstrap-vue.js.org)

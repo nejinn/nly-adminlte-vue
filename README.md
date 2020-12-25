@@ -38,7 +38,7 @@
 
 English README || [中文 README](https://github.com/nejinn/nly-adminlte-vue/tree/master/zh)
 
-# 1. nly-adminlte-vue
+# nly-adminlte-vue
 
 > nly-adminlte-vue is based on adminlte3 vue2.js， not need JQ
 
@@ -46,21 +46,20 @@ English README || [中文 README](https://github.com/nejinn/nly-adminlte-vue/tre
 
 > This is a Alpha Version，Some prop perhaps deprecated in new Version， user caution!
 
-# 2. Demo
+# Demo
 
 > The Demo is synchronize with master
 
-[demo-china](http://nly-adminlte-vue-demo.nejinn.com/#/)
+[admin-demo](http://gin-admin.nejinn.com)
 
-[demo-github](https://nejinn.github.io/nly-adminlte-vue-demo/)
+uusername: admin
+passowrd:123456
 
-![demoPic](https://github.com/nejinn/nly-adminlte-vue/blob/master/static/demoPic.png)
+[components-demo](http://nly-adminlte-vue-demo.nejinn.com/#/)
 
-![demo](https://github.com/nejinn/nly-adminlte-vue/blob/master/static/demo.gif)
+[components-demo](https://nejinn.github.io/nly-adminlte-vue-demo/)
 
-![demoPic](https://github.com/nejinn/nly-adminlte-vue/blob/master/static/demo1.gif)
-
-# 3. Docs
+# Docs
 
 > [nly-daminlte-vue-docs](http://nly-adminlte-vue.nejinn.com/)
 
@@ -68,77 +67,18 @@ English README || [中文 README](https://github.com/nejinn/nly-adminlte-vue/tre
 
 We also can view docs localhost with `npm run docs-dev`. [docs-dev](#43-install)
 
-# 4. Progress
+## Install
 
-> Packaged components
+### clone from Github
 
-## 4.1. Component
-
-- theme
-- collapse
-- navbar
-- nav
-- grid row col
-- container
-- content
-- wrapper
-- link
-- button
-- switch
-- card
-- badge
-- dropdown
-- icon
-- control-sidebar
-- overlay
-- toast
-- spinner
-- progress
-- timeline
-- breadcrumb
-- infobox
-- table
-- tooltip
-- paginaton
-- renderfunction
-- form
-- input
-- feedback
-- log
-- list-group
-- modal
-- tabs
-- form-group
-- popover
-- input-group
-- form-select
-- form-daterangepicker
-- bootstrap-pagination
-- form-check
-- form-radio
-
-## 4.2. Directives
-
-- v-nly-sidebar-collapse
-- v-nly-control-sidebar-collapse
-- v-nly-card-maximized
-- v-nly-toggle
-- v-nly-tooltip
-- v-nly-modal
-- v-nly-scrollspy
-- v-nly-popover
-- v-nly-toggle
-
-## 4.3. Install
-
-### 4.3.1. clone from Github
-
-```html
-git clone https://github.com/nejinn/nly-adminlte-vue.git npm install npm run
-serve // view example http://localhost:8080 // view local docs npm run docs-dev
+```js
+git clone https://github.com/nejinn/nly-adminlte-vue.git
+npm install npm run
+serve view example http://localhost:8080
+view local docs npm run docs-dev
 ```
 
-### 4.3.2. npm
+### npm
 
 - import all
 
@@ -213,6 +153,6 @@ import { badgePlugin } from "nly-adminlte-vue";
 Vue.use(badgePlugin);
 ```
 
-# 5. Thanks
+# Thanks
 
 [bootstrapVue](https://bootstrap-vue.js.org)
