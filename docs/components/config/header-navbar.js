@@ -75,6 +75,12 @@ export const navbarList = [
                 href: "http://nly-adminlte-vue-demo.nejinn.com/",
                 _name: "在线Demo",
                 target: "_blank"
+              },
+              {
+                _type: "nly-nav-item",
+                href: "http://gin-admin.nejinn.com/",
+                _name: "Gin-admin",
+                target: "_blank"
               }
             ]
           }
