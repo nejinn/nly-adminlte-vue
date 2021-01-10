@@ -370,3 +370,103 @@ tag 式样支持以下属性设置
 <!-- 验证状态.name -->
 <!-- valid.vue -->
 ```
+
+### 获取新增值，非法值，重复值
+
+`tag-state` 事件会返回正在输入的 tag 值， 未通过验证的 tag 值和重复的 tag 值
+
+- `validTags` 新增的通过验证的值
+- `invalidTags` 未通过验证的新增值
+- `duplicateTags` 重复的新增值
+
+这 3 个返回的都是数组
+
+`tag-state` 事件只有在输入或者按 <bdk>Enter</bdk> 或者点击增加按钮或者使用分隔符自动添加 tag 的时候会触发，如果输入框中没有值的时候，这些返回值通常都是空数组
+
+```html
+<template>
+  <div>
+    <label for="tags-state-event">输入 tags</label>
+    <nly-form-tags
+      input-id="tags-state-event"
+      v-model="tags"
+      :tag-validator="validator"
+      placeholder="输入 tags"
+      separator=" "
+      @tag-state="onTagState"
+    ></nly-form-tags>
+    <p class="mt-2">Tags: {{ tags }}</p>
+    <p>返回值:</p>
+    <ul>
+      <li>validTags: {{ validTags }}</li>
+      <li>invalidTags: {{ invalidTags }}</li>
+      <li>duplicateTags: {{ duplicateTags }}</li>
+    </ul>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        tags: [],
+        validTags: [],
+        invalidTags: [],
+        duplicateTags: []
+      };
+    },
+    methods: {
+      onTagState(valid, invalid, duplicate) {
+        this.validTags = valid;
+        this.invalidTags = invalid;
+        this.duplicateTags = duplicate;
+      },
+      validator(tag) {
+        return tag.length > 2 && tag.length < 6;
+      }
+    }
+  };
+</script>
+
+<!-- tags-state.name -->
+<!-- tags-state.vue -->
+```
+
+## 限制 tags 数量
+
+设置 `limit` prop 之后可以限制 tag 的最大数量，这时候输入超过最大数量 tag 的时候，会出现提示语，如果需要自定义提示语可以设置 prop `limit-tags-text`。限制最大数量 tag 的时候，tag 数量达到最大时， 输入框无法再添加更多的 tag， 只能通过修改 v-model 值来修改 tag 的数量限制。如果不想显示数量达到最大的提示语，可以设置 `limit-tags-text` 为 `""` 或者 `null`
+
+```html
+<template>
+  <div>
+    <label for="tags-limit">输入 tags</label>
+    <nly-form-tags
+      input-id="tags-limit"
+      v-model="value"
+      :limit="limit"
+      remove-on-delete
+    ></nly-form-tags>
+    <p class="mt-2">值: {{ value }}</p>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        value: [],
+        limit: 5
+      };
+    }
+  };
+</script>
+
+<!-- limit.name -->
+<!-- limit.vue -->
+```
+
+## 插槽自定义渲染
+
+可以使用插槽来自定义渲染更美观的插槽
+
+### 插槽 props
