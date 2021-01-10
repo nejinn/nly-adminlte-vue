@@ -313,29 +313,20 @@ tag 式样支持以下属性设置
 <template>
   <div>
     <nly-form-group
-      label="Tags validation example"
+      label="Tags validation"
       label-for="tags-validation"
-      :state="state"
+      :valid="state"
+      invalid-feedback="请输入至少3个，最多8个tag"
+      description="每一个tag都应该是小写，且最少3个长度，最多5个长度"
     >
       <nly-form-tags
         input-id="tags-validation"
         v-model="tags"
         :input-attrs="{ 'aria-describedby': 'tags-validation-help' }"
         :tag-validator="tagValidator"
-        :state="state"
+        :valid="state"
         separator=" "
       ></nly-form-tags>
-
-      <template #invalid-feedback>
-        You must provide at least 3 tags and no more than 8
-      </template>
-
-      <template #description>
-        <div id="tags-validation-help">
-          Tags must be 3 to 5 characters in length and all lower case. Enter
-          tags separated by spaces or press enter.
-        </div>
-      </template>
     </nly-form-group>
   </div>
 </template>
@@ -350,7 +341,17 @@ tag 式样支持以下属性设置
     },
     computed: {
       state() {
-        return this.dirty ? this.tags.length > 2 && this.tags.length < 9 : null;
+        if (this.dirty) {
+          if (this.tags.length < 3) {
+            return "invalid";
+          } else if (this.tags.length > 8) {
+            return "invalid";
+          } else {
+            return "valid";
+          }
+        } else {
+          return "novalid";
+        }
       }
     },
     watch: {
