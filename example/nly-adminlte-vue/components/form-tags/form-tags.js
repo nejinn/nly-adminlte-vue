@@ -119,7 +119,7 @@ export const NlyFormTags = Vue.extend({
       type: String,
       default: () => getComponentConfig(name, "addButtonVariant")
     },
-    variant: {
+    tagVariant: {
       type: String,
       default: () => getComponentConfig(name, "tagVariant")
     },
@@ -717,7 +717,7 @@ export const NlyFormTags = Vue.extend({
       placeholder: this.placeholder,
       inputClass: this.inputClass,
       tagRemoveLabel: this.tagRemoveLabel,
-      variant: this.variant,
+      variant: this.tagVariant,
       tagPills: this.tagPills,
       tagClass: this.tagClass,
       addButtonText: this.addButtonText,
@@ -788,7 +788,7 @@ export const NlyFormTags = Vue.extend({
     const tagsbgVariant = () =>
       nlyGetOptionsByKeyEqual(bgVariantOptions, this.bgVariant);
     const tagsvariant = () =>
-      nlyGetOptionsByKeyEqual(variantOptions, this.variant);
+      nlyGetOptionsByKeyEqual(variantOptions, this.tagVariant);
     const tagsbgGradientVariant = () =>
       nlyGetOptionsByKeyEqual(bgGradientOptions, this.bgGradientVariant);
     const customTagsVariant = tagsbgGradientVariant()
