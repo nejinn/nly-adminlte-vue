@@ -467,6 +467,47 @@ tag 式样支持以下属性设置
 
 ## 插槽自定义渲染
 
-可以使用插槽来自定义渲染更美观的插槽
+`<nly-form-tags>` 允许使用插槽来自定义渲染更美观的组件
+
+如果您喜欢标签控件的不同外观，可以通过默认的作用域槽提供自己的自定义渲染。您可以创建自己的 tag，也可以使用 `<nly-form-tag>`组件。
 
 ### 插槽 props
+
+| Property            | 类型                     | 描述                                                                            |
+| ------------------- | ------------------------ | ------------------------------------------------------------------------------- |
+| `tags`              | Array                    | tag 值 数组集合 strings                                                         |
+| `inputAttrs`        | Object                   | input 框的原生 attrs 属性                                                       |
+| `inputType`         | String                   | input 输入框的类型， 可选'type', 'email', 'tel', 'url', 'number'. 默认是 'text' |
+| `inputHandlers`     | Object                   | input 输入框的原生件事                                                          |
+| `removeTag`         | Function                 | 移除 tag 的方法， 接受移除 tag 的值作为参数                                     |
+| `addTag`            | Function                 | 添加 tag 的方法. 接受需要添加的 tag 的值作为参数                                |
+| `inputId`           | String                   | input 输入框的 id                                                               |
+| `isInvalid`         | Boolean                  | 设置 true， 组件会提示非法验证消息                                              |
+| `invalidTags`       | Array                    | 非法验证的 tag                                                                  |
+| `isDuplicate`       | Boolean                  | 设置 true， 组件会提示 tag 重复                                                 |
+| `duplicateTags`     | Array                    | 验证重复值的 tag                                                                |
+| `isLimitReached`    | Boolean                  | 设置 true 会提示达到最大限制 tag 数量消息                                       |
+| `disableAddButton`  | Boolean                  | 禁用添加按钮添加 tag                                                            |
+| `disabled`          | Boolean                  | 给 tag 添加禁用状态， prop `disabled` 的值                                      |
+| `valid`             | Boolean                  | 组件的状态验证， prop `valid` 的值                                              |
+| `size`              | String                   | tag 大小 ， prop `size` 的值                                                    |
+| `limit`             | String                   | 设置 tag 的最大数量值 ， prop `limit` 的值                                      |
+| `separator`         | String                   | 分隔符， `separator` prop 的值                                                  |
+| `placeholder`       | String                   | 输入框默认提示 `placeholder` prop 的值                                          |
+| `tagRemoveLabel`    | String                   | `tag-remove-label` prop 的值. tag 删除按钮的 `aria-label` attr 数学             |
+| `tagVariant`        | String                   | tag 颜色， `tag-variant` prop 的值                                              |
+| `tagPills`          | Boolean                  | 圆形 tag， `tag-pills` prop 的值                                                |
+| `tagClass`          | String, Array, or Object | tag 自定义 css                                                                  |
+| `addButtonText`     | String                   | `add-button-text` prop 的值， 添加按钮的自定义文本                              |
+| `addButtonVariant`  | String                   | `add-button-variant` prop 的值， 添加按钮的颜色                                 |
+| `invalidTagText`    | String                   | `invalid-tag-text` prop 的值， 非法验证 tag 的提示信息                          |
+| `duplicateTagText`  | String                   | `duplicate-tag-text` prop 的值， 重复值验证 tag 的提示 ixinxi                   |
+| `limitTagsText`     | String                   | `limit-tags-text` prop 的值，tag 达到最大数量限制的提示信息                     |
+| `tagIcon`           | String                   | `tag-icon` prop 的值，tag 的 icon 图标                                          |
+| `tagOutline`        | Boolean                  | `tag-outline` prop 的值，tag 外边框, 设置 `tag-variant` 才有效                  |
+| `tagDashed`         | Boolean                  | `tag-dashed` prop 的值，tag 虚线外边框，设置 `tag-outline` 才有效               |
+| `tagTextClass`      | String                   | `tag-text-class` prop 的值，tag 文本自定义 css                                  |
+| `tagNoClose`        | Boolean                  | `tag-no-close` prop 的值，tag 禁用刪除按鈕                                      |
+| `addButtonIcon`     | String                   | `add-button-icon` prop 的值，刪除按鈕的 icon 值                                 |
+| `bgVariant`         | String                   | `bg-variant` prop 的值，tag 背景色                                              |
+| `bgGradientVariant` | String                   | `bg-gradient-variant` prop 的值，tag 渐变背景色                                 |
