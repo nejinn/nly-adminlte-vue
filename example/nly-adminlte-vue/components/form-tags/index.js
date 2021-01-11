@@ -4,7 +4,9 @@ import { NlyFormTags } from "./form-tags";
 const FormTagsPlugin = nlyPluginFactory({
   components: {
     NlyFormTag,
-    NlyFormTags
+    NlyFormTags,
+    NTags: NlyFormTags,
+    NTag: NlyFormTag
   }
 });
 

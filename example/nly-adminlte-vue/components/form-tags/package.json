@@ -1,0 +1,434 @@
+{
+  "name": "@nly-adminlte-vue/form-tags",
+  "version": "1.0.0",
+  "meta": {
+    "title": "Form Tags",
+    "version": "0.7.6",
+    "new": true,
+    "subtitle": "表单标签",
+    "description": "轻量级自定义外观表单输入控件",
+    "components": [
+      {
+        "component": "NlyFormTags",
+        "version": "0.7.6",
+        "aliases": [
+          "NTags"
+        ],
+        "props": [
+          {
+            "prop": "value",
+            "description": "当前 tags 的值，数组类型， 用 v-model 绑定"
+          },
+          {
+            "prop": "addButtonIcon",
+            "description": "添加按钮的 icon 图标"
+          },
+          {
+            "prop": "name",
+            "description": "表单名称，设置 name 会创建一个隐藏的输入框并指定给对应 name 的 form 表单"
+          },
+          {
+            "prop": "placeholder",
+            "description": "默认显示的 placeholder 文本"
+          },
+          {
+            "prop": "inputId",
+            "description": "设置 input 框的id，如果不设置，会自动生成id"
+          },
+          {
+            "prop": "inputClass",
+            "description": "input 输入框的 css 类"
+          },
+          {
+            "prop": "inputAttrs",
+            "description": "input 输入框的 atrrs 属性"
+          },
+          {
+            "prop": "inputType",
+            "version": "0.7.6",
+            "description": "输入框的类型， 可选 'text', 'email', 'tel', 'url', or 'number'. 默认 'text'"
+          },
+          {
+            "prop": "addButtonText",
+            "description": "设置添加按钮的文本内容"
+          },
+          {
+            "prop": "addButtonVariant",
+            "description": "设置添加按钮的主题颜色"
+          },
+          {
+            "prop": "tagVariant",
+            "description": "设置 tags 的主题颜色，可选  primary， secondary， success， info， warning， danger， light， dark"
+          },
+          {
+            "prop": "tagClass",
+            "description": "自定义 tags 的 css 类"
+          },
+          {
+            "prop": "tagPills",
+            "description": "圆形 tags "
+          },
+          {
+            "prop": "tagRemoveLabel",
+            "description": "tag 移除按钮的 'aria-label' 属性"
+          },
+          {
+            "prop": "tagRemovedLabel",
+            "version": "0.7.6",
+            "description": "tag 移除按钮的 'aria-label' 属性"
+          },
+          {
+            "prop": "tagValidator",
+            "description": "Optional tag validator method. Passed a single argument of tag being added. Should return 'true' if the tag passes validation, or 'false' if the tag cannot be added"
+          },
+          {
+            "prop": "invalidTagText",
+            "description": "验证不通过时，提示消息文本内容， 设置 `''` 或者 `null` 不显示"
+          },
+          {
+            "prop": "duplicateTagText",
+            "description": "重复值时提示验证不通过的消息文本内容， 设置 `''` 或者 `null` 不显示"
+          },
+          {
+            "prop": "limitTagsText",
+            "version": "0.7.6",
+            "description": "tags 超过限制数量的提示文本， 设置 `''` 或者 `null` 不显示"
+          },
+          {
+            "prop": "limit",
+            "version": "0.7.6",
+            "description": "tags 的最大数量"
+          },
+          {
+            "prop": "separator",
+            "description": "设置分隔符自动创建 tag， 比如设置 separator=',',遇到输入','会自动生成 tag"
+          },
+          {
+            "prop": "removeOnDelete",
+            "description": "设置 true， 按后退键或者删除键会删除最后一个 tag"
+          },
+          {
+            "prop": "addOnChange",
+            "description": "设置 true， 会禁用调用输入框 change 事件来添加 tag"
+          },
+          {
+            "prop": "noAddOnEnter",
+            "description": "设置true, 会禁用点击 Enter 键添加 tag"
+          },
+          {
+            "prop": "noOuterFocus",
+            "description": "设置true 会禁用输入框失去焦距添加 tag"
+          },
+          {
+            "prop": "ignoreInputFocusSelector",
+            "version": "0.7.6",
+            "description": "忽略指定添加 tag 的方法，使其失效"
+          },
+          {
+            "prop": "tagIcon",
+            "description": "tag 的 icon 图标"
+          },
+          {
+            "prop": "tagOutline",
+            "description": "tag 外边框模式"
+          },
+          {
+            "prop": "tagDashed",
+            "description": "tag 虚线外边框"
+          },
+          {
+            "prop": "tagTextClass",
+            "description": "tag 文本自定义css"
+          },
+          {
+            "prop": "tagNoClose",
+            "description": "tag 禁用删除按钮"
+          },
+          {
+            "prop": "tagCloseClass",
+            "description": "tag 删除按钮自定义 css"
+          }
+        ],
+        "slots": [
+          {
+            "name": "add-button-text",
+            "description": "添加按钮的文本内容插槽. 优先级高于 'add-button-text' prop. 优先级低于默认插槽"
+          },
+          {
+            "name": "default",
+            "description": "tags 组件的默认插槽",
+            "scope": [
+              {
+                "prop": "tags",
+                "type": "Array",
+                "description": "需要渲染的成 tags 的 tag 数组"
+              },
+              {
+                "prop": "inputAttrs",
+                "type": "Object",
+                "description": "input框的原生 attrs 属性"
+              },
+              {
+                "prop": "inputHandlers",
+                "type": "Object",
+                "description": "input输入框的原生件事"
+              },
+              {
+                "prop": "inputType",
+                "version": "0.7.6",
+                "description": "input输入框的类型， 可选'type', 'email', 'tel', 'url', 'number'. 默认是 'text'"
+              },
+              {
+                "prop": "inputId",
+                "type": "String",
+                "description": "input 输入框的 id"
+              },
+              {
+                "prop": "inputClass",
+                "type": [
+                  "String",
+                  "Array",
+                  "Object"
+                ],
+                "description": "input 输入框的 css 类"
+              },
+              {
+                "prop": "removeTag",
+                "type": "Function",
+                "description": "移除 tag 的方法， 接受移除 tag 的值作为参数"
+              },
+              {
+                "prop": "addTag",
+                "type": "Function",
+                "description": "添加 tag 的方法. 接受需要添加的 tag 的值作为参数"
+              },
+              {
+                "prop": "invalidTags",
+                "type": "Array",
+                "description": "非法验证的 tag"
+              },
+              {
+                "prop": "isInvalid",
+                "type": "Boolean",
+                "description": "设置true， 组件会提示非法验证消息"
+              },
+              {
+                "prop": "duplicateTags",
+                "type": "Array",
+                "description": "验证重复值的 tag"
+              },
+              {
+                "prop": "isDuplicate",
+                "type": "Boolean",
+                "description": "设置true， 组件会提示 tag 重复"
+              },
+              {
+                "prop": "disableAddButton",
+                "type": "Boolean",
+                "description": "禁用添加按钮添加 tag"
+              },
+              {
+                "prop": "disabled",
+                "type": "Boolean",
+                "description": "给 tag 添加禁用状态"
+              },
+              {
+                "prop": "valid",
+                "type": "Boolean",
+                "description": "组件的状态验证"
+              },
+              {
+                "prop": "size",
+                "type": "String",
+                "description": "tag 大小"
+              },
+              {
+                "prop": "separator",
+                "type": [
+                  "String",
+                  "Array"
+                ],
+                "description": "分隔符，可以用来自动添加 tag"
+              },
+              {
+                "prop": "placeholder",
+                "type": "String",
+                "description": "输入框默认提示语"
+              },
+              {
+                "prop": "invalidTagText",
+                "type": "String",
+                "description": "非法验证时候的文本内容"
+              },
+              {
+                "prop": "duplicateTagText",
+                "type": "String",
+                "description": "重复值验证的文本内容"
+              },
+              {
+                "prop": "tagRemoveLabel",
+                "type": "String",
+                "description": "删除按钮的 ARIA  属性"
+              },
+              {
+                "prop": "tagPills",
+                "type": "Boolean",
+                "description": "圆形 tag"
+              },
+              {
+                "prop": "tagVariant",
+                "type": "String",
+                "description": "tag 的颜色"
+              },
+              {
+                "prop": "tagClass",
+                "type": [
+                  "String",
+                  "Array",
+                  "Object"
+                ],
+                "description": "tag 的自定义 css"
+              },
+              {
+                "prop": "addButtonText",
+                "type": "String",
+                "description": "添加按钮的文本内容"
+              },
+              {
+                "prop": "addButtonVariant",
+                "type": "String",
+                "description": "添加按钮的颜色"
+              },
+              {
+                "prop": "tagIcon",
+                "type": "String",
+                "description": "`tag-icon` prop 的值，tag 的 icon 图标"
+              },
+              {
+                "prop": "tagOutline",
+                "type": "Boolean",
+                "description": "`tag-outline` prop 的值，tag 外边框, 设置 `tag-variant` 才有效 "
+              },
+              {
+                "prop": "tagDashed",
+                "type": "Boolean",
+                "description": "`tag-dashed` prop 的值，tag 虚线外边框，设置 `tag-outline` 才有效"
+              },
+              {
+                "prop": "tagTextClass",
+                "type": "String",
+                "description": "`tag-text-class` prop 的值，tag 文本自定义 css"
+              },
+              {
+                "prop": "tagNoClose",
+                "type": "Boolean",
+                "description": "`tag-no-close` prop 的值，tag 禁用刪除按鈕"
+              },
+              {
+                "prop": "bgVariant",
+                "type": "String",
+                "description": "`bg-variant` prop 的值，tag 背景色 "
+              },
+              {
+                "prop": "bgGradientVariant",
+                "type": "String",
+                "description": "`bg-gradient-variant` prop 的值，tag 渐变背景色 "
+              }
+            ]
+          }
+        ],
+        "events": [
+          {
+            "event": "input",
+            "description": "当 tag 发生改变时 emit 的时间. 更新 v-model 的值",
+            "args": [
+              {
+                "arg": "value",
+                "type": "Array",
+                "description": "当前所有 tag 的 tags 数组值"
+              }
+            ]
+          },
+          {
+            "event": "tag-state",
+            "description": "用户交互 tags 发生变化的时候 emit事件",
+            "args": [
+              {
+                "arg": "validTags",
+                "type": "Array",
+                "description": "新添加的 tag 或者将要被添加的 tag 的数组值"
+              },
+              {
+                "arg": "invalidTags",
+                "type": "Array",
+                "description": "非法 tag 的 数组集合"
+              },
+              {
+                "arg": "duplicateTags",
+                "type": "Array",
+                "description": "重复 tag 的数组集值"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "NlyFormTag",
+        "version": "0.7.6",
+        "description": "Helper component for custom rending of tags in tagged input",
+        "aliases": [
+          "NTag"
+        ],
+        "props": [
+          {
+            "prop": "title",
+            "description": "tag 的 title attr 属性"
+          },
+          {
+            "prop": "pill",
+            "description": "圆形 tag"
+          },
+          {
+            "prop": "removeLabel",
+            "description": " tag 删除按钮的'aria-label'属性"
+          },
+          {
+            "prop": "icon",
+            "description": "tag 的 icon 图标"
+          },
+          {
+            "prop": "outline",
+            "description": "tag 外边框模式"
+          },
+          {
+            "prop": "dashed",
+            "description": "tag 虚线外边框"
+          },
+          {
+            "prop": "tagTextClass",
+            "description": "tag 文本自定义css"
+          },
+          {
+            "prop": "noClose",
+            "description": "tag 禁用删除按钮"
+          },
+          {
+            "prop": "tagCloseClass",
+            "description": "tag 删除按钮自定义 css"
+          },
+          {
+            "prop": "tagClass",
+            "description": "tag 自定义 css"
+          }
+        ],
+        "events": [
+          {
+            "event": "remove",
+            "description": "点击 tag 删除按钮的时候触发的事件",
+            "args": []
+          }
+        ]
+      }
+    ]
+  }
+}
