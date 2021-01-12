@@ -82,27 +82,7 @@ export default {
 
       scriptsInjected = true;
     },
-    initDocsearch() {
-      if (this.docsearch) {
-        return;
-      }
-      // Initialize docsearch
-      this.docsearch = window.docsearch({
-        apiKey: "c816d3054b015320f0cfb40042f7e2bc",
-        indexName: "bootstrap-vue",
-        inputSelector: "#bd-search-input",
-        transformData(hits) {
-          return hits.map(function(hit) {
-            // Transform URL to a relative URL
-            hit.url = relativeUrl(hit.url);
-
-            return hit;
-          });
-        },
-        // Set debug to `true` if you want to inspect the dropdown
-        debug: false
-      });
-    }
+    initDocsearch() {}
   }
 };
 </script>

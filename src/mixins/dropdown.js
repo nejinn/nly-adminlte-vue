@@ -363,14 +363,6 @@ export default {
     // Mousedown handler for the toggle
     /* istanbul ignore next */
     onMousedown(evt) /* istanbul ignore next */ {
-      // We prevent the 'mousedown' event for the toggle to stop the
-      // 'focusin' event from being fired
-      // The event would otherwise be picked up by the global 'focusin'
-      // listener and there is no cross-browser solution to detect it
-      // relates to the toggle click
-      // The 'click' event will still be fired and we handle closing
-      // other dropdowns there too
-      // See https://github.com/bootstrap-vue/bootstrap-vue/issues/4328
       evt.preventDefault();
     },
     // Called from dropdown menu context
