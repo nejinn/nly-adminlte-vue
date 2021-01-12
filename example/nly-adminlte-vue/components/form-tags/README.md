@@ -511,3 +511,4 @@ tag 式样支持以下属性设置
 | `addButtonIcon`     | String                   | `add-button-icon` prop 的值，刪除按鈕的 icon 值                                 |
 | `bgVariant`         | String                   | `bg-variant` prop 的值，tag 背景色                                              |
 | `bgGradientVariant` | String                   | `bg-gradient-variant` prop 的值，tag 渐变背景色                                 |
+

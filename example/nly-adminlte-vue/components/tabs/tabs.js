@@ -77,9 +77,6 @@ const BTabButtonHelper = /*#__PURE__*/ Vue.extend({
         stop();
         this.$emit("click", evt);
       } else if (type === "keydown" && key === KeyCodes.SPACE) {
-        // For ARIA tabs the SPACE key will also trigger a click/select
-        // Even with keyboard navigation disabled, SPACE should "click" the button
-        // See: https://github.com/bootstrap-vue/bootstrap-vue/issues/4323
         stop();
         this.$emit("click", evt);
       } else if (type === "keydown" && !this.noKeyNav) {
@@ -409,9 +406,6 @@ export const NlyTabs = /*#__PURE__*/ Vue.extend({
       }
     },
     getTabs() {
-      // We use registeredTabs as the source of truth for child tab components. And we
-      // filter out any BTab components that are extended BTab with a root child BTab.
-      // https://github.com/bootstrap-vue/bootstrap-vue/issues/3260
       const tabs = this.registeredTabs.filter(
         tab => tab.$children.filter(t => t._isTab).length === 0
       );
