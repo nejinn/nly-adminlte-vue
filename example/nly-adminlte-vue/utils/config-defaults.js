@@ -103,5 +103,12 @@ export default deepFreeze({
     tagRemoveLabel: "Remove tag",
     tagRemovedLabel: "Tag removed",
     tagVariant: "secondary"
+  },
+  NlyTreeItem: {
+    subInputEditorButton: "Ok",
+    subEditorButtonText: "Ok",
+    editorButtonText: "Editor",
+    deleteButtonText: "Delete",
+    asynButtonText: "Asyn"
   }
 });

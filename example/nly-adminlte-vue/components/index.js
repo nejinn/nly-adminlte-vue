@@ -35,13 +35,14 @@ import { ProgressPlugin } from "./progress";
 import { SearchSelectPlugin } from "./search-select";
 import { SidebarPlugin } from "./sidebar";
 import { SpinnerPlugin } from "./spinner";
-import { switchPlugin } from "./switch";
+import { SwitchPlugin } from "./switch";
 import { toastPlugin } from "./toast";
 import { timelinePlugin } from "./timeline";
 import { TablePlugin } from "./table";
 import { TooltipPlugin } from "./tooltip";
 import { RenderFunctionPlugin } from "./render-function";
 import { TabsPlugin } from "./tabs";
+import { TreePlugin } from "./tree";
 import { WrapperPlugin } from "./wrapper";
 
 export const componentsPlugin = nlyPluginFactory({
@@ -75,7 +76,7 @@ export const componentsPlugin = nlyPluginFactory({
     NavbarPlugin,
     OverlayPlugin,
     SidebarPlugin,
-    switchPlugin,
+    SwitchPlugin,
     toastPlugin,
     SearchSelectPlugin,
     SpinnerPlugin,
@@ -84,6 +85,7 @@ export const componentsPlugin = nlyPluginFactory({
     timelinePlugin,
     InfoboxPlugin,
     TooltipPlugin,
+    TreePlugin,
     RenderFunctionPlugin,
     PaginationPlugin,
     LogPlugin,
