@@ -7,14 +7,17 @@ import { NlyButton } from "../button/button";
 import { NlyInputGroup } from "../input-group/input-group";
 import { NlyInputGroupAppend } from "../input-group/input-group-append";
 import { NlyFormInput } from "../form-input/form-input";
+import { NlySpinner } from "../spinner";
 import { getComponentConfig } from "../../utils/config";
 import listenOnRootMixin from "../../mixins/listen-on-root";
+import { isArray, isObject } from "../../utils/inspect";
 
 const name = "NlyTreeItem";
 
 const TREE_DELETE_EVENT = "nlya::tree::delete";
 const TREE_LABEL_CHANGE_EVENT = "nlya::tree::label::change";
 const TREE_VALUE_CHECKED_EVENT = "nlya::tree::value::checked";
+const TREE_ADD_EVENT = "nlya::tree::add";
 
 export const NlyTreeItem = Vue.extend({
   name: name,
@@ -28,7 +31,10 @@ export const NlyTreeItem = Vue.extend({
       // 允许编辑状态
       localEditor: false,
       // label 标签值
-      localLabel: undefined
+      localLabel: undefined,
+      // 新增的节点
+      localAddNode: undefined,
+      loading: false
     };
   },
   props: {
@@ -82,6 +88,10 @@ export const NlyTreeItem = Vue.extend({
       type: String,
       default: undefined
     },
+    loadingVariant: {
+      type: String,
+      default: "secondary"
+    },
     subInputEditorButtonText: {
       type: String,
       default: () => getComponentConfig(name, "subInputEditorButton")
@@ -101,9 +111,6 @@ export const NlyTreeItem = Vue.extend({
     asynButtonText: {
       type: String,
       default: () => getComponentConfig(name, "asynButtonText")
-    },
-    asynAddChildren: {
-      type: Function
     }
   },
   mounted() {
@@ -164,9 +171,32 @@ export const NlyTreeItem = Vue.extend({
       if (!this.asyn) {
         return;
       }
-      var that = this;
-      this.asynAddChildren(that);
-      this.$emit("asynChange", this.id, this.localLabel, this.localValue);
+      this.loading = true;
+      this.$emit("asynChange");
+    },
+    asynAddNode(data) {
+      if (isArray(data)) {
+        data.map(item => {
+          const { id } = item;
+          if (!id) {
+            this.loading = false;
+            throw new ReferenceError("id is need");
+          }
+        });
+      } else if (isObject(data)) {
+        const { id } = data;
+        if (!id) {
+          this.loading = false;
+          throw new ReferenceError("id is need");
+        }
+      } else {
+        this.loading = false;
+        throw new ReferenceError("data must be Array or Object");
+      }
+      this.localAddNode = data;
+      // 通知父组件添加节点
+      this.emitAddNode();
+      this.loading = false;
     },
     emitDeleteTree() {
       this.emitOnRoot(
@@ -191,6 +221,9 @@ export const NlyTreeItem = Vue.extend({
         this.localLabel,
         this.localValue
       );
+    },
+    emitAddNode() {
+      this.emitOnRoot(TREE_ADD_EVENT, this.id, this.localAddNode);
     }
   },
   render(h) {
@@ -359,7 +392,17 @@ export const NlyTreeItem = Vue.extend({
           },
           on: { click: this.asynButtonClick }
         },
-        this.asynButtonText
+        this.loading
+          ? [
+              h(NlySpinner, {
+                props: {
+                  sm: true,
+                  label: "asynloading",
+                  variant: this.loadingVariant
+                }
+              })
+            ]
+          : [this.asynButtonText]
       );
     }
     return h(

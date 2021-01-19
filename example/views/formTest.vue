@@ -70,7 +70,9 @@
             :value="true"
             editor
             asyn
-            @asynAddChildren="asynChange()"
+            ref="111"
+            loading-variant="pink"
+            @asynChange="asynChange"
             @labelChange="change"
             @inputChange="inputChange"
             @valueChange="valueChange"
@@ -122,10 +124,11 @@ export default {
     valueChange(id, label, value) {
       console.log(id, label, value);
     },
-    asynChange(id, label, value) {
-      console.log(id, label, value);
-      value = false;
-      console.log(id, label, value);
+    async asynChange() {
+      let pro = await new Promise(resolve => {
+        setTimeout(resolve, 2000, [{ id: 6, label: "asyn" }]);
+      });
+      this.$refs["111"].asynAddNode(pro);
     }
   },
   mounted() {
