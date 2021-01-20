@@ -12,12 +12,101 @@ import { getComponentConfig } from "../../utils/config";
 import listenOnRootMixin from "../../mixins/listen-on-root";
 import { isArray, isObject } from "../../utils/inspect";
 
-const name = "NlyTreeItem";
+export const name = "NlyTreeItem";
 
-const TREE_DELETE_EVENT = "nlya::tree::delete";
-const TREE_LABEL_CHANGE_EVENT = "nlya::tree::label::change";
-const TREE_VALUE_CHECKED_EVENT = "nlya::tree::value::checked";
-const TREE_ADD_EVENT = "nlya::tree::add";
+export const TREE_DELETE_EVENT = "nlya::tree::delete";
+export const TREE_LABEL_CHANGE_EVENT = "nlya::tree::label::change";
+export const TREE_VALUE_CHECKED_EVENT = "nlya::tree::value::checked";
+export const TREE_ADD_EVENT = "nlya::tree::add";
+
+export const props = {
+  label: {
+    type: String,
+    default: undefined
+  },
+  labelHtml: {
+    type: String,
+    default: undefined
+  },
+  value: undefined,
+  showCheck: {
+    type: Boolean,
+    default: false
+  },
+  id: {
+    type: [String, Number],
+    default: undefined,
+    required: true
+  },
+  editor: {
+    type: Boolean,
+    default: false
+  },
+  editorVariant: {
+    type: String,
+    default: undefined
+  },
+  dbEditor: {
+    type: Boolean,
+    default: false
+  },
+  dbEditorVariant: {
+    type: String,
+    default: undefined
+  },
+  delete: {
+    type: Boolean,
+    default: false
+  },
+  deleteVariant: {
+    type: String,
+    default: undefined
+  },
+  asyn: {
+    type: Boolean,
+    default: false
+  },
+  asynVariant: {
+    type: String,
+    default: undefined
+  },
+  loadingVariant: {
+    type: String,
+    default: "secondary"
+  },
+  add: {
+    type: Boolean,
+    default: false
+  },
+  addVariant: {
+    type: String,
+    default: "default"
+  },
+  subInputEditorButtonText: {
+    type: String,
+    default: () => getComponentConfig(name, "subInputEditorButton")
+  },
+  subEditorButtonText: {
+    type: String,
+    default: () => getComponentConfig(name, "subEditorButtonText")
+  },
+  editorButtonText: {
+    type: String,
+    default: () => getComponentConfig(name, "editorButtonText")
+  },
+  deleteButtonText: {
+    type: String,
+    default: () => getComponentConfig(name, "deleteButtonText")
+  },
+  asynButtonText: {
+    type: String,
+    default: () => getComponentConfig(name, "asynButtonText")
+  },
+  addButtonText: {
+    type: String,
+    default: () => getComponentConfig(name, "addButtonText")
+  }
+};
 
 export const NlyTreeItem = Vue.extend({
   name: name,
@@ -37,82 +126,7 @@ export const NlyTreeItem = Vue.extend({
       loading: false
     };
   },
-  props: {
-    label: {
-      type: String,
-      default: undefined
-    },
-    labelHtml: {
-      type: String,
-      default: undefined
-    },
-    value: undefined,
-    showCheck: {
-      type: Boolean,
-      default: false
-    },
-    id: {
-      type: [String, Number],
-      default: undefined,
-      required: true
-    },
-    editor: {
-      type: Boolean,
-      default: false
-    },
-    editorVariant: {
-      type: String,
-      default: undefined
-    },
-    dbEditor: {
-      type: Boolean,
-      default: false
-    },
-    dbEditorVariant: {
-      type: String,
-      default: undefined
-    },
-    delete: {
-      type: Boolean,
-      default: false
-    },
-    deleteVariant: {
-      type: String,
-      default: undefined
-    },
-    asyn: {
-      type: Boolean,
-      default: false
-    },
-    asynVariant: {
-      type: String,
-      default: undefined
-    },
-    loadingVariant: {
-      type: String,
-      default: "secondary"
-    },
-    subInputEditorButtonText: {
-      type: String,
-      default: () => getComponentConfig(name, "subInputEditorButton")
-    },
-    subEditorButtonText: {
-      type: String,
-      default: () => getComponentConfig(name, "subEditorButtonText")
-    },
-    editorButtonText: {
-      type: String,
-      default: () => getComponentConfig(name, "editorButtonText")
-    },
-    deleteButtonText: {
-      type: String,
-      default: () => getComponentConfig(name, "deleteButtonText")
-    },
-    asynButtonText: {
-      type: String,
-      default: () => getComponentConfig(name, "asynButtonText")
-    }
-  },
+  props: props,
   mounted() {
     this.localValue = this.value;
     this.loacalId = this.id;
@@ -174,6 +188,12 @@ export const NlyTreeItem = Vue.extend({
       this.loading = true;
       this.$emit("asynChange");
     },
+    addButtonClick() {
+      if (!this.add) {
+        return;
+      }
+      this.$emit("addChange");
+    },
     asynAddNode(data) {
       if (isArray(data)) {
         data.map(item => {
@@ -197,6 +217,26 @@ export const NlyTreeItem = Vue.extend({
       // 通知父组件添加节点
       this.emitAddNode();
       this.loading = false;
+    },
+    addNode(data) {
+      if (isArray(data)) {
+        data.map(item => {
+          const { id } = item;
+          if (!id) {
+            throw new ReferenceError("id is need");
+          }
+        });
+      } else if (isObject(data)) {
+        const { id } = data;
+        if (!id) {
+          throw new ReferenceError("id is need");
+        }
+      } else {
+        throw new ReferenceError("data must be Array or Object");
+      }
+      this.localAddNode = data;
+      // 通知父组件添加节点
+      this.emitAddNode();
     },
     emitDeleteTree() {
       this.emitOnRoot(
@@ -405,12 +445,27 @@ export const NlyTreeItem = Vue.extend({
           : [this.asynButtonText]
       );
     }
+    let $addButton = h();
+    if (this.add) {
+      $addButton = h(
+        NlyButton,
+        {
+          class: "mr-2",
+          props: {
+            size: "sm",
+            variant: this.addVariant ? this.addVariant : "default"
+          },
+          on: { click: this.addButtonClick }
+        },
+        this.addButtonText
+      );
+    }
     return h(
       "li",
       {
-        staticClass: "h-auto mt-1 mb-1",
-        style: {
-          display: "flex"
+        staticClass: "mb-1 d-flex",
+        on: {
+          ...this.$listeners
         }
       },
       [
@@ -419,6 +474,7 @@ export const NlyTreeItem = Vue.extend({
         $editorInput,
         $editorButton,
         $deleteButton,
+        $addButton,
         $asynButton
       ]
     );
