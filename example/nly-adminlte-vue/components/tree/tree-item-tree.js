@@ -21,10 +21,6 @@ export const NlyTreeItemTree = Vue.extend({
     };
   },
   props: {
-    label: {
-      type: String,
-      default: "nly tree navigation"
-    },
     target: {
       type: String,
       required: true
@@ -32,10 +28,6 @@ export const NlyTreeItemTree = Vue.extend({
     disabled: {
       type: Boolean,
       default: false
-    },
-    //icon
-    icon: {
-      type: String
     },
     // menu props
     accordion: {
@@ -54,97 +46,94 @@ export const NlyTreeItemTree = Vue.extend({
       type: String,
       default: () => getComponentConfig(name, "iconVariant")
     },
-    treeLabel: {
+    label: {
       type: String,
       default: undefined
     },
-    treeLabelHtml: {
+    labelHtml: {
       type: String,
       default: undefined
     },
-    treeValue: undefined,
-    treeShowCheck: {
+    value: undefined,
+    showCheck: {
       type: Boolean,
       default: false
     },
-    treeId: {
+    id: {
       type: [String, Number],
       default: undefined,
       required: true
     },
-    treeEditor: {
+    editor: {
       type: Boolean,
       default: false
     },
-    treeEditorVariant: {
+    editorVariant: {
       type: String,
       default: undefined
     },
-    treeDbEditor: {
+    dbEditor: {
       type: Boolean,
       default: false
     },
-    treeDbEditorVariant: {
+    dbEditorVariant: {
       type: String,
       default: undefined
     },
-    treeDelete: {
+    delete: {
       type: Boolean,
       default: false
     },
-    treeDeleteVariant: {
+    deleteVariant: {
       type: String,
       default: undefined
     },
-    treeAsyn: {
+    asyn: {
       type: Boolean,
       default: false
     },
-    treeAsynVariant: {
+    asynVariant: {
       type: String,
       default: undefined
     },
-    treeLoadingVariant: {
+    loadingVariant: {
       type: String,
       default: "secondary"
     },
-    treeAdd: {
+    add: {
       type: Boolean,
       default: false
     },
-    treeAddVariant: {
+    addVariant: {
       type: String,
       default: "default"
     },
-    treeSubInputEditorButtonText: {
+    subInputEditorButtonText: {
       type: String,
       default: () => getComponentConfig(name, "subInputEditorButton")
     },
-    treeSubEditorButtonText: {
+    subEditorButtonText: {
       type: String,
       default: () => getComponentConfig(name, "subEditorButtonText")
     },
-    treeEditorButtonText: {
+    editorButtonText: {
       type: String,
       default: () => getComponentConfig(name, "editorButtonText")
     },
-    treeDeleteButtonText: {
+    deleteButtonText: {
       type: String,
       default: () => getComponentConfig(name, "deleteButtonText")
     },
-    treeAsynButtonText: {
+    asynButtonText: {
       type: String,
       default: () => getComponentConfig(name, "asynButtonText")
     },
-    treeAddButtonText: {
+    addButtonText: {
       type: String,
       default: () => getComponentConfig(name, "addButtonText")
     }
   },
   computed: {
-    customLabel: function() {
-      return this.label;
-    },
     customTarget: function() {
       return this.target;
     },
@@ -159,28 +148,28 @@ export const NlyTreeItemTree = Vue.extend({
     },
     customTreeItemProps() {
       return {
-        label: this.treeLabel,
-        labelHtml: this.treeLabelHtml,
-        value: this.treeValue,
-        showCheck: this.treeShowCheck,
-        id: this.treeId,
-        editor: this.treeEditor,
-        editorVariant: this.treeEditorVariant,
-        dbEditor: this.treeDbEditor,
-        dbEditorVariant: this.treeDbEditorVariant,
-        delete: this.treeDelete,
-        deleteVariant: this.treeDeleteVariant,
-        asyn: this.treeAsyn,
-        asynVariant: this.treeAsynVariant,
-        loadingVariant: this.treeLoadingVariant,
-        add: this.treeAdd,
-        addVariant: this.treeAddVariant,
-        subInputEditorButtonText: this.treeSubInputEditorButtonText,
-        subEditorButtonText: this.treeSubEditorButtonText,
-        editorButtonText: this.treeEditorButtonText,
-        deleteButtonText: this.treeDeleteButtonText,
-        asynButtonText: this.treeAsynButtonText,
-        addButtonText: this.treeAddButtonText
+        label: this.label,
+        labelHtml: this.labelHtml,
+        value: this.value,
+        showCheck: this.showCheck,
+        id: this.id,
+        editor: this.editor,
+        editorVariant: this.editorVariant,
+        dbEditor: this.dbEditor,
+        dbEditorVariant: this.dbEditorVariant,
+        delete: this.delete,
+        deleteVariant: this.deleteVariant,
+        asyn: this.asyn,
+        asynVariant: this.asynVariant,
+        loadingVariant: this.loadingVariant,
+        add: this.add,
+        addVariant: this.addVariant,
+        subInputEditorButtonText: this.subInputEditorButtonText,
+        subEditorButtonText: this.subEditorButtonText,
+        editorButtonText: this.editorButtonText,
+        deleteButtonText: this.deleteButtonText,
+        asynButtonText: this.asynButtonText,
+        addButtonText: this.addButtonText
       };
     }
   },
@@ -213,14 +202,15 @@ export const NlyTreeItemTree = Vue.extend({
         style: {
           display: this.customMenuProps.visible ? "block" : "none"
         },
-        staticClass: "mt-0 mb-0"
+        staticClass: "mt-0 mb-0 nly-tree-collapse"
       },
       this.$slots.default
     );
     const treeArray = h(NlyTreeItem, {
+      class: "nly-tree-item-toggle",
       props: this.customTreeItemProps,
       attrs: {
-        "aria-label": this.customLabel,
+        "aria-label": "nly tree navigation",
         "aria-controls": this.customTarget,
         "aria-expanded": this.toggleState ? "true" : "false",
         "data-target": `#${this.customTarget}`
@@ -251,7 +241,7 @@ export const NlyTreeItemTree = Vue.extend({
     return h(
       "li",
       {
-        staticClass: "list-unstyled",
+        staticClass: "list-unstyled nly-tree-item-tree",
         class: [this.toggleState ? "nly-tree-open" : null]
       },
       [

@@ -11,103 +11,175 @@
     </nly-content-header>
     <nly-content>
       <nly-row>
+        <nly-col xs="6"> </nly-col>
         <nly-col>
-          <nly-tree-item-tree
-            tree-label="tree 测试"
-            target="www"
-            tree-id="wwwq"
-            tree-show-check
-            :tree-value="true"
-            tree-editor
-            tree-add
-            visible
-          >
+          <ul class="ml-4">
+            <nly-tree-item-tree
+              label="tree 测试"
+              target="www"
+              id="wwwq"
+              show-check
+              :value="true"
+              editor
+              add
+              visible
+              accordion="111"
+            >
+              <nly-tree-item-tree
+                label="tree 测试"
+                target="www1111"
+                id="wwwq1111"
+                show-check
+                :value="true"
+                editor
+                add
+                visible
+                accordion="1121"
+              >
+                <nly-tree-item
+                  show-check
+                  :id="122"
+                  label="测试"
+                  :value="true"
+                  editor
+                  delete
+                  @labelChange="change"
+                  @inputChange="inputChange"
+                  @valueChange="valueChange"
+                />
+                <nly-tree-item
+                  show-check
+                  :id="222"
+                  label="测试"
+                  :value="true"
+                  db-editor
+                  asyn
+                  @labelChange="change"
+                  @inputChange="inputChange"
+                  @valueChange="valueChange"
+                />
+              </nly-tree-item-tree>
+              <nly-tree-item
+                show-check
+                :id="1"
+                label="测试"
+                :value="true"
+                editor
+                delete
+                @labelChange="change"
+                @inputChange="inputChange"
+                @valueChange="valueChange"
+              />
+              <nly-tree-item
+                show-check
+                :id="2"
+                label="测试"
+                :value="true"
+                db-editor
+                asyn
+                @labelChange="change"
+                @inputChange="inputChange"
+                @valueChange="valueChange"
+              />
+              <nly-tree-item-tree
+                label="tree 测试"
+                target="www111"
+                id="wwwq111"
+                show-check
+                :value="true"
+                editor
+                add
+                visible
+                accordion="112"
+              >
+                <nly-tree-item
+                  show-check
+                  :id="12"
+                  label="测试"
+                  :value="true"
+                  editor
+                  delete
+                  @labelChange="change"
+                  @inputChange="inputChange"
+                  @valueChange="valueChange"
+                />
+                <nly-tree-item
+                  show-check
+                  :id="22"
+                  label="测试"
+                  :value="true"
+                  db-editor
+                  asyn
+                  @labelChange="change"
+                  @inputChange="inputChange"
+                  @valueChange="valueChange"
+                />
+              </nly-tree-item-tree>
+            </nly-tree-item-tree>
+            <nly-tree-item-tree
+              label="tree 测试1"
+              target="www1"
+              id="wwwq1"
+              show-check
+              value="true"
+            >
+              <nly-tree-item
+                show-check
+                id="wwwq11"
+                label="测试"
+                :value="true"
+                editor
+                @labelChange="change"
+                @inputChange="inputChange"
+                @valueChange="valueChange"
+              />
+            </nly-tree-item-tree>
             <nly-tree-item
               show-check
               :id="1"
               label="测试"
               :value="true"
               editor
-              delete
               @labelChange="change"
               @inputChange="inputChange"
               @valueChange="valueChange"
             />
             <nly-tree-item
               show-check
-              :id="1"
-              label="测试"
+              :id="4"
+              label="测试1"
               :value="true"
               db-editor
-              asyn
+              delete
+              delete-variant="info"
               @labelChange="change"
               @inputChange="inputChange"
               @valueChange="valueChange"
             />
-          </nly-tree-item-tree>
-          <nly-tree-item-tree
-            tree-label="tree 测试1"
-            target="www1"
-            tree-id="wwwq1"
-            tree-show-check
-            :tree-value="true"
-          >
             <nly-tree-item
               show-check
-              id="wwwq11"
-              label="测试"
+              :id="5"
+              label="测试1"
               :value="true"
               editor
+              asyn
+              ref="111"
+              loading-variant="pink"
+              @asynChange="asynChange"
               @labelChange="change"
               @inputChange="inputChange"
               @valueChange="valueChange"
             />
-          </nly-tree-item-tree>
-          <nly-tree-item
-            show-check
-            :id="1"
-            label="测试"
-            :value="true"
-            editor
-            @labelChange="change"
-            @inputChange="inputChange"
-            @valueChange="valueChange"
-          />
-          <nly-tree-item
-            show-check
-            :id="4"
-            label="测试1"
-            :value="true"
-            db-editor
-            delete
-            delete-variant="info"
-            @labelChange="change"
-            @inputChange="inputChange"
-            @valueChange="valueChange"
-          />
-          <nly-tree-item
-            show-check
-            :id="5"
-            label="测试1"
-            :value="true"
-            editor
-            asyn
-            ref="111"
-            loading-variant="pink"
-            @asynChange="asynChange"
-            @labelChange="change"
-            @inputChange="inputChange"
-            @valueChange="valueChange"
-          />
-          <nly-tree-item
-            show-check
-            :id="2"
-            :value="true"
-            add
-            label="eeee"
-            @addChange="addChange"
-            ref="222"
-          />
+            <nly-tree-item
+              show-check
+              :id="2"
+              :value="true"
+              add
+              label="eeee"
+              @addChange="addChange"
+              ref="222"
+            />
+          </ul>
         </nly-col>
       </nly-row>
     </nly-content>

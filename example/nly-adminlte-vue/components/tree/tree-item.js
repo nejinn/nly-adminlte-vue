@@ -463,7 +463,7 @@ export const NlyTreeItem = Vue.extend({
     return h(
       "li",
       {
-        staticClass: "mb-1 d-flex",
+        staticClass: "mb-1 d-flex nly-tree-item",
         on: {
           ...this.$listeners
         }
