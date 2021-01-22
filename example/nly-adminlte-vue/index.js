@@ -198,7 +198,7 @@ export { NlySidebarMenu } from "./components/sidebar/sidebar-menu";
 export { SpinnerPlugin } from "./components/spinner";
 export { NlySpinner } from "./components/spinner/spinner";
 
-export { switchPlugin } from "./components/switch";
+export { SwitchPlugin } from "./components/switch";
 export { NlySwitch } from "./components/switch/switch";
 export { NlyBootstrapSwitch } from "./components/switch/bootstrap-switch";
 
