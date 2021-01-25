@@ -11,7 +11,9 @@
     </nly-content-header>
     <nly-content>
       <nly-row>
-        <nly-col xs="6"> </nly-col>
+        <nly-col xs="6"
+          ><nly-tree :options="options" show-check visible appear
+        /></nly-col>
         <nly-col>
           <ul class="ml-4">
             <nly-tree-item-tree
@@ -23,6 +25,7 @@
               editor
               add
               visible
+              indeterminate
               accordion="111"
             >
               <nly-tree-item-tree
@@ -193,7 +196,61 @@ export default {
       test1Indeterminate: false,
       test1: false,
       test1Editor: false,
-      test1Label: "dddd"
+      test1Label: "dddd",
+      options: [
+        {
+          id: 1002,
+          label: "测试2",
+          indeterminate: false,
+          children: [
+            {
+              id: 1005,
+              label: "测试5"
+            },
+            {
+              id: 1006,
+              label: "测试6"
+            },
+            {
+              id: 1007,
+              label: "测试7",
+              children: [
+                {
+                  id: 1008,
+                  label: "测试8"
+                },
+                {
+                  id: 1009,
+                  label: "测试9"
+                },
+                {
+                  id: 10010,
+                  label: "测试10"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: 1003,
+          label: "测试3",
+          indeterminate: true,
+          children: [
+            {
+              id: 1004,
+              label: "测试4"
+            }
+          ]
+        },
+        {
+          id: 1000,
+          label: "测试0"
+        },
+        {
+          id: 1001,
+          label: "测试1"
+        }
+      ]
     };
   },
   methods: {

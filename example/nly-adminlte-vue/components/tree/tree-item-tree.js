@@ -70,7 +70,7 @@ export const NlyTreeItemTree = Vue.extend({
     },
     editorVariant: {
       type: String,
-      default: undefined
+      default: "default"
     },
     dbEditor: {
       type: Boolean,
@@ -78,7 +78,7 @@ export const NlyTreeItemTree = Vue.extend({
     },
     dbEditorVariant: {
       type: String,
-      default: undefined
+      default: "default"
     },
     delete: {
       type: Boolean,
@@ -86,7 +86,7 @@ export const NlyTreeItemTree = Vue.extend({
     },
     deleteVariant: {
       type: String,
-      default: undefined
+      default: "default"
     },
     asyn: {
       type: Boolean,
@@ -94,7 +94,7 @@ export const NlyTreeItemTree = Vue.extend({
     },
     asynVariant: {
       type: String,
-      default: undefined
+      default: "default"
     },
     loadingVariant: {
       type: String,
@@ -131,6 +131,10 @@ export const NlyTreeItemTree = Vue.extend({
     addButtonText: {
       type: String,
       default: () => getComponentConfig(name, "addButtonText")
+    },
+    indeterminate: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -169,7 +173,8 @@ export const NlyTreeItemTree = Vue.extend({
         editorButtonText: this.editorButtonText,
         deleteButtonText: this.deleteButtonText,
         asynButtonText: this.asynButtonText,
-        addButtonText: this.addButtonText
+        addButtonText: this.addButtonText,
+        indeterminate: this.indeterminate
       };
     }
   },

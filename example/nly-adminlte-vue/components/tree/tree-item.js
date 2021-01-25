@@ -18,6 +18,10 @@ export const TREE_DELETE_EVENT = "nlya::tree::delete";
 export const TREE_LABEL_CHANGE_EVENT = "nlya::tree::label::change";
 export const TREE_VALUE_CHECKED_EVENT = "nlya::tree::value::checked";
 export const TREE_ADD_EVENT = "nlya::tree::add";
+export const TREE_PARENT_VALUE_CHECKED_EVENT =
+  "nlya::tree::parent::value::checked";
+export const TREE_CHECKED_INDETERMINATE_VALUE_CHANGE_EVENT =
+  "nlya::tree::checked::indeterminate::value::change::event";
 
 export const props = {
   label: {
@@ -44,7 +48,7 @@ export const props = {
   },
   editorVariant: {
     type: String,
-    default: undefined
+    default: "default"
   },
   dbEditor: {
     type: Boolean,
@@ -52,7 +56,7 @@ export const props = {
   },
   dbEditorVariant: {
     type: String,
-    default: undefined
+    default: "default"
   },
   delete: {
     type: Boolean,
@@ -60,7 +64,7 @@ export const props = {
   },
   deleteVariant: {
     type: String,
-    default: undefined
+    default: "default"
   },
   asyn: {
     type: Boolean,
@@ -68,7 +72,7 @@ export const props = {
   },
   asynVariant: {
     type: String,
-    default: undefined
+    default: "default"
   },
   loadingVariant: {
     type: String,
@@ -105,6 +109,10 @@ export const props = {
   addButtonText: {
     type: String,
     default: () => getComponentConfig(name, "addButtonText")
+  },
+  indeterminate: {
+    type: Boolean,
+    default: false
   }
 };
 
@@ -131,8 +139,27 @@ export const NlyTreeItem = Vue.extend({
     this.localValue = this.value;
     this.loacalId = this.id;
     this.localLabel = this.label;
+    this.listenOnRoot(
+      TREE_PARENT_VALUE_CHECKED_EVENT,
+      this.treeParentValueCheckedEvt
+    );
+    // this.listenOnRoot(
+    //   TREE_CHECKED_INDETERMINATE_VALUE_CHANGE_EVENT,
+    //   this.treeCheckedIndeterminateValueCheckedEvt
+    // );
   },
   methods: {
+    treeParentValueCheckedEvt(evtId, evtValue) {
+      if (evtId === this.id) {
+        this.localValue = evtValue;
+      }
+    },
+    treeCheckedIndeterminateValueCheckedEvt(evtId, evtValue) {
+      console.log("zzz", evtId, evtValue);
+      if (evtId === this.id) {
+        this.localValue = evtValue;
+      }
+    },
     checkChange(val) {
       this.localValue = val;
       this.$emit("valueChange", this.id, this.localLabel, this.localValue);
@@ -274,7 +301,8 @@ export const NlyTreeItem = Vue.extend({
         class: "align-self-center mr-1",
         props: {
           checked: this.localValue,
-          id: this.safeId("nly_tree_item_id")
+          // id: this.safeId(),
+          indeterminate: this.indeterminate
         },
         on: {
           change: val => this.checkChange(val)
