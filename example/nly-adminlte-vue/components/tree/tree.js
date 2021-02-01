@@ -1,12 +1,12 @@
 import Vue from "../../utils/vue";
 import {
   NlyTreeItem,
-  TREE_ADD_EVENT,
-  TREE_DELETE_EVENT,
-  TREE_LABEL_CHANGE_EVENT,
-  TREE_VALUE_CHECKED_EVENT,
-  TREE_PARENT_VALUE_CHECKED_EVENT,
-  TREE_CHECKED_INDETERMINATE_VALUE_CHANGE_EVENT
+  // TREE_ADD_EVENT,
+  // TREE_DELETE_EVENT,
+  // TREE_LABEL_CHANGE_EVENT,
+  TREE_VALUE_CHANGE_EVENT
+  // TREE_PARENT_VALUE_CHECKED_EVENT
+  // TREE_CHECKED_INDETERMINATE_VALUE_CHANGE_EVENT
 } from "./tree-item";
 import { NlyTreeItemTree } from "./tree-item-tree";
 import listenOnRootMixin from "../../mixins/listen-on-root";
@@ -25,13 +25,15 @@ export const NlyTree = Vue.extend({
     return {
       // 树数组
       localOptions: undefined,
+      // 树顺序
+      localOptionsIndex: [],
       // 当前选中树
       currentNode: [],
       // 最后添加的树
       lastAddNode: [],
       // 已删除的树
-      deleteNode: [],
-      copyLocalOptions: undefined
+      deleteNode: []
+      // copyLocalOptions: undefined
     };
   },
   props: {
@@ -129,24 +131,28 @@ export const NlyTree = Vue.extend({
     }
   },
   mounted() {
-    this.localOptions = this.options;
-    this.copyLocalOptions = clonedeep(this.localOptions);
-    this.listenOnRoot(TREE_ADD_EVENT, this.treeAddEvt);
-    this.listenOnRoot(TREE_DELETE_EVENT, this.treeDeleteEvt);
-    this.listenOnRoot(TREE_LABEL_CHANGE_EVENT, this.treeLabelChangeEvt);
-    this.listenOnRoot(TREE_VALUE_CHECKED_EVENT, this.treeValueChangeEvt);
+    this.options.forEach(element => {
+      this.localOptionsIndex.push(element.id);
+    });
+    this.localOptions = this.initLocalOptions(this.options);
+    // this.localOptions = this.transformOptions(this.options);
+    // const a = this.findAncestorsId(this.localOptions, 10010);
+    // console.log(111, a);
+    // console.log(22, this.findHasChildrenId(this.localOptions, a));
+    this.listenOnRoot(TREE_VALUE_CHANGE_EVENT, this.treeValueChangeEvt);
   },
   computed: {
     customOptions() {
-      if (this.copyLocalOptions) {
-        const z = this.mapItem(this.copyLocalOptions);
-        return z;
+      if (this.localOptions) {
+        const converArray = this.computedLocalOptions(this.localOptions);
+        return this.mapItem(converArray);
       } else {
         return [];
       }
     }
   },
   methods: {
+    // 遍历数组，生成渲染json
     mapItem(val) {
       let mapNum = 1;
       const mapArray = optionsArray =>
@@ -323,7 +329,11 @@ export const NlyTree = Vue.extend({
             item._children = children;
             delete item.children;
             item._type = NlyTreeItemTree;
-            item.indeterminate = indeterminate;
+            if (!indeterminate) {
+              item.indeterminate = false;
+            } else {
+              item.indeterminate = true;
+            }
             item.appear = this.appear;
             item.target = `${this._uid}_${item.id}_nly_tree_target`;
             if (this.accordion) {
@@ -339,121 +349,187 @@ export const NlyTree = Vue.extend({
       let mapItemArray = mapArray(val);
       return mapItemArray;
     },
-    treeAddEvt() {},
-    treeDeleteEvt() {},
-    treeLabelChangeEvt() {},
-    treeValueChangeEvt(evtId, evtLabel, evtValue) {
-      this.changeCurrentNode(this.copyLocalOptions, evtId, evtLabel, evtValue);
-      this.changeAllChildrenNodes(this.copyLocalOptions, evtId, evtValue);
-    },
-    changeCurrentNode(val, evtId, evtLabel, evtValue) {
-      val.forEach(item => {
-        const { id, _children } = item;
-        if (id === evtId) {
-          item.value = evtValue;
-          if (evtValue === false) {
-            let isFalseIndex = -1;
-            this.currentNode.forEach((element, index) => {
-              if (element.id == evtId) {
-                isFalseIndex = index;
-              }
-            });
-            if (isFalseIndex !== -1) {
-              this.currentNode.splice(isFalseIndex, 1);
-            }
-          } else {
-            let isTrueIndex = -1;
-            if (evtValue === true) {
-              this.currentNode.forEach((element, index) => {
-                if (element.id == evtId) {
-                  isTrueIndex = index;
-                }
-              });
-            }
-
-            if (isTrueIndex === -1) {
-              this.currentNode.push({
-                id: evtId,
-                label: evtLabel,
-                value: evtValue
-              });
-            }
+    // 把嵌套数组转为普通数组
+    transformOptions(val) {
+      const customOptions = [];
+      const transformOptionsLoop = (val, parentId) => {
+        val.forEach(element => {
+          const item = clonedeep(element);
+          if (Object.prototype.hasOwnProperty.call(item, "children")) {
+            delete item.children;
           }
-        } else {
-          if (isArray(_children)) {
-            this.changeCurrentNode(_children, evtId, evtLabel, evtValue);
-          }
-        }
-      });
-    },
-    changeAllChildrenNodes(val, evtId, evtValue) {
-      const mapChangeAllChildrenNodes = eles =>
-        eles.map(ele => {
-          ele.value = evtValue;
-          this.emitOnRoot(TREE_PARENT_VALUE_CHECKED_EVENT, ele.id, evtValue);
-          const { _children } = ele;
-          if (isArray(_children)) {
-            mapChangeAllChildrenNodes(_children);
-            return ele;
-          } else {
-            return ele;
-          }
-        });
-
-      const mapIndeterminateChangeNodes = es => {
-        es.map(e => {
-          const { id, indeterminate } = e;
-          if (evtId === id && indeterminate === true) {
-            console.log(222, id, evtId, indeterminate);
-            e.value = false;
-            e.indeterminate = false;
-            evtValue = false;
-            const evtIndeterminate = false;
-            this.emitOnRoot(
-              TREE_CHECKED_INDETERMINATE_VALUE_CHANGE_EVENT,
-              id,
-              evtValue,
-              evtIndeterminate
-            );
-            return e;
-          } else {
-            return e;
+          item.parentId = parentId;
+          customOptions.push(item);
+          const { children, id } = element;
+          if (children) {
+            transformOptionsLoop(children, id);
           }
         });
       };
-
-      const mapAllChildrenNodes = val1 =>
-        val1.map(item => {
-          const { id, _children } = item;
-          if (id === evtId) {
-            if (isArray(_children)) {
-              mapChangeAllChildrenNodes(_children);
-              return item;
-            } else {
-              if (isArray(_children)) {
-                mapChangeAllChildrenNodes(_children);
-                return item;
-              } else {
-                return item;
+      transformOptionsLoop(val);
+      return customOptions;
+    },
+    // 初始化 localOptions
+    initLocalOptions(val) {
+      const localOptionIndex = [];
+      const copyOptions = clonedeep(val);
+      const arrayOptions = this.transformOptions(copyOptions);
+      val.forEach(item => {
+        if (arrayOptions.filter(e => e.parentId === item.id).length > 0) {
+          localOptionIndex.push(item.id);
+        }
+      });
+      localOptionIndex.forEach(item => {
+        const hasChildrenIdArray = this.findHasChildrenId(arrayOptions, item);
+        hasChildrenIdArray.forEach(hasItemId => {
+          const trueLength = arrayOptions.filter(
+            item => item.parentId === hasItemId && item.value === true
+          ).length;
+          const allLength = arrayOptions.filter(
+            item => item.parentId === hasItemId
+          ).length;
+          if (trueLength === allLength) {
+            arrayOptions.map(cInItem => {
+              if (cInItem.id === hasItemId) {
+                cInItem.value = true;
               }
-            }
-          } else {
-            if (isArray(_children)) {
-              mapAllChildrenNodes(_children);
-              return item;
-            } else {
-              return item;
-            }
+              return cInItem;
+            });
           }
         });
-      mapIndeterminateChangeNodes(val);
-      console.log("1val", val);
-      mapAllChildrenNodes(val);
+      });
+      localOptionIndex.forEach(item => {
+        const hasChildrenIdArray = this.findHasChildrenId(arrayOptions, item);
+        hasChildrenIdArray.forEach(hasItemId => {
+          const trueLength = arrayOptions.filter(
+            item => item.parentId === hasItemId && item.value === true
+          ).length;
+          const allLength = arrayOptions.filter(
+            item => item.parentId === hasItemId
+          ).length;
+          if (trueLength !== allLength) {
+            arrayOptions.map(cInItem => {
+              if (cInItem.id === hasItemId) {
+                cInItem.indeterminate = true;
+              }
+              return cInItem;
+            });
+          }
+        });
+      });
+      return arrayOptions;
+    },
+    // 修改全选状态
+    // computedIndeterminate(val) {
+    //   this.localOptionsIndex.forEach(item => {
+    //     this.val.forEach(chItem => {
+    //       // if (item.id===chItem)
+    //     });
+    //   });
+    // },
+    // 根据id找出第一层父级元素的id
+    findAncestorsId(arr, arrId) {
+      let ancestorsIdArray = [];
+      const findAncestorsIdLoop = (a, aId) => {
+        for (let i = 0; i < a.length; i++) {
+          const item = a[i];
+          if (item.id === aId && item.parentId === undefined) {
+            ancestorsIdArray.push(item.id);
+            break;
+          }
+          if (item.id === aId && item.parentId !== undefined) {
+            findAncestorsIdLoop(a, item.parentId);
+          }
+        }
+      };
+      findAncestorsIdLoop(arr, arrId);
+      if (ancestorsIdArray) {
+        return ancestorsIdArray[0];
+      }
+      return undefined;
+    },
+    // 根据第一层父元素id找出所有的有children的元素id
+    findHasChildrenId(arr, arrId) {
+      const hasChildrenIdArray = [arrId];
+      const findChildIdLoop = (a, aId) => {
+        a.forEach((item, index) => {
+          if (
+            item.parentId === aId &&
+            hasChildrenIdArray.indexOf(item.parentId) === -1
+          ) {
+            hasChildrenIdArray.push(item.parentId);
+          }
+          if (item.parentId === aId) {
+            const aCopy = clonedeep(a);
+            aCopy.splice(index, 1);
+            findChildIdLoop(aCopy, item.id);
+          }
+        });
+      };
+      findChildIdLoop(arr, arrId);
+      return hasChildrenIdArray;
+    },
+    // 把普通数组转为嵌套数组
+    computedLocalOptions(val) {
+      const localOptions = clonedeep(val);
+      const buildTree = arr => {
+        const temp = {};
+        const tree = {};
+        const arrayTree = [];
+        arr.forEach(item => {
+          temp[item.id] = item;
+        });
+        const tempKeys = [];
+        localOptions.forEach(item => {
+          tempKeys.push(item.id);
+        });
+        tempKeys.forEach(key => {
+          const item = temp[key];
+          const _itemPId = item.parentId;
+          const parentItemByPid = temp[_itemPId];
+          if (parentItemByPid) {
+            if (!parentItemByPid.children) {
+              parentItemByPid.children = [];
+            }
+            parentItemByPid.children.push(item);
+          } else {
+            tree[item.id] = item;
+          }
+        });
+        this.localOptionsIndex.forEach(element => {
+          arrayTree.push(tree[element]);
+        });
+
+        return arrayTree;
+      };
+      return buildTree(localOptions);
+    },
+    // 更新localOption重新渲染树
+    treeValueChangeEvt(evtId) {
+      this.localOptions.forEach((item, index) => {
+        if (item.id === evtId) {
+          if (item.indeterminate) {
+            const z = clonedeep(item);
+            z.indeterminate = false;
+            z.value = false;
+            this.$set(this.localOptions, index, z);
+            // this.$set(this.localOptions[index], "value", false);
+          }
+        }
+      });
+    }
+  },
+  watch: {
+    options: {
+      handler(val) {
+        this.localOptions = this.initLocalOptions(val);
+      },
+      deep: true
     }
   },
   render(h) {
     let $content = h();
-    if (this.copyLocalOptions) {
+    if (this.customOptions) {
       const contentArray = [
         {
           _type: "ul",

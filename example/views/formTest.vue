@@ -201,18 +201,19 @@ export default {
         {
           id: 1002,
           label: "测试2",
-          indeterminate: false,
+          // indeterminate: false,
           children: [
             {
+              id: 1007,
+              label: "测试55555"
+            },
+            {
               id: 1005,
-              label: "测试5"
+              label: "测试6",
+              value: true
             },
             {
               id: 1006,
-              label: "测试6"
-            },
-            {
-              id: 1007,
               label: "测试7",
               children: [
                 {
@@ -225,7 +226,37 @@ export default {
                 },
                 {
                   id: 10010,
-                  label: "测试10"
+                  label: "测试10",
+                  children: [
+                    {
+                      id: 100011,
+                      label: "测试11"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              id: 10012,
+              label: "测试12",
+              children: [
+                {
+                  id: 10013,
+                  label: "测试13"
+                },
+                {
+                  id: 10015,
+                  label: "测试15"
+                },
+                {
+                  id: 10016,
+                  label: "测试16",
+                  children: [
+                    {
+                      id: 100017,
+                      label: "测试17"
+                    }
+                  ]
                 }
               ]
             }
@@ -234,11 +265,11 @@ export default {
         {
           id: 1003,
           label: "测试3",
-          indeterminate: true,
           children: [
             {
               id: 1004,
-              label: "测试4"
+              label: "测试4",
+              value: true
             }
           ]
         },

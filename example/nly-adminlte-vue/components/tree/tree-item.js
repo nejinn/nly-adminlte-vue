@@ -16,7 +16,7 @@ export const name = "NlyTreeItem";
 
 export const TREE_DELETE_EVENT = "nlya::tree::delete";
 export const TREE_LABEL_CHANGE_EVENT = "nlya::tree::label::change";
-export const TREE_VALUE_CHECKED_EVENT = "nlya::tree::value::checked";
+export const TREE_VALUE_CHANGE_EVENT = "nlya::tree::value::change";
 export const TREE_ADD_EVENT = "nlya::tree::add";
 export const TREE_PARENT_VALUE_CHECKED_EVENT =
   "nlya::tree::parent::value::checked";
@@ -139,10 +139,10 @@ export const NlyTreeItem = Vue.extend({
     this.localValue = this.value;
     this.loacalId = this.id;
     this.localLabel = this.label;
-    this.listenOnRoot(
-      TREE_PARENT_VALUE_CHECKED_EVENT,
-      this.treeParentValueCheckedEvt
-    );
+    // this.listenOnRoot(
+    //   TREE_PARENT_VALUE_CHECKED_EVENT,
+    //   this.treeParentValueCheckedEvt
+    // );
     // this.listenOnRoot(
     //   TREE_CHECKED_INDETERMINATE_VALUE_CHANGE_EVENT,
     //   this.treeCheckedIndeterminateValueCheckedEvt
@@ -283,7 +283,7 @@ export const NlyTreeItem = Vue.extend({
     },
     emitValueChecked() {
       this.emitOnRoot(
-        TREE_VALUE_CHECKED_EVENT,
+        TREE_VALUE_CHANGE_EVENT,
         this.id,
         this.localLabel,
         this.localValue
@@ -291,6 +291,12 @@ export const NlyTreeItem = Vue.extend({
     },
     emitAddNode() {
       this.emitOnRoot(TREE_ADD_EVENT, this.id, this.localAddNode);
+    }
+  },
+  watch: {
+    value(val) {
+      console.log(222, val);
+      this.localValue = val;
     }
   },
   render(h) {
