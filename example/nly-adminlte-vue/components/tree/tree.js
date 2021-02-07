@@ -146,9 +146,8 @@ export const NlyTree = Vue.extend({
       if (this.localOptions) {
         const converArray = this.computedLocalOptions(this.localOptions);
         return this.mapItem(converArray);
-      } else {
-        return [];
       }
+      return [];
     }
   },
   methods: {
@@ -407,7 +406,7 @@ export const NlyTree = Vue.extend({
           const allLength = arrayOptions.filter(
             item => item.parentId === hasItemId
           ).length;
-          if (trueLength !== allLength) {
+          if (trueLength !== allLength && trueLength >= 1) {
             arrayOptions.map(cInItem => {
               if (cInItem.id === hasItemId) {
                 cInItem.indeterminate = true;

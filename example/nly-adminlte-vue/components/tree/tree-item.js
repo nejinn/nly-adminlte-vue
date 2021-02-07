@@ -18,10 +18,10 @@ export const TREE_DELETE_EVENT = "nlya::tree::delete";
 export const TREE_LABEL_CHANGE_EVENT = "nlya::tree::label::change";
 export const TREE_VALUE_CHANGE_EVENT = "nlya::tree::value::change";
 export const TREE_ADD_EVENT = "nlya::tree::add";
-export const TREE_PARENT_VALUE_CHECKED_EVENT =
-  "nlya::tree::parent::value::checked";
-export const TREE_CHECKED_INDETERMINATE_VALUE_CHANGE_EVENT =
-  "nlya::tree::checked::indeterminate::value::change::event";
+// export const TREE_PARENT_VALUE_CHECKED_EVENT =
+//   "nlya::tree::parent::value::checked";
+// export const TREE_CHECKED_INDETERMINATE_VALUE_CHANGE_EVENT =
+//   "nlya::tree::checked::indeterminate::value::change::event";
 
 export const props = {
   label: {
@@ -32,7 +32,10 @@ export const props = {
     type: String,
     default: undefined
   },
-  value: undefined,
+  value: {
+    type: Boolean,
+    default: false
+  },
   showCheck: {
     type: Boolean,
     default: false
@@ -131,12 +134,14 @@ export const NlyTreeItem = Vue.extend({
       localLabel: undefined,
       // 新增的节点
       localAddNode: undefined,
-      loading: false
+      loading: false,
+      localIndeterminate: false
     };
   },
   props: props,
   mounted() {
     this.localValue = this.value;
+    this.localIndeterminate = this.indeterminate;
     this.loacalId = this.id;
     this.localLabel = this.label;
     // this.listenOnRoot(
@@ -154,17 +159,14 @@ export const NlyTreeItem = Vue.extend({
         this.localValue = evtValue;
       }
     },
-    treeCheckedIndeterminateValueCheckedEvt(evtId, evtValue) {
-      console.log("zzz", evtId, evtValue);
-      if (evtId === this.id) {
-        this.localValue = evtValue;
-      }
-    },
+    // treeCheckedIndeterminateValueCheckedEvt(evtId, evtValue) {
+    //   console.log("zzz", evtId, evtValue);
+    //   if (evtId === this.id) {
+    //     this.localValue = evtValue;
+    //   }
+    // },
     checkChange(val) {
       this.localValue = val;
-      this.$emit("valueChange", this.id, this.localLabel, this.localValue);
-      // 通知父组件，当前节点的选中状态
-      this.emitValueChecked();
     },
     subInputEditorLabel() {
       // 非双击可编辑状态和 允许编辑状态 阻止事件
@@ -295,20 +297,35 @@ export const NlyTreeItem = Vue.extend({
   },
   watch: {
     value(val) {
-      console.log(222, val);
       this.localValue = val;
+    },
+    indeterminate(val) {
+      this.localIndeterminate = val;
+    },
+    localValue(nval) {
+      this.$nextTick(() => {
+        if (this.localIndeterminate && nval) {
+          this.localIndeterminate = false;
+          this.localValue = false;
+          console.log(3333, this.localValue);
+        }
+        this.$emit("valueChange", this.id, this.localLabel, this.localValue);
+        // 通知父组件，当前节点的选中状态
+        this.emitValueChecked();
+      });
     }
   },
   render(h) {
     // let = $container = h();
     let $checkobx = h();
+    console.log(2222222, this.localValue);
     if (this.showCheck) {
       $checkobx = h(NlyFormCheckbox, {
         class: "align-self-center mr-1",
         props: {
           checked: this.localValue,
           // id: this.safeId(),
-          indeterminate: this.indeterminate
+          indeterminate: this.localIndeterminate
         },
         on: {
           change: val => this.checkChange(val)

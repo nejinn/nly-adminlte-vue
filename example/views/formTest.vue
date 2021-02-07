@@ -124,7 +124,7 @@
               target="www1"
               id="wwwq1"
               show-check
-              value="true"
+              :value="true"
             >
               <nly-tree-item
                 show-check
@@ -316,7 +316,7 @@ export default {
     }
   },
   mounted() {
-    this.$root.$on("nlya::tree::value::checked", (nlyaEvent, modalId) => {
+    this.$root.$on("nlya::tree::value::change", (nlyaEvent, modalId) => {
       console.log("Modal is about to be shown", nlyaEvent, modalId);
     });
     this.$root.$on("nlya::tree::delete", (nlyaEvent, modalId) => {
