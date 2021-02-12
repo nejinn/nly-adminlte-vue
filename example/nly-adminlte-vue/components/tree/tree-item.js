@@ -16,8 +16,12 @@ export const name = "NlyTreeItem";
 
 export const TREE_DELETE_EVENT = "nlya::tree::delete";
 export const TREE_LABEL_CHANGE_EVENT = "nlya::tree::label::change";
-export const TREE_VALUE_CHECKED_EVENT = "nlya::tree::value::checked";
+export const TREE_VALUE_CHANGE_EVENT = "nlya::tree::value::change";
 export const TREE_ADD_EVENT = "nlya::tree::add";
+// export const TREE_PARENT_VALUE_CHECKED_EVENT =
+//   "nlya::tree::parent::value::checked";
+// export const TREE_CHECKED_INDETERMINATE_VALUE_CHANGE_EVENT =
+//   "nlya::tree::checked::indeterminate::value::change::event";
 
 export const props = {
   label: {
@@ -28,7 +32,10 @@ export const props = {
     type: String,
     default: undefined
   },
-  value: undefined,
+  value: {
+    type: Boolean,
+    default: false
+  },
   showCheck: {
     type: Boolean,
     default: false
@@ -44,7 +51,7 @@ export const props = {
   },
   editorVariant: {
     type: String,
-    default: undefined
+    default: "default"
   },
   dbEditor: {
     type: Boolean,
@@ -52,15 +59,15 @@ export const props = {
   },
   dbEditorVariant: {
     type: String,
-    default: undefined
+    default: "default"
   },
-  delete: {
+  showDelete: {
     type: Boolean,
     default: false
   },
   deleteVariant: {
     type: String,
-    default: undefined
+    default: "default"
   },
   asyn: {
     type: Boolean,
@@ -68,7 +75,7 @@ export const props = {
   },
   asynVariant: {
     type: String,
-    default: undefined
+    default: "default"
   },
   loadingVariant: {
     type: String,
@@ -105,6 +112,10 @@ export const props = {
   addButtonText: {
     type: String,
     default: () => getComponentConfig(name, "addButtonText")
+  },
+  indeterminate: {
+    type: Boolean,
+    default: false
   }
 };
 
@@ -123,21 +134,35 @@ export const NlyTreeItem = Vue.extend({
       localLabel: undefined,
       // 新增的节点
       localAddNode: undefined,
-      loading: false
+      loading: false,
+      localIndeterminate: false
     };
   },
   props: props,
   mounted() {
     this.localValue = this.value;
+    this.localIndeterminate = this.indeterminate;
     this.loacalId = this.id;
     this.localLabel = this.label;
   },
   methods: {
+    treeParentValueCheckedEvt(evtId, evtValue) {
+      if (evtId === this.id) {
+        this.localValue = evtValue;
+      }
+    },
+
     checkChange(val) {
       this.localValue = val;
-      this.$emit("valueChange", this.id, this.localLabel, this.localValue);
-      // 通知父组件，当前节点的选中状态
-      this.emitValueChecked();
+      this.$nextTick(() => {
+        if (this.localIndeterminate && this.localValue) {
+          this.localIndeterminate = false;
+          this.localValue = false;
+        }
+        this.$emit("valueChange", this.id, this.localLabel, this.localValue);
+        // 通知父组件，当前节点的选中状态
+        this.emitValueChecked();
+      });
     },
     subInputEditorLabel() {
       // 非双击可编辑状态和 允许编辑状态 阻止事件
@@ -175,7 +200,7 @@ export const NlyTreeItem = Vue.extend({
       this.localEditor = !this.localEditor;
     },
     deleteButtonClick() {
-      if (!this.delete) {
+      if (!this.showDelete) {
         return;
       }
       // 通知父组件删除当前节点
@@ -192,7 +217,7 @@ export const NlyTreeItem = Vue.extend({
       if (!this.add) {
         return;
       }
-      this.$emit("addChange");
+      this.emitAddNode();
     },
     asynAddNode(data) {
       if (isArray(data)) {
@@ -239,31 +264,43 @@ export const NlyTreeItem = Vue.extend({
       this.emitAddNode();
     },
     emitDeleteTree() {
-      this.emitOnRoot(
-        TREE_DELETE_EVENT,
-        this.id,
-        this.localLabel,
-        this.localValue
-      );
+      this.emitOnRoot(TREE_DELETE_EVENT, this.id);
     },
     emitLabelChange() {
-      this.emitOnRoot(
-        TREE_LABEL_CHANGE_EVENT,
-        this.id,
-        this.localLabel,
-        this.localValue
-      );
+      this.emitOnRoot(TREE_LABEL_CHANGE_EVENT, this.id, this.localLabel);
     },
     emitValueChecked() {
       this.emitOnRoot(
-        TREE_VALUE_CHECKED_EVENT,
+        TREE_VALUE_CHANGE_EVENT,
         this.id,
         this.localLabel,
         this.localValue
       );
     },
     emitAddNode() {
-      this.emitOnRoot(TREE_ADD_EVENT, this.id, this.localAddNode);
+      this.emitOnRoot(TREE_ADD_EVENT, this.id);
+    }
+  },
+  watch: {
+    value(val) {
+      this.$nextTick(() => {
+        this.localValue = val;
+      });
+    },
+    indeterminate(val) {
+      this.$nextTick(() => {
+        this.localIndeterminate = val;
+      });
+    },
+    id(val) {
+      this.$nextTick(() => {
+        this.loacalId = val;
+      });
+    },
+    label(val) {
+      this.$nextTick(() => {
+        this.localLabel = val;
+      });
     }
   },
   render(h) {
@@ -274,7 +311,8 @@ export const NlyTreeItem = Vue.extend({
         class: "align-self-center mr-1",
         props: {
           checked: this.localValue,
-          id: this.safeId("nly_tree_item_id")
+          // id: this.safeId(),
+          indeterminate: this.localIndeterminate
         },
         on: {
           change: val => this.checkChange(val)
@@ -407,7 +445,7 @@ export const NlyTreeItem = Vue.extend({
       );
     }
     let $deleteButton = h();
-    if (this.delete) {
+    if (this.showDelete) {
       $deleteButton = h(
         NlyButton,
         {
@@ -473,9 +511,9 @@ export const NlyTreeItem = Vue.extend({
         $label,
         $editorInput,
         $editorButton,
-        $deleteButton,
         $addButton,
-        $asynButton
+        $asynButton,
+        $deleteButton
       ]
     );
   }

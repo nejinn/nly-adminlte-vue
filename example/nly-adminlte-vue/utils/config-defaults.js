@@ -120,5 +120,14 @@ export default deepFreeze({
     asynButtonText: "Asyn",
     addButtonText: "Add",
     iconVariant: "primary"
+  },
+  NlyTree: {
+    subInputEditorButton: "Ok",
+    subEditorButtonText: "Ok",
+    editorButtonText: "Editor",
+    deleteButtonText: "Delete",
+    asynButtonText: "Asyn",
+    addButtonText: "Add",
+    iconVariant: "primary"
   }
 });

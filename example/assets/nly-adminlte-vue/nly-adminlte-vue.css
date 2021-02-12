@@ -6053,8 +6053,7 @@ td.disabled {
   transform: rotate(-180deg);
   transition: transform ease-in-out 0.3s, -webkit-transform ease-in-out 0.3s;
 }
-
-.nly-tree-open .nly-tree-icon {
+.nly-tree-item-tree.nly-tree-open > ul > li > i.nly-tree-icon {
   transform: rotate(-90deg);
   transition: transform ease-in-out 0.3s, -webkit-transform ease-in-out 0.3s;
 }
@@ -6073,14 +6072,14 @@ td.disabled {
   position: absolute;
   bottom: 50px;
   height: 100%;
-  top: -8px;
+  top: -0.5rem;
   width: 1px;
-  left: -32px;
+  left: -2rem;
 }
 
 .nly-tree-collapse
   li.nly-tree-item:not(.nly-tree-item-toggle):last-child:before {
-  height: 24px;
+  height: 1.5rem;
 }
 
 /* .nly-tree-collapse
@@ -6102,27 +6101,27 @@ td.disabled {
   position: absolute;
   bottom: 50px;
   height: 100%;
-  top: -8px;
+  top: -0.5rem;
   width: 1px;
-  left: -32px;
+  left: -2rem;
 }
 
 .nly-tree-collapse .nly-tree-item-tree:last-child::before {
-  height: 24px;
+  height: 1.5rem;
 }
 
 .nly-tree-collapse
   .nly-tree-item-tree
   li.nly-tree-item.nly-tree-item-toggle::after {
   content: "";
-  left: -56px;
+  left: -3.5rem;
   position: absolute;
   right: auto;
   border-width: 1px;
   border-top: 1px dashed #007bff;
-  height: 20px;
-  top: 15px;
-  width: 20px;
+  height: 1.25rem;
+  top: 1rem;
+  width: 1.25rem;
 }
 
 /* .nly-tree-collapse li.nly-tree-item:last-child:before {
@@ -6131,14 +6130,14 @@ td.disabled {
 
 .nly-tree-collapse li.nly-tree-item::after {
   content: "";
-  left: -32px;
+  left: -2rem;
   position: absolute;
   right: auto;
   border-width: 1px;
   border-top: 1px dashed #007bff;
-  height: 20px;
-  top: 15px;
-  width: 20px;
+  height: 0.125rem;
+  top: 1rem;
+  width: 1.25rem;
 }
 /* .nly-tree-collapse ul {
   padding-left: 17px;
