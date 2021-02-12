@@ -80,7 +80,7 @@ export const NlyTreeItemTree = Vue.extend({
       type: String,
       default: "default"
     },
-    delete: {
+    showDelete: {
       type: Boolean,
       default: false
     },
@@ -161,7 +161,7 @@ export const NlyTreeItemTree = Vue.extend({
         editorVariant: this.editorVariant,
         dbEditor: this.dbEditor,
         dbEditorVariant: this.dbEditorVariant,
-        delete: this.delete,
+        showDelete: this.showDelete,
         deleteVariant: this.deleteVariant,
         asyn: this.asyn,
         asynVariant: this.asynVariant,

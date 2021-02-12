@@ -61,7 +61,7 @@ export const props = {
     type: String,
     default: "default"
   },
-  delete: {
+  showDelete: {
     type: Boolean,
     default: false
   },
@@ -144,14 +144,6 @@ export const NlyTreeItem = Vue.extend({
     this.localIndeterminate = this.indeterminate;
     this.loacalId = this.id;
     this.localLabel = this.label;
-    // this.listenOnRoot(
-    //   TREE_PARENT_VALUE_CHECKED_EVENT,
-    //   this.treeParentValueCheckedEvt
-    // );
-    // this.listenOnRoot(
-    //   TREE_CHECKED_INDETERMINATE_VALUE_CHANGE_EVENT,
-    //   this.treeCheckedIndeterminateValueCheckedEvt
-    // );
   },
   methods: {
     treeParentValueCheckedEvt(evtId, evtValue) {
@@ -159,14 +151,18 @@ export const NlyTreeItem = Vue.extend({
         this.localValue = evtValue;
       }
     },
-    // treeCheckedIndeterminateValueCheckedEvt(evtId, evtValue) {
-    //   console.log("zzz", evtId, evtValue);
-    //   if (evtId === this.id) {
-    //     this.localValue = evtValue;
-    //   }
-    // },
+
     checkChange(val) {
       this.localValue = val;
+      this.$nextTick(() => {
+        if (this.localIndeterminate && this.localValue) {
+          this.localIndeterminate = false;
+          this.localValue = false;
+        }
+        this.$emit("valueChange", this.id, this.localLabel, this.localValue);
+        // 通知父组件，当前节点的选中状态
+        this.emitValueChecked();
+      });
     },
     subInputEditorLabel() {
       // 非双击可编辑状态和 允许编辑状态 阻止事件
@@ -204,7 +200,7 @@ export const NlyTreeItem = Vue.extend({
       this.localEditor = !this.localEditor;
     },
     deleteButtonClick() {
-      if (!this.delete) {
+      if (!this.showDelete) {
         return;
       }
       // 通知父组件删除当前节点
@@ -221,7 +217,7 @@ export const NlyTreeItem = Vue.extend({
       if (!this.add) {
         return;
       }
-      this.$emit("addChange");
+      this.emitAddNode();
     },
     asynAddNode(data) {
       if (isArray(data)) {
@@ -268,20 +264,10 @@ export const NlyTreeItem = Vue.extend({
       this.emitAddNode();
     },
     emitDeleteTree() {
-      this.emitOnRoot(
-        TREE_DELETE_EVENT,
-        this.id,
-        this.localLabel,
-        this.localValue
-      );
+      this.emitOnRoot(TREE_DELETE_EVENT, this.id);
     },
     emitLabelChange() {
-      this.emitOnRoot(
-        TREE_LABEL_CHANGE_EVENT,
-        this.id,
-        this.localLabel,
-        this.localValue
-      );
+      this.emitOnRoot(TREE_LABEL_CHANGE_EVENT, this.id, this.localLabel);
     },
     emitValueChecked() {
       this.emitOnRoot(
@@ -292,33 +278,34 @@ export const NlyTreeItem = Vue.extend({
       );
     },
     emitAddNode() {
-      this.emitOnRoot(TREE_ADD_EVENT, this.id, this.localAddNode);
+      this.emitOnRoot(TREE_ADD_EVENT, this.id);
     }
   },
   watch: {
     value(val) {
-      this.localValue = val;
+      this.$nextTick(() => {
+        this.localValue = val;
+      });
     },
     indeterminate(val) {
-      this.localIndeterminate = val;
-    },
-    localValue(nval) {
       this.$nextTick(() => {
-        if (this.localIndeterminate && nval) {
-          this.localIndeterminate = false;
-          this.localValue = false;
-          console.log(3333, this.localValue);
-        }
-        this.$emit("valueChange", this.id, this.localLabel, this.localValue);
-        // 通知父组件，当前节点的选中状态
-        this.emitValueChecked();
+        this.localIndeterminate = val;
+      });
+    },
+    id(val) {
+      this.$nextTick(() => {
+        this.loacalId = val;
+      });
+    },
+    label(val) {
+      this.$nextTick(() => {
+        this.localLabel = val;
       });
     }
   },
   render(h) {
     // let = $container = h();
     let $checkobx = h();
-    console.log(2222222, this.localValue);
     if (this.showCheck) {
       $checkobx = h(NlyFormCheckbox, {
         class: "align-self-center mr-1",
@@ -458,7 +445,7 @@ export const NlyTreeItem = Vue.extend({
       );
     }
     let $deleteButton = h();
-    if (this.delete) {
+    if (this.showDelete) {
       $deleteButton = h(
         NlyButton,
         {
@@ -524,9 +511,9 @@ export const NlyTreeItem = Vue.extend({
         $label,
         $editorInput,
         $editorButton,
-        $deleteButton,
         $addButton,
-        $asynButton
+        $asynButton,
+        $deleteButton
       ]
     );
   }

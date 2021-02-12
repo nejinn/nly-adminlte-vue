@@ -12,177 +12,19 @@
     <nly-content>
       <nly-row>
         <nly-col xs="6"
-          ><nly-tree :options="options" show-check visible appear
+          ><nly-tree
+            :options="options"
+            show-check
+            visible
+            appear
+            show-delete
+            add
+            v-model="value"
+            @addNode="addNode"
+            ref="test_tree"
         /></nly-col>
         <nly-col>
-          <ul class="ml-4">
-            <nly-tree-item-tree
-              label="tree 测试"
-              target="www"
-              id="wwwq"
-              show-check
-              :value="true"
-              editor
-              add
-              visible
-              indeterminate
-              accordion="111"
-            >
-              <nly-tree-item-tree
-                label="tree 测试"
-                target="www1111"
-                id="wwwq1111"
-                show-check
-                :value="true"
-                editor
-                add
-                visible
-                accordion="1121"
-              >
-                <nly-tree-item
-                  show-check
-                  :id="122"
-                  label="测试"
-                  :value="true"
-                  editor
-                  delete
-                  @labelChange="change"
-                  @inputChange="inputChange"
-                  @valueChange="valueChange"
-                />
-                <nly-tree-item
-                  show-check
-                  :id="222"
-                  label="测试"
-                  :value="true"
-                  db-editor
-                  asyn
-                  @labelChange="change"
-                  @inputChange="inputChange"
-                  @valueChange="valueChange"
-                />
-              </nly-tree-item-tree>
-              <nly-tree-item
-                show-check
-                :id="1"
-                label="测试"
-                :value="true"
-                editor
-                delete
-                @labelChange="change"
-                @inputChange="inputChange"
-                @valueChange="valueChange"
-              />
-              <nly-tree-item
-                show-check
-                :id="2"
-                label="测试"
-                :value="true"
-                db-editor
-                asyn
-                @labelChange="change"
-                @inputChange="inputChange"
-                @valueChange="valueChange"
-              />
-              <nly-tree-item-tree
-                label="tree 测试"
-                target="www111"
-                id="wwwq111"
-                show-check
-                :value="true"
-                editor
-                add
-                visible
-                accordion="112"
-              >
-                <nly-tree-item
-                  show-check
-                  :id="12"
-                  label="测试"
-                  :value="true"
-                  editor
-                  delete
-                  @labelChange="change"
-                  @inputChange="inputChange"
-                  @valueChange="valueChange"
-                />
-                <nly-tree-item
-                  show-check
-                  :id="22"
-                  label="测试"
-                  :value="true"
-                  db-editor
-                  asyn
-                  @labelChange="change"
-                  @inputChange="inputChange"
-                  @valueChange="valueChange"
-                />
-              </nly-tree-item-tree>
-            </nly-tree-item-tree>
-            <nly-tree-item-tree
-              label="tree 测试1"
-              target="www1"
-              id="wwwq1"
-              show-check
-              :value="true"
-            >
-              <nly-tree-item
-                show-check
-                id="wwwq11"
-                label="测试"
-                :value="true"
-                editor
-                @labelChange="change"
-                @inputChange="inputChange"
-                @valueChange="valueChange"
-              />
-            </nly-tree-item-tree>
-            <nly-tree-item
-              show-check
-              :id="1"
-              label="测试"
-              :value="true"
-              editor
-              @labelChange="change"
-              @inputChange="inputChange"
-              @valueChange="valueChange"
-            />
-            <nly-tree-item
-              show-check
-              :id="4"
-              label="测试1"
-              :value="true"
-              db-editor
-              delete
-              delete-variant="info"
-              @labelChange="change"
-              @inputChange="inputChange"
-              @valueChange="valueChange"
-            />
-            <nly-tree-item
-              show-check
-              :id="5"
-              label="测试1"
-              :value="true"
-              editor
-              asyn
-              ref="111"
-              loading-variant="pink"
-              @asynChange="asynChange"
-              @labelChange="change"
-              @inputChange="inputChange"
-              @valueChange="valueChange"
-            />
-            <nly-tree-item
-              show-check
-              :id="2"
-              :value="true"
-              add
-              label="eeee"
-              @addChange="addChange"
-              ref="222"
-            />
-          </ul>
+          {{ value }}
         </nly-col>
       </nly-row>
     </nly-content>
@@ -193,6 +35,7 @@
 export default {
   data() {
     return {
+      value: [10013, 10015, 1009],
       test1Indeterminate: false,
       test1: false,
       test1Editor: false,
@@ -202,6 +45,8 @@ export default {
           id: 1002,
           label: "测试2",
           // indeterminate: false,
+          editor: true,
+          showDelete: true,
           children: [
             {
               id: 1007,
@@ -210,7 +55,8 @@ export default {
             {
               id: 1005,
               label: "测试6",
-              value: true
+              value: true,
+              editor: true
             },
             {
               id: 1006,
@@ -222,7 +68,8 @@ export default {
                 },
                 {
                   id: 1009,
-                  label: "测试9"
+                  label: "测试9",
+                  dbEditor: true
                 },
                 {
                   id: 10010,
@@ -239,6 +86,7 @@ export default {
             {
               id: 10012,
               label: "测试12",
+              value: true,
               children: [
                 {
                   id: 10013,
@@ -310,9 +158,10 @@ export default {
       });
       this.$refs["111"].asynAddNode(pro);
     },
-    addChange() {
-      const val = [{ id: 6, label: "asyn" }];
-      this.$refs["222"].asynAddNode(val);
+    // eslint-disable-next-line no-unused-vars
+    addNode(evtId) {
+      const val = [{ id: Math.random() * 50, label: "asyn" }];
+      this.$refs["test_tree"].addNode(evtId, val);
     }
   },
   mounted() {

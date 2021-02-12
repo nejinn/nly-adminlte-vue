@@ -1,9 +1,9 @@
 import Vue from "../../utils/vue";
 import {
   NlyTreeItem,
-  // TREE_ADD_EVENT,
-  // TREE_DELETE_EVENT,
-  // TREE_LABEL_CHANGE_EVENT,
+  TREE_ADD_EVENT,
+  TREE_DELETE_EVENT,
+  TREE_LABEL_CHANGE_EVENT,
   TREE_VALUE_CHANGE_EVENT
   // TREE_PARENT_VALUE_CHECKED_EVENT
   // TREE_CHECKED_INDETERMINATE_VALUE_CHANGE_EVENT
@@ -15,11 +15,16 @@ import { getComponentConfig } from "../../utils/config";
 import { isBoolean, isArray } from "../../utils/inspect";
 import { NlyRenderFunction } from "../render-function";
 import clonedeep from "lodash.clonedeep";
+import { isObject, isNumber, isString } from "../../utils/inspect";
 
 const name = "NlyTree";
 
 export const NlyTree = Vue.extend({
   name: name,
+  model: {
+    prop: "value",
+    event: "input"
+  },
   mixins: [listenOnRootMixin, idMixin],
   data() {
     return {
@@ -27,16 +32,21 @@ export const NlyTree = Vue.extend({
       localOptions: undefined,
       // 树顺序
       localOptionsIndex: [],
-      // 当前选中树
-      currentNode: [],
       // 最后添加的树
       lastAddNode: [],
       // 已删除的树
-      deleteNode: []
+      deleteNode: [],
       // copyLocalOptions: undefined
+      // 当前选中node， v-model
+      localValue: undefined
     };
   },
   props: {
+    // 初始选中的
+    value: {
+      type: Array,
+      default: () => []
+    },
     options: {
       type: Array,
       default: undefined
@@ -77,7 +87,7 @@ export const NlyTree = Vue.extend({
       type: String,
       default: "default"
     },
-    delete: {
+    showDelete: {
       type: Boolean,
       default: false
     },
@@ -131,15 +141,20 @@ export const NlyTree = Vue.extend({
     }
   },
   mounted() {
+    /**
+     *  1. 把options转为普通数组赋值给
+     */
+
+    //把默认选中的node 赋值给localValue
+    this.localValue = this.initDefaultCheckedNode(this.options);
     this.options.forEach(element => {
       this.localOptionsIndex.push(element.id);
     });
     this.localOptions = this.initLocalOptions(this.options);
-    // this.localOptions = this.transformOptions(this.options);
-    // const a = this.findAncestorsId(this.localOptions, 10010);
-    // console.log(111, a);
-    // console.log(22, this.findHasChildrenId(this.localOptions, a));
     this.listenOnRoot(TREE_VALUE_CHANGE_EVENT, this.treeValueChangeEvt);
+    this.listenOnRoot(TREE_LABEL_CHANGE_EVENT, this.treeLabelChangeEvt);
+    this.listenOnRoot(TREE_DELETE_EVENT, this.treeDeleteEvt);
+    this.listenOnRoot(TREE_ADD_EVENT, this.treeAddEvt);
   },
   computed: {
     customOptions() {
@@ -151,6 +166,39 @@ export const NlyTree = Vue.extend({
     }
   },
   methods: {
+    // 获取初始选中节点
+    initDefaultCheckedNode(val) {
+      if (!val) {
+        return [];
+      }
+      const copyOptions = clonedeep(val);
+      const arrayOptions = this.transformOptions(copyOptions);
+      const checkedId = [];
+      if (this.value) {
+        this.value.forEach(item => {
+          if (isObject(item)) {
+            const { id } = item;
+            if (id !== undefined && checkedId.indexOf(id) === -1) {
+              checkedId.push(id);
+            }
+          }
+          if (isNumber(item) || isString(item)) {
+            if (checkedId.indexOf(item) === -1) {
+              checkedId.push(item);
+            }
+          }
+        });
+      }
+      arrayOptions.map(item => {
+        const { id } = item;
+        if (checkedId.indexOf(id) !== -1) {
+          item.value = true;
+        }
+        return item;
+      });
+      const checkedNode = arrayOptions.filter(e => e.value === true);
+      return checkedNode;
+    },
     // 遍历数组，生成渲染json
     mapItem(val) {
       let mapNum = 1;
@@ -180,7 +228,6 @@ export const NlyTree = Vue.extend({
             deleteButtonText,
             asynButtonText,
             addButtonText,
-            indeterminate,
             children
           } = item;
           if (!id) {
@@ -239,11 +286,11 @@ export const NlyTree = Vue.extend({
             item.dbEditorVariant = dbEditorVariant;
           }
           if (!showDelete) {
-            item.delete = this.showDelete;
+            item.showDelete = this.showDelete;
           } else if (!isBoolean(showDelete)) {
             throw new ReferenceError("showDelete must be Boolean");
           } else {
-            item.delete = showDelete;
+            item.showDelete = showDelete;
           }
           if (!deleteVariant) {
             item.deleteVariant = this.deleteVariant;
@@ -311,14 +358,6 @@ export const NlyTree = Vue.extend({
             item.addButtonText = addButtonText;
           }
 
-          if (value) {
-            this.currentNode.push({
-              id: item.id,
-              label: item.label,
-              value: item.value
-            });
-          }
-
           if (children === undefined) {
             item._type = NlyTreeItem;
             return item;
@@ -328,11 +367,6 @@ export const NlyTree = Vue.extend({
             item._children = children;
             delete item.children;
             item._type = NlyTreeItemTree;
-            if (!indeterminate) {
-              item.indeterminate = false;
-            } else {
-              item.indeterminate = true;
-            }
             item.appear = this.appear;
             item.target = `${this._uid}_${item.id}_nly_tree_target`;
             if (this.accordion) {
@@ -370,62 +404,153 @@ export const NlyTree = Vue.extend({
     },
     // 初始化 localOptions
     initLocalOptions(val) {
-      const localOptionIndex = [];
       const copyOptions = clonedeep(val);
       const arrayOptions = this.transformOptions(copyOptions);
-      val.forEach(item => {
-        if (arrayOptions.filter(e => e.parentId === item.id).length > 0) {
-          localOptionIndex.push(item.id);
+      arrayOptions.map(item => {
+        const { id } = item;
+        const trueItem = this.localValue.filter(e => e.id === id);
+        if (trueItem.length > 0) {
+          item.value = true;
         }
+        return item;
       });
-      localOptionIndex.forEach(item => {
-        const hasChildrenIdArray = this.findHasChildrenId(arrayOptions, item);
-        hasChildrenIdArray.forEach(hasItemId => {
-          const trueLength = arrayOptions.filter(
-            item => item.parentId === hasItemId && item.value === true
-          ).length;
-          const allLength = arrayOptions.filter(
-            item => item.parentId === hasItemId
-          ).length;
-          if (trueLength === allLength) {
-            arrayOptions.map(cInItem => {
-              if (cInItem.id === hasItemId) {
-                cInItem.value = true;
-              }
-              return cInItem;
-            });
-          }
-        });
+      const arrayTrueOptions = arrayOptions.filter(e => e.value === true);
+      arrayTrueOptions.forEach(item => {
+        this.setChildrenById(arrayOptions, item.id, item.value);
       });
-      localOptionIndex.forEach(item => {
-        const hasChildrenIdArray = this.findHasChildrenId(arrayOptions, item);
-        hasChildrenIdArray.forEach(hasItemId => {
-          const trueLength = arrayOptions.filter(
-            item => item.parentId === hasItemId && item.value === true
-          ).length;
-          const allLength = arrayOptions.filter(
-            item => item.parentId === hasItemId
-          ).length;
-          if (trueLength !== allLength && trueLength >= 1) {
-            arrayOptions.map(cInItem => {
-              if (cInItem.id === hasItemId) {
-                cInItem.indeterminate = true;
-              }
-              return cInItem;
-            });
-          }
-        });
+      arrayOptions.forEach(item => {
+        this.setParentById(arrayOptions, item.id);
       });
+      this.localValue = arrayOptions.filter(e => e.value === true);
+      // this.$emit("input", this.localValue);
       return arrayOptions;
     },
-    // 修改全选状态
-    // computedIndeterminate(val) {
-    //   this.localOptionsIndex.forEach(item => {
-    //     this.val.forEach(chItem => {
-    //       // if (item.id===chItem)
-    //     });
-    //   });
-    // },
+    // 根据 id获取所有子集 id
+    getChildrenIdById(node, evtId) {
+      const childrenId = [];
+      const getChildrenIdByIdLoop = (loopNode, loopId) => {
+        const loopArray = loopNode.filter(e => e.parentId === loopId);
+        if (loopArray.length > 0) {
+          loopArray.forEach(item => {
+            const { id } = item;
+            if (childrenId.indexOf(id) === -1) {
+              childrenId.push(id);
+            }
+            const ItemId = id;
+            getChildrenIdByIdLoop(loopNode, ItemId);
+          });
+        }
+      };
+      getChildrenIdByIdLoop(node, evtId);
+      return childrenId;
+    },
+    // 根据 id 和 value 修改子级选择状态
+    setChildrenById(node, evtId, evtValue) {
+      const childrenId = this.getChildrenIdById(node, evtId);
+      node.forEach((item, index) => {
+        const { id } = item;
+        if (childrenId.indexOf(id) !== -1) {
+          item.value = evtValue;
+          const childrenArray = node.filter(e => e.parentId === id);
+          if (childrenArray.length > 0) {
+            item.indeterminate = false;
+          }
+          this.$set(node, index, item);
+          this.setCurrentCheckNode(id, evtValue);
+        }
+      });
+      return node;
+    },
+    // 根据 id 和 value 修改父级状态
+    setParentById(node, evtId) {
+      const setParentByIdLoop = (loopNode, loopId) => {
+        const loopArray = loopNode.filter(e => e.id === loopId);
+        if (loopArray.length > 0) {
+          loopArray.forEach(item => {
+            const { parentId } = item;
+            if (parentId) {
+              loopNode.forEach((f, h) => {
+                const { id } = f;
+                if (id === parentId) {
+                  const allItemNum = loopNode.filter(h => h.parentId === id)
+                    .length;
+                  const trueItemNum = loopNode.filter(
+                    h => h.parentId === id && h.value === true
+                  ).length;
+
+                  if (trueItemNum === 0) {
+                    f.value = false;
+                    f.indeterminate = false;
+                    const childrenIdArray = this.getChildrenIdById(
+                      loopNode,
+                      id
+                    );
+                    const childrenArray = loopNode.filter(
+                      e =>
+                        childrenIdArray.indexOf(e.id) !== -1 && e.value === true
+                    );
+                    if (childrenArray.length > 0) {
+                      f.indeterminate = true;
+                    }
+                  } else {
+                    if (allItemNum === trueItemNum) {
+                      f.value = true;
+                      f.indeterminate = false;
+                    } else {
+                      f.value = false;
+                      f.indeterminate = true;
+                    }
+                  }
+                  this.$set(loopNode, h, f);
+                  this.setCurrentCheckNode(id, f.value);
+                }
+              });
+              const ItemParentId = parentId;
+              setParentByIdLoop(loopNode, ItemParentId);
+            }
+          });
+        }
+      };
+      setParentByIdLoop(node, evtId);
+    },
+    // 选中状态变化时更新localOption重新渲染树
+    treeValueChangeEvt(evtId, evtLabel, evtValue) {
+      this.localOptions.forEach((item, index) => {
+        const { id } = item;
+        if (id === evtId) {
+          item.value = evtValue;
+          const loopChildrenArray = this.localOptions.filter(
+            e => e.parentId === evtId
+          );
+          if (loopChildrenArray.length > 0) {
+            item.indeterminate = false;
+          }
+          this.$set(this.localOptions, index, item);
+        }
+      });
+      this.setCurrentCheckNode(evtId, evtValue);
+      this.setChildrenById(this.localOptions, evtId, evtValue);
+      this.setParentById(this.localOptions, evtId);
+    },
+    // 根据选择状态变化修改当前选中 node
+    setCurrentCheckNode(evtId, evtValue) {
+      if (this.localOptions) {
+        const localValue = this.localValue.filter(e => e.id === evtId);
+        if (evtValue && localValue.length === 0) {
+          this.localValue.push(
+            this.localOptions.filter(e => e.id === evtId)[0]
+          );
+        }
+        if (!evtValue) {
+          this.localValue.forEach((item, index) => {
+            const { id } = item;
+            if (id === evtId) {
+              this.localValue.splice(index, 1);
+            }
+          });
+        }
+      }
+    },
     // 根据id找出第一层父级元素的id
     findAncestorsId(arr, arrId) {
       let ancestorsIdArray = [];
@@ -478,10 +603,12 @@ export const NlyTree = Vue.extend({
         arr.forEach(item => {
           temp[item.id] = item;
         });
+
         const tempKeys = [];
         localOptions.forEach(item => {
           tempKeys.push(item.id);
         });
+
         tempKeys.forEach(key => {
           const item = temp[key];
           const _itemPId = item.parentId;
@@ -503,25 +630,239 @@ export const NlyTree = Vue.extend({
       };
       return buildTree(localOptions);
     },
-    // 更新localOption重新渲染树
-    treeValueChangeEvt(evtId) {
+    // label编辑之后更新localOptions重新渲染树
+    treeLabelChangeEvt(evtId, evtLabel) {
       this.localOptions.forEach((item, index) => {
-        if (item.id === evtId) {
-          if (item.indeterminate) {
-            const z = clonedeep(item);
-            z.indeterminate = false;
-            z.value = false;
-            this.$set(this.localOptions, index, z);
-            // this.$set(this.localOptions[index], "value", false);
-          }
+        const { id } = item;
+        if (id === evtId) {
+          item.label = evtLabel;
+          this.$set(this.localOptions, index, item);
         }
       });
+      const localValue = this.localValue.filter(e => e.id === evtId);
+      if (localValue.length > 0) {
+        this.localValue.forEach((item, index) => {
+          const { id } = item;
+          if (id === evtId) {
+            item.label = evtLabel;
+            this.$set(this.localValue, index, item);
+          }
+        });
+      }
+    },
+    // 删除节点更新localOptions重新渲染树
+    treeDeleteEvt(evtId) {
+      // // 获取父级id
+      const parent = this.localOptions.filter(e => e.id === evtId)[0];
+      // 处理localOptionsIndex
+      this.deleteLocalOptionsIndex(evtId);
+      const childrenIdArray = this.getChildrenIdById(this.localOptions, evtId);
+      // 处理localOptions
+      this.deleteLocalOptions(evtId, childrenIdArray);
+      // 处理父级
+      this.deleteSetParentById(this.localOptions, parent.parentId);
+      // this.setCurrentCheckNode(parent.id, parent.value);
+      // this.setChildrenById(this.localOptions, parent.id, parent.value);
+      // this.setParentById(this.localOptions, parent.id);
+      // 处理localValue
+      this.deleteLocalValue(evtId, childrenIdArray);
+    },
+    // 删除节点处理localOptionsIndex
+    deleteLocalOptionsIndex(evtId) {
+      for (let i = this.localOptionsIndex.length - 1; i >= 0; i--) {
+        if (this.localOptionsIndex[i] === evtId) {
+          this.localOptionsIndex.splice(i, 1);
+        }
+      }
+    },
+    // 删除节点处理 localOptions
+    deleteLocalOptions(evtId, childrenIdArray) {
+      var that = this;
+      for (let i = that.localOptions.length - 1; i >= 0; i--) {
+        const { id } = that.localOptions[i];
+        if (id === evtId) {
+          that.localOptions.splice(i, 1);
+        }
+        if (childrenIdArray.indexOf(id) !== -1) {
+          that.localOptions.splice(i, 1);
+        }
+      }
+    },
+    // 删除节点处理localValue
+    deleteLocalValue(evtId, childrenIdArray) {
+      for (let i = this.localValue.length - 1; i >= 0; i--) {
+        const { id } = this.localValue[i];
+        if (id === evtId) {
+          this.localValue.splice(i, 1);
+        }
+        if (childrenIdArray.indexOf(id) !== -1) {
+          this.localValue.splice(i, 1);
+        }
+      }
+    },
+    // 删除节点处理父级
+    deleteSetParentById(node, parentId) {
+      const deleteSetParentByIdLoop = (loopNode, loopId) => {
+        const loopArray = loopNode.filter(e => e.id === loopId);
+        if (loopArray.length > 0) {
+          loopArray.forEach(item => {
+            loopNode.forEach((f, h) => {
+              if (item.id === f.id) {
+                const allItemNum = loopNode.filter(g => g.parentId === f.id)
+                  .length;
+                const trueItemNum = loopNode.filter(
+                  g => g.parentId === f.id && g.value === true
+                ).length;
+                console.log(item.id, f.id, allItemNum, trueItemNum);
+                if (allItemNum === 0) {
+                  f.indeterminate = false;
+                } else if (trueItemNum === 0) {
+                  f.value = false;
+                  f.indeterminate = false;
+                  const childrenIdArray = this.getChildrenIdById(
+                    loopNode,
+                    f.id
+                  );
+                  const childrenArray = loopNode.filter(
+                    e =>
+                      childrenIdArray.indexOf(e.id) !== -1 && e.value === true
+                  );
+                  if (childrenArray.length > 0) {
+                    f.indeterminate = true;
+                  }
+                } else {
+                  if (allItemNum === trueItemNum) {
+                    f.value = true;
+                    f.indeterminate = false;
+                  } else {
+                    f.value = false;
+                    f.indeterminate = true;
+                  }
+                }
+                this.$set(loopNode, h, f);
+                this.setCurrentCheckNode(f.id, f.value);
+              }
+            });
+            const ItemParentId = item.parentId;
+            deleteSetParentByIdLoop(loopNode, ItemParentId);
+          });
+        }
+      };
+      deleteSetParentByIdLoop(node, parentId);
+    },
+    // 添加节点触发事件
+    treeAddEvt(evtId) {
+      this.$emit("addNode", evtId);
+    },
+    // 添加子集节点
+    addNode(id, data) {
+      if (isArray(data)) {
+        data.forEach(item => {
+          const { id } = item;
+          if (!id) {
+            throw new ReferenceError("id is need");
+          }
+        });
+      } else if (isObject(data)) {
+        const { id } = data;
+        if (!id) {
+          throw new ReferenceError("id is need");
+        }
+      } else {
+        throw new ReferenceError("data must be Array or Object");
+      }
+      if (isArray(data)) {
+        data.forEach(item => {
+          item.parentId = id;
+          this.$set(this.localOptions, this.localOptions.length, item);
+        });
+      } else if (isObject(data)) {
+        data.parentId = id;
+        this.localOptions.push(data);
+      }
+    },
+    // 添加1级节点
+    addAncestorsNode(data) {
+      if (isArray(data)) {
+        data.forEach(item => {
+          const { id } = item;
+          if (!id) {
+            throw new ReferenceError("id is need");
+          }
+        });
+      } else if (isObject(data)) {
+        const { id } = data;
+        if (!id) {
+          throw new ReferenceError("id is need");
+        }
+      } else {
+        throw new ReferenceError("data must be Array or Object");
+      }
+      if (isArray(data)) {
+        data.forEach(item => {
+          item.parentId = undefined;
+          this.$set(
+            this.localOptionsIndex,
+            this.localOptionsIndex.length,
+            item.id
+          );
+          this.$set(this.localOptions, this.localOptions.length, item);
+        });
+      } else if (isObject(data)) {
+        data.parentId = undefined;
+        this.$set(
+          this.localOptionsIndex,
+          this.localOptionsIndex.length,
+          data.id
+        );
+        this.localOptions.push(data);
+      }
+    },
+    //
+    asynAddNode(data) {
+      if (isArray(data)) {
+        data.map(item => {
+          const { id } = item;
+          if (!id) {
+            this.loading = false;
+            throw new ReferenceError("id is need");
+          }
+        });
+      } else if (isObject(data)) {
+        const { id } = data;
+        if (!id) {
+          this.loading = false;
+          throw new ReferenceError("id is need");
+        }
+      } else {
+        this.loading = false;
+        throw new ReferenceError("data must be Array or Object");
+      }
+      this.localAddNode = data;
+      // 通知父组件添加节点
+      this.emitAddNode();
+      this.loading = false;
     }
   },
   watch: {
     options: {
       handler(val) {
         this.localOptions = this.initLocalOptions(val);
+      },
+      deep: true
+    },
+    localValue: {
+      handler(val) {
+        const copyVal = clonedeep(val);
+        copyVal.map(item => {
+          if (Object.prototype.hasOwnProperty.call(item, "parentId")) {
+            delete item.parentId;
+          }
+          if (Object.prototype.hasOwnProperty.call(item, "indeterminate")) {
+            delete item.indeterminate;
+          }
+        });
+        this.$emit("input", copyVal);
       },
       deep: true
     }
@@ -542,6 +883,7 @@ export const NlyTree = Vue.extend({
         }
       });
     }
+
     return $content;
   }
 });
