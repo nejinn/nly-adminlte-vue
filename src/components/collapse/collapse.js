@@ -174,7 +174,7 @@ export const NlyCollapse = /*#__PURE__*/ Vue.extend({
     },
     emitState() {
       this.$emit("input", this.show);
-      // Let `v-b-toggle` know the state of this collapse
+      // Let `v-nly-toggle` know the state of this collapse
       this.emitOnRoot(EVENT_STATE, this.safeId(), this.show);
       if (this.accordion && this.show) {
         // Tell the other collapses in this accordion to close

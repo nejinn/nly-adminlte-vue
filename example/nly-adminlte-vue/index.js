@@ -232,6 +232,11 @@ export { NlyTimelineFooter } from "./components/timeline/timeline-footer";
 export { TooltipPlugin } from "./components/tooltip";
 export { NlyTooltip } from "./components/tooltip/tooltip";
 
+export { TreePlugin } from "./components/tree";
+export { NlyTree } from "./components/tree/tree";
+export { NlyTreeItem } from "./components/tree/tree-item";
+export { NlyTreeItemTree } from "./components/tree/tree-item-tree";
+
 export { WrapperPlugin } from "./components/wrapper";
 export { NlyWrapper } from "./components/wrapper/wrapper";
 export { NlyWrapperFooter } from "./components/wrapper/wrapper-footer";

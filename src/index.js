@@ -198,7 +198,7 @@ export { NlySidebarMenu } from "./components/sidebar/sidebar-menu";
 export { SpinnerPlugin } from "./components/spinner";
 export { NlySpinner } from "./components/spinner/spinner";
 
-export { switchPlugin } from "./components/switch";
+export { SwitchPlugin } from "./components/switch";
 export { NlySwitch } from "./components/switch/switch";
 export { NlyBootstrapSwitch } from "./components/switch/bootstrap-switch";
 
@@ -231,6 +231,11 @@ export { NlyTimelineFooter } from "./components/timeline/timeline-footer";
 
 export { TooltipPlugin } from "./components/tooltip";
 export { NlyTooltip } from "./components/tooltip/tooltip";
+
+export { TreePlugin } from "./components/tree";
+export { NlyTree } from "./components/tree/tree";
+export { NlyTreeItem } from "./components/tree/tree-item";
+export { NlyTreeItemTree } from "./components/tree/tree-item-tree";
 
 export { WrapperPlugin } from "./components/wrapper";
 export { NlyWrapper } from "./components/wrapper/wrapper";
