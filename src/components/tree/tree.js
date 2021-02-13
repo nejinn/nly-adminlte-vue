@@ -204,7 +204,6 @@ export const NlyTree = Vue.extend({
     },
     // 遍历数组，生成渲染json
     mapItem(val) {
-      let mapNum = 1;
       const mapArray = optionsArray =>
         optionsArray.map(item => {
           const {
@@ -372,18 +371,23 @@ export const NlyTree = Vue.extend({
             item._type = NlyTreeItemTree;
             item.appear = this.appear;
             item.target = `${this._uid}_${item.id}_nly_tree_target`;
-            if (this.accordion) {
-              item.accordion = `${mapNum}-nly-tree-accordion`;
-            } else {
-              item.accordion = `${this._uid}_${item.id}_nly_tree_accordion`;
-            }
-            mapNum += 1;
             mapArray(children);
             return item;
           }
         });
       let mapItemArray = mapArray(val);
       return mapItemArray;
+    },
+    // 手风琴处理
+    transformAccordion(val) {
+      val.map(item => {
+        if (this.accordion) {
+          item.accordion = `${this._uid}_${item.parentId}_nly_tree_accordion`;
+        } else {
+          item.accordion = `${this._uid}_${item.id}_nly_tree_accordion`;
+        }
+      });
+      return val;
     },
     // 把嵌套数组转为普通数组
     transformOptions(val) {
@@ -408,7 +412,8 @@ export const NlyTree = Vue.extend({
     // 初始化 localOptions
     initLocalOptions(val) {
       const copyOptions = clonedeep(val);
-      const arrayOptions = this.transformOptions(copyOptions);
+      const accordionArrayOptions = this.transformOptions(copyOptions);
+      const arrayOptions = this.transformAccordion(accordionArrayOptions);
       arrayOptions.map(item => {
         const { id } = item;
         const trueItem = this.localValue.filter(e => e.id === id);
@@ -782,6 +787,11 @@ export const NlyTree = Vue.extend({
       if (isArray(data)) {
         data.forEach(item => {
           item.parentId = id;
+          if (this.accordion) {
+            item.accordion = `${this._uid}_${item.parentId}_nly_tree_accordion`;
+          } else {
+            item.accordion = `${this._uid}_${item.id}_nly_tree_accordion`;
+          }
           const filterArray = this.localOptions.filter(e => e.id === item.id);
           if (filterArray.length > 0) {
             this.localOptions.forEach((e, i) => {
@@ -795,6 +805,11 @@ export const NlyTree = Vue.extend({
         });
       } else if (isObject(data)) {
         data.parentId = id;
+        if (this.accordion) {
+          data.accordion = `${this._uid}_${data.parentId}_nly_tree_accordion`;
+        } else {
+          data.accordion = `${this._uid}_${data.id}_nly_tree_accordion`;
+        }
         const filterArray = this.localOptions.filter(e => e.id === data.id);
         if (filterArray.length > 0) {
           this.localOptions.forEach((e, i) => {
@@ -813,6 +828,11 @@ export const NlyTree = Vue.extend({
       if (isArray(data)) {
         data.forEach(item => {
           item.parentId = undefined;
+          if (this.accordion) {
+            item.accordion = `${this._uid}_${item.parentId}_nly_tree_accordion`;
+          } else {
+            item.accordion = `${this._uid}_${item.id}_nly_tree_accordion`;
+          }
           const filterArray = this.localOptions.filter(e => e.id === item.id);
           if (filterArray.length > 0) {
             this.localOptions.forEach((e, i) => {
@@ -831,6 +851,11 @@ export const NlyTree = Vue.extend({
         });
       } else if (isObject(data)) {
         data.parentId = undefined;
+        if (this.accordion) {
+          data.accordion = `${this._uid}_${data.parentId}_nly_tree_accordion`;
+        } else {
+          data.accordion = `${this._uid}_${data.id}_nly_tree_accordion`;
+        }
         const filterArray = this.localOptions.filter(e => e.id === data.id);
         if (filterArray.length > 0) {
           this.localOptions.forEach((e, i) => {
@@ -869,6 +894,11 @@ export const NlyTree = Vue.extend({
       if (isArray(data)) {
         data.forEach(item => {
           item.parentId = evtId;
+          if (this.accordion) {
+            item.accordion = `${this._uid}_${item.parentId}_nly_tree_accordion`;
+          } else {
+            item.accordion = `${this._uid}_${item.id}_nly_tree_accordion`;
+          }
           const filterArray = this.localOptions.filter(e => e.id === item.id);
           if (filterArray.length > 0) {
             this.localOptions.forEach((e, i) => {
@@ -882,6 +912,11 @@ export const NlyTree = Vue.extend({
         });
       } else if (isObject(data)) {
         data.parentId = evtId;
+        if (this.accordion) {
+          data.accordion = `${this._uid}_${data.parentId}_nly_tree_accordion`;
+        } else {
+          data.accordion = `${this._uid}_${data.id}_nly_tree_accordion`;
+        }
         const filterArray = this.localOptions.filter(e => e.id === data.id);
         if (filterArray.length > 0) {
           this.localOptions.forEach((e, i) => {

@@ -20,6 +20,7 @@
             show-delete
             add
             asyn
+            accordion
             v-model="value"
             @addNode="addNode"
             @asynAddNode="asynAddNode"
