@@ -19,12 +19,15 @@
             appear
             show-delete
             add
+            asyn
+            accordion
             v-model="value"
             @addNode="addNode"
+            @asynAddNode="asynAddNode"
             ref="test_tree"
         /></nly-col>
         <nly-col>
-          {{ value }}
+          <nly-button @click="addAncestorsNode">11</nly-button>
         </nly-col>
       </nly-row>
     </nly-content>
@@ -162,6 +165,18 @@ export default {
     addNode(evtId) {
       const val = [{ id: Math.random() * 50, label: "asyn" }];
       this.$refs["test_tree"].addNode(evtId, val);
+    },
+    async addAncestorsNode() {
+      let pro = await new Promise(resolve => {
+        setTimeout(resolve, 2000, [{ id: Math.random() * 50, label: "asyn" }]);
+      });
+      this.$refs["test_tree"].addAncestorsNode(pro);
+    },
+    async asynAddNode(evtId) {
+      let pro = await new Promise(resolve => {
+        setTimeout(resolve, 2000, [{ id: Math.random() * 50, label: "asyn" }]);
+      });
+      this.$refs["test_tree"].asynAddNode(evtId, pro);
     }
   },
   mounted() {

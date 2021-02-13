@@ -2622,7 +2622,7 @@ table#table-transition-example .flip-list-move {
   };
 </script>
 
-<!-- 动画.naame -->
+<!-- 动画.name -->
 <!-- transition.vue -->
 ```
 
@@ -2632,21 +2632,475 @@ table#table-transition-example .flip-list-move {
 
 `v-model` 绑定的变量通常是通过自带过滤，排序，分页之后 `item` 的浅拷贝数据， 删除 `v-model` 绑定值时，并不会删除 `item` 的是数据，也不会删除当前渲染的是数据
 
+## 排序
 
+`<nly-table>` 支持对每一列进行排序，点击可以排序的一列可以使得每一列由小到大排序（asc），再次点击可以由大到小排序（desc），自带的排序只支持数字，字母排序。
+点击其他列可以取消掉排序， 可以设置 prop `no-sort-reset` 来禁用点击其他列取消排序。
+
+可以给 `fields` 中的元素设置 `sortable` 属性来允许该列进行排序，也可以设置 `sort-by` 为某一列的 `key` 来指定默认需要排序的列， 设置 `sort-desc` 来确定默认排序方向。
+
+`sort-desc` 设置 `true` 时，排序方向为 `desc`， 设置为 `false` 的时候排序方向为 `asc`.
+
+也可以给 `sort-by` 和 `sort-desc` 来添加修饰符 `.sync` 来获取当前排序的列的 `key` 和方向。
+
+设置 `sort-by` 的字段必须设置属性 `sortable`
+
+设置 `foot-clone`， 页脚也会支持排序， 使用插槽时，同样支持排序，要禁用页脚排序，请设置 `no-footer-sorting`
+
+```html
+<template>
+  <div>
+    <nly-table
+      :items="items"
+      :fields="fields"
+      :sort-by.sync="sortBy"
+      :sort-desc.sync="sortDesc"
+      responsive="sm"
+    ></nly-table>
+
+    <div>
+      Sorting By: <b>{{ sortBy }}</b>, Sort Direction:
+      <b>{{ sortDesc ? 'Descending' : 'Ascending' }}</b>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        sortBy: "age",
+        sortDesc: false,
+        fields: [
+          { key: "last_name", sortable: true },
+          { key: "first_name", sortable: true },
+          { key: "age", sortable: true },
+          { key: "isActive", sortable: false }
+        ],
+        items: [
+          {
+            isActive: true,
+            age: 40,
+            first_name: "Dickerson",
+            last_name: "Macdonald"
+          },
+          { isActive: false, age: 21, first_name: "Larsen", last_name: "Shaw" },
+          {
+            isActive: false,
+            age: 89,
+            first_name: "Geneva",
+            last_name: "Wilson"
+          },
+          { isActive: true, age: 38, first_name: "Jami", last_name: "Carney" }
+        ]
+      };
+    }
+  };
+</script>
+<!-- 排序.name -->
+<!-- sorting.vue -->
+```
+
+### 排序图标位置
+
+默认情况下，排序图片是右对齐的，可以设置 prop `sort-icon-left` 是图片左对齐
+
+```html
+<template>
+  <div>
+    <nly-table
+      :items="items"
+      :fields="fields"
+      :sort-by.sync="sortBy"
+      :sort-desc.sync="sortDesc"
+      sort-icon-left
+      responsive="sm"
+    ></nly-table>
+
+    <div>
+      Sorting By: <b>{{ sortBy }}</b>, Sort Direction:
+      <b>{{ sortDesc ? 'Descending' : 'Ascending' }}</b>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        sortBy: "age",
+        sortDesc: false,
+        fields: [
+          { key: "last_name", sortable: true },
+          { key: "first_name", sortable: true },
+          { key: "age", sortable: true },
+          { key: "isActive", sortable: false }
+        ],
+        items: [
+          {
+            isActive: true,
+            age: 40,
+            first_name: "Dickerson",
+            last_name: "Macdonald"
+          },
+          { isActive: false, age: 21, first_name: "Larsen", last_name: "Shaw" },
+          {
+            isActive: false,
+            age: 89,
+            first_name: "Geneva",
+            last_name: "Wilson"
+          },
+          { isActive: true, age: 38, first_name: "Jami", last_name: "Carney" }
+        ]
+      };
+    }
+  };
+</script>
+
+<!-- 排序icon.name -->
+<!-- sorting icon.vue -->
+```
+
+### 排序机制
+
+内置的 `sort-compare` 函数是根据 `fields` 的 `key` 对应的数据进行排序的（如果该列的属性 `sortByFormatted` 为 true 且设置了 `formatter` 函数， 则按照 `formatter` 函数逻辑进行排序），
+如果 `key` 对应的 data 数据是对象，则会转为字符串再进行排序
+
+**注意**
+
+- 内置排序无法对使用了插槽转化渲染的 `fields data` 进行排序，如果需要对这种列进行排序，请用 `formatter` 函数
+
+- 内置排序会先将 `null`， `undefined` 和空值的数据排在前面，如果需排序把这些数据排在后面，请设置 `sort-null-last` prop 为 `true`
+
+### 内置排序原理
+
+内置排序使用 [`String.prototype.localeCompare()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare) 来比较列值或者列值转为字符串之后的大小(列值不是数字或者时间类型的时候)。
+
+本地浏览器的 `localeCompare()` 方法接受一个 `local` 字符串或者对象或者 `options` 对象拉埃空值排序，默认的 `options` 为 `{ numeric: true }`, 默认的 `local` 字符串为 `undefined`.
+
+可以设置 `sort-compare-locale` prop 来指定默认的 `local` 字符串或者 `sort-compare-options` 来设置默认的 `options` 对象
+
+## 完整 Demo
+
+```html
+<template>
+  <nly-container fluid>
+    <nly-row>
+      <nly-col lg="6" class="my-1">
+        <nly-form-group
+          label="Sort"
+          label-for="sort-by-select"
+          label-cols-sm="3"
+          label-align-sm="right"
+          label-size="sm"
+          class="mb-0"
+        >
+          <nly-input-group size="sm">
+            <nly-form-select
+              id="sort-by-select"
+              v-model="sortBy"
+              :options="sortOptions"
+              class="w-75"
+            >
+              <template #first>
+                <option value="">-- none --</option>
+              </template>
+            </nly-form-select>
+
+            <nly-form-select
+              v-model="sortDesc"
+              :disabled="!sortBy"
+              size="sm"
+              class="w-25"
+            >
+              <option :value="false">Asc</option>
+              <option :value="true">Desc</option>
+            </nly-form-select>
+          </nly-input-group>
+        </nly-form-group>
+      </nly-col>
+
+      <nly-col lg="6" class="my-1">
+        <nly-form-group
+          label="Initial sort"
+          label-for="initial-sort-select"
+          label-cols-sm="3"
+          label-align-sm="right"
+          label-size="sm"
+          class="mb-0"
+        >
+          <nly-form-select
+            id="initial-sort-select"
+            v-model="sortDirection"
+            :options="['asc', 'desc', 'last']"
+            size="sm"
+          ></nly-form-select>
+        </nly-form-group>
+      </nly-col>
+
+      <nly-col lg="6" class="my-1">
+        <nly-form-group
+          label="Filter"
+          label-for="filter-input"
+          label-cols-sm="3"
+          label-align-sm="right"
+          label-size="sm"
+          class="mb-0"
+        >
+          <nly-input-group size="sm">
+            <nly-form-input
+              id="filter-input"
+              v-model="filter"
+              type="search"
+              placeholder="Type to Search"
+            ></nly-form-input>
+
+            <nly-input-group-append>
+              <nly-button :disabled="!filter" @click="filter = ''"
+                >Clear</nly-button
+              >
+            </nly-input-group-append>
+          </nly-input-group>
+        </nly-form-group>
+      </nly-col>
+
+      <nly-col lg="6" class="my-1">
+        <nly-form-group
+          v-model="sortDirection"
+          label="Filter On"
+          description="Leave all unchecked to filter on all data"
+          label-cols-sm="3"
+          label-align-sm="right"
+          label-size="sm"
+          class="mb-0"
+        >
+          <nly-form-checkbox-group v-model="filterOn" class="mt-1">
+            <nly-form-checkbox value="name">Name</nly-form-checkbox>
+            <nly-form-checkbox value="age">Age</nly-form-checkbox>
+            <nly-form-checkbox value="isActive">Active</nly-form-checkbox>
+          </nly-form-checkbox-group>
+        </nly-form-group>
+      </nly-col>
+
+      <nly-col sm="5" md="6" class="my-1">
+        <nly-form-group
+          label="Per page"
+          label-for="per-page-select"
+          label-cols-sm="6"
+          label-cols-md="4"
+          label-cols-lg="3"
+          label-align-sm="right"
+          label-size="sm"
+          class="mb-0"
+        >
+          <nly-form-select
+            id="per-page-select"
+            v-model="perPage"
+            :options="pageOptions"
+            size="sm"
+          ></nly-form-select>
+        </nly-form-group>
+      </nly-col>
+
+      <nly-col sm="7" md="6" class="my-1">
+        <nly-bootstrap-pagination
+          v-model="currentPage"
+          :total-rows="totalRows"
+          :per-page="perPage"
+          align="fill"
+          size="sm"
+          class="my-0"
+        ></nly-bootstrap-pagination>
+      </nly-col>
+    </nly-row>
+
+    <!-- Main table element -->
+    <nly-table
+      :items="items"
+      :fields="fields"
+      :current-page="currentPage"
+      :per-page="perPage"
+      :filter="filter"
+      :filter-included-fields="filterOn"
+      :sort-by.sync="sortBy"
+      :sort-desc.sync="sortDesc"
+      :sort-direction="sortDirection"
+      stacked="md"
+      show-empty
+      small
+      @filtered="onFiltered"
+    >
+      <template #cell(name)="row">
+        {{ row.value.first }} {{ row.value.last }}
+      </template>
+
+      <template #cell(actions)="row">
+        <nly-button
+          size="sm"
+          @click="info(row.item, row.index, $event.target)"
+          class="mr-1"
+        >
+          Info modal
+        </nly-button>
+        <nly-button size="sm" @click="row.toggleDetails">
+          {{ row.detailsShowing ? 'Hide' : 'Show' }} Details
+        </nly-button>
+      </template>
+
+      <template #row-details="row">
+        <nly-card>
+          <nly-card-body>
+            <ul>
+              <li v-for="(value, key) in row.item" :key="key">
+                {{ key }}: {{ value }}
+              </li>
+            </ul>
+          </nly-card-body>
+        </nly-card>
+      </template>
+    </nly-table>
+
+    <!-- Info modal -->
+    <nly-modal
+      :id="infoModal.id"
+      :title="infoModal.title"
+      ok-only
+      @hide="resetInfoModal"
+    >
+      <pre>{{ infoModal.content }}</pre>
+    </nly-modal>
+  </nly-container>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        items: [
+          {
+            isActive: true,
+            age: 40,
+            name: { first: "Dickerson", last: "Macdonald" }
+          },
+          { isActive: false, age: 21, name: { first: "Larsen", last: "Shaw" } },
+          {
+            isActive: false,
+            age: 9,
+            name: { first: "Mini", last: "Navarro" },
+            _rowVariant: "success"
+          },
+          {
+            isActive: false,
+            age: 89,
+            name: { first: "Geneva", last: "Wilson" }
+          },
+          { isActive: true, age: 38, name: { first: "Jami", last: "Carney" } },
+          {
+            isActive: false,
+            age: 27,
+            name: { first: "Essie", last: "Dunlap" }
+          },
+          {
+            isActive: true,
+            age: 40,
+            name: { first: "Thor", last: "Macdonald" }
+          },
+          {
+            isActive: true,
+            age: 87,
+            name: { first: "Larsen", last: "Shaw" },
+            _cellVariants: { age: "danger", isActive: "warning" }
+          },
+          {
+            isActive: false,
+            age: 26,
+            name: { first: "Mitzi", last: "Navarro" }
+          },
+          {
+            isActive: false,
+            age: 22,
+            name: { first: "Genevieve", last: "Wilson" }
+          },
+          { isActive: true, age: 38, name: { first: "John", last: "Carney" } },
+          { isActive: false, age: 29, name: { first: "Dick", last: "Dunlap" } }
+        ],
+        fields: [
+          {
+            key: "name",
+            label: "Person full name",
+            sortable: true,
+            sortDirection: "desc"
+          },
+          {
+            key: "age",
+            label: "Person age",
+            sortable: true,
+            class: "text-center"
+          },
+          {
+            key: "isActive",
+            label: "Is Active",
+            formatter: (value, key, item) => {
+              return value ? "Yes" : "No";
+            },
+            sortable: true,
+            sortByFormatted: true,
+            filterByFormatted: true
+          },
+          { key: "actions", label: "Actions" }
+        ],
+        totalRows: 1,
+        currentPage: 1,
+        perPage: 5,
+        pageOptions: [5, 10, 15, { value: 100, text: "Show a lot" }],
+        sortBy: "",
+        sortDesc: false,
+        sortDirection: "asc",
+        filter: null,
+        filterOn: [],
+        infoModal: {
+          id: "info-modal",
+          title: "",
+          content: ""
+        }
+      };
+    },
+    computed: {
+      sortOptions() {
+        return this.fields
+          .filter(f => f.sortable)
+          .map(f => {
+            return { text: f.label, value: f.key };
+          });
+      }
+    },
+    mounted() {
+      this.totalRows = this.items.length;
+    },
+    methods: {
+      info(item, index, button) {
+        this.infoModal.title = `Row index: ${index}`;
+        this.infoModal.content = JSON.stringify(item, null, 2);
+        this.$root.$emit("nlya::show::modal", this.infoModal.id, button);
+      },
+      resetInfoModal() {
+        this.infoModal.title = "";
+        this.infoModal.content = "";
+      },
+      onFiltered(filteredItems) {
+        this.totalRows = filteredItems.length;
+        this.currentPage = 1;
+      }
+    }
+  };
+</script>
+<!-- 完整.name -->
+<!-- demo.vue -->
+```
 
 ## 表格组件
 
 table helper components,
-
-## 函数类型（items）
-
-Using items provider functions （）
-
-## 每行详情数据
-
-（Row details support）
-
-## 排序
 
 ## 分页
 
@@ -2654,24 +3108,8 @@ Sorting
 
 Custom data rendering
 
-## 修改排序方向
-
-Change initial sort direction
-
 ## 过滤
 
 Filtering
 
 Responsive tables
-
-## 头部浮动模式
-
-Sticky headers
-
-## 列浮动模式
-
-Sticky columns
-
-## 表格主体动画
-
-Table body transition support -->

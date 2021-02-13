@@ -85,10 +85,10 @@ export const NlyFormTags = Vue.extend({
       type: Boolean,
       default: false
     },
-    state: {
+    valid: {
       // Tri-state: `true`, `false`, `null`
-      type: Boolean,
-      default: null
+      type: String,
+      default: "novalid"
     },
     size: {
       type: String
@@ -119,7 +119,7 @@ export const NlyFormTags = Vue.extend({
       type: String,
       default: () => getComponentConfig(name, "addButtonVariant")
     },
-    variant: {
+    tagVariant: {
       type: String,
       default: () => getComponentConfig(name, "tagVariant")
     },
@@ -710,14 +710,14 @@ export const NlyFormTags = Vue.extend({
       isLimitReached: this.isLimitReached,
       disableAddButton: this.disableAddButton,
       disabled: this.disabled,
-      state: this.state,
+      state: this.valid,
       size: this.size,
       limit: this.limit,
       separator: this.separator,
       placeholder: this.placeholder,
       inputClass: this.inputClass,
       tagRemoveLabel: this.tagRemoveLabel,
-      variant: this.variant,
+      variant: this.tagVariant,
       tagPills: this.tagPills,
       tagClass: this.tagClass,
       addButtonText: this.addButtonText,
@@ -788,7 +788,7 @@ export const NlyFormTags = Vue.extend({
     const tagsbgVariant = () =>
       nlyGetOptionsByKeyEqual(bgVariantOptions, this.bgVariant);
     const tagsvariant = () =>
-      nlyGetOptionsByKeyEqual(variantOptions, this.variant);
+      nlyGetOptionsByKeyEqual(variantOptions, this.tagVariant);
     const tagsbgGradientVariant = () =>
       nlyGetOptionsByKeyEqual(bgGradientOptions, this.bgGradientVariant);
     const customTagsVariant = tagsbgGradientVariant()
@@ -808,8 +808,8 @@ export const NlyFormTags = Vue.extend({
             ? "focus"
             : null,
           this.disabled ? "disabled" : null,
-          this.state === "valid" ? "is-valid" : null,
-          this.state === "invalid" ? "is-invalid" : null,
+          this.valid === "valid" ? "is-valid" : null,
+          this.valid === "invalid" ? "is-invalid" : null,
           this.size ? `form-control-${this.size}` : null
         ],
         attrs: {
