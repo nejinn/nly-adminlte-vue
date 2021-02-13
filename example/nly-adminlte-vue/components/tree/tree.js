@@ -4,7 +4,9 @@ import {
   TREE_ADD_EVENT,
   TREE_DELETE_EVENT,
   TREE_LABEL_CHANGE_EVENT,
-  TREE_VALUE_CHANGE_EVENT
+  TREE_VALUE_CHANGE_EVENT,
+  TREE_ASYN_ADD_LOADING,
+  TREE_ASYN_ADD_EVENT
   // TREE_PARENT_VALUE_CHECKED_EVENT
   // TREE_CHECKED_INDETERMINATE_VALUE_CHANGE_EVENT
 } from "./tree-item";
@@ -155,6 +157,7 @@ export const NlyTree = Vue.extend({
     this.listenOnRoot(TREE_LABEL_CHANGE_EVENT, this.treeLabelChangeEvt);
     this.listenOnRoot(TREE_DELETE_EVENT, this.treeDeleteEvt);
     this.listenOnRoot(TREE_ADD_EVENT, this.treeAddEvt);
+    this.listenOnRoot(TREE_ASYN_ADD_EVENT, this.treeAsynAddEvt);
   },
   computed: {
     customOptions() {
@@ -713,7 +716,6 @@ export const NlyTree = Vue.extend({
                 const trueItemNum = loopNode.filter(
                   g => g.parentId === f.id && g.value === true
                 ).length;
-                console.log(item.id, f.id, allItemNum, trueItemNum);
                 if (allItemNum === 0) {
                   f.indeterminate = false;
                 } else if (trueItemNum === 0) {
@@ -754,94 +756,148 @@ export const NlyTree = Vue.extend({
     treeAddEvt(evtId) {
       this.$emit("addNode", evtId);
     },
-    // 添加子集节点
-    addNode(id, data) {
+    // 异步添加触发事件
+    treeAsynAddEvt(evtId) {
+      this.$emit("asynAddNode", evtId);
+    },
+    // 添加节点校验数据
+    validAddNode(data) {
       if (isArray(data)) {
         data.forEach(item => {
-          const { id } = item;
-          if (!id) {
+          if (!item.id) {
             throw new ReferenceError("id is need");
           }
         });
       } else if (isObject(data)) {
-        const { id } = data;
-        if (!id) {
+        if (!data.id) {
           throw new ReferenceError("id is need");
         }
       } else {
         throw new ReferenceError("data must be Array or Object");
       }
+    },
+    // 添加子集节点
+    addNode(id, data) {
+      this.validAddNode(data);
       if (isArray(data)) {
         data.forEach(item => {
           item.parentId = id;
-          this.$set(this.localOptions, this.localOptions.length, item);
+          const filterArray = this.localOptions.filter(e => e.id === item.id);
+          if (filterArray.length > 0) {
+            this.localOptions.forEach((e, i) => {
+              if (e.id === item.id) {
+                this.$set(this.localOptions, i, item);
+              }
+            });
+          } else {
+            this.$set(this.localOptions, this.localOptions.length, item);
+          }
         });
       } else if (isObject(data)) {
         data.parentId = id;
-        this.localOptions.push(data);
+        const filterArray = this.localOptions.filter(e => e.id === data.id);
+        if (filterArray.length > 0) {
+          this.localOptions.forEach((e, i) => {
+            if (e.id === data.id) {
+              this.$set(this.localOptions, i, data);
+            }
+          });
+        } else {
+          this.$set(this.localOptions, this.localOptions.length, data);
+        }
       }
     },
     // 添加1级节点
     addAncestorsNode(data) {
-      if (isArray(data)) {
-        data.forEach(item => {
-          const { id } = item;
-          if (!id) {
-            throw new ReferenceError("id is need");
-          }
-        });
-      } else if (isObject(data)) {
-        const { id } = data;
-        if (!id) {
-          throw new ReferenceError("id is need");
-        }
-      } else {
-        throw new ReferenceError("data must be Array or Object");
-      }
+      this.validAddNode(data);
       if (isArray(data)) {
         data.forEach(item => {
           item.parentId = undefined;
-          this.$set(
-            this.localOptionsIndex,
-            this.localOptionsIndex.length,
-            item.id
-          );
-          this.$set(this.localOptions, this.localOptions.length, item);
+          const filterArray = this.localOptions.filter(e => e.id === item.id);
+          if (filterArray.length > 0) {
+            this.localOptions.forEach((e, i) => {
+              if (e.id === item.id) {
+                this.$set(this.localOptions, i, item);
+              }
+            });
+          } else {
+            this.$set(
+              this.localOptionsIndex,
+              this.localOptionsIndex.length,
+              item.id
+            );
+            this.$set(this.localOptions, this.localOptions.length, item);
+          }
         });
       } else if (isObject(data)) {
         data.parentId = undefined;
-        this.$set(
-          this.localOptionsIndex,
-          this.localOptionsIndex.length,
-          data.id
-        );
-        this.localOptions.push(data);
+        const filterArray = this.localOptions.filter(e => e.id === data.id);
+        if (filterArray.length > 0) {
+          this.localOptions.forEach((e, i) => {
+            if (e.id === data.id) {
+              this.$set(this.localOptions, i, data);
+            }
+          });
+        } else {
+          this.$set(
+            this.localOptionsIndex,
+            this.localOptionsIndex.length,
+            data.id
+          );
+          this.$set(this.localOptions, this.localOptions.length, data);
+        }
       }
     },
-    //
-    asynAddNode(data) {
+    //异步添加节点事件
+    asynAddNode(evtId, data) {
       if (isArray(data)) {
         data.map(item => {
-          const { id } = item;
-          if (!id) {
-            this.loading = false;
+          if (!item.id) {
+            this.emitLoading(evtId, false);
             throw new ReferenceError("id is need");
           }
         });
       } else if (isObject(data)) {
-        const { id } = data;
-        if (!id) {
-          this.loading = false;
+        if (!data.id) {
+          this.emitLoading(evtId, false);
           throw new ReferenceError("id is need");
         }
       } else {
-        this.loading = false;
+        this.emitLoading(evtId, false);
         throw new ReferenceError("data must be Array or Object");
       }
-      this.localAddNode = data;
-      // 通知父组件添加节点
-      this.emitAddNode();
-      this.loading = false;
+      if (isArray(data)) {
+        data.forEach(item => {
+          item.parentId = evtId;
+          const filterArray = this.localOptions.filter(e => e.id === item.id);
+          if (filterArray.length > 0) {
+            this.localOptions.forEach((e, i) => {
+              if (e.id === item.id) {
+                this.$set(this.localOptions, i, item);
+              }
+            });
+          } else {
+            this.$set(this.localOptions, this.localOptions.length, item);
+          }
+        });
+      } else if (isObject(data)) {
+        data.parentId = evtId;
+        const filterArray = this.localOptions.filter(e => e.id === data.id);
+        if (filterArray.length > 0) {
+          this.localOptions.forEach((e, i) => {
+            if (e.id === data.id) {
+              this.$set(this.localOptions, i, data);
+            }
+          });
+        } else {
+          this.$set(this.localOptions, this.localOptions.length, data);
+        }
+      }
+      this.emitLoading(evtId, false);
+    },
+    // 通知子组件关掉异步loading
+    emitLoading(evtId, evtLoading) {
+      this.emitOnRoot(TREE_ASYN_ADD_LOADING, evtId, evtLoading);
     }
   },
   watch: {

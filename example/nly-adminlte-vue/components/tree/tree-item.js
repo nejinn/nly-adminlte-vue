@@ -10,7 +10,6 @@ import { NlyFormInput } from "../form-input/form-input";
 import { NlySpinner } from "../spinner";
 import { getComponentConfig } from "../../utils/config";
 import listenOnRootMixin from "../../mixins/listen-on-root";
-import { isArray, isObject } from "../../utils/inspect";
 
 export const name = "NlyTreeItem";
 
@@ -18,6 +17,8 @@ export const TREE_DELETE_EVENT = "nlya::tree::delete";
 export const TREE_LABEL_CHANGE_EVENT = "nlya::tree::label::change";
 export const TREE_VALUE_CHANGE_EVENT = "nlya::tree::value::change";
 export const TREE_ADD_EVENT = "nlya::tree::add";
+export const TREE_ASYN_ADD_LOADING = "nyla::tree::asyn::add::loading";
+export const TREE_ASYN_ADD_EVENT = "nlya::tree::asyn::add";
 // export const TREE_PARENT_VALUE_CHECKED_EVENT =
 //   "nlya::tree::parent::value::checked";
 // export const TREE_CHECKED_INDETERMINATE_VALUE_CHANGE_EVENT =
@@ -144,6 +145,7 @@ export const NlyTreeItem = Vue.extend({
     this.localIndeterminate = this.indeterminate;
     this.loacalId = this.id;
     this.localLabel = this.label;
+    this.listenOnRoot(TREE_ASYN_ADD_LOADING, this.treeAsynAddLoadingEvt);
   },
   methods: {
     treeParentValueCheckedEvt(evtId, evtValue) {
@@ -151,7 +153,6 @@ export const NlyTreeItem = Vue.extend({
         this.localValue = evtValue;
       }
     },
-
     checkChange(val) {
       this.localValue = val;
       this.$nextTick(() => {
@@ -211,56 +212,12 @@ export const NlyTreeItem = Vue.extend({
         return;
       }
       this.loading = true;
-      this.$emit("asynChange");
+      this.emitAsynAddNode();
     },
     addButtonClick() {
       if (!this.add) {
         return;
       }
-      this.emitAddNode();
-    },
-    asynAddNode(data) {
-      if (isArray(data)) {
-        data.map(item => {
-          const { id } = item;
-          if (!id) {
-            this.loading = false;
-            throw new ReferenceError("id is need");
-          }
-        });
-      } else if (isObject(data)) {
-        const { id } = data;
-        if (!id) {
-          this.loading = false;
-          throw new ReferenceError("id is need");
-        }
-      } else {
-        this.loading = false;
-        throw new ReferenceError("data must be Array or Object");
-      }
-      this.localAddNode = data;
-      // 通知父组件添加节点
-      this.emitAddNode();
-      this.loading = false;
-    },
-    addNode(data) {
-      if (isArray(data)) {
-        data.map(item => {
-          const { id } = item;
-          if (!id) {
-            throw new ReferenceError("id is need");
-          }
-        });
-      } else if (isObject(data)) {
-        const { id } = data;
-        if (!id) {
-          throw new ReferenceError("id is need");
-        }
-      } else {
-        throw new ReferenceError("data must be Array or Object");
-      }
-      this.localAddNode = data;
-      // 通知父组件添加节点
       this.emitAddNode();
     },
     emitDeleteTree() {
@@ -279,6 +236,14 @@ export const NlyTreeItem = Vue.extend({
     },
     emitAddNode() {
       this.emitOnRoot(TREE_ADD_EVENT, this.id);
+    },
+    emitAsynAddNode() {
+      this.emitOnRoot(TREE_ASYN_ADD_EVENT, this.id);
+    },
+    treeAsynAddLoadingEvt(evtId, evtLoading) {
+      if (evtId === this.id) {
+        this.loading = evtLoading;
+      }
     }
   },
   watch: {
