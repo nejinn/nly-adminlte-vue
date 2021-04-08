@@ -93,7 +93,8 @@
     "overlayscrollbars-vue": "^0.2.2",
     "popper.js": "^1.16.1",
     "portal-vue": "^2.1.7",
-    "vue-functional-data-merge": "^3.1.0"
+    "vue-functional-data-merge": "^3.1.0",
+    "vuedraggable": "^2.24.3"
   },
   "devDependencies": {
     "@babel/standalone": "^7.12.0",

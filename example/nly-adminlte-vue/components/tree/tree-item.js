@@ -17,7 +17,7 @@ export const TREE_DELETE_EVENT = "nlya::tree::delete";
 export const TREE_LABEL_CHANGE_EVENT = "nlya::tree::label::change";
 export const TREE_VALUE_CHANGE_EVENT = "nlya::tree::value::change";
 export const TREE_ADD_EVENT = "nlya::tree::add";
-export const TREE_ASYN_ADD_LOADING = "nyla::tree::asyn::add::loading";
+export const TREE_ASYN_ADD_LOADING = "nlya::tree::asyn::add::loading";
 export const TREE_ASYN_ADD_EVENT = "nlya::tree::asyn::add";
 // export const TREE_PARENT_VALUE_CHECKED_EVENT =
 //   "nlya::tree::parent::value::checked";

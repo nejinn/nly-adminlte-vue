@@ -156,3 +156,9 @@ Vue.use(badgePlugin);
 # Thanks
 
 [bootstrapVue](https://bootstrap-vue.js.org)
+
+  </a>
+    <a href="https://github.com/nejinn/nly-adminlte-vue/graphs/contributors">
+    <img src="https://img.shields.io/npm/collaborators/nly-adminlte-vue" alt="collaborators" />
+  </a>
+[jetbrains](https://www.jetbrains.com/)
